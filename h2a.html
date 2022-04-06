@@ -18,6 +18,20 @@
 			table, th {
 				border: 1px solid black;
 			}
+			th {
+				height: 20px;
+			}
+			#newappdiv {
+				height: 400px;
+				float: left;
+				border: 1px solid black;
+			}
+			#newapplicants{
+				height: 400px;
+			}
+			form {
+				float: left;
+			}
 		</style>
 		<script>
 			function st_show(tab) {
@@ -39,11 +53,53 @@
 		</div>
 		<div id="newapplicants" class="st_tab">
 			New Applicants
-			<table id="newapptab">
+			<div id="newappdiv">
+				<table id="newapptab">
+					<tr>
+						<th>first name</th>
+						<th>last name</th>
+						<th>phone number</th>
+					</tr>
+				</table>
+			</div>
+			<br>
+			<form>
+				<label for="fname">First name:</label>
+				<input type="text" id="first" name="fname">
+				<br>
+				<label for="lname">Last name:</label>
+				<input type="text" id="last" name="lname">
+				<br>
+				<label for="cphone">Cellphone:</label>
+				<input type="text" id="cphone" name="cphone">
+				<br>
+				<label for="hphone">Home phone:</label>
+				<input type="text" id="hphone" name="hphone">
+				<br>
+				<label for="address">Address:</label>
+				<input type="text" id="address" name="address">
+				<br>
+				<label for="city">City:</label>
+				<input type="text" id="city" name="city">
+				<br>
+				<label for="state">State:</label>
+				<input type="text" id="state" name="state">
+				<br>
+				<label for="zip">Zip:</label>
+				<input type="text" id="zip" name="zip">
+				<br>
+				<label for="status">Status:</label>
+				<input type="text" id="status" name="status">
+				<br>
+				<button type="button" onclick="">Cancel</button>
+				<button type="button" onclick="">Save</button>
+			</form>
+			<table id="skillsTab">
 				<tr>
-					<th>first name</th>
-					<th>last name</th>
-					<th>phone number</th>
+					<th>X</th>
+					<th>Job skill</th>
+					<th>Years</th>
+					<th>Where</th>
 				</tr>
 			</table>
 		</div>
