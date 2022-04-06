@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Title</title>
+		<meta charset="UTF-8">
+		<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="#">
+		<style>
+			.st_tab {
+				border: 2px solid black;
+				width: 100%;
+				display: none;
+			}
+			.staffmenu button{
+				padding: 10px;
+				border-radius: 10px 10px 0px 0px;
+			}
+			table, th {
+				border: 1px solid black;
+			}
+		</style>
+		<script>
+			function st_show(tab) {
+				var tabs = document.getElementsByClassName("st_tab");
+				for (let i = 0; i < tabs.length; i++){
+					tabs[i].style.display = "none";
+				}
+				document.getElementById(tab).style.display = "block";
+			}
+		</script>
+	</head>
+	<body>
+		<div class="staffmenu" class="st_tab">
+			<button type="button" onclick="st_show('newapplicants');">New Applicants</button>
+			<button type="button" onclick="st_show('applicants');">Applicants</button>
+			<button type="button" onclick="st_show('companies');">Companies</button>
+			<button type="button" onclick="st_show('assignments');">Assignments</button>
+			<button type="button" onclick="st_show('history');">History</button>
+		</div>
+		<div id="newapplicants" class="st_tab">
+			New Applicants
+			<table id="newapptab">
+				<tr>
+					<th>first name</th>
+					<th>last name</th>
+					<th>phone number</th>
+				</tr>
+			</table>
+		</div>
+		<div id="applicants" class="st_tab">
+			Applicants
+		</div>
+		<div id="companies" class="st_tab">
+			Companies
+		</div>
+		<div id="assignments" class="st_tab">
+			Assignments
+		</div>
+		<div id="history" class="st_tab">
+			History
+		</div>
+	</body>
+</html>
