@@ -32,20 +32,15 @@
 			form {
 				float: left;
 			}
-		</style>
-		<script>
-			function st_show(tab) {
-				var tabs = document.getElementsByClassName("st_tab");
-				for (let i = 0; i < tabs.length; i++){
-					tabs[i].style.display = "none";
-				}
-				document.getElementById(tab).style.display = "block";
+			.id {
+				display: none;
 			}
-		</script>
+		</style>
+		<script src="h2a.js"></script>
 	</head>
 	<body>
 		<div class="staffmenu" class="st_tab">
-			<button type="button" onclick="st_show('newapplicants');">New Applicants</button>
+			<button type="button" onclick="st_show('newapplicants'); getEmployees();">New Applicants</button>
 			<button type="button" onclick="st_show('applicants');">Applicants</button>
 			<button type="button" onclick="st_show('companies');">Companies</button>
 			<button type="button" onclick="st_show('assignments');">Assignments</button>
