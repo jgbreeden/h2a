@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<title>Application</title>
+<head>
+<link rel="stylesheet" href="mk.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="nono">
+<h1 class="h1">Informacion Personal</h1>
+<div class="pobtn">
+<button id="b1" onclick="">1</button>
+<button id="b2">2</button>
+<button id="b3">3</button>
+</div>
+</div>
+
+<div class="formi">
+<form action="" id="form" onsubmit="return false()">
+<div class="tab">
+    <label for="fname">Primer Nombre</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">apellido</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="birth">Fecha De Nacimeinto</label><br>
+    <input type="date" id="birth" name="birth"><br>
+    <label for="phone">Numero De Telephono</label><br>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+    <label for="email">Correo Electronico</label><br>
+    <input type="email" id="email" name="email"><br>
+    <label for="address">Direcion</label><br>
+    <input type="text" id="address" name="address"><br>
+    <label for="pbirth">Lugar de Nacimiento</label><br>
+    <input type="text" id="pbirth" name="pbirth"><br>
+    <label for="age">Edad</label><br>
+    <input type="number" id="age" name="age" min="1" max="20"><br>
+    <label for="height">Altura</label><br>
+    <input type="text" id="height" name="height"><br>
+
+    <p>Sexo</p>
+
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br>
+
+
+</div>
+<div class="tab">
+</div>
+</form>
+</div>
+<div class="qbtn">
+<button id="btnback"onclick="tabChange(-1);">Atras</button>
+<button id="btnnext" onclick="btnnext(1);">Proximo</button>
+</div>
+<script src="apli.js"></script>
+</body>
+</html>
