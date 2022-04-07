@@ -1,0 +1,92 @@
+body {
+    background-color:#e6e6e6;
+}
+
+
+.h1 {
+    background-color: #e6ffe6;
+    text-align: left;
+    border-style: solid;
+    border-width: thin;
+    padding-top: 19px;
+    padding-bottom: 18px;
+    padding-right: 10px;
+    padding-left: 5px;
+
+}
+
+button {
+    background-color: #79a6d2;
+    color: white;
+    font-size: 15px;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 25px;
+    padding-left: 25px;
+   margin-bottom: 5%;
+   margin-top: 3%;
+  
+  
+}
+
+.pobtn {
+    border-style: hidden;
+    border-width: thin;
+    text-align: center;
+    font-size: 15px;
+}
+
+#b1 {
+    margin-right:10% ;
+}
+
+#b2 {
+    margin-right: 10%;
+}
+
+#b3 {
+    margin-right: 3%;
+}
+.formi {
+    background-color:#cccccc;
+    height: 500px;
+    width: 100%;
+    border-style: solid;
+    border-width: thin;
+    overflow-y: scroll;
+    font-size: 35px;
+
+}
+
+.qbtn {
+ 
+    border-style: hidden;
+    border-width: thin;
+    text-align: center;
+}
+
+#btnback{
+    background-color:#40bf80;
+    border-radius: 1px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+   letter-spacing: 1px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-right: 10%;
+    padding-left: 10%;
+    font-size: 20px;
+}
+
+#btnnext {
+    background-color:#40bf80;
+    border-radius: 1px;
+    margin-left: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-right: 10%;
+    padding-left: 10%;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
