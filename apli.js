@@ -1,8 +1,12 @@
 var currentTab = 0;
+document.getElementById("btnnext").addEventListener("click", function(e){
+    e.preventDefault()
+    btnnext(1)
+})
+tabChange(currentTab);
 
 function tabChange(tab) {
     var tabs = document.getElementsByClassName("tab");
-    tabs[tab].style.display = "block";
     if (tab == 0) {
         document.getElementById("btnback").style.display = "none";
     } else {
@@ -13,8 +17,16 @@ function tabChange(tab) {
     } else {
         document.getElementById("btnnext").innerHTML = "Proximo";
     }
-   // var items = document.getElementById("tabmenu").getElementsByTagName("button");
-   // items[0].toggle("current");
+    var items = document.getElementsByClassName("tabbtn");
+    var tabs = document.getElementsByClassName("tab");
+   for( i = 0; i < items.length; i++){
+       items[i].classList.remove("current")
+        tabs[i].style.display = "none"
+
+   }
+   items[tab].classList.add("current")
+   tabs[tab].style.display = "block"
+    // items[0].toggle("current");
    // items[1].toggle("current");
     }
     
@@ -26,13 +38,18 @@ function btnnext(inc) {
     tabs[currentTab].style.display = "none";
     console.log( tabs[currentTab].style.display);
     currentTab = currentTab + inc;
-    if (currentTab = tabs.length) {
+    if (currentTab == tabs.length) {
         document.getElementById("form").submit();
+        
     } else {
         tabChange(currentTab)
     }
     return false;
     }
+
+function prevent (){
+    return false;
+}
 
 
 
