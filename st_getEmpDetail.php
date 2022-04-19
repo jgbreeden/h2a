@@ -15,12 +15,13 @@
 	//echo mysqli_error($conn);
 	$row = $results->fetch_assoc();
 	//write person fields, then "skills": [
-	echo '{ "firstname": "' . $row["firstname"] . '", "lastname": "' . $row["lastname"]
-		. '", "cphone": ' . $row["phonecell"] . ', "hphone": ' . $row["phonehome"] 
-		. ', "address": ' . $row["address"] . ', "city": "' . $row["city"]
-		. '", "state": "' . $row["state"] . '", "zip": ' . '0' . ', "status": "' . 'new'
-		. '", "skills": [ { "skillenglish": "' . $row["skillenglish"] . '", "years": '
-		. $row["years"] . ', "location": "' . $row["location"] . '"}';
+	echo '{ "id": ' . $row["id"] . ', "firstname": "' . $row["firstname"] . '", "lastname": "'
+		. $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
+		. $row["phonehome"] . '", "address": "' . $row["address"] . '", "city": "'
+		. $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . '0'
+		. '", "status": "' . 'new' . '", "skills": [ { "skillenglish": "'
+		. $row["skillenglish"] . '", "years": ' . $row["years"] . ', "location": "'
+		. $row["location"] . '"}';
 	while ($row = $results->fetch_assoc()) {
 		echo ', { "skillenglish": "' . $row["skillenglish"] . '", "years": '
 				. $row["years"] . ', "location": "' . $row["location"] . '"}';

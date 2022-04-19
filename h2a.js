@@ -1,5 +1,6 @@
 class Applicant {
-	constructor(fname, lname, cphone, hphone, address, city, state, zip, status) {
+	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status) {
+		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
 		this.cellphone = cphone;
@@ -11,7 +12,8 @@ class Applicant {
 		this.status = status;
 	}
 	update() {
-		
+		var formData = new FormData(document.getElementById("newappform"));
+		sendData(formData, "st_updateEmp.php", showResult);
 	}
 }
 var currappl;
@@ -59,11 +61,6 @@ function fillEmps(data) {
 }
 
 function fillEmpDetail(data) {
-	var h = document.getElementById("first");
-	var k = document.getElementById("last");
-	h.value = data.firstname
-	k.value = data.lastname
-	
 	var table = document.getElementById("skillsTab");
 	var contents = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
 	
@@ -72,17 +69,34 @@ function fillEmpDetail(data) {
 					+ data.skills[i].years + "</td><td>" + data.skills[i].location
 					+ "</td><td></td></tr>";
 	}
-	currappl = new Applicant(data.firstname, data.lastname, data.phonecell, data.phonehome, data.city, data.state, 0, "new")
+	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, "new")
 	table.innerHTML = contents;
+	document.getElementById("id").value = data.id;
+	resetNewApp();
 }
-function cancelNewApp(){
-	let a = document.getElementById("first").value = currappl.firstName;
-	let b = document.getElementById("last").value = currappl.lastName;
-	let c = document.getElementById("cphone").value = currappl.cellphone;
-	let d = document.getElementById("hphone").value = currappl.homephone;
-	let e = document.getElementById("address").value = currappl.address;
-	let f = document.getElementById("city").value = currappl.city;
-	let g = document.getElementById("state").value = currappl.state;
-	let h = document.getElementById("zip").value = currappl.zip;
-	let i = document.getElementById("status").value = currappl.status;
+function resetNewApp(){
+	document.getElementById("first").value = currappl.firstName;
+	document.getElementById("last").value = currappl.lastName;
+	document.getElementById("cphone").value = currappl.cellphone;
+	document.getElementById("hphone").value = currappl.homephone;
+	document.getElementById("address").value = currappl.address;
+	document.getElementById("city").value = currappl.city;
+	document.getElementById("state").value = currappl.state;
+	document.getElementById("zip").value = currappl.zip;
+	document.getElementById("status").value = currappl.status;
+}
+
+function sendData(data, phpFile, callBack){
+	let xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if (this.readyState == 4 && this.status == 200) {
+			callBack(this.responseText);
+		}
+	}
+	xhr.open("post", phpFile);
+	xhr.send(data);
+}
+
+function showResult(data){
+	document.getElementById("result").innerHTML = data
 }

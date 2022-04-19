@@ -58,7 +58,8 @@
 				</table>
 			</div>
 			<br>
-			<form>
+			<form id="newappform">
+				<input type="number" id="id" name="id" class="id">
 				<label for="fname">First name:</label>
 				<input type="text" id="first" name="fname">
 				<br>
@@ -86,8 +87,8 @@
 				<label for="status">Status:</label>
 				<input type="text" id="status" name="status">
 				<br>
-				<button type="button" onclick="cancelNewApp()">Cancel</button>
-				<button type="button" onclick="">Save</button>
+				<button type="button" onclick="resetNewApp()">Cancel</button>
+				<button type="button" onclick="currappl.update()">Save</button>
 			</form>
 			<table id="skillsTab">
 				<tr>
@@ -96,6 +97,8 @@
 					<th>Where</th>
 				</tr>
 			</table>
+			<p id="result">
+			</p>
 		</div>
 		<div id="applicants" class="st_tab">
 			Applicants
