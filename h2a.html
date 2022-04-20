@@ -21,10 +21,12 @@
 			th {
 				height: 20px;
 			}
-			#newappdiv {
-				height: 400px;
+			.newappdiv {
 				float: left;
 				border: 1px solid black;
+			}
+			.tall {
+				height: 400px;
 			}
 			#newapplicants{
 				height: 400px;
@@ -34,6 +36,9 @@
 			}
 			.id {
 				display: none;
+			}
+			.selected {
+				background-color: grey;
 			}
 		</style>
 		<script src="h2a.js"></script>
@@ -48,7 +53,7 @@
 		</div>
 		<div id="newapplicants" class="st_tab">
 			New Applicants
-			<div id="newappdiv">
+			<div class="newappdiv tall">
 				<table id="newapptab">
 					<tr>
 						<th>first name</th>
@@ -90,13 +95,38 @@
 				<button type="button" onclick="resetNewApp()">Cancel</button>
 				<button type="button" onclick="currappl.update()">Save</button>
 			</form>
-			<table id="skillsTab">
-				<tr>
-					<th>Job skill</th>
-					<th>Years</th>
-					<th>Where</th>
-				</tr>
-			</table>
+			<div class="newappdiv">
+				<table id="skillsTab">
+					<tr>
+						<th>Job skill</th>
+						<th>Years</th>
+						<th>Where</th>
+					</tr>
+				</table>
+			</div>
+			<div class="newappdiv">
+				<form id="skillsForm">
+					<input type="text" id="exid" name="exid" class="id">
+					<label for="skill">Skills:</label>
+					<select id="skill" name="skill">
+						<option value=""></option>
+						<option value="Avocado">Avocado</option>
+					</select>
+					<br>
+					<label for="years">Years:</label>
+					<input type="text" id="years" name="years">
+					<br>
+					<label for="location">Location:</label>
+					<input type="text" id="location" name="location">
+					<br>
+					<label for="details">Details:</label>
+					<input type="text" id="details" name="details">
+					<br>
+					<input type="text" id="apid" name="apid" class="id">
+					<input type="text" id="skid" name="skid" class="id">
+					<button type="button" onclick="currskill.update()">Save skill</button>
+				</form>
+			</div>
 			<p id="result">
 			</p>
 		</div>

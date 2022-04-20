@@ -16,7 +16,26 @@ class Applicant {
 		sendData(formData, "st_updateEmp.php", showResult);
 	}
 }
+
+class Experience {
+	constructor(id, skillsid, applicantsid, year, location, details, skillenglish) {
+		this.id = id
+		this.skillsid = skillsid;
+		this.applicantsid = applicantsid;
+		this.year = year;
+		this.location = location;
+		this.details = details;
+		this.skillenglish = skillenglish;
+	}
+	update() {
+		var formData = new FormData(document.getElementById("skillsForm"));
+		sendData(formData, "st_updateSkill.php", showResult);
+	}
+}
+
 var currappl;
+var currskill;
+
 function st_show(tab) {
 	var tabs = document.getElementsByClassName("st_tab");
 	for (let i = 0; i < tabs.length; i++){
@@ -29,6 +48,7 @@ function getData(phpFile, callBack){
 	let xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200) {
+			console.log(this.responseText);
 			callBack(JSON.parse(this.responseText));
 		}
 	}
@@ -43,6 +63,8 @@ function getEmployees () {
 function getEmp(row) {
 	//console.log(row.firstChild.innerHTML);
 	getData("st_getEmpDetail.php?id=" + row.firstChild.innerHTML, fillEmpDetail);
+	resetTable(document.getElementById("newapptab"));
+	row.classList.add("selected");
 }
 
 function fillEmps(data) {
@@ -65,15 +87,16 @@ function fillEmpDetail(data) {
 	var contents = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
 	
 	for (let i = 0; i < data.skills.length; i++){
-		contents += "<tr><td>" + data.skills[i].skillenglish + "</td><td>"
-					+ data.skills[i].years + "</td><td>" + data.skills[i].location
-					+ "</td><td></td></tr>";
+		contents += "<tr onclick='showSkill(this)'><td class='id'>" + data.skills[i].exid + "</td><td>" + data.skills[i].skillenglish + "</td><td>"
+					+ data.skills[i].years + "</td><td>" + data.skills[i].location + "</td><td class='id'>" + data.skills[i].skillsid
+					+ "</td><td class='id'>" + data.skills[i].details + "</td></tr>";
 	}
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, "new")
 	table.innerHTML = contents;
 	document.getElementById("id").value = data.id;
 	resetNewApp();
 }
+
 function resetNewApp(){
 	document.getElementById("first").value = currappl.firstName;
 	document.getElementById("last").value = currappl.lastName;
@@ -98,5 +121,26 @@ function sendData(data, phpFile, callBack){
 }
 
 function showResult(data){
-	document.getElementById("result").innerHTML = data
+	document.getElementById("result").innerHTML = data;
+}
+
+function showSkill(row){
+	var cells = row.getElementsByTagName("td");
+	currskill = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML,cells[1].innerHTML);
+	document.getElementById("skill").value = cells[1].innerHTML;
+	document.getElementById("years").value = cells[2].innerHTML;
+	document.getElementById("location").value = cells[3].innerHTML;
+	document.getElementById("details").value = cells[5].innerHTML;
+	document.getElementById("exid").value = cells[0].innerHTML;
+	document.getElementById("skid").value = cells[4].innerHTML;
+	document.getElementById("apid").value = currappl.id;
+	resetTable(document.getElementById("skillsTab"));
+	row.classList.add("selected");
+}
+
+function resetTable(tabl){
+	rows = tabl.getElementsByTagName("tr");
+	for (let i = 0; i < rows.length; i++){
+		rows[i].classList.remove("selected");
+	}
 }

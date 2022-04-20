@@ -4,9 +4,10 @@
 	if ($conn->connect_error) {
 		die("Comunicaton failed: " . $conn->connect_error);
 	}
-	$query = "SELECT applicants.*, experience.years, experience.location, skills.skillenglish "
-			. "FROM applicants INNER JOIN experience ON applicants.id = experience.applicantsid "
-			. "INNER JOIN skills ON experience.skillsid = skills.id WHERE applicants.id =?";
+	$query = "SELECT applicants.*, experience.id AS exid, experience.years, experience.location, "
+			. "experience.skillsid, experience.details, skills.skillenglish FROM applicants INNER "
+			. "JOIN experience ON applicants.id = experience.applicantsid INNER JOIN skills ON "
+			. "experience.skillsid = skills.id WHERE applicants.id =?";
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_GET["id"]);
 	$stmt->execute();
@@ -21,10 +22,12 @@
 		. $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . '0'
 		. '", "status": "' . 'new' . '", "skills": [ { "skillenglish": "'
 		. $row["skillenglish"] . '", "years": ' . $row["years"] . ', "location": "'
-		. $row["location"] . '"}';
+		. $row["location"] . '", "exid": ' . $row["exid"] . ', "skillsid": ' . $row["skillsid"]
+		. ', "details": "' . $row["details"] . '"}';
 	while ($row = $results->fetch_assoc()) {
-		echo ', { "skillenglish": "' . $row["skillenglish"] . '", "years": '
-				. $row["years"] . ', "location": "' . $row["location"] . '"}';
+		echo ', { "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"]
+				. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"]
+				. ', "skillsid": ' . $row["skillsid"] . ', "details": "' . $row["details"] . '"}';
 	}
 	echo ']}'
 	//loop through rows, add skill fields
