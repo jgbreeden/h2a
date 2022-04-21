@@ -124,7 +124,8 @@
 					<br>
 					<input type="text" id="apid" name="apid" class="id">
 					<input type="text" id="skid" name="skid" class="id">
-					<button type="button" onclick="currskill.update()">Save skill</button>
+					<button type="button" onclick="saveSkill()">Save skill</button>
+					<button type="button" onclick="clearSkill()">Clear</button>
 				</form>
 			</div>
 			<p id="result">
@@ -142,5 +143,8 @@
 		<div id="history" class="st_tab">
 			History
 		</div>
+		<script>
+			getData("st_getSkills.php", fillSkill);
+		</script>
 	</body>
 </html>

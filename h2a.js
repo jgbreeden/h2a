@@ -11,10 +11,12 @@ class Applicant {
 		this.zip = zip;
 		this.status = status;
 	}
+	
 	update() {
 		var formData = new FormData(document.getElementById("newappform"));
 		sendData(formData, "st_updateEmp.php", showResult);
 	}
+	
 }
 
 class Experience {
@@ -27,17 +29,25 @@ class Experience {
 		this.details = details;
 		this.skillenglish = skillenglish;
 	}
+	
 	update() {
 		var formData = new FormData(document.getElementById("skillsForm"));
 		sendData(formData, "st_updateSkill.php", showResult);
 	}
+	
+	insert() {
+		var formData = new FormData(document.getElementById("skillsForm"));
+		sendData(formData, "st_insertSkill.php", showResult);
+	}
+	
 }
 
 var currappl;
-var currskill;
+var currskill = new Experience (0, "", 0, "", "", "", "");;
+var skilllist = [];
 
 function st_show(tab) {
-	var tabs = document.getElementsByClassName("st_tab");
+	let tabs = document.getElementsByClassName("st_tab");
 	for (let i = 0; i < tabs.length; i++){
 		tabs[i].style.display = "none";
 	}
@@ -70,8 +80,8 @@ function getEmp(row) {
 function fillEmps(data) {
 	//data is an array of objects
 	//loop and fill table
-	var table = document.getElementById("newapptab");
-	var contents = "<tr><th>First name</th><th>Last name</th><th>Phone number</th></tr>";
+	let table = document.getElementById("newapptab");
+	let contents = "<tr><th>First name</th><th>Last name</th><th>Phone number</th></tr>";
 	
 	for (let i = 0; i < data.length; i++){
 		contents += "<tr onclick='getEmp(this)'><td class='id'>" + data[i].id + "</td><td>"
@@ -92,8 +102,10 @@ function fillEmpDetail(data) {
 					+ "</td><td class='id'>" + data.skills[i].details + "</td></tr>";
 	}
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, "new")
+	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	document.getElementById("id").value = data.id;
+	document.getElementById("apid").value = currappl.id;
 	resetNewApp();
 }
 
@@ -125,14 +137,13 @@ function showResult(data){
 }
 
 function showSkill(row){
-	var cells = row.getElementsByTagName("td");
+	let cells = row.getElementsByTagName("td");
 	currskill = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML,cells[1].innerHTML);
-	document.getElementById("skill").value = cells[1].innerHTML;
+	document.getElementById("skill").value = cells[4].innerHTML;
 	document.getElementById("years").value = cells[2].innerHTML;
 	document.getElementById("location").value = cells[3].innerHTML;
 	document.getElementById("details").value = cells[5].innerHTML;
 	document.getElementById("exid").value = cells[0].innerHTML;
-	document.getElementById("skid").value = cells[4].innerHTML;
 	document.getElementById("apid").value = currappl.id;
 	resetTable(document.getElementById("skillsTab"));
 	row.classList.add("selected");
@@ -142,5 +153,31 @@ function resetTable(tabl){
 	rows = tabl.getElementsByTagName("tr");
 	for (let i = 0; i < rows.length; i++){
 		rows[i].classList.remove("selected");
+	}
+}
+
+function fillSkill(data){
+	let options = document.getElementById("skill");
+	let contents = "<option value=''></option>";
+	for (let i = 0; i < data.length; i++){
+		contents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
+	}
+	options.innerHTML = contents;
+}
+
+function clearSkill(){
+	document.getElementById("skill").value = "";
+	document.getElementById("years").value = "";
+	document.getElementById("location").value = "";
+	document.getElementById("details").value = "";
+	document.getElementById("exid").value = 0;
+	document.getElementById("apid").value = currappl.id;
+}
+
+function saveSkill(){
+	if (document.getElementById("exid").value == 0) {
+		currskill.insert()
+	} else {
+		currskill.update()
 	}
 }

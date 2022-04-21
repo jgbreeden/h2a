@@ -3,12 +3,9 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "UPDATE experience SET skillsid = ?, applicantsid = ?, years = ?, location = ?,"
-		. "details = ? WHERE id = ?;";
+	$sql = "INSERT INTO experience (skillsid, applicantsid, years, location, details) VALUES (?, ?, ?, ?, ?);";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("sssssi", $_POST["skill"], $_POST["apid"],
-								$_POST["years"], $_POST["location"],
-								$_POST["details"], $_POST["exid"]);
+	$stmt->bind_param("sssss", $_POST["skill"], $_POST["apid"], $_POST["years"], $_POST["location"], $_POST["details"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";
