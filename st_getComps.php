@@ -5,19 +5,17 @@
 	if ($conn->connect_error) {
 		die("Comunicaton failed: " . $conn->connect_error);
 	}
-	if (isset($_GET["stat"])){
-		$query = "SELECT * FROM applicants WHERE status ='" . $_GET["stat"] . "' ORDER BY lastname";
-	} else {
-		$query = "SELECT * FROM applicants";
-	}
+	$query = "SELECT * FROM employers";
 	$result = $conn->query($query);
 	if ($result->num_rows > 0) {
 		$output = "";
 		while ($row = $result->fetch_assoc()) {
 			$output = $output . '{"id": ' . $row["id"]
-							. ', "firstname": "' . $row["firstname"]
-							. '", "lastname": "' . $row["lastname"]
-							. '", "cellphone": "' . $row["phonecell"]
+							. ', "company": "' . $row["company"]
+							. '", "phone": "' . $row["phone"]
+							. '", "address": "' . $row["address"]
+							. '", "citty": "' . $row["citty"]
+							. '", "state": "' . $row["state"]
 							. '"},';
 		}
 		$output = substr($output, 0, strlen($output) - 1); //remove trailing comma

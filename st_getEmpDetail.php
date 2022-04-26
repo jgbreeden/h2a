@@ -20,7 +20,7 @@
 		. $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
 		. $row["phonehome"] . '", "address": "' . $row["address"] . '", "city": "'
 		. $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . '0'
-		. '", "status": "' . 'new' . '", "skills": [ ';
+		. '", "status": "' . $row["status"] . '", "skills": [ ';
 	if (! is_null( $row["skillenglish"])) {
 		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"] 
 			. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"] 
