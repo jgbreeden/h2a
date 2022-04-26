@@ -10,6 +10,7 @@
 				border: 2px solid black;
 				width: 100%;
 				display: none;
+				height: 400px;
 			}
 			.staffmenu button{
 				padding: 10px;
@@ -28,9 +29,6 @@
 			.tall {
 				height: 400px;
 			}
-			#newapplicants{
-				height: 400px;
-			}
 			form {
 				float: left;
 			}
@@ -40,20 +38,37 @@
 			.selected {
 				background-color: grey;
 			}
+			#searchapp {
+				display: none;
+			}
+			.companylist {
+				float: left;
+				border: 1px solid black;
+			}
+			.companydata{
+				float: left;
+			}
 		</style>
 		<script src="h2a.js"></script>
 	</head>
 	<body>
 		<div class="staffmenu" class="st_tab">
-			<button type="button" onclick="st_show('newapplicants'); getEmployees();">New Applicants</button>
-			<button type="button" onclick="st_show('applicants');">Applicants</button>
-			<button type="button" onclick="st_show('companies');">Companies</button>
+			<button type="button" onclick="st_show('newapplicants'); getEmployees('new');">New Applicants</button>
+			<button type="button" onclick="st_show('applicants'); getEmployees('accepted');">Applicants</button>
+			<button type="button" onclick="st_show('companies'); getCompanies();">Companies</button>
 			<button type="button" onclick="st_show('assignments');">Assignments</button>
 			<button type="button" onclick="st_show('history');">History</button>
 		</div>
 		<div id="newapplicants" class="st_tab">
 			New Applicants
 			<div class="newappdiv tall">
+				<div id="searchapp">
+					<select id="searchstat" onchange="getEmployees('accepted');">
+						<option value="accepted">Accepted</option>
+						<option value="rejected">Rejected</option>
+						<option value="assigned">Assigned</option>
+					</select>
+				</div>
 				<table id="newapptab">
 					<tr>
 						<th>first name</th>
@@ -131,11 +146,36 @@
 			<p id="result">
 			</p>
 		</div>
-		<div id="applicants" class="st_tab">
-			Applicants
-		</div>
 		<div id="companies" class="st_tab">
 			Companies
+			<div class="companylist tall">
+				<table id="companytab">
+					<tr>
+						<th>Company Name</th>
+					</tr>
+				</table>
+			</div>
+			<br>
+			<form id="companydata">
+				<input type="number" id="compid" name="compid" class="id">
+				<label for="fname">Company name:</label>
+				<input type="text" id="compfirst" name="compfname">
+				<br>
+				<label for="cphone">Company Office Phone:</label>
+				<input type="text" id="officphone" name="officphone">
+				<br>
+				<label for="address">Company Address:</label>
+				<input type="text" id="compaddress" name="compaddress">
+				<br>
+				<label for="city">Company City:</label>
+				<input type="text" id="compcity" name="compcity">
+				<br>
+				<label for="state">Company State:</label>
+				<input type="text" id="compstate" name="compstate">
+				<br>
+				<button type="button" onclick="resetNewApp()">Cancel</button>
+				<button type="button" onclick="currappl.update()">Save</button>
+			</form>
 		</div>
 		<div id="assignments" class="st_tab">
 			Assignments

@@ -51,7 +51,13 @@ function st_show(tab) {
 	for (let i = 0; i < tabs.length; i++){
 		tabs[i].style.display = "none";
 	}
-	document.getElementById(tab).style.display = "block";
+	document.getElementById("searchapp").style.display = "none";
+	if (tab == "applicants"){
+		document.getElementById("newapplicants").style.display = "block";
+		document.getElementById("searchapp").style.display = "block";
+	} else {
+		document.getElementById(tab).style.display = "block";
+	}
 }
 
 function getData(phpFile, callBack){
@@ -66,8 +72,13 @@ function getData(phpFile, callBack){
 	xhr.send();
 }
 
-function getEmployees () {
-	getData("st_getEmps.php", fillEmps);
+function getEmployees (stuff) {
+	if (stuff != 'accepted'){
+		getData("st_getEmps.php?stat=" + stuff, fillEmps);
+	} else {
+		let temp = document.getElementById("searchstat").value;
+		getData("st_getEmps.php?stat=" + temp, fillEmps);
+	}
 }
 
 function getEmp(row) {
@@ -85,10 +96,11 @@ function fillEmps(data) {
 	
 	for (let i = 0; i < data.length; i++){
 		contents += "<tr onclick='getEmp(this)'><td class='id'>" + data[i].id + "</td><td>"
-					+ data[i].firstname + "</td><td>" + data[i].lastname
-					+ "</td><td></td></tr>";
+					+ data[i].firstname + "</td><td>" + data[i].lastname + "</td><td>"
+					+ data[i].cellphone + "</td><td></td></tr>";
 	}
 	table.innerHTML = contents;
+	clearNewApp();
 	//console.log(data);
 }
 
@@ -101,11 +113,12 @@ function fillEmpDetail(data) {
 					+ data.skills[i].years + "</td><td>" + data.skills[i].location + "</td><td class='id'>" + data.skills[i].skillsid
 					+ "</td><td class='id'>" + data.skills[i].details + "</td></tr>";
 	}
-	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, "new")
+	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status)
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
+	clearSkill();
 	resetNewApp();
 }
 
@@ -119,6 +132,19 @@ function resetNewApp(){
 	document.getElementById("state").value = currappl.state;
 	document.getElementById("zip").value = currappl.zip;
 	document.getElementById("status").value = currappl.status;
+}
+
+function clearNewApp(){
+	document.getElementById("first").value = "";
+	document.getElementById("last").value = "";
+	document.getElementById("cphone").value = "";
+	document.getElementById("hphone").value = "";
+	document.getElementById("address").value = "";
+	document.getElementById("city").value = "";
+	document.getElementById("state").value = "";
+	document.getElementById("zip").value = "";
+	document.getElementById("status").value = "";
+	document.getElementById("skillsTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
 }
 
 function sendData(data, phpFile, callBack){
@@ -180,4 +206,67 @@ function saveSkill(){
 	} else {
 		currskill.update()
 	}
+}
+
+//company funtions
+
+class Employers {
+	constructor(id, company, phone, address, citty, state) {
+		this.id = id
+		this.company = company;
+		this.phone = phone;
+		this.address = address;
+		this.citty = citty;
+		this.state = state;
+	}
+	
+}
+
+function getCompanies() {
+	getData("st_getComps.php", fillComp);
+}
+
+function fillComp(row) {
+	console.log(row);
+	let table = document.getElementById("companytab");
+	let contents = "<tr><th>Company Name</th></tr>";
+	
+	for (let i = 0; i < row.length; i++){
+		contents += "<tr onclick='getComp(this)'><td class='id'>"
+					+ row[i].id + "</td><td>" + row[i].company
+					+ "</td></tr>";
+	}
+	table.innerHTML = contents;
+	clearComp();
+}
+
+function clearComp(){
+	document.getElementById("compfirst").value = "";
+	document.getElementById("officphone").value = "";
+	document.getElementById("compaddress").value = "";
+	document.getElementById("compcity").value = "";
+	document.getElementById("compstate").value = "";
+}
+
+function getComp(row){
+	getCompData("st_getCompDetail.php?id=" + row.firstChild.innerHTML, fillCompDetail);
+	resetTable(document.getElementById("companytab"));
+	row.classList.add("selected");
+}
+
+function getCompData(phpFile, callBack){
+	let xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if (this.readyState == 4 && this.status == 200) {
+			console.log(this.responseText);
+			callBack(JSON.parse(this.responseText));
+		}
+	}
+	xhr.open("get", phpFile);
+	xhr.send();
+}
+
+function fillCompDetail(data) {
+	currcamp = new Applicant(data.id, data.company, data.phone, data.address, data.citty, data.state)
+	document.getElementById("compid").value = data.id;
 }
