@@ -32,9 +32,9 @@ function tabChange(tab) {
     
 function btnnext(inc) {
     var tabs = document.getElementsByClassName("tab");
-    //if (inc == 1 && !formisValid()) {
-   //     return false;
-  //  }
+    if (!isValid(currentTab)) {
+        return false;
+    }
     tabs[currentTab].style.display = "none";
     console.log( tabs[currentTab].style.display);
     currentTab = currentTab + inc;
@@ -49,6 +49,25 @@ function btnnext(inc) {
 
 function prevent (){
     return false;
+}
+
+function isValid(tab){
+    console.log(tab)
+    let ok = true
+    if (tab == 0){
+        let inputs = document.getElementById("tab1").getElementsByTagName("input");
+        for (let i = 0; i < inputs.length - 2; i++){
+           if (inputs[i].value == "" ){
+                console.log(inputs[i].id)
+                inputs[i].style.backgroundColor = "pink"
+                ok = false;
+           }
+        }
+    } else if (tab == 1){
+    } else {
+
+    }   
+     return ok
 }
 
 

@@ -16,10 +16,12 @@
 </div>
 
 <div class="formi">
-<form action="" id="form" >
-<div class="tab">
-    <label for="fname">Nombre Completo</label><br>
+<form  action="st_saveapp.php" method="post" id="form">
+<div class="tab" id="tab1">
+    <label for="name">Primero Numbre</label><br>
     <input type="text" id="fname" name="fname"><br>
+    <label for="name">apellido</label><br>
+    <input type="text" id="lname" name="lname" required><br>
     <label for="birth">Fecha De Nacimeinto</label><br>
     <input type="date" id="birth" name="birth"><br>
     <label for="phone">Numero De Telephono</label><br>
@@ -57,27 +59,27 @@
 
 </div>
 <div class="tab">
-    <form action="">
+
         <p>Acelga</p>
-        <input type="radio"name="y/n">
-        <label for="y/n">Si</label><br>
-        <input type="radio" name="y/n">
-        <label for="y/n">No</label><br>
+        <input type="radio" name="acelga" id="acelga" value="yes">
+        <label for="yn">Si</label><br>
+        <input type="radio" name="acelga" value="no">
+        <label for="yn">No</label><br>
         <label for="exp">Anos de Experiencia</label><br>
-        <input type="number" name="exp"><br>
+        <input type="number" name="acelgaexp"><br>
         <label for="where">Donde lo Trabajo</label><br>
-        <input type="text" name="where"><br>
+        <input type="text" name="acelgawhere"><br>
 
 
         <p>Alcachofa</p>
-        <input type="radio"name="y/n">
-        <label for="y/n">Si</label><br>
-        <input type="radio" name="y/n">
-        <label for="y/n">No</label><br>
-        <label for="exp">Anos de Experiencia</label><br>
-        <input type="number" name="exp"><br>
+        <input type="radio"name="alcachofa" id="alcachofa" value="yes">
+        <label for="yn">Si</label><br>
+        <input type="radio" name="yn">
+        <label for="yn">No</label><br>
+        <label for="alcachofaexp">Anos de Experiencia</label><br>
+        <input type="number" name="alcachofaexp"><br>
         <label for="where">Donde lo Trabajo</label><br>
-        <input type="text" name="where"><br>
+        <input type="text" name="alcachofawhere"><br>
 
         <p>Alfalfa</p>
         <input type="radio"name="y/n">
@@ -515,11 +517,11 @@
         <label for="lang">Porque Motivo</label><br>
         <input type="text" id="" name="lang"><br>
    
-    </form>
+    
 
 </div>
 <div class="tab">
-    <form action="">
+    
         <p>Cuenta con su Pasaporte Mexicano</p>
         <input type="radio" name="y/n" value="yes">
         <label for="y/n">Si</label><br>
@@ -1000,14 +1002,106 @@
     <input type="text" id="" name="lang"><br>
 //
     
-    <p>Lo Han detenido cruzando</p>
+    <p>Lo Han detenido cruzando ilegalmente a los Estados Unidos?</p>
     <input type="radio" name="y/n" value="yes">
     <label for="y/n">Si</label><br>
     <input type="radio" name="y/n" value="No">
     <label for="y/n">No</label><br>
 
+    <label for="lang">Cuantas veces?</label><br>
+    <input type="text" id="" name="lang"><br>
 
-    </form>
+///<p>(Si Contesto, Si en la Pregunta anterior,
+     conteste las de abajo y si Contesto NO, deje en Blanco)
+    </p>
+
+    <label for="lang">Hace Cuanto fue la ultima detencion?</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <p>La dieron Castigo?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">De cuanto tiempo fue el Castigo?</label><br>
+    <input type="text" id="" name="lang"><br>
+    
+    <p>Ya lo Cumplio?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <p>Mando un perdon por el Castigo?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">Favor de decir la verdad(explique el motivo de la detention)</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <p>Lo Han Detenido dentro de los Estados Unidos?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <p>Ha tenido problemas con la Policia Americana?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">Explique que tipo de problema</label><br>
+    <input type="text" id="" name="lang"><br>
+//
+    <p>Esta Usted enterado, que esta Pre-solicitud, es para aplicar para una Visa H-2A, 
+        que es una Visa de Trabajo
+    </p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">En su Palabras que conoce de esta Visa</label><br>
+    <input type="text" id="" name="lang"><br>
+//
+    <p>
+        La Visa h-2ª, es una visa bajo un contrato, el cual una vez obtenido se debe de cumplir, no puede trabajar con
+        la compañía que usted decida si no, con la compañía que lo esta contratando única y exclusivamente, si la
+        persona no cumple con el contrato que se le dio, la visa se da de baja inmediatamente ante Migracion, lo cual
+        indica que debe de salir del Pais de los Estados Unidos, porque una vez dada de baja, usted esta
+        automáticamente de Ilegal en los Estados Unidos y su visa puede ser rastreada  
+    </p>
+//
+    <label for="lang">Como se entero de CITA</label><br>
+    <input type="text" id="" name="lang"><br>
+    
+    <label for="lang">Si hubiera algo mas en que los pudieramos ayudar en que seria,
+        que no sea dandole trabjo(esta pergunta es personal, solo usted da la repuesta)
+    </label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">Que Conoce usted de C.I.T.A(de Nosotros)</label><br>
+    <input type="text" id="" name="lang"><br>
+//
+    <h2>
+        Nota Importante
+    </h2>
+
+    <p>
+        El llenado de la Pre-Solicitud no implica que será Contratado, toda Pre-Solicitud será catalogada y revisada, para ver si el solicitante
+        califica para un empleo temporal en los Estados Unidos, los trabajadores son escogidos por los empleadores (compañías en Estados
+        Unidos), en C.I.T.A. estamos para facilitarle el proceso y hacer lo mejor posible en beneficio de usted y su Familia…… SUERTE 
+    </p>
+
+    <label for="lang">Firma de solicitante</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">fecha que fue ilenada</label><br>
+    <input type="text" id="" name="lang"><br>
 
 </div>
 </form>
