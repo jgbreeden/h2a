@@ -52,6 +52,7 @@ function prevent (){
 }
 
 function isValid(tab){
+    return true
     console.log(tab)
     let ok = true
     if (tab == 0){
@@ -70,6 +71,8 @@ function isValid(tab){
      return ok
 }
 
-
+function showOption(item){
+    document.getElementById(item.id + "options").style.display = "block";
+}
 
 

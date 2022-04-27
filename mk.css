@@ -94,3 +94,18 @@ button {
     letter-spacing: 1px;
     font-size: 20px;
 }
+
+.inline {
+    display: inline;
+    float: right;
+}
+
+.options {
+    clear: right;
+    display: none;
+  
+}
+
+hr {
+    clear: right;
+}
