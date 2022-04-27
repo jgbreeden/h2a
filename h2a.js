@@ -43,7 +43,7 @@ class Experience {
 }
 
 var currappl;
-var currskill = new Experience (0, "", 0, "", "", "", "");;
+var currskill = new Experience (0, "", 0, "", "", "", "");
 var skilllist = [];
 
 function st_show(tab) {
@@ -208,7 +208,13 @@ function saveSkill(){
 	}
 }
 
+// ................................................................................................................
+// ................................................................................................................
+// ................................................................................................................
 //company funtions
+// ................................................................................................................
+// ................................................................................................................
+// ................................................................................................................
 
 class Employers {
 	constructor(id, company, phone, address, citty, state) {
@@ -220,7 +226,19 @@ class Employers {
 		this.state = state;
 	}
 	
+	update() {
+		var formData = new FormData(document.getElementById("skillsForm"));
+		sendData(formData, "st_updateComp.php", showResult);
+	}
+	
+	insert() {
+		var formData = new FormData(document.getElementById("skillsForm"));
+		sendData(formData, "st_insertComp.php", showResult);
+	}
+	
 }
+
+var currComp = new Employers (0, "", "", "", "", "");
 
 function getCompanies() {
 	getData("st_getComps.php", fillComp);
@@ -238,14 +256,6 @@ function fillComp(row) {
 	}
 	table.innerHTML = contents;
 	clearComp();
-}
-
-function clearComp(){
-	document.getElementById("compfirst").value = "";
-	document.getElementById("officphone").value = "";
-	document.getElementById("compaddress").value = "";
-	document.getElementById("compcity").value = "";
-	document.getElementById("compstate").value = "";
 }
 
 function getComp(row){
@@ -267,6 +277,30 @@ function getCompData(phpFile, callBack){
 }
 
 function fillCompDetail(data) {
-	currcamp = new Applicant(data.id, data.company, data.phone, data.address, data.citty, data.state)
+	currcamp = new Applicant(data.id, data.company, data.phone, data.address, data.citty, data.state);
 	document.getElementById("compid").value = data.id;
+	document.getElementById("compfirst").value = data.company;
+	document.getElementById("officphone").value = data.phone;
+	document.getElementById("compaddress").value = data.address;
+	document.getElementById("compcity").value = data.citty;
+	document.getElementById("compstate").value = data.state;
+}
+
+function clearComp() {
+	currcamp = new Employers (0, "", 0, "", "", "");
+	document.getElementById("compid").value = 0;
+	document.getElementById("compfirst").value = "";
+	document.getElementById("officphone").value = "";
+	document.getElementById("compaddress").value = "";
+	document.getElementById("compcity").value = "";
+	document.getElementById("compstate").value = "";
+	resetTable(document.getElementById("companytab"));
+}
+
+function saveComp(){
+	if (document.getElementById("compid").value == 0) {
+		currcomp.insert()
+	} else {
+		currcomp.update()
+	}
 }
