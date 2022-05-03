@@ -18,7 +18,7 @@ $fname = htmlspecialchars($_POST["fname"]);
 $lname = htmlspecialchars($_POST["lname"]);
 $birth = htmlspecialchars($_POST["birth"]);
 $phone = htmlspecialchars($_POST["phone"]);
-$phonecel = htmlspecialchars($_POST["phonecel"]);
+$phonecell = htmlspecialchars($_POST["phonecell"]);
 $email = htmlspecialchars($_POST["email"]);
 $address = htmlspecialchars($_POST["address"]);
 $pbirth = htmlspecialchars($_POST["pbirth"]);
@@ -32,8 +32,8 @@ $state = htmlspecialchars($_POST["state"]);
 $gender = htmlspecialchars($_POST["gender"]);
 
 
-$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecel, phonehome, address, city, state, gender) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssss", $fname, $lname, $phonecel, $phone, $address, $city, $state, $gender);
+$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, state, gender) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssss", $fname, $lname, $phonecell, $phone, $address, $city, $state, $gender);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;
