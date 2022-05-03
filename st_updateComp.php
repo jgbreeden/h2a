@@ -3,17 +3,17 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "UPDATE employers SET firstname = ?, lastname = ?, phonecell = ?, phonehome = ?,"
-		. "address = ?, city = ?, state = ?, gender = ? WHERE id = ?;";
+	$sql = "UPDATE employers SET company = ?, phone = ?, address = ?"
+			. ", city = ?, state = ? WHERE id = ?;";
 	$stmt = $conn->prepare($sql);
 	$g = "male";
-	$stmt->bind_param("ssssssssi", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
-									$_POST["hphone"], $_POST["address"], $_POST["city"],
-									$_POST["state"], $g, $_POST["id"]);
+	$stmt->bind_param("sssssi", $_POST["compfname"], $_POST["officphone"],
+									$_POST["compaddress"], $_POST["compcity"],
+									$_POST["compstate"], $_POST["compid"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";
-		echo "First name: " . $_POST["fname"];
+		echo "First name: " . $_POST["compfname"];
 	} else {
 		echo "There was a problem saving the record, please try again.";
 	}

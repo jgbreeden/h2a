@@ -15,7 +15,7 @@
 	//write person fields, then "skills": [
 	echo '{ "id": ' . $row["id"] . ', "company": "' . $row["company"]
 		. '", "phone": "' . $row["phone"] . '", "address": "'
-		. $row["address"] . '", "citty": "' . $row["citty"]
+		. $row["address"] . '", "city": "' . $row["city"]
 		. '", "state": "' . $row["state"] . '"}';
 	//loop through rows, add skill fields
 	//end record

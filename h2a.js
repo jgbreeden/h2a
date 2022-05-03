@@ -64,7 +64,6 @@ function getData(phpFile, callBack){
 	let xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200) {
-			console.log(this.responseText);
 			callBack(JSON.parse(this.responseText));
 		}
 	}
@@ -189,6 +188,12 @@ function fillSkill(data){
 		contents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
 	}
 	options.innerHTML = contents;
+	let matchlist = document.getElementById("chooseskills")
+	let choices = "<tr><th>.  .</th><th>Desired skill</th></tr>"
+	for (let i = 0; i < data.length; i++){
+		choices += "<tr><td><input type='checkbox' onclick=''></td><td>" + data[i].skillenglish + "</td></tr>"
+	}
+	matchlist.innerHTML = choices;
 }
 
 function clearSkill(){
@@ -217,28 +222,28 @@ function saveSkill(){
 // ................................................................................................................
 
 class Employers {
-	constructor(id, company, phone, address, citty, state) {
+	constructor(id, company, phone, address, city, state) {
 		this.id = id
 		this.company = company;
 		this.phone = phone;
 		this.address = address;
-		this.citty = citty;
+		this.city = city;
 		this.state = state;
 	}
 	
 	update() {
-		var formData = new FormData(document.getElementById("skillsForm"));
-		sendData(formData, "st_updateComp.php", showResult);
+		var formData = new FormData(document.getElementById("companydata"));
+		sendData(formData, "st_updateComp.php", showCompResult);
 	}
 	
 	insert() {
-		var formData = new FormData(document.getElementById("skillsForm"));
-		sendData(formData, "st_insertComp.php", showResult);
+		var formData = new FormData(document.getElementById("companydata"));
+		sendData(formData, "st_insertComp.php", showCompResult);
 	}
 	
 }
 
-var currComp = new Employers (0, "", "", "", "", "");
+var currcomp = new Employers (0, "", "", "", "", "");
 
 function getCompanies() {
 	getData("st_getComps.php", fillComp);
@@ -268,7 +273,6 @@ function getCompData(phpFile, callBack){
 	let xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200) {
-			console.log(this.responseText);
 			callBack(JSON.parse(this.responseText));
 		}
 	}
@@ -277,19 +281,19 @@ function getCompData(phpFile, callBack){
 }
 
 function fillCompDetail(data) {
-	currcamp = new Applicant(data.id, data.company, data.phone, data.address, data.citty, data.state);
+	currcomp = new Employers(data.id, data.company, data.phone, data.address, data.city, data.state);
 	document.getElementById("compid").value = data.id;
-	document.getElementById("compfirst").value = data.company;
+	document.getElementById("compname").value = data.company;
 	document.getElementById("officphone").value = data.phone;
 	document.getElementById("compaddress").value = data.address;
-	document.getElementById("compcity").value = data.citty;
+	document.getElementById("compcity").value = data.city;
 	document.getElementById("compstate").value = data.state;
 }
 
 function clearComp() {
-	currcamp = new Employers (0, "", 0, "", "", "");
+	currcomp = new Employers (0, "", "", "", "", "");
 	document.getElementById("compid").value = 0;
-	document.getElementById("compfirst").value = "";
+	document.getElementById("compname").value = "";
 	document.getElementById("officphone").value = "";
 	document.getElementById("compaddress").value = "";
 	document.getElementById("compcity").value = "";
@@ -304,3 +308,47 @@ function saveComp(){
 		currcomp.update()
 	}
 }
+
+function resetComp(){
+	document.getElementById("compname").value = currcomp.company;
+	document.getElementById("officphone").value = currcomp.phone;
+	document.getElementById("compaddress").value = currcomp.address;
+	document.getElementById("compcity").value = currcomp.city;
+	document.getElementById("compstate").value = currcomp.state;
+}
+
+function showCompResult(data){
+	document.getElementById("compresult").innerHTML = data;
+}
+
+// ................................................................................................................
+// ................................................................................................................
+// ................................................................................................................
+//Assignments funtions
+// ................................................................................................................
+// ................................................................................................................
+// ................................................................................................................
+
+function fillCompList(){
+	getData("st_getComps.php", fillList);
+}
+
+function fillList(row){
+	console.log(row);
+	let table = document.getElementById("selectcomps");
+	let contents = "<option></option>";
+	
+	for (let i = 0; i < row.length; i++){
+		contents += "<option value='" + row[1].id + "'>" + row[i].company + "</option>";
+	}
+	table.innerHTML = contents;
+}
+
+function selectedComp(){
+	console.log("working");
+}
+
+function getMatchingEmps(){
+	
+}
+

@@ -14,7 +14,7 @@
 							. ', "company": "' . $row["company"]
 							. '", "phone": "' . $row["phone"]
 							. '", "address": "' . $row["address"]
-							. '", "citty": "' . $row["citty"]
+							. '", "city": "' . $row["city"]
 							. '", "state": "' . $row["state"]
 							. '"},';
 		}

@@ -4,51 +4,7 @@
 		<title>Title</title>
 		<meta charset="UTF-8">
 		<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="#">
-		<style>
-			.st_tab {
-				border: 2px solid black;
-				width: 100%;
-				display: none;
-				height: 400px;
-			}
-			.staffmenu button{
-				padding: 10px;
-				border-radius: 10px 10px 0px 0px;
-			}
-			table, th {
-				border: 1px solid black;
-			}
-			th {
-				height: 20px;
-			}
-			.newappdiv {
-				float: left;
-				border: 1px solid black;
-			}
-			.tall {
-				height: 400px;
-			}
-			form {
-				float: left;
-			}
-			.id {
-				display: none;
-			}
-			.selected {
-				background-color: grey;
-			}
-			#searchapp {
-				display: none;
-			}
-			.companylist {
-				float: left;
-				border: 1px solid black;
-			}
-			.companydata{
-				float: left;
-			}
-		</style>
+		<link rel="stylesheet" href="h2a.css">
 		<script src="h2a.js"></script>
 	</head>
 	<body>
@@ -56,7 +12,7 @@
 			<button type="button" onclick="st_show('newapplicants'); getEmployees('new');">New Applicants</button>
 			<button type="button" onclick="st_show('applicants'); getEmployees('accepted');">Applicants</button>
 			<button type="button" onclick="st_show('companies'); getCompanies();">Companies</button>
-			<button type="button" onclick="st_show('assignments');">Assignments</button>
+			<button type="button" onclick="st_show('assignments'); fillCompList();">Assignments</button>
 			<button type="button" onclick="st_show('history');">History</button>
 		</div>
 		<div id="newapplicants" class="st_tab">
@@ -159,7 +115,7 @@
 			<form id="companydata">
 				<input type="number" id="compid" name="compid" class="id">
 				<label for="fname">Company name:</label>
-				<input type="text" id="compfirst" name="compfname">
+				<input type="text" id="compname" name="compfname">
 				<br>
 				<label for="cphone">Company Office Phone:</label>
 				<input type="text" id="officphone" name="officphone">
@@ -174,12 +130,46 @@
 				<input type="text" id="compstate" name="compstate">
 				<br>
 				<button type="button" onclick="clearComp()">Clear</button>
-				<button type="button" onclick="resetNewApp()">Cancel</button>
+				<button type="button" onclick="resetComp()">Cancel</button>
 				<button type="button" onclick="saveComp()">Save</button>
 			</form>
+			<p id="compresult">
+			</p>
 		</div>
 		<div id="assignments" class="st_tab">
-			Assignments
+			<div class="neededskills tall">
+				<select id="selectcomps" onchange="selectedComp()">
+					<option></option>
+					<option></option>
+					<option></option>
+				</select>
+				<table id="chooseskills">
+					<tr>
+						<th>.  .</th>
+						<th>Desired skill</th>
+					</tr>
+					<tr>
+						<td><input type="checkbox" onclick=""></td>
+						<td>Avocado</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" onclick=""></td>
+						<td>Chard</td>
+					</tr>
+				</table>
+			</div>
+			<div class="wantedapp tall">
+				<table>
+					<tr>
+					</tr>
+				</table>
+			</div>
+			<div class="chosencomp tall">
+				<table>
+					<tr>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<div id="history" class="st_tab">
 			History

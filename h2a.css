@@ -1,0 +1,59 @@
+.st_tab {
+	border: 2px solid black;
+	width: 100%;
+	display: none;
+	height: 400px;
+}
+
+.staffmenu button{
+	padding: 10px;
+	border-radius: 10px 10px 0px 0px;
+}
+
+table, th {
+	border: 1px solid black;
+}
+
+th {
+	height: 20px;
+}
+
+.newappdiv {
+	float: left;
+	border: 1px solid black;
+}
+
+.tall {
+	height: 400px;
+}
+
+form {
+	float: left;
+}
+
+.id {
+	display: none;
+}
+
+.selected {
+	background-color: grey;
+}
+
+#searchapp {
+	display: none;
+}
+
+.companylist {
+	float: left;
+	border: 1px solid black;
+}
+
+.companydata{
+	float: left;
+}
+
+.neededskills {
+	float: left;
+	border: 1px solid black;
+}
+
