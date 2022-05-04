@@ -64,6 +64,7 @@ function getData(phpFile, callBack){
 	let xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200) {
+			console.log(this.responseText);
 			callBack(JSON.parse(this.responseText));
 		}
 	}
@@ -185,15 +186,27 @@ function fillSkill(data){
 	let options = document.getElementById("skill");
 	let contents = "<option value=''></option>";
 	for (let i = 0; i < data.length; i++){
-		contents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
+		if (data[i].skilltype == "produce"){
+			contents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
+		}
 	}
 	options.innerHTML = contents;
-	let matchlist = document.getElementById("chooseskills")
-	let choices = "<tr><th>.  .</th><th>Desired skill</th></tr>"
+	let matchlist1 = document.getElementById("chooseskills1")
+	let choices1 = "<tr><th>.  .</th><th>Desired skill</th></tr>"
 	for (let i = 0; i < data.length; i++){
-		choices += "<tr><td><input type='checkbox' onclick=''></td><td>" + data[i].skillenglish + "</td></tr>"
+		if (data[i].skilltype == "produce"){
+			choices1 += "<tr><td><input type='checkbox' onclick='getMatchingEmps()'></td><td>" + data[i].skillenglish + "</td></tr>"
+		}
 	}
-	matchlist.innerHTML = choices;
+	matchlist1.innerHTML = choices1;
+	let matchlist2 = document.getElementById("chooseskills2")
+	let choices2 = "<tr><th>.  .</th><th>Desired skill</th></tr>"
+	for (let i = 0; i < data.length; i++){
+		if (data[i].skilltype == "ability"){
+			choices2 += "<tr><td><input type='checkbox' onclick='getMatchingEmps()'></td><td>" + data[i].skillenglish + "</td></tr>"
+		}
+	}
+	matchlist2.innerHTML = choices2;
 }
 
 function clearSkill(){
@@ -349,6 +362,29 @@ function selectedComp(){
 }
 
 function getMatchingEmps(){
-	
+	let rows1 = document.getElementById("chooseskills1").getElementsByTagName("tr");
+	let rows2 = document.getElementById("chooseskills2").getElementsByTagName("tr");
+	let list = "";
+	for (let i = 1; i < rows1.length; i++){
+		if(rows1[i].firstChild.firstChild.checked){
+			list += rows1[i].firstChild.nextSibling.innerText + " ~ ";
+		}
+	}
+	for (let i = 1; i < rows2.length; i++){
+		if(rows2[i].firstChild.firstChild.checked){
+			list += rows2[i].firstChild.nextSibling.innerText + " ~ ";
+		}
+	}
+	getData("st_getEmpsBySkill.php?status=" + list, fillSim)
 }
 
+function fillSim(data){
+	let table = document.getElementById("wanapptab");
+	let contents = "<tr><th>First name</th><th>Last name</th></tr>";
+	
+	for (let i = 0; i < data.length; i++){
+		contents += "<tr onclick='getEmp(this)'><td class='id'>" + data[i].id + "</td><td>"
+					+ data[i].firstname + "</td><td>" + data[i].lastname + "</td><td></td></tr>";
+	}
+	table.innerHTML = contents;
+}
