@@ -864,22 +864,18 @@
      </div>
      <hr>
 
-
-
-
-
-
-
 </div>
 <div class="tab">
-    
-        <p>Cuenta con su Pasaporte Mexicano</p>
-        <input type="radio" name="y/n" value="yes">
-        <label for="y/n">Si</label><br>
-        <input type="radio" name="y/n" value="No">
-        <label for="y/n">No</label><br>
 
-        <label for="expdate">Cuando se vence</label><br>
+<hr>
+    Cuenta con su Pasaporte Mexicano
+    <div class="inline"><input type="radio" name="passport" id="passport" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="passport" value="No">
+    <label for="yn">No</label><br>
+    </div>
+    <div class="options" id="passportoptions">
+    <label for="expdate">Cuando se vence</label><br>
     <input type="date" id="expdate" name="expdate"><br>
 
     <label for="npass">Numero de Pasaporte</label><br>
@@ -887,444 +883,48 @@
 
     <label for="npass">Donde lo Tramito</label><br>
     <input type="text" name="npass"><br>
-
+    </div>
     <label for="npass">Si no tiene su Pasaporte, Cuenta con los recursos para tramitarlo de inmediato, si asi se lo requieren</label><br>
     <input type="text" name="npass"><br>
+<hr>
 
-    <p>Sabe Usted Ingles?</p>
-        <input type="radio" name="y/n" value="yes">
-        <label for="y/n">Si</label><br>
-        <input type="radio" name="y/n" value="No">
-        <label for="y/n">No</label><br>
-
-        <label for="lang">Si Su Respuesta fue si...Que Porcentaje</label><br>
-    <input type="number" id="langper" name="langper" min="0" max="100"><br>
-
-    <label for="lang">Donde Aprendio el Ingles?</label><br>
-    <input type="text" name="langloc"><br>
-
-    <p>Tiene Licencia de Conducir?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">De que tipo</label><br>
-    <input type="text" name="whttyp"><br>
-
-    <p>Esta Trabajando con visa H2A, Actualmente?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">En Que Compania?</label><br>
-    <input type="text" name="whtcomp"><br>
-    
-    <label for="lang">Temporada que trabaja con visa H2A, de que Mes a que Mes</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>A trabajado con Visa H2A antes?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Cuantas visas a Tenido</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">En que companias Trabajo</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Que tipo de Trabajo( Cultivo )</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    //Antecedente Migratorios
-
+<hr>
     <p>Lo han Deportado del los Estados Unidos</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
+    <div class="inline"><input type="radio" name="deport" id="deport" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="deport" value="No">
+    <label for="yn">No</label><br>
+    </div>
+    <div class="options" id="deportoptions">
     <label for="lang">Hace Cuanto</label><br>
-    <input type="text" id="" name="lang"><br>
+    <input type="text" name="lang"><br>
 
     <label for="lang">Porque Motivos lo Deportaron</label><br>
-    <input type="text" id="" name="lang"><br>
-
+    <input type="text" name="lang"><br>
+    
     <p>Tiene Castigo Vigente de Deportacion</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
+    <div class="inline"><input type="radio" name="deport" id="deporttwo" value="yes">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="deport" value="No">
+    <label for="yn">No</label><br>
+    </div>
     <label for="lang">Cuanto Tiempo</label><br>
     <input type="text" id="" name="lang"><br>
 
     <label for="lang">Porque Motivo</label><br>
     <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
 
-///
-    <label for="lang">Mencione otros Cultivos en los que a trabajado en Mexico? Que no sean los arriba mecionados..</label><br>
-    <input type="text" id="" name="lang"><br>
-    
-    <p>Ha trabajado en invernaderos?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Que es lo que hacia</label><br>
-    <input type="text" id="" name="lang"><br>
-    
-    <label for="lang">Donde estaban los invernaderos donde Trabajo</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Tiene Experiencia en sistema de Riego?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Cuantos Anos de Experiencia</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Mencione todos los tipos de riego en loos que tiene Experincia</label><br>
-    <input type="text" id="" name="lang"><br>
-    
-    <label for="lang">En que compania Trabajo y en que parte</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">su Porcentaje en este empleo que lo sepa realizar</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Ha trabajado en alguna Granja?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">En donde</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">En donde</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Que es lo que hacia en le Granja, Explique</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Tiene experiencia manejando Maquinaria Agricola</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Que Tipo de Maquinaria?</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Mencione Todos</label><br>
-    <input type="text" id="" name="lang"><br>
-    
-    <label for="lang">Donde lo Trabajo</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Sabe Usted de Mecanica para Maquinaria Agricola?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Mecanica Diesel</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">O Mecanica a Gasolina</label><br>
-
-    <label for="lang">Cuantos anos de experiencia</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Puede comprobar con documento</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Si no puede comprobar, Porque Motivo</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">A que tipo de maquinaria ha dado mantenimiento, Mencione</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Sabe Soldadura?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Que tipo de Soldadura</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Donde se desempeno de soldador</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Su Porcentaje en este empleo que lo sepa realizar</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Sabe Manejar Troque, como Trailer?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Que tipo de Trailer mencione los Tipos, (Nombre, Ruedas o Toneladas)</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">En que estado a Trabajado o asta donde a Viajado</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Sabe Manejar Tractor?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Sin carga</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">Con carga</label><br>
-
-    <label for="lang">Cuantos anos de experiencia</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Donde Trabajo</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Sabe manejar Montacargas?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Sin carga</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">Con carga</label><br>
-
-    <label for="lang">Cuantos anos de experiencia</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Sabe de Electricidad?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">A que ha dado mantenimiento</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Cual es su porcentaje en este empleo, que lo sepa</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Puede Levantar de 25 Kilos a 40?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <p>Tiene Problemas con su espalda?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <p>Alguna vez ha Sufrido de Alguna Fractura en la espaldo, Pierna O Brazo?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Que Tipo de Fractua Y donde</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Otro empleo que haiga realizado, que no sea de campo y tampoco los mencionados arriba, Mencione</label><br>
-    <input type="text" id="" name="lang"><br>
-//
-    <p>Ha trabajo en los Estados Unidos en el Campo</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <p>De que Manera</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">legal</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">O ilegal</label><br>
-
-    <p>Trabajo con su visa de Turista?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Menciones todos los cultivos en los que ha trabajado en Estados Unidos? (tipo
-        de cosecha, ya sean verduras o Frutas)
-    </label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">En que Estados de Estados Unidos ha Trabajado</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Algun Otro Empleo que haiga tenido en Estado Unidos que no sea de Agricultura(campo) </label><br>
-    <input type="text" id="" name="lang"><br>
-//
-    <p>Sabe de Alguna compañía que lo quisiera contratar en Estados Unidos (Esta Pregunta es si usted conoce alguien o
-        Alguna Compañía que lo quisiera contratar por medio de un Permiso H2a, que es una Visa de trabajo, es solo si la
-        compañía no contrata ya personal. Si la compañía ya lleva H2A’s No la mencione, ya que ellos ya saben el Proceso
-        de Contratación y usted debe comunicarse con ellos.)?</p>
-//
-    <label for="lang">Nombre</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="phone">Telefono</label><br>
-    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
-
-    <p>Tiene Usted Familiares en los Estados Unidos</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-    
-    <label for="lang">Que Tipo de Familiar</label><br>
-    <input type="text" id="" name="lang"><br>
-//
-
-    Esta pregunta no le afectaría en nada, como lo dice el encabezado es solo para control interno, al igual no
-    sacamos o damos esta información a nadie, no se debe de preocupar de nada, es totalmente confidencial y
-    como le decimos es solo de control interno
-
-    <p>Si contesto que Si, de que Manera esta su Faamiliar en los Estados Unidos</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Legal</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">0 Ilegal</label><br>
-
-    <p>Esta usted interesado en ser contratado cerca de donde se encuentra su Familiar</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Me da igual</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">En que Estado, esta su Familiar</label><br>
-    <input type="text" id="" name="lang"><br>
-//
-
-    <h1>>DATOS SOBRE POSIBLE CONTRATACION</h1>
-
-    <P>Las Siguiente Preguntas, es para saber si usted está interesado, en un permiso, que sea Lejos de la Frontera, ya que
-        contamos con ellos, que son retirados, con duración de 2 hasta 8 meses, sin venir a México, es decir dejar a la
-        Familia, sin poder verlos en ese tiempo, si usted marca el SI, en la Preguntas se le tomara en Cuenta para uno de
-        estos permisos, en los cuales se debe de cumplir el contrato para el cual está siendo contratado en su Momento.
-    </P>
-
-    <p>
-        Está Aplicando Usted, solo para el Área de Yuma, AZ, que es cerca a la Frontera o para cualquier parte de los
-        Estados Unidos 
-    </p>
-
-    <p>Marque con una X, para donde esta Aplicando</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Solo para Yuma</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No importa el Lugar o distancia</label><br>
-
-    <p>Esta Disponible, quedarse el tiempo del contrato sin Venir a Mexico, con duracion de hasta 8 Meses</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-    
-    <label for="lang">Motivos por el cual le gustaria viajar tan Legos</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Motivos por el cual No gustaria Viajar tan Lejos</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Esta disponible trabajar horas extras y fines de semana cuando sea necesario?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <p>Esta disponible a una posible extension de Contrato</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Motivos por el cual No</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Tiene alguna inhabilidad (Discapacidad) que le causa problema en el trabajo</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    
-    <label for="lang">Al contestar si, por favor explique su inhabilidad (Discapacidad)</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Es Usted Diabetico?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Usa medicamento</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Sufre usted de Asma?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Se lo esta Tratando</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Problemas del Corazon</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">usa Medicamento</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>Problemas con Alta presion</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Que le Ocasiona el Problema de Presion</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <p>
-        Es Importante decir la Verdad, ya que su salud es lo Primero, y para que no le ocasione Problemas en su
-        Trabajo
-    </p>
-
+<hr>
     <p>Le han negado algun tipo de Visa?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
+   <div class="inline"><input type="radio" name="denied" id="denied" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="denied" value="No">
+    <label for="yn">No</label><br>
+    </div>
 
+    <div class="options" id="deniedoptions">
     <label for="lang">Que tipo de Visa</label><br>
     <input type="text" id="" name="lang"><br>
 
@@ -1336,35 +936,20 @@
 
     <label for="lang">Cuantas veces a Tratado de Tramitar una Visa</label><br>
     <input type="text" id="" name="lang"><br>
-
-    <p>Tiene usted visa de Turista?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <p>Esta en Tramites de Migracion</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
-
-    <label for="lang">Desde hace cuanto Tiempo</label><br>
-    <input type="text" id="" name="lang"><br>
-//
-    
+</div>
+<hr>
+  
+<hr>
     <p>Lo Han detenido cruzando ilegalmente a los Estados Unidos?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
+    <div class="inline"><input type="radio" name="detention" id="detention" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="detention" value="No">
+    <label for="yn">No</label><br>
+    </div>
 
+    <div class="options" id="detentionoptions">
     <label for="lang">Cuantas veces?</label><br>
     <input type="text" id="" name="lang"><br>
-
-///<p>(Si Contesto, Si en la Pregunta anterior,
-     conteste las de abajo y si Contesto NO, deje en Blanco)
-    </p>
 
     <label for="lang">Hace Cuanto fue la ultima detencion?</label><br>
     <input type="text" id="" name="lang"><br>
@@ -1392,22 +977,289 @@
 
     <label for="lang">Favor de decir la verdad(explique el motivo de la detention)</label><br>
     <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
 
+<hr>
     <p>Lo Han Detenido dentro de los Estados Unidos?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
+    <div class="inline"><input type="radio" name="usdetention" id="usdetention" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="usdetention" value="No">
+    <label for="yn">No</label><br>
+    </div>
+<hr>
 
+<hr>
     <p>Ha tenido problemas con la Policia Americana?</p>
-    <input type="radio" name="y/n" value="yes">
-    <label for="y/n">Si</label><br>
-    <input type="radio" name="y/n" value="No">
-    <label for="y/n">No</label><br>
+    <div class="inline"><input type="radio" name="police" id="police" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="police" value="No">
+    <label for="yn">No</label><br>
+    </div>
 
+    <div class="options" id="policeoptions">
     <label for="lang">Explique que tipo de problema</label><br>
     <input type="text" id="" name="lang"><br>
-//
+    </div>
+<hr>
+
+<hr>
+------
+    <p>Esta Trabajando con visa H2A, Actualmente?</p>
+     <div class="inline"><input type="radio" name="hish2a" id="hish2a" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="hish2a" value="No">
+    <label for="yn">No</label><br>
+    </div>
+
+    <div class="options" id="hish2aoptions">
+    <label for="lang">En Que Compania?</label><br>
+    <input type="text" name="whtcomp"><br>
+    
+    <label for="lang">Temporada que trabaja con visa H2A, de que Mes a que Mes</label><br>
+    <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
+
+<hr>
+    <p>A trabajado con Visa H2A antes?</p>
+    <div class="inline"><input type="radio" name="h2a" id="h2a" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="h2a" value="No">
+    <label for="yn">No</label><br>
+    </div>
+
+    <div class="options" id="h2aoptions">
+    <label for="lang">Cuantas visas a Tenido</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">En que companias Trabajo</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">Que tipo de Trabajo( Cultivo )</label><br>
+    <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
+
+<hr>
+    <label for="lang">Otro empleo que haiga realizado, que no sea de campo y tampoco los mencionados arriba, Mencione</label><br>
+    <input type="text" id="" name="lang"><br>
+<hr>
+
+<hr>
+    <p>Ha trabajo en los Estados Unidos en el Campo</p>
+    <div class="inline"><input type="radio" name="historywork" id="hiswork" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="historywork" value="No">
+    <label for="yn">No</label><br>
+    </div>
+
+    
+    <div class="options" id="historyworkoptions">
+    <p>De que Manera</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">legal</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">O ilegal</label><br>
+
+    <p>Trabajo con su visa de Turista?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">Menciones todos los cultivos en los que ha trabajado en Estados Unidos? (tipo
+        de cosecha, ya sean verduras o Frutas)
+    </label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">En que Estados de Estados Unidos ha Trabajado</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">Algun Otro Empleo que haiga tenido en Estado Unidos que no sea de Agricultura(campo) </label><br>
+    <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
+
+<hr>
+    <p>Tiene usted visa de Turista?</p>
+    <div class="inline"><input type="radio" name="visa" id="visa" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="visa" value="No">
+    <label for="yn">No</label><br>
+    </div>
+<hr>
+
+<hr>
+    <p>Esta en Tramites de Migracion</p>
+    <div class="inline"><input type="radio" name="migrate" id="migrate" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="migrate" value="No">
+    <label for="yn">No</label><br>
+    </div>
+ <hr>
+ 
+ <hr>
+    <p>Marque con una X, para donde esta Aplicando</p>
+    <div class="inline"><input type="radio" name="migrate" id="migrate" value="yes" onclick="showOption(this)">
+    <label for="yn">Solo para Yuma</label><br>
+    <input type="radio" name="migrate" value="No">
+    <label for="yn">No importa el Lugar o distancia</label><br>
+    </div>
+<hr>
+
+<hr>
+    <p>Esta Disponible, quedarse el tiempo del contrato sin Venir a Mexico, con duracion de hasta 8 Meses</p>
+    <div class="inline"><input type="radio" name="mexico" id="mexico" value="yes" onclick="showOption(this)">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="mexico" value="No">
+    <label for="yn">No</label><br>
+    </div>
+<hr>
+
+<hr>
+    <label for="lang">Motivos por el cual le gustaria viajar tan Legos</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">Motivos por el cual No gustaria Viajar tan Lejos</label><br>
+    <input type="text" id="" name="lang"><br>
+<hr>
+
+<hr>
+    <p>Esta disponible trabajar horas extras y fines de semana cuando sea necesario?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+<hr>
+
+<hr>
+    <p>Esta disponible a una posible extension de Contrato</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">Motivos por el cual No</label><br>
+    <input type="text" id="" name="lang"><br>
+<hr>
+
+<hr>
+    <p>Tiene Usted Familiares en los Estados Unidos</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+    
+    <label for="lang">Que Tipo de Familiar</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <p>Si contesto que Si, de que Manera esta su Faamiliar en los Estados Unidos</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Legal</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">0 Ilegal</label><br>
+
+    <p>Esta usted interesado en ser contratado cerca de donde se encuentra su Familiar</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">Me da igual</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">En que Estado, esta su Familiar</label><br>
+    <input type="text" id="" name="lang"><br>
+
+   <label for="lang">Desde hace cuanto Tiempo</label><br>
+    <input type="text" id="" name="lang"><br>
+<hr>
+--------
+<hr>
+    <p>Puede Levantar de 25 Kilos a 40?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+<hr>
+
+<hr>
+    <p>Tiene Problemas con su espalda?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+<hr>
+
+<hr>
+    <p>Alguna vez ha Sufrido de Alguna Fractura en la espaldo, Pierna O Brazo?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">Que Tipo de Fractua Y donde</label><br>
+    <input type="text" id="" name="lang"><br>
+<hr>
+
+<hr>
+    <p>Tiene alguna inhabilidad (Discapacidad) que le causa problema en el trabajo</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    
+    <label for="lang">Al contestar si, por favor explique su inhabilidad (Discapacidad)</label><br>
+    <input type="text" id="" name="lang"><br>
+<hr>
+
+<hr>
+    <p>Es Usted Diabetico?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">Usa medicamento</label><br>
+    <input type="text" id="" name="lang"><br>
+<hr>
+
+<hr>
+    <p>Sufre usted de Asma?</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">Se lo esta Tratando</label><br>
+    <input type="text" id="" name="lang"><br>
+<hr>
+
+<hr>
+    <p>Problemas del Corazon</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">usa Medicamento</label><br>
+    <input type="text" id="" name="lang"><br>
+<hr>
+
+<hr>
+    <p>Problemas con Alta presion</p>
+    <input type="radio" name="y/n" value="yes">
+    <label for="y/n">Si</label><br>
+    <input type="radio" name="y/n" value="No">
+    <label for="y/n">No</label><br>
+
+    <label for="lang">Que le Ocasiona el Problema de Presion</label><br>
+    <input type="text" id="" name="lang"><br>
+<hr>
+--------
+<hr>
     <p>Esta Usted enterado, que esta Pre-solicitud, es para aplicar para una Visa H-2A, 
         que es una Visa de Trabajo
     </p>
@@ -1418,43 +1270,37 @@
 
     <label for="lang">En su Palabras que conoce de esta Visa</label><br>
     <input type="text" id="" name="lang"><br>
-//
-    <p>
-        La Visa h-2ª, es una visa bajo un contrato, el cual una vez obtenido se debe de cumplir, no puede trabajar con
-        la compañía que usted decida si no, con la compañía que lo esta contratando única y exclusivamente, si la
-        persona no cumple con el contrato que se le dio, la visa se da de baja inmediatamente ante Migracion, lo cual
-        indica que debe de salir del Pais de los Estados Unidos, porque una vez dada de baja, usted esta
-        automáticamente de Ilegal en los Estados Unidos y su visa puede ser rastreada  
-    </p>
-//
+<hr>
+
+<hr>
     <label for="lang">Como se entero de CITA</label><br>
     <input type="text" id="" name="lang"><br>
-    
+<hr>
+
+<hr>
     <label for="lang">Si hubiera algo mas en que los pudieramos ayudar en que seria,
         que no sea dandole trabjo(esta pergunta es personal, solo usted da la repuesta)
     </label><br>
     <input type="text" id="" name="lang"><br>
+<hr>
 
+<hr>
     <label for="lang">Que Conoce usted de C.I.T.A(de Nosotros)</label><br>
     <input type="text" id="" name="lang"><br>
-//
-    <h2>
-        Nota Importante
-    </h2>
+<hr>
 
-    <p>
-        El llenado de la Pre-Solicitud no implica que será Contratado, toda Pre-Solicitud será catalogada y revisada, para ver si el solicitante
-        califica para un empleo temporal en los Estados Unidos, los trabajadores son escogidos por los empleadores (compañías en Estados
-        Unidos), en C.I.T.A. estamos para facilitarle el proceso y hacer lo mejor posible en beneficio de usted y su Familia…… SUERTE 
-    </p>
-
+<hr>
     <label for="lang">Firma de solicitante</label><br>
     <input type="text" id="" name="lang"><br>
+<hr>
 
+<hr>
     <label for="lang">fecha que fue ilenada</label><br>
     <input type="text" id="" name="lang"><br>
-
+<hr>
 </div>
+</div>
+</body>
 </form>
 </div>
 <div class="qbtn">
