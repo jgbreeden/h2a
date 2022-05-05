@@ -352,7 +352,7 @@ function fillList(row){
 	let contents = "<option></option>";
 	
 	for (let i = 0; i < row.length; i++){
-		contents += "<option value='" + row[1].id + "'>" + row[i].company + "</option>";
+		contents += "<option value='" + row[i].id + "'>" + row[i].company + "</option>";
 	}
 	table.innerHTML = contents;
 }
