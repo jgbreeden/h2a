@@ -358,6 +358,8 @@ function fillList(row){
 }
 
 function selectedComp(){
+	let grabed = document.getElementById("selectcomps").value;
+	
 	console.log("working");
 }
 
@@ -383,8 +385,28 @@ function fillSim(data){
 	let contents = "<tr><th>First name</th><th>Last name</th></tr>";
 	
 	for (let i = 0; i < data.length; i++){
-		contents += "<tr onclick='getEmp(this)'><td class='id'>" + data[i].id + "</td><td>"
+		contents += "<tr onclick='selectApp(this)'><td class='id'>" + data[i].id + "</td><td>"
 					+ data[i].firstname + "</td><td>" + data[i].lastname + "</td><td></td></tr>";
 	}
 	table.innerHTML = contents;
+}
+
+function selectApp(row){
+	resetTable(document.getElementById("wanapptab"));
+	row.classList.add("selected");
+}
+
+function mtc(){
+	let grab0 = document.getElementById("wanapptab");
+	let grab1 = document.getElementById("wanapptab").getElementsByTagName("tr");
+	let grab2 = document.getElementById("wanapptab").getElementsByClassName("selected");
+	let grab3 = document.getElementById("wancomptab");
+	//for (let i = 0; i < grab1.length; i++){
+		//if (grab1[i] == grab2[0]){
+			//grab0.removeChild(grab0.children[i]);
+		//}
+	//}
+	//console.log(grab4);
+	grab3.innerHTML += grab2[0].innerHTML;
+	grab2[0].remove();
 }
