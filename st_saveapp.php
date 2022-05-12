@@ -16,24 +16,26 @@ if ($conn->connect_error) {
 }
 $fname = htmlspecialchars($_POST["fname"]);
 $lname = htmlspecialchars($_POST["lname"]);
-$birth = htmlspecialchars($_POST["birth"]);
-$phone = htmlspecialchars($_POST["phone"]);
 $phonecell = htmlspecialchars($_POST["phonecell"]);
-$email = htmlspecialchars($_POST["email"]);
+$phonehome = htmlspecialchars($_POST["phonehome"]);
 $address = htmlspecialchars($_POST["address"]);
-$pbirth = htmlspecialchars($_POST["pbirth"]);
-$age = htmlspecialchars($_POST["age"]);
-$height = htmlspecialchars($_POST["height"]);
-$weight = htmlspecialchars($_POST["weight"]);
-$ppl = htmlspecialchars($_POST["ppl"]);
-$civil = htmlspecialchars($_POST["civil"]);
 $city = htmlspecialchars($_POST["city"]);
 $state = htmlspecialchars($_POST["state"]);
 $gender = htmlspecialchars($_POST["gender"]);
+$dateofbirth = htmlspecialchars($_POST["dateofbirth"]);
+$email = htmlspecialchars($_POST["email"]);
+$age = htmlspecialchars($_POST["age"]);
+$height = htmlspecialchars($_POST["height"]);
+$weight = htmlspecialchars($_POST["weight"]);
+$martialstatus = htmlspecialchars($_POST["martialstatus"]);
+$placeofbirth = htmlspecialchars($_POST["placeofbirth"]);
 
 
-$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, state, gender) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssss", $fname, $lname, $phonecell, $phone, $address, $city, $state, $gender);
+
+
+$stmt = $conn->prepare("INSERT INTO applicants (fname, lname, phonecell, phonehome, address, city, state, gender, dateofbirth, 
+    email, age, height, weight, martialstatus, placeofbirth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $gender, $dateofbirth, $email, $age, $height, $martialstatus, $placeofbirth);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;
