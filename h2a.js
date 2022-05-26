@@ -105,17 +105,24 @@ function fillEmps(data) {
 }
 
 function fillEmpDetail(data) {
-	var table = document.getElementById("skillsTab");
-	var contents = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
-	
+	let table = document.getElementById("skillsTab");
+	let contents = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
 	for (let i = 0; i < data.skills.length; i++){
 		contents += "<tr onclick='showSkill(this)'><td class='id'>" + data.skills[i].exid + "</td><td>" + data.skills[i].skillenglish + "</td><td>"
 					+ data.skills[i].years + "</td><td>" + data.skills[i].location + "</td><td class='id'>" + data.skills[i].skillsid
 					+ "</td><td class='id'>" + data.skills[i].details + "</td></tr>";
 	}
+	let table2 = document.getElementById("abilityTab");
+	let contents2 = "<tr><th>Job ability</th><th>Years</th><th>Where</th></tr>";
+	for (let i = 0; i < data.ability.length; i++){
+		contents2 += "<tr onclick='showSkill(this)'><td class='id'>" + data.ability[i].abid + "</td><td>" + data.ability[i].years + "</td><td>"
+					+ data.ability[i].abeng + "</td><td>" + data.ability[i].location + "</td><td class='id'>" + data.ability[i].percent
+					+ "</td><td class='id'>" + data.ability[i].details + "</td></tr>";
+	}
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status)
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
+	table2.innerHTML = contents2;
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	clearSkill();
