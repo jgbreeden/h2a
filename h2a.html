@@ -99,6 +99,39 @@
 					<button type="button" onclick="clearSkill()">Clear</button>
 				</form>
 			</div>
+			<div class="newappdiv">
+				<table id="abilityTab">
+					<tr>
+						<th>Job ability</th>
+						<th>Years</th>
+						<th>Where</th>
+					</tr>
+				</table>
+			</div>
+			<div class="newappdiv">
+				<form id="abilityForm">
+					<input type="text" id="exid2" name="exid2" class="id">
+					<label for="abilities">Abilities:</label>
+					<select id="abilities" name="abilities">
+						<option value=""></option>
+						<option value="Avocado">Avocado</option>
+					</select>
+					<br>
+					<label for="years2">Years:</label>
+					<input type="text" id="years2" name="years2">
+					<br>
+					<label for="location">Location:</label>
+					<input type="text" id="location2" name="location2">
+					<br>
+					<label for="details">Details:</label>
+					<input type="text" id="details2" name="details2">
+					<br>
+					<input type="text" id="apid2" name="apid2" class="id">
+					<input type="text" id="skid2" name="skid2" class="id">
+					<button type="button" onclick="saveAbility()">Save ability</button>
+					<button type="button" onclick="clearAbility()">Clear</button>
+				</form>
+			</div>
 			<p id="result">
 			</p>
 		</div>
