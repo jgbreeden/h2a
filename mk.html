@@ -30,17 +30,17 @@
 
     <hr>
     <label for="birth">Fecha De Nacimeinto</label><br>
-    <input type="date" id="birth" name="birth"><br>
+    <input type="date" id="dateofbirth" name="dateofbirth"><br>
     <hr>
 
     <hr>
     <label for="phone">Numero De Telephono</label><br>
-    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+    <input type="tel" id="phonehome" name="phonehome" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
     <hr>
 
     <hr>
     <label for="phonecel">Celular</label><br>
-    <input type="tel" id="phonecel" name="phonecel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+    <input type="tel" id="phonecell" name="phonecell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
     <hr>
 
     <hr>
@@ -55,7 +55,7 @@
 
     <hr>
     <label for="pbirth">Lugar de Nacimiento</label><br>
-    <input type="text" id="pbirth" name="pbirth"><br>
+    <input type="text" id="placeofbirth" name="placeofbirth"><br>
     <hr>
 
     <hr>
@@ -73,14 +73,14 @@
     <input type="text" id="weight" name="weight"><br>
     <hr>
 
-    <hr>
+    <!--<hr>
     <label for="ppl">Cuantas personas dependen de usted</label><br>
     <input type="text" id="ppl" name="ppl"><br>
-    <hr>
+    <hr>-->
 
     <hr>
     <label for="civil">Estado civil</label><br>
-    <input type="text" id="civil" name="civil"><br>
+    <input type="text" id="martialstatus" name="martialstatus"><br>
     <hr>
 
     <hr>
@@ -102,10 +102,9 @@
     <label for="female">Female</label><br>
     <hr>
 
-
 </div>
-<div class="tab">
-
+    <div class="tab">
+  
         <hr>Acelga
         <div class="inline"><input type="radio" name="acelga" id="acelga" value="yes" onclick="showOption(this)">
         <label for="yn">Si</label><br>
@@ -558,7 +557,7 @@
         <hr>
 
         <hr>
-//       lechuga
+      lechuga
    <div class="inline"><input type="radio" name="lechuga" id="lechuga" value="yes" onclick="showOption(this)">
         <label for="yn">Si</label><br>
         <input type="radio" name="lechuga">
@@ -570,7 +569,7 @@
         <label for="where">Donde lo Trabajo</label><br>
         <input type="text" name="lechugawhere"><br>
         <label for="type">Que tipo de Lechuga</label><br>
-        <input type="text" name="lechuga"><br>
+        <input type="text" name="lechugatype"><br>
         </div>
         <hr>
 
@@ -792,8 +791,6 @@
        <label for="yn">No</label><br>
        </div>
        <div class="options" id="irrigationoptions">
-       <label for="irrigationexp">Cuantos anos de experiencia</label><br>
-       <input type="text" name="irrigationexp"><br>
        <label for="type">Mencione todos los tipos de reigo en los que teine experiencia</label><br>
        <input type="text" name="irrigationtype"><br>
        <label for="where">En que compania trabajo y en que parte</label><br>
@@ -841,29 +838,29 @@
         <label for="yn">No</label><br>
         </div>
         <div class="options" id="mechoptions">
-        <input type="radio" name="mech" id="mech" value="diesel">
+        <input type="radio" name="mechgas" id="mech" value="diesel">
         <label for="dc">Mecanica Diesel</label><br>
-        <input type="radio" name="mech">
+        <input type="radio" name="mechgas">
         <label for="dc" value="gasolina">O Mecanica a Gasolina</label><br>
 
       
         <label for="mechexp">cuantos anos de experiencia?</label><br>
-        <input type="text" name="mechwhere"><br>
+        <input type="text" name="mechexp"><br>
         <label for="where">Donde lo trabjo</label><br>
         <input type="text" name="mechwhere"><br>
         
 
         Puede Comprobar con documento
-        <input type="radio" name="mech" id="mech" value="yes">
+        <input type="radio" name="mechdoc" id="mech" value="yes">
         <label for="doc">si</label><br>
-        <input type="radio" name="mech">
+        <input type="radio" name="mecdoc">
         <label for="doc" value="no">no</label><br>
 
         <label for="where">si no puede comprobar, Porque Motivo</label><br>
-        <input type="text" name="mechwhere"><br>
+        <input type="text" name="mechnodoc"><br>
 
         <label for="where">A que tipo de maquinaria ha dado mantenimiento, mencione</label><br>
-        <input type="text" name="mechwhere"><br>
+        <input type="text" name="mechtype"><br>
     </div>
         <hr>
 
@@ -880,7 +877,7 @@
         <label for="where">Donde se desempeno de soldador</label><br>
         <input type="text" name="weldingwhere"><br>
         <label for="where">Su procentaje en este empleo que lo sepa realizar</label><br>
-        <input type="number" name="weldingwhere"><br>
+        <input type="number" name="weldingexp"><br>
         </div>
         <hr>
 
@@ -908,9 +905,9 @@
        </div>
        <div class="options" id="tractoroptions">
         <label for="cargo">con carga</label><br>
-        <input type="radio" name="traccargo">
+        <input type="radio" name="tractorcargo">
         <label for="cargo">sin cargo</label><br>
-       <input type="radio" name="traccargo"><br>
+       <input type="radio" name="tractorcargo"><br>
       
 
        <label for="tractorexp">que tipo de cuantos anos de experienca? </label><br>
@@ -928,10 +925,10 @@
       <label for="yn">No</label><br>
       </div>
       <div class="options" id="forkoptions">
-        <input type="radio" name="cargo" id="forkwcargo" value="yescargo">
+        <input type="radio" name="forkcargo" id="forkwcargo" value="yescargo">
        <label for="cargo">con carga</label><br>
        <input type="radio" name="cargo">
-       <label for="cargo" value="nocargo">sin carga</label><br>
+       <label for="cargo" value="nocargo" name="forkcargo">sin carga</label><br>
 
      
       <label for="forkexp">cuantos anos de experiencia?</label><br>
@@ -1418,8 +1415,8 @@
 <hr>
 </div>
 </div>
-</body>
 </form>
+
 </div>
 <div class="qbtn">
 <button id="btnback" onclick="btnnext(-1)">Atras</button>
