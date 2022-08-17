@@ -205,12 +205,19 @@ function resetTable(tabl){
 function fillSkill(data){
 	let options = document.getElementById("skill");
 	let contents = "<option value=''></option>";
+	let abilities = document.getElementById("abilities");
+	let abcontents = "<option value=''></option>";
 	for (let i = 0; i < data.length; i++){
 		if (data[i].skilltype == "produce"){
 			contents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
+		} else {
+			abcontents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
 		}
+		
 	}
+	
 	options.innerHTML = contents;
+	abilities.innerHTML = abcontents;
 	let matchlist1 = document.getElementById("chooseskills1")
 	let choices1 = "<tr><th>.  .</th><th>Desired skill</th></tr>"
 	for (let i = 0; i < data.length; i++){
@@ -218,6 +225,7 @@ function fillSkill(data){
 			choices1 += "<tr><td><input type='checkbox' onclick='getMatchingEmps()'></td><td>" + data[i].skillenglish + "</td></tr>"
 		}
 	}
+
 	matchlist1.innerHTML = choices1;
 	let matchlist2 = document.getElementById("chooseskills2")
 	let choices2 = "<tr><th>.  .</th><th>Desired skill</th></tr>"
