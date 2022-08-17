@@ -20,7 +20,7 @@ class Applicant {
 }
 
 class Experience {
-	constructor(id, skillsid, applicantsid, year, location, details, skillenglish) {
+	constructor(id, skillsid, applicantsid, year, location, details, skillenglish, skilltype) {
 		this.id = id
 		this.skillsid = skillsid;
 		this.applicantsid = applicantsid;
@@ -28,22 +28,34 @@ class Experience {
 		this.location = location;
 		this.details = details;
 		this.skillenglish = skillenglish;
+		this.skilltype = skilltype;
 	}
 	
 	update() {
-		var formData = new FormData(document.getElementById("skillsForm"));
+		var formData;
+		if (this.skilltype == "produce") {
+			formData = new FormData(document.getElementById("skillsForm"));
+		} else {
+			formData = new FormData(document.getElementById("abilityForm"));
+		}
 		sendData(formData, "st_updateSkill.php", showResult);
 	}
 	
 	insert() {
-		var formData = new FormData(document.getElementById("skillsForm"));
+		var formData;
+		if (this.skilltype == "produce") {
+			formData = new FormData(document.getElementById("skillsForm"));
+		} else {
+			formData = new FormData(document.getElementById("abilityForm"));
+		}
 		sendData(formData, "st_insertSkill.php", showResult);
 	}
 	
 }
 
 var currappl;
-var currskill = new Experience (0, "", 0, "", "", "", "");
+var currskill = new Experience (0, "", 0, "", "", "", "", "produce");
+var currability = new Experience (0, "", 0, "", "", "", "", "ability");
 var skilllist = [];
 
 function st_show(tab) {
@@ -126,6 +138,7 @@ function fillEmpDetail(data) {
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	clearSkill();
+	clearAbility();
 	resetNewApp();
 }
 
@@ -184,7 +197,7 @@ function showSkill(row){
 
 function showAbility2(row){
 	let cells = row.getElementsByTagName("td");
-	currskill = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML,cells[1].innerHTML);
+	currability = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML,cells[1].innerHTML);
 	document.getElementById("skill2").value = cells[4].innerHTML;
 	document.getElementById("years2").value = cells[2].innerHTML;
 	document.getElementById("location2").value = cells[3].innerHTML;
@@ -246,11 +259,28 @@ function clearSkill(){
 	document.getElementById("apid").value = currappl.id;
 }
 
+function clearAbility(){
+	document.getElementById("abilities").value = "";
+	document.getElementById("years2").value = "";
+	document.getElementById("location2").value = "";
+	document.getElementById("details2").value = "";
+	document.getElementById("exid2").value = 0;
+	document.getElementById("apid2").value = currappl.id;
+}
+
 function saveSkill(){
 	if (document.getElementById("exid").value == 0) {
 		currskill.insert()
 	} else {
 		currskill.update()
+	}
+}
+
+function saveAbility(){
+	if (document.getElementById("exid2").value == 0) {
+		currability.insert()
+	} else {
+		currability.update()
 	}
 }
 
