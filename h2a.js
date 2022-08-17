@@ -115,7 +115,7 @@ function fillEmpDetail(data) {
 	let table2 = document.getElementById("abilityTab");
 	let contents2 = "<tr><th>Job ability</th><th>Years</th><th>Where</th></tr>";
 	for (let i = 0; i < data.ability.length; i++){
-		contents2 += "<tr onclick='showSkill(this)'><td class='id'>" + data.ability[i].abid + "</td><td>" + data.ability[i].years + "</td><td>"
+		contents2 += "<tr onclick='showAbility2(this)'><td class='id'>" + data.ability[i].abid + "</td><td>" + data.ability[i].years + "</td><td>"
 					+ data.ability[i].abeng + "</td><td>" + data.ability[i].location + "</td><td class='id'>" + data.ability[i].percent
 					+ "</td><td class='id'>" + data.ability[i].details + "</td></tr>";
 	}
@@ -178,6 +178,19 @@ function showSkill(row){
 	document.getElementById("details").value = cells[5].innerHTML;
 	document.getElementById("exid").value = cells[0].innerHTML;
 	document.getElementById("apid").value = currappl.id;
+	resetTable(document.getElementById("skillsTab"));
+	row.classList.add("selected");
+}
+
+function showAbility2(row){
+	let cells = row.getElementsByTagName("td");
+	currskill = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML,cells[1].innerHTML);
+	document.getElementById("skill2").value = cells[4].innerHTML;
+	document.getElementById("years2").value = cells[2].innerHTML;
+	document.getElementById("location2").value = cells[3].innerHTML;
+	document.getElementById("details2").value = cells[5].innerHTML;
+	document.getElementById("exid2").value = cells[0].innerHTML;
+	document.getElementById("apid2").value = currappl.id;
 	resetTable(document.getElementById("skillsTab"));
 	row.classList.add("selected");
 }
