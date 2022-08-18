@@ -31,6 +31,22 @@ class Experience {
 		this.skilltype = skilltype;
 	}
 	
+//class Issues  {
+	//constructor(id, skillsid, applicantsid, when, location, type, issueenglish, issuetype, whyhow, punished, punishtime, punishreason) {
+		//this.id = id
+		//this.skillsid = skillsid;
+		//this.applicantsid = applicantsid;
+		//this.when = when;
+		//this.location = location;
+		//this.type = type;
+		//this.issueenglish = issueenglish;
+		//this.issuetype = issuetype;
+		//this.whyhow = whyhow;
+		//this.punished = punished;
+		//this.punishtime = punishtime;
+		//this.punishreason = punishreason;
+	//}
+
 	update() {
 		var formData;
 		if (this.skilltype == "produce") {
