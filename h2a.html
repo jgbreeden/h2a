@@ -126,13 +126,50 @@
 					<label for="details">Details:</label>
 					<input type="text" id="details2" name="details2">
 					<br>
+					<label for="percent">Percent:</label>
+					<input type="text" id="percent" name="percent">
+					<br>
 					<input type="text" id="apid2" name="apid2" class="id">
 					<input type="text" id="skid2" name="skid2" class="id">
 					<button type="button" onclick="saveAbility()">Save ability</button>
 					<button type="button" onclick="clearAbility()">Clear</button>
 				</form>
 			</div>
-			<p id="result">
+			<br style="clear:both">
+			<div class="newappdiv">
+				<table id="docform">
+					<tr>
+						<th>Doc Type</th>
+						<th>Years</th>
+						<th>Where</th>
+					</tr>
+				</table>
+			</div>
+			<div class="newappdiv">
+				<form id="docform">
+					<input type="text" id="docid2" name="docid2" class="id">
+					<label for="docform">Skill:</label>
+					<select id="docform" name="docform">
+						<option value=""></option>
+						<option value="Avocado">Avocado</option>
+					</select>
+					<br>
+					<label for="doc2">When:</label>
+					<input type="text" id="when2" name="when2">
+					<br>
+					<label for="locationdoc">Location:</label>
+					<input type="text" id="locationdoc2" name="locationdoc2">
+					<br>
+					<label for="doctype">Document Type:</label>
+					<input type="text" id="doctype2" name="doctype2">
+					<br>
+					<input type="text" id="apid2" name="apid2" class="id">
+					<input type="text" id="skid2" name="skid2" class="id">
+					<button type="button" onclick="saveAbility()">Save Document</button>
+					<button type="button" onclick="clearAbility()">Clear</button>
+				</form>
+			</div>
+			<p id="result"> 
 			</p>
 		</div>
 		<div id="companies" class="st_tab">
