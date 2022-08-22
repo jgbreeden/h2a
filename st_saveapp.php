@@ -9,7 +9,7 @@
 <?php
 require 'cred.php';
 echo $_POST["fname"];
-$conn = new mysqli("localhost", "root", "", "h2a");
+$conn = new mysqli($host, $user, $password);
 
 // Check connection
 if ($conn->connect_error) {
