@@ -1,6 +1,6 @@
 <?php
 	require 'cred.php';
-	$conn = new mysqli($host, $user, $password);
+	$conn = new mysqli($host, $user, $password, "h2a");
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}

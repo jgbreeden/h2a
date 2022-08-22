@@ -1,7 +1,7 @@
 <?php
 	require 'cred.php';
 	//echo '{"test": "test value1"}, {"test": "test value2"}';
-	$conn = new mysqli($host, $user, $password);
+	$conn = new mysqli($host, $user, $password, "h2a");
 	if ($conn->connect_error) {
 		die("Comunicaton failed: " . $conn->connect_error);
 	}
