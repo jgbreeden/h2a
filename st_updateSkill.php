@@ -1,4 +1,5 @@
 <?php
+	require 'cred.php';
 	$conn = new mysqli("localhost", "root", "", "h2a");
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);

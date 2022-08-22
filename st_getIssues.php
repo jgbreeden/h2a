@@ -1,5 +1,6 @@
 [
 <?php
+	require 'cred.php';
 	//echo '{"test": "test value1"}, {"test": "test value2"}';
 	$conn = new mysqli("localhost", "root", "", "h2a");
 	if ($conn->connect_error) {

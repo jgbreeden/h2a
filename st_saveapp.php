@@ -7,6 +7,7 @@
 </head>
 <body>
 <?php
+require 'cred.php';
 echo $_POST["fname"];
 $conn = new mysqli("localhost", "root", "", "h2a");
 
