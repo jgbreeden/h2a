@@ -1,5 +1,5 @@
 <?php
-    $host = new msqli("localhost", "root", "", "h2a");
-    $user = new msqli("localhost", "root", "", "h2a");
-    $password = new msqli("localhost", "root", "", "h2a");
+    $host = new msqli("localhost");
+    $user = new msqli("root");
+    $password = new msqli("");
 ?>
