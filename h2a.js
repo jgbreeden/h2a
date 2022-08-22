@@ -301,7 +301,7 @@ function saveAbility(){
 	}
 }
 function fillIssue(data){
-	let options = document.getElementById("docform");
+	let options = document.getElementById("doclist");
 	let contents = "<option value=''></option>";
 	//let abilities = document.getElementById("abilities");
 	//let abcontents = "<option value=''></option>";
@@ -311,6 +311,7 @@ function fillIssue(data){
 		} 
 		
 	}
+	options.innerHTML = contents;
 }
 
 // ................................................................................................................
