@@ -73,6 +73,7 @@ var currappl;
 var currskill = new Experience (0, "", 0, "", "", "", "", "produce");
 var currability = new Experience (0, "", 0, "", "", "", "", "ability");
 var skilllist = [];
+var curdoc;
 
 function st_show(tab) {
 	let tabs = document.getElementsByClassName("st_tab");
@@ -298,6 +299,19 @@ function saveAbility(){
 	} else {
 		currability.update()
 	}
+}
+function fillIssue(data){
+	let options = document.getElementById("doclist");
+	let contents = "<option value=''></option>";
+	//let abilities = document.getElementById("abilities");
+	//let abcontents = "<option value=''></option>";
+	for (let i = 0; i < data.length; i++){
+		if (data[i].issuetype == "document"){
+			contents += "<option value='" + data[i].id + "'>" + data[i].issueenglish + "</option>"
+		} 
+		
+	}
+	options.innerHTML = contents;
 }
 
 // ................................................................................................................
