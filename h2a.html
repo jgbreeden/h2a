@@ -67,112 +67,147 @@
 				<button type="button" onclick="currappl.update()">Save</button>
 			</form>
 			<div class="newappdiv">
-			<div class="newappdiv">
-				<table id="skillsTab">
-					<tr>
-						<th>Experience</th>
-						<th>Years</th>
-						<th>Where</th>
-					</tr>
-				</table>
+				<div class="newappdiv">
+					<table id="skillsTab">
+						<tr>
+							<th>Experience</th>
+							<th>Years</th>
+							<th>Where</th>
+						</tr>
+					</table>
+				</div>
+				<div class="newappdiv">
+					<form id="skillsForm">
+						<input type="text" id="exid" name="exid" class="id">
+						<label for="skill">Crops:</label>
+						<select id="skill" name="skill">
+							<option value=""></option>
+							<option value="Avocado">Avocado</option>
+						</select>
+						<br>
+						<label for="years">Years:</label>
+						<input type="text" id="years" name="years">
+						<br>
+						<label for="location">Location:</label>
+						<input type="text" id="location" name="location">
+						<br>
+						<label for="details">Details:</label>
+						<input type="text" id="details" name="details">
+						<br>
+						<input type="text" id="apid" name="apid" class="id">
+						<input type="text" id="skid" name="skid" class="id">
+						<button type="button" onclick="saveSkill()">Save skill</button>
+						<button type="button" onclick="clearSkill()">Clear</button>
+					</form>
+				</div>
 			</div>
 			<div class="newappdiv">
-				<form id="skillsForm">
-					<input type="text" id="exid" name="exid" class="id">
-					<label for="skill">Crops:</label>
-					<select id="skill" name="skill">
-						<option value=""></option>
-						<option value="Avocado">Avocado</option>
-					</select>
-					<br>
-					<label for="years">Years:</label>
-					<input type="text" id="years" name="years">
-					<br>
-					<label for="location">Location:</label>
-					<input type="text" id="location" name="location">
-					<br>
-					<label for="details">Details:</label>
-					<input type="text" id="details" name="details">
-					<br>
-					<input type="text" id="apid" name="apid" class="id">
-					<input type="text" id="skid" name="skid" class="id">
-					<button type="button" onclick="saveSkill()">Save skill</button>
-					<button type="button" onclick="clearSkill()">Clear</button>
-				</form>
-			</div>
-			</div>
-			<div class="newappdiv">
-			<div class="newappdiv">
-				<table id="abilityTab">
-					<tr>
-						<th>Job Skill</th>
-						<th>Years</th>
-						<th>Where</th>
-					</tr>
-				</table>
-			</div>
-			<div class="newappdiv">
-				<form id="abilityForm">
-					<input type="text" id="exid2" name="exid2" class="id">
-					<label for="abilities">Skill:</label>
-					<select id="abilities" name="abilities">
-						<option value=""></option>
-						<option value="Avocado">Avocado</option>
-					</select>
-					<br>
-					<label for="years2">Years:</label>
-					<input type="text" id="years2" name="years2">
-					<br>
-					<label for="location">Location:</label>
-					<input type="text" id="location2" name="location2">
-					<br>
-					<label for="details">Details:</label>
-					<input type="text" id="details2" name="details2">
-					<br>
-					<label for="percent">Percent:</label>
-					<input type="text" id="percent" name="percent">
-					<br>
-					<input type="text" id="apid2" name="apid2" class="id">
-					<input type="text" id="skid2" name="skid2" class="id">
-					<button type="button" onclick="saveAbility()">Save ability</button>
-					<button type="button" onclick="clearAbility()">Clear</button>
-				</form>
-			</div>
+				<div class="newappdiv">
+					<table id="abilityTab">
+						<tr>
+							<th>Job Skill</th>
+							<th>Years</th>
+							<th>Where</th>
+						</tr>
+					</table>
+				</div>
+				<div class="newappdiv">
+					<form id="abilityForm">
+						<input type="text" id="exid2" name="exid2" class="id">
+						<label for="abilities">Skill:</label>
+						<select id="abilities" name="abilities">
+							<option value=""></option>
+							<option value="Avocado">Avocado</option>
+						</select>
+						<br>
+						<label for="years2">Years:</label>
+						<input type="text" id="years2" name="years2">
+						<br>
+						<label for="location">Location:</label>
+						<input type="text" id="location2" name="location2">
+						<br>
+						<label for="details">Details:</label>
+						<input type="text" id="details2" name="details2">
+						<br>
+						<label for="percent">Percent:</label>
+						<input type="text" id="percent" name="percent">
+						<br>
+						<input type="text" id="apid2" name="apid2" class="id">
+						<input type="text" id="skid2" name="skid2" class="id">
+						<button type="button" onclick="saveAbility()">Save ability</button>
+						<button type="button" onclick="clearAbility()">Clear</button>
+					</form>
+				</div>
 			</div>
 			<div class="newappdiv">
-			<div class="newappdiv">
-				<table id="docform">
-					<tr>
-						<th>Doc Type</th>
-						<th>Years</th>
-						<th>Where</th>
-					</tr>
-				</table>
+				<div class="newappdiv">
+					<table id="docform">
+						<tr>
+							<th>Doc Type</th>
+							<th>Years</th>
+							<th>Where</th>
+						</tr>
+					</table>
+				</div>
+				<div class="newappdiv">
+					<form id="docform">
+						<input type="text" id="docid2" name="docid2" class="id">
+						<label for="doclist">Document:</label>
+						<select id="doclist" name="docform">
+							<option value=""></option>
+							<option value="Avocado">Avocado</option>
+						</select>
+						<br>
+						<label for="doc2">When:</label>
+						<input type="text" id="when2" name="when2">
+						<br>
+						<label for="locationdoc">Location:</label>
+						<input type="text" id="locationdoc2" name="locationdoc2">
+						<br>
+						<label for="doctype">Doc Type:</label>
+						<input type="text" id="doctype2" name="doctype2">
+						<br>
+						<input type="text" id="apid2" name="apid2" class="id">
+						<input type="text" id="skid2" name="skid2" class="id">
+						<button type="button" onclick="saveAbility()">Save Document</button>
+						<button type="button" onclick="clearAbility()">Clear</button>
+					</form>
+				</div>
 			</div>
 			<div class="newappdiv">
-				<form id="docform">
-					<input type="text" id="docid2" name="docid2" class="id">
-					<label for="doclist">Skill:</label>
-					<select id="doclist" name="docform">
-						<option value=""></option>
-						<option value="Avocado">Avocado</option>
-					</select>
-					<br>
-					<label for="doc2">When:</label>
-					<input type="text" id="when2" name="when2">
-					<br>
-					<label for="locationdoc">Location:</label>
-					<input type="text" id="locationdoc2" name="locationdoc2">
-					<br>
-					<label for="doctype">Document Type:</label>
-					<input type="text" id="doctype2" name="doctype2">
-					<br>
-					<input type="text" id="apid2" name="apid2" class="id">
-					<input type="text" id="skid2" name="skid2" class="id">
-					<button type="button" onclick="saveAbility()">Save Document</button>
-					<button type="button" onclick="clearAbility()">Clear</button>
-				</form>
-			</div>
+				<div class="newappdiv">
+					<table id="docform">
+						<tr>
+							<th>Health Issue</th>
+							<th>Years</th>
+							<th>Where</th>
+						</tr>
+					</table>
+				</div>
+				<div class="newappdiv">
+					<form id="healthsec">
+						<input type="text" id="healthid2" name="healthid2" class="id">
+						<label for="doclist">Healthy Issue:</label>
+						<select id="doclist" name="docform">
+							<option value=""></option>
+							<option value="Avocado">Avocado</option>
+						</select>
+						<br>
+						<label for="doc2">When:</label>
+						<input type="text" id="when2" name="when2">
+						<br>
+						<label for="locationdoc">Treatment:</label>
+						<input type="text" id="locationdoc2" name="locationdoc2">
+						<br>
+						<label for="doctype">Document Type:</label>
+						<input type="text" id="doctype2" name="doctype2">
+						<br>
+						<input type="text" id="apid2" name="apid2" class="id">
+						<input type="text" id="skid2" name="skid2" class="id">
+						<button type="button" onclick="saveAbility()">Save Document</button>
+						<button type="button" onclick="clearAbility()">Clear</button>
+					</form>
+				</div>
 			</div>
 			<p id="result"> 
 			</p>

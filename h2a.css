@@ -2,7 +2,7 @@
 	border: 2px solid black;
 	width: 100%;
 	display: none;
-	height: 400px;
+	height: 640px;
 }
 
 .staffmenu button{
@@ -24,7 +24,7 @@ th {
 }
 
 .tall {
-	height: 400px;
+	height: 640px;
 }
 
 form {
