@@ -148,10 +148,19 @@ function fillEmpDetail(data) {
 					+ data.ability[i].abeng + "</td><td>" + data.ability[i].location + "</td><td class='id'>" + data.ability[i].percent
 					+ "</td><td class='id'>" + data.ability[i].details + "</td></tr>";
 	}
+
+	let docTable = document.getElementById("docTab");
+	let docContents = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
+	for (let i = 0; i < data.docs.length; i++){
+		contents2 += "<tr onclick='showDocs(this)'><td class='id'>" + data.docs[i].docid + "</td><td>" +  data.docs[i].doceng + "</td><td>"
+					+ data.docs[i].when + "</td><td>" + data.docs[i].location + "</td>";
+	}
+
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status)
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
+	docTable.innerHTML = docContents;
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	clearSkill();
