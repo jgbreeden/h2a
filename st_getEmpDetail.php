@@ -47,6 +47,21 @@
 			. '", "details": "' . $row["details"] . '"}';
 		$comma = ", ";
 	}
+	echo '], "docs": [';
+	$query = "SELECT ability.id as abid, ability.years, ability.location, ability.percent, "
+			. "ability.details, skills.skillenglish as abeng FROM ability INNER JOIN skills ON "
+			. "ability.skillsid = skills.id WHERE ability.applicantsid =?";
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param("i", $_GET["id"]);
+	$stmt->execute();
+	$comma = "";
+	$results = $stmt->get_result();
+	while ($row = $results->fetch_assoc()) {
+		echo $comma . '{ "abid": "' . $row["abid"] . '", "years": ' . $row["years"] . ', "location": "' 
+			. $row["location"] . '", "percent": ' . $row["percent"] . ', "abeng": "' . $row["abeng"]
+			. '", "details": "' . $row["details"] . '"}';
+		$comma = ", ";
+	}
 	echo ']}';
 	//loop through rows, add skill fields
 	//end record
