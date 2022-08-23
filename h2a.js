@@ -31,42 +31,70 @@ class Experience {
 		this.skilltype = skilltype;
 	}
 	
-//class Issues  {
-	//constructor(id, skillsid, applicantsid, when, location, type, issueenglish, issuetype, whyhow, punished, punishtime, punishreason) {
-		//this.id = id
-		//this.skillsid = skillsid;
-		//this.applicantsid = applicantsid;
-		//this.when = when;
-		//this.location = location;
-		//this.type = type;
-		//this.issueenglish = issueenglish;
-		//this.issuetype = issuetype;
-		//this.whyhow = whyhow;
-		//this.punished = punished;
-		//this.punishtime = punishtime;
-		//this.punishreason = punishreason;
-	//}
 
 	update() {
 		var formData;
 		if (this.skilltype == "produce") {
 			formData = new FormData(document.getElementById("skillsForm"));
+			sendData(formData, "st_updateSkill.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("abilityForm"));
+			sendData(formData, "st_updateAbility.php", showResult);
 		}
-		sendData(formData, "st_updateSkill.php", showResult);
 	}
 	
 	insert() {
 		var formData;
 		if (this.skilltype == "produce") {
 			formData = new FormData(document.getElementById("skillsForm"));
+			sendData(formData, "st_insertSkill.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("abilityForm"));
+			sendData(formData, "st_insertAbility.php", showResult);
 		}
-		sendData(formData, "st_insertSkill.php", showResult);
 	}
 	
+}
+
+class Issues  {
+	constructor(id, skillsid, applicantsid, when, location, type, issueenglish, issuetype, whyhow, punished, punishtime, punishreason) {
+		this.id = id
+		this.skillsid = skillsid;
+		this.applicantsid = applicantsid;
+		this.when = when;
+		this.location = location;
+		this.type = type;
+		this.issueenglish = issueenglish;
+		this.issuetype = issuetype;
+		this.whyhow = whyhow;
+		this.punished = punished;
+		this.punishtime = punishtime;
+		this.punishreason = punishreason;
+	}
+
+
+
+	update() {
+		var formData;
+		if (this.skilltype == "documents") {
+			formData = new FormData(document.getElementById("docform"));
+			sendData(formData, "st_updateIssues.php", showResult);
+		} else {
+			formData = new FormData(document.getElementById("healthsec"));
+			sendData(formData, "st_updateIssues.php", showResult);
+		}
+	}
+	
+	insert() {
+		var formData;
+		if (this.skilltype == "documents") {
+			formData = new FormData(document.getElementById("docform"));
+			sendData(formData, "st_insertIssues.php", showResult);
+		} else {
+			formData = new FormData(document.getElementById("healthsec"));
+			sendData(formData, "st_insertIssues.php", showResult);
+		}
+	}
 }
 
 var currappl;
