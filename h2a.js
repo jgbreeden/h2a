@@ -78,10 +78,10 @@ class Issues  {
 		var formData;
 		if (this.skilltype == "documents") {
 			formData = new FormData(document.getElementById("docform"));
-			sendData(formData, "st_updateIssues.php", showResult);
+			sendData(formData, "st_updateDocs.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, "st_updateIssues.php", showResult);
+			sendData(formData, "st_updateDocs.php", showResult);
 		}
 	}
 	
@@ -89,10 +89,10 @@ class Issues  {
 		var formData;
 		if (this.skilltype == "documents") {
 			formData = new FormData(document.getElementById("docform"));
-			sendData(formData, "st_insertIssues.php", showResult);
+			sendData(formData, "st_insertDocs.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, "st_insertIssues.php", showResult);
+			sendData(formData, "st_insertDocs.php", showResult);
 		}
 	}
 }
@@ -100,6 +100,8 @@ class Issues  {
 var currappl;
 var currskill = new Experience (0, "", 0, "", "", "", "", "produce");
 var currability = new Experience (0, "", 0, "", "", "", "", "ability");
+var currdoc = new Document (0, "", 0, "", "", "", "", "document");
+var currhealth = new Document (0, "", 0, "", "", "", "", "health");
 var skilllist = [];
 var curdoc;
 
