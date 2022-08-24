@@ -322,7 +322,7 @@ function clearAbility(){
 	document.getElementById("apid2").value = currappl.id;
 }
 
-function cleardoc(){
+function clearDoc(){
 	document.getElementById("docid2").value = "";
 	document.getElementById("when2").value = "";
 	document.getElementById("locationdoc2").value = "";
@@ -331,7 +331,7 @@ function cleardoc(){
 	document.getElementById("apid").value = currappl.id;
 }
 
-function clearhealth(){
+function clearHealth(){
 	document.getElementById("healthid2").value = "";
 	document.getElementById("when2").value = "";
 	document.getElementById("treatment2").value = "";
@@ -356,6 +356,25 @@ function saveAbility(){
 		currability.update()
 	}
 }
+
+
+function saveDoc(){
+	if (document.getElementById("apid2").value == 0) {
+		currdoc.insert()
+	} else {
+		currdoc.update()
+	}
+}
+
+
+function saveHealth(){
+	if (document.getElementById("isid4").value == 0) {
+		currhealth.insert()
+	} else {
+		currhealth.update()
+	}
+}
+
 
 function fillIssue(data){
 	let docs = document.getElementById("doclist");
