@@ -280,7 +280,7 @@ function fillSkill(data){
 		} else {
 			abcontents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
 		}
-		
+
 	}
 	
 	options.innerHTML = contents;
@@ -321,6 +321,25 @@ function clearAbility(){
 	document.getElementById("exid2").value = 0;
 	document.getElementById("apid2").value = currappl.id;
 }
+
+function cleardoc(){
+	document.getElementById("docid2").value = "";
+	document.getElementById("when2").value = "";
+	document.getElementById("locationdoc2").value = "";
+	document.getElementById("doctype2").value = "";
+	document.getElementById("apid2").value = 0;
+	document.getElementById("apid").value = currappl.id;
+}
+
+function clearhealth(){
+	document.getElementById("healthid2").value = "";
+	document.getElementById("when2").value = "";
+	document.getElementById("treatment2").value = "";
+	document.getElementById("doctype2").value = "";
+	document.getElementById("apid4").value = 0;
+	document.getElementById("isid4").value = currappl.id;
+}
+
 
 function saveSkill(){
 	if (document.getElementById("exid").value == 0) {
