@@ -337,18 +337,22 @@ function saveAbility(){
 		currability.update()
 	}
 }
+
 function fillIssue(data){
-	let options = document.getElementById("doclist");
-	let contents = "<option value=''></option>";
-	//let abilities = document.getElementById("abilities");
-	//let abcontents = "<option value=''></option>";
+	let docs = document.getElementById("doclist");
+	let doccontents = "<option value=''></option>";
+	let health = document.getElementById("healthlist");
+	let healthcontents = "<option value=''></option>";
 	for (let i = 0; i < data.length; i++){
 		if (data[i].issuetype == "document"){
-			contents += "<option value='" + data[i].id + "'>" + data[i].issueenglish + "</option>"
-		} 
+			doccontents += "<option value='" + data[i].id + "'>" + data[i].issueenglish + "</option>"
+		} else {
+			healthcontents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
+		}
 		
 	}
-	options.innerHTML = contents;
+	docs.innerHTML = doccontents;
+	health.innerHTML = healthcontents;
 }
 
 // ................................................................................................................
