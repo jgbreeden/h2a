@@ -78,10 +78,10 @@ class Issues  {
 		var formData;
 		if (this.skilltype == "documents") {
 			formData = new FormData(document.getElementById("docform"));
-			sendData(formData, "st_updateIssues.php", showResult);
+			sendData(formData, "st_updateDocs.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, "st_updateIssues.php", showResult);
+			sendData(formData, "st_updateDocs.php", showResult);
 		}
 	}
 	
@@ -89,10 +89,10 @@ class Issues  {
 		var formData;
 		if (this.skilltype == "documents") {
 			formData = new FormData(document.getElementById("docform"));
-			sendData(formData, "st_insertIssues.php", showResult);
+			sendData(formData, "st_insertDocs.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, "st_insertIssues.php", showResult);
+			sendData(formData, "st_insertDocs.php", showResult);
 		}
 	}
 }
@@ -100,6 +100,8 @@ class Issues  {
 var currappl;
 var currskill = new Experience (0, "", 0, "", "", "", "", "produce");
 var currability = new Experience (0, "", 0, "", "", "", "", "ability");
+var currdoc = new Document (0, "", 0, "", "", "", "", "document");
+var currhealth = new Document (0, "", 0, "", "", "", "", "health");
 var skilllist = [];
 var curdoc;
 
@@ -280,7 +282,7 @@ function fillSkill(data){
 		} else {
 			abcontents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
 		}
-		
+
 	}
 	
 	options.innerHTML = contents;
@@ -322,6 +324,25 @@ function clearAbility(){
 	document.getElementById("apid2").value = currappl.id;
 }
 
+function clearDoc(){
+	document.getElementById("docid2").value = "";
+	document.getElementById("when2").value = "";
+	document.getElementById("locationdoc2").value = "";
+	document.getElementById("doctype2").value = "";
+	document.getElementById("apid2").value = 0;
+	document.getElementById("apid").value = currappl.id;
+}
+
+function clearHealth(){
+	document.getElementById("healthid2").value = "";
+	document.getElementById("when2").value = "";
+	document.getElementById("treatment2").value = "";
+	document.getElementById("doctype2").value = "";
+	document.getElementById("apid4").value = 0;
+	document.getElementById("isid4").value = currappl.id;
+}
+
+
 function saveSkill(){
 	if (document.getElementById("exid").value == 0) {
 		currskill.insert()
@@ -337,6 +358,25 @@ function saveAbility(){
 		currability.update()
 	}
 }
+
+
+function saveDoc(){
+	if (document.getElementById("apid2").value == 0) {
+		currdoc.insert()
+	} else {
+		currdoc.update()
+	}
+}
+
+
+function saveHealth(){
+	if (document.getElementById("isid4").value == 0) {
+		currhealth.insert()
+	} else {
+		currhealth.update()
+	}
+}
+
 
 function fillIssue(data){
 	let docs = document.getElementById("doclist");
