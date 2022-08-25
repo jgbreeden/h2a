@@ -240,7 +240,7 @@ function showResult(data){
 
 function showSkill(row){
 	let cells = row.getElementsByTagName("td");
-	currskill = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML,cells[1].innerHTML, produce);
+	currskill = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML,cells[1].innerHTML, "produce");
 	document.getElementById("skill").value = cells[4].innerHTML;
 	document.getElementById("years").value = cells[2].innerHTML;
 	document.getElementById("location").value = cells[3].innerHTML;
@@ -253,7 +253,7 @@ function showSkill(row){
 
 function showAbility2(row){
 	let cells = row.getElementsByTagName("td");
-	currability = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML,cells[1].innerHTML, ability);
+	currability = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML,cells[1].innerHTML, "ability");
 	document.getElementById("skid2").value = cells[4].innerHTML;
 	document.getElementById("years2").value = cells[2].innerHTML;
 	document.getElementById("location2").value = cells[3].innerHTML;
