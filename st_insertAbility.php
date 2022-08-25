@@ -6,7 +6,7 @@
 	}
 	$sql = "INSERT INTO ability (skillsid, applicantsid, years, location, percent, details) VALUES (?, ?, ?, ?, ?, ?);";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("sssss", $_POST["skill2"], $_POST["apid2"], $_POST["years2"], $_POST["location2"], $_POST["percent"], $_POST["details2"]);
+	$stmt->bind_param("iissss", $_POST["skid2"], $_POST["apid2"], $_POST["years2"], $_POST["location2"], $_POST["percent"], $_POST["details2"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";

@@ -61,7 +61,11 @@
 				<input type="text" id="zip" name="zip">
 				<br>
 				<label for="status">Status:</label>
-				<input type="text" id="status" name="status">
+				<select id="status" name="status">
+					<option value="accepted">Accepted</option>
+					<option value="rejected">Rejected</option>
+					<option value="assigned">Assigned</option>
+				</select>
 				<br>
 				<button type="button" onclick="resetNewApp()">Cancel</button>
 				<button type="button" onclick="currappl.update()">Save</button>
@@ -187,7 +191,7 @@
 				<div class="newappdiv">
 					<form id="healthsec">
 						<input type="text" id="healthid2" name="healthid2" class="id">
-						<label for="healthlist">Healthy Issue:</label>
+						<label for="healthlist">Health Issue:</label>
 						<select id="healthlist" name="docform">
 							<option value=""></option>
 							<option value="Avocado">Avocado</option>
@@ -204,8 +208,8 @@
 						<br>
 						<input type="text" id="apid4" name="apid4" class="id">
 						<input type="text" id="isid4" name="isid4" class="id">
-						<button type="button" onclick="saveAbility()">Save Document</button>
-						<button type="button" onclick="clearAbility()">Clear</button>
+						<button type="button" onclick="saveHealth()">Save Health</button>
+						<button type="button" onclick="clearHealth()">Clear</button>
 					</form>
 				</div>
 			</div>
