@@ -182,8 +182,15 @@ function fillEmpDetail(data) {
 	let docTable = document.getElementById("docTab");
 	let docContents = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
 	for (let i = 0; i < data.docs.length; i++){
-		contents2 += "<tr onclick='showDocs(this)'><td class='id'>" + data.docs[i].docid + "</td><td>" +  data.docs[i].doceng + "</td><td>"
+		docContents += "<tr onclick='showDocs(this)'><td class='id'>" + data.docs[i].docid + "</td><td>" +  data.docs[i].doceng + "</td><td>"
 					+ data.docs[i].when + "</td><td>" + data.docs[i].location + "</td>";
+	}
+
+	let healthTable = document.getElementById("healthTab");
+	let healthContents = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
+	for (let i = 0; i < data.health.length; i++){
+		healthContents += "<tr onclick='showHealth(this)'><td class='id'>" + data.health[i].healthid + "</td><td>" +  data.health[i].healtheng + "</td><td>"
+					+ data.health[i].when + "</td><td>" + data.health[i].location + "</td>";
 	}
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status)
@@ -191,10 +198,16 @@ function fillEmpDetail(data) {
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
 	docTable.innerHTML = docContents;
+	healthTable.innerHTML = healthContents;
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
+	document.getElementById("apid2").value = currappl.id;
+	document.getElementById("apid3").value = currappl.id;
+	document.getElementById("apid4").value = currappl.id;
 	clearSkill();
 	clearAbility();
+	clearDoc();
+	clearHealth();
 	resetNewApp();
 }
 
