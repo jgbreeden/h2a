@@ -102,6 +102,7 @@ var currskill = new Experience (0, "", 0, "", "", "", "", "produce");
 var currability = new Experience (0, "", 0, "", "", "", "", "ability");
 var currdoc = new Issues (0, "", 0, "", "", "", "", "document");
 var currhealth = new Issues (0, "", 0, "", "", "", "", "health");
+var currstatus = new Issues (0, "", 0, "", "", "", "", "status");
 var skilllist = [];
 var curdoc;
 
@@ -349,8 +350,8 @@ function clearDoc(){
 	document.getElementById("when2").value = "";
 	document.getElementById("locationdoc2").value = "";
 	document.getElementById("doctype2").value = "";
-	document.getElementById("apid2").value = 0;
-	document.getElementById("apid").value = currappl.id;
+	document.getElementById("isid").value = 0;
+	document.getElementById("apid3").value = currappl.id;
 }
 
 function clearHealth(){
@@ -358,10 +359,19 @@ function clearHealth(){
 	document.getElementById("when2").value = "";
 	document.getElementById("treatment2").value = "";
 	document.getElementById("doctype2").value = "";
-	document.getElementById("apid4").value = 0;
-	document.getElementById("isid4").value = currappl.id;
+	document.getElementById("isid4").value = 0;
+	document.getElementById("apid4").value = currappl.id;
 }
 
+function clearStatus(){
+	document.getElementById("statusid").value = "";
+	document.getElementById("when").value = "";
+	document.getElementById("whyhow").value = "";
+	document.getElementById("punishtime").value = "";
+	document.getElementById("punishreason").value = "";
+	document.getElementById("isid5").value = 0;
+	document.getElementById("apid5").value = currappl.id;
+}
 
 function saveSkill(){
 	if (document.getElementById("exid").value == 0) {
@@ -394,6 +404,14 @@ function saveHealth(){
 		currhealth.insert()
 	} else {
 		currhealth.update()
+	}
+}
+
+function saveStatus(){
+	if (document.getElementById("isid5").value == 0) {
+		currstatus.insert()
+	} else {
+		currstatus.update()
 	}
 }
 
