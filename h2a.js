@@ -396,16 +396,21 @@ function fillIssue(data){
 	let doccontents = "<option value=''></option>";
 	let health = document.getElementById("healthlist");
 	let healthcontents = "<option value=''></option>";
+	let status = document.getElementById("statuslist");
+	let statuscontents = "<option value=''></option>";
 	for (let i = 0; i < data.length; i++){
 		if (data[i].issuetype == "document"){
 			doccontents += "<option value='" + data[i].id + "'>" + data[i].issueenglish + "</option>"
-		} else {
+		} else if (data[i].issuetype == "health") {
 			healthcontents += "<option value='" + data[i].id + "'>" + data[i].issueenglish + "</option>"
+		} else {
+			statuscontents += "<option value='" + data[i].id + "'>" + data[i].issueenglish + "</option>"
 		}
 		
 	}
 	docs.innerHTML = doccontents;
 	health.innerHTML = healthcontents;
+	status.innetHTML= statuscontents;
 }
 
 // ................................................................................................................

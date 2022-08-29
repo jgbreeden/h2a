@@ -62,6 +62,21 @@
 			. $row["when"] . '", "location": "' . $row["location"] . '", "doceng": "' . $row["doceng"] . '"}';
 		$comma = ", ";
 	}
+	echo '],	"health": [';
+	$query = "SELECT health.id as healthid, health.medtreatment, health.reason, "
+			. " issues.issueenglish as healtheng FROM health INNER JOIN issues ON "
+			. "health.issuesid = issues.id WHERE health.applicantsid =?";
+
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param("i", $_GET["id"]);
+	$stmt->execute();
+	$comma = "";
+	$results = $stmt->get_result();
+	while ($row = $results->fetch_assoc()) {
+		echo $comma . '{ "healthid": "' . $row["healthid"] . '", "medtreatment": "' 
+			. $row["medtreatment"] . '", "reason": "' . $row["reason"] . '", "healtheng": "' . $row["healtheng"] . '"}';
+		$comma = ", ";
+	}
 	echo ']}';
 	//loop through rows, add skill fields
 	//end record
