@@ -100,8 +100,8 @@ class Issues  {
 var currappl;
 var currskill = new Experience (0, "", 0, "", "", "", "", "produce");
 var currability = new Experience (0, "", 0, "", "", "", "", "ability");
-var currdoc = new Document (0, "", 0, "", "", "", "", "document");
-var currhealth = new Document (0, "", 0, "", "", "", "", "health");
+var currdoc = new Issues (0, "", 0, "", "", "", "", "document");
+var currhealth = new Issues (0, "", 0, "", "", "", "", "health");
 var skilllist = [];
 var curdoc;
 
@@ -410,7 +410,7 @@ function fillIssue(data){
 	}
 	docs.innerHTML = doccontents;
 	health.innerHTML = healthcontents;
-	status.innetHTML= statuscontents;
+	status.innerHTML= statuscontents;
 }
 
 // ................................................................................................................
