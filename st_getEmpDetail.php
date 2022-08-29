@@ -48,7 +48,7 @@
 		$comma = ", ";
 	}
 	echo '], "docs": [';
-	$query = "SELECT documents.id as docid, documents.doctype, documents.when, documents.location, "
+	$query = "SELECT documents.id as docid, documents.doctype, documents.whengot, documents.location, "
 			. " issues.issueenglish as doceng FROM documents INNER JOIN issues ON "
 			. "documents.issuesid = issues.id WHERE documents.applicantsid =?";
 
