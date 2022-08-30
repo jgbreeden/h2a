@@ -281,7 +281,7 @@ function showAbility2(row){
 	document.getElementById("details2").value = cells[5].innerHTML;
 	document.getElementById("exid2").value = cells[0].innerHTML;
 	document.getElementById("apid2").value = currappl.id;
-	resetTable(document.getElementById("skillsTab"));
+	resetTable(document.getElementById("skillTab"));
 	row.classList.add("selected");
 }
 
