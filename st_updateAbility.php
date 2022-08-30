@@ -7,8 +7,8 @@
 	$sql = "UPDATE ability SET skillsid = ?, applicantsid = ?, years = ?, location = ?, percent = ?,"
 		. "details = ? WHERE id = ?;";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("sssssi", $_POST["skill2"], $_POST["apid2"],
-								$_POST["years2"], $_POST["location2"], $_POST["percent",]
+	$stmt->bind_param("ssssssi", $_POST["skill2"], $_POST["apid2"],
+								$_POST["years2"], $_POST["location2"], $_POST["percent"],
 								$_POST["details2"], $_POST["exid2"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
