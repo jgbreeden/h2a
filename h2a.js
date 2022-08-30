@@ -257,6 +257,7 @@ function sendData(data, phpFile, callBack){
 
 function showResult(data){
 	document.getElementById("result").innerHTML = data;
+	getData("st_getEmpDetail.php?id=" + currappl.id, fillEmpDetail);
 }
 
 function showSkill(row){
