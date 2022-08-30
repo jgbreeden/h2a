@@ -58,8 +58,8 @@
 	$comma = "";
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
-		echo $comma . '{ "docid": "' . $row["docid"] . '", "doctype": "' . $row["doctype"] . '", "when": "' 
-			. $row["when"] . '", "location": "' . $row["location"] . '", "doceng": "' . $row["doceng"] . '"}';
+		echo $comma . '{ "docid": "' . $row["docid"] . '", "doctype": "' . $row["doctype"] . '", "whengot": "' 
+			. $row["whengot"] . '", "location": "' . $row["location"] . '", "doceng": "' . $row["doceng"] . '"}';
 		$comma = ", ";
 	}
 	echo '],	"health": [';
