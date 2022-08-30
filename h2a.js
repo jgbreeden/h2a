@@ -177,7 +177,7 @@ function fillEmpDetail(data) {
 	for (let i = 0; i < data.ability.length; i++){
 		contents2 += "<tr onclick='showAbility2(this)'><td class='id'>" + data.ability[i].abid + "</td><td>" + data.ability[i].abeng + "</td><td>"
 					+ data.ability[i].years + "</td><td>" + data.ability[i].location + "</td><td class='id'>" + data.ability[i].percent
-					+ "</td><td class='id'>" + data.ability[i].details + "</td></tr>";
+					+ "</td><td class='id'>" + data.ability[i].details + "</td><td class='id'>" + data.ability[i].skillsid + "</td></tr>";
 	}
 
 	let docTable = document.getElementById("docTab");
@@ -391,7 +391,7 @@ function saveAbility(){
 
 
 function saveDoc(){
-	if (document.getElementById("apid2").value == 0) {
+	if (document.getElementById("docid2").value == 0) {
 		currdoc.insert()
 	} else {
 		currdoc.update()
