@@ -9,7 +9,7 @@
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("sssss", $_POST["isid"], $_POST["apid3"],
 								$_POST["when2"], $_POST["locationdoc2"],
-								$_POST["doctype2"];
+								$_POST["doctype2"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";
