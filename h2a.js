@@ -76,7 +76,7 @@ class Issues  {
 
 	update() {
 		var formData;
-		if (this.skilltype == "documents") {
+		if (this.skilltype == "document") {
 			formData = new FormData(document.getElementById("docform"));
 			sendData(formData, "st_updateDocs.php", showResult);
 		} else {
@@ -87,9 +87,9 @@ class Issues  {
 	
 	insert() {
 		var formData;
-		if (this.skilltype == "documents") {
+		if (this.issuetype == "document") {
 			formData = new FormData(document.getElementById("docform"));
-			sendData(formData, "st_insertDocs.php", showResult);
+			sendData(formData, "st_insertDocs.php", showResult);		
 		} else {
 			formData = new FormData(document.getElementById("healthsec"));
 			sendData(formData, "st_insertDocs.php", showResult);
