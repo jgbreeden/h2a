@@ -194,6 +194,13 @@ function fillEmpDetail(data) {
 					+ data.health[i].when + "</td><td>" + data.health[i].location + "</td>";
 	}
 
+	let statusTable = document.getElementById("statusTab");
+	let statusContents = "<tr><th>Status Issue</th><th>Reason</th></tr>";
+	for (let i = 0; i < data.health.length; i++){
+		statusContents += "<tr onclick='showstatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td>"
+					+ data.status[i].when + "</td><td>" + data.status[i].location + "</td>";
+	}
+
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status)
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
