@@ -1,0 +1,32 @@
+notes:
+
+Application process:
+    form is functional, but there are visual glitches
+    need to check if all data is saving correctly
+
+Back end:
+    Applicants/New Applicants
+        
+        need issues class activated - initialize blank objects
+        need list of used, select list box, and input fields for 
+            documents
+                --already filling list box
+                --already filling applicant docs
+                clear form
+                show values in form
+                save
+            health
+                need to fill list box
+                need to fill applicant health - fix sql in php
+                clear form
+                show values in form
+                save
+ 
+            issues
+
+            --need php files for each of the above
+            
+    
+    Assignments:
+        need visual clean up
+        need more lists: docs, health
