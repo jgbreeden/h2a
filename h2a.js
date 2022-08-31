@@ -190,21 +190,21 @@ function fillEmpDetail(data) {
 	let docContents = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
 	for (let i = 0; i < data.docs.length; i++){
 		docContents += "<tr onclick='showDocs(this)'><td class='id'>" + data.docs[i].docid + "</td><td>" +  data.docs[i].doceng + "</td><td>"
-					+ data.docs[i].when + "</td><td>" + data.docs[i].location + "</td>";
+					+ data.docs[i].whengot + "</td><td>" + data.docs[i].location + "</td>";
 	}
 
 	let healthTable = document.getElementById("healthTab");
 	let healthContents = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
 	for (let i = 0; i < data.health.length; i++){
 		healthContents += "<tr onclick='showHealth(this)'><td class='id'>" + data.health[i].healthid + "</td><td>" +  data.health[i].healtheng + "</td><td>"
-					+ data.health[i].when + "</td><td>" + data.health[i].location + "</td>";
+					+ data.health[i].whengot + "</td><td>" + data.health[i].location + "</td>";
 	}
 
 	let statusTable = document.getElementById("statusTab");
 	let statusContents = "<tr><th>Status Issue</th><th>Reason</th></tr>";
 	for (let i = 0; i < data.health.length; i++){
 		statusContents += "<tr onclick='showstatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td>"
-					+ data.status[i].when + "</td><td>" + data.status[i].location + "</td>";
+					+ data.status[i].whengot + "</td><td>" + data.status[i].location + "</td>";
 	}
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status)
@@ -263,6 +263,7 @@ function sendData(data, phpFile, callBack){
 
 function showResult(data){
 	document.getElementById("result").innerHTML = data;
+	getData("st_getEmpDetail.php?id=" + currappl.id, fillEmpDetail);
 }
 
 function showSkill(row){
@@ -286,8 +287,10 @@ function showAbility2(row){
 	document.getElementById("location2").value = cells[3].innerHTML;
 	document.getElementById("details2").value = cells[5].innerHTML;
 	document.getElementById("exid2").value = cells[0].innerHTML;
+	document.getElementById("abilities").value = cells[4].innerHTML;
+	document.getElementById("percent").value = cells[5].innerHTML;
 	document.getElementById("apid2").value = currappl.id;
-	resetTable(document.getElementById("skillTab"));
+	resetTable(document.getElementById("abilityTab"));
 	row.classList.add("selected");
 }
 
