@@ -294,6 +294,18 @@ function showAbility2(row){
 	row.classList.add("selected");
 }
 
+function showHealth(row){
+	let cells = row.getElementsByTagName("td");
+	currability = new Experience (cells[0].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, "treatment");
+	document.getElementById("isid4").value = cells[3].innerHTML;
+	document.getElementById("reason2").value = cells[2].innerHTML;
+	document.getElementById("treatment2").value = cells[1].innerHTML;
+	document.getElementById("healthid2").value = cells[0].innerHTML;
+	document.getElementById("apid4").value = currappl.id;
+	resetTable(document.getElementById("healthTab"));
+	row.classList.add("selected");
+}
+
 function resetTable(tabl){
 	rows = tabl.getElementsByTagName("tr");
 	for (let i = 0; i < rows.length; i++){
@@ -365,9 +377,8 @@ function clearDoc(){
 
 function clearHealth(){
 	document.getElementById("healthid2").value = "";
-	document.getElementById("when2").value = "";
 	document.getElementById("treatment2").value = "";
-	document.getElementById("doctype2").value = "";
+	document.getElementById("reason2").value = "";
 	document.getElementById("isid4").value = 0;
 	document.getElementById("apid4").value = currappl.id;
 }
