@@ -49,7 +49,7 @@
 	}
 	echo '], "docs": [';
 	$query = "SELECT documents.id as docid, documents.doctype, documents.whengot, documents.location, "
-			. " issues.issueenglish as doceng FROM documents INNER JOIN issues ON "
+			. " issues.issueenglish as doceng, documents.issuesid FROM documents INNER JOIN issues ON "
 			. "documents.issuesid = issues.id WHERE documents.applicantsid =?";
 
 	$stmt = $conn->prepare($query);
@@ -59,7 +59,8 @@
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
 		echo $comma . '{ "docid": "' . $row["docid"] . '", "doctype": "' . $row["doctype"] . '", "whengot": "' 
-			. $row["whengot"] . '", "location": "' . $row["location"] . '", "doceng": "' . $row["doceng"] . '"}';
+			. $row["whengot"] . '", "location": "' . $row["location"] . '", "doceng": "' . $row["doceng"] 
+			. '", "issuesid": "' . $row["issuesid"] . '"}';
 		$comma = ", ";
 	}
 	echo '],	"health": [';

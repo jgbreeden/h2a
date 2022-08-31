@@ -190,7 +190,7 @@ function fillEmpDetail(data) {
 	let docContents = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
 	for (let i = 0; i < data.docs.length; i++){
 		docContents += "<tr onclick='showDocs(this)'><td class='id'>" + data.docs[i].docid + "</td><td>" +  data.docs[i].doceng + "</td><td>"
-					+ data.docs[i].whengot + "</td><td>" + data.docs[i].location + "</td>";
+					+ data.docs[i].whengot + "</td><td>" + data.docs[i].location + "</td><td class='id'>" + data.docs[i].issuesid + "</td></tr>";
 	}
 
 	let healthTable = document.getElementById("healthTab");
@@ -303,6 +303,19 @@ function showHealth(row){
 	document.getElementById("healthid2").value = cells[0].innerHTML;
 	document.getElementById("apid4").value = currappl.id;
 	resetTable(document.getElementById("healthTab"));
+	row.classList.add("selected");
+}
+
+function showDocs(row){
+	let cells = row.getElementsByTagName("td");
+	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, "",cells[1].innerHTML, "documents");
+	document.getElementById("docid2").value = cells[0].innerHTML;
+	document.getElementById("doclist").value = cells[1].innerHTML;
+	document.getElementById("when2").value = cells[2].innerHTML;
+	document.getElementById("locationdoc2").value = cells[3].innerHTML;
+	document.getElementById("doctype2").value = "";
+	document.getElementById("apid3").value = currappl.id;
+	resetTable(document.getElementById("docform"));
 	row.classList.add("selected");
 }
 
