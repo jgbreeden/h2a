@@ -7,7 +7,7 @@
 	$sql = "UPDATE documents SET issuesid = ?, applicantsid = ?, medtreatment = ?, reason = ?,"
 		. "doctype = ? WHERE id=?;";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("iissi", $_POST["isid4"], $_POST["apid4"],
+	$stmt->bind_param("iissi", $_POST["healthlist"], $_POST["apid4"],
 								$_POST["treatment2"], $_POST["reason2"],
                                 $_POST["healthid2"]);
 	$result = $stmt->execute();

@@ -6,7 +6,7 @@
 	}
 	$sql = "INSERT INTO health (issuesid, applicantsid, medtreatment, reason) VALUES (?, ?, ?, ?);";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("iiss",  $_POST["isid4"],  $_POST["apid4"], $_POST["treatment2"], $_POST["reason2"]);
+	$stmt->bind_param("iiss",  $_POST["healthlist"],  $_POST["apid4"], $_POST["treatment2"], $_POST["reason2"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";
