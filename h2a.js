@@ -197,7 +197,7 @@ function fillEmpDetail(data) {
 	let healthContents = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
 	for (let i = 0; i < data.health.length; i++){
 		healthContents += "<tr onclick='showHealth(this)'><td class='id'>" + data.health[i].healthid + "</td><td>" +  data.health[i].healtheng + "</td><td>"
-					+ data.health[i].medtreatment + "</td><td>" + data.health[i].reason + "</td>";
+					+ data.health[i].medtreatment + "</td><td class='id'>" + data.health[i].reason + "</td><td class='id'>" + data.health[i].issuesid + "</td></tr>";
 	}
 
 	let statusTable = document.getElementById("statusTab");
@@ -296,10 +296,10 @@ function showAbility2(row){
 
 function showHealth(row){
 	let cells = row.getElementsByTagName("td");
-	currability = new Experience (cells[0].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, "treatment");
-	document.getElementById("healthlist").value = cells[3].innerHTML;
-	document.getElementById("reason2").value = cells[2].innerHTML;
-	document.getElementById("treatment2").value = cells[1].innerHTML;
+	currability = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, "treatment");
+	document.getElementById("healthlist").value = cells[4].innerHTML;
+	document.getElementById("reason2").value = cells[3].innerHTML;
+	document.getElementById("treatment2").value = cells[2].innerHTML;
 	document.getElementById("healthid2").value = cells[0].innerHTML;
 	document.getElementById("apid4").value = currappl.id;
 	resetTable(document.getElementById("healthTab"));

@@ -63,7 +63,7 @@
 		$comma = ", ";
 	}
 	echo '],	"health": [';
-	$query = "SELECT health.id as healthid, health.medtreatment, health.reason, "
+	$query = "SELECT health.id as healthid, health.medtreatment, health.reason, health.issuesid,"
 			. " issues.issueenglish as healtheng FROM health INNER JOIN issues ON "
 			. "health.issuesid = issues.id WHERE health.applicantsid =?";
 
@@ -73,8 +73,9 @@
 	$comma = "";
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
-		echo $comma . '{ "healthid": "' . $row["healthid"] . '", "medtreatment": "' 
-			. $row["medtreatment"] . '", "reason": "' . $row["reason"] . '", "healtheng": "' . $row["healtheng"] . '"}';
+		echo $comma . '{ "healthid": "' . $row["healthid"] . '", "healtheng": "' 
+			. $row["healtheng"] . '", "reason": "' . $row["reason"] . '", "medtreatment": "' . $row["medtreatment"] . '", "issuesid": "' 
+			. $row["issuesid"] . '"}';
 		$comma = ", ";
 	}
 	echo ']}';
