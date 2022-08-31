@@ -86,8 +86,6 @@ class Issues  {
 			formData = new FormData(document.getElementById("healthsec"));
 			sendData(formData, "st_updateDocs.php", showResult);
 		}
-		
-		
 	}
 	
 	insert() {
