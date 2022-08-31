@@ -34,7 +34,7 @@
 	}
 	echo '], "ability": [';
 	$query = "SELECT ability.id as abid, ability.years, ability.location, ability.percent, "
-			. "ability.details, skills.skillenglish as abeng FROM ability INNER JOIN skills ON "
+			. "ability.details, skills.skillenglish as abeng, ability.skillsid FROM ability INNER JOIN skills ON "
 			. "ability.skillsid = skills.id WHERE ability.applicantsid =?";
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_GET["id"]);
@@ -44,7 +44,7 @@
 	while ($row = $results->fetch_assoc()) {
 		echo $comma . '{ "abid": "' . $row["abid"] . '", "years": ' . $row["years"] . ', "location": "' 
 			. $row["location"] . '", "percent": ' . $row["percent"] . ', "abeng": "' . $row["abeng"]
-			. '", "details": "' . $row["details"] . '"}';
+			. '", "details": "' . $row["details"] . '", "skillsid": "' . $row["skillsid"] . '"}';
 		$comma = ", ";
 	}
 	echo '], "docs": [';
