@@ -34,7 +34,7 @@
 	}
 	echo '], "ability": [';
 	$query = "SELECT ability.id as abid, ability.years, ability.location, ability.percent, "
-			. "ability.details, skills.skillenglish as abeng FROM ability INNER JOIN skills ON "
+			. "ability.details, skills.skillenglish as abeng, ability.skillsid FROM ability INNER JOIN skills ON "
 			. "ability.skillsid = skills.id WHERE ability.applicantsid =?";
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_GET["id"]);
@@ -44,12 +44,12 @@
 	while ($row = $results->fetch_assoc()) {
 		echo $comma . '{ "abid": "' . $row["abid"] . '", "years": ' . $row["years"] . ', "location": "' 
 			. $row["location"] . '", "percent": ' . $row["percent"] . ', "abeng": "' . $row["abeng"]
-			. '", "details": "' . $row["details"] . '"}';
+			. '", "details": "' . $row["details"] . '", "skillsid": "' . $row["skillsid"] . '"}';
 		$comma = ", ";
 	}
 	echo '], "docs": [';
 	$query = "SELECT documents.id as docid, documents.doctype, documents.whengot, documents.location, "
-			. " issues.issueenglish as doceng FROM documents INNER JOIN issues ON "
+			. " issues.issueenglish as doceng, documents.issuesid FROM documents INNER JOIN issues ON "
 			. "documents.issuesid = issues.id WHERE documents.applicantsid =?";
 
 	$stmt = $conn->prepare($query);
@@ -59,7 +59,8 @@
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
 		echo $comma . '{ "docid": "' . $row["docid"] . '", "doctype": "' . $row["doctype"] . '", "whengot": "' 
-			. $row["whengot"] . '", "location": "' . $row["location"] . '", "doceng": "' . $row["doceng"] . '"}';
+			. $row["whengot"] . '", "location": "' . $row["location"] . '", "doceng": "' . $row["doceng"] 
+			. '", "issuesid": "' . $row["issuesid"] . '"}';
 		$comma = ", ";
 	}
 	echo '],	"health": [';
