@@ -270,7 +270,7 @@ function sendData(data, phpFile, callBack){
 function showResult(data){
 	document.getElementById("result").innerHTML = data;
 	document.getElementById("result").classList.remove("fade");
-	setTimeout(5000, function(){document.getElementById("result").classList.add("fade");})
+	setTimeout(function(){document.getElementById("result").style.visibility="hidden";}, 5000)
 	getData("st_getEmpDetail.php?id=" + currappl.id, fillEmpDetail);
 }
 
