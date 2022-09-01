@@ -79,6 +79,25 @@
 			. $row["issuesid"] . '"}';
 		$comma = ", ";
 	}
+	echo '],	"status": [';
+	$query = "SELECT status.id as statusid, status.whengot, status.whyhow, status.punishreason, status.punishtime, status.issuesid,"
+			. " issues.issueenglish as statuseng FROM status INNER JOIN issues ON "
+			. "status.issuesid = issues.id WHERE status.applicantsid =?";
+
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param("i", $_GET["id"]);
+	$stmt->execute();
+	$comma = "";
+	$results = $stmt->get_result();
+	while ($row = $results->fetch_assoc()) {
+		echo $comma . '{ "statusid": "' . $row["statusid"] . '", "statuseng": "' 
+			. $row["statuseng"] . '", "whengot": "'
+			. $row["whengot"] . '", "whyhow": "'
+			. $row["whyhow"] . '", "punishreason": "' . $row["punishreason"]
+			. '", "punishtime": "' . $row["punishtime"] . '", "issuesid": "' 
+			. $row["issuesid"] . '"}';
+		$comma = ", ";
+	}
 	echo ']}';
 	//loop through rows, add skill fields
 	//end record
