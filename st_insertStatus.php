@@ -4,9 +4,9 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "INSERT INTO documents (issuesid, applicantsid, whengot, whyhow, punishreason, punishtime) VALUES (?, ?, ?, ?, ?, ?);";
+	$sql = "INSERT INTO status (issuesid, applicantsid, whengot, whyhow, punishreason, punishtime) VALUES (?, ?, ?, ?, ?, ?);";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("iissss",  $_POST["statuslist"],  $_POST["apid5"], $_POST["when3"], 
+	$stmt->bind_param("ssssss",  $_POST["statuslist"],  $_POST["apid5"], $_POST["when3"], 
 								$_POST["whyhow2"], $_POST["punishreason2"], $_POST["punishtime2"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
