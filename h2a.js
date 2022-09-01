@@ -270,7 +270,7 @@ function sendData(data, phpFile, callBack){
 function showResult(data){
 	document.getElementById("result").innerHTML = data;
 	document.getElementById("result").classList.remove("fade");
-	setTimeout(5000, function(){document.getElementById("result").classList.add("fade");})
+	setTimeout(function(){document.getElementById("result").style.visibility="hidden";}, 5000)
 	getData("st_getEmpDetail.php?id=" + currappl.id, fillEmpDetail);
 }
 
@@ -465,7 +465,7 @@ function saveHealth(){
 }
 
 function saveStatus(){
-	if (document.getElementById("isid5").value == 0) {
+	if (document.getElementById("statusid").value == 0) {
 		currstatus.insert()
 	} else {
 		currstatus.update()

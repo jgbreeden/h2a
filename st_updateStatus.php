@@ -4,10 +4,10 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "UPDATE documents SET issuesid = ?, applicantsid = ?, whengot = ?, whyhow = ?, punishreason = ?, punishtime = ?"
-		. " WHERE id= ?";
+	$sql = "UPDATE status SET issuesid = ?, applicantsid = ?, whengot = ?, whyhow = ?, punishreason = ?, punishtime = ?,"
+		. "doctype = ?";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("iissssi", $_POST["statuslist"], $_POST["apid5"],
+	$stmt->bind_param("sssssss", $_POST["statuslist"], $_POST["apid5"],
 								$_POST["when3"], $_POST["whyhow2"],
 								$_POST["punishreason2"], $_POST["punishtime2"], $_POST["statusid"]);
 	$result = $stmt->execute();
