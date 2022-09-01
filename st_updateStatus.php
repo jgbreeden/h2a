@@ -5,7 +5,7 @@
 		die("Connect error: " . $conn->connect_error);
 	}
 	$sql = "UPDATE status SET issuesid = ?, applicantsid = ?, whengot = ?, whyhow = ?, punishreason = ?, punishtime = ?"
-		. " WHERE id=?";
+		. " WHERE id = ?;";
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("sssssss", $_POST["statuslist"], $_POST["apid5"],
 								$_POST["when3"], $_POST["whyhow2"],

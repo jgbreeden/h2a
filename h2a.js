@@ -331,10 +331,10 @@ function showStatus(row){
 	let cells = row.getElementsByTagName("td");
 	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, cells[5].innerHTML, "status");
 	document.getElementById("statusid").value = cells[0].innerHTML;
-	document.getElementById("statuslist").value = cells[4].innerHTML;
+	document.getElementById("statuslist").value = cells[6].innerHTML;
 	document.getElementById("when3").value = cells[2].innerHTML;
-	document.getElementById("whyhow").value = cells[3].innerHTML;
-	document.getElementById("punishreason2").value = cells[1].innerHTML;
+	document.getElementById("whyhow2").value = cells[3].innerHTML;
+	document.getElementById("punishreason2").value = cells[4].innerHTML;
 	document.getElementById("punishtime2").value = cells[5].innerHTML;
 	document.getElementById("apid5").value = currappl.id;
 	resetTable(document.getElementById("statusTab"));
