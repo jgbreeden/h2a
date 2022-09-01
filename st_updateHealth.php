@@ -4,7 +4,7 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "UPDATE documents SET issuesid = ?, applicantsid = ?, medtreatment = ?, reason = ?,"
+	$sql = "UPDATE health SET issuesid = ?, applicantsid = ?, medtreatment = ?, reason = ?,"
 		. "doctype = ? WHERE id=?;";
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("iissi", $_POST["healthlist"], $_POST["apid4"],

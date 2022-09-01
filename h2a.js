@@ -465,7 +465,7 @@ function saveHealth(){
 }
 
 function saveStatus(){
-	if (document.getElementById("isid5").value == 0) {
+	if (document.getElementById("statusid").value == 0) {
 		currstatus.insert()
 	} else {
 		currstatus.update()
