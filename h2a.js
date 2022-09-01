@@ -205,7 +205,8 @@ function fillEmpDetail(data) {
 	let statusContents = "<tr><th>Status Issue</th><th>Reason</th></tr>";
 	for (let i = 0; i < data.health.length; i++){
 		statusContents += "<tr onclick='showstatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td>"
-					+ data.status[i].whengot + "</td><td>" + data.status[i].location + "</td>";
+					+ data.status[i].whengot + "</td><td class='id'>" + data.status[i].whyhow + "</td><td class='id'>" + data.status[i].statusreason + "</td><td class='id'>" 
+					+ data.status[i].statustime + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
 	}
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status)
@@ -214,15 +215,18 @@ function fillEmpDetail(data) {
 	table2.innerHTML = contents2;
 	docTable.innerHTML = docContents;
 	healthTable.innerHTML = healthContents;
+	statusTable.innerHTML = statusContents;
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	document.getElementById("apid2").value = currappl.id;
 	document.getElementById("apid3").value = currappl.id;
 	document.getElementById("apid4").value = currappl.id;
+	document.getElementById("apid5").value = currappl.id;
 	clearSkill();
 	clearAbility();
 	clearDoc();
 	clearHealth();
+	clearStatus();
 	resetNewApp();
 }
 
