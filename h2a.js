@@ -58,11 +58,11 @@ class Experience {
 }
 
 class Issues  {
-	constructor(id, skillsid, applicantsid, when, location, type, issueenglish, issuetype, whyhow, punished, punishtime, punishreason) {
+	constructor(id, skillsid, applicantsid, whengot, location, type, issueenglish, issuetype, whyhow, punished, punishtime, punishreason) {
 		this.id = id
 		this.skillsid = skillsid;
 		this.applicantsid = applicantsid;
-		this.when = when;
+		this.whengot = whengot;
 		this.location = location;
 		this.type = type;
 		this.issueenglish = issueenglish;
@@ -85,7 +85,7 @@ class Issues  {
 			sendData(formData, "st_updateHealth.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, "st_updateDocs.php", showResult);
+			sendData(formData, "st_updateStatus.php", showResult);
 		}
 	}
 	
@@ -99,7 +99,7 @@ class Issues  {
 			sendData(formData, "st_insertHealth.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, "st_insertDocs.php", showResult);
+			sendData(formData, "st_insertStatus.php", showResult);
 		}
 	}
 }
@@ -203,8 +203,8 @@ function fillEmpDetail(data) {
 
 	let statusTable = document.getElementById("statusTab");
 	let statusContents = "<tr><th>Status Issue</th><th>Reason</th></tr>";
-	for (let i = 0; i < data.health.length; i++){
-		statusContents += "<tr onclick='showstatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td>"
+	for (let i = 0; i < data.status.length; i++){
+		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td>"
 					+ data.status[i].whengot + "</td><td class='id'>" + data.status[i].whyhow + "</td><td class='id'>" + data.status[i].statusreason + "</td><td class='id'>" 
 					+ data.status[i].statustime + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
 	}
@@ -324,6 +324,20 @@ function showDocs(row){
 	row.classList.add("selected");
 }
 
+function showStatus(row){
+	let cells = row.getElementsByTagName("td");
+	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, cells[5].innerHTML, "status");
+	document.getElementById("statusid").value = cells[0].innerHTML;
+	document.getElementById("statuslist").value = cells[4].innerHTML;
+	document.getElementById("when3").value = cells[2].innerHTML;
+	document.getElementById("whyhow").value = cells[3].innerHTML;
+	document.getElementById("punishreason2").value = cells[1].innerHTML;
+	document.getElementById("punishtime2").value = cells[5].innerHTML;
+	document.getElementById("apid5").value = currappl.id;
+	resetTable(document.getElementById("statusTab"));
+	row.classList.add("selected");
+}
+
 function resetTable(tabl){
 	rows = tabl.getElementsByTagName("tr");
 	for (let i = 0; i < rows.length; i++){
@@ -402,12 +416,12 @@ function clearHealth(){
 }
 
 function clearStatus(){
-	document.getElementById("statusid").value = "";
-	document.getElementById("when").value = "";
-	document.getElementById("whyhow").value = "";
-	document.getElementById("punishtime").value = "";
-	document.getElementById("punishreason").value = "";
-	document.getElementById("isid5").value = 0;
+	document.getElementById("statuslist").value = "";
+	document.getElementById("when3").value = "";
+	document.getElementById("whyhow2").value = "";
+	document.getElementById("punishtime2").value = "";
+	document.getElementById("punishreason2").value = "";
+	document.getElementById("statusid").value = 0;
 	document.getElementById("apid5").value = currappl.id;
 }
 
