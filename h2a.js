@@ -264,6 +264,8 @@ function sendData(data, phpFile, callBack){
 
 function showResult(data){
 	document.getElementById("result").innerHTML = data;
+	document.getElementById("result").classList.remove("fade");
+	setTimeout(5000, function(){document.getElementById("result").classList.add("fade");})
 	getData("st_getEmpDetail.php?id=" + currappl.id, fillEmpDetail);
 }
 
@@ -376,6 +378,7 @@ function clearAbility(){
 	document.getElementById("years2").value = "";
 	document.getElementById("location2").value = "";
 	document.getElementById("details2").value = "";
+	document.getElementById("percent").value = "";
 	document.getElementById("exid2").value = 0;
 	document.getElementById("apid2").value = currappl.id;
 }

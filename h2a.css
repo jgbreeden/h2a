@@ -61,3 +61,14 @@ form {
 	float: left;
 }
 
+#result{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+}
+.fade{
+	transition: visiblity 5s;
+	transition-timing-function: ease-in;
+}
