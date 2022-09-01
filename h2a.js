@@ -259,6 +259,7 @@ function sendData(data, phpFile, callBack){
 		}
 	}
 	xhr.open("post", phpFile);
+	console.log(data)
 	xhr.send(data);
 }
 
@@ -311,7 +312,7 @@ function showDocs(row){
 	let cells = row.getElementsByTagName("td");
 	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, "",cells[1].innerHTML, "documents");
 	document.getElementById("docid2").value = cells[0].innerHTML;
-	document.getElementById("doclist").value = cells[1].innerHTML;
+	document.getElementById("doclist").value = cells[4].innerHTML;
 	document.getElementById("when2").value = cells[2].innerHTML;
 	document.getElementById("locationdoc2").value = cells[3].innerHTML;
 	document.getElementById("doctype2").value = "";
@@ -383,6 +384,7 @@ function clearAbility(){
 function clearDoc(){
 	document.getElementById("docid2").value = "";
 	document.getElementById("when2").value = "";
+	document.getElementById("doclist").value = "";
 	document.getElementById("locationdoc2").value = "";
 	document.getElementById("doctype2").value = "";
 	document.getElementById("isid").value = 0;
