@@ -316,7 +316,7 @@ function showHealth(row){
 
 function showDocs(row){
 	let cells = row.getElementsByTagName("td");
-	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, "",cells[1].innerHTML, "documents");
+	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, "",cells[1].innerHTML, "document");
 	document.getElementById("docid2").value = cells[0].innerHTML;
 	document.getElementById("doclist").value = cells[4].innerHTML;
 	document.getElementById("when2").value = cells[2].innerHTML;
