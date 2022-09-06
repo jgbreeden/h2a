@@ -204,9 +204,9 @@ function fillEmpDetail(data) {
 	let statusTable = document.getElementById("statusTab");
 	let statusContents = "<tr><th>Status Issue</th><th>Reason</th></tr>";
 	for (let i = 0; i < data.status.length; i++){
-		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td>"
-					+ data.status[i].whengot + "</td><td class='id'>" + data.status[i].whyhow + "</td><td class='id'>" + data.status[i].statusreason + "</td><td class='id'>" 
-					+ data.status[i].statustime + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
+		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td class='id'>"
+					+ data.status[i].whengot + "</td><td class='id'>" + data.status[i].whyhow + "</td><td class='id'>" + data.status[i].punishtime + "</td><td>" 
+					+ data.status[i].punishreason + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
 	}
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status)
@@ -329,7 +329,7 @@ function showDocs(row){
 
 function showStatus(row){
 	let cells = row.getElementsByTagName("td");
-	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, cells[5].innerHTML, "status");
+	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML, cells[1].innerHTML, "status");
 	document.getElementById("statusid").value = cells[0].innerHTML;
 	document.getElementById("statuslist").value = cells[6].innerHTML;
 	document.getElementById("when3").value = cells[2].innerHTML;

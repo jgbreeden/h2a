@@ -80,7 +80,7 @@
 		$comma = ", ";
 	}
 	echo '],	"status": [';
-	$query = "SELECT status.id as statusid, status.whengot, status.whyhow, status.punishreason, status.punishtime, status.issuesid,"
+	$query = "SELECT status.id as statusid, status.whengot, status.whyhow, status.punishtime, status.punishreason, status.issuesid,"
 			. " issues.issueenglish as statuseng FROM status INNER JOIN issues ON "
 			. "status.issuesid = issues.id WHERE status.applicantsid =?";
 
@@ -93,8 +93,8 @@
 		echo $comma . '{ "statusid": "' . $row["statusid"] . '", "statuseng": "' 
 			. $row["statuseng"] . '", "whengot": "'
 			. $row["whengot"] . '", "whyhow": "'
-			. $row["whyhow"] . '", "punishreason": "' . $row["punishreason"]
-			. '", "punishtime": "' . $row["punishtime"] . '", "issuesid": "' 
+			. $row["whyhow"] . '", "punishtime": "' . $row["punishtime"]
+			. '", "punishreason": "' . $row["punishreason"] . '", "issuesid": "' 
 			. $row["issuesid"] . '"}';
 		$comma = ", ";
 	}
