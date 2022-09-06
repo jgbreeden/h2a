@@ -84,7 +84,7 @@ class Issues  {
 			formData = new FormData(document.getElementById("healthsec"));
 			sendData(formData, "st_updateHealth.php", showResult);
 		} else {
-			formData = new FormData(document.getElementById("healthsec"));
+			formData = new FormData(document.getElementById("statusform"));
 			sendData(formData, "st_updateStatus.php", showResult);
 		}
 	}
@@ -98,7 +98,7 @@ class Issues  {
 			formData = new FormData(document.getElementById("healthsec"));
 			sendData(formData, "st_insertHealth.php", showResult);
 		} else {
-			formData = new FormData(document.getElementById("healthsec"));
+			formData = new FormData(document.getElementById("statusform"));
 			sendData(formData, "st_insertStatus.php", showResult);
 		}
 	}
