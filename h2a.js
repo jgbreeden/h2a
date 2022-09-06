@@ -205,7 +205,7 @@ function fillEmpDetail(data) {
 	let statusContents = "<tr><th>Status Issue</th><th>Reason</th></tr>";
 	for (let i = 0; i < data.status.length; i++){
 		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td class='id'>"
-					+ data.status[i].whengot + "</td><td class='id'>" + data.status[i].whyhow + "</td><td class='id'>" + data.status[i].punishtime + "</td><td>" 
+					+ data.status[i].whengot + "</td><td class='id'>" + data.status[i].whyhow + "</td><td>" + data.status[i].punishtime + "</td><td class='id'>" 
 					+ data.status[i].punishreason + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
 	}
 
