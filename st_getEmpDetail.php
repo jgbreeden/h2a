@@ -21,7 +21,10 @@
 		. $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
 		. $row["phonehome"] . '", "address": "' . $row["address"] . '", "city": "'
 		. $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . '0'
-		. '", "status": "' . $row["status"] . '", "skills": [ ';
+		. '", "status": "' . $row["status"] . '", "yumaonly": "' . $row["yumaonly"] . '", "travelwhy": "' 
+		. $row["travelwhy"] . '", "stay8mo": "' . $row["stay8mo"] . '", "overtime": "' 
+		. $row["overtime"] . '", "extend": "' . $row["extend"] . '", "extendwhynot": "'
+		. $row["extendwhynot"] . '", "skills": [ ';
 	if (! is_null( $row["skillenglish"])) {
 		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"] 
 			. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"] 
