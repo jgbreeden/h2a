@@ -1,5 +1,5 @@
 class Applicant {
-	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status) {
+	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, yumaonly, travelwhy, stay8mo) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -10,6 +10,9 @@ class Applicant {
 		this.state = state;
 		this.zip = zip;
 		this.status = status;
+		this.yumaonly = yumaonly;
+		this.travelwhy = travelwhy;
+		this.stay8mo = stay8mo;
 	}
 	
 	update() {
@@ -209,7 +212,7 @@ function fillEmpDetail(data) {
 					+ data.status[i].statustime + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
 	}
 
-	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status)
+	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status, data.yumaonly, data.travelwhy, data.stay8mo)
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
@@ -240,6 +243,21 @@ function resetNewApp(){
 	document.getElementById("state").value = currappl.state;
 	document.getElementById("zip").value = currappl.zip;
 	document.getElementById("status").value = currappl.status;
+	
+	if (currappl.yumaonly) {
+		document.getElementById("distanceyuma").value = true;
+	} else {
+		document.getElementById("distanceany").value = true;
+	}
+
+	document.getElementById("travelwhy").value = currappl.travelwhy;
+
+	if (currappl.stay8mo) {
+		document.getElementById("stay8moyes").value = true;
+	} else {
+		document.getElementById("stay8mono").value = true;
+	}
+
 }
 
 function clearNewApp(){
@@ -252,7 +270,17 @@ function clearNewApp(){
 	document.getElementById("state").value = "";
 	document.getElementById("zip").value = "";
 	document.getElementById("status").value = "";
-	document.getElementById("skillsTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
+	document.getElementById("skillsTab").innerHTML = "<tr><th>Experience</th><th>Years</th><th>Where</th></tr>";
+	document.getElementById("abilityTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
+	document.getElementById("docTab").innerHTML = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
+	document.getElementById("healthTab").innerHTML = "<tr><th>Health Issue</th><th>Years</th><th>Where</th></tr>";
+	document.getElementById("statusTab").innerHTML = "<tr><th>Status Type</th><th>Years</th></tr>";
+	clearSkill();
+	clearAbility();
+	clearDoc();
+	clearHealth();
+	clearStatus();
+	resetNewApp();
 }
 
 function sendData(data, phpFile, callBack){
