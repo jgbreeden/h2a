@@ -1,5 +1,5 @@
 class Applicant {
-	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status) {
+	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, yumaonly, travelwhy, stay8mo) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -10,6 +10,9 @@ class Applicant {
 		this.state = state;
 		this.zip = zip;
 		this.status = status;
+		this.yumaonly = yumaonly;
+		this.travelwhy = travelwhy;
+		this.stay8mo = stay8mo;
 	}
 	
 	update() {
@@ -204,12 +207,12 @@ function fillEmpDetail(data) {
 	let statusTable = document.getElementById("statusTab");
 	let statusContents = "<tr><th>Status Issue</th><th>Reason</th></tr>";
 	for (let i = 0; i < data.status.length; i++){
-		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td>"
-					+ data.status[i].whengot + "</td><td class='id'>" + data.status[i].whyhow + "</td><td class='id'>" + data.status[i].statusreason + "</td><td class='id'>" 
-					+ data.status[i].statustime + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
+		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td class='id'>"
+					+ data.status[i].whengot + "</td><td class='id'>" + data.status[i].whyhow + "</td><td>" + data.status[i].punishtime + "</td><td class='id'>" 
+					+ data.status[i].punishreason + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
 	}
 
-	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status)
+	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status, data.yumaonly, data.travelwhy, data.stay8mo)
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
@@ -240,6 +243,21 @@ function resetNewApp(){
 	document.getElementById("state").value = currappl.state;
 	document.getElementById("zip").value = currappl.zip;
 	document.getElementById("status").value = currappl.status;
+	
+	if (currappl.yumaonly) {
+		document.getElementById("distanceyuma").value = true;
+	} else {
+		document.getElementById("distanceany").value = true;
+	}
+
+	document.getElementById("travelwhy").value = currappl.travelwhy;
+
+	if (currappl.stay8mo) {
+		document.getElementById("stay8moyes").value = true;
+	} else {
+		document.getElementById("stay8mono").value = true;
+	}
+
 }
 
 function clearNewApp(){
@@ -252,7 +270,17 @@ function clearNewApp(){
 	document.getElementById("state").value = "";
 	document.getElementById("zip").value = "";
 	document.getElementById("status").value = "";
-	document.getElementById("skillsTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
+	document.getElementById("skillsTab").innerHTML = "<tr><th>Experience</th><th>Years</th><th>Where</th></tr>";
+	document.getElementById("abilityTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
+	document.getElementById("docTab").innerHTML = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
+	document.getElementById("healthTab").innerHTML = "<tr><th>Health Issue</th><th>Years</th><th>Where</th></tr>";
+	document.getElementById("statusTab").innerHTML = "<tr><th>Status Type</th><th>Years</th></tr>";
+	clearSkill();
+	clearAbility();
+	clearDoc();
+	clearHealth();
+	clearStatus();
+	resetNewApp();
 }
 
 function sendData(data, phpFile, callBack){
@@ -329,7 +357,7 @@ function showDocs(row){
 
 function showStatus(row){
 	let cells = row.getElementsByTagName("td");
-	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, cells[5].innerHTML, "status");
+	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML, cells[1].innerHTML, "status");
 	document.getElementById("statusid").value = cells[0].innerHTML;
 	document.getElementById("statuslist").value = cells[6].innerHTML;
 	document.getElementById("when3").value = cells[2].innerHTML;
@@ -504,13 +532,14 @@ function fillIssue(data){
 // ................................................................................................................
 
 class Employers {
-	constructor(id, company, phone, address, city, state) {
+	constructor(id, company, phone, address, city, state, zip) {
 		this.id = id
 		this.company = company;
 		this.phone = phone;
 		this.address = address;
 		this.city = city;
 		this.state = state;
+		this.zip = zip;
 	}
 	
 	update() {
@@ -525,7 +554,7 @@ class Employers {
 	
 }
 
-var currcomp = new Employers (0, "", "", "", "", "");
+var currcomp = new Employers (0, "", "", "", "", "", "");
 
 function getCompanies() {
 	getData("st_getComps.php", fillComp);
@@ -563,23 +592,25 @@ function getCompData(phpFile, callBack){
 }
 
 function fillCompDetail(data) {
-	currcomp = new Employers(data.id, data.company, data.phone, data.address, data.city, data.state);
+	currcomp = new Employers(data.id, data.company, data.phone, data.address, data.city, data.state, data.zip);
 	document.getElementById("compid").value = data.id;
 	document.getElementById("compname").value = data.company;
 	document.getElementById("officphone").value = data.phone;
 	document.getElementById("compaddress").value = data.address;
 	document.getElementById("compcity").value = data.city;
 	document.getElementById("compstate").value = data.state;
+	document.getElementById("compzip").value = data.zip;
 }
 
 function clearComp() {
-	currcomp = new Employers (0, "", "", "", "", "");
+	currcomp = new Employers (0, "", "", "", "", "", "");
 	document.getElementById("compid").value = 0;
 	document.getElementById("compname").value = "";
 	document.getElementById("officphone").value = "";
 	document.getElementById("compaddress").value = "";
 	document.getElementById("compcity").value = "";
 	document.getElementById("compstate").value = "";
+	document.getElementById("compzip").value = "";
 	resetTable(document.getElementById("companytab"));
 }
 
@@ -597,6 +628,7 @@ function resetComp(){
 	document.getElementById("compaddress").value = currcomp.address;
 	document.getElementById("compcity").value = currcomp.city;
 	document.getElementById("compstate").value = currcomp.state;
+	document.getElementById("compzip").value = currcomp.state;
 }
 
 function showCompResult(data){

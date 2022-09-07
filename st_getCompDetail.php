@@ -17,7 +17,8 @@
 	echo '{ "id": ' . $row["id"] . ', "company": "' . $row["company"]
 		. '", "phone": "' . $row["phone"] . '", "address": "'
 		. $row["address"] . '", "city": "' . $row["city"]
-		. '", "state": "' . $row["state"] . '"}';
+		. '", "state": "' . $row["state"] . '", "zip": "' . $row["zip"]
+		. '"}';
 	//loop through rows, add skill fields
 	//end record
 ?>

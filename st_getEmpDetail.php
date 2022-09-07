@@ -21,7 +21,10 @@
 		. $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
 		. $row["phonehome"] . '", "address": "' . $row["address"] . '", "city": "'
 		. $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . '0'
-		. '", "status": "' . $row["status"] . '", "skills": [ ';
+		. '", "status": "' . $row["status"] . '", "yumaonly": "' . $row["yumaonly"] . '", "travelwhy": "' 
+		. $row["travelwhy"] . '", "stay8mo": "' . $row["stay8mo"] . '", "overtime": "' 
+		. $row["overtime"] . '", "extend": "' . $row["extend"] . '", "extendwhynot": "'
+		. $row["extendwhynot"] . '", "skills": [ ';
 	if (! is_null( $row["skillenglish"])) {
 		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"] 
 			. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"] 
@@ -80,7 +83,7 @@
 		$comma = ", ";
 	}
 	echo '],	"status": [';
-	$query = "SELECT status.id as statusid, status.whengot, status.whyhow, status.punishreason, status.punishtime, status.issuesid,"
+	$query = "SELECT status.id as statusid, status.whengot, status.whyhow, status.punishtime, status.punishreason, status.issuesid,"
 			. " issues.issueenglish as statuseng FROM status INNER JOIN issues ON "
 			. "status.issuesid = issues.id WHERE status.applicantsid =?";
 
@@ -93,8 +96,8 @@
 		echo $comma . '{ "statusid": "' . $row["statusid"] . '", "statuseng": "' 
 			. $row["statuseng"] . '", "whengot": "'
 			. $row["whengot"] . '", "whyhow": "'
-			. $row["whyhow"] . '", "punishreason": "' . $row["punishreason"]
-			. '", "punishtime": "' . $row["punishtime"] . '", "issuesid": "' 
+			. $row["whyhow"] . '", "punishtime": "' . $row["punishtime"]
+			. '", "punishreason": "' . $row["punishreason"] . '", "issuesid": "' 
 			. $row["issuesid"] . '"}';
 		$comma = ", ";
 	}
