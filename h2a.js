@@ -207,9 +207,9 @@ function fillEmpDetail(data) {
 	let statusTable = document.getElementById("statusTab");
 	let statusContents = "<tr><th>Status Issue</th><th>Reason</th></tr>";
 	for (let i = 0; i < data.status.length; i++){
-		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td>"
-					+ data.status[i].whengot + "</td><td class='id'>" + data.status[i].whyhow + "</td><td class='id'>" + data.status[i].statusreason + "</td><td class='id'>" 
-					+ data.status[i].statustime + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
+		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td class='id'>"
+					+ data.status[i].whengot + "</td><td class='id'>" + data.status[i].whyhow + "</td><td>" + data.status[i].punishtime + "</td><td class='id'>" 
+					+ data.status[i].punishreason + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
 	}
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status, data.yumaonly, data.travelwhy, data.stay8mo)
@@ -357,7 +357,7 @@ function showDocs(row){
 
 function showStatus(row){
 	let cells = row.getElementsByTagName("td");
-	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, cells[5].innerHTML, "status");
+	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML, cells[1].innerHTML, "status");
 	document.getElementById("statusid").value = cells[0].innerHTML;
 	document.getElementById("statuslist").value = cells[6].innerHTML;
 	document.getElementById("when3").value = cells[2].innerHTML;
@@ -532,13 +532,14 @@ function fillIssue(data){
 // ................................................................................................................
 
 class Employers {
-	constructor(id, company, phone, address, city, state) {
+	constructor(id, company, phone, address, city, state, zip) {
 		this.id = id
 		this.company = company;
 		this.phone = phone;
 		this.address = address;
 		this.city = city;
 		this.state = state;
+		this.zip = zip;
 	}
 	
 	update() {
@@ -553,7 +554,7 @@ class Employers {
 	
 }
 
-var currcomp = new Employers (0, "", "", "", "", "");
+var currcomp = new Employers (0, "", "", "", "", "", "");
 
 function getCompanies() {
 	getData("st_getComps.php", fillComp);
@@ -591,23 +592,25 @@ function getCompData(phpFile, callBack){
 }
 
 function fillCompDetail(data) {
-	currcomp = new Employers(data.id, data.company, data.phone, data.address, data.city, data.state);
+	currcomp = new Employers(data.id, data.company, data.phone, data.address, data.city, data.state, data.zip);
 	document.getElementById("compid").value = data.id;
 	document.getElementById("compname").value = data.company;
 	document.getElementById("officphone").value = data.phone;
 	document.getElementById("compaddress").value = data.address;
 	document.getElementById("compcity").value = data.city;
 	document.getElementById("compstate").value = data.state;
+	document.getElementById("compzip").value = data.zip;
 }
 
 function clearComp() {
-	currcomp = new Employers (0, "", "", "", "", "");
+	currcomp = new Employers (0, "", "", "", "", "", "");
 	document.getElementById("compid").value = 0;
 	document.getElementById("compname").value = "";
 	document.getElementById("officphone").value = "";
 	document.getElementById("compaddress").value = "";
 	document.getElementById("compcity").value = "";
 	document.getElementById("compstate").value = "";
+	document.getElementById("compzip").value = "";
 	resetTable(document.getElementById("companytab"));
 }
 
@@ -625,6 +628,7 @@ function resetComp(){
 	document.getElementById("compaddress").value = currcomp.address;
 	document.getElementById("compcity").value = currcomp.city;
 	document.getElementById("compstate").value = currcomp.state;
+	document.getElementById("compzip").value = currcomp.state;
 }
 
 function showCompResult(data){

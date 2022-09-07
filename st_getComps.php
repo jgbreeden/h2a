@@ -17,6 +17,7 @@
 							. '", "address": "' . $row["address"]
 							. '", "city": "' . $row["city"]
 							. '", "state": "' . $row["state"]
+							. '", "zip": "' . $row["zip"]
 							. '"},';
 		}
 		$output = substr($output, 0, strlen($output) - 1); //remove trailing comma

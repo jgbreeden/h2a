@@ -3,6 +3,7 @@
 	width: 100%;
 	display: none;
 	height: 640px;
+	overflow: auto;
 }
 
 .staffmenu button{
@@ -67,8 +68,8 @@ form {
 	right: 0;
 }
 
-}
 .fade{
 	transition: visiblity 5s;
 	transition-timing-function: ease-in;
 }
+
