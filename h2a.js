@@ -504,13 +504,14 @@ function fillIssue(data){
 // ................................................................................................................
 
 class Employers {
-	constructor(id, company, phone, address, city, state) {
+	constructor(id, company, phone, address, city, state, zip) {
 		this.id = id
 		this.company = company;
 		this.phone = phone;
 		this.address = address;
 		this.city = city;
 		this.state = state;
+		this.zip = zip;
 	}
 	
 	update() {
@@ -525,7 +526,7 @@ class Employers {
 	
 }
 
-var currcomp = new Employers (0, "", "", "", "", "");
+var currcomp = new Employers (0, "", "", "", "", "", "");
 
 function getCompanies() {
 	getData("st_getComps.php", fillComp);
@@ -563,23 +564,25 @@ function getCompData(phpFile, callBack){
 }
 
 function fillCompDetail(data) {
-	currcomp = new Employers(data.id, data.company, data.phone, data.address, data.city, data.state);
+	currcomp = new Employers(data.id, data.company, data.phone, data.address, data.city, data.state, data.zip);
 	document.getElementById("compid").value = data.id;
 	document.getElementById("compname").value = data.company;
 	document.getElementById("officphone").value = data.phone;
 	document.getElementById("compaddress").value = data.address;
 	document.getElementById("compcity").value = data.city;
 	document.getElementById("compstate").value = data.state;
+	document.getElementById("compzip").value = data.zip;
 }
 
 function clearComp() {
-	currcomp = new Employers (0, "", "", "", "", "");
+	currcomp = new Employers (0, "", "", "", "", "", "");
 	document.getElementById("compid").value = 0;
 	document.getElementById("compname").value = "";
 	document.getElementById("officphone").value = "";
 	document.getElementById("compaddress").value = "";
 	document.getElementById("compcity").value = "";
 	document.getElementById("compstate").value = "";
+	document.getElementById("compzip").value = "";
 	resetTable(document.getElementById("companytab"));
 }
 
@@ -597,6 +600,7 @@ function resetComp(){
 	document.getElementById("compaddress").value = currcomp.address;
 	document.getElementById("compcity").value = currcomp.city;
 	document.getElementById("compstate").value = currcomp.state;
+	document.getElementById("compzip").value = currcomp.state;
 }
 
 function showCompResult(data){

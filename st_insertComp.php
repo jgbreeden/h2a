@@ -4,9 +4,9 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "INSERT INTO employers (company, phone, address, city, state) VALUES (?, ?, ?, ?, ?);";
+	$sql = "INSERT INTO employers (company, phone, address, city, state, zip) VALUES (?, ?, ?, ?, ?, ?);";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("sssss", $_POST["compfname"], $_POST["officphone"], $_POST["compaddress"], $_POST["compcity"], $_POST["compstate"]);
+	$stmt->bind_param("ssssss", $_POST["compfname"], $_POST["officphone"], $_POST["compaddress"], $_POST["compcity"], $_POST["compstate"], $_POST["compzip"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";
