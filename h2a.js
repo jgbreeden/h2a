@@ -285,6 +285,13 @@ function clearNewApp(){
 	document.getElementById("city").value = "";
 	document.getElementById("state").value = "";
 	document.getElementById("zip").value = "";
+	document.getElementById("distanceyuma").checked = false;
+	document.getElementById("distanceany").checked = false;
+	document.getElementById("travelwhy").value = "";
+	document.getElementById("stay8mo").checked = false;
+	document.getElementById("overtime").checked = false;
+	document.getElementById("extend").checked = false;
+	document.getElementById("extendwhynot").value = "";
 	document.getElementById("status").value = "";
 	document.getElementById("skillsTab").innerHTML = "<tr><th>Experience</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("abilityTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
