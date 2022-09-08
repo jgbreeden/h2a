@@ -286,9 +286,12 @@ function clearNewApp(){
 	document.getElementById("distanceyuma").checked = false;
 	document.getElementById("distanceany").checked = false;
 	document.getElementById("travelwhy").value = "";
-	document.getElementById("stay8mo").checked = false;
-	document.getElementById("overtime").checked = false;
-	document.getElementById("extend").checked = false;
+	document.getElementById("stay8moyes").checked = false;
+	document.getElementById("stay8mono").checked = false;
+	document.getElementById("overtimeyes").checked = false;
+	document.getElementById("overtimeno").checked = false;
+	document.getElementById("extendyes").checked = false;
+	document.getElementById("extendno").checked = false;
 	document.getElementById("extendwhynot").value = "";
 	document.getElementById("status").value = "";
 	document.getElementById("skillsTab").innerHTML = "<tr><th>Experience</th><th>Years</th><th>Where</th></tr>";
