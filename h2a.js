@@ -266,6 +266,14 @@ function resetNewApp(){
 		document.getElementById("extendno").checked = true;
 	}
 
+	document.getElementById("overtime").value = currappl.overtime;
+
+	if (currappl.overtime) {
+		document.getElementById("overtimeyes").checked = true;
+	} else {
+		document.getElementById("overtimeno").checked = true;
+	}
+
 }
 
 function clearNewApp(){
