@@ -258,6 +258,14 @@ function resetNewApp(){
 		document.getElementById("stay8mono").checked = true;
 	}
 
+	document.getElementById("extendwhynot").value = currappl.extendwhynot;
+
+	if (currappl.extend == "1") {
+		document.getElementById("extendyes").checked = true;
+	} else {
+		document.getElementById("extendno").checked = true;
+	}
+
 }
 
 function clearNewApp(){
