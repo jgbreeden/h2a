@@ -260,7 +260,7 @@ function resetNewApp(){
 
 	document.getElementById("extendwhynot").value = currappl.extendwhynot;
 
-	if (currappl.extend) {
+	if (currappl.extend == "1") {
 		document.getElementById("extendyes").checked = true;
 	} else {
 		document.getElementById("extendno").checked = true;
