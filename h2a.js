@@ -245,17 +245,17 @@ function resetNewApp(){
 	document.getElementById("status").value = currappl.status;
 	
 	if (currappl.yumaonly) {
-		document.getElementById("distanceyuma").value = true;
+		document.getElementById("distanceyuma").checked = true;
 	} else {
-		document.getElementById("distanceany").value = true;
+		document.getElementById("distanceany").checked = true;
 	}
 
 	document.getElementById("travelwhy").value = currappl.travelwhy;
 
 	if (currappl.stay8mo) {
-		document.getElementById("stay8moyes").value = true;
+		document.getElementById("stay8moyes").checked = true;
 	} else {
-		document.getElementById("stay8mono").value = true;
+		document.getElementById("stay8mono").checked = true;
 	}
 
 }
