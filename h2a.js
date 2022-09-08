@@ -1,5 +1,5 @@
 class Applicant {
-	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, yumaonly, travelwhy, stay8mo) {
+	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, yumaonly, travelwhy, stay8mo, overtime, extend, extendwhynot) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -13,6 +13,9 @@ class Applicant {
 		this.yumaonly = yumaonly;
 		this.travelwhy = travelwhy;
 		this.stay8mo = stay8mo;
+		this.overtime = overtime;
+		this.extend = extend;
+		this.extendwhynot = extendwhynot;
 	}
 	
 	update() {
