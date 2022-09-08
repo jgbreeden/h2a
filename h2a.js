@@ -107,7 +107,7 @@ class Issues  {
 	}
 }
 
-var currappl;
+var currappl = new Applicant (0, "", "", "", "", "", "", "", "", "", "", "");
 var currskill = new Experience (0, "", 0, "", "", "", "", "produce");
 var currability = new Experience (0, "", 0, "", "", "", "", "ability");
 var currdoc = new Issues (0, "", 0, "", "", "", "", "document");
