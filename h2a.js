@@ -215,7 +215,7 @@ function fillEmpDetail(data) {
 					+ data.status[i].punishreason + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
 	}
 
-	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status, data.yumaonly, data.travelwhy, data.stay8mo)
+	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status, data.yumaonly, data.travelwhy, data.stay8mo, data.overtime, data.extend, data.extendwhynot)
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
