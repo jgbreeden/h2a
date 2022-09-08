@@ -244,7 +244,7 @@ function resetNewApp(){
 	document.getElementById("zip").value = currappl.zip;
 	document.getElementById("status").value = currappl.status;
 	
-	if (currappl.yumaonly) {
+	if (currappl.yumaonly == "1") {
 		document.getElementById("distanceyuma").checked = true;
 	} else {
 		document.getElementById("distanceany").checked = true;
@@ -252,7 +252,7 @@ function resetNewApp(){
 
 	document.getElementById("travelwhy").value = currappl.travelwhy;
 
-	if (currappl.stay8mo) {
+	if (currappl.stay8mo == "1") {
 		document.getElementById("stay8moyes").checked = true;
 	} else {
 		document.getElementById("stay8mono").checked = true;
