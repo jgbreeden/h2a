@@ -239,7 +239,7 @@ function fillEmpDetail(data) {
 	clearDoc();
 	clearHealth();
 	clearStatus();
-	//resetNewApp();
+	resetNewApp();
 }
 
 function resetNewApp(){
@@ -313,7 +313,7 @@ function clearNewApp(){
 	clearDoc();
 	clearHealth();
 	clearStatus();
-	resetNewApp();
+	//resetNewApp();
 }
 
 function sendData(data, phpFile, callBack){
