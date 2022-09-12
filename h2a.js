@@ -1,5 +1,10 @@
+var myObj = { name: "test", list: ["blue", "green", "red"] };
+
+for(i=0; i < myObj.list.length; i++) {console.log(list[i])}
+
 class Applicant {
-	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, yumaonly, travelwhy, stay8mo, overtime, extend, extendwhynot) {
+	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, 
+				yumaonly, travelwhy, stay8mo, overtime, extend, extendwhynot) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -215,8 +220,12 @@ function fillEmpDetail(data) {
 					+ data.status[i].punishreason + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
 	}
 
+<<<<<<< HEAD
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
 		data.zip, data.status, data.yumaonly, data.travelwhy, data.stay8mo, data.overtime, data.extend, data.extendwhynot)
+=======
+	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state, 0, data.status, data.yumaonly, data.travelwhy, data.stay8mo, data.overtime, data.extend, data.extendwhynot)
+>>>>>>> 7cd0fdb1ecd53353f76e5f2546e0dbdf645a0f32
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
