@@ -1,3 +1,7 @@
+var myObj = { name: "test", list: ["blue", "green", "red"] };
+
+for(i=0; i < myObj.list.length; i++) {console.log(list[i])}
+
 class Applicant {
 	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, yumaonly, travelwhy, stay8mo, overtime, extend, extendwhynot) {
 		this.id = id
