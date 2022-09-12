@@ -82,10 +82,10 @@
 			. $row["issuesid"] . '"}';
 		$comma = ", ";
 	}
-	echo '],	"status": [';
-	$query = "SELECT status.id as statusid, status.whengot, status.whyhow, status.punishtime, status.punishreason, status.issuesid,"
-			. " issues.issueenglish as statuseng FROM status INNER JOIN issues ON "
-			. "status.issuesid = issues.id WHERE status.applicantsid =?";
+	echo '],	"issues": [';
+	$query = "SELECT issues.id as issuesid, issues.whengot, issues.whyhow, issues.punishtime, issues.punishreason, issues.issuesid,"
+			. " issues.issueenglish as issueseng FROM issues INNER JOIN issues ON "
+			. "status.issuesid = issues.id WHERE issues.applicantsid =?";
 
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_GET["id"]);
