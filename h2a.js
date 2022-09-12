@@ -3,8 +3,8 @@ var myObj = { name: "test", list: ["blue", "green", "red"] };
 for(i=0; i < myObj.list.length; i++) {console.log(list[i])}
 
 class Applicant {
-	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, 
-				yumaonly, travelwhy, stay8mo, overtime, extend, extendwhynot) {
+	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, yumaonly, 
+		travelwhy, stay8mo, overtime, extend, extendwhynot) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -213,11 +213,11 @@ function fillEmpDetail(data) {
 	}
 
 	let statusTable = document.getElementById("statusTab");
-	let statusContents = "<tr><th>Status Issue</th><th>Reason</th></tr>";
-	for (let i = 0; i < data.status.length; i++){
-		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.status[i].statusid + "</td><td>" +  data.status[i].statuseng + "</td><td class='id'>"
-					+ data.status[i].whengot + "</td><td class='id'>" + data.status[i].whyhow + "</td><td>" + data.status[i].punishtime + "</td><td class='id'>" 
-					+ data.status[i].punishreason + "</td><td class ='id'>" + data.status[i].issuesid + "</td></tr>";
+	let statusContents = "<tr><th>Issue Type</th><th>Reason</th></tr>";
+	for (let i = 0; i < data.issues.length; i++){
+		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.issues[i].statusid + "</td><td>" +  data.issues[i].statuseng + "</td><td class='id'>"
+					+ data.issues[i].whengot + "</td><td class='id'>" + data.issues[i].whyhow + "</td><td>" + data.issues[i].punishtime + "</td><td class='id'>" 
+					+ data.issues[i].punishreason + "</td><td class ='id'>" + data.issues[i].issuesid + "</td></tr>";
 	}
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,

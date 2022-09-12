@@ -82,7 +82,7 @@
 			. $row["issuesid"] . '"}';
 		$comma = ", ";
 	}
-	echo '],	"status": [';
+	echo '],	"issues": [';
 	$query = "SELECT status.id as statusid, status.whengot, status.whyhow, status.punishtime, status.punishreason, status.issuesid,"
 			. " issues.issueenglish as statuseng FROM status INNER JOIN issues ON "
 			. "status.issuesid = issues.id WHERE status.applicantsid =?";
