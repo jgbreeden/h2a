@@ -23,6 +23,12 @@ $address = htmlspecialchars($_POST["address"]);
 $city = htmlspecialchars($_POST["city"]);
 $state = htmlspecialchars($_POST["state"]);
 $gender = htmlspecialchars($_POST["gender"]);
+$yumaonly = htmlspecialchars($_POST["yumaonly"]);
+$travelwhy = htmlspecialchars($_POST["travelwhy"]);
+$stay8mo = htmlspecialchars($_POST["stay8mo"]);
+$overtime = htmlspecialchars($_POST["overtime"]);
+$extend = htmlspecialchars($_POST["extend"]);
+$extendwhynot = htmlspecialchars($_POST["extendwhynot"]);
 $dateofbirth = htmlspecialchars($_POST["dateofbirth"]);
 $email = htmlspecialchars($_POST["email"]);
 $age = htmlspecialchars($_POST["age"]);
@@ -34,9 +40,11 @@ $placeofbirth = htmlspecialchars($_POST["placeofbirth"]);
 
 
 
-$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, state, gender, dateofbirth, 
-    email, age, height, weight, maritalstatus, placeofbirth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $gender, $dateofbirth,
+$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, state, gender, yumaonly, 
+    travelwhy, stay8mo, overtime, extend, extendwhy, dateofbirth, 
+    email, age, height, weight, maritalstatus, placeofbirth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $gender, $yumaonly, 
+    $travelwhy, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth);
 $result = $stmt->execute();
 
