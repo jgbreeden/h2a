@@ -105,19 +105,38 @@ for($i = 0; $i < $count; $i++){
         $details = "";
     }
     $stmt->execute();
-} 
-if ($_POST["greenhouses"] == "yes") array_push($skills, array("greenhouses", $_POST["greenhouseswhat"], $_POST["greenhouseswhere"]));
-if ($_POST["irrigation"] == "yes") array_push($skills, array("irrigation", $_POST["irrigationexp"], $_POST["irrigationwhere"], $_POST["irrigationtype"]));
-if ($_POST["farm"] == "yes") array_push($skills, array("farm", $_POST["farmwhat"], $_POST["farmwhere"]));
-if ($_POST["drive"] == "yes") array_push($skills, array("drive", $_POST["drivewhat"], $_POST["drivewhere"]));
-if ($_POST["mech"] == "yes") array_push($skills, array("mech", $_POST["mechexp"], $_POST["mechwhere"], $_POST["mechgas"], $_POST["mechdoc"], $_POST["mechnodoc"], $_POST["mechtype"]));
-if ($_POST["welding"] == "yes") array_push($skills, array("welding", $_POST["weldingwhat"], $_POST["weldingwhere"], $_POST["weldingexp"]));
-if ($_POST["truck"] == "yes") array_push($skills, array("truck", $_POST["truckwhat"], $_POST["truckwhere"]));
+}
+
+$stmt = $conn->prepare("INSERT INTO ability (skillsid, applicantsid, years, location, details, percent) VALUES(?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("iissss", $skillsid, $id, $years, $location, $details, $percent);
+
+$skills = [];
+
+if ($_POST["greenhouses"] == "yes") array_push($skills, array("invernaderos", $_POST["greenhouseswhat"], $_POST["greenhouseswhere"]));
+if ($_POST["irrigation"] == "yes") array_push($skills, array("sistema de riego", $_POST["irrigationexp"], $_POST["irrigationwhere"], $_POST["irrigationtype"]));
+if ($_POST["farm"] == "yes") array_push($skills, array("alguna granja", $_POST["farmwhat"], $_POST["farmwhere"]));
+if ($_POST["drive"] == "yes") array_push($skills, array("conducir", $_POST["drivewhat"], $_POST["drivewhere"]));
+if ($_POST["mech"] == "yes") array_push($skills, array("mecanica", $_POST["mechexp"], $_POST["mechwhere"], $_POST["mechgas"], $_POST["mechdoc"], $_POST["mechnodoc"], $_POST["mechtype"]));
+if ($_POST["welding"] == "yes") array_push($skills, array("soldadura", $_POST["weldingwhat"], $_POST["weldingwhere"], $_POST["weldingexp"]));
+if ($_POST["truck"] == "yes") array_push($skills, array("troque y tráiler", $_POST["truckwhat"], $_POST["truckwhere"]));
 if ($_POST["tractor"] == "yes") array_push($skills, array("tractor", $_POST["tractorexp"], $_POST["tractorwhere"], $_POST["tracotrcargo"]));
-if ($_POST["fork"] == "yes") array_push($skills, array("fork", $_POST["forkexp"], $_POST["forkcargo"]));
-if ($_POST["electric"] == "yes") array_push($skills, array("electric", $_POST["electricexp"], $_POST["electricwhat"]));
+if ($_POST["fork"] == "yes") array_push($skills, array("montacargas", $_POST["forkexp"], $_POST["forkcargo"]));
+if ($_POST["electric"] == "yes") array_push($skills, array("electricidad", $_POST["electricexp"], $_POST["electricwhat"]));
 
+$percent = "";
 
+$count = count($skills);
+for($i = 0; $i < $count; $i++){
+    $skillsid = getskill($skills[$i]);
+    $years = $skills[$i][1];
+    $location = $skills[$i][2];
+    if (isset($skills[$i][3])){
+        $details = $skills[$i][3];
+    } else {
+        $details = "";
+    }
+    $stmt->execute();
+}
 
 
 
