@@ -34,14 +34,14 @@ $email = htmlspecialchars($_POST["email"]);
 $age = htmlspecialchars($_POST["age"]);
 $height = htmlspecialchars($_POST["height"]);
 $weight = htmlspecialchars($_POST["weight"]);
-$maritalstatus = htmlspecialchars($_POST["martialstatus"]);
+$maritalstatus = htmlspecialchars($_POST["maritalstatus"]);
 $placeofbirth = htmlspecialchars($_POST["placeofbirth"]);
 
 
 
 
 $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, state, gender, yumaonly, 
-    travelwhy, stay8mo, overtime, extend, extendwhy, dateofbirth, 
+    travelwhy, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
     email, age, height, weight, maritalstatus, placeofbirth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $gender, $yumaonly, 
     $travelwhy, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
@@ -145,8 +145,64 @@ for($i = 0; $i < $count; $i++){
     }
     $stmt->execute();
 }
+$stmt = $conn->prepare("INSERT INTO documents (issuesid, applicantsid, doctype, whengot, location) VALUES(?, ?, ?, ?, ?)");
+$stmt->bind_param("iisss", $issuesid, $id, $doc, $when1, $where);
+$issues = [];
+
+if ($_POST["passport"] == "yes") array_push($issues, array("passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
 
 
+$count = count($issues);
+for($i = 0; $i < $count; $i++){
+    $issuesid = getissues($issues[$i]);
+    $doc = $issues[$i][1];
+    $when1 = $issues[$i][2];
+    $where = $issues[$i][3];
+    $stmt->execute();
+}
+
+
+$stmt = $conn->prepare("INSERT INTO health (issuesid, applicantsid, medtreatment, reason) VALUES(?, ?, ?, ?)");
+$stmt->bind_param("iiss", $issuesid, $id, $med, $reason1);
+$issues = [];
+$empty = "";
+
+if ($_POST["asma"] == "yes") array_push($issues, array("asthma", $_POST["asthmamed"], $empty));
+if ($_POST["diabetic"] == "yes") array_push($issues, array("diabetic", $_POST["diabeticmed"], $empty));
+if ($_POST["heart"] == "yes") array_push($issues, array("heart", $_POST["heartmed"], $empty));
+if ($_POST["backp"] == "yes") array_push($issues, array("back", $empty, $empty));
+if ($_POST["injury"] == "yes") array_push($issues, array("fracture", $_POST["injuryoptions"], $empty));
+if ($_POST["pressure"] == "yes") array_push($issues, array("high blood pressure", $empty, $_POST["pressureoptions"]));
+
+
+$count = count($issues);
+for($i = 0; $i < $count; $i++){
+    $issuesid = getissues($issues[$i]);
+    $med = $issues[$i][1];
+    $reason1 = $issues[$i][2];
+    $stmt->execute();
+}
+
+$stmt = $conn->prepare("INSERT INTO status (issuesid, applicantsid, whengot, whyhow, punishtime, punishreason) VALUES(?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("iissss", $issuesid, $id, $when2, $why1, $punish1, $reason2);
+$issues = [];
+$empty = "";
+
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+
+$count = count($issues);
+for($i = 0; $i < $count; $i++){
+    $issuesid = getissues($issues[$i]);
+    $when2 = $issues[$i][1];
+    $why1 = $issues[$i][2];
+    $punish1 = $issues[$i][3];
+    $reason2 = $issues[$i][4];
+    $stmt->execute();
+}
 
 if ($result == 1){
     echo "application has been saved";
@@ -164,6 +220,17 @@ function getskill($skill){
         return 0;
     }
 }
+function getissues($issues){
+    global $conn;
+    $sql = "SELECT id FROM issues WHERE issueenglish = '" .$issues[0] ."'";
+    $records = $conn->query($sql);
+    if ($row = $records->fetch_assoc()){
+        return $row["id"];
+    } else {
+        return 0;
+    }
+}
+
 
 ?>
 </body>
