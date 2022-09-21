@@ -96,7 +96,7 @@
     <hr>
     Sexo
 
-    <input type="radio" id="male" name="gender" value="male">
+    <input type="radio" id="male" name="gender" value="male" checked="true">
     <label for="male">Male</label><br>
     <input type="radio" id="female" name="gender" value="female">
     <label for="female">Female</label><br>
@@ -198,7 +198,7 @@
         <input type="radio" name="berenjena" value="no" id="berenjenano" checked="true">
         <label for="berenjenano">No</label><br>
         </div>
-        <div class="options" id="ajooptions">
+        <div class="options" id="berenjenaoptions">
         <label for="berenjenaexp">Anos de Experiencia</label><br>
         <input type="number" name="berenjenaexp"><br>
         <label for="where">Donde lo Trabajo</label><br>
@@ -243,7 +243,7 @@
         <input type="radio" name="cacahuate" value="no" id="cacahuateno" checked="true">
         <label for="cacahuateno">No</label><br>
         </div>
-        <div class="options" id="ajooptions">
+        <div class="options" id="cacahuateoptions">
         <label for="cacahuateexp">Anos de Experiencia</label><br>
         <input type="number" name="cacahuateexp"><br>
         <label for="where">Donde lo Trabajo</label><br>
@@ -345,7 +345,7 @@
         Chicharo
         <div class="inline"><input type="radio" name="chicharo" id="chicharo" value="yes" onclick="showOption(this)">
         <label for="chicharo">Si</label><br>
-        <input type="radio" name="ajo" value="no" id="chicharono" checked="true">
+        <input type="radio" name="chicharo" value="no" id="chicharono" checked="true">
         <label for="chicharono">No</label><br>
         </div>
         <div class="options" id="chicharooptions">
@@ -423,7 +423,7 @@
 
         <hr>
         Durazno
-      <div class="inline"><input type="radio" name="durazano" id="durazno" value="yes" onclick="showOption(this)">
+      <div class="inline"><input type="radio" name="durazno" id="durazno" value="yes" onclick="showOption(this)">
         <label for="durazno">Si</label><br>
         <input type="radio" name="durazno" value="no" id="duraznono" checked="true">
         <label for="duraznono">No</label><br>
@@ -695,7 +695,7 @@
 
         <hr>
         Repollo
-   <div class="inline"><input type="radio" name="repolla" id="repollo" value="yes" onclick="showOption(this)">
+   <div class="inline"><input type="radio" name="repollo" id="repollo" value="yes" onclick="showOption(this)">
         <label for="repollo">Si</label><br>
         <input type="radio" name="repollo" value="no" id="repollono" checked="true">
         <label for="repollono">No</label><br>
@@ -803,9 +803,9 @@
         <hr>
         Ha trabajado en alguna granja?
          <div class="inline"><input type="radio" name="farm" id="farm" value="yes" onclick="showOption(this)">
-        <label for="yn">Si</label><br>
-        <input type="radio" name="farm">
-        <label for="yn">No</label><br>
+        <label for="farm">Si</label><br>
+        <input type="radio" name="farm" value="no" id="farmno" checked="true">
+        <label for="farmno">No</label><br>
         </div>
         <div class="options" id="farmoptions">
         <label for="farmwhat">que es lo que hacia en le granja, Explique</label><br>
@@ -818,9 +818,9 @@
         <hr>
          Tiene experiencia manejando maquinaria Agricola?
          <div class="inline"><input type="radio" name="drive" id="drive" value="yes" onclick="showOption(this)">
-        <label for="yn">Si</label><br>
-        <input type="radio" name="drive">
-        <label for="yn">No</label><br>
+        <label for="drive">Si</label><br>
+        <input type="radio" name="drive" value="no" id="driveno" checked="true">
+        <label for="driveno">No</label><br>
         </div>
         <div class="options" id="driveoptions">
         <label for="drivewhat">que tipo de maquinera? </label><br>
@@ -833,9 +833,9 @@
         <hr>
          Sabe usted de mecanica para maquinaria agricola?
          <div class="inline"><input type="radio" name="mech" id="mech" value="yes" onclick="showOption(this)">
-        <label for="yn">Si</label><br>
-        <input type="radio" name="mech">
-        <label for="yn">No</label><br>
+        <label for="mech">Si</label><br>
+        <input type="radio" name="mech" value="no" id="mechno" checked="true">
+        <label for="mechno">No</label><br>
         </div>
         <div class="options" id="mechoptions">
         <input type="radio" name="mechgas" id="mech" value="diesel">
@@ -851,10 +851,10 @@
         
 
         Puede Comprobar con documento
-        <input type="radio" name="mechdoc" id="mech" value="yes">
-        <label for="doc">si</label><br>
-        <input type="radio" name="mecdoc">
-        <label for="doc" value="no">no</label><br>
+        <input type="radio" name="mechdoc" id="mechdoc" value="yes">
+        <label for="mechdoc">si</label><br>
+        <input type="radio" name="mecdoc" value="no" id="mechno" checked="true">
+        <label for=" mechdoc">no</label> value="no">no</label><br>
 
         <label for="where">si no puede comprobar, Porque Motivo</label><br>
         <input type="text" name="mechnodoc"><br>
@@ -867,9 +867,9 @@
         <hr>
          Sabe soldadura?
          <div class="inline"><input type="radio" name="welding" id="welding" value="yes" onclick="showOption(this)">
-        <label for="yn">Si</label><br>
-        <input type="radio" name="welding">
-        <label for="yn">No</label><br>
+        <label for="welding">Si</label><br>
+        <input type="radio" name="welding" value="no" id="weldingno" checked="true">
+        <label for="weldingno">No</label><br>
         </div>
         <div class="options" id="weldingoptions">
         <label for="weldingwhat">que tipo de soldadura? </label><br>
@@ -884,9 +884,9 @@
         <hr>
         sabe manejar troque, como trailer?
          <div class="inline"><input type="radio" name="truck" id="truck" value="yes" onclick="showOption(this)">
-        <label for="yn">Si</label><br>
-        <input type="radio" name="truck">
-        <label for="yn">No</label><br>
+        <label for="truck">Si</label><br>
+        <input type="radio" name="truck" value="no" id="truckno" checked="true">
+        <label for="truckno">No</label><br>
         </div>
         <div class="options" id="truckoptions">
         <label for="truckwhat">que tipo de trailer?mencione los tipos(Nombre, Ruedas o Toneladas) </label><br>
@@ -899,9 +899,9 @@
         <hr>
         Sabe manejar tractor?
         <div class="inline"><input type="radio" name="tractor" id="tractor" value="yes" onclick="showOption(this)">
-       <label for="yn">Si</label><br>
-       <input type="radio" name="tractor">
-       <label for="yn">No</label><br>
+       <label for="tractor">Si</label><br>
+       <input type="radio" name="tractor" value="no" id="tractorno" checked="true">
+       <label for="tractorno">No</label><br>
        </div>
        <div class="options" id="tractoroptions">
         <label for="cargo">con carga</label><br>
@@ -920,9 +920,9 @@
         <hr>
        Sabe manejar montacargas?
        <div class="inline"><input type="radio" name="fork" id="fork" value="yes" onclick="showOption(this)">
-      <label for="yn">Si</label><br>
-      <input type="radio" name="fork">
-      <label for="yn">No</label><br>
+      <label for="fork">Si</label><br>
+      <input type="radio" name="fork" value="no" id="forkno" checked="true">
+      <label for="forkno">No</label><br>
       </div>
       <div class="options" id="forkoptions">
         <input type="radio" name="forkcargo" id="forkwcargo" value="yescargo">
@@ -938,10 +938,10 @@
 
     <hr>
       Sabe de electricidad?
-      <div class="inline"><input type="radio" name="eletric" id="electric" value="yes" onclick="showOption(this)">
-     <label for="yn">Si</label><br>
-     <input type="radio" name="electric">
-     <label for="yn">No</label><br>
+      <div class="inline"><input type="radio" name="electric" id="electric" value="yes" onclick="showOption(this)">
+     <label for="electric">Si</label><br>
+     <input type="radio" name="electric" value="no" id="electricno" checked="true">
+     <label for="electricno">No</label><br>
      </div>
      <div class="options" id="electricoptions">
      <label for="electricwhat">A que ha dado mantenimiento</label><br>
@@ -1136,7 +1136,7 @@
 
 <hr>
     Ha trabajo en los Estados Unidos en el Campo
-    <div class="inline"><input type="radio" name="historywork" id="hiswork" value="yes" onclick="showOption(this)">
+    <div class="inline"><input type="radio" name="historywork" id="historywork" value="yes" onclick="showOption(this)">
     <label for="historywork">Si</label><br>
     <input type="radio" name="historywork" value="No" id="historyworkno" checked="true">
     <label for="historyworkno">No</label><br>
@@ -1185,7 +1185,7 @@
     <input type="radio" name="migrate" value="No" id="migrateno" checked="true">
     <label for="migrateno">No</label><br>
     </div>
- <hr>w
+ <hr>
  
  <hr>
     Marque con una X, para donde esta Aplicand
@@ -1375,10 +1375,11 @@
 <hr>
     Esta Usted enterado, que esta Pre-solicitud, es para aplicar para una Visa H-2A, 
         que es una Visa de Trabajo
-    <input type="radio" name="aware" value="yes" id="aware" onclick="showOption(this)">
+    <div class="inline"><input type="radio" name="aware" value="yes" id="aware" onclick="showOption(this)">
     <label for="aware">Si</label><br>
     <input type="radio" name="aware" value="No" id="awareno" checked="true">
     <label for="awareno">No</label><br>
+    </div>
 
     <div class="options" id="awareoptions">
     <label for="lang">En su Palabras que conoce de esta Visa</label><br>
@@ -1409,7 +1410,7 @@
 <hr>
 
 <hr>
-    <label for="lang">fecha que fue ilenada</label><br>
+    <label for="lang">fecha que fue llenada</label><br>
     <input type="text" id="" name="lang"><br>
 <hr>
 </div>
