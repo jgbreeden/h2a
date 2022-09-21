@@ -147,7 +147,7 @@ for($i = 0; $i < $count; $i++){
 }
 $stmt = $conn->prepare("INSERT INTO documents (issuesid, applicantsid, doctype, whengot, location) VALUES(?, ?, ?, ?, ?)");
 $stmt->bind_param("iisss", $issuesid, $id, $doc, $when1, $where);
-$issues = []
+$issues = [];
 
 if ($_POST["passport"] == "yes") array_push($issues, array("passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
 
@@ -163,7 +163,7 @@ for($i = 0; $i < $count; $i++){
 
 
 $stmt = $conn->prepare("INSERT INTO health (issuesid, applicantsid, medtreatment, reason) VALUES(?, ?, ?, ?)");
-$stmt->bind_param("iiss", $issuesid, $id, $med, $reason2);
+$stmt->bind_param("iiss", $issuesid, $id, $med, $reason1);
 $issues = [];
 $empty = "";
 
@@ -179,10 +179,30 @@ $count = count($issues);
 for($i = 0; $i < $count; $i++){
     $issuesid = getissues($issues[$i]);
     $med = $issues[$i][1];
-    $reason2 = $issues[$i][2];
+    $reason1 = $issues[$i][2];
     $stmt->execute();
 }
 
+$stmt = $conn->prepare("INSERT INTO status (issuesid, applicantsid, whengot, whyhow, punishtime, punishreason) VALUES(?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("iissss", $issuesid, $id, $when2, $why1, $punish1, $reason2);
+$issues = [];
+$empty = "";
+
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+
+$count = count($issues);
+for($i = 0; $i < $count; $i++){
+    $issuesid = getissues($issues[$i]);
+    $when2 = $issues[$i][1];
+    $why1 = $issues[$i][2];
+    $punish1 = $issues[$i][3];
+    $reason2 = $issues[$i][4];
+    $stmt->execute();
+}
 
 if ($result == 1){
     echo "application has been saved";
@@ -210,6 +230,7 @@ function getissues($issues){
         return 0;
     }
 }
+
 
 ?>
 </body>
