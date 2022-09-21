@@ -1,6 +1,6 @@
 class Applicant {
 	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, yumaonly, 
-		travelwhy, stay8mo, overtime, extend, extendwhynot) {
+		travelwhy, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, age, height, weight, maritalstatus, placeofbirth) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -17,6 +17,13 @@ class Applicant {
 		this.overtime = overtime;
 		this.extend = extend;
 		this.extendwhynot = extendwhynot;
+		this.dateofbirth = dateofbirth;
+		this.email = email;
+		this.age = age;
+		this.height = height;
+		this.weight = weight;
+		this.maritalstatus = maritalstatus;
+		this.placeofbirth = placeofbirth;
 	}
 	
 	update() {
@@ -217,7 +224,8 @@ function fillEmpDetail(data) {
 	}
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
-		data.zip, data.status, data.yumaonly, data.travelwhy, data.stay8mo, data.overtime, data.extend, data.extendwhynot)
+		data.zip, data.status, data.yumaonly, data.travelwhy, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
+		data.dateofbirth, data.email, data.age, data.height, data.weight, data.maritalstatus, data.placeofbirth)
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
@@ -248,7 +256,14 @@ function resetNewApp(){
 	document.getElementById("state").value = currappl.state;
 	document.getElementById("zip").value = currappl.zip;
 	document.getElementById("status").value = currappl.status;
-	
+	document.getElementById("dateofbirth").value = currappl.status;
+	document.getElementById("email").value = currappl.status;
+	document.getElementById("age").value = currappl.status;
+	document.getElementById("height").value = currappl.status;
+	document.getElementById("weight").value = currappl.status;
+	document.getElementById("maritalstatus").value = currappl.status;
+	document.getElementById("placeofbirth").value = currappl.status;
+
 	if (currappl.yumaonly == "1") {
 		document.getElementById("distanceyuma").checked = true;
 	} else {
@@ -299,6 +314,13 @@ function clearNewApp(){
 	document.getElementById("extendno").checked = false;
 	document.getElementById("extendwhynot").value = "";
 	document.getElementById("status").value = "";
+	document.getElementById("dateofbirth").value = "";
+	document.getElementById("email").value = "";
+	document.getElementById("age").value = "";
+	document.getElementById("height").value = "";
+	document.getElementById("weight").value = "";
+	document.getElementById("maritalstatus").value = "";
+	document.getElementById("placeofbirth").value = "";
 	document.getElementById("skillsTab").innerHTML = "<tr><th>Experience</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("abilityTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("docTab").innerHTML = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";

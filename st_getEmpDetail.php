@@ -24,7 +24,10 @@
 		. '", "status": "' . $row["status"] . '", "yumaonly": "' . $row["yumaonly"] . '", "travelwhy": "' 
 		. $row["travelwhy"] . '", "stay8mo": "' . $row["stay8mo"] . '", "overtime": "' 
 		. $row["overtime"] . '", "extend": "' . $row["extend"] . '", "extendwhynot": "'
-		. $row["extendwhynot"] . '", "skills": [ ';
+		. $row["extendwhynot"] . '", "dateofbirth": "' . $row["dateofbirth"] . '", "email": "'
+		.$row["email"] . '", "age": "' . $row["age"] . '", "height": "' 
+		. $row["height"] . '", "weight": "' . $row["weight"] . '", "maritalstatus": "'
+		. $row["maritalstatus"] . '", "placeofbirth": "' . $row["placeofbirth"] . '", "skills": [ ';
 	if (! is_null( $row["skillenglish"])) {
 		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"] 
 			. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"] 
