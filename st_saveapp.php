@@ -205,7 +205,7 @@ for($i = 0; $i < $count; $i++){
 }
 
 if ($result == 1){
-    echo "application has been saved";
+    echo " application has been saved";
 } else {
     echo "problem saving application";
 };
