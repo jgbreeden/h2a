@@ -187,14 +187,14 @@ function fillEmps(data) {
 
 function fillEmpDetail(data) {
 	let table = document.getElementById("skillsTab");
-	let contents = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
+	let contents = "<tr><th>Experiance</th><th>Years</th><th>Where</th></tr>";
 	for (let i = 0; i < data.skills.length; i++){
 		contents += "<tr onclick='showSkill(this)'><td class='id'>" + data.skills[i].exid + "</td><td>" + data.skills[i].skillenglish + "</td><td>"
 					+ data.skills[i].years + "</td><td>" + data.skills[i].location + "</td><td class='id'>" + data.skills[i].skillsid
 					+ "</td><td class='id'>" + data.skills[i].details + "</td></tr>";
 	}
 	let table2 = document.getElementById("abilityTab");
-	let contents2 = "<tr><th>Job ability</th><th>Years</th><th>Where</th></tr>";
+	let contents2 = "<tr><th>Job Skill</th><th>Years</th><th>Where</th></tr>";
 	for (let i = 0; i < data.ability.length; i++){
 		contents2 += "<tr onclick='showAbility2(this)'><td class='id'>" + data.ability[i].abid + "</td><td>" + data.ability[i].abeng + "</td><td>"
 					+ data.ability[i].years + "</td><td>" + data.ability[i].location + "</td><td class='id'>" + data.ability[i].percent
@@ -256,13 +256,13 @@ function resetNewApp(){
 	document.getElementById("state").value = currappl.state;
 	document.getElementById("zip").value = currappl.zip;
 	document.getElementById("status").value = currappl.status;
-	document.getElementById("dateofbirth").value = currappl.status;
-	document.getElementById("email").value = currappl.status;
-	document.getElementById("age").value = currappl.status;
-	document.getElementById("height").value = currappl.status;
-	document.getElementById("weight").value = currappl.status;
-	document.getElementById("maritalstatus").value = currappl.status;
-	document.getElementById("placeofbirth").value = currappl.status;
+	document.getElementById("dateofbirth").value = currappl.dateofbirth;
+	document.getElementById("email").value = currappl.email;
+	document.getElementById("age").value = currappl.age;
+	document.getElementById("height").value = currappl.height;
+	document.getElementById("weight").value = currappl.weight;
+	document.getElementById("maritalstatus").value = currappl.maritalstatus;
+	document.getElementById("placeofbirth").value = currappl.placeofbirth;
 
 	if (currappl.yumaonly == "1") {
 		document.getElementById("distanceyuma").checked = true;
@@ -325,7 +325,7 @@ function clearNewApp(){
 	document.getElementById("abilityTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("docTab").innerHTML = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("healthTab").innerHTML = "<tr><th>Health Issue</th><th>Years</th><th>Where</th></tr>";
-	document.getElementById("statusTab").innerHTML = "<tr><th>Status Type</th><th>Years</th></tr>";
+	document.getElementById("statusTab").innerHTML = "<tr><th>Issue Type</th><th>Years</th></tr>";
 	clearSkill();
 	clearAbility();
 	clearDoc();
@@ -469,6 +469,7 @@ function clearSkill(){
 	document.getElementById("details").value = "";
 	document.getElementById("exid").value = 0;
 	document.getElementById("apid").value = 0;//currappl.id;
+	resetTable(document.getElementById("skillsTab"));
 }
 
 function clearAbility(){
@@ -479,6 +480,7 @@ function clearAbility(){
 	document.getElementById("percent").value = "";
 	document.getElementById("exid2").value = 0;
 	document.getElementById("apid2").value = 0;// currappl.id;
+	resetTable(document.getElementById("abilityTab"));
 }
 
 function clearDoc(){
@@ -489,6 +491,7 @@ function clearDoc(){
 	document.getElementById("doctype2").value = "";
 	document.getElementById("isid").value = 0;
 	document.getElementById("apid3").value = 0; // currappl.id;
+	resetTable(document.getElementById("docTab"));
 }
 
 function clearHealth(){
@@ -497,6 +500,7 @@ function clearHealth(){
 	document.getElementById("reason2").value = "";
 	document.getElementById("healthid2").value = 0;
 	document.getElementById("apid4").value = 0; //currappl.id;
+	resetTable(document.getElementById("healthTab"));
 }
 
 function clearStatus(){
@@ -507,6 +511,7 @@ function clearStatus(){
 	document.getElementById("punishreason2").value = "";
 	document.getElementById("statusid").value = 0;
 	document.getElementById("apid5").value = 0; //currappl.id;
+	resetTable(document.getElementById("statusTab"));
 }
 
 function saveSkill(){
@@ -684,6 +689,7 @@ function resetComp(){
 
 function showCompResult(data){
 	document.getElementById("compresult").innerHTML = data;
+	getCompanies();
 }
 
 // ................................................................................................................

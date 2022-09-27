@@ -24,8 +24,15 @@ function tabChange(tab) {
         tabs[i].style.display = "none"
 
    }
+
    items[tab].classList.add("current")
    tabs[tab].style.display = "block"
+   if (tab == 1) {
+        document.getElementById("acelga").focus();
+
+    } else if (tab == 2) {
+        document.getElementById("passport").focus();
+    }
     // items[0].toggle("current");
    // items[1].toggle("current");
     }

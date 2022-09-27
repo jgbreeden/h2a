@@ -127,7 +127,7 @@ if ($_POST["drive"] == "yes") array_push($skills, array("conducir", $_POST["driv
 if ($_POST["mech"] == "yes") array_push($skills, array("mecanica", $_POST["mechexp"], $_POST["mechwhere"], $_POST["mechgas"], $_POST["mechdoc"], $_POST["mechnodoc"], $_POST["mechtype"]));
 if ($_POST["welding"] == "yes") array_push($skills, array("soldadura", $_POST["weldingwhat"], $_POST["weldingwhere"], $_POST["weldingexp"]));
 if ($_POST["truck"] == "yes") array_push($skills, array("troque y tráiler", $_POST["truckwhat"], $_POST["truckwhere"]));
-if ($_POST["tractor"] == "yes") array_push($skills, array("tractor", $_POST["tractorexp"], $_POST["tractorwhere"], $_POST["tracotrcargo"]));
+if ($_POST["tractor"] == "yes") array_push($skills, array("tractor", $_POST["tractorexp"], $_POST["tractorwhere"], $_POST["tractorcargo"]));
 if ($_POST["fork"] == "yes") array_push($skills, array("montacargas", $_POST["forkexp"], $_POST["forkcargo"]));
 if ($_POST["electric"] == "yes") array_push($skills, array("electricidad", $_POST["electricexp"], $_POST["electricwhat"]));
 
@@ -188,7 +188,7 @@ $stmt->bind_param("iissss", $issuesid, $id, $when2, $why1, $punish1, $reason2);
 $issues = [];
 $empty = "";
 
-if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"], $empty, $empty));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
@@ -205,7 +205,7 @@ for($i = 0; $i < $count; $i++){
 }
 
 if ($result == 1){
-    echo "application has been saved";
+    echo " application has been saved";
 } else {
     echo "problem saving application";
 };
