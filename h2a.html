@@ -36,47 +36,91 @@
 			<br>
 			<form id="newappform">
 				<input type="number" id="id" name="id" class="id">
+				<table>
+				<tr>
+				<td>
 				<label for="fname">First name:</label>
+				</td><td>
 				<input type="text" id="first" name="fname">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="lname">Last name:</label>
+				</td><td>
 				<input type="text" id="last" name="lname">
-				<br>
+				</td>
+				</tr><tr>				
+				<td>
 				<label for="cphone">Cellphone:</label>
+				</td><td>
 				<input type="text" id="cphone" name="cphone">
-				<br>
+				</td>
+				</tr><tr>				
+				<td>
 				<label for="hphone">Home phone:</label>
+				</td><td>
 				<input type="text" id="hphone" name="hphone">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="address">Address:</label>
+				</td><td>
 				<input type="text" id="address" name="address">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="city">City:</label>
+				</td><td>
 				<input type="text" id="city" name="city">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="state">State:</label>
+				</td><td>
 				<input type="text" id="state" name="state">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="zip">Zip:</label>
+				</td><td>
 				<input type="text" id="zip" name="zip">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 
 				<label for="dateofbirth">Date of Birth:</label>
+				</td><td>
 				<input type="text" id="dateofbirth" name="dateofbirth">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="email">Email:</label>
+				</td><td>
 				<input type="text" id="email" name="email">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="age">Age:</label>
+				</td><td>
 				<input type="text" id="age" name="age">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="height">Height:</label>
+				</td><td>
 				<input type="text" id="height" name="weight">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="weight">Weight:</label>
+				</td><td>
 				<input type="text" id="weight" name="weight">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="maritalstatus">Marital Status:</label>
+				</td>
+				<td>
 				<select id="maritalstatus" name="maritalstatus">
 					<option value="married">Married</option>
 					<option value="widowed">Widowed</option>
@@ -84,47 +128,78 @@
 					<option value="divorced">Divorced</option>
 					<option value="single">Single</option>
 				</select>
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="placeofbirth">Place of Birth:</label>
+				</td><td>
 				<input type="text" id="placeofbirth" name="placeofbirth">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 
 				<label for="radio">Yuma Only:</label>
+				
 				<input type="radio" id="distanceyuma" name="yumaonly" value="1">
+				</td><td>
 				<label for="radio">Any Area:</label>
+				
 				<input type="radio" id="distanceany" name="yumaonly" value="0">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="travelwhy">Travel Why or Why Not:</label>
+				</td><td>
 				<input type="text" id="travelwhy" name="travelwhy" value="">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				Stay 8 months:
+				</td><td>
 				<label for="stay8mo">Yes:</label>
+				
 				<input type="radio" id="stay8moyes" name="stay8mo" value="1">
 				<label for="stay8mo">No:</label>
+				
 				<input type="radio" id="stay8mono" name="stay8mo" value="0">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				Over Time:
+				</td><td>
 				<label for="overtime">Yes:</label>
+				
 				<input type="radio" id="overtimeyes" name="overtime" value="1">
 				<label for="overtime">No:</label>
+				
 				<input type="radio" id="overtimeno" name="overtime" value="0">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				Extended Time:
+				</td><td>
 				<label for="extend">Yes:</label>
+				
 				<input type="radio" id="extendyes" name="extend" value="1">
 				<label for="extend">No:</label>
+				
 				<input type="radio" id="extendno" name="extend" value="0">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="extendwhynot">No Extended Time:</label>
+				</td><td>
 				<input type="text" id="extendwhynot" name="extendwhynot" value="">
-				<br>
+				</td>
+				</tr><tr>
+				<td>
 				<label for="status">Status:</label>
 				<select id="status" name="status">
 					<option value="accepted">Accepted</option>
 					<option value="rejected">Rejected</option>
 					<option value="assigned">Assigned</option>
 				</select>
-				<br>
+				</table>
 				
 				<button type="button" onclick="resetNewApp()">Cancel</button>
 				<button type="button" onclick="currappl.update()">Save</button>
