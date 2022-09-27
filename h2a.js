@@ -256,13 +256,13 @@ function resetNewApp(){
 	document.getElementById("state").value = currappl.state;
 	document.getElementById("zip").value = currappl.zip;
 	document.getElementById("status").value = currappl.status;
-	document.getElementById("dateofbirth").value = currappl.status;
-	document.getElementById("email").value = currappl.status;
-	document.getElementById("age").value = currappl.status;
-	document.getElementById("height").value = currappl.status;
-	document.getElementById("weight").value = currappl.status;
-	document.getElementById("maritalstatus").value = currappl.status;
-	document.getElementById("placeofbirth").value = currappl.status;
+	document.getElementById("dateofbirth").value = currappl.dateofbirth;
+	document.getElementById("email").value = currappl.email;
+	document.getElementById("age").value = currappl.age;
+	document.getElementById("height").value = currappl.height;
+	document.getElementById("weight").value = currappl.weight;
+	document.getElementById("maritalstatus").value = currappl.maritalstatus;
+	document.getElementById("placeofbirth").value = currappl.placeofbirth;
 
 	if (currappl.yumaonly == "1") {
 		document.getElementById("distanceyuma").checked = true;
@@ -689,6 +689,7 @@ function resetComp(){
 
 function showCompResult(data){
 	document.getElementById("compresult").innerHTML = data;
+	getCompanies();
 }
 
 // ................................................................................................................
