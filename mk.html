@@ -854,7 +854,7 @@
         <input type="radio" name="mechdoc" id="mechdoc" value="yes">
         <label for="mechdoc">si</label><br>
         <input type="radio" name="mecdoc" value="no" id="mechno" checked="true">
-        <label for=" mechdoc">no</label> value="no">no</label><br>
+        <label for=" mechdoc">no</label><br>
 
         <label for="where">si no puede comprobar, Porque Motivo</label><br>
         <input type="text" name="mechnodoc"><br>
@@ -904,14 +904,19 @@
        <label for="tractorno">No</label><br>
        </div>
        <div class="options" id="tractoroptions">
+        <input type="radio" name="tractorcargo">
         <label for="cargo">con carga</label><br>
         <input type="radio" name="tractorcargo">
-        <label for="cargo">sin cargo</label><br>
-       <input type="radio" name="tractorcargo"><br>
+        <label for="cargo">sin carga</label><br>
       
 
+<<<<<<< HEAD
        <label for="tractorexp">que tipo de cuantos anos de experienca? </label><br>
        <input type="number" name="tractorexp"><br>
+=======
+       <label for="tractorexp">Que tipo de cuantos anos de experienca? </label><br>
+       <input type="text" name="tractorexp"><br>
+>>>>>>> b25d66b435d984ac8c5f427e6ee390508b0d819f
        <label for="where">Donde trabjo</label><br>
        <input type="text" name="tractorwhere"><br>
        </div>
@@ -955,6 +960,26 @@
 <div class="tab">
 
 <hr>
+    Sabe Usted Ingles
+    <div class="inline"><input type="radio" name="english" id="english" value="yes" onclick="showOption(this)">
+    <label for="passport">Si</label><br>
+    <input type="radio" name="english" value="No" id="npass" onclick="showOption(this)" checked="true">
+    <label for="npass">No</label><br>
+    </div>
+    <div class="options" id="englishoptions">
+    <label for="speakpercent">Que porcentaje hablado</label><br>
+    <input type="number" id="speakpercent" name="speakpercent"><br>
+
+    <label for="writepercent">Que procentaje escrito</label><br>
+    <input type="number" id="writepercent" name="writepercent"><br>
+
+    <label for="whereenglish">Donde aprendio el ingles</label><br>
+    <input type="text" name="whereenglish"><br>
+    </div>
+    
+<hr>
+
+<hr>
     Cuenta con su Pasaporte Mexicano
     <div class="inline"><input type="radio" name="passport" id="passport" value="yes" onclick="showOption(this)">
     <label for="passport">Si</label><br>
@@ -974,6 +999,9 @@
     <div class="options" id="npassoptions">
     <label for="npass">Si no tiene su Pasaporte, Cuenta con los recursos para tramitarlo de inmediato, si asi se lo requieren</label><br>
     <input type="text" name="npass"><br>
+    </div>
+    <div class="options" id="passportoptions">
+        
     </div>
 <hr>
 
