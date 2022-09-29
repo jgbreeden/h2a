@@ -468,7 +468,7 @@ function clearSkill(){
 	document.getElementById("location").value = "";
 	document.getElementById("details").value = "";
 	document.getElementById("exid").value = 0;
-	document.getElementById("apid").value = 0;//currappl.id;
+	document.getElementById("apid").value = currappl.id;
 	resetTable(document.getElementById("skillsTab"));
 }
 
@@ -479,7 +479,7 @@ function clearAbility(){
 	document.getElementById("details2").value = "";
 	document.getElementById("percent").value = "";
 	document.getElementById("exid2").value = 0;
-	document.getElementById("apid2").value = 0;// currappl.id;
+	document.getElementById("apid2").value = currappl.id;
 	resetTable(document.getElementById("abilityTab"));
 }
 
@@ -490,7 +490,7 @@ function clearDoc(){
 	document.getElementById("locationdoc2").value = "";
 	document.getElementById("doctype2").value = "";
 	document.getElementById("isid").value = 0;
-	document.getElementById("apid3").value = 0; // currappl.id;
+	document.getElementById("apid3").value = currappl.id;
 	resetTable(document.getElementById("docTab"));
 }
 
@@ -499,7 +499,7 @@ function clearHealth(){
 	document.getElementById("treatment2").value = "";
 	document.getElementById("reason2").value = "";
 	document.getElementById("healthid2").value = 0;
-	document.getElementById("apid4").value = 0; //currappl.id;
+	document.getElementById("apid4").value = currappl.id;
 	resetTable(document.getElementById("healthTab"));
 }
 
@@ -510,7 +510,7 @@ function clearStatus(){
 	document.getElementById("punishtime2").value = "";
 	document.getElementById("punishreason2").value = "";
 	document.getElementById("statusid").value = 0;
-	document.getElementById("apid5").value = 0; //currappl.id;
+	document.getElementById("apid5").value = currappl.id;
 	resetTable(document.getElementById("statusTab"));
 }
 
