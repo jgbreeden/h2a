@@ -1,6 +1,7 @@
 class Applicant {
 	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, yumaonly, 
-		travelwhy, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, age, height, weight, maritalstatus, placeofbirth) {
+		travelwhy, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, age, height, weight, maritalstatus, placeofbirth,
+		whatknowvisa, howhearcita, otherhelp, whatknowcita) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -24,6 +25,10 @@ class Applicant {
 		this.weight = weight;
 		this.maritalstatus = maritalstatus;
 		this.placeofbirth = placeofbirth;
+		this.whatknowvisa = whatknowvisa; 
+		this.howhearcita = howhearcita; 
+		this.otherhelp = otherhelp; 
+		this.whatknowcita = whatknowcita;
 	}
 	
 	update() {
@@ -225,7 +230,8 @@ function fillEmpDetail(data) {
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
 		data.zip, data.status, data.yumaonly, data.travelwhy, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
-		data.dateofbirth, data.email, data.age, data.height, data.weight, data.maritalstatus, data.placeofbirth)
+		data.dateofbirth, data.email, data.age, data.height, data.weight, data.maritalstatus, data.placeofbirth,
+		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita)
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
@@ -292,6 +298,11 @@ function resetNewApp(){
 		document.getElementById("overtimeno").checked = true;
 	}
 
+	document.getElementById("whatknowvisa").value = currappl.whatknowvisa;
+	document.getElementById("howhearcita").value = currappl.howhearcita;
+	document.getElementById("otherhelp").value = currappl.otherhelp;
+	document.getElementById("whatknowcita").value = currappl.whatknowcita;
+
 }
 
 function clearNewApp(){
@@ -326,6 +337,11 @@ function clearNewApp(){
 	document.getElementById("docTab").innerHTML = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("healthTab").innerHTML = "<tr><th>Health Issue</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("statusTab").innerHTML = "<tr><th>Issue Type</th><th>Years</th></tr>";
+	document.getElementById("whatknowvisa").value = ""; 
+	document.getElementById("howhearcita").value = ""; 
+	document.getElementById("otherhelp").value = ""; 
+	document.getElementById("whatknowcita").value = ""; 
+
 	clearSkill();
 	clearAbility();
 	clearDoc();

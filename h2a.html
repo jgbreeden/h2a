@@ -36,7 +36,7 @@
 			<br>
 			<form id="newappform">
 				<input type="number" id="id" name="id" class="id">
-				<table>
+				<table id="mainform">
 				<tr>
 				<td>
 				<label for="fname">First name:</label>
@@ -200,8 +200,23 @@
 					<option value="rejected">Rejected</option>
 					<option value="assigned">Assigned</option>
 				</select>
+				</td>
+				</tr>
 				</table>
-				
+				<div class="newappdiv">
+					<label for="whatknowvisa">What do you know about this Visa?:</label><br>
+					<textarea id="whatknowvisa" name="whatknowvisa" rows="4" cols="30">
+					</textarea><br>
+					<label for="howhearcita">How did you hear about Cita?:</label><br>
+					<textarea id="howhearcita" name="howhearcita" rows="4" cols="30">
+					</textarea><br>
+					<label for="otherhelp">Can we help you with something else?:</label><br>
+					<textarea id="otherhelp" name="otherhelp" rows="4" cols="30">
+					</textarea><br>
+					<label for="whatknowcita">What do you know about Cita?:</label><br>
+					<textarea id="whatknowcita" name="whatknowcita" rows="4" cols="30">
+					</textarea><br>
+				</div>
 				<button type="button" onclick="resetNewApp()">Cancel</button>
 				<button type="button" onclick="currappl.update()">Save</button>
 			</form>

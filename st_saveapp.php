@@ -36,16 +36,20 @@ $height = htmlspecialchars($_POST["height"]);
 $weight = htmlspecialchars($_POST["weight"]);
 $maritalstatus = htmlspecialchars($_POST["maritalstatus"]);
 $placeofbirth = htmlspecialchars($_POST["placeofbirth"]);
+$whatknowvisa = htmlspecialchars($_POST["whatknowvisa"]);
+$howhearcita = htmlspecialchars($_POST["howhearcita"]);
+$otherhelp = htmlspecialchars($_POST["otherhelp"]);
+$whatknowcita = htmlspecialchars($_POST["whatknowcita"]);
 
 
 
 
 $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, state, gender, yumaonly, 
     travelwhy, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
-    email, age, height, weight, maritalstatus, placeofbirth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $gender, $yumaonly, 
+    email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $gender, $yumaonly, 
     $travelwhy, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
-    $email, $age, $height, $weight, $maritalstatus, $placeofbirth);
+    $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, $otherhelp, $whatknowcita);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;

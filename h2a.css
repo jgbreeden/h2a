@@ -73,3 +73,10 @@ form {
 	transition-timing-function: ease-in;
 }
 
+#mainform {
+    float: left;
+}
+
+#blobs {
+    width: 300px
+}

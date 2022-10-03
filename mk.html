@@ -90,7 +90,14 @@
 
     <hr>
     <label for="civil">Estado civil</label><br>
-    <input type="text" id="maritalstatus" name="maritalstatus"><br>
+    <select type="text" id="maritalstatus" name="maritalstatus">
+        <option value=""></option>
+        <option value="married">Casado</option>
+		<option value="widowed">Viudo/Viuda</option>
+		<option value="seperated">Speparados</option>
+		<option value="divorced">Divorciado/Divorciada</option>
+		<option value="single">Soltero/Soltera</option>
+    </select>
     <hr>
 
     <hr>
@@ -108,7 +115,7 @@
         <hr>Acelga
         <div class="inline"><input type="radio" name="acelga" id="acelga" value="yes" onclick="showOption(this)">
         <label for="acelga">Si</label><br>
-        <input type="radio" name="acelga" value="no" value="no" id="acelgano" checked="true">
+        <input type="radio" name="acelga" value="no" value="no" id="acelgano" checked="true" onclick="hideOption(this)">
         <label for="acelgano">No</label><br>
         </div>
         <div class="options" id="acelgaoptions">
@@ -123,7 +130,7 @@
         <hr>Alcachofa
         <div class="inline"><input type="radio" name="alcachofa" id="alcachofa" value="yes" onclick="showOption(this)">
         <label for="alcachofa">Si</label><br>
-        <input type="radio" name="alcachofa" value="no" id="alcachofano" checked="true">
+        <input type="radio" name="alcachofa" value="no" id="alcachofano" checked="true" onclick="hideOption(this)">
         <label for="alcachofano">No</label><br>
         </div>
         <div class="options" id="alcachofaoptions">
@@ -137,7 +144,7 @@
         <hr>Alfalfa
         <div class="inline"><input type="radio"name="alfalfa" id="alfalfa" value="yes" onclick="showOption(this)">
         <label for="alfalfa">Si</label><br>
-        <input type="radio" name="alfalfa" value="no" id="alfalfano" checked="true">
+        <input type="radio" name="alfalfa" value="no" id="alfalfano" checked="true" onclick="hideOption(this)">
         <label for="alfalfano">No</label><br>
         </div>
         <div class="options" id="alfalfaoptions">
@@ -151,7 +158,7 @@
         <hr>Ajo
         <div class="inline"><input type="radio" name="ajo" id="ajo" value="yes" onclick="showOption(this)">
         <label for="ajo">Si</label><br>
-        <input type="radio" name="ajo" value="no" id="ajono" checked="true">
+        <input type="radio" name="ajo" value="no" id="ajono" checked="true" onclick="hideOption(this)">
         <label for="ajono">No</label><br>
         </div>
         <div class="options" id="ajooptions">
@@ -165,7 +172,7 @@
         <hr>Apio
         <div class="inline"><input type="radio" name="apio" id="apio" value="yes" onclick="showOption(this)">
         <label for="apio">Si</label><br>
-        <input type="radio" name="apio" value="no" id="apiono" checked="true">
+        <input type="radio" name="apio" value="no" id="apiono" checked="true" onclick="hideOption(this)">
         <label for="apiono">No</label><br>
         </div>
         <div class="options" id="apiooptions">
@@ -180,7 +187,7 @@
         Arandano
         <div class="inline"><input type="radio" name="arandano" id="arandano" value="yes" onclick="showOption(this)">
         <label for="arandano">Si</label><br>
-        <input type="radio" name="arandano" value="no" id="arandanono" checked="true">
+        <input type="radio" name="arandano" value="no" id="arandanono" checked="true" onclick="hideOption(this)">
         <label for="arandanono">No</label><br>
         </div>
         <div class="options" id="arandanooptions">
@@ -195,7 +202,7 @@
         Berenjena
        <div class="inline"><input type="radio" name="berenjena" id="berenjena" value="yes" onclick="showOption(this)">
         <label for="berenjena">Si</label><br>
-        <input type="radio" name="berenjena" value="no" id="berenjenano" checked="true">
+        <input type="radio" name="berenjena" value="no" id="berenjenano" checked="true" onclick="hideOption(this)">
         <label for="berenjenano">No</label><br>
         </div>
         <div class="options" id="berenjenaoptions">
@@ -210,7 +217,7 @@
         Betabel
         <div class="inline"><input type="radio" name="betabel" id="betabel" value="yes" onclick="showOption(this)">
         <label for="betabel">Si</label><br>
-        <input type="radio" name="betabel" value="no" id="betabelno" checked="true">
+        <input type="radio" name="betabel" value="no" id="betabelno" checked="true" onclick="hideOption(this)">
         <label for="betabelno">No</label><br>
         </div>
         <div class="options" id="betabeloptions">
@@ -225,7 +232,7 @@
         Brocoli
         <div class="inline"><input type="radio" name="brocoli" id="brocoli" value="yes" onclick="showOption(this)">
         <label for="brocoli">Si</label><br>
-        <input type="radio" name="brocoli" value="no" id="brocolino" checked="true">
+        <input type="radio" name="brocoli" value="no" id="brocolino" checked="true" onclick="hideOption(this)">
         <label for="brocolino">No</label><br>
         </div>
         <div class="options" id="brocolioptions">
@@ -240,7 +247,7 @@
         Cacahuate
         <div class="inline"><input type="radio" name="cacahuate" id="cacahuate" value="yes" onclick="showOption(this)">
         <label for="cacahuate">Si</label><br>
-        <input type="radio" name="cacahuate" value="no" id="cacahuateno" checked="true">
+        <input type="radio" name="cacahuate" value="no" id="cacahuateno" checked="true" onclick="hideOption(this)">
         <label for="cacahuateno">No</label><br>
         </div>
         <div class="options" id="cacahuateoptions">
@@ -255,7 +262,7 @@
         Cafe
         <div class="inline"><input type="radio" name="cafe" id="cafe" value="yes" onclick="showOption(this)">
         <label for="cafe">Si</label><br>
-        <input type="radio" name="cafe" value="no" id="cafeno" checked="true">
+        <input type="radio" name="cafe" value="no" id="cafeno" checked="true" onclick="hideOption(this)">
         <label for="cafeno">No</label><br>
         </div>
         <div class="options" id="cafeoptions">
@@ -270,7 +277,7 @@
         Calabaza
         <div class="inline"><input type="radio" name="calabaza" id="calabaza" value="yes" onclick="showOption(this)">
         <label for="calabaza">Si</label><br>
-        <input type="radio" name="calabaza" value="no" id="calabazano" checked="true">
+        <input type="radio" name="calabaza" value="no" id="calabazano" checked="true" onclick="hideOption(this)">
         <label for="calabazano">No</label><br>
         </div>
         <div class="options" id="calabazaoptions">
@@ -285,7 +292,7 @@
         cana
         <div class="inline"><input type="radio" name="cana" id="cana" value="yes" onclick="showOption(this)">
         <label for="cana">Si</label><br>
-        <input type="radio" name="cana" value="no" id="canano" checked="true">
+        <input type="radio" name="cana" value="no" id="canano" checked="true" onclick="hideOption(this)">
         <label for="canano">No</label><br>
         </div>
         <div class="options" id="canaoptions">
@@ -300,7 +307,7 @@
         Cebolla
         <div class="inline"><input type="radio" name="cebolla" id="cebolla" value="yes" onclick="showOption(this)">
         <label for="cebolla">Si</label><br>
-        <input type="radio" name="cebolla" value="no" id="cebollano" checked="true">
+        <input type="radio" name="cebolla" value="no" id="cebollano" checked="true" onclick="hideOption(this)">
         <label for="cebollano">No</label><br>
         </div>
         <div class="options" id="cebollaoptions">
@@ -315,7 +322,7 @@
         Cereza
         <div class="inline"><input type="radio" name="cereza" id="cereza" value="yes" onclick="showOption(this)">
         <label for="cereza">Si</label><br>
-        <input type="radio" name="cereza" value="no" id="cerezano" checked="true">
+        <input type="radio" name="cereza" value="no" id="cerezano" checked="true" onclick="hideOption(this)">
         <label for="cerezano">No</label><br>
         </div>
         <div class="options" id="cerezaoptions">
@@ -330,7 +337,7 @@
         Chabacano
         <div class="inline"><input type="radio" name="chabacano" id="chabacano" value="yes" onclick="showOption(this)">
         <label for="chabacano">Si</label><br>
-        <input type="radio" name="chabacano" value="no" id="chabacanono" checked="true">
+        <input type="radio" name="chabacano" value="no" id="chabacanono" checked="true" onclick="hideOption(this)">
         <label for="chabacanono">No</label><br>
         </div>
         <div class="options" id="chabacanooptions">
@@ -345,7 +352,7 @@
         Chicharo
         <div class="inline"><input type="radio" name="chicharo" id="chicharo" value="yes" onclick="showOption(this)">
         <label for="chicharo">Si</label><br>
-        <input type="radio" name="chicharo" value="no" id="chicharono" checked="true">
+        <input type="radio" name="chicharo" value="no" id="chicharono" checked="true" onclick="hideOption(this)">
         <label for="chicharono">No</label><br>
         </div>
         <div class="options" id="chicharooptions">
@@ -360,7 +367,7 @@
         Col
        <div class="inline"><input type="radio" name="col" id="col" value="yes" onclick="showOption(this)">
         <label for="col">Si</label><br>
-        <input type="radio" name="col" value="no" id="colno" checked="true">
+        <input type="radio" name="col" value="no" id="colno" checked="true" onclick="hideOption(this)">
         <label for="colno">No</label><br>
         </div>
         <div class="options" id="coloptions">
@@ -375,7 +382,7 @@
         Chile
         <div class="inline"><input type="radio" name="chile" id="chile" value="yes" onclick="showOption(this)">
         <label for="chile">Si</label><br>
-        <input type="radio" name="chile" value="no" id="chileno" checked="true">
+        <input type="radio" name="chile" value="no" id="chileno" checked="true" onclick="hideOption(this)">
         <label for="chileno">No</label><br>
         </div>
         <div class="options" id="chileoptions">
@@ -390,7 +397,7 @@
         Cilantro
         <div class="inline"><input type="radio" name="cilantro" id="cilantro" value="yes" onclick="showOption(this)">
         <label for="cilantro">Si</label><br>
-        <input type="radio" name="cilantro" value="no" id="cilantrono" checked="true">
+        <input type="radio" name="cilantro" value="no" id="cilantrono" checked="true" onclick="hideOption(this)">
         <label for="cilantrono">No</label><br>
         </div>
         <div class="options" id="cilantrooptions">
@@ -405,7 +412,7 @@
           Datil
       <div class="inline"><input type="radio" name="datil" id="datil" value="yes" onclick="showOption(this)">
         <label for="datil">Si</label><br>
-        <input type="radio" name="datil" value="no" id="datilno" checked="true">
+        <input type="radio" name="datil" value="no" id="datilno" checked="true" onclick="hideOption(this)">
         <label for="datilno">No</label><br>
         </div>
         <div class="options" id="datiloptions">
@@ -425,7 +432,7 @@
         Durazno
       <div class="inline"><input type="radio" name="durazno" id="durazno" value="yes" onclick="showOption(this)">
         <label for="durazno">Si</label><br>
-        <input type="radio" name="durazno" value="no" id="duraznono" checked="true">
+        <input type="radio" name="durazno" value="no" id="duraznono" checked="true" onclick="hideOption(this)">
         <label for="duraznono">No</label><br>
         </div>
         <div class="options" id="duraznooptions">
@@ -440,7 +447,7 @@
         Ejote
        <div class="inline"><input type="radio" name="ejote" id="ejote" value="yes" onclick="showOption(this)">
         <label for="ejote">Si</label><br>
-        <input type="radio" name="ejote" value="no" id="ejoteno" checked="true">
+        <input type="radio" name="ejote" value="no" id="ejoteno" checked="true" onclick="hideOption(this)">
         <label for="ejoteno">No</label><br>
         </div>
         <div class="options" id="ejoteoptions">
@@ -455,7 +462,7 @@
         Elote
         <div class="inline"><input type="radio" name="elote" id="elote" value="yes" onclick="showOption(this)">
         <label for="elote">Si</label><br>
-        <input type="radio" name="elote" value="no" id="eloteno" checked="true">
+        <input type="radio" name="elote" value="no" id="eloteno" checked="true" onclick="hideOption(this)">
         <label for="eloteno">No</label><br>
         </div>
         <div class="options" id="eloteoptions">
@@ -470,7 +477,7 @@
         Espinaca
          <div class="inline"><input type="radio" name="espinaca" id="espinaca" value="yes" onclick="showOption(this)">
         <label for="espinaca">Si</label><br>
-        <input type="radio" name="espinaca" value="no" id="espinacano" checked="true">
+        <input type="radio" name="espinaca" value="no" id="espinacano" checked="true" onclick="hideOption(this)">
         <label for="espinacano">No</label><br>
         </div>
         <div class="options" id="espinacaoptions">
@@ -485,7 +492,7 @@
         Esparrago
        <div class="inline"><input type="radio" name="esparrago" id="esparrago" value="yes" onclick="showOption(this)">
         <label for="esparrago">Si</label><br>
-        <input type="radio" name="esparrago" value="no" id="esparragono" checked="true">
+        <input type="radio" name="esparrago" value="no" id="esparragono" checked="true" onclick="hideOption(this)">
         <label for="esparragono">No</label><br>
         </div>
         <div class="options" id="esparragooptions">
@@ -500,7 +507,7 @@
         Fresa
        <div class="inline"><input type="radio" name="fresa" id="fresa" value="yes" onclick="showOption(this)">
         <label for="fresa">Si</label><br>
-        <input type="radio" name="fresa" value="no" id="fresano" checked="true">
+        <input type="radio" name="fresa" value="no" id="fresano" checked="true" onclick="hideOption(this)">
         <label for="fresano">No</label><br>
         </div>
         <div class="options" id="fresaoptions">
@@ -515,7 +522,7 @@
         Frijol
       <div class="inline"><input type="radio" name="frijol" id="frijol" value="yes" onclick="showOption(this)">
         <label for="frijol">Si</label><br>
-        <input type="radio" name="frijol" value="no" id="frijolno" checked="true">
+        <input type="radio" name="frijol" value="no" id="frijolno" checked="true" onclick="hideOption(this)">
         <label for="frijolno">No</label><br>
         </div>
         <div class="options" id="frijoloptions">
@@ -530,7 +537,7 @@
         Habas
     <div class="inline"><input type="radio" name="habas" id="habas" value="yes" onclick="showOption(this)">
         <label for="habas">Si</label><br>
-        <input type="radio" name="habas" value="no" id="habasno" checked="true">
+        <input type="radio" name="habas" value="no" id="habasno" checked="true" onclick="hideOption(this)"> 
         <label for="habasno">No</label><br>
         </div>
         <div class="options" id="habasoptions">
@@ -545,7 +552,7 @@
         Limon
         <div class="inline"><input type="radio" name="limon" id="limon" value="yes" onclick="showOption(this)">
         <label for="limon">Si</label><br>
-        <input type="radio" name="limon" value="no" id="limonno" checked="true">
+        <input type="radio" name="limon" value="no" id="limonno" checked="true" onclick="hideOption(this)">
         <label for="limonno">No</label><br>
         </div>
         <div class="options" id="limonoptions">
@@ -560,7 +567,7 @@
       lechuga
    <div class="inline"><input type="radio" name="lechuga" id="lechuga" value="yes" onclick="showOption(this)">
         <label for="lechuga">Si</label><br>
-        <input type="radio" name="lechuga" value="no" id="lechugano" checked="true">
+        <input type="radio" name="lechuga" value="no" id="lechugano" checked="true" onclick="hideOption(this)">
         <label for="lechugano">No</label><br>
         </div>
         <div class="options" id="lechugaoptions">
@@ -577,7 +584,7 @@
         Naranja
          <div class="inline"><input type="radio" name="naranja" id="naranja" value="yes" onclick="showOption(this)">
         <label for="naranja">Si</label><br>
-        <input type="radio" name="naranja" value="no" id="naranjano" checked="true">
+        <input type="radio" name="naranja" value="no" id="naranjano" checked="true" onclick="hideOption(this)">
         <label for="naranjano">No</label><br>
         </div>
         <div class="options" id="naranjaoptions">
@@ -592,7 +599,7 @@
         Manzana
       <div class="inline"><input type="radio" name="manzana" id="manzana" value="yes" onclick="showOption(this)">
         <label for="manzana">Si</label><br>
-        <input type="radio" name="manzana" value="no" id="manzanano" checked="true">
+        <input type="radio" name="manzana" value="no" id="manzanano" checked="true" onclick="hideOption(this)">
         <label for="manzanano">No</label><br>
         </div>
         <div class="options" id="manzanaoptions">
@@ -607,7 +614,7 @@
         Melon
          <div class="inline"><input type="radio" name="melon" id="melon" value="yes" onclick="showOption(this)">
         <label for="melon">Si</label><br>
-        <input type="radio" name="melon" value="no" id="melonno" checked="true">
+        <input type="radio" name="melon" value="no" id="melonno" checked="true" onclick="hideOption(this)">
         <label for="melonno">No</label><br>
         </div>
         <div class="options" id="melonoptions">
@@ -622,7 +629,7 @@
         Papa
     <div class="inline"><input type="radio" name="papa" id="papa" value="yes" onclick="showOption(this)">
         <label for="papa">Si</label><br>
-        <input type="radio" name="papa" value="no" id="papano" checked="true">
+        <input type="radio" name="papa" value="no" id="papano" checked="true" onclick="hideOption(this)">
         <label for="papano">No</label><br>
         </div>
         <div class="options" id="papaoptions">
@@ -637,7 +644,7 @@
         Pera
       <div class="inline"><input type="radio" name="pera" id="pera" value="yes" onclick="showOption(this)">
         <label for="pera">Si</label><br>
-        <input type="radio" name="pera" value="no" id="perano" checked="true">
+        <input type="radio" name="pera" value="no" id="perano" checked="true" onclick="hideOption(this)">
         <label for="perano">No</label><br>
         </div>
         <div class="options" id="peraoptions">
@@ -652,7 +659,7 @@
         Pina
       <div class="inline"><input type="radio" name="pina" id="pina" value="yes" onclick="showOption(this)">
         <label for="pina">Si</label><br>
-        <input type="radio" name="pina" value="no" id="pinano" checked="true">
+        <input type="radio" name="pina" value="no" id="pinano" checked="true" onclick="hideOption(this)">
         <label for="pinano">No</label><br>
         </div>
         <div class="options" id="pinaoptions">
@@ -667,7 +674,7 @@
         Pepino
         <div class="inline"><input type="radio" name="pepino" id="pepino" value="yes" onclick="showOption(this)">
         <label for="pepino">Si</label><br>
-        <input type="radio" name="pepino" value="no" id="pepinono" checked="true">
+        <input type="radio" name="pepino" value="no" id="pepinono" checked="true" onclick="hideOption(this)">
         <label for="pepinono">No</label><br>
         </div>
         <div class="options" id="pepinooptions">
@@ -682,7 +689,7 @@
         Rabano
        <div class="inline"><input type="radio" name="rabano" id="rabano" value="yes" onclick="showOption(this)">
         <label for="rabano">Si</label><br>
-        <input type="radio" name="rabano" value="no" id="rabanono" checked="true">
+        <input type="radio" name="rabano" value="no" id="rabanono" checked="true" onclick="hideOption(this)">
         <label for="rabanono">No</label><br>
         </div>
         <div class="options" id="rabanooptions">
@@ -697,7 +704,7 @@
         Repollo
    <div class="inline"><input type="radio" name="repollo" id="repollo" value="yes" onclick="showOption(this)">
         <label for="repollo">Si</label><br>
-        <input type="radio" name="repollo" value="no" id="repollono" checked="true">
+        <input type="radio" name="repollo" value="no" id="repollono" checked="true" onclick="hideOption(this)">
         <label for="repollono">No</label><br>
         </div>
         <div class="options" id="repollooptions">
@@ -712,7 +719,7 @@
         Tomate
  <div class="inline"><input type="radio" name="tomate" id="tomate" value="yes" onclick="showOption(this)">
         <label for="tomate">Si</label><br>
-        <input type="radio" name="tomate" value="no" id="tomateno" checked="true">
+        <input type="radio" name="tomate" value="no" id="tomateno" checked="true" onclick="hideOption(this)">
         <label for="tomateno">No</label><br>
         </div>
         <div class="options" id="tomateoptions">
@@ -727,7 +734,7 @@
         Tomatillo
      <div class="inline"><input type="radio" name="tomatillo" id="tomatillo" value="yes" onclick="showOption(this)">
         <label for="tomatillo">Si</label><br>
-        <input type="radio" name="tomatillo" value="no" id="tomatillono" checked="true">
+        <input type="radio" name="tomatillo" value="no" id="tomatillono" checked="true" onclick="hideOption(this)">
         <label for="tomatillono">No</label><br>
         </div>
         <div class="options" id="tomatillooptions">
@@ -742,7 +749,7 @@
         Sandia
          <div class="inline"><input type="radio" name="sandia" id="sandia" value="yes" onclick="showOption(this)">
         <label for="sanida">Si</label><br>
-        <input type="radio" name="sandia" value="no" id="sanidano" checked="true">
+        <input type="radio" name="sandia" value="no" id="sanidano" checked="true" onclick="hideOption(this)">
         <label for="sanidano">No</label><br>
         </div>
         <div class="options" id="sandiaoptions">
@@ -757,7 +764,7 @@
         Zanahoria
          <div class="inline"><input type="radio" name="zanahoria" id="zanahoria" value="yes" onclick="showOption(this)">
         <label for="zanahoria">Si</label><br>
-        <input type="radio" name="zanahoria" value="no" id="zanahoriano" checked="true">
+        <input type="radio" name="zanahoria" value="no" id="zanahoriano" checked="true" onclick="hideOption(this)">
         <label for="zanahoriano">No</label><br>
         </div>
         <div class="options" id="zanahoriaoptions">
@@ -772,7 +779,7 @@
         Ha trabajado en invernaderos?
          <div class="inline"><input type="radio" name="greenhouses" id="greenhouses" value="yes" onclick="showOption(this)">
         <label for="greenhouses">Si</label><br>
-        <input type="radio" name="greenhouses" value="no" id="greenhousesno" checked="true">
+        <input type="radio" name="greenhouses" value="no" id="greenhousesno" checked="true" onclick="hideOption(this)"> 
         <label for="greenhousesno">No</label><br>
         </div>
         <div class="options" id="greenhousesoptions">
@@ -787,7 +794,7 @@
         Tiene experiencia en sistemo de riego?
         <div class="inline"><input type="radio" name="irrigation" id="irrigation" value="yes" onclick="showOption(this)">
        <label for="irrigation">Si</label><br>
-       <input type="radio" name="irrigation" value="no" id="irrigationno" checked="true">
+       <input type="radio" name="irrigation" value="no" id="irrigationno" checked="true" onclick="hideOption(this)">
        <label for="irrigationno">No</label><br>
        </div>
        <div class="options" id="irrigationoptions">
@@ -804,7 +811,7 @@
         Ha trabajado en alguna granja?
          <div class="inline"><input type="radio" name="farm" id="farm" value="yes" onclick="showOption(this)">
         <label for="farm">Si</label><br>
-        <input type="radio" name="farm" value="no" id="farmno" checked="true">
+        <input type="radio" name="farm" value="no" id="farmno" checked="true" onclick="hideOption(this)">
         <label for="farmno">No</label><br>
         </div>
         <div class="options" id="farmoptions">
@@ -819,7 +826,7 @@
          Tiene experiencia manejando maquinaria Agricola?
          <div class="inline"><input type="radio" name="drive" id="drive" value="yes" onclick="showOption(this)">
         <label for="drive">Si</label><br>
-        <input type="radio" name="drive" value="no" id="driveno" checked="true">
+        <input type="radio" name="drive" value="no" id="driveno" checked="true" onclick="hideOption(this)">
         <label for="driveno">No</label><br>
         </div>
         <div class="options" id="driveoptions">
@@ -834,7 +841,7 @@
          Sabe usted de mecanica para maquinaria agricola?
          <div class="inline"><input type="radio" name="mech" id="mech" value="yes" onclick="showOption(this)">
         <label for="mech">Si</label><br>
-        <input type="radio" name="mech" value="no" id="mechno" checked="true">
+        <input type="radio" name="mech" value="no" id="mechno" checked="true" onclick="hideOption(this)">
         <label for="mechno">No</label><br>
         </div>
         <div class="options" id="mechoptions">
@@ -868,7 +875,7 @@
          Sabe soldadura?
          <div class="inline"><input type="radio" name="welding" id="welding" value="yes" onclick="showOption(this)">
         <label for="welding">Si</label><br>
-        <input type="radio" name="welding" value="no" id="weldingno" checked="true">
+        <input type="radio" name="welding" value="no" id="weldingno" checked="true" onclick="hideOption(this)">
         <label for="weldingno">No</label><br>
         </div>
         <div class="options" id="weldingoptions">
@@ -885,7 +892,7 @@
         sabe manejar troque, como trailer?
          <div class="inline"><input type="radio" name="truck" id="truck" value="yes" onclick="showOption(this)">
         <label for="truck">Si</label><br>
-        <input type="radio" name="truck" value="no" id="truckno" checked="true">
+        <input type="radio" name="truck" value="no" id="truckno" checked="true" onclick="hideOption(this)">
         <label for="truckno">No</label><br>
         </div>
         <div class="options" id="truckoptions">
@@ -900,7 +907,7 @@
         Sabe manejar tractor?
         <div class="inline"><input type="radio" name="tractor" id="tractor" value="yes" onclick="showOption(this)">
        <label for="tractor">Si</label><br>
-       <input type="radio" name="tractor" value="no" id="tractorno" checked="true">
+       <input type="radio" name="tractor" value="no" id="tractorno" checked="true" onclick="hideOption(this)">
        <label for="tractorno">No</label><br>
        </div>
        <div class="options" id="tractoroptions">
@@ -921,7 +928,7 @@
        Sabe manejar montacargas?
        <div class="inline"><input type="radio" name="fork" id="fork" value="yes" onclick="showOption(this)">
       <label for="fork">Si</label><br>
-      <input type="radio" name="fork" value="no" id="forkno" checked="true">
+      <input type="radio" name="fork" value="no" id="forkno" checked="true" onclick="hideOption(this)">
       <label for="forkno">No</label><br>
       </div>
       <div class="options" id="forkoptions">
@@ -940,7 +947,7 @@
       Sabe de electricidad?
       <div class="inline"><input type="radio" name="electric" id="electric" value="yes" onclick="showOption(this)">
      <label for="electric">Si</label><br>
-     <input type="radio" name="electric" value="no" id="electricno" checked="true">
+     <input type="radio" name="electric" value="no" id="electricno" checked="true"onclick="hideOption(this)">
      <label for="electricno">No</label><br>
      </div>
      <div class="options" id="electricoptions">
@@ -958,7 +965,7 @@
     Sabe Usted Ingles
     <div class="inline"><input type="radio" name="english" id="english" value="yes" onclick="showOption(this)">
     <label for="passport">Si</label><br>
-    <input type="radio" name="english" value="No" id="npass" onclick="showOption(this)" checked="true">
+    <input type="radio" name="english" value="No" id="npass" checked="true" onclick="hideOption(this)">
     <label for="npass">No</label><br>
     </div>
     <div class="options" id="englishoptions">
@@ -976,9 +983,9 @@
 
 <hr>
     Cuenta con su Pasaporte Mexicano
-    <div class="inline"><input type="radio" name="passport" id="passport" value="yes" onclick="showOption(this)">
+    <div class="inline"><input type="radio" name="passport" id="passport" value="yes" onclick="showOption(this); hideOption(this)">
     <label for="passport">Si</label><br>
-    <input type="radio" name="passport" value="No" id="npass" onclick="showOption(this)" checked="true">
+    <input type="radio" name="passport" value="No" id="nopassport" checked="true" onclick="showOption(this); hideOption(this)">
     <label for="npass">No</label><br>
     </div>
     <div class="options" id="passportoptions">
@@ -991,7 +998,7 @@
     <label for="npass">Donde lo Tramito</label><br>
     <input type="text" name="wherepass"><br>
     </div>
-    <div class="options" id="npassoptions" style="display: block;">
+    <div class="options" id="nopassportoptions">
     <label for="npass">Si no tiene su Pasaporte, Cuenta con los recursos para tramitarlo de inmediato, si asi se lo requieren</label><br>
     <input type="text" name="npass"><br>
     </div>
@@ -1002,7 +1009,7 @@
     Lo han Deportado del los Estados Unidos
     <div class="inline"><input type="radio" name="deport" id="deport" value="yes" onclick="showOption(this)">
     <label for="deport">Si</label><br>
-    <input type="radio" name="deport" value="No" id="deportno" checked="true">
+    <input type="radio" name="deport" value="No" id="deportno" checked="true" onclick="hideOption(this)">
     <label for="deportno">No</label><br>
     </div>
     <div class="options" id="deportoptions">
@@ -1030,7 +1037,7 @@
     Le han negado algun tipo de Visa?
    <div class="inline"><input type="radio" name="denied" id="denied" value="yes" onclick="showOption(this)">
     <label for="denied">Si</label><br>
-    <input type="radio" name="denied" value="No" id="deniedno" checked="true">
+    <input type="radio" name="denied" value="No" id="deniedno" checked="true" onclick="hideOption(this)">
     <label for="deniedno">No</label><br>
     </div>
 
@@ -1053,7 +1060,7 @@
     Lo Han detenido cruzando ilegalmente a los Estados Unidos?
     <div class="inline"><input type="radio" name="detention" id="detention" value="yes" onclick="showOption(this)">
     <label for="detention">Si</label><br>
-    <input type="radio" name="detention" value="No"  id="detentionno" checked="true">
+    <input type="radio" name="detention" value="No"  id="detentionno" checked="true" onclick="hideOption(this)">
     <label for="detentionno">No</label><br>
     </div>
 
@@ -1103,7 +1110,7 @@
     Ha tenido problemas con la Policia Americana?
     <div class="inline"><input type="radio" name="police" id="police" value="yes" onclick="showOption(this)">
     <label for="police">Si</label><br>
-    <input type="radio" name="police" value="No" id="policeno" checked="true">
+    <input type="radio" name="police" value="No" id="policeno" checked="true" onclick="hideOption(this)">
     <label for="policeno">No</label><br>
     </div>
 
@@ -1117,7 +1124,7 @@
     Esta Trabajando con visa H2A, Actualmente?
      <div class="inline"><input type="radio" name="hish2a" id="hish2a" value="yes" onclick="showOption(this)">
     <label for="hish2a">Si</label><br>
-    <input type="radio" name="hish2a" value="No" id="hish2ano" checked="true">
+    <input type="radio" name="hish2a" value="No" id="hish2ano" checked="true" onclick="hideOption(this)">
     <label for="hish2ano">No</label><br>
     </div>
 
@@ -1134,7 +1141,7 @@
     A trabajado con Visa H2A antes?
     <div class="inline"><input type="radio" name="h2a" id="h2a" value="yes" onclick="showOption(this)">
     <label for="h2a">Si</label><br>
-    <input type="radio" name="h2a" value="No" id="h2ano" checked="true">
+    <input type="radio" name="h2a" value="No" id="h2ano" checked="true" onclick="hideOption(this)">
     <label for="h2ano">No</label><br>
     </div>
 
@@ -1159,7 +1166,7 @@
     Ha trabajo en los Estados Unidos en el Campo
     <div class="inline"><input type="radio" name="historywork" id="historywork" value="yes" onclick="showOption(this)">
     <label for="historywork">Si</label><br>
-    <input type="radio" name="historywork" value="No" id="historyworkno" checked="true">
+    <input type="radio" name="historywork" value="No" id="historyworkno" checked="true" onclick="hideOption(this)">
     <label for="historyworkno">No</label><br>
     </div>
 
@@ -1245,7 +1252,7 @@
 
 <hr>
     Esta disponible a una posible extension de Contrato
-    <div class="inline"><input type="radio" name="extend" id="extension" value="yes">
+    <div class="inline"><input type="radio" name="extend" id="extension" value="yes" onclick="hideOption(this)">
     <label for="extension">Si</label><br>
     <input type="radio" name="extend" value="No" id="noextension" checked="true" onclick="showOption(this)"> 
     <label for="noextension">No</label><br>
@@ -1260,7 +1267,7 @@
     Tiene Usted Familiares en los Estados Unidos
     <div class="inline"><input type="radio" name="family" id="family" value="yes" onclick="showOption(this)">
     <label for="family">Si</label><br>
-    <input type="radio" name="family" value="No" id="familyno" checked="true">
+    <input type="radio" name="family" value="No" id="familyno" checked="true" onclick="hideOption(this)">
     <label for="familyno">No</label><br>
     </div>
     
@@ -1313,7 +1320,7 @@
     Alguna vez ha Sufrido de Alguna Fractura en la espaldo, Pierna O Brazo?
     <div class="inline"><input type="radio" name="injury" id="injury" value="yes" onclick="showOption(this)">
     <label for="injury">Si</label><br>
-    <input type="radio" name="injury" value="No" id="injuryno" checked="true">
+    <input type="radio" name="injury" value="No" id="injuryno" checked="true" onclick="hideOption(this)">
     <label for="injuryno">No</label><br>
     </div>
 
@@ -1327,7 +1334,7 @@
     Tiene alguna inhabilidad (Discapacidad) que le causa problema en el trabajo
     <div class="inline"><input type="radio" name="disability" id="disability" value="yes" onclick="showOption(this)">
     <label for="disability">Si</label><br>
-    <input type="radio" name="disability" value="No" id="disabilityno" checked="true">
+    <input type="radio" name="disability" value="No" id="disabilityno" checked="true" onclick="hideOption(this)">
     <label for="disabilityno">No</label><br>
     </div>
 
@@ -1341,7 +1348,7 @@
     Es Usted Diabetico?
     <div class="inline"><input type="radio" name="diabetic" id="diabetic" value="yes" onclick="showOption(this)">
     <label for="diabetic">Si</label><br>
-    <input type="radio" name="diabetic" value="No" id="diabeticno" checked="true">
+    <input type="radio" name="diabetic" value="No" id="diabeticno" checked="true" onclick="hideOption(this)">
     <label for="diabeticno">No</label><br>
     </div>
 
@@ -1355,7 +1362,7 @@
     Sufre usted de Asma?
     <div class="inline"><input type="radio" name="asma" id="asma" value="yes" onclick="showOption(this)">
     <label for="asma">Si</label><br>
-    <input type="radio" name="asma" value="No" id="asmano" checked="true">
+    <input type="radio" name="asma" value="No" id="asmano" checked="true" onclick="hideOption(this)">
     <label for="asmano">No</label><br>
     </div>
 
@@ -1369,7 +1376,7 @@
     Problemas del Corazon
     <div class="inline"><input type="radio" name="heart" id="heart" value="yes" onclick="showOption(this)">
     <label for="heart">Si</label><br>
-    <input type="radio" name="heart" value="No" id="heartno" checked="true">
+    <input type="radio" name="heart" value="No" id="heartno" checked="true" onclick="hideOption(this)">
     <label for="heartno">No</label><br>
     </div>
 
@@ -1383,7 +1390,7 @@
     Problemas con Alta presion
     <div class="inline"><input type="radio" name="pressure" id="pressure" value="yes" onclick="showOption(this)">
     <label for="pressure">Si</label><br>
-    <input type="radio" name="pressure" value="No" id="pressureno" checked="true">
+    <input type="radio" name="pressure" value="No" id="pressureno" checked="true" onclick="hideOption(this)">
     <label for="pressureno">No</label><br>
     </div>
 
@@ -1398,31 +1405,31 @@
         que es una Visa de Trabajo
     <div class="inline"><input type="radio" name="aware" value="yes" id="aware" onclick="showOption(this)">
     <label for="aware">Si</label><br>
-    <input type="radio" name="aware" value="No" id="awareno" checked="true">
+    <input type="radio" name="aware" value="No" id="awareno" checked="true" onclick="hideOption(this)">
     <label for="awareno">No</label><br>
     </div>
 
     <div class="options" id="awareoptions">
     <label for="lang">En su Palabras que conoce de esta Visa</label><br>
-    <input type="text" id="" name="lang"><br>
+    <input type="text" id="" name="whatknowvisa"><br>
 </div>
 <hr>
 
 <hr>
     <label for="lang">Como se entero de CITA</label><br>
-    <input type="text" id="" name="lang"><br>
+    <input type="text" id="" name="howhearcita"><br>
 <hr>
 
 <hr>
     <label for="lang">Si hubiera algo mas en que los pudieramos ayudar en que seria,
         que no sea dandole trabjo(esta pergunta es personal, solo usted da la repuesta)
     </label><br>
-    <input type="text" id="" name="lang"><br>
+    <input type="text" id="" name="otherhelp"><br>
 <hr>
 
 <hr>
     <label for="lang">Que Conoce usted de C.I.T.A(de Nosotros)</label><br>
-    <input type="text" id="" name="lang"><br>
+    <input type="text" id="" name="whatknowcita"><br>
 <hr>
 
 <hr>
