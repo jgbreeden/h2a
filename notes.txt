@@ -1,32 +1,16 @@
 notes:
+questions:
+need zip code on application? sure
+why 2 sections for Antecedentes Migratorios? check the fed form she will email me
+any obsolete questions? family illegal
+does the english question need to be grouped with the passport question? 
+what is the mechanical documentation?
+how strict on legal questions? change format? not really
+what do you look at when making assignments? experience, skills, health
+is 2 applicants tabs useful? works fine
 
-Application process:
-    form is functional, but there are visual glitches
-    need to check if all data is saving correctly
+they want to see felonies first to determine qualification
+quesion about location just where do they want to work
+if they leave early, they need explanation to work in the future
 
-Back end:
-    Applicants/New Applicants
-        
-        need issues class activated - initialize blank objects
-        need list of used, select list box, and input fields for 
-            documents
-                --already filling list box
-                --already filling applicant docs
-                clear form
-                show values in form
-                save
-            health
-                need to fill list box
-                need to fill applicant health - fix sql in php
-                clear form
-                show values in form
-                save
- 
-            issues
 
-            --need php files for each of the above
-            
-    
-    Assignments:
-        need visual clean up
-        need more lists: docs, health
