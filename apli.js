@@ -78,6 +78,14 @@ function isValid(tab){
      return ok
 }
 
+function hideOption(item){
+    if (item.value == "yes"){
+        document.getElementById("no" + item.id + "options").style.display = "none";
+    }else{
+        document.getElementById(item.name + "options").style.display = "none";
+    }
+}
+
 function showOption(item){
     document.getElementById(item.id + "options").style.display = "block";
 }
