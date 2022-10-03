@@ -6,7 +6,8 @@
 	}
 	$sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phonehome = ?,"
 		. "address = ?, city = ?, state = ?, gender = ?, status = ?, yumaonly = ?, travelwhy = ?, stay8mo = ?, overtime = ?,"
-		. "extend = ?, extendwhynot = ? WHERE id = ?;";
+		. "extend = ?, extendwhynot = ?, dateofbirth = ?, email = ?, age = ?, height = ?, weight = ?, maritalstatus = ?,"
+		. "placeofbirth = ?, whatknowvisa = ?, howhearcita = ?, otherhelp = ?, whatknowcita = ?, WHERE id = ?;";
 	$stmt = $conn->prepare($sql);
 	$g = "male";
 	$stmt->bind_param("sssssssssssssssi", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
