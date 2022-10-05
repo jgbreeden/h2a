@@ -27,7 +27,10 @@
 		. $row["extendwhynot"] . '", "dateofbirth": "' . $row["dateofbirth"] . '", "email": "'
 		.$row["email"] . '", "age": "' . $row["age"] . '", "height": "' 
 		. $row["height"] . '", "weight": "' . $row["weight"] . '", "maritalstatus": "'
-		. $row["maritalstatus"] . '", "placeofbirth": "' . $row["placeofbirth"] . '", "skills": [ ';
+		. $row["maritalstatus"] . '", "placeofbirth": "' . $row["placeofbirth"] . '", "whatknowvisa": "' 
+		. $row["whatknowvisa"] . '", "howhearcita": "' . $row["howhearcita"] . '", "otherhelp": "'
+		. $row["otherhelp"] . '", "whatknowcita": "' . $row["whatknowcita"] . '", "skills": [ '; 
+		
 	if (! is_null( $row["skillenglish"])) {
 		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"] 
 			. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"] 
