@@ -41,6 +41,11 @@ $howhearcita = htmlspecialchars($_POST["howhearcita"]);
 $otherhelp = htmlspecialchars($_POST["otherhelp"]);
 $whatknowcita = htmlspecialchars($_POST["whatknowcita"]);
 
+if ($_POST["aware"] == "yes") {
+    $whatknowvisa = "Yes, I know it is a work visa" . $whatknowvisa;
+} else {
+    $whatknowvisa = "No, I didn't know it was a work visa" . $whatknowvisa;
+}
 
 
 
