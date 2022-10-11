@@ -198,7 +198,7 @@ $stmt->bind_param("iis", $issuesid, $id, $details2);
 $issues = [];
 $empty = "";
 
-if ($_POST["deport"] == "yes") array_push($issues, array("deport", "When: " . $_POST["deportwhen"] . "\nWhy: " . $_POST["deportwhy"]));
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", "When: " . $_POST["deportwhen"] . "\\nWhy: " . $_POST["deportwhy"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));

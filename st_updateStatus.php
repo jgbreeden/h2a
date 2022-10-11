@@ -4,12 +4,11 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "UPDATE status SET issuesid = ?, applicantsid = ?, whengot = ?, whyhow = ?, punishreason = ?, punishtime = ?"
+	$sql = "UPDATE status SET issuesid = ?, applicantsid = ?, details = ?"
 		. " WHERE id = ?;";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("sssssss", $_POST["statuslist"], $_POST["apid5"],
-								$_POST["when3"], $_POST["whyhow2"],
-								$_POST["punishreason2"], $_POST["punishtime2"], $_POST["statusid"]);
+	$stmt->bind_param("ssss", $_POST["statuslist"], $_POST["apid5"],
+								$_POST["details5"], $_POST["statusid"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";
