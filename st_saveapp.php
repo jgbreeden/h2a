@@ -22,6 +22,7 @@ $phonehome = htmlspecialchars($_POST["phonehome"]);
 $address = htmlspecialchars($_POST["address"]);
 $city = htmlspecialchars($_POST["city"]);
 $state = htmlspecialchars($_POST["state"]);
+$zipcode = htmlspecialchars($_POST["zipcode"]);
 $gender = htmlspecialchars($_POST["gender"]);
 $yumaonly = htmlspecialchars($_POST["yumaonly"]);
 $travelwhy = htmlspecialchars($_POST["travelwhy"]);
@@ -49,10 +50,10 @@ if ($_POST["aware"] == "yes") {
 
 
 
-$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, state, gender, yumaonly, 
+$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, state, zipcode, gender, yumaonly, 
     travelwhy, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
-    email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $gender, $yumaonly, 
+    email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, $gender, $yumaonly, 
     $travelwhy, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, $otherhelp, $whatknowcita);
 $result = $stmt->execute();

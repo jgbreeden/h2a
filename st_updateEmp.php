@@ -5,14 +5,14 @@
 		die("Connect error: " . $conn->connect_error);
 	}
 	$sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phonehome = ?,"
-		. "address = ?, city = ?, state = ?, gender = ?, status = ?, yumaonly = ?, travelwhy = ?, stay8mo = ?, overtime = ?,"
+		. "address = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, yumaonly = ?, travelwhy = ?, stay8mo = ?, overtime = ?,"
 		. "extend = ?, extendwhynot = ?, dateofbirth = ?, email = ?, age = ?, height = ?, weight = ?, maritalstatus = ?,"
 		. "placeofbirth = ?, whatknowvisa = ?, howhearcita = ?, otherhelp = ?, whatknowcita = ?, WHERE id = ?;";
 	$stmt = $conn->prepare($sql);
 	$g = "male";
-	$stmt->bind_param("sssssssssssssssi", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
+	$stmt->bind_param("ssssssssssssssssi", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
 									$_POST["hphone"], $_POST["address"], $_POST["city"],
-									$_POST["state"], $g, $_POST["status"], $_POST["yumaonly"], $_POST["travelwhy"], 
+									$_POST["state"], $g, $_POST["zip"], $g, $_POST["status"], $_POST["yumaonly"], $_POST["travelwhy"], 
 									$_POST["stay8mo"], $_POST["overtime"], $_POST["extend"],
 									$_POST["extendwhynot"], $_POST["id"]);
 	$result = $stmt->execute();
