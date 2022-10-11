@@ -194,12 +194,12 @@ for($i = 0; $i < $count; $i++){
     $stmt->execute();
 }
 
-$stmt = $conn->prepare("INSERT INTO status (issuesid, applicantsid, whengot, whyhow, punishtime, punishreason) VALUES(?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("iissss", $issuesid, $id, $when2, $why1, $punish1, $reason2);
+$stmt = $conn->prepare("INSERT INTO status (issuesid, applicantsid, details) VALUES(?, ?, ?)");
+$stmt->bind_param("iis", $issuesid, $id, $details2);
 $issues = [];
 $empty = "";
 
-if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"], $empty, $empty));
+if ($_POST["deport"] == "yes") array_push($issues, array("deport", "When: " . $_POST["deportwhen"] . "\\nWhy: " . $_POST["deportwhy"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
@@ -208,10 +208,7 @@ if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["depor
 $count = count($issues);
 for($i = 0; $i < $count; $i++){
     $issuesid = getissues($issues[$i]);
-    $when2 = $issues[$i][1];
-    $why1 = $issues[$i][2];
-    $punish1 = $issues[$i][3];
-    $reason2 = $issues[$i][4];
+    $details2 = $issues[$i][1];
     $stmt->execute();
 }
 

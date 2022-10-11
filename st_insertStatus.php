@@ -4,10 +4,9 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "INSERT INTO h2a.status (issuesid, applicantsid, whengot, whyhow, punishreason, punishtime) VALUES (?, ?, ?, ?, ?, ?);";
+	$sql = "INSERT INTO h2a.status (issuesid, applicantsid, details) VALUES (?, ?, ?);";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("iissss",  $_POST["statuslist"],  $_POST["apid5"], $_POST["when3"], 
-								$_POST["whyhow2"], $_POST["punishreason2"], $_POST["punishtime2"]);
+	$stmt->bind_param("iis",  $_POST["statuslist"],  $_POST["apid5"], $_POST["details5"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";

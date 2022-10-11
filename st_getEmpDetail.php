@@ -89,7 +89,7 @@
 		$comma = ", ";
 	}
 	echo '],	"issues": [';
-	$query = "SELECT status.id as statusid, status.whengot, status.whyhow, status.punishtime, status.punishreason, status.issuesid,"
+	$query = "SELECT status.id as statusid, status.details, status.issuesid,"
 			. " issues.issueenglish as statuseng FROM status INNER JOIN issues ON "
 			. "status.issuesid = issues.id WHERE status.applicantsid =?";
 
@@ -100,10 +100,8 @@
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
 		echo $comma . '{ "statusid": "' . $row["statusid"] . '", "statuseng": "' 
-			. $row["statuseng"] . '", "whengot": "'
-			. $row["whengot"] . '", "whyhow": "'
-			. $row["whyhow"] . '", "punishtime": "' . $row["punishtime"]
-			. '", "punishreason": "' . $row["punishreason"] . '", "issuesid": "' 
+			. $row["statuseng"] . '", "details": "'
+			. $row["details"] . '", "issuesid": "' 
 			. $row["issuesid"] . '"}';
 		$comma = ", ";
 	}
