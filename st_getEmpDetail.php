@@ -20,7 +20,7 @@
 	echo '{ "id": ' . $row["id"] . ', "firstname": "' . $row["firstname"] . '", "lastname": "'
 		. $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
 		. $row["phonehome"] . '", "address": "' . $row["address"] . '", "city": "'
-		. $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . '0'
+		. $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . $row["zipcode"]
 		. '", "status": "' . $row["status"] . '", "yumaonly": "' . $row["yumaonly"] . '", "travelwhy": "' 
 		. $row["travelwhy"] . '", "stay8mo": "' . $row["stay8mo"] . '", "overtime": "' 
 		. $row["overtime"] . '", "extend": "' . $row["extend"] . '", "extendwhynot": "'
@@ -30,7 +30,7 @@
 		. $row["maritalstatus"] . '", "placeofbirth": "' . $row["placeofbirth"] . '", "whatknowvisa": "' 
 		. $row["whatknowvisa"] . '", "howhearcita": "' . $row["howhearcita"] . '", "otherhelp": "'
 		. $row["otherhelp"] . '", "whatknowcita": "' . $row["whatknowcita"] . '", "skills": [ '; 
-		
+
 	if (! is_null( $row["skillenglish"])) {
 		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"] 
 			. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"] 
@@ -89,7 +89,7 @@
 		$comma = ", ";
 	}
 	echo '],	"issues": [';
-	$query = "SELECT status.id as statusid, status.whengot, status.whyhow, status.punishtime, status.punishreason, status.issuesid,"
+	$query = "SELECT status.id as statusid, status.details, status.issuesid,"
 			. " issues.issueenglish as statuseng FROM status INNER JOIN issues ON "
 			. "status.issuesid = issues.id WHERE status.applicantsid =?";
 
@@ -100,10 +100,8 @@
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
 		echo $comma . '{ "statusid": "' . $row["statusid"] . '", "statuseng": "' 
-			. $row["statuseng"] . '", "whengot": "'
-			. $row["whengot"] . '", "whyhow": "'
-			. $row["whyhow"] . '", "punishtime": "' . $row["punishtime"]
-			. '", "punishreason": "' . $row["punishreason"] . '", "issuesid": "' 
+			. $row["statuseng"] . '", "details": "'
+			. $row["details"] . '", "issuesid": "' 
 			. $row["issuesid"] . '"}';
 		$comma = ", ";
 	}

@@ -22,6 +22,7 @@ $phonehome = htmlspecialchars($_POST["phonehome"]);
 $address = htmlspecialchars($_POST["address"]);
 $city = htmlspecialchars($_POST["city"]);
 $state = htmlspecialchars($_POST["state"]);
+$zipcode = htmlspecialchars($_POST["zipcode"]);
 $gender = htmlspecialchars($_POST["gender"]);
 $yumaonly = htmlspecialchars($_POST["yumaonly"]);
 $travelwhy = htmlspecialchars($_POST["travelwhy"]);
@@ -49,10 +50,10 @@ if ($_POST["aware"] == "yes") {
 
 
 
-$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, state, gender, yumaonly, 
+$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, state, zipcode, gender, yumaonly, 
     travelwhy, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
-    email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $gender, $yumaonly, 
+    email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, $gender, $yumaonly, 
     $travelwhy, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, $otherhelp, $whatknowcita);
 $result = $stmt->execute();
@@ -193,24 +194,23 @@ for($i = 0; $i < $count; $i++){
     $stmt->execute();
 }
 
-$stmt = $conn->prepare("INSERT INTO status (issuesid, applicantsid, whengot, whyhow, punishtime, punishreason) VALUES(?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("iissss", $issuesid, $id, $when2, $why1, $punish1, $reason2);
+$stmt = $conn->prepare("INSERT INTO status (issuesid, applicantsid, details) VALUES(?, ?, ?)");
+$stmt->bind_param("iis", $issuesid, $id, $details2);
 $issues = [];
 $empty = "";
 
-if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"], $empty, $empty));
-//if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
-//if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
-//if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+if ($_POST["deport"] == "yes") array_push($issues, array("Deported", "When: " . $_POST["deportwhen"] . "Why: " . $_POST["deportwhy"]));
+if ($_POST["denied"] == "yes") array_push($issues, array("Visa Denied", "Type: " . $_POST["deniedtype"] . "Year: " . $_POST["deniedyear"] . "Reason: " . $_POST["deniedreason"] . "Times Applied: " . $_POST["timesapplied"]));
+if ($_POST["detention"] == "yes") array_push($issues, array("Caught Crossing" . "#Times" . $_POST["detentiontimes"] . 
+        "Last Time: " . $_POST["detentionlast"] . "Punished: " . $_POST["detentionpunish"] . "Length: " . $_POST["detentiontime"] . 
+        "Completed: " . $_POST["completed"] . "Pardon: " . $_POST["pardon"]));
+if ($_POST["police"] == "yes") array_push($issues, array("Police" . "Type of Problem: " . $_POST["policeproblem"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
 
 $count = count($issues);
 for($i = 0; $i < $count; $i++){
     $issuesid = getissues($issues[$i]);
-    $when2 = $issues[$i][1];
-    $why1 = $issues[$i][2];
-    $punish1 = $issues[$i][3];
-    $reason2 = $issues[$i][4];
+    $details2 = $issues[$i][1];
     $stmt->execute();
 }
 

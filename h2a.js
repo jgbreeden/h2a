@@ -128,7 +128,7 @@ var currskill = new Experience (0, "", 0, "", "", "", "", "produce");
 var currability = new Experience (0, "", 0, "", "", "", "", "ability");
 var currdoc = new Issues (0, "", 0, "", "", "", "", "document");
 var currhealth = new Issues (0, "", 0, "", "", "", "", "health");
-var currstatus = new Issues (0, "", 0, "", "", "", "", "status");
+var currstatus = new Issues (0, "", 0, "", "status");
 var skilllist = [];
 var curdoc;
 
@@ -224,8 +224,7 @@ function fillEmpDetail(data) {
 	let statusContents = "<tr><th>Issue Type</th></tr>";
 	for (let i = 0; i < data.issues.length; i++){
 		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.issues[i].statusid + "</td><td>" +  data.issues[i].statuseng + "</td><td class='id'>"
-					+ data.issues[i].whengot + "</td><td class='id'>" + data.issues[i].whyhow + "</td><td>" + data.issues[i].punishtime + "</td><td class='id'>" 
-					+ data.issues[i].punishreason + "</td><td class ='id'>" + data.issues[i].issuesid + "</td></tr>";
+					+ data.issues[i].details + "</td><td class ='id'>" + data.issues[i].issuesid + "</td></tr>";
 	}
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
@@ -399,7 +398,7 @@ function showAbility2(row){
 
 function showHealth(row){
 	let cells = row.getElementsByTagName("td");
-	currability = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, "treatment");
+	currhealth = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, "treatment");
 	document.getElementById("healthlist").value = cells[4].innerHTML;
 	document.getElementById("reason2").value = cells[3].innerHTML;
 	document.getElementById("treatment2").value = cells[2].innerHTML;
@@ -424,13 +423,10 @@ function showDocs(row){
 
 function showStatus(row){
 	let cells = row.getElementsByTagName("td");
-	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML, cells[1].innerHTML, "status");
+	currstatus = new Issues (cells[0].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, "status");
 	document.getElementById("statusid").value = cells[0].innerHTML;
-	document.getElementById("statuslist").value = cells[6].innerHTML;
-	document.getElementById("when3").value = cells[2].innerHTML;
-	document.getElementById("whyhow2").value = cells[3].innerHTML;
-	document.getElementById("punishreason2").value = cells[4].innerHTML;
-	document.getElementById("punishtime2").value = cells[5].innerHTML;
+	document.getElementById("statuslist").value = cells[3].innerHTML;
+	document.getElementById("details5").value = cells[2].innerHTML;
 	document.getElementById("apid5").value = currappl.id;
 	resetTable(document.getElementById("statusTab"));
 	row.classList.add("selected");
@@ -521,10 +517,7 @@ function clearHealth(){
 
 function clearStatus(){
 	document.getElementById("statuslist").value = "";
-	document.getElementById("when3").value = "";
-	document.getElementById("whyhow2").value = "";
-	document.getElementById("punishtime2").value = "";
-	document.getElementById("punishreason2").value = "";
+	document.getElementById("details5").value = "";
 	document.getElementById("statusid").value = 0;
 	document.getElementById("apid5").value = currappl.id;
 	resetTable(document.getElementById("statusTab"));

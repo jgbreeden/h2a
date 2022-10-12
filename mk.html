@@ -64,6 +64,11 @@
     <hr>
 
     <hr>
+    <label for="zipcode">Codigo Postal</label><br>
+    <input type="text" id="zipcode" name="zipcode"><br>
+    <hr>
+
+    <hr>
     <label for="pbirth">Lugar de Nacimiento</label><br>
     <input type="text" id="placeofbirth" name="placeofbirth"><br>
     <hr>
@@ -112,6 +117,485 @@
 </div>
     <div class="tab">
   
+
+<hr>
+    Sabe Usted Ingles
+    <div class="inline"><input type="radio" name="english" id="english" value="yes" onclick="showOption(this)">
+    <label for="passport">Si</label><br>
+    <input type="radio" name="english" value="No" id="npass" checked="true" onclick="hideOption(this)">
+    <label for="npass">No</label><br>
+    </div>
+    <div class="options" id="englishoptions">
+    <label for="speakpercent">Que porcentaje hablado</label><br>
+    <input type="number" id="speakpercent" name="speakpercent"><br>
+
+    <label for="writepercent">Que procentaje escrito</label><br>
+    <input type="number" id="writepercent" name="writepercent"><br>
+
+    <label for="whereenglish">Donde aprendio el ingles</label><br>
+    <input type="text" name="whereenglish"><br>
+    </div>
+    
+<hr>
+
+<hr>
+    Cuenta con su Pasaporte Mexicano
+    <div class="inline"><input type="radio" name="passport" id="passport" value="yes" onclick="showOption(this); hideOption(this)">
+    <label for="passport">Si</label><br>
+    <input type="radio" name="passport" value="No" id="nopassport" checked="true" onclick="showOption(this); hideOption(this)">
+    <label for="npass">No</label><br>
+    </div>
+    <div class="options" id="passportoptions">
+    <label for="expdate">Cuando se vence</label><br>
+    <input type="date" id="expdate" name="expdate"><br>
+
+    <label for="npass">Numero de Pasaporte</label><br>
+    <input type="text" id="npass" name="npass"><br>
+
+    <label for="npass">Donde lo Tramito</label><br>
+    <input type="text" name="wherepass"><br>
+    </div>
+    <div class="options" id="nopassportoptions">
+    <label for="npass">Si no tiene su Pasaporte, Cuenta con los recursos para tramitarlo de inmediato, si asi se lo requieren</label><br>
+    <input type="text" name="npass"><br>
+    </div>
+   
+<hr>
+
+<hr>
+    Lo han Deportado del los Estados Unidos
+    <div class="inline"><input type="radio" name="deport" id="deport" value="yes" onclick="showOption(this)">
+    <label for="deport">Si</label><br>
+    <input type="radio" name="deport" value="No" id="deportno" checked="true" onclick="hideOption(this)">
+    <label for="deportno">No</label><br>
+    </div>
+    <div class="options" id="deportoptions">
+    <label for="lang">Hace Cuanto</label><br>
+    <input type="text" name="deportwhen"><br>
+
+    <label for="lang">Porque Motivos lo Deportaron</label><br>
+    <input type="text" name="deportwhy"><br>
+    
+    Tiene Castigo Vigente de Deportacion
+    <div class="inline"><input type="radio" name="detdeport" id="deporttwo" value="yes">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="detdeport" value="No">
+    <label for="yn">No</label><br>
+    </div>
+    <label for="lang">Cuanto Tiempo</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">Porque Motivo</label><br>
+    <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
+
+<hr>
+    Le han negado algun tipo de Visa?
+   <div class="inline"><input type="radio" name="denied" id="denied" value="yes" onclick="showOption(this)">
+    <label for="denied">Si</label><br>
+    <input type="radio" name="denied" value="No" id="deniedno" checked="true" onclick="hideOption(this)">
+    <label for="deniedno">No</label><br>
+    </div>
+
+    <div class="options" id="deniedoptions">
+    <label for="deniedtype">Que tipo de Visa</label><br>
+    <input type="text" id="deniedtype" name="deniedtype"><br>
+
+    <label for="deniedyear">Ano en que la Negaron</label><br>
+    <input type="number" id="deniedyear" name="deniedyear"><br>
+
+    <label for="deniedreason">Motivos por que le Negaron la visa</label><br>
+    <input type="text" id="deniedreason" name="deniedreason"><br>
+
+    <label for="timesapply">Cuantas veces a Tratado de Tramitar una Visa</label><br>
+    <input type="number" id="timesapply" name="timesapply"><br>
+</div>
+<hr>
+  
+<hr>
+    Lo Han detenido cruzando ilegalmente a los Estados Unidos?
+    <div class="inline"><input type="radio" name="detention" id="detention" value="yes" onclick="showOption(this)">
+    <label for="detention">Si</label><br>
+    <input type="radio" name="detention" value="No"  id="detentionno" checked="true" onclick="hideOption(this)">
+    <label for="detentionno">No</label><br>
+    </div>
+
+    <div class="options" id="detentionoptions">
+    <label for="detentiontimes">Cuantas veces?</label><br>
+    <input type="number" id="detentiontimes" name="detentiontimes"><br>
+
+    <label for="detentionlast">Hace Cuanto fue la ultima detencion?</label><br>
+    <input type="text" id="detentionlast" name="detentionlast"><br>
+
+    La dieron Castigo?
+    <input type="radio" name="detentionpunish" value="yes">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="detentionpunish" value="No" id="" checked="true">
+    <label for="yn">No</label><br>
+
+    <label for="detentiontime">De cuanto tiempo fue el Castigo?</label><br>
+    <input type="text" id="detentiontime" name="detentiontime"><br>
+    
+    Ya lo Cumplio?
+    <input type="radio" name="completed" value="yes">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="completed" value="No" id="" checked="true">
+    <label for="yn">No</label><br>
+
+    Mando un perdon por el Castigo?
+    <input type="radio" name="pardon" value="yes">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="pardon" value="No" id="" checked="true">
+    <label for="yn">No</label><br>
+
+    <label for="lang">Favor de decir la verdad(explique el motivo de la detention)</label><br>
+    <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
+
+<hr>
+    Lo Han Detenido dentro de los Estados Unidos?
+    <div class="inline"><input type="radio" name="usdetention" id="usdetention" value="yes">
+    <label for="usadentention">Si</label><br>
+    <input type="radio" name="usdetention" value="No" id="usadententionno" checked="true">
+    <label for="usadententionno">No</label><br>
+    </div>
+<hr>
+
+<hr>
+    Ha tenido problemas con la Policia Americana?
+    <div class="inline"><input type="radio" name="police" id="police" value="yes" onclick="showOption(this)">
+    <label for="police">Si</label><br>
+    <input type="radio" name="police" value="No" id="policeno" checked="true" onclick="hideOption(this)">
+    <label for="policeno">No</label><br>
+    </div>
+
+    <div class="options" id="policeoptions">
+    <label for="policeproblem">Explique que tipo de problema</label><br>
+    <input type="text" id="policeproblem" name="policeproblem"><br>
+    </div>
+<hr>
+
+<hr>
+    Esta Trabajando con visa H2A, Actualmente?
+     <div class="inline"><input type="radio" name="hish2a" id="hish2a" value="yes" onclick="showOption(this)">
+    <label for="hish2a">Si</label><br>
+    <input type="radio" name="hish2a" value="No" id="hish2ano" checked="true" onclick="hideOption(this)">
+    <label for="hish2ano">No</label><br>
+    </div>
+
+    <div class="options" id="hish2aoptions">
+    <label for="lang">En Que Compania?</label><br>
+    <input type="text" name="whtcomp"><br>
+    
+    <label for="lang">Temporada que trabaja con visa H2A, de que Mes a que Mes</label><br>
+    <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
+
+<hr>
+    A trabajado con Visa H2A antes?
+    <div class="inline"><input type="radio" name="h2a" id="h2a" value="yes" onclick="showOption(this)">
+    <label for="h2a">Si</label><br>
+    <input type="radio" name="h2a" value="No" id="h2ano" checked="true" onclick="hideOption(this)">
+    <label for="h2ano">No</label><br>
+    </div>
+
+    <div class="options" id="h2aoptions">
+    <label for="lang">Cuantas visas a Tenido</label><br>
+    <input type="number" id="" name="lang"><br>
+
+    <label for="lang">En que companias Trabajo</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">Que tipo de Trabajo( Cultivo )</label><br>
+    <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
+
+<hr>
+    <label for="lang">Otro empleo que haiga realizado, que no sea de campo y tampoco los mencionados arriba, Mencione</label><br>
+    <input type="text" id="" name="lang"><br>
+<hr>
+
+<hr>
+    Ha trabajo en los Estados Unidos en el Campo
+    <div class="inline"><input type="radio" name="historywork" id="historywork" value="yes" onclick="showOption(this)">
+    <label for="historywork">Si</label><br>
+    <input type="radio" name="historywork" value="No" id="historyworkno" checked="true" onclick="hideOption(this)">
+    <label for="historyworkno">No</label><br>
+    </div>
+
+    
+    <div class="options" id="historyworkoptions">
+    De que Manera
+    <input type="radio" name="matters" value="yes">
+    <label for="yn">legal</label><br>
+    <input type="radio" name="matters" value="No">
+    <label for="yn">O ilegal</label><br>
+
+    Trabajo con su visa de Turista?
+    <input type="radio" name="touristvisa" value="yes">
+    <label for="touristvisa">Si</label><br>
+    <input type="radio" name="touristvisa" value="No" id="touristvisano" checked="true">
+    <label for="touristvisano">No</label><br>
+
+    <label for="lang">Menciones todos los cultivos en los que ha trabajado en Estados Unidos? (tipo
+        de cosecha, ya sean verduras o Frutas)
+    </label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">En que Estados de Estados Unidos ha Trabajado</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">Algun Otro Empleo que haiga tenido en Estado Unidos que no sea de Agricultura(campo) </label><br>
+    <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
+
+<hr>
+    Tiene usted visa de Turista?
+    <div class="inline"><input type="radio" name="visa" id="visa" value="yes">
+    <label for="visa">Si</label><br>
+    <input type="radio" name="visa" value="No" id="visano" checked="true">
+    <label for="visano">No</label><br>
+    </div>
+<hr>
+
+<hr>
+    Esta en Tramites de Migracion
+    <div class="inline"><input type="radio" name="migrate" id="migrate" value="yes">
+    <label for="migrate">Si</label><br>
+    <input type="radio" name="migrate" value="No" id="migrateno" checked="true">
+    <label for="migrateno">No</label><br>
+    </div>
+ <hr>
+ 
+ <hr>
+    Marque con una X, para donde esta Aplicand
+    <div class="inline"><input type="radio" name="yumaonly" id="whereto" value="yes" >
+    <label for="whereto">Solo para Yuma</label><br>
+    <input type="radio" name="yumaonly" value="No" id="wheretono" checked="true">
+    <label for="wheretono">No importa el Lugar o distancia</label><br>
+    </div>
+<hr>
+
+<hr>
+    Esta Disponible, quedarse el tiempo del contrato sin Venir a Mexico, con duracion de hasta 8 Meses
+    <div class="inline"><input type="radio" name="stay8mo" id="mexico" value="yes">
+    <label for="mexico">Si</label><br>
+    <input type="radio" name="stay8mo" value="No" id="mexicono" checked="true">
+    <label for="mexicono">No</label><br>
+    </div>
+<hr>
+
+<hr>
+    <label for="lang">Motivos por el cual le gustaria viajar tan Lejos</label><br>
+    <input type="text" id="" name="travelwhy"><br>
+
+    <label for="lang">Motivos por el cual No gustaria Viajar tan Lejos</label><br>
+    <input type="text" id="" name="travelwhynot"><br>
+<hr>
+
+<hr>
+    Esta disponible trabajar horas extras y fines de semana cuando sea necesario?
+    <div class="inline"><input type="radio" name="overtime" id="hours" value="yes">
+    <label for="hours">Si</label><br>
+    <input type="radio" name="overtime" value="No" id="hoursno" checked="true">
+    <label for="hoursno">No</label><br>
+    </div>
+<hr>
+
+<hr>
+    Esta disponible a una posible extension de Contrato
+    <div class="inline"><input type="radio" name="extend" id="extension" value="yes" onclick="hideOption(this)">
+    <label for="extension">Si</label><br>
+    <input type="radio" name="extend" value="No" id="noextension" checked="true" onclick="showOption(this)"> 
+    <label for="noextension">No</label><br>
+    </div>
+    <div class="options" id="noextensionoptions">
+    <label for="lang">Motivos por el cual No</label><br>
+    <input type="text" id="" name="extendwhynot"><br>
+</div>
+<hr>
+
+<hr>
+    Tiene Usted Familiares en los Estados Unidos
+    <div class="inline"><input type="radio" name="family" id="family" value="yes" onclick="showOption(this)">
+    <label for="family">Si</label><br>
+    <input type="radio" name="family" value="No" id="familyno" checked="true" onclick="hideOption(this)">
+    <label for="familyno">No</label><br>
+    </div>
+    
+    <div class="options" id="familyoptions">
+    <label for="lang">Que Tipo de Familiar</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    Si contesto que Si, de que Manera esta su Familiar en los Estados Unidos
+    <input type="radio" name="familystatus" value="yes">
+    <label for="yn">Legal</label><br>
+    <input type="radio" name="familystatus" value="No" checked="true">
+    <label for="yn">0 Ilegal</label><br>
+
+    Esta usted interesado en ser contratado cerca de donde se encuentra su Familiar
+    <input type="radio" name="nearfamily" value="yes">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="nearfamily" value="No" checked="true">
+    <label for="yn">No</label><br>
+
+    <label for="lang">Me da igual</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">En que Estado, esta su Familiar</label><br>
+    <input type="text" id="" name="lang"><br>
+
+   <label for="lang">Desde hace cuanto Tiempo</label><br>
+    <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
+
+<hr>
+    Puede Levantar de 25 Kilos a 40?
+    <div class="inline"><input type="radio" name="kilos" id="kilos" value="yes">
+    <label for="kilos">Si</label><br>
+    <input type="radio" name="kilos" value="No" id="kilosno" checked="true">
+    <label for="kilosno">No</label><br>
+    </div>
+<hr>
+
+<hr>
+    Tiene Problemas con su espalda?
+    <div class="inline"><input type="radio" name="backp" id="backp" value="yes">
+    <label for="backp">Si</label><br>
+    <input type="radio" name="backp" value="No" id="backpno" checked="true">
+    <label for="backpno">No</label><br>
+    </div>
+<hr>
+
+<hr>
+    Alguna vez ha Sufrido de Alguna Fractura en la espaldo, Pierna O Brazo?
+    <div class="inline"><input type="radio" name="injury" id="injury" value="yes" onclick="showOption(this)">
+    <label for="injury">Si</label><br>
+    <input type="radio" name="injury" value="No" id="injuryno" checked="true" onclick="hideOption(this)">
+    <label for="injuryno">No</label><br>
+    </div>
+
+    <div class="options" id="injuryoptions">
+    <label for="lang">Que Tipo de Fractua Y donde</label><br>
+    <input type="text" id="" name="injuryoptions"><br>
+    </div>
+<hr>
+
+<hr>
+    Tiene alguna inhabilidad (Discapacidad) que le causa problema en el trabajo
+    <div class="inline"><input type="radio" name="disability" id="disability" value="yes" onclick="showOption(this)">
+    <label for="disability">Si</label><br>
+    <input type="radio" name="disability" value="No" id="disabilityno" checked="true" onclick="hideOption(this)">
+    <label for="disabilityno">No</label><br>
+    </div>
+
+    <div class="options" id="disabilityoptions">
+    <label for="lang">Al contestar si, por favor explique su inhabilidad (Discapacidad)</label><br>
+    <input type="text" id="" name="lang"><br>
+    </div>
+<hr>
+
+<hr>
+    Es Usted Diabetico?
+    <div class="inline"><input type="radio" name="diabetic" id="diabetic" value="yes" onclick="showOption(this)">
+    <label for="diabetic">Si</label><br>
+    <input type="radio" name="diabetic" value="No" id="diabeticno" checked="true" onclick="hideOption(this)">
+    <label for="diabeticno">No</label><br>
+    </div>
+
+    <div class="options" id="diabeticoptions">
+    <label for="lang">Usa medicamento</label><br>
+    <input type="text" id="" name="diabeticmed"><br>
+    </div>
+<hr>
+
+<hr>
+    Sufre usted de Asma?
+    <div class="inline"><input type="radio" name="asma" id="asma" value="yes" onclick="showOption(this)">
+    <label for="asma">Si</label><br>
+    <input type="radio" name="asma" value="No" id="asmano" checked="true" onclick="hideOption(this)">
+    <label for="asmano">No</label><br>
+    </div>
+
+    <div class="options" id="asmaoptions">
+    <label for="lang">Se lo esta Tratando</label><br>
+    <input type="text" id="" name="asthmamed"><br>
+    </div>
+<hr>
+
+<hr>
+    Problemas del Corazon
+    <div class="inline"><input type="radio" name="heart" id="heart" value="yes" onclick="showOption(this)">
+    <label for="heart">Si</label><br>
+    <input type="radio" name="heart" value="No" id="heartno" checked="true" onclick="hideOption(this)">
+    <label for="heartno">No</label><br>
+    </div>
+
+    <div class="options" id="heartoptions">
+    <label for="lang">usa Medicamento</label><br>
+    <input type="text" id="" name="heartmed"><br>
+    </div>
+<hr>
+
+<hr>
+    Problemas con Alta presion
+    <div class="inline"><input type="radio" name="pressure" id="pressure" value="yes" onclick="showOption(this)">
+    <label for="pressure">Si</label><br>
+    <input type="radio" name="pressure" value="No" id="pressureno" checked="true" onclick="hideOption(this)">
+    <label for="pressureno">No</label><br>
+    </div>
+
+    <div class="options" id="pressureoptions">
+    <label for="lang">Que le Ocasiona el Problema de Presion</label><br>
+    <input type="text" id="" name="pressureoptions"><br>
+</div>
+<hr>
+
+<hr>
+    Esta Usted enterado, que esta Pre-solicitud, es para aplicar para una Visa H-2A, 
+        que es una Visa de Trabajo
+    <div class="inline"><input type="radio" name="aware" value="yes" id="aware" onclick="showOption(this)">
+    <label for="aware">Si</label><br>
+    <input type="radio" name="aware" value="No" id="awareno" checked="true" onclick="hideOption(this)">
+    <label for="awareno">No</label><br>
+    </div>
+
+    <div class="options" id="awareoptions">
+    <label for="lang">En su Palabras que conoce de esta Visa</label><br>
+    <textarea type="text" id="" name="whatknowvisa"  rows="4" cols="30">
+    </textarea><br>
+</div>
+<hr>
+
+<hr>
+    <label for="lang">Como se entero de CITA</label><br>
+    <textarea type="text" id="" name="howhearcita" rows="4" cols="30">
+    </textarea><br>
+<hr>
+
+<hr>
+    <label for="lang">Si hubiera algo mas en que los pudieramos ayudar en que seria,
+        que no sea dandole trabjo(esta pergunta es personal, solo usted da la repuesta)
+    </label><br>
+    <textarea type="text" id="" name="otherhelp" rows="4" cols="30">
+    </textarea><br>
+<hr>
+
+<hr>
+    <label for="lang">Que Conoce usted de C.I.T.A(de Nosotros)</label><br>
+    <textarea type="text" id="" name="whatknowcita"  rows="4" cols="30">
+    </textarea><br>
+<hr>
+
+</div>
+<div class="tab">
+
         <hr>Acelga
         <div class="inline"><input type="radio" name="acelga" id="acelga" value="yes" onclick="showOption(this)">
         <label for="acelga">Si</label><br>
@@ -958,483 +1442,6 @@
      </div>
      <hr>
 
-</div>
-<div class="tab">
-
-<hr>
-    Sabe Usted Ingles
-    <div class="inline"><input type="radio" name="english" id="english" value="yes" onclick="showOption(this)">
-    <label for="passport">Si</label><br>
-    <input type="radio" name="english" value="No" id="npass" checked="true" onclick="hideOption(this)">
-    <label for="npass">No</label><br>
-    </div>
-    <div class="options" id="englishoptions">
-    <label for="speakpercent">Que porcentaje hablado</label><br>
-    <input type="number" id="speakpercent" name="speakpercent"><br>
-
-    <label for="writepercent">Que procentaje escrito</label><br>
-    <input type="number" id="writepercent" name="writepercent"><br>
-
-    <label for="whereenglish">Donde aprendio el ingles</label><br>
-    <input type="text" name="whereenglish"><br>
-    </div>
-    
-<hr>
-
-<hr>
-    Cuenta con su Pasaporte Mexicano
-    <div class="inline"><input type="radio" name="passport" id="passport" value="yes" onclick="showOption(this); hideOption(this)">
-    <label for="passport">Si</label><br>
-    <input type="radio" name="passport" value="No" id="nopassport" checked="true" onclick="showOption(this); hideOption(this)">
-    <label for="npass">No</label><br>
-    </div>
-    <div class="options" id="passportoptions">
-    <label for="expdate">Cuando se vence</label><br>
-    <input type="date" id="expdate" name="expdate"><br>
-
-    <label for="npass">Numero de Pasaporte</label><br>
-    <input type="text" id="npass" name="npass"><br>
-
-    <label for="npass">Donde lo Tramito</label><br>
-    <input type="text" name="wherepass"><br>
-    </div>
-    <div class="options" id="nopassportoptions">
-    <label for="npass">Si no tiene su Pasaporte, Cuenta con los recursos para tramitarlo de inmediato, si asi se lo requieren</label><br>
-    <input type="text" name="npass"><br>
-    </div>
-   
-<hr>
-
-<hr>
-    Lo han Deportado del los Estados Unidos
-    <div class="inline"><input type="radio" name="deport" id="deport" value="yes" onclick="showOption(this)">
-    <label for="deport">Si</label><br>
-    <input type="radio" name="deport" value="No" id="deportno" checked="true" onclick="hideOption(this)">
-    <label for="deportno">No</label><br>
-    </div>
-    <div class="options" id="deportoptions">
-    <label for="lang">Hace Cuanto</label><br>
-    <input type="text" name="deportwhen"><br>
-
-    <label for="lang">Porque Motivos lo Deportaron</label><br>
-    <input type="text" name="deportwhy"><br>
-    
-    Tiene Castigo Vigente de Deportacion
-    <div class="inline"><input type="radio" name="detdeport" id="deporttwo" value="yes">
-    <label for="yn">Si</label><br>
-    <input type="radio" name="detdeport" value="No">
-    <label for="yn">No</label><br>
-    </div>
-    <label for="lang">Cuanto Tiempo</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Porque Motivo</label><br>
-    <input type="text" id="" name="lang"><br>
-    </div>
-<hr>
-
-<hr>
-    Le han negado algun tipo de Visa?
-   <div class="inline"><input type="radio" name="denied" id="denied" value="yes" onclick="showOption(this)">
-    <label for="denied">Si</label><br>
-    <input type="radio" name="denied" value="No" id="deniedno" checked="true" onclick="hideOption(this)">
-    <label for="deniedno">No</label><br>
-    </div>
-
-    <div class="options" id="deniedoptions">
-    <label for="lang">Que tipo de Visa</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Ano en que la Negaron</label><br>
-    <input type="number" id="" name="lang"><br>
-
-    <label for="lang">Motivos por que le Negaron la visa</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Cuantas veces a Tratado de Tramitar una Visa</label><br>
-    <input type="number" id="" name="lang"><br>
-</div>
-<hr>
-  
-<hr>
-    Lo Han detenido cruzando ilegalmente a los Estados Unidos?
-    <div class="inline"><input type="radio" name="detention" id="detention" value="yes" onclick="showOption(this)">
-    <label for="detention">Si</label><br>
-    <input type="radio" name="detention" value="No"  id="detentionno" checked="true" onclick="hideOption(this)">
-    <label for="detentionno">No</label><br>
-    </div>
-
-    <div class="options" id="detentionoptions">
-    <label for="lang">Cuantas veces?</label><br>
-    <input type="number" id="" name="lang"><br>
-
-    <label for="lang">Hace Cuanto fue la ultima detencion?</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    La dieron Castigo?
-    <input type="radio" name="warn" value="yes">
-    <label for="yn">Si</label><br>
-    <input type="radio" name="warn" value="No" id="" checked="true">
-    <label for="yn">No</label><br>
-
-    <label for="lang">De cuanto tiempo fue el Castigo?</label><br>
-    <input type="text" id="" name="lang"><br>
-    
-    Ya lo Cumplio?
-    <input type="radio" name="completed" value="yes">
-    <label for="yn">Si</label><br>
-    <input type="radio" name="completed" value="No" id="" checked="true">
-    <label for="yn">No</label><br>
-
-    Mando un perdon por el Castigo?
-    <input type="radio" name="pardon" value="yes">
-    <label for="yn">Si</label><br>
-    <input type="radio" name="pardon" value="No" id="" checked="true">
-    <label for="yn">No</label><br>
-
-    <label for="lang">Favor de decir la verdad(explique el motivo de la detention)</label><br>
-    <input type="text" id="" name="lang"><br>
-    </div>
-<hr>
-
-<hr>
-    Lo Han Detenido dentro de los Estados Unidos?
-    <div class="inline"><input type="radio" name="usdetention" id="usdetention" value="yes">
-    <label for="usadentention">Si</label><br>
-    <input type="radio" name="usdetention" value="No" id="usadententionno" checked="true">
-    <label for="usadententionno">No</label><br>
-    </div>
-<hr>
-
-<hr>
-    Ha tenido problemas con la Policia Americana?
-    <div class="inline"><input type="radio" name="police" id="police" value="yes" onclick="showOption(this)">
-    <label for="police">Si</label><br>
-    <input type="radio" name="police" value="No" id="policeno" checked="true" onclick="hideOption(this)">
-    <label for="policeno">No</label><br>
-    </div>
-
-    <div class="options" id="policeoptions">
-    <label for="lang">Explique que tipo de problema</label><br>
-    <input type="text" id="" name="lang"><br>
-    </div>
-<hr>
-
-<hr>
-    Esta Trabajando con visa H2A, Actualmente?
-     <div class="inline"><input type="radio" name="hish2a" id="hish2a" value="yes" onclick="showOption(this)">
-    <label for="hish2a">Si</label><br>
-    <input type="radio" name="hish2a" value="No" id="hish2ano" checked="true" onclick="hideOption(this)">
-    <label for="hish2ano">No</label><br>
-    </div>
-
-    <div class="options" id="hish2aoptions">
-    <label for="lang">En Que Compania?</label><br>
-    <input type="text" name="whtcomp"><br>
-    
-    <label for="lang">Temporada que trabaja con visa H2A, de que Mes a que Mes</label><br>
-    <input type="text" id="" name="lang"><br>
-    </div>
-<hr>
-
-<hr>
-    A trabajado con Visa H2A antes?
-    <div class="inline"><input type="radio" name="h2a" id="h2a" value="yes" onclick="showOption(this)">
-    <label for="h2a">Si</label><br>
-    <input type="radio" name="h2a" value="No" id="h2ano" checked="true" onclick="hideOption(this)">
-    <label for="h2ano">No</label><br>
-    </div>
-
-    <div class="options" id="h2aoptions">
-    <label for="lang">Cuantas visas a Tenido</label><br>
-    <input type="number" id="" name="lang"><br>
-
-    <label for="lang">En que companias Trabajo</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Que tipo de Trabajo( Cultivo )</label><br>
-    <input type="text" id="" name="lang"><br>
-    </div>
-<hr>
-
-<hr>
-    <label for="lang">Otro empleo que haiga realizado, que no sea de campo y tampoco los mencionados arriba, Mencione</label><br>
-    <input type="text" id="" name="lang"><br>
-<hr>
-
-<hr>
-    Ha trabajo en los Estados Unidos en el Campo
-    <div class="inline"><input type="radio" name="historywork" id="historywork" value="yes" onclick="showOption(this)">
-    <label for="historywork">Si</label><br>
-    <input type="radio" name="historywork" value="No" id="historyworkno" checked="true" onclick="hideOption(this)">
-    <label for="historyworkno">No</label><br>
-    </div>
-
-    
-    <div class="options" id="historyworkoptions">
-    De que Manera
-    <input type="radio" name="matters" value="yes">
-    <label for="yn">legal</label><br>
-    <input type="radio" name="matters" value="No">
-    <label for="yn">O ilegal</label><br>
-
-    Trabajo con su visa de Turista?
-    <input type="radio" name="touristvisa" value="yes">
-    <label for="touristvisa">Si</label><br>
-    <input type="radio" name="touristvisa" value="No" id="touristvisano" checked="true">
-    <label for="touristvisano">No</label><br>
-
-    <label for="lang">Menciones todos los cultivos en los que ha trabajado en Estados Unidos? (tipo
-        de cosecha, ya sean verduras o Frutas)
-    </label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">En que Estados de Estados Unidos ha Trabajado</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">Algun Otro Empleo que haiga tenido en Estado Unidos que no sea de Agricultura(campo) </label><br>
-    <input type="text" id="" name="lang"><br>
-    </div>
-<hr>
-
-<hr>
-    Tiene usted visa de Turista?
-    <div class="inline"><input type="radio" name="visa" id="visa" value="yes">
-    <label for="visa">Si</label><br>
-    <input type="radio" name="visa" value="No" id="visano" checked="true">
-    <label for="visano">No</label><br>
-    </div>
-<hr>
-
-<hr>
-    Esta en Tramites de Migracion
-    <div class="inline"><input type="radio" name="migrate" id="migrate" value="yes">
-    <label for="migrate">Si</label><br>
-    <input type="radio" name="migrate" value="No" id="migrateno" checked="true">
-    <label for="migrateno">No</label><br>
-    </div>
- <hr>
- 
- <hr>
-    Marque con una X, para donde esta Aplicand
-    <div class="inline"><input type="radio" name="yumaonly" id="whereto" value="yes" >
-    <label for="whereto">Solo para Yuma</label><br>
-    <input type="radio" name="yumaonly" value="No" id="wheretono" checked="true">
-    <label for="wheretono">No importa el Lugar o distancia</label><br>
-    </div>
-<hr>
-
-<hr>
-    Esta Disponible, quedarse el tiempo del contrato sin Venir a Mexico, con duracion de hasta 8 Meses
-    <div class="inline"><input type="radio" name="stay8mo" id="mexico" value="yes">
-    <label for="mexico">Si</label><br>
-    <input type="radio" name="stay8mo" value="No" id="mexicono" checked="true">
-    <label for="mexicono">No</label><br>
-    </div>
-<hr>
-
-<hr>
-    <label for="lang">Motivos por el cual le gustaria viajar tan Lejos</label><br>
-    <input type="text" id="" name="travelwhy"><br>
-
-    <label for="lang">Motivos por el cual No gustaria Viajar tan Lejos</label><br>
-    <input type="text" id="" name="travelwhynot"><br>
-<hr>
-
-<hr>
-    Esta disponible trabajar horas extras y fines de semana cuando sea necesario?
-    <div class="inline"><input type="radio" name="overtime" id="hours" value="yes">
-    <label for="hours">Si</label><br>
-    <input type="radio" name="overtime" value="No" id="hoursno" checked="true">
-    <label for="hoursno">No</label><br>
-    </div>
-<hr>
-
-<hr>
-    Esta disponible a una posible extension de Contrato
-    <div class="inline"><input type="radio" name="extend" id="extension" value="yes" onclick="hideOption(this)">
-    <label for="extension">Si</label><br>
-    <input type="radio" name="extend" value="No" id="noextension" checked="true" onclick="showOption(this)"> 
-    <label for="noextension">No</label><br>
-    </div>
-    <div class="options" id="noextensionoptions">
-    <label for="lang">Motivos por el cual No</label><br>
-    <input type="text" id="" name="extendwhynot"><br>
-</div>
-<hr>
-
-<hr>
-    Tiene Usted Familiares en los Estados Unidos
-    <div class="inline"><input type="radio" name="family" id="family" value="yes" onclick="showOption(this)">
-    <label for="family">Si</label><br>
-    <input type="radio" name="family" value="No" id="familyno" checked="true" onclick="hideOption(this)">
-    <label for="familyno">No</label><br>
-    </div>
-    
-    <div class="options" id="familyoptions">
-    <label for="lang">Que Tipo de Familiar</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    Si contesto que Si, de que Manera esta su Familiar en los Estados Unidos
-    <input type="radio" name="familystatus" value="yes">
-    <label for="yn">Legal</label><br>
-    <input type="radio" name="familystatus" value="No" checked="true">
-    <label for="yn">0 Ilegal</label><br>
-
-    Esta usted interesado en ser contratado cerca de donde se encuentra su Familiar
-    <input type="radio" name="nearfamily" value="yes">
-    <label for="yn">Si</label><br>
-    <input type="radio" name="nearfamily" value="No" checked="true">
-    <label for="yn">No</label><br>
-
-    <label for="lang">Me da igual</label><br>
-    <input type="text" id="" name="lang"><br>
-
-    <label for="lang">En que Estado, esta su Familiar</label><br>
-    <input type="text" id="" name="lang"><br>
-
-   <label for="lang">Desde hace cuanto Tiempo</label><br>
-    <input type="text" id="" name="lang"><br>
-    </div>
-<hr>
-
-<hr>
-    Puede Levantar de 25 Kilos a 40?
-    <div class="inline"><input type="radio" name="kilos" id="kilos" value="yes">
-    <label for="kilos">Si</label><br>
-    <input type="radio" name="kilos" value="No" id="kilosno" checked="true">
-    <label for="kilosno">No</label><br>
-    </div>
-<hr>
-
-<hr>
-    Tiene Problemas con su espalda?
-    <div class="inline"><input type="radio" name="backp" id="backp" value="yes">
-    <label for="backp">Si</label><br>
-    <input type="radio" name="backp" value="No" id="backpno" checked="true">
-    <label for="backpno">No</label><br>
-    </div>
-<hr>
-
-<hr>
-    Alguna vez ha Sufrido de Alguna Fractura en la espaldo, Pierna O Brazo?
-    <div class="inline"><input type="radio" name="injury" id="injury" value="yes" onclick="showOption(this)">
-    <label for="injury">Si</label><br>
-    <input type="radio" name="injury" value="No" id="injuryno" checked="true" onclick="hideOption(this)">
-    <label for="injuryno">No</label><br>
-    </div>
-
-    <div class="options" id="injuryoptions">
-    <label for="lang">Que Tipo de Fractua Y donde</label><br>
-    <input type="text" id="" name="injuryoptions"><br>
-    </div>
-<hr>
-
-<hr>
-    Tiene alguna inhabilidad (Discapacidad) que le causa problema en el trabajo
-    <div class="inline"><input type="radio" name="disability" id="disability" value="yes" onclick="showOption(this)">
-    <label for="disability">Si</label><br>
-    <input type="radio" name="disability" value="No" id="disabilityno" checked="true" onclick="hideOption(this)">
-    <label for="disabilityno">No</label><br>
-    </div>
-
-    <div class="options" id="disabilityoptions">
-    <label for="lang">Al contestar si, por favor explique su inhabilidad (Discapacidad)</label><br>
-    <input type="text" id="" name="lang"><br>
-    </div>
-<hr>
-
-<hr>
-    Es Usted Diabetico?
-    <div class="inline"><input type="radio" name="diabetic" id="diabetic" value="yes" onclick="showOption(this)">
-    <label for="diabetic">Si</label><br>
-    <input type="radio" name="diabetic" value="No" id="diabeticno" checked="true" onclick="hideOption(this)">
-    <label for="diabeticno">No</label><br>
-    </div>
-
-    <div class="options" id="diabeticoptions">
-    <label for="lang">Usa medicamento</label><br>
-    <input type="text" id="" name="diabeticmed"><br>
-    </div>
-<hr>
-
-<hr>
-    Sufre usted de Asma?
-    <div class="inline"><input type="radio" name="asma" id="asma" value="yes" onclick="showOption(this)">
-    <label for="asma">Si</label><br>
-    <input type="radio" name="asma" value="No" id="asmano" checked="true" onclick="hideOption(this)">
-    <label for="asmano">No</label><br>
-    </div>
-
-    <div class="options" id="asmaoptions">
-    <label for="lang">Se lo esta Tratando</label><br>
-    <input type="text" id="" name="asthmamed"><br>
-    </div>
-<hr>
-
-<hr>
-    Problemas del Corazon
-    <div class="inline"><input type="radio" name="heart" id="heart" value="yes" onclick="showOption(this)">
-    <label for="heart">Si</label><br>
-    <input type="radio" name="heart" value="No" id="heartno" checked="true" onclick="hideOption(this)">
-    <label for="heartno">No</label><br>
-    </div>
-
-    <div class="options" id="heartoptions">
-    <label for="lang">usa Medicamento</label><br>
-    <input type="text" id="" name="heartmed"><br>
-    </div>
-<hr>
-
-<hr>
-    Problemas con Alta presion
-    <div class="inline"><input type="radio" name="pressure" id="pressure" value="yes" onclick="showOption(this)">
-    <label for="pressure">Si</label><br>
-    <input type="radio" name="pressure" value="No" id="pressureno" checked="true" onclick="hideOption(this)">
-    <label for="pressureno">No</label><br>
-    </div>
-
-    <div class="options" id="pressureoptions">
-    <label for="lang">Que le Ocasiona el Problema de Presion</label><br>
-    <input type="text" id="" name="pressureoptions"><br>
-</div>
-<hr>
-
-<hr>
-    Esta Usted enterado, que esta Pre-solicitud, es para aplicar para una Visa H-2A, 
-        que es una Visa de Trabajo
-    <div class="inline"><input type="radio" name="aware" value="yes" id="aware">
-    <label for="aware">Si</label><br>
-    <input type="radio" name="aware" value="No" id="awareno" checked="true">
-    <label for="awareno">No</label><br>
-    </div>
-    <hr>
-    <label for="lang">En su Palabras que conoce de esta Visa</label><br>
-    <textarea type="text" id="" name="whatknowvisa"  rows="4" cols="30">
-    </textarea><br>
-    
-<hr>
-
-<hr>
-    <label for="lang">Como se entero de CITA</label><br>
-    <textarea type="text" id="" name="howhearcita" rows="4" cols="30">
-    </textarea><br>
-<hr>
-
-<hr>
-    <label for="lang">Si hubiera algo mas en que los pudieramos ayudar en que seria,
-        que no sea dandole trabjo(esta pergunta es personal, solo usted da la repuesta)
-    </label><br>
-    <textarea type="text" id="" name="otherhelp" rows="4" cols="30">
-    </textarea><br>
-<hr>
-
-<hr>
-    <label for="lang">Que Conoce usted de C.I.T.A(de Nosotros)</label><br>
-    <textarea type="text" id="" name="whatknowcita"  rows="4" cols="30">
-    </textarea><br>
-<hr>
-
 <hr>
     <label for="lang">Firma de solicitante</label><br>
     <input type="text" id="" name="lang"><br>
@@ -1445,10 +1452,9 @@
     <input type="text" id="" name="lang"><br>
 <hr>
 </div>
-</div>
 </form>
-
 </div>
+
 <div class="qbtn">
 <button id="btnback" onclick="btnnext(-1)">Atras</button>
 <button id="btnnext">Proximo</button>
