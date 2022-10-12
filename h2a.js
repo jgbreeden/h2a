@@ -221,7 +221,7 @@ function fillEmpDetail(data) {
 	}
 
 	let statusTable = document.getElementById("statusTab");
-	let statusContents = "<tr><th>Issue Type</th><th>Reason</th></tr>";
+	let statusContents = "<tr><th>Issue Type</th></tr>";
 	for (let i = 0; i < data.issues.length; i++){
 		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.issues[i].statusid + "</td><td>" +  data.issues[i].statuseng + "</td><td class='id'>"
 					+ data.issues[i].whengot + "</td><td class='id'>" + data.issues[i].whyhow + "</td><td>" + data.issues[i].punishtime + "</td><td class='id'>" 
@@ -336,7 +336,7 @@ function clearNewApp(){
 	document.getElementById("abilityTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("docTab").innerHTML = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("healthTab").innerHTML = "<tr><th>Health Issue</th><th>Years</th><th>Where</th></tr>";
-	document.getElementById("statusTab").innerHTML = "<tr><th>Issue Type</th><th>Years</th></tr>";
+	document.getElementById("statusTab").innerHTML = "<tr><th>Issue Type</th></tr>";
 	document.getElementById("whatknowvisa").value = ""; 
 	document.getElementById("howhearcita").value = ""; 
 	document.getElementById("otherhelp").value = ""; 
