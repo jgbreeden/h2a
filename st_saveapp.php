@@ -160,8 +160,11 @@ $stmt = $conn->prepare("INSERT INTO documents (issuesid, applicantsid, doctype, 
 $stmt->bind_param("iisss", $issuesid, $id, $doc, $when1, $where);
 $issues = [];
 
-if ($_POST["passport"] == "yes") array_push($issues, array("passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
-
+if ($_POST["passport"] == "yes") array_push($issues, array("Passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
+if ($_POST["touristvisa"] == "yes") array_push($issues, array("Tourist Visa", $_POST["touristvisa"]));
+//if ($_POST["passport"] == "yes") array_push($issues, array("passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
+//if ($_POST["passport"] == "yes") array_push($issues, array("passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
+//if ($_POST["passport"] == "yes") array_push($issues, array("passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
 
 $count = count($issues);
 for($i = 0; $i < $count; $i++){
