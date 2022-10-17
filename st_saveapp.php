@@ -210,15 +210,15 @@ $empty = "";
 
 if ($_POST["deport"] == "yes") array_push($issues, array("Deported", "When: " . $_POST["deportwhen"] . "Why: " . $_POST["deportwhy"]));
 if ($_POST["denied"] == "yes") array_push($issues, array("Visa Denied", "Type: " . $_POST["deniedtype"] . "Year: " . $_POST["deniedyear"] . "Reason: " . $_POST["deniedreason"] . "Times Applied: " . $_POST["timesapplied"]));
-if ($_POST["detention"] == "yes") array_push($issues, array("Caught Crossing", . "#Times" . $_POST["detentiontimes"] . 
+if ($_POST["detention"] == "yes") array_push($issues, array("Caught Crossing", "#Times" . $_POST["detentiontimes"] . 
         "Last Time: " . $_POST["detentionlast"] . "Punished: " . $_POST["detentionpunish"] . "Length: " . $_POST["detentiontime"] . 
         "Completed: " . $_POST["completed"] . "Pardon: " . $_POST["pardon"]));
 if ($_POST["usdetention"] == "yes") array_push($issues, array("Detention US", "yes"));
-if ($_POST["police"] == "yes") array_push($issues, array("Police", . "Type of Problem: " . $_POST["policeproblem"]));
-if ($_POST["hish2a"] == "yes") array_push($issues, array("Current H2A", . "Company: " . $_POST["h2acompany"] . "Month: " . $_POST["h2amonths"]));
-if ($_POST["pasth2a"] == "yes") array_push($issues, array("Past H2A", . "Count: " . $_POST["h2acount"] . "Companies: " . $_POST["h2apastco"] . "Type: " . $_POST["h2atype"]));
-if ($_POST["otherwork"] != "") array_push($issues, array("Other work", . "Type: " . $_POST["otherwork"]));
-if ($_POST["historywork"] == "yes") array_push($issues, array("Other Farm Work", . "Legal: " . $_POST["manner"] . "Tourist Visa: " . $_POST["touristvisa"] . 
+if ($_POST["police"] == "yes") array_push($issues, array("Police", "Type of Problem: " .  $_POST["policeproblem"]));
+if ($_POST["hish2a"] == "yes") array_push($issues, array("Current H2A", "Company: " . $_POST["h2acompany"] . "Month: " . $_POST["h2amonths"]));
+if ($_POST["pasth2a"] == "yes") array_push($issues, array("Past H2A", "Count: " . $_POST["h2acount"] . "Companies: " . $_POST["h2apastco"] . "Type: " . $_POST["h2atype"]));
+if ($_POST["otherwork"] != "") array_push($issues, array("Other work", "Type: " . $_POST["otherwork"]));
+if ($_POST["historywork"] == "yes") array_push($issues, array("Other Farm Work", "Legal: " . $_POST["manner"] . "Tourist Visa: " . $_POST["touristvisa"] . 
         "State: " . $_POST["workstate"]));
 if ($_POST["otherworkus"] != "") array_push($issues, array("Other work US", "yes"));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
