@@ -50,12 +50,17 @@ if ($_POST["aware"] == "yes") {
 
 
 
-$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, state, zipcode, gender, yumaonly, 
+$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, 
+    state, zipcode, gender, yumaonly, 
     travelwhy, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
-    email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, $gender, $yumaonly, 
+    email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, 
+    otherhelp, whatknowcita) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
+    $state, $zipcode, $gender, $yumaonly, 
     $travelwhy, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
-    $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, $otherhelp, $whatknowcita);
+    $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
+    $otherhelp, $whatknowcita);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;
@@ -127,7 +132,7 @@ for($i = 0; $i < $count; $i++){
 
 $stmt = $conn->prepare("INSERT INTO ability (skillsid, applicantsid, years, location, details, percent) VALUES(?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("iissss", $skillsid, $id, $years, $location, $details, $percent);
-
+$empty = "";
 $skills = [];
 
 if ($_POST["greenhouses"] == "yes") array_push($skills, array("Invernaderos", $_POST["greenhouseswhat"], $_POST["greenhouseswhere"]));
@@ -159,10 +164,11 @@ for($i = 0; $i < $count; $i++){
 $stmt = $conn->prepare("INSERT INTO documents (issuesid, applicantsid, doctype, whengot, location) VALUES(?, ?, ?, ?, ?)");
 $stmt->bind_param("iisss", $issuesid, $id, $doc, $when1, $where);
 $issues = [];
+$empty = "";
 
 if ($_POST["passport"] == "yes") array_push($issues, array("Passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
 if ($_POST["touristvisa"] == "yes") array_push($issues, array("Tourist Visa", $_POST["touristvisa"]));
-//if ($_POST["passport"] == "yes") array_push($issues, array("passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
+if ($_POST["mechdoc"] == "yes") array_push($issues, array("Mechanic Certification", $_POST["mechtype"], $empty, $_POST["mechnodoc"]));
 //if ($_POST["passport"] == "yes") array_push($issues, array("passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
 //if ($_POST["passport"] == "yes") array_push($issues, array("passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
 
@@ -204,15 +210,15 @@ $empty = "";
 
 if ($_POST["deport"] == "yes") array_push($issues, array("Deported", "When: " . $_POST["deportwhen"] . "Why: " . $_POST["deportwhy"]));
 if ($_POST["denied"] == "yes") array_push($issues, array("Visa Denied", "Type: " . $_POST["deniedtype"] . "Year: " . $_POST["deniedyear"] . "Reason: " . $_POST["deniedreason"] . "Times Applied: " . $_POST["timesapplied"]));
-if ($_POST["detention"] == "yes") array_push($issues, array("Caught Crossing" . "#Times" . $_POST["detentiontimes"] . 
+if ($_POST["detention"] == "yes") array_push($issues, array("Caught Crossing", . "#Times" . $_POST["detentiontimes"] . 
         "Last Time: " . $_POST["detentionlast"] . "Punished: " . $_POST["detentionpunish"] . "Length: " . $_POST["detentiontime"] . 
         "Completed: " . $_POST["completed"] . "Pardon: " . $_POST["pardon"]));
 if ($_POST["usdetention"] == "yes") array_push($issues, array("Detention US", "yes"));
-if ($_POST["police"] == "yes") array_push($issues, array("Police" . "Type of Problem: " . $_POST["policeproblem"]));
-if ($_POST["hish2a"] == "yes") array_push($issues, array("Current H2A" . "Company: " . $_POST["h2acompany"] . "Month: " . $_POST["h2amonths"]));
-if ($_POST["pasth2a"] == "yes") array_push($issues, array("Past H2A" . "Count: " . $_POST["h2acount"] . "Companies: " . $_POST["h2apastco"] . "Type: " . $_POST["h2atype"]));
-if ($_POST["otherwork"] != "") array_push($issues, array("Other work" . "Type: " . $_POST["otherwork"]));
-if ($_POST["historywork"] == "yes") array_push($issues, array("Other Farm Work" . "Legal: " . $_POST["manner"] . "Tourist Visa: " . $_POST["touristvisa"] . 
+if ($_POST["police"] == "yes") array_push($issues, array("Police", . "Type of Problem: " . $_POST["policeproblem"]));
+if ($_POST["hish2a"] == "yes") array_push($issues, array("Current H2A", . "Company: " . $_POST["h2acompany"] . "Month: " . $_POST["h2amonths"]));
+if ($_POST["pasth2a"] == "yes") array_push($issues, array("Past H2A", . "Count: " . $_POST["h2acount"] . "Companies: " . $_POST["h2apastco"] . "Type: " . $_POST["h2atype"]));
+if ($_POST["otherwork"] != "") array_push($issues, array("Other work", . "Type: " . $_POST["otherwork"]));
+if ($_POST["historywork"] == "yes") array_push($issues, array("Other Farm Work", . "Legal: " . $_POST["manner"] . "Tourist Visa: " . $_POST["touristvisa"] . 
         "State: " . $_POST["workstate"]));
 if ($_POST["otherworkus"] != "") array_push($issues, array("Other work US", "yes"));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
