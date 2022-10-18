@@ -115,7 +115,7 @@
     <hr>
 
 </div>
-    <div class="tab">
+    <div class="tab" id="tab2">
   
 
 <hr>
@@ -298,11 +298,11 @@
     A trabajado con Visa H2A antes?
     <div class="inline"><input type="radio" name="pasth2a" id="pasth2a" value="yes" onclick="showOption(this)">
     <label for="h2a">Si</label><br>
-    <input type="radio" name="pasth2a" value="No" id="h2ano" checked="true" onclick="hideOption(this)">
+    <input type="radio" name="h2a" value="No" id="h2ano" checked="true" onclick="hideOption(this)">
     <label for="h2ano">No</label><br>
     </div>
 
-    <div class="options" id="pasth2aoptions">
+    <div class="options" id="h2aoptions">
     <label for="h2acount">Cuantas visas a Tenido</label><br>
     <input type="number" id="" name="h2acount"><br>
 
@@ -373,15 +373,11 @@
  <hr>
  
  <hr>
-    En que estado o ciudad en especifico le gustaria trabajar? O cualquier lugar?
+    Marque con una X, para donde esta Aplicand
     <div class="inline"><input type="radio" name="yumaonly" id="whereto" value="yes" >
-    <label for="whereto">Lugar especifico</label><br>
+    <label for="whereto">Solo para Yuma</label><br>
     <input type="radio" name="yumaonly" value="No" id="wheretono" checked="true">
     <label for="wheretono">No importa el Lugar o distancia</label><br>
-    </div>
-    <div class="options" id="">
-    <label for="lang">Que lugar en especifico?</label><br>
-    <input type="text" id="" name=""><br>
     </div>
 <hr>
 
@@ -409,7 +405,6 @@
     <input type="radio" name="overtime" value="No" id="hoursno" checked="true">
     <label for="hoursno">No</label><br>
     </div>
-    
 <hr>
 
 <hr>
@@ -422,6 +417,41 @@
     <div class="options" id="noextensionoptions">
     <label for="lang">Motivos por el cual No</label><br>
     <input type="text" id="" name="extendwhynot"><br>
+</div>
+<hr>
+
+<hr>
+    Tiene Usted Familiares en los Estados Unidos
+    <div class="inline"><input type="radio" name="family" id="family" value="yes" onclick="showOption(this)">
+    <label for="family">Si</label><br>
+    <input type="radio" name="family" value="No" id="familyno" checked="true" onclick="hideOption(this)">
+    <label for="familyno">No</label><br>
+    </div>
+    
+    <div class="options" id="familyoptions">
+    <label for="lang">Que Tipo de Familiar</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    Si contesto que Si, de que Manera esta su Familiar en los Estados Unidos
+    <input type="radio" name="familystatus" value="yes">
+    <label for="yn">Legal</label><br>
+    <input type="radio" name="familystatus" value="No" checked="true">
+    <label for="yn">0 Ilegal</label><br>
+
+    Esta usted interesado en ser contratado cerca de donde se encuentra su Familiar
+    <input type="radio" name="nearfamily" value="yes">
+    <label for="yn">Si</label><br>
+    <input type="radio" name="nearfamily" value="No" checked="true">
+    <label for="yn">No</label><br>
+
+    <label for="lang">Me da igual</label><br>
+    <input type="text" id="" name="lang"><br>
+
+    <label for="lang">En que Estado, esta su Familiar</label><br>
+    <input type="text" id="" name="lang"><br>
+
+   <label for="lang">Desde hace cuanto Tiempo</label><br>
+    <input type="text" id="" name="lang"><br>
     </div>
 <hr>
 
@@ -444,7 +474,7 @@
 <hr>
 
 <hr>
-    Alguna vez ha Sufrido de Alguna Fractura en la espalda, Pierna O Brazo?
+    Alguna vez ha Sufrido de Alguna Fractura en la espaldo, Pierna O Brazo?
     <div class="inline"><input type="radio" name="injury" id="injury" value="yes" onclick="showOption(this)">
     <label for="injury">Si</label><br>
     <input type="radio" name="injury" value="No" id="injuryno" checked="true" onclick="hideOption(this)">
@@ -564,7 +594,7 @@
 <hr>
 
 </div>
-<div class="tab">
+<div class="tab" id="tab3">
 
         <hr>Acelga
         <div class="inline"><input type="radio" name="acelga" id="acelga" value="yes" onclick="showOption(this)">
@@ -1314,13 +1344,13 @@
         Puede Comprobar con documento
         <input type="radio" name="mechdoc" id="mechdoc" value="yes">
         <label for="mechdoc">si</label><br>
-        <input type="radio" name="mechdoc" value="no" id="mechno" checked="true">
+        <input type="radio" name="mecdoc" value="no" id="mechno" checked="true">
         <label for=" mechdoc">no</label><br>
 
-        <label for="mechnodoc">si no puede comprobar, Porque Motivo</label><br>
+        <label for="where">si no puede comprobar, Porque Motivo</label><br>
         <input type="text" name="mechnodoc"><br>
 
-        <label for="mechtype">A que tipo de maquinaria ha dado mantenimiento, mencione</label><br>
+        <label for="where">A que tipo de maquinaria ha dado mantenimiento, mencione</label><br>
         <input type="text" name="mechtype"><br>
     </div>
         <hr>
