@@ -84,15 +84,16 @@ function hideOption(item){
     if (item.value == "yes"){
         var options = document.getElementById("no" + item.id + "options")
         options.style.display = "none";
+
+    }else{
+        var options = document.getElementById(item.name + "options")
+        options.style.display = "none";
         var inputs = options.getElementsByTagName("input")
         for (let i = 0; i < inputs.length; i++) {
             if (inputs[i].type == "number"){
-                inputs[i].classList.remove("reqiured")
+                inputs[i].classList.remove("required")
             }
         }
-
-    }else{
-        document.getElementById(item.name + "options").style.display = "none";
     }
 }
 
