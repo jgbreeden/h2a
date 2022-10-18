@@ -19,12 +19,12 @@
 <form  action="st_saveapp.php" method="post" id="form">
 <div class="tab" id="tab1">
     <hr>
-    <label for="name">Primero Numbre</label><br>
+    <label for="name">Primer Nombre</label><br>
     <input type="text" id="fname" name="fname"><br>
     <hr>
     
     <hr>
-    <label for="name">apellido</label><br>
+    <label for="name">Apellido</label><br>
     <input type="text" id="lname" name="lname" required><br>
     <hr>
 
@@ -298,11 +298,11 @@
     A trabajado con Visa H2A antes?
     <div class="inline"><input type="radio" name="pasth2a" id="pasth2a" value="yes" onclick="showOption(this)">
     <label for="h2a">Si</label><br>
-    <input type="radio" name="h2a" value="No" id="h2ano" checked="true" onclick="hideOption(this)">
+    <input type="radio" name="pasth2a" value="No" id="pasth2ano" checked="true" onclick="hideOption(this)">
     <label for="h2ano">No</label><br>
     </div>
 
-    <div class="options" id="h2aoptions">
+    <div class="options" id="pasth2aoptions">
     <label for="h2acount">Cuantas visas a Tenido</label><br>
     <input type="number" id="" name="h2acount"><br>
 
@@ -374,10 +374,10 @@
  
  <hr>
     En que estado o ciudad en especifico le gustaria trabajar? O cualquier lugar?
-    <div class="inline"><input type="radio" name="specificarea" id="whereto" value="yes" onclick="showOption(this)">
-    <label for="whereto">Lugar especifico</label><br>
-    <input type="radio" name="specificarea" value="No" id="wheretono" checked="true" onclick="hideOption(this)">
-    <label for="wheretono">No importa el Lugar o distancia</label><br>
+    <div class="inline"><input type="radio" name="specificarea" id="specificarea" value="yes" onclick="showOption(this)">
+    <label for="specificarea">Lugar especifico</label><br>
+    <input type="radio" name="specificarea" value="No" id="specificareano" checked="true" onclick="hideOption(this)">
+    <label for="specificareano">No importa el Lugar o distancia</label><br>
     </div>
     <div class="options" id="specificareaoptions">
     <label for="lang">Que lugar en especifico?</label><br>
