@@ -374,14 +374,14 @@
  
  <hr>
     En que estado o ciudad en especifico le gustaria trabajar? O cualquier lugar?
-    <div class="inline"><input type="radio" name="yumaonly" id="whereto" value="yes" >
+    <div class="inline"><input type="radio" name="specificarea" id="whereto" value="yes" onclick="showOption(this)">
     <label for="whereto">Lugar especifico</label><br>
-    <input type="radio" name="yumaonly" value="No" id="wheretono" checked="true">
+    <input type="radio" name="specificarea" value="No" id="wheretono" checked="true" onclick="hideOption(this)">
     <label for="wheretono">No importa el Lugar o distancia</label><br>
     </div>
-    <div class="options" id="">
+    <div class="options" id="specificareaoptions">
     <label for="lang">Que lugar en especifico?</label><br>
-    <input type="text" id="" name=""><br>
+    <input type="text" id="" name="whatarea"><br>
     </div>
 <hr>
 
@@ -392,14 +392,6 @@
     <input type="radio" name="stay8mo" value="No" id="mexicono" checked="true">
     <label for="mexicono">No</label><br>
     </div>
-<hr>
-
-<hr>
-    <label for="lang">Motivos por el cual le gustaria viajar tan Lejos</label><br>
-    <input type="text" id="" name="travelwhy"><br>
-
-    <label for="lang">Motivos por el cual No gustaria Viajar tan Lejos</label><br>
-    <input type="text" id="" name="travelwhynot"><br>
 <hr>
 
 <hr>
