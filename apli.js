@@ -59,35 +59,53 @@ function prevent (){
 }
 
 function isValid(tab){
-    return true
+    //return true
     console.log(tab)
     let ok = true
+    let inputs; 
     if (tab == 0){
-        let inputs = document.getElementById("tab1").getElementsByTagName("input");
-        for (let i = 0; i < inputs.length - 2; i++){
-           if (inputs[i].value == "" ){
-                console.log(inputs[i].id)
-                inputs[i].style.backgroundColor = "pink"
-                ok = false;
-           }
-        }
-    } else if (tab == 1){
+         inputs = document.getElementById("tab1").getElementsByClassName("required");
+    } else if (tab == 1) {
+         inputs = document.getElementById("tab2").getElementsByClassName("required");
     } else {
-
+         inputs = document.getElementById("tab3").getElementsByClassName("required");
+    }
+    for (let i = 0; i < inputs.length; i++){
+        if (inputs[i].value == "" ){
+            console.log(inputs[i].name)
+            inputs[i].style.backgroundColor = "pink"
+            ok = false;
+        }
     }   
      return ok
 }
 
 function hideOption(item){
     if (item.value == "yes"){
-        document.getElementById("no" + item.id + "options").style.display = "none";
+        var options = document.getElementById("no" + item.id + "options")
+        options.style.display = "none";
+        var inputs = options.getElementsByTagName("input")
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].type == "number"){
+                inputs[i].classList.remove("reqiured")
+            }
+        }
+
     }else{
         document.getElementById(item.name + "options").style.display = "none";
     }
 }
 
 function showOption(item){
-    document.getElementById(item.id + "options").style.display = "block";
+    var options = document.getElementById(item.id + "options")
+    options.style.display = "block";
+    var inputs = options.getElementsByTagName("input")
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].type == "number"){
+            inputs[i].classList.add("required");
+        }
+    }
+
 }
 
 
