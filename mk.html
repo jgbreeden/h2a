@@ -139,6 +139,20 @@
 <hr>
 
 <hr>
+    Tiene Licencia de Conducir?
+    <div class="inline"><input type="radio" name="driverlicense" id="driverlicense" value="yes" onclick="showOption(this)">
+    <label for="driverlicense">Si</label><br>
+    <input type="radio" name="driverlicense" value="No" id="nodriverlicense" checked="true" onclick="hideOption(this)">
+    <label for="nodriverlicense">No</label><br>
+    </div>
+    <div class="options" id="driverlicenseoptions">
+    <label for="driverlicensetype">Que tipo de licencia?</label><br>
+    <input type="text" id="driverlicensetype" name="driverlicensetype"><br>
+    </div>
+   
+<hr>
+
+<hr>
     Cuenta con su Pasaporte Mexicano
     <div class="inline"><input type="radio" name="passport" id="passport" value="yes" onclick="showOption(this); hideOption(this)">
     <label for="passport">Si</label><br>

@@ -169,7 +169,7 @@ $empty = "";
 if ($_POST["passport"] == "yes") array_push($issues, array("Passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
 if ($_POST["touristvisa"] == "yes") array_push($issues, array("Tourist Visa", $_POST["touristvisa"]));
 if ($_POST["mechdoc"] == "yes") array_push($issues, array("Mechanic Certification", $_POST["mechtype"], $empty, $_POST["mechnodoc"]));
-//if ($_POST["passport"] == "yes") array_push($issues, array("passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
+if ($_POST["driverlicense"] == "yes") array_push($issues, array("Driver License", $_POST["driverlicensetype"], "", ""));
 //if ($_POST["passport"] == "yes") array_push($issues, array("passport", $_POST["npass"], $_POST["expdate"], $_POST["wherepass"]));
 
 $count = count($issues);
