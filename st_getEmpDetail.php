@@ -21,8 +21,8 @@
 		. $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
 		. $row["phonehome"] . '", "address": "' . $row["address"] . '", "city": "'
 		. $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . $row["zipcode"]
-		. '", "status": "' . $row["status"] . '", "yumaonly": "' . $row["yumaonly"] . '", "travelwhy": "' 
-		. $row["travelwhy"] . '", "stay8mo": "' . $row["stay8mo"] . '", "overtime": "' 
+		. '", "status": "' . $row["status"] . '", "specificarea": "' . $row["specificarea"] . '", "whatarea": "' 
+		. $row["whatarea"] . '", "stay8mo": "' . $row["stay8mo"] . '", "overtime": "' 
 		. $row["overtime"] . '", "extend": "' . $row["extend"] . '", "extendwhynot": "'
 		. $row["extendwhynot"] . '", "dateofbirth": "' . $row["dateofbirth"] . '", "email": "'
 		.$row["email"] . '", "age": "' . $row["age"] . '", "height": "' 

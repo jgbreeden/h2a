@@ -1,6 +1,6 @@
 class Applicant {
-	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, yumaonly, 
-		travelwhy, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, age, height, weight, maritalstatus, placeofbirth,
+	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, specificarea, 
+		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, age, height, weight, maritalstatus, placeofbirth,
 		whatknowvisa, howhearcita, otherhelp, whatknowcita) {
 		this.id = id
 		this.firstName = fname;
@@ -12,8 +12,8 @@ class Applicant {
 		this.state = state;
 		this.zip = zip;
 		this.status = status;
-		this.yumaonly = yumaonly;
-		this.travelwhy = travelwhy;
+		this.specificarea = specificarea;
+		this.whatarea = whatarea;
 		this.stay8mo = stay8mo;
 		this.overtime = overtime;
 		this.extend = extend;
@@ -228,7 +228,7 @@ function fillEmpDetail(data) {
 	}
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
-		data.zip, data.status, data.yumaonly, data.travelwhy, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
+		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.age, data.height, data.weight, data.maritalstatus, data.placeofbirth,
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita)
 	currskill.applicantsid = currappl.id
@@ -269,13 +269,13 @@ function resetNewApp(){
 	document.getElementById("maritalstatus").value = currappl.maritalstatus;
 	document.getElementById("placeofbirth").value = currappl.placeofbirth;
 
-	if (currappl.yumaonly == "1") {
+	if (currappl.specificarea == "1") {
 		document.getElementById("distanceyuma").checked = true;
 	} else {
 		document.getElementById("distanceany").checked = true;
 	}
 
-	document.getElementById("travelwhy").value = currappl.travelwhy;
+	document.getElementById("whatarea").value = currappl.whatarea;
 
 	if (currappl.stay8mo == "1") {
 		document.getElementById("stay8moyes").checked = true;
@@ -315,7 +315,7 @@ function clearNewApp(){
 	document.getElementById("zip").value = "";
 	document.getElementById("distanceyuma").checked = false;
 	document.getElementById("distanceany").checked = false;
-	document.getElementById("travelwhy").value = "";
+	document.getElementById("whatarea").value = "";
 	document.getElementById("stay8moyes").checked = false;
 	document.getElementById("stay8mono").checked = false;
 	document.getElementById("overtimeyes").checked = false;
