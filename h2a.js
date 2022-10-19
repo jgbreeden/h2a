@@ -1,6 +1,6 @@
 class Applicant {
 	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, specificarea, 
-		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, age, height, weight, maritalstatus, placeofbirth,
+		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, age, height, weight, maritalstatus, placeofbirth,
 		whatknowvisa, howhearcita, otherhelp, whatknowcita) {
 		this.id = id
 		this.firstName = fname;
@@ -20,6 +20,7 @@ class Applicant {
 		this.extendwhynot = extendwhynot;
 		this.dateofbirth = dateofbirth;
 		this.email = email;
+		this.gender = gender;
 		this.age = age;
 		this.height = height;
 		this.weight = weight;
@@ -229,7 +230,7 @@ function fillEmpDetail(data) {
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
-		data.dateofbirth, data.email, data.age, data.height, data.weight, data.maritalstatus, data.placeofbirth,
+		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.maritalstatus, data.placeofbirth,
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita)
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
@@ -268,6 +269,12 @@ function resetNewApp(){
 	document.getElementById("weight").value = currappl.weight;
 	document.getElementById("maritalstatus").value = currappl.maritalstatus;
 	document.getElementById("placeofbirth").value = currappl.placeofbirth;
+
+	if (currappl.gender == "male") {
+		document.getElementById("male").checked = true;
+	} else {
+		document.getElementById("female").checked = true;
+	}
 
 	if (currappl.specificarea == "1") {
 		document.getElementById("distanceyuma").checked = true;
@@ -326,6 +333,7 @@ function clearNewApp(){
 	document.getElementById("status").value = "";
 	document.getElementById("dateofbirth").value = "";
 	document.getElementById("email").value = "";
+	document.getElementById("gender").value = false;
 	document.getElementById("age").value = "";
 	document.getElementById("height").value = "";
 	document.getElementById("weight").value = "";

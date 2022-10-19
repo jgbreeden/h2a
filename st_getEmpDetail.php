@@ -25,7 +25,7 @@
 		. $row["whatarea"] . '", "stay8mo": "' . $row["stay8mo"] . '", "overtime": "' 
 		. $row["overtime"] . '", "extend": "' . $row["extend"] . '", "extendwhynot": "'
 		. $row["extendwhynot"] . '", "dateofbirth": "' . $row["dateofbirth"] . '", "email": "'
-		.$row["email"] . '", "age": "' . $row["age"] . '", "height": "' 
+		.$row["email"] . '", "gender": "' . $row["gender"] . '", "age": "' . $row["age"] . '", "height": "' 
 		. $row["height"] . '", "weight": "' . $row["weight"] . '", "maritalstatus": "'
 		. $row["maritalstatus"] . '", "placeofbirth": "' . $row["placeofbirth"] . '", "whatknowvisa": "' 
 		. $row["whatknowvisa"] . '", "howhearcita": "' . $row["howhearcita"] . '", "otherhelp": "'
