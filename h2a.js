@@ -784,6 +784,25 @@ function fillSim(data){
 function selectApp(row){
 	resetTable(document.getElementById("wanapptab"));
 	row.classList.add("selected");
+	getData("st_getEmpDetail.php?id=" + row.firstChild.innerText, showAssignedData)
+}
+
+function showAssignedData(data){
+	let healthTable = document.getElementById("healthTab2");
+	let healthContents = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
+	for (let i = 0; i < data.health.length; i++){
+		healthContents += "<tr><td class='id'>" + data.health[i].healthid + "</td><td>" +  data.health[i].healtheng + "</td><td>"
+					+ data.health[i].medtreatment + "</td><td class='id'>" + data.health[i].reason + "</td><td class='id'>" + data.health[i].issuesid + "</td></tr>";
+	}
+
+	if (currappl.specificarea == "1") {
+		document.getElementById("distanceyuma2").checked = true;
+	} else {
+		document.getElementById("distanceany2").checked = true;
+	}
+	healthTable.innerHTML = healthContents;
+	document.getElementById("whatarea2").value = currappl.whatarea;
+
 }
 
 function mtc(){
@@ -799,4 +818,8 @@ function mtc(){
 	//console.log(grab4);
 	grab3.innerHTML += grab2[0].innerHTML;
 	grab2[0].remove();
+	document.getElementById("healthTab2").innerHTML = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
+	document.getElementById("distanceyuma2").checked = false;
+	document.getElementById("distanceany2").checked = false;
+	document.getElementById("whatarea2").value = "";
 }
