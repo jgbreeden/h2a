@@ -463,15 +463,24 @@ function fillSkill(data){
 	
 	options.innerHTML = contents;
 	abilities.innerHTML = abcontents;
-	let matchlist1 = document.getElementById("chooseskills1")
-	let choices1 = "<tr><th>.  .</th><th>Desired skill</th></tr>"
-	for (let i = 0; i < data.length; i++){
+	let matchlist1a = document.getElementById("chooseskills1a")
+	let choices1a = "<tr><th>.  .</th><th>Desired skill</th></tr>"
+	for (let i = 0; i < 30; i++){
 		if (data[i].skilltype == "produce"){
-			choices1 += "<tr><td><input type='checkbox' onclick='getMatchingEmps()'></td><td>" + data[i].skillenglish + "</td></tr>"
+			choices1a += "<tr><td><input type='checkbox' onclick='getMatchingEmps()'></td><td>" + data[i].skillenglish + "</td></tr>"
 		}
 	}
+	matchlist1a.innerHTML = choices1a;
 
-	matchlist1.innerHTML = choices1;
+	let matchlist1b = document.getElementById("chooseskills1b")
+	let choices1b = "<tr><th>.  .</th><th>Desired skill</th></tr>"
+	for (let i = 30; i < data.length; i++){
+		if (data[i].skilltype == "produce"){
+			choices1b += "<tr><td><input type='checkbox' onclick='getMatchingEmps()'></td><td>" + data[i].skillenglish + "</td></tr>"
+		}
+	}
+	matchlist1b.innerHTML = choices1b;
+
 	let matchlist2 = document.getElementById("chooseskills2")
 	let choices2 = "<tr><th>.  .</th><th>Desired skill</th></tr>"
 	for (let i = 0; i < data.length; i++){
@@ -739,12 +748,18 @@ function selectedComp(){
 }
 
 function getMatchingEmps(){
-	let rows1 = document.getElementById("chooseskills1").getElementsByTagName("tr");
+	let rows1a = document.getElementById("chooseskills1a").getElementsByTagName("tr");
+	let rows1b = document.getElementById("chooseskills1b").getElementsByTagName("tr");
 	let rows2 = document.getElementById("chooseskills2").getElementsByTagName("tr");
 	let list = "";
-	for (let i = 1; i < rows1.length; i++){
-		if(rows1[i].firstChild.firstChild.checked){
-			list += rows1[i].firstChild.nextSibling.innerText + " ~ ";
+	for (let i = 1; i < rows1a.length; i++){
+		if(rows1a[i].firstChild.firstChild.checked){
+			list += rows1a[i].firstChild.nextSibling.innerText + " ~ ";
+		}
+	}
+	for (let i = 1; i < rows1b.length; i++){
+		if(rows1b[i].firstChild.firstChild.checked){
+			list += rows1b[i].firstChild.nextSibling.innerText + " ~ ";
 		}
 	}
 	for (let i = 1; i < rows2.length; i++){
@@ -769,6 +784,25 @@ function fillSim(data){
 function selectApp(row){
 	resetTable(document.getElementById("wanapptab"));
 	row.classList.add("selected");
+	getData("st_getEmpDetail.php?id=" + row.firstChild.innerText, showAssignedData)
+}
+
+function showAssignedData(data){
+	let healthTable = document.getElementById("healthTab2");
+	let healthContents = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
+	for (let i = 0; i < data.health.length; i++){
+		healthContents += "<tr><td class='id'>" + data.health[i].healthid + "</td><td>" +  data.health[i].healtheng + "</td><td>"
+					+ data.health[i].medtreatment + "</td><td class='id'>" + data.health[i].reason + "</td><td class='id'>" + data.health[i].issuesid + "</td></tr>";
+	}
+
+	if (currappl.specificarea == "1") {
+		document.getElementById("distanceyuma2").checked = true;
+	} else {
+		document.getElementById("distanceany2").checked = true;
+	}
+	healthTable.innerHTML = healthContents;
+	document.getElementById("whatarea2").value = currappl.whatarea;
+
 }
 
 function mtc(){
@@ -784,4 +818,8 @@ function mtc(){
 	//console.log(grab4);
 	grab3.innerHTML += grab2[0].innerHTML;
 	grab2[0].remove();
+	document.getElementById("healthTab2").innerHTML = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
+	document.getElementById("distanceyuma2").checked = false;
+	document.getElementById("distanceany2").checked = false;
+	document.getElementById("whatarea2").value = "";
 }
