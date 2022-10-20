@@ -19,48 +19,48 @@
 <form  action="st_saveapp.php" method="post" id="form">
 <div class="tab" id="tab1">
     <hr>
-    <label for="name">Primer Nombre</label><br>
-    <input type="text" id="fname" name="fname"><br>
+    <label for="fname">Primer Nombre</label><br>
+    <input type="text" id="fname" name="fname" class="required"><br>
     <hr>
     
     <hr>
-    <label for="name">Apellido</label><br>
-    <input type="text" id="lname" name="lname" required><br>
+    <label for="lname">Apellido</label><br>
+    <input type="text" id="lname" name="lname" class="required"><br>
     <hr>
 
     <hr>
-    <label for="birth">Fecha De Nacimeinto</label><br>
-    <input type="date" id="dateofbirth" name="dateofbirth"><br>
+    <label for="dateofbirth">Fecha De Nacimeinto</label><br>
+    <input type="date" id="dateofbirth" name="dateofbirth" class="required"><br>
     <hr>
 
     <hr>
-    <label for="phone">Numero De Telephono</label><br>
-    <input type="tel" id="phonehome" name="phonehome" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+    <label for="phonehome">Numero De Telephono</label><br>
+    <input type="tel" id="phonehome" name="phonehome" class="required" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
     <hr>
 
     <hr>
-    <label for="phonecel">Celular</label><br>
-    <input type="tel" id="phonecell" name="phonecell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+    <label for="phonecell">Celular</label><br>
+    <input type="tel" id="phonecell" name="phonecell" class="required" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
     <hr>
 
     <hr>
     <label for="email">Correo Electronico</label><br>
-    <input type="email" id="email" name="email"><br>
+    <input type="email" id="email" name="email" class="required"><br>
     <hr>
 
     <hr>
     <label for="address">Direcion</label><br>
-    <input type="text" id="address" name="address"><br>
+    <input type="text" id="address" name="address" class="required"><br>
     <hr>
 
     <hr>
     <label for="city">Ciudad</label><br>
-    <input type="text" id="city" name="city"><br>
+    <input type="text" id="city" name="city" class="required"><br>
     <hr>
 
     <hr>
     <label for="state">Estado</label><br>
-    <input type="text" id="state" name="state"><br>
+    <input type="text" id="state" name="state" class="required"><br>
     <hr>
 
     <hr>
@@ -69,23 +69,23 @@
     <hr>
 
     <hr>
-    <label for="pbirth">Lugar de Nacimiento</label><br>
-    <input type="text" id="placeofbirth" name="placeofbirth"><br>
+    <label for="placebirth">Lugar de Nacimiento</label><br>
+    <input type="text" id="placeofbirth" name="placeofbirth" class="required"><br>
     <hr>
 
     <hr>
     <label for="age">Edad</label><br>
-    <input type="number" id="age" name="age" min="1" max="20"><br>
+    <input type="number" id="age" name="age" min="1" max="20" class="required"><br>
     <hr>
 
     <hr>
     <label for="height">Altura</label><br>
-    <input type="text" id="height" name="height"><br>
+    <input type="text" id="height" name="height" class="required"><br>
     <hr>
 
     <hr>
-    <label for="peso">Peso</label><br>
-    <input type="text" id="weight" name="weight"><br>
+    <label for="weight">Peso</label><br>
+    <input type="text" id="weight" name="weight" class="required"><br>
     <hr>
 
     <!--<hr>
@@ -95,7 +95,7 @@
 
     <hr>
     <label for="civil">Estado civil</label><br>
-    <select type="text" id="maritalstatus" name="maritalstatus">
+    <select type="text" id="maritalstatus" name="maritalstatus" class="required">
         <option value=""></option>
         <option value="married">Casado</option>
 		<option value="widowed">Viudo/Viuda</option>
@@ -170,23 +170,23 @@
     <label for="deportno">No</label><br>
     </div>
     <div class="options" id="deportoptions">
-    <label for="lang">Hace Cuanto</label><br>
-    <input type="text" name="deportwhen"><br>
+    <label for="deportwhen">Hace Cuanto</label><br>
+    <input type="text" name="deportwhen" id="deportwhen"><br>
 
-    <label for="lang">Porque Motivos lo Deportaron</label><br>
-    <input type="text" name="deportwhy"><br>
+    <label for="deportwhy">Porque Motivos lo Deportaron</label><br>
+    <input type="text" name="deportwhy" id="deportwhy"><br>
     
     Tiene Castigo Vigente de Deportacion
     <div class="inline"><input type="radio" name="detdeport" id="deporttwo" value="yes">
-    <label for="yn">Si</label><br>
-    <input type="radio" name="detdeport" value="No">
-    <label for="yn">No</label><br>
+    <label for="detdeport">Si</label><br>
+    <input type="radio" name="detdeport" value="No" id="detdeport">
+    <label for="detdeport">No</label><br>
     </div>
-    <label for="lang">Cuanto Tiempo</label><br>
-    <input type="text" id="" name="lang"><br>
+    <label for="howmuchtime">Cuanto Tiempo</label><br>
+    <input type="text" name="deporttime" id="howmuchtime"><br>
 
-    <label for="lang">Porque Motivo</label><br>
-    <input type="text" id="" name="lang"><br>
+    <label for="whatreason">Porque Motivo</label><br>
+    <input type="text" name="deportwhy" id="whatreason"><br>
     </div>
 <hr>
 
@@ -200,16 +200,16 @@
 
     <div class="options" id="deniedoptions">
     <label for="deniedtype">Que tipo de Visa</label><br>
-    <input type="text" id="deniedtype" name="deniedtype"><br>
+    <input type="text" name="deniedtype" id="deniedtype"><br>
 
     <label for="deniedyear">Ano en que la Negaron</label><br>
-    <input type="number" id="deniedyear" name="deniedyear"><br>
+    <input type="number" name="deniedyear" id="deniedyear"><br>
 
     <label for="deniedreason">Motivos por que le Negaron la visa</label><br>
-    <input type="text" id="deniedreason" name="deniedreason"><br>
+    <input type="text" name="deniedreason" id="deniedreason"><br>
 
     <label for="timesapplied">Cuantas veces a Tratado de Tramitar una Visa</label><br>
-    <input type="number" id="timesapplied" name="timesapplied"><br>
+    <input type="number" name="timesapplied" id="timesapplied"><br>
 </div>
 <hr>
   
@@ -223,34 +223,34 @@
 
     <div class="options" id="detentionoptions">
     <label for="detentiontimes">Cuantas veces?</label><br>
-    <input type="number" id="detentiontimes" name="detentiontimes"><br>
+    <input type="number" name="detentiontimes"  id="detentiontimes"><br>
 
     <label for="detentionlast">Hace Cuanto fue la ultima detencion?</label><br>
-    <input type="text" id="detentionlast" name="detentionlast"><br>
+    <input type="text" name="detentionlast" id="detentionlast"><br>
 
-    La dieron Castigo?
-    <input type="radio" name="detentionpunish" value="yes">
-    <label for="yn">Si</label><br>
-    <input type="radio" name="detentionpunish" value="No" id="" checked="true">
-    <label for="yn">No</label><br>
+    Le dieron Castigo?
+    <input type="radio" name="detentionpunish" value="yes" id="detentionpunishyes">
+    <label for="detentionpunishyes">Si</label><br>
+    <input type="radio" name="detentionpunish" value="No" id="detentionpunishno" checked="true">
+    <label for="detentionpunishno">No</label><br>
 
     <label for="detentiontime">De cuanto tiempo fue el Castigo?</label><br>
     <input type="text" id="detentiontime" name="detentiontime"><br>
     
     Ya lo Cumplio?
-    <input type="radio" name="completed" value="yes">
-    <label for="yn">Si</label><br>
-    <input type="radio" name="completed" value="No" id="" checked="true">
-    <label for="yn">No</label><br>
+    <input type="radio" name="completed" value="yes" id="punishfinishedyes">
+    <label for="punishfinishedyes">Si</label><br>
+    <input type="radio" name="completed" value="No" id="punishfinshedno" checked="true">
+    <label for="punishfinishedno">No</label><br>
 
     Mando un perdon por el Castigo?
-    <input type="radio" name="pardon" value="yes">
-    <label for="yn">Si</label><br>
-    <input type="radio" name="pardon" value="No" id="" checked="true">
-    <label for="yn">No</label><br>
+    <input type="radio" name="pardon" value="yes" id="apoloyes">
+    <label for="apoloyes">Si</label><br>
+    <input type="radio" name="pardon" value="No" id="apolono" checked="true">
+    <label for="apolono">No</label><br>
 
-    <label for="lang">Favor de decir la verdad(explique el motivo de la detention)</label><br>
-    <input type="text" id="" name="lang"><br>
+    <label for="telltruthdet">Favor de decir la verdad(explique el motivo de la detention)</label><br>
+    <input type="text" name="detenciontruth" id="telltruthdet"><br>
     </div>
 <hr>
 
@@ -287,7 +287,7 @@
 
     <div class="options" id="hish2aoptions">
     <label for="h2acompany">En Que Compania?</label><br>
-    <input type="text" name="h2acompany"><br>
+    <input type="text" name="h2acompany" id="h2acompany"><br>
     
     <label for="h2amonths">Temporada que trabaja con visa H2A, de que Mes a que Mes</label><br>
     <input type="text" id="" name="h2amonths"><br>
@@ -1405,12 +1405,12 @@
 
 <hr>
     <label for="lang">Firma de solicitante</label><br>
-    <input type="text" id="" name="lang"><br>
+    <input type="text" id="" name="lang" class="required"><br>
 <hr>
 
 <hr>
     <label for="lang"></label><br>
-    <input type="text" id="" name="lang"><br>
+    <input type="text" id="" name="lang" class="required"><br>
 <hr>
 </div>
 </form>
