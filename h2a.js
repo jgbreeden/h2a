@@ -333,7 +333,8 @@ function clearNewApp(){
 	document.getElementById("status").value = "";
 	document.getElementById("dateofbirth").value = "";
 	document.getElementById("email").value = "";
-	document.getElementById("gender").value = false;
+	document.getElementById("male").value = false;
+	document.getElementById("female").value = false;
 	document.getElementById("age").value = "";
 	document.getElementById("height").value = "";
 	document.getElementById("weight").value = "";
@@ -464,17 +465,23 @@ function fillSkill(data){
 	options.innerHTML = contents;
 	abilities.innerHTML = abcontents;
 	let matchlist1a = document.getElementById("chooseskills1a")
-	let choices1a = "<tr><th>.  .</th><th>Desired skill</th></tr>"
-	for (let i = 0; i < 30; i++){
+	let choices1a = "<tr><th>.  .</th><th>Desired Experiance</th></tr>"
+	let split = 0
+	for (let i = 0; i < data.length; i++){
 		if (data[i].skilltype == "produce"){
+			split++
 			choices1a += "<tr><td><input type='checkbox' onclick='getMatchingEmps()'></td><td>" + data[i].skillenglish + "</td></tr>"
+			if (split == 24){
+				split = i; 
+				break
+			}
 		}
 	}
 	matchlist1a.innerHTML = choices1a;
 
 	let matchlist1b = document.getElementById("chooseskills1b")
-	let choices1b = "<tr><th>.  .</th><th>Desired skill</th></tr>"
-	for (let i = 30; i < data.length; i++){
+	let choices1b = "<tr><th>.  .</th><th>Desired Experiance</th></tr>"
+	for (let i = split; i < data.length; i++){
 		if (data[i].skilltype == "produce"){
 			choices1b += "<tr><td><input type='checkbox' onclick='getMatchingEmps()'></td><td>" + data[i].skillenglish + "</td></tr>"
 		}
@@ -750,7 +757,7 @@ function selectedComp(){
 function getMatchingEmps(){
 	let rows1a = document.getElementById("chooseskills1a").getElementsByTagName("tr");
 	let rows1b = document.getElementById("chooseskills1b").getElementsByTagName("tr");
-	let rows2 = document.getElementById("chooseskills2").getElementsByTagName("tr");
+	let rows1c = document.getElementById("chooseskills1c").getElementsByTagName("tr");
 	let list = "";
 	for (let i = 1; i < rows1a.length; i++){
 		if(rows1a[i].firstChild.firstChild.checked){
@@ -762,9 +769,9 @@ function getMatchingEmps(){
 			list += rows1b[i].firstChild.nextSibling.innerText + " ~ ";
 		}
 	}
-	for (let i = 1; i < rows2.length; i++){
-		if(rows2[i].firstChild.firstChild.checked){
-			list += rows2[i].firstChild.nextSibling.innerText + " ~ ";
+	for (let i = 1; i < rows1c.length; i++){
+		if(rows1c[i].firstChild.firstChild.checked){
+			list += rows1c[i].firstChild.nextSibling.innerText + " ~ ";
 		}
 	}
 	getData("st_getEmpsBySkill.php?status=" + list, fillSim)
