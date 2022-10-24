@@ -785,6 +785,7 @@ function selectApp(row){
 	resetTable(document.getElementById("wanapptab"));
 	row.classList.add("selected");
 	getData("st_getEmpDetail.php?id=" + row.firstChild.innerText, showAssignedData)
+
 }
 
 function showAssignedData(data){
@@ -795,14 +796,46 @@ function showAssignedData(data){
 					+ data.health[i].medtreatment + "</td><td class='id'>" + data.health[i].reason + "</td><td class='id'>" + data.health[i].issuesid + "</td></tr>";
 	}
 
-	if (currappl.specificarea == "1") {
+	if (data.specificarea == "1") {
 		document.getElementById("distanceyuma2").checked = true;
 	} else {
 		document.getElementById("distanceany2").checked = true;
 	}
 	healthTable.innerHTML = healthContents;
-	document.getElementById("whatarea2").value = currappl.whatarea;
+	document.getElementById("whatarea2").value = data.whatarea;
 
+	if (data.overtime == "1") {
+		document.getElementById("overtimeyes2").checked = true;
+	} else {
+		document.getElementById("overtimeno2").checked = true;
+	}
+
+	if (data.extend == "1") {
+		document.getElementById("extendyes2").checked = true;
+	} else {
+		document.getElementById("extendno2").checked = true;
+	}
+}
+
+function saveAssignment() {
+	rows = document.getElementById("wancomptab").getElementsByTagName("tr");
+	console.log(rows[0].firstChild.firstChild)
+	for (let i = 0; i < rows.length; i++) {
+		document.getElementById("assignappid").value = rows[i].firstChild.innerHTML;
+		let formData = new FormData(document.getElementById("assignform"));
+		sendData(formData, "st_saveAssignment.php", showAssignResult)
+	}
+}
+
+var assigncount = 0;
+
+function showAssignResult(data) {
+	if (data == "record saved") {
+		assigncount++
+	}
+	
+	document.getElementById("assignresult").innerHTML = "saved " + assigncount + " assignments";
+	document.getElementById("wancomptab").innerHTML = "";
 }
 
 function mtc(){
