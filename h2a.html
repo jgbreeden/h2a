@@ -438,11 +438,6 @@
 		</div>
 		<div id="assignments" class="st_tab">
 			<div class="neededskills tall">
-				<select id="selectcomps" onchange="selectedComp()">
-					<option></option>
-					<option></option>
-					<option></option>
-				</select>
 				<table id="chooseskills1a" class="lefty">
 					<tr>
 						<th>.  .</th>
@@ -497,17 +492,28 @@
 			<div class="lefty wantedapp tall">
 
 				<label for="radio">Specific Area:</label>
-				<input type="radio" id="distanceyuma2" name="specificarea" value="1">
+				<input type="radio" id="distanceyuma2" name="specificarea2" value="1">
 				<label for="radio">Any Area:</label>
-				<input type="radio" id="distanceany2" name="specificarea" value="0">
+				<input type="radio" id="distanceany2" name="specificarea2" value="0">
+				<br>
 				<label for="whatarea2">What Area:</label>
-				<input type="text" id="whatarea2" name="whatarea" value="">
-
+				<input type="text" id="whatarea2" name="whatarea2" value="">
+				<br>
+				Over Time:
+				<label for="overtime2">Yes:</label>
+				<input type="radio" id="overtimeyes2" name="overtime2" value="1">
+				<label for="overtime2">No:</label>
+				<input type="radio" id="overtimeno2" name="overtime2" value="0">
+				<br>
+				Extended Time:
+				<label for="extend2">Yes:</label>
+				<input type="radio" id="extendyes2" name="extend2" value="1">
+				<label for="extend2">No:</label>
+				<input type="radio" id="extendno2" name="extend2" value="0">
 				<table id="healthTab2">
 					<tr>
 						<th>Health Issue</th>
-						<th>Years</th>
-						<th>Where</th>
+						<th>Treatment</th>
 					</tr>
 				</table>
 			</div>
@@ -516,13 +522,36 @@
 				<br>
 				<button onclick="moc()"> &larr; </button>
 			</div>
+			<div>
+				<form method="post" id="assignform">
+					<select id="selectcomps" onchange="selectedComp()">
+						<option></option>
+						<option></option>
+						<option></option>
+						
+					</select>
+					<br>
+					<label>Start Date:</label>
+					<input name="assignstart" type="date">
+					<br>
+					<label>End Date:</label>
+					<input name="assignend" type="date">
+					<br>
+					<input name="assignappid" id="assignappid" type="number" style="display:none">
+					
+				</form>
+			</div>
 			<div class="chosencomp tall">
 				<table id="wancomptab" width="150" height="25">
 					<tr>
 					</tr>
 				</table>
+				<button onclick="saveAssignment()">Save Assignment</button>
 			</div>
 		</div>
+		<p id="assignresult">
+			
+		</p>
 		<div id="history" class="st_tab">
 			History
 		</div>
