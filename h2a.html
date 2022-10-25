@@ -13,7 +13,6 @@
 			<button type="button" onclick="st_show('applicants'); getEmployees('accepted');">Applicants</button>
 			<button type="button" onclick="st_show('companies'); getCompanies();">Companies</button>
 			<button type="button" onclick="st_show('assignments'); fillCompList();">Assignments</button>
-			<button type="button" onclick="st_show('history');">History</button>
 		</div>
 		<div id="newapplicants" class="st_tab">
 			New Applicants
@@ -553,9 +552,7 @@
 		<p id="assignresult">
 			
 		</p>
-		<div id="history" class="st_tab">
-			History
-		</div>
+		
 		<script>
 			getData("st_getSkills.php", fillSkill);
 			getData("st_getIssues.php", fillIssue);
