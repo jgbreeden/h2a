@@ -524,7 +524,7 @@
 			</div>
 			<div>
 				<form method="post" id="assignform">
-					<select id="selectcomps" onchange="selectedComp()">
+					<select id="selectcomps" name="assigncomp" onchange="selectedComp()">
 						<option></option>
 						<option></option>
 						<option></option>
@@ -538,6 +538,7 @@
 					<input name="assignend" type="date">
 					<br>
 					<input name="assignappid" id="assignappid" type="number" style="display:none">
+					<input style="display:none" name="assignedby" value="0">
 					
 				</form>
 			</div>

@@ -10,7 +10,8 @@
 			. "applicants INNER JOIN experience ON "
 			. "applicants.id = experience.applicantsid INNER "
 			. "JOIN skills ON experience.skillsid = skills.id "
-			. "AND locate(skillenglish, '" . $_GET["status"] . "') > 0";
+			. "AND locate(skillenglish, '" . $_GET["status"] . "') > 0 "
+			. "WHERE applicants.status = 'accepted'";
 	$result = $conn->query($query);
 	if ($result->num_rows > 0) {
 		$output = "";
