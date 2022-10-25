@@ -81,3 +81,8 @@ form {
 #blobs {
     width: 300px
 }
+
+.divborder {
+	float: left;
+	border: 1px solid black;
+}

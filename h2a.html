@@ -483,14 +483,15 @@
 					</tr>
 				</table>
 			</div>
-			<div class="lefty wantedapp tall">
+			<div class="lefty tall">
+				<b>Selected Applicants</b><br>
 				<table id="wanapptab" width="150" height="25">
 					<tr>
 					</tr>
 				</table>
 			</div>
-			<div class="lefty wantedapp tall">
-
+			<div class="left divborder">
+				<b>Applicant Details</b><br>
 				<label for="radio">Specific Area:</label>
 				<input type="radio" id="distanceyuma2" name="specificarea2" value="1">
 				<label for="radio">Any Area:</label>
@@ -523,7 +524,8 @@
 				<button onclick="moc()"> &larr; </button>
 			</div>
 			<div>
-				<form method="post" id="assignform">
+				<form method="post" id="assignform" class="lefty divborder">
+					<b>Assign to</b><br>
 					<select id="selectcomps" onchange="selectedComp()">
 						<option></option>
 						<option></option>
@@ -543,6 +545,7 @@
 			</div>
 			<div class="chosencomp tall">
 				<table id="wancomptab" width="150" height="25">
+					<b>Applicants to assign</b><br>
 					<tr>
 					</tr>
 				</table>
