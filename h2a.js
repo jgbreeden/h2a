@@ -374,7 +374,13 @@ function showResult(data){
 	document.getElementById("result").innerHTML = data;
 	document.getElementById("result").classList.remove("fade");
 	setTimeout(function(){document.getElementById("result").style.visibility="hidden";}, 5000)
-	getData("st_getEmpDetail.php?id=" + currappl.id, fillEmpDetail);
+	let temp;
+	if (document.getElementById("searchapp").style.display != "none") {
+		temp = document.getElementById("searchstat").value;
+	} else {
+		temp = "new";
+	}
+	getData("st_getEmps.php?stat=" + temp, fillEmps);
 }
 
 function showSkill(row){
@@ -757,7 +763,7 @@ function selectedComp(){
 function getMatchingEmps(){
 	let rows1a = document.getElementById("chooseskills1a").getElementsByTagName("tr");
 	let rows1b = document.getElementById("chooseskills1b").getElementsByTagName("tr");
-	let rows1c = document.getElementById("chooseskills1c").getElementsByTagName("tr");
+	let rows2 = document.getElementById("chooseskills2").getElementsByTagName("tr");
 	let list = "";
 	for (let i = 1; i < rows1a.length; i++){
 		if(rows1a[i].firstChild.firstChild.checked){
@@ -769,9 +775,9 @@ function getMatchingEmps(){
 			list += rows1b[i].firstChild.nextSibling.innerText + " ~ ";
 		}
 	}
-	for (let i = 1; i < rows1c.length; i++){
-		if(rows1c[i].firstChild.firstChild.checked){
-			list += rows1c[i].firstChild.nextSibling.innerText + " ~ ";
+	for (let i = 1; i < rows2.length; i++){
+		if(rows2[i].firstChild.firstChild.checked){
+			list += rows2[i].firstChild.nextSibling.innerText + " ~ ";
 		}
 	}
 	getData("st_getEmpsBySkill.php?status=" + list, fillSim)
@@ -826,9 +832,9 @@ function showAssignedData(data){
 
 function saveAssignment() {
 	rows = document.getElementById("wancomptab").getElementsByTagName("tr");
-	console.log(rows[0].firstChild.firstChild)
-	for (let i = 0; i < rows.length; i++) {
-		document.getElementById("assignappid").value = rows[i].firstChild.innerHTML;
+	console.log(rows[0].firstChild.innerText)
+	for (let i = 1; i < rows.length; i++) {
+		document.getElementById("assignappid").value = rows[i].firstChild.innerText;
 		let formData = new FormData(document.getElementById("assignform"));
 		sendData(formData, "st_saveAssignment.php", showAssignResult)
 	}
@@ -839,9 +845,12 @@ var assigncount = 0;
 function showAssignResult(data) {
 	if (data == "record saved") {
 		assigncount++
+		document.getElementById("assignresult").innerHTML = "saved " + assigncount + " assignments";
+	} else {
+		document.getElementById("assignresult").innerHTML = data;
 	}
 	
-	document.getElementById("assignresult").innerHTML = "saved " + assigncount + " assignments";
+	
 	document.getElementById("wancomptab").innerHTML = "";
 }
 
