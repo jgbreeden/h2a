@@ -18,7 +18,21 @@
 		. '", "phone": "' . $row["phone"] . '", "address": "'
 		. $row["address"] . '", "city": "' . $row["city"]
 		. '", "state": "' . $row["state"] . '", "zip": "' . $row["zip"]
-		. '"}';
+		. '", "assignments": [ ';
+
+	$query = "SELECT startdate, count(*) as count FROM h2a.assignments" 
+		. " where employersid=?" 
+		. " group by startdate;";
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param("i", $_GET["id"]);
+	$stmt->execute();
+	$comma = "";
+	$results = $stmt->get_result();
+	while ($row = $results->fetch_assoc()) {
+		echo $comma . '{ "startdate": "' . $row["startdate"] . '", "count": "' . $row["count"]  . '"}';
+		$comma = ", ";
+	}
+	echo ']}';
 	//loop through rows, add skill fields
 	//end record
 ?>
