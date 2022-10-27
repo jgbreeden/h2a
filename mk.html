@@ -184,23 +184,23 @@
     <label for="deportno">No</label><br>
     </div>
     <div class="options" id="deportoptions">
-    <label for="lang">Hace Cuanto</label><br>
+    <label for="deportwhen">Hace Cuanto</label><br>
     <input type="text" name="deportwhen" id="deportwhen"><br>
 
-    <label for="lang">Porque Motivos lo Deportaron</label><br>
+    <label for="deportwhy">Porque Motivos lo Deportaron</label><br>
     <input type="text" name="deportwhy" id="deportwhy"><br>
     
     Tiene Castigo Vigente de Deportacion
     <div class="inline"><input type="radio" name="detdeport" id="deporttwo" value="yes">
-    <label for="yn">Si</label><br>
-    <input type="radio" name="detdeport" value="No">
-    <label for="yn">No</label><br>
+    <label for="detdeport">Si</label><br>
+    <input type="radio" name="detdeport" id="deporttwono" value="No" checked="true">
+    <label for="deporttwono">No</label><br>
     </div>
-    <label for="lang">Cuanto Tiempo</label><br>
-    <input type="text" id="howmuchtime" name="lang"><br>
+    <label for="howmuchtime">Cuanto Tiempo</label><br>
+    <input type="text" id="howmuchtime" name="howmuchtime"><br>
 
-    <label for="lang">Porque Motivo</label><br>
-    <input type="text" id="whatreason" name="lang"><br>
+    <label for="whatreason">Porque Motivo</label><br>
+    <input type="text" id="whatreason" name="whatreason"><br>
     </div>
 <hr>
 
@@ -264,7 +264,7 @@
     <label for="apolono">No</label><br>
 
     <label for="telltruthdet">Favor de decir la verdad(explique el motivo de la detention)</label><br>
-    <input type="text" id="telltruthdet" name="lang"><br>
+    <input type="text" id="telltruthdet" name="telltruthdet"><br>
     </div>
 <hr>
 
@@ -362,10 +362,11 @@
 
     <label for="workstate">En que Estados de Estados Unidos ha Trabajado</label><br>
     <input type="text" id="workstate" name="workstate"><br>
-
-    <label for="otherworkus">Algun Otro Empleo que haiga tenido en Estado Unidos que no sea de Agricultura(campo) </label><br>
-    <input type="text" id="otherworkus" name="otherworkus"><br>
     </div>
+<hr>
+    <label for="otherworkus">Algun Otro Empleo que haiga tenido en Estado Unidos que no sea de Agricultura(campo) </label><br>
+    <textarea id="otherworkus" name="otherworkus" rows="2" cols="30"></textarea><br>
+    
 <hr>
 
 <hr>
@@ -412,7 +413,7 @@
     Esta disponible trabajar horas extras y fines de semana cuando sea necesario?
     <div class="inline"><input type="radio" name="overtime" id="hours" value="yes">
     <label for="hours">Si</label><br>
-    <input type="radio" name="overtime" value="No" id="hoursno" checked="true">
+    <input type="radio" name="overtime" id="hoursno" value="No" checked="true">
     <label for="hoursno">No</label><br>
     </div>
 <hr>
@@ -425,8 +426,8 @@
     <label for="noextension">No</label><br>
     </div>
     <div class="options" id="noextensionoptions">
-    <label for="lang">Motivos por el cual No</label><br>
-    <input type="text" id="" name="extendwhynot"><br>
+    <label for="extendwhynot">Motivos por el cual No</label><br>
+    <input type="text" id="extendwhynot" name="extendwhynot"><br>
 </div>
 <hr>
 
@@ -434,7 +435,7 @@
     Puede Levantar de 25 Kilos a 40?
     <div class="inline"><input type="radio" name="kilos" id="kilos" value="yes">
     <label for="kilos">Si</label><br>
-    <input type="radio" name="kilos" value="No" id="kilosno" checked="true">
+    <input type="radio" name="kilos" id="kilosno" value="No" checked="true">
     <label for="kilosno">No</label><br>
     </div>
 <hr>
@@ -452,13 +453,13 @@
     Alguna vez ha Sufrido de Alguna Fractura en la espaldo, Pierna O Brazo?
     <div class="inline"><input type="radio" name="injury" id="injury" value="yes" onclick="showOption(this)">
     <label for="injury">Si</label><br>
-    <input type="radio" name="injury" value="No" id="injuryno" checked="true" onclick="hideOption(this)">
+    <input type="radio" name="injury" id="injuryno" value="No" checked="true" onclick="hideOption(this)">
     <label for="injuryno">No</label><br>
     </div>
 
     <div class="options" id="injuryoptions">
-    <label for="lang">Que Tipo de Fractua Y donde</label><br>
-    <input type="text" id="" name="injuryoptions"><br>
+    <label for="injurytype">Que Tipo de Fractua Y donde</label><br>
+    <input type="text" id="injurytype" name="injurytype"><br>
     </div>
 <hr>
 
@@ -466,13 +467,13 @@
     Tiene alguna inhabilidad (Discapacidad) que le causa problema en el trabajo
     <div class="inline"><input type="radio" name="disability" id="disability" value="yes" onclick="showOption(this)">
     <label for="disability">Si</label><br>
-    <input type="radio" name="disability" value="No" id="disabilityno" checked="true" onclick="hideOption(this)">
+    <input type="radio" name="disability" id="disabilityno" value="No" checked="true" onclick="hideOption(this)">
     <label for="disabilityno">No</label><br>
     </div>
 
     <div class="options" id="disabilityoptions">
-    <label for="lang">Al contestar si, por favor explique su inhabilidad (Discapacidad)</label><br>
-    <input type="text" id="" name="lang"><br>
+    <label for="disabilityexp">Al contestar si, por favor explique su inhabilidad (Discapacidad)</label><br>
+    <input type="text" id="disabilityexp" name="disabilityexp"><br>
     </div>
 <hr>
 
@@ -480,13 +481,13 @@
     Es Usted Diabetico?
     <div class="inline"><input type="radio" name="diabetic" id="diabetic" value="yes" onclick="showOption(this)">
     <label for="diabetic">Si</label><br>
-    <input type="radio" name="diabetic" value="No" id="diabeticno" checked="true" onclick="hideOption(this)">
+    <input type="radio" name="diabetic" id="diabeticno" value="No" checked="true" onclick="hideOption(this)">
     <label for="diabeticno">No</label><br>
     </div>
 
     <div class="options" id="diabeticoptions">
-    <label for="lang">Usa medicamento</label><br>
-    <input type="text" id="" name="diabeticmed"><br>
+    <label for="diabeticmed">Usa medicamento?</label><br>
+    <input type="text" id="diabeticmed" name="diabeticmed"><br>
     </div>
 <hr>
 
@@ -494,18 +495,18 @@
     Sufre usted de Asma?
     <div class="inline"><input type="radio" name="asma" id="asma" value="yes" onclick="showOption(this)">
     <label for="asma">Si</label><br>
-    <input type="radio" name="asma" value="No" id="asmano" checked="true" onclick="hideOption(this)">
+    <input type="radio" name="asma" id="asmano" value="No" checked="true" onclick="hideOption(this)">
     <label for="asmano">No</label><br>
     </div>
 
     <div class="options" id="asmaoptions">
-    <label for="lang">Se lo esta Tratando</label><br>
-    <input type="text" id="" name="asthmamed"><br>
+    <label for="asthmamed">Se lo esta Tratando</label><br>
+    <input type="text" id="asthmamed" name="asthmamed"><br>
     </div>
 <hr>
 
 <hr>
-    Problemas del Corazon
+    Problemas del Corazon?
     <div class="inline"><input type="radio" name="heart" id="heart" value="yes" onclick="showOption(this)">
     <label for="heart">Si</label><br>
     <input type="radio" name="heart" value="No" id="heartno" checked="true" onclick="hideOption(this)">
@@ -513,13 +514,13 @@
     </div>
 
     <div class="options" id="heartoptions">
-    <label for="lang">usa Medicamento</label><br>
-    <input type="text" id="" name="heartmed"><br>
+    <label for="medsused">usa Medicamento?</label><br>
+    <input type="text" id="medsused" name="medsused"><br>
     </div>
 <hr>
 
 <hr>
-    Problemas con Alta presion
+    Problemas con Alta presion?
     <div class="inline"><input type="radio" name="pressure" id="pressure" value="yes" onclick="showOption(this)">
     <label for="pressure">Si</label><br>
     <input type="radio" name="pressure" value="No" id="pressureno" checked="true" onclick="hideOption(this)">
@@ -527,14 +528,14 @@
     </div>
 
     <div class="options" id="pressureoptions">
-    <label for="lang">Que le Ocasiona el Problema de Presion</label><br>
-    <input type="text" id="" name="pressureoptions"><br>
+    <label for="pressurecause">Que le Ocasiona el Problema de Presion</label><br>
+    <input type="text" id="pressurecause" name="pressurecause"><br>
 </div>
 <hr>
 
 <hr>
     Esta Usted enterado, que esta Pre-solicitud, es para aplicar para una Visa H-2A, 
-        que es una Visa de Trabajo
+        que es una Visa de Trabajo?
     <div class="inline"><input type="radio" name="aware" value="yes" id="aware" onclick="showOption(this)">
     <label for="aware">Si</label><br>
     <input type="radio" name="aware" value="No" id="awareno" checked="true" onclick="hideOption(this)">
@@ -542,29 +543,29 @@
     </div>
 
     <div class="options" id="awareoptions">
-    <label for="lang">En su Palabras que conoce de esta Visa</label><br>
-    <textarea type="text" id="" name="whatknowvisa"  rows="4" cols="30">
+    <label for="whatknowvisa">En sus palabras que conoce de esta Visa?</label><br>
+    <textarea type="text" id="whatknowvisa" name="whatknowvisa"  rows="4" cols="30">
     </textarea><br>
 </div>
 <hr>
 
 <hr>
-    <label for="lang">Como se entero de CITA</label><br>
-    <textarea type="text" id="" name="howhearcita" rows="4" cols="30">
+    <label for="howhearcita">Como se entero de CITA</label><br>
+    <textarea type="text" id="howhearcita" name="howhearcita" rows="4" cols="30">
     </textarea><br>
 <hr>
 
 <hr>
-    <label for="lang">Si hubiera algo mas en que los pudieramos ayudar en que seria,
+    <label for="otherhelp">Si hubiera algo mas en que los pudieramos ayudar en que seria,
         que no sea dandole trabjo(esta pergunta es personal, solo usted da la repuesta)
     </label><br>
-    <textarea type="text" id="" name="otherhelp" rows="4" cols="30">
+    <textarea type="text" id="otherhelp" name="otherhelp" rows="4" cols="30">
     </textarea><br>
 <hr>
 
 <hr>
-    <label for="lang">Que Conoce usted de C.I.T.A(de Nosotros)</label><br>
-    <textarea type="text" id="" name="whatknowcita"  rows="4" cols="30">
+    <label for="whatknowcita">Que Conoce usted de C.I.T.A(de Nosotros)?</label><br>
+    <textarea type="text" id="whatknowcita" name="whatknowcita"  rows="4" cols="30">
     </textarea><br>
 <hr>
 
@@ -574,7 +575,7 @@
         <hr>Acelga
         <div class="inline"><input type="radio" name="acelga" id="acelga" value="yes" onclick="showOption(this)">
         <label for="acelga">Si</label><br>
-        <input type="radio" name="acelga" value="no" value="no" id="acelgano" checked="true" onclick="hideOption(this)">
+        <input type="radio" name="acelga" id="acelgano" value="no" checked="true" onclick="hideOption(this)">
         <label for="acelgano">No</label><br>
         </div>
         <div class="options" id="acelgaoptions">
@@ -589,7 +590,7 @@
         <hr>Alcachofa
         <div class="inline"><input type="radio" name="alcachofa" id="alcachofa" value="yes" onclick="showOption(this)">
         <label for="alcachofa">Si</label><br>
-        <input type="radio" name="alcachofa" value="no" id="alcachofano" checked="true" onclick="hideOption(this)">
+        <input type="radio" name="alcachofa" id="alcachofano" value="no" checked="true" onclick="hideOption(this)">
         <label for="alcachofano">No</label><br>
         </div>
         <div class="options" id="alcachofaoptions">
@@ -603,7 +604,7 @@
         <hr>Alfalfa
         <div class="inline"><input type="radio"name="alfalfa" id="alfalfa" value="yes" onclick="showOption(this)">
         <label for="alfalfa">Si</label><br>
-        <input type="radio" name="alfalfa" value="no" id="alfalfano" checked="true" onclick="hideOption(this)">
+        <input type="radio" name="alfalfa" id="alfalfano" value="no" checked="true" onclick="hideOption(this)">
         <label for="alfalfano">No</label><br>
         </div>
         <div class="options" id="alfalfaoptions">
@@ -617,7 +618,7 @@
         <hr>Ajo
         <div class="inline"><input type="radio" name="ajo" id="ajo" value="yes" onclick="showOption(this)">
         <label for="ajo">Si</label><br>
-        <input type="radio" name="ajo" value="no" id="ajono" checked="true" onclick="hideOption(this)">
+        <input type="radio" name="ajo" id="ajono" value="no" checked="true" onclick="hideOption(this)">
         <label for="ajono">No</label><br>
         </div>
         <div class="options" id="ajooptions">
@@ -1406,7 +1407,7 @@
       Sabe de electricidad?
       <div class="inline"><input type="radio" name="electric" id="electric" value="yes" onclick="showOption(this)">
      <label for="electric">Si</label><br>
-     <input type="radio" name="electric" value="no" id="electricno" checked="true"onclick="hideOption(this)">
+     <input type="radio" name="electric" id="electricno" value="no" checked="true"onclick="hideOption(this)">
      <label for="electricno">No</label><br>
      </div>
      <div class="options" id="electricoptions">
@@ -1418,13 +1419,13 @@
      <hr>
 
 <hr>
-    <label for="lang">Firma de solicitante</label><br>
-    <input type="text" id="" name="lang"><br>
+    <label for="applisign">Firma de solicitante</label><br>
+    <input type="text" id="applisign" name="applisign"><br>
 <hr>
 
 <hr>
-    <label for="lang"></label><br>
-    <input type="text" id="" name="lang"><br>
+    <label for="dateapplisigned">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
+    <input type="text" id="dateapplisigned" name="dateapplisigned"><br>
 <hr>
 </div>
 </form>
