@@ -135,9 +135,15 @@ var curdoc;
 
 function st_show(tab) {
 	let tabs = document.getElementsByClassName("st_tab");
+	let buttons = document.getElementById("staffmenu").getElementsByTagName("button");
 	for (let i = 0; i < tabs.length; i++){
 		tabs[i].style.display = "none";
 	}
+	for (let i = 0; i < buttons.length; i++){
+		buttons[i].classList.remove("selected");
+	}
+	let bi = ['newapplicants', 'applicants', 'companies', 'assignments'].findIndex((t)=>t==tab);
+	buttons[bi].classList.add("selected");
 	document.getElementById("searchapp").style.display = "none";
 	if (tab == "applicants"){
 		document.getElementById("newapplicants").style.display = "block";
