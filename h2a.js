@@ -707,7 +707,8 @@ function fillCompDetail(data) {
 	for (i = 0; i < data.assignments.length; i++) {
 		content += "<tr onclick='getAssigned(this)'><td>" + data.assignments[i].startdate + "</td><td>" + data.assignments[i].count + "</td></tr>";
 	}
-	comptable.innerHTML = content;
+	comptable.innerHTML = content; 
+	document.getElementById("compempstab").innerHTML = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
 }	
 function getAssigned(row) {
 	getCompData("st_getCompAssignedEmps.php?id=" + document.getElementById("compid").value + "&startdate=" + row.firstChild.innerHTML, showAssigned);
