@@ -134,19 +134,20 @@ $stmt = $conn->prepare("INSERT INTO ability (skillsid, applicantsid, years, loca
 $stmt->bind_param("iissss", $skillsid, $id, $years, $location, $details, $percent);
 $empty = "";
 $skills = [];
+$years = 0;
 
-if ($_POST["greenhouses"] == "yes") array_push($skills, array("Invernaderos", $_POST["greenhouseswhat"], $_POST["greenhouseswhere"]));
+if ($_POST["greenhouses"] == "yes") array_push($skills, array("Invernaderos", $years, $_POST["greenhouseswhat"], $_POST["greenhouseswhere"]));
 if ($_POST["irrigation"] == "yes") array_push($skills, array("Sistema de Riego", $_POST["irrigationexp"], $_POST["irrigationwhere"], $_POST["irrigationtype"]));
-if ($_POST["farm"] == "yes") array_push($skills, array("Alguna Granja", $_POST["farmwhat"], $_POST["farmwhere"]));
-if ($_POST["drive"] == "yes") array_push($skills, array("Conducir", $_POST["drivewhat"], $_POST["drivewhere"]));
-if ($_POST["mech"] == "yes") array_push($skills, array("Mecanica", $_POST["mechexp"], $_POST["mechwhere"], $_POST["mechgas"], $_POST["mechdoc"], $_POST["mechnodoc"], $_POST["mechtype"]));
-if ($_POST["welding"] == "yes") array_push($skills, array("Soldadura", $_POST["weldingwhat"], $_POST["weldingwhere"], $_POST["weldingexp"]));
-if ($_POST["truck"] == "yes") array_push($skills, array("Troque y Tráiler", $_POST["truckwhat"], $_POST["truckwhere"]));
+if ($_POST["farm"] == "yes") array_push($skills, array("Alguna Granja", $years, $_POST["farmwhere"], $_POST["farmwhat"]));
+if ($_POST["drive"] == "yes") array_push($skills, array("Conducir", $years, $_POST["drivewhere"], $_POST["drivewhat"]));
+if ($_POST["mech"] == "yes") array_push($skills, array("Mecanica", $_POST["mechexp"], $_POST["mechwhere"], $_POST["mechgas"]. "; doc?". $_POST["mechdoc"]. ";" .$_POST["mechnodoc"]. ";" .$_POST["mechtype"]. ";"));
+if ($_POST["welding"] == "yes") array_push($skills, array("Soldadura", $years, $_POST["weldingwhere"], $_POST["weldingwhat"], $_POST["weldingexp"]. "%"));
+if ($_POST["truck"] == "yes") array_push($skills, array("Troque y Tráiler", $years, $_POST["truckwhere"], $_POST["truckwhat"]));
 if ($_POST["tractor"] == "yes") array_push($skills, array("Tractor", $_POST["tractorexp"], $_POST["tractorwhere"], $_POST["tractorcargo"]));
 if ($_POST["fork"] == "yes") array_push($skills, array("Montacargas", $_POST["forkexp"], $_POST["forkcargo"]));
-if ($_POST["electric"] == "yes") array_push($skills, array("Electricidad", $_POST["electricexp"], $_POST["electricwhat"]));
-if ($_POST["english"] == "yes") array_push($skills, array("Ingles", "", $_POST["whereenglish"], $_POST["speakpercent"]."sp ".$_POST["writepercent"]."wr"));
-
+if ($_POST["electric"] == "yes") array_push($skills, array("Electricidad", $years, "", $_POST["electricwhat"] . "; " .  $_POST["electricexp"] . "%"));
+if ($_POST["english"] == "yes") array_push($skills, array("Ingles", $years, $_POST["whereenglish"], $_POST["speakpercent"]."%sp ".$_POST["writepercent"]."%wr"));
+//welding and electricity need percentage
 $percent = "";
 
 $count = count($skills);
@@ -191,8 +192,8 @@ if ($_POST["asma"] == "yes") array_push($issues, array("asthma", $_POST["asthmam
 if ($_POST["diabetic"] == "yes") array_push($issues, array("diabetic", $_POST["diabeticmed"], $empty));
 if ($_POST["heart"] == "yes") array_push($issues, array("heart", $_POST["heartmed"], $empty));
 if ($_POST["backp"] == "yes") array_push($issues, array("back", $empty, $empty));
-if ($_POST["injury"] == "yes") array_push($issues, array("fracture", $_POST["injuryoptions"], $empty));
-if ($_POST["pressure"] == "yes") array_push($issues, array("high blood pressure", $empty, $_POST["pressureoptions"]));
+if ($_POST["injury"] == "yes") array_push($issues, array("fracture", $_POST["injurytype"], $empty));
+if ($_POST["pressure"] == "yes") array_push($issues, array("high blood pressure", $empty, $_POST["pressurecause"]));
 
 
 $count = count($issues);
