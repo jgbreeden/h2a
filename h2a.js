@@ -40,7 +40,7 @@ class Applicant {
 }
 
 class Experience {
-	constructor(id, skillsid, applicantsid, year, location, details, skillenglish, skilltype,percent) {
+	constructor(id, skillsid, applicantsid, year, location, details, skillenglish, skilltype) {
 		this.id = id
 		this.skillsid = skillsid;
 		this.applicantsid = applicantsid;
@@ -49,7 +49,6 @@ class Experience {
 		this.details = details;
 		this.skillenglish = skillenglish;
 		this.skilltype = skilltype;
-		this.percent = percent;
 	}
 	
 
@@ -212,7 +211,7 @@ function fillEmpDetail(data) {
 	let contents2 = "<tr><th>Job Skill</th><th>Years</th><th>Where</th></tr>";
 	for (let i = 0; i < data.ability.length; i++){
 		contents2 += "<tr onclick='showAbility2(this)'><td class='id'>" + data.ability[i].abid + "</td><td>" + data.ability[i].abeng + "</td><td>"
-					+ data.ability[i].years + "</td><td>" + data.ability[i].location + "</td><td class='id'>" + data.ability[i].percent
+					+ data.ability[i].years + "</td><td>" + data.ability[i].location
 					+ "</td><td class='id'>" + data.ability[i].details + "</td><td class='id'>" + data.ability[i].skillsid + "</td></tr>";
 	}
 
@@ -408,13 +407,12 @@ function showSkill(row){
 function showAbility2(row){
 	let cells = row.getElementsByTagName("td");
 	currability = new Experience (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[5].innerHTML,cells[1].innerHTML, "ability");
-	document.getElementById("skid2").value = cells[5].innerHTML;
+	document.getElementById("skid2").value = cells[4].innerHTML;
 	document.getElementById("years2").value = cells[2].innerHTML;
 	document.getElementById("location2").value = cells[3].innerHTML;
-	document.getElementById("details2").value = cells[5].innerHTML;
+	document.getElementById("details2").value = cells[4].innerHTML;
 	document.getElementById("exid2").value = cells[0].innerHTML;
-	document.getElementById("abilities").value = cells[6].innerHTML;
-	document.getElementById("percent").value = cells[4].innerHTML;
+	document.getElementById("abilities").value = cells[5].innerHTML;
 	document.getElementById("apid2").value = currappl.id;
 	resetTable(document.getElementById("abilityTab"));
 	row.classList.add("selected");
@@ -441,7 +439,7 @@ function showDocs(row){
 	document.getElementById("locationdoc2").value = cells[3].innerHTML;
 	document.getElementById("doctype2").value = "";
 	document.getElementById("apid3").value = currappl.id;
-	resetTable(document.getElementById("docform"));
+	resetTable(document.getElementById("docTab"));
 	row.classList.add("selected");
 }
 
@@ -528,7 +526,6 @@ function clearAbility(){
 	document.getElementById("years2").value = "";
 	document.getElementById("location2").value = "";
 	document.getElementById("details2").value = "";
-	document.getElementById("percent").value = "";
 	document.getElementById("exid2").value = 0;
 	document.getElementById("apid2").value = currappl.id;
 	resetTable(document.getElementById("abilityTab"));
