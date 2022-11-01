@@ -223,7 +223,7 @@ if ($_POST["otherwork"] != "") array_push($issues, array("Other work", "Type: " 
 if ($_POST["historywork"] == "yes") array_push($issues, array("Other Farm Work", "Legal: " . $_POST["manner"] . "Tourist Visa: " . $_POST["touristvisa"] . 
         "State: " . $_POST["workstate"]));
 if ($_POST["otherworkus"] != "") array_push($issues, array("Other work US", $_POST["otherworkus"]));
-//if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
+if ($_POST["migrate"] == "yes") array_push($issues, array("In Migration", "How long ago:". $_POST["howmuchtime"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
 

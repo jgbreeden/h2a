@@ -380,10 +380,14 @@
 
 <hr>
     Esta en Tramites de Migracion
-    <div class="inline"><input type="radio" name="migrate" id="migrate" value="yes">
+    <div class="inline"><input type="radio" name="migrate" id="migrate" value="yes" onclick="showOption(this)">
     <label for="migrate">Si</label><br>
-    <input type="radio" name="migrate" value="No" id="migrateno" checked="true">
+    <input type="radio" name="migrate" value="No" id="migrateno" checked="true" onclick="hideOption(this)">
     <label for="migrateno">No</label><br>
+    </div>
+    <div class="options" id="migrateoptions">
+    <label for="howmuchtime">Desde hace cuanto tiempo?</label><br>
+    <input type="text" id="howmuchtime" name="howmuchtime"><br>
     </div>
  <hr>
  
