@@ -685,6 +685,7 @@ function getCompData(phpFile, callBack){
 	let xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200) {
+			console.log(this.responseText)
 			callBack(JSON.parse(this.responseText));
 		}
 	}
@@ -701,6 +702,26 @@ function fillCompDetail(data) {
 	document.getElementById("compcity").value = data.city;
 	document.getElementById("compstate").value = data.state;
 	document.getElementById("compzip").value = data.zip;
+	let comptable = document.getElementById("compassigntab");
+	let content = "<tr><th>Assign Date</th><th>Count</th></tr>";
+	for (i = 0; i < data.assignments.length; i++) {
+		content += "<tr onclick='getAssigned(this)'><td>" + data.assignments[i].startdate + "</td><td>" + data.assignments[i].count + "</td></tr>";
+	}
+	comptable.innerHTML = content; 
+	document.getElementById("compempstab").innerHTML = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
+}	
+function getAssigned(row) {
+	getCompData("st_getCompAssignedEmps.php?id=" + document.getElementById("compid").value + "&startdate=" + row.firstChild.innerHTML, showAssigned);
+	console.log(row.firstChild.innerHTML)
+}
+function showAssigned(data) {
+	let empstab = document.getElementById("compempstab");
+	let content = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
+	for (i = 0; i < data.length; i++) {
+		content += "<tr><td>" + data[i].firstname + "</td><td>" + data[i].lastname
+		 		+ "</td><td>" + data[i].phonecell + "</td></tr>";
+	}
+	empstab.innerHTML = content;
 }
 
 function clearComp() {

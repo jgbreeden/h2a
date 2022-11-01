@@ -41,6 +41,7 @@ $whatknowvisa = htmlspecialchars($_POST["whatknowvisa"]);
 $howhearcita = htmlspecialchars($_POST["howhearcita"]);
 $otherhelp = htmlspecialchars($_POST["otherhelp"]);
 $whatknowcita = htmlspecialchars($_POST["whatknowcita"]);
+$status = "new";
 
 if ($_POST["aware"] == "yes") {
     $whatknowvisa = "Yes, I know it is a work visa" . $whatknowvisa;
@@ -54,13 +55,13 @@ $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, 
     state, zipcode, gender, specificarea, 
     whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
     email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, 
-    otherhelp, whatknowcita) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
+    otherhelp, whatknowcita, status) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
     $state, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
-    $otherhelp, $whatknowcita);
+    $otherhelp, $whatknowcita, $status);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;
@@ -221,7 +222,7 @@ if ($_POST["pasth2a"] == "yes") array_push($issues, array("Past H2A", "Count: " 
 if ($_POST["otherwork"] != "") array_push($issues, array("Other work", "Type: " . $_POST["otherwork"]));
 if ($_POST["historywork"] == "yes") array_push($issues, array("Other Farm Work", "Legal: " . $_POST["manner"] . "Tourist Visa: " . $_POST["touristvisa"] . 
         "State: " . $_POST["workstate"]));
-if ($_POST["otherworkus"] != "") array_push($issues, array("Other work US", "yes"));
+if ($_POST["otherworkus"] != "") array_push($issues, array("Other work US", $_POST["otherworkus"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));
 //if ($_POST["deport"] == "yes") array_push($issues, array("deport", $_POST["deportwhen"], $_POST["deportwhy"]));

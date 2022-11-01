@@ -432,9 +432,23 @@
 				<button type="button" onclick="resetComp()">Cancel</button>
 				<button type="button" onclick="saveComp()">Save</button>
 			</form>
+			<table id="compassigntab" class="lefty">
+				<tr>
+					<th>Assign Date</th>
+					<th>Count</th>
+				</tr>
+			</table>
+			<table id="compempstab">
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Phone Number</th>
+				</tr>
+			</table>
 			<p id="compresult">
 			</p>
 		</div>
+
 		<div id="assignments" class="st_tab">
 			<div class="neededskills tall">
 				<table id="chooseskills1a" class="lefty">
@@ -518,9 +532,9 @@
 				</table>
 			</div>
 			<div id="movbuton" class="lefty">
-				<button onclick="mtc()"> &rarr; </button>
+				<button onclick="mtc()">&nbsp; &#9658; &nbsp;</button>
 				<br>
-				<button onclick="moc()"> &larr; </button>
+				<button onclick="moc()">&nbsp; &#9664; &nbsp;</button>
 			</div>
 			<div>
 				<form method="post" id="assignform" class="lefty divborder">
@@ -543,7 +557,7 @@
 					
 				</form>
 			</div>
-			<div class="chosencomp tall">
+			<div class="chosencomp tall lefty">
 				<table id="wancomptab" width="150" height="25">
 					<b>Applicants to assign</b><br>
 					<tr>
