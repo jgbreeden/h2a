@@ -145,11 +145,14 @@ function st_show(tab) {
 	let bi = ['newapplicants', 'applicants', 'companies', 'assignments'].findIndex((t)=>t==tab);
 	buttons[bi].classList.add("selected");
 	document.getElementById("searchapp").style.display = "none";
+	document.getElementById("newapplabel").style.display = "none";
 	if (tab == "applicants"){
 		document.getElementById("newapplicants").style.display = "block";
 		document.getElementById("searchapp").style.display = "block";
 	} else {
 		document.getElementById(tab).style.display = "block";
+		document.getElementById("newapplabel").style.display = "inline";
+
 	}
 }
 

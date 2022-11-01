@@ -15,9 +15,10 @@
 			<button type="button" onclick="st_show('assignments'); fillCompList();">Assignments</button>
 		</div>
 		<div id="newapplicants" class="st_tab">
-			New Applicants
+			<span id="newapplabel">New Applicants</span>
 			<div class="newappdiv tall">
 				<div id="searchapp">
+					<label for="searchstat">Show Status:</label>
 					<select id="searchstat" onchange="getEmployees('accepted');">
 						<option value="accepted">Accepted</option>
 						<option value="rejected">Rejected</option>

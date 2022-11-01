@@ -26,6 +26,7 @@ th {
 
 .tall {
 	height: 640px;
+	overflow: auto;
 }
 
 form {
