@@ -341,8 +341,8 @@ function clearNewApp(){
 	document.getElementById("status").value = "";
 	document.getElementById("dateofbirth").value = "";
 	document.getElementById("email").value = "";
-	document.getElementById("male").value = false;
-	document.getElementById("female").value = false;
+	document.getElementById("male").checked = false;
+	document.getElementById("female").checked = false;
 	document.getElementById("age").value = "";
 	document.getElementById("height").value = "";
 	document.getElementById("weight").value = "";
@@ -828,6 +828,11 @@ function selectApp(row){
 
 }
 
+function selectappback(row) {
+	resetTable(document.getElementById("wancomptab"));
+	row.classList.add("selected");
+}
+
 function showAssignedData(data){
 	let healthTable = document.getElementById("healthTab2");
 	let healthContents = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
@@ -892,10 +897,17 @@ function mtc(){
 		//}
 	//}
 	//console.log(grab4);
-	grab3.innerHTML += grab2[0].innerHTML;
+	grab3.innerHTML += "<tr onclick='selectappback(this)'>" + grab2[0].innerHTML + "</tr>";
 	grab2[0].remove();
 	document.getElementById("healthTab2").innerHTML = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
 	document.getElementById("distanceyuma2").checked = false;
 	document.getElementById("distanceany2").checked = false;
 	document.getElementById("whatarea2").value = "";
+}
+
+function moc() {
+	let grab2 = document.getElementById("wancomptab").getElementsByClassName("selected");
+	let grab3 = document.getElementById("wanapptab");
+	grab3.innerHTML += "<tr onclick='selectApp(this)'>" + grab2[0].innerHTML + "</tr>";
+	grab2[0].remove();
 }
