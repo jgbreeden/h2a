@@ -34,7 +34,7 @@ class Applicant {
 	
 	update() {
 		var formData = new FormData(document.getElementById("newappform"));
-		sendData(formData, "st_updateEmp.php", showResult);
+		sendData(formData, path + path + "stupdateEmp.php", showResult);
 	}
 	
 }
@@ -56,10 +56,10 @@ class Experience {
 		var formData;
 		if (this.skilltype == "produce") {
 			formData = new FormData(document.getElementById("skillsForm"));
-			sendData(formData, "st_updateSkill.php", showResult);
+			sendData(formData, path + path + "stupdateSkill.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("abilityForm"));
-			sendData(formData, "st_updateAbility.php", showResult);
+			sendData(formData, path + path + "stupdateAbility.php", showResult);
 		}
 	}
 	
@@ -67,10 +67,10 @@ class Experience {
 		var formData;
 		if (this.skilltype == "produce") {
 			formData = new FormData(document.getElementById("skillsForm"));
-			sendData(formData, "st_insertSkill.php", showResult);
+			sendData(formData, path + path + "stinsertSkill.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("abilityForm"));
-			sendData(formData, "st_insertAbility.php", showResult);
+			sendData(formData, path + path + "stinsertAbility.php", showResult);
 		}
 	}
 	
@@ -98,13 +98,13 @@ class Issues  {
 		var formData;
 		if (this.issuetype == "document") {
 			formData = new FormData(document.getElementById("docform"));
-			sendData(formData, "st_updateDocs.php", showResult);
+			sendData(formData, path + path + "stupdateDocs.php", showResult);
 		} else if (this.issuetype == "health") {
 			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, "st_updateHealth.php", showResult);
+			sendData(formData, path + path + "stupdateHealth.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("statusform"));
-			sendData(formData, "st_updateStatus.php", showResult);
+			sendData(formData, path + path + "stupdateStatus.php", showResult);
 		}
 	}
 	
@@ -112,13 +112,13 @@ class Issues  {
 		var formData;
 		if (this.issuetype == "document") {
 			formData = new FormData(document.getElementById("docform"));
-			sendData(formData, "st_insertDocs.php", showResult);		
+			sendData(formData, path + path + "stinsertDocs.php", showResult);		
 		} else if (this.issuetype == "health") {
 			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, "st_insertHealth.php", showResult);
+			sendData(formData, path + path + "stinsertHealth.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("statusform"));
-			sendData(formData, "st_insertStatus.php", showResult);
+			sendData(formData, path + path + "stinsertStatus.php", showResult);
 		}
 	}
 }
@@ -130,6 +130,7 @@ var currdoc = new Issues (0, "", 0, "", "", "", "", "document");
 var currhealth = new Issues (0, "", 0, "", "", "", "", "health");
 var currstatus = new Issues (0, "", 0, "", "status");
 var skilllist = [];
+var path = "";
 var curdoc;
 
 function st_show(tab) {
@@ -169,16 +170,16 @@ function getData(phpFile, callBack){
 
 function getEmployees (stuff) {
 	if (stuff != 'accepted'){
-		getData("st_getEmps.php?stat=" + stuff, fillEmps);
+		getData(path + "st_getEmps.php?stat=" + stuff, fillEmps);
 	} else {
 		let temp = document.getElementById("searchstat").value;
-		getData("st_getEmps.php?stat=" + temp, fillEmps);
+		getData(path + "st_getEmps.php?stat=" + temp, fillEmps);
 	}
 }
 
 function getEmp(row) {
 	//console.log(row.firstChild.innerHTML);
-	getData("st_getEmpDetail.php?id=" + row.firstChild.innerHTML, fillEmpDetail);
+	getData(path + "st_getEmpDetail.php?id=" + row.firstChild.innerHTML, fillEmpDetail);
 	resetTable(document.getElementById("newapptab"));
 	row.classList.add("selected");
 }
@@ -388,7 +389,7 @@ function showResult(data){
 	} else {
 		temp = "new";
 	}
-	getData("st_getEmps.php?stat=" + temp, fillEmps);
+	getData(path + "stgetEmps.php?stat=" + temp, fillEmps);
 }
 
 function showSkill(row){
@@ -645,12 +646,12 @@ class Employers {
 	
 	update() {
 		var formData = new FormData(document.getElementById("companydata"));
-		sendData(formData, "st_updateComp.php", showCompResult);
+		sendData(formData, path + "stupdateComp.php", showCompResult);
 	}
 	
 	insert() {
 		var formData = new FormData(document.getElementById("companydata"));
-		sendData(formData, "st_insertComp.php", showCompResult);
+		sendData(formData, path + "stinsertComp.php", showCompResult);
 	}
 	
 }
@@ -658,7 +659,7 @@ class Employers {
 var currcomp = new Employers (0, "", "", "", "", "", "");
 
 function getCompanies() {
-	getData("st_getComps.php", fillComp);
+	getData(path + "st_getComps.php", fillComp);
 }
 
 function fillComp(row) {
@@ -676,7 +677,7 @@ function fillComp(row) {
 }
 
 function getComp(row){
-	getCompData("st_getCompDetail.php?id=" + row.firstChild.innerHTML, fillCompDetail);
+	getCompData(path + "st_getCompDetail.php?id=" + row.firstChild.innerHTML, fillCompDetail);
 	resetTable(document.getElementById("companytab"));
 	row.classList.add("selected");
 }
@@ -711,7 +712,7 @@ function fillCompDetail(data) {
 	document.getElementById("compempstab").innerHTML = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
 }	
 function getAssigned(row) {
-	getCompData("st_getCompAssignedEmps.php?id=" + document.getElementById("compid").value + "&startdate=" + row.firstChild.innerHTML, showAssigned);
+	getCompData(path + "st_getCompAssignedEmps.php?id=" + document.getElementById("compid").value + "&startdate=" + row.firstChild.innerHTML, showAssigned);
 	console.log(row.firstChild.innerHTML)
 }
 function showAssigned(data) {
@@ -767,7 +768,7 @@ function showCompResult(data){
 // ................................................................................................................
 
 function fillCompList(){
-	getData("st_getComps.php", fillList);
+	getData(path + "st_getComps.php", fillList);
 }
 
 function fillList(row){
@@ -807,7 +808,7 @@ function getMatchingEmps(){
 			list += rows2[i].firstChild.nextSibling.innerText + " ~ ";
 		}
 	}
-	getData("st_getEmpsBySkill.php?status=" + list, fillSim)
+	getData(path + "st_getEmpsBySkill.php?status=" + list, fillSim)
 }
 
 function fillSim(data){
@@ -824,7 +825,7 @@ function fillSim(data){
 function selectApp(row){
 	resetTable(document.getElementById("wanapptab"));
 	row.classList.add("selected");
-	getData("st_getEmpDetail.php?id=" + row.firstChild.innerText, showAssignedData)
+	getData(path + "st_getEmpDetail.php?id=" + row.firstChild.innerText, showAssignedData)
 
 }
 
@@ -868,7 +869,7 @@ function saveAssignment() {
 	for (let i = 1; i < rows.length; i++) {
 		document.getElementById("assignappid").value = rows[i].firstChild.innerText;
 		let formData = new FormData(document.getElementById("assignform"));
-		sendData(formData, "st_saveAssignment.php", showAssignResult)
+		sendData(formData, path + "st_saveAssignment.php", showAssignResult)
 	}
 }
 
