@@ -1,7 +1,7 @@
 <?php
 
 require 'cred.php';
-$conn = new mysqli($host, $user, $password, "h2a");
+$conn = new mysqli($host, $user, $password, $db);
 $new_assignstart = date('Y-m-d', strtotime(str_replace('/', '-', $_POST["assignstart"])));
 $new_assignend = date('Y-m-d', strtotime(str_replace('/', '-', $_POST["assignend"])));
 

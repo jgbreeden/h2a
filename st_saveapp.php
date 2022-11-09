@@ -141,7 +141,10 @@ if ($_POST["greenhouses"] == "yes") array_push($skills, array("Invernaderos", $y
 if ($_POST["irrigation"] == "yes") array_push($skills, array("Sistema de Riego", $_POST["irrigationexp"], $_POST["irrigationwhere"], $_POST["irrigationtype"]));
 if ($_POST["farm"] == "yes") array_push($skills, array("Alguna Granja", $years, $_POST["farmwhere"], $_POST["farmwhat"]));
 if ($_POST["drive"] == "yes") array_push($skills, array("Conducir", $years, $_POST["drivewhere"], $_POST["drivewhat"]));
-if ($_POST["mech"] == "yes") array_push($skills, array("Mecanica", $_POST["mechexp"], $_POST["mechwhere"], $_POST["mechgas"]. "; doc?". $_POST["mechdoc"]. ";" .$_POST["mechnodoc"]. ";" .$_POST["mechtype"]. ";"));
+if ($_POST["mech"] == "yes") array_push($skills, array("Mecanica", $_POST["mechexp"], $_POST["mechwhere"], 
+        "gas?". ((isset($_POST["mechgas"])) ? $_POST["mechgas"]: "no") . 
+        "; diesel?". ((isset($_POST["mechdiesel"])) ? $_POST["mechdiesel"]: "no") . 
+        "; doc?". $_POST["mechdoc"]. ";" .$_POST["mechnodoc"]. ";" .$_POST["mechtype"]. ";"));
 if ($_POST["welding"] == "yes") array_push($skills, array("Soldadura", $years, $_POST["weldingwhere"], $_POST["weldingwhat"], $_POST["weldingexp"]. "%"));
 if ($_POST["truck"] == "yes") array_push($skills, array("Troque y Tráiler", $years, $_POST["truckwhere"], $_POST["truckwhat"]));
 if ($_POST["tractor"] == "yes") array_push($skills, array("Tractor", $_POST["tractorexp"], $_POST["tractorwhere"], $_POST["tractorcargo"]));
@@ -159,7 +162,7 @@ for($i = 0; $i < $count; $i++){
     if (isset($skills[$i][3])){
         $details = $skills[$i][3];
     } else {
-        $details = "";
+        $details = ""; 
     }
     $stmt->execute();
 }

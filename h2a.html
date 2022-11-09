@@ -243,25 +243,36 @@
 				<div class="newappdiv">
 					<form id="skillsForm">
 						<input type="text" id="exid" name="exid" class="id">
-						<label for="skill">Crops:</label>
-						<select id="skill" name="skill">
-							<option value=""></option>
-							<option value="Avocado">Avocado</option>
-						</select>
-						<br>
-						<label for="years">Years:</label>
-						<input type="text" id="years" name="years">
-						<br>
-						<label for="location">Location:</label>
-						<input type="text" id="location" name="location">
-						<br>
-						<label for="details">Details:</label>
-						<input type="text" id="details" name="details">
+						<table class="lefty">
+							<tr>
+								<td><label for="skill">Crops:</label></td>
+								<td><select id="skill" name="skill">
+									<option value=""></option>
+									<option value="Avocado">Avocado</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><label for="years">Years:</label></td>
+								<td><input type="text" id="years" name="years"></td>
+							</tr>
+							<tr>
+								<td><label for="location">Location:</label></td>
+								<td><input type="text" id="location" name="location"></td>
+							</tr>
+							<tr>
+								<td><label for="details">Details:</label></td>
+								<td><input type="text" id="details" name="details"></td>
+							</tr>
+							<tr>
+							<td><button type="button" onclick="saveSkill()">Save Experience</button></td>
+							<td><button type="button" onclick="clearSkill()">Clear</button></td>
+							</tr>
+						</table>
 						<br>
 						<input type="text" id="apid" name="apid" class="id">
 						<input type="text" id="skid" name="skid" class="id">
-						<button type="button" onclick="saveSkill()">Save skill</button>
-						<button type="button" onclick="clearSkill()">Clear</button>
+						
+						
 					</form>
 				</div>
 			</div>
@@ -278,25 +289,34 @@
 				<div class="newappdiv">
 					<form id="abilityForm">
 						<input type="text" id="exid2" name="exid2" class="id">
-						<label for="abilities">Skill:</label>
-						<select id="abilities" name="abilities">
-							<option value=""></option>
-							<option value="Avocado">Avocado</option>
-						</select>
-						<br>
-						<label for="years2">Years:</label>
-						<input type="text" id="years2" name="years2">
-						<br>
-						<label for="location">Location:</label>
-						<input type="text" id="location2" name="location2">
-						<br>
-						<label for="details">Details:</label>
-						<input type="text" id="details2" name="details2">
-						<br>
+						<table class="lefty">
+							<tr>
+								<td><label for="abilities">Skill:</label></td>
+								<td><select id="abilities" name="abilities">
+									<option value=""></option>
+									<option value="Avocado">Avocado</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><label for="years2">Years:</label></td>
+								<td><input type="text" id="years2" name="years2"></td>
+							</tr>
+							<tr>
+								<td><label for="location">Location:</label></td>
+								<td><input type="text" id="location2" name="location2"></td>
+							</tr>
+							<tr>
+								<td><label for="details">Details:</label></td>
+								<td><input type="text" id="details2" name="details2"></td>
+							</tr>
+							<tr>
+							<td><button type="button" onclick="saveAbility()">Save Skill</button></td>
+							<td><button type="button" onclick="clearAbility()">Clear</button></td>
+							</tr>
+						</table>
 						<input type="text" id="apid2" name="apid2" class="id">
 						<input type="text" id="skid2" name="skid2" class="id">
-						<button type="button" onclick="saveAbility()">Save ability</button>
-						<button type="button" onclick="clearAbility()">Clear</button>
+	
 					</form>
 				</div>
 			</div>
@@ -313,25 +333,34 @@
 				<div class="newappdiv">
 					<form id="docform">
 						<input type="text" id="docid2" name="docid2" class="id">
-						<label for="doclist">Document:</label>
-						<select id="doclist" name="doclist">
-							<option value=""></option>
-							<option value="Avocado">Avocado</option>
-						</select>
-						<br>
-						<label for="doc2">When:</label>
-						<input type="text" id="when2" name="when2">
-						<br>
-						<label for="locationdoc">Location:</label>
-						<input type="text" id="locationdoc2" name="locationdoc2">
-						<br>
-						<label for="doctype">Doc Type:</label>
-						<input type="text" id="doctype2" name="doctype2">
-						<br>
+						<table class="lefty">
+							<tr>
+								<td><label for="doclist">Document:</label></td>
+								<td><select id="doclist" name="doclist">
+									<option value=""></option>
+									<option value="Avocado">Avocado</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><label for="doc2">When:</label></td>
+								<td><input type="text" id="when2" name="when2"></td>
+							</tr>
+							<tr>
+								<td><label for="locationdoc">Location:</label></td>
+								<td><input type="text" id="locationdoc2" name="locationdoc2"></td>
+							</tr>
+							<tr>
+								<td><label for="doctype">Doc Type:</label></td>
+								<td><input type="text" id="doctype2" name="doctype2"></td>
+							</tr>
+							<tr>
+							<td><button type="button" onclick="saveDoc()">Save Document</button></td>
+							<td><button type="button" onclick="clearDoc()">Clear</button></td>
+							</tr>
+						</table>
 						<input type="text" id="apid3" name="apid3" class="id">
 						<input type="text" id="isid" name="isid" class="id">
-						<button type="button" onclick="saveDoc()">Save Document</button>
-						<button type="button" onclick="clearDoc()">Clear</button>
+				
 					</form>
 				</div>
 			</div>
@@ -348,21 +377,29 @@
 				<div class="newappdiv">
 					<form id="healthsec">
 						<input type="text" id="healthid2" name="healthid2" class="id">
-						<label for="healthlist">Health Issue:</label>
-						<select id="healthlist" name="healthlist">
-							<option value=""></option>
-							<option value="Avocado">Avocado</option>
-						</select>
-						<br>
-						<label for="treatment2">Treatment:</label>
-						<input type="text" id="treatment2" name="treatment2">
-						<br>
-						<label for="reason2">Reason:</label>
-						<input type="text" id="reason2" name="reason2">
-						<br>
+						<table class="lefty">
+							<tr>
+								<td><label for="healthlist">Health Issue:</label></td>
+								<td><select id="healthlist" name="healthlist">
+									<option value=""></option>
+									<option value="Avocado">Avocado</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><label for="treatment2">Treatment:</label></td>
+								<td><input type="text" id="treatment2" name="treatment2"></td>
+							</tr>
+							<tr>
+								<td><label for="reason2">Reason:</label></td>
+								<td><input type="text" id="reason2" name="reason2"></td>
+							</tr>
+							<tr>
+							<td><button type="button" onclick="saveHealth()">Save Health</button></td>
+							<td><button type="button" onclick="clearHealth()">Clear</button></td>
+							</tr>
+						</table>
 						<input type="text" id="apid4" name="apid4" class="id">
-						<button type="button" onclick="saveHealth()">Save Health</button>
-						<button type="button" onclick="clearHealth()">Clear</button>
+						
 					</form>
 				</div>
 			</div>
@@ -577,9 +614,8 @@
 			
 		</p>
 		
-		<script>
-			getData("st_getSkills.php", fillSkill);
-			getData("st_getIssues.php", fillIssue);
+		<script src="../h2ainit.js">
+			
 		</script>
 	</body>
 </html>
