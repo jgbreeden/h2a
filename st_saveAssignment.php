@@ -1,7 +1,7 @@
 <?php
 
 require 'cred.php';
-$conn = new mysqli($host, $user, $password, "h2a");
+$conn = new mysqli($host, $user, $password, $db);
 
 //save ability record
 $sql = "insert into assignments (applicantsid, employersid, startdate, enddate, assignedby) values (?, ?, ?, ?, ?)";
