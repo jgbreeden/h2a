@@ -1,7 +1,7 @@
 <?php
 
 require 'cred.php';
-$conn = new mysqli($host, $user, $password, "h2a");
+$conn = new mysqli($host, $user, $password, $db);
 
 
 $sql = "SELECT applicants.firstname, applicants.lastname, applicants.phonecell"
