@@ -72,7 +72,7 @@ $skills = [];
 if ($_POST["acelga"] == "yes") array_push($skills, array("acelga", $_POST["acelgaexp"], $_POST["acelgawhere"]));
 if ($_POST["alcachofa"] == "yes") array_push($skills, array("alcachofa", $_POST["alcachofaexp"], $_POST["alcachofawhere"]));
 if ($_POST["alfalfa"] == "yes") array_push($skills, array("alfalfa", $_POST["alfalfaexp"], $_POST["alfalfawhere"]));
-if ($_POST["ajo"] == "yes") array_push($skills, array("ajo", $_POST["ajoaexp"], $_POST["ajowhere"]));
+if ($_POST["ajo"] == "yes") array_push($skills, array("ajo", $_POST["ajoexp"], $_POST["ajowhere"]));
 if ($_POST["apio"] == "yes") array_push($skills, array("apio", $_POST["alfalfaexp"], $_POST["alfalfawhere"]));
 if ($_POST["arandano"] == "yes") array_push($skills, array("arandano", $_POST["arandanoexp"], $_POST["arandanowhere"]));
 if ($_POST["berenjena"] == "yes") array_push($skills, array("berenjena", $_POST["berenjenaexp"], $_POST["berenjenawhere"]));
