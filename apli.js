@@ -28,10 +28,10 @@ function tabChange(tab) {
    items[tab].classList.add("current")
    tabs[tab].style.display = "block"
    if (tab == 1) {
-        document.getElementById("acelga").focus();
+        document.getElementById("english").focus();
 
     } else if (tab == 2) {
-        document.getElementById("passport").focus();
+        document.getElementById("acelga").focus();
     }
     // items[0].toggle("current");
    // items[1].toggle("current");
