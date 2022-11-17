@@ -197,7 +197,7 @@ if ($_POST["diabetic"] == "yes") array_push($issues, array("diabetic", $_POST["d
 if ($_POST["heart"] == "yes") array_push($issues, array("heart", $_POST["heartmed"], $empty));
 if ($_POST["backp"] == "yes") array_push($issues, array("back", $empty, $empty));
 if ($_POST["injury"] == "yes") array_push($issues, array("fracture", $_POST["injurytype"], $empty));
-if ($_POST["pressure"] == "yes") array_push($issues, array("high blood pressure", $empty, $_POST["pressurecause"]));
+if ($_POST["pressure"] == "yes") array_push($issues, array("high blood pressure", $_POST["pressurecause"], $empty));
 
 
 $count = count($issues);
