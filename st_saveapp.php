@@ -72,7 +72,7 @@ $skills = [];
 if ($_POST["acelga"] == "yes") array_push($skills, array("acelga", $_POST["acelgaexp"], $_POST["acelgawhere"]));
 if ($_POST["alcachofa"] == "yes") array_push($skills, array("alcachofa", $_POST["alcachofaexp"], $_POST["alcachofawhere"]));
 if ($_POST["alfalfa"] == "yes") array_push($skills, array("alfalfa", $_POST["alfalfaexp"], $_POST["alfalfawhere"]));
-if ($_POST["ajo"] == "yes") array_push($skills, array("ajo", $_POST["ajoaexp"], $_POST["ajowhere"]));
+if ($_POST["ajo"] == "yes") array_push($skills, array("ajo", $_POST["ajoexp"], $_POST["ajowhere"]));
 if ($_POST["apio"] == "yes") array_push($skills, array("apio", $_POST["alfalfaexp"], $_POST["alfalfawhere"]));
 if ($_POST["arandano"] == "yes") array_push($skills, array("arandano", $_POST["arandanoexp"], $_POST["arandanowhere"]));
 if ($_POST["berenjena"] == "yes") array_push($skills, array("berenjena", $_POST["berenjenaexp"], $_POST["berenjenawhere"]));
@@ -197,7 +197,7 @@ if ($_POST["diabetic"] == "yes") array_push($issues, array("diabetic", $_POST["d
 if ($_POST["heart"] == "yes") array_push($issues, array("heart", $_POST["heartmed"], $empty));
 if ($_POST["backp"] == "yes") array_push($issues, array("back", $empty, $empty));
 if ($_POST["injury"] == "yes") array_push($issues, array("fracture", $_POST["injurytype"], $empty));
-if ($_POST["pressure"] == "yes") array_push($issues, array("high blood pressure", $empty, $_POST["pressurecause"]));
+if ($_POST["pressure"] == "yes") array_push($issues, array("high blood pressure", $_POST["pressurecause"], $empty));
 
 
 $count = count($issues);
