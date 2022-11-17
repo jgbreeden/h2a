@@ -1,3 +1,19 @@
+wide page plugin
+restrict access plugin
+run sql script on the wp db
+    - need specific user in db
+change the paths of all included files, also php files
+remove carraige returns from html around buttons & other elements
+
+
+
+
+
+
+
+
+
+
 notes:
 questions:
 need zip code on application? sure
