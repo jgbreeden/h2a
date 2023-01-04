@@ -6,6 +6,12 @@ change the paths of all included files, also php files
 remove carraige returns from html around buttons & other elements
 
 
+main h2a site transfer:
+load theme
+load import file - don't check download attachments
+go through customize theme, match old site
+set menu to primary postition
+
 
 
 
