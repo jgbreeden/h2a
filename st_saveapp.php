@@ -41,6 +41,9 @@ $whatknowvisa = htmlspecialchars($_POST["whatknowvisa"]);
 $howhearcita = htmlspecialchars($_POST["howhearcita"]);
 $otherhelp = htmlspecialchars($_POST["otherhelp"]);
 $whatknowcita = htmlspecialchars($_POST["whatknowcita"]);
+$kilos = htmlspecialchars($_POST["kilos"]);
+$datesigned = htmlspecialchars($_POST["datesigned"]);
+$signature = htmlspecialchars($_POST["signature"]);
 $status = "new";
 
 if ($_POST["aware"] == "yes") {
@@ -55,13 +58,13 @@ $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, 
     state, zipcode, gender, specificarea, 
     whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
     email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, 
-    otherhelp, whatknowcita, status) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
+    otherhelp, whatknowcita, status, lift25to40, datesigned, signature) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
     $state, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
-    $otherhelp, $whatknowcita, $status);
+    $otherhelp, $whatknowcita, $status, $kilos, $datesigned, $signature);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;
@@ -194,10 +197,11 @@ $empty = "";
 
 if ($_POST["asma"] == "yes") array_push($issues, array("asthma", $_POST["asthmamed"], $empty));
 if ($_POST["diabetic"] == "yes") array_push($issues, array("diabetic", $_POST["diabeticmed"], $empty));
-if ($_POST["heart"] == "yes") array_push($issues, array("heart", $_POST["heartmed"], $empty));
+if ($_POST["heart"] == "yes") array_push($issues, array("heart problem", $_POST["heartmed"], $empty));
 if ($_POST["backp"] == "yes") array_push($issues, array("back", $empty, $empty));
 if ($_POST["injury"] == "yes") array_push($issues, array("fracture", $_POST["injurytype"], $empty));
 if ($_POST["pressure"] == "yes") array_push($issues, array("high blood pressure", $_POST["pressurecause"], $empty));
+if ($_POST["disability"] == "yes") array_push($issues, array("disability", $_POST["disabilityexp"], $empty));
 
 
 $count = count($issues);
