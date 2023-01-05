@@ -26,7 +26,7 @@
 		. $row["overtime"] . '", "extend": "' . $row["extend"] . '", "extendwhynot": "'
 		. $row["extendwhynot"] . '", "dateofbirth": "' . $row["dateofbirth"] . '", "email": "'
 		.$row["email"] . '", "gender": "' . $row["gender"] . '", "age": "' . $row["age"] . '", "height": "' 
-		. $row["height"] . '", "weight": "' . $row["weight"] . '", "maritalstatus": "'
+		. $row["height"] . '", "weight": "' . $row["weight"] . '", "lift25to40": "' . $row["lift25to40"] . '", "maritalstatus": "'
 		. $row["maritalstatus"] . '", "placeofbirth": "' . $row["placeofbirth"] . '", "whatknowvisa": "' 
 		. $row["whatknowvisa"] . '", "howhearcita": "' . $row["howhearcita"] . '", "otherhelp": "'
 		. $row["otherhelp"] . '", "whatknowcita": "' . $row["whatknowcita"] . '", "skills": [ '; 

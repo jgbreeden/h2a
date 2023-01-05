@@ -1,7 +1,7 @@
 class Applicant {
 	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, specificarea, 
-		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, age, height, weight, maritalstatus, placeofbirth,
-		whatknowvisa, howhearcita, otherhelp, whatknowcita) {
+		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, age, height, weight, lift25to40,
+		maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -24,6 +24,7 @@ class Applicant {
 		this.age = age;
 		this.height = height;
 		this.weight = weight;
+		this.lift25to40 = lift25to40;
 		this.maritalstatus = maritalstatus;
 		this.placeofbirth = placeofbirth;
 		this.whatknowvisa = whatknowvisa; 
@@ -239,7 +240,7 @@ function fillEmpDetail(data) {
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
-		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.maritalstatus, data.placeofbirth,
+		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita)
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
@@ -313,6 +314,12 @@ function resetNewApp(){
 		document.getElementById("overtimeno").checked = true;
 	}
 
+	if (currappl.lift25to40 == "1") {
+		document.getElementById("lift25to40yes").checked = true;
+	} else {
+		document.getElementById("lift25to40no").checked = true;
+	}
+
 	document.getElementById("whatknowvisa").value = currappl.whatknowvisa;
 	document.getElementById("howhearcita").value = currappl.howhearcita;
 	document.getElementById("otherhelp").value = currappl.otherhelp;
@@ -347,6 +354,8 @@ function clearNewApp(){
 	document.getElementById("age").value = "";
 	document.getElementById("height").value = "";
 	document.getElementById("weight").value = "";
+	document.getElementById("lift25to40yes").checked = false;
+	document.getElementById("lift25to40no").checked = false;
 	document.getElementById("maritalstatus").value = "";
 	document.getElementById("placeofbirth").value = "";
 	document.getElementById("skillsTab").innerHTML = "<tr><th>Experience</th><th>Years</th><th>Where</th></tr>";
