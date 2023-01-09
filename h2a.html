@@ -15,7 +15,7 @@
 			<button type="button" onclick="st_show('assignments'); fillCompList();">Assignments</button>
 		</div>
 		<div id="newapplicants" class="st_tab">
-			<span id="newapplabel">New Applicants</span>
+			
 			<div class="newappdiv tall">
 				<div id="searchapp">
 					<label for="searchstat">Show Status:</label>
@@ -26,6 +26,7 @@
 					</select>
 				</div>
 				<table id="newapptab">
+					<span id="newapplabel">New Applicants</span>
 					<tr>
 						<th>first name</th>
 						<th>last name</th>
@@ -34,7 +35,7 @@
 				</table>
 			</div>
 			<br>
-			<form id="newappform">
+			<form id="newappform maindivs">
 				<input type="number" id="id" name="id" class="id">
 				<table id="mainform">
 				<tr>
@@ -156,23 +157,6 @@
 				</td>
 				</tr><tr>
 				<td>
-
-				<label for="radio">Specific Area:</label>
-				
-				<input type="radio" id="distanceyuma" name="specificarea" value="1">
-				</td><td>
-				<label for="radio">Any Area:</label>
-				
-				<input type="radio" id="distanceany" name="specificarea" value="0">
-				</td>
-				</tr><tr>
-				<td>
-				<label for="whatarea">What Area:</label>
-				</td><td>
-				<input type="text" id="whatarea" name="whatarea" value="">
-				</td>
-				</tr><tr>
-				<td>
 				Stay 8 months:
 				</td><td>
 				<label for="stay8mo">Yes:</label>
@@ -212,6 +196,23 @@
 				</td>
 				</tr><tr>
 				<td>
+	
+				<label for="radio">Specific Area:</label>
+					
+				<input type="radio" id="distanceyuma" name="specificarea" value="1">
+				</td><td>
+				<label for="radio">Any Area:</label>
+					
+				<input type="radio" id="distanceany" name="specificarea" value="0">
+				</td>
+				</tr><tr>
+				<td>
+				<label for="whatarea">What Area:</label>
+				</td><td>
+				<input type="text" id="whatarea" name="whatarea" value="">
+				</td>
+				</tr><tr>
+				<td>
 				<label for="status">Status:</label>
 				<select id="status" name="status">
 					<option value="new">New</option>
@@ -222,19 +223,20 @@
 				</td>
 				</tr>
 				</table>
-				<div class="newappdiv">
-					<label for="whatknowvisa">What do you know about this Visa?:</label><br>
-					<textarea id="whatknowvisa" name="whatknowvisa" rows="4" cols="30">
+				<div class="newappdiv maindivs">
+					<label for="whatknowvisa">What do you know<br>about this Visa?:</label><br>
+					<textarea id="whatknowvisa" name="whatknowvisa" rows="6" cols="18">
 					</textarea><br>
-					<label for="howhearcita">How did you hear about Cita?:</label><br>
-					<textarea id="howhearcita" name="howhearcita" rows="4" cols="30">
+					<label for="whatknowcita">What do you know<br>about Cita?:</label><br>
+					<textarea id="whatknowcita" name="whatknowcita" rows="6" cols="18">
 					</textarea><br>
-					<label for="otherhelp">Can we help you with something else?:</label><br>
-					<textarea id="otherhelp" name="otherhelp" rows="4" cols="30">
+					<label for="howhearcita">How did you hear<br>about Cita?:</label><br>
+					<textarea id="howhearcita" name="howhearcita" rows="6" cols="18">
 					</textarea><br>
-					<label for="whatknowcita">What do you know about Cita?:</label><br>
-					<textarea id="whatknowcita" name="whatknowcita" rows="4" cols="30">
+					<label for="otherhelp">Can we help you<br>with something else?:</label><br>
+					<textarea id="otherhelp" name="otherhelp" rows="6" cols="18">
 					</textarea><br>
+					
 				</div>
 				<div>
 					<button type="button" onclick="resetNewApp()">Cancel</button>
@@ -380,8 +382,7 @@
 					<table id="healthTab">
 						<tr>
 							<th>Health Issue</th>
-							<th>Years</th>
-							<th>Where</th>
+							<th>Treatment</th>
 						</tr>
 					</table>
 				</div>

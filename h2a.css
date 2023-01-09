@@ -24,6 +24,11 @@ th {
 	border: 1px solid black;
 }
 
+.maindivs {
+	padding: 3px;
+	margin: 3px;
+}
+
 .tall {
 	height: 640px;
 	overflow: auto;
