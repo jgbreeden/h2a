@@ -406,7 +406,7 @@ function showResult(data){
 	} else {
 		temp = "new";
 	}
-	getData(path + "stgetEmps.php?stat=" + temp, fillEmps);
+	getData(path + "st_getEmps.php?stat=" + temp, fillEmps);
 }
 
 function showSkill(row){
