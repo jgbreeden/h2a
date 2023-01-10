@@ -99,3 +99,15 @@ form {
 	border: 1px solid black;
 	padding: 4px;
 }
+.green {
+	background-color: rgb(200,255,200);
+}
+.blue {
+	background-color: rgb(200,200,255);
+}
+.tan {
+	background-color: rgb(238, 210, 101);
+}
+.purple{
+	background-color: rgb(255,200,255);
+}

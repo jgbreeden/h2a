@@ -150,11 +150,19 @@ function st_show(tab) {
 	if (tab == "applicants"){
 		document.getElementById("newapplicants").style.display = "block";
 		document.getElementById("searchapp").style.display = "block";
+		tabs[0].classList.remove("green");
+		tabs[0].classList.add("blue");
 	} else {
 		document.getElementById(tab).style.display = "block";
 		document.getElementById("newapplabel").style.display = "inline";
+		tabs[0].classList.add("green");
+		tabs[0].classList.remove("blue");
 
 	}
+}
+
+function setBackColor(tab, tabs){
+	
 }
 
 function getData(phpFile, callBack){
