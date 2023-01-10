@@ -35,7 +35,7 @@ class Applicant {
 	
 	update() {
 		var formData = new FormData(document.getElementById("newappform"));
-		sendData(formData, path + path + "stupdateEmp.php", showResult);
+		sendData(formData, path + path + "st_updateEmp.php", showResult);
 	}
 	
 }
@@ -57,10 +57,10 @@ class Experience {
 		var formData;
 		if (this.skilltype == "produce") {
 			formData = new FormData(document.getElementById("skillsForm"));
-			sendData(formData, path + path + "stupdateSkill.php", showResult);
+			sendData(formData, path + path + "st_updateSkill.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("abilityForm"));
-			sendData(formData, path + path + "stupdateAbility.php", showResult);
+			sendData(formData, path + path + "st_updateAbility.php", showResult);
 		}
 	}
 	
@@ -68,10 +68,10 @@ class Experience {
 		var formData;
 		if (this.skilltype == "produce") {
 			formData = new FormData(document.getElementById("skillsForm"));
-			sendData(formData, path + path + "stinsertSkill.php", showResult);
+			sendData(formData, path + path + "st_insertSkill.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("abilityForm"));
-			sendData(formData, path + path + "stinsertAbility.php", showResult);
+			sendData(formData, path + path + "st_insertAbility.php", showResult);
 		}
 	}
 	
@@ -99,13 +99,13 @@ class Issues  {
 		var formData;
 		if (this.issuetype == "document") {
 			formData = new FormData(document.getElementById("docform"));
-			sendData(formData, path + path + "stupdateDocs.php", showResult);
+			sendData(formData, path + path + "st_updateDocs.php", showResult);
 		} else if (this.issuetype == "health") {
 			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, path + path + "stupdateHealth.php", showResult);
+			sendData(formData, path + path + "st_updateHealth.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("statusform"));
-			sendData(formData, path + path + "stupdateStatus.php", showResult);
+			sendData(formData, path + path + "st_updateStatus.php", showResult);
 		}
 	}
 	
@@ -113,13 +113,13 @@ class Issues  {
 		var formData;
 		if (this.issuetype == "document") {
 			formData = new FormData(document.getElementById("docform"));
-			sendData(formData, path + path + "stinsertDocs.php", showResult);		
+			sendData(formData, path + path + "st_insertDocs.php", showResult);		
 		} else if (this.issuetype == "health") {
 			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, path + path + "stinsertHealth.php", showResult);
+			sendData(formData, path + path + "st_insertHealth.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("statusform"));
-			sendData(formData, path + path + "stinsertStatus.php", showResult);
+			sendData(formData, path + path + "st_insertStatus.php", showResult);
 		}
 	}
 }
@@ -663,12 +663,12 @@ class Employers {
 	
 	update() {
 		var formData = new FormData(document.getElementById("companydata"));
-		sendData(formData, path + "stupdateComp.php", showCompResult);
+		sendData(formData, path + "st_updateComp.php", showCompResult);
 	}
 	
 	insert() {
 		var formData = new FormData(document.getElementById("companydata"));
-		sendData(formData, path + "stinsertComp.php", showCompResult);
+		sendData(formData, path + "st_insertComp.php", showCompResult);
 	}
 	
 }
