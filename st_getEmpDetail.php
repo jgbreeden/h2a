@@ -42,7 +42,7 @@
 				. ', "skillsid": ' . $row["skillsid"] . ', "details": "' . $row["details"] . '"}';
 	}
 	echo '], "ability": [';
-	$query = "SELECT ability.id as abid, ability.years, ability.location, ability.percent, "
+	$query = "SELECT ability.id as abid, ability.years, ability.location, "
 			. "ability.details, skills.skillenglish as abeng, ability.skillsid FROM ability INNER JOIN skills ON "
 			. "ability.skillsid = skills.id WHERE ability.applicantsid =?";
 	$stmt = $conn->prepare($query);
@@ -52,7 +52,7 @@
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
 		echo $comma . '{ "abid": "' . $row["abid"] . '", "years": ' . $row["years"] . ', "location": "' 
-			. $row["location"] . '", "percent": ' . $row["percent"] . ', "abeng": "' . $row["abeng"]
+			. $row["location"] . '", "abeng": "' . $row["abeng"]
 			. '", "details": "' . $row["details"] . '", "skillsid": "' . $row["skillsid"] . '"}';
 		$comma = ", ";
 	}
