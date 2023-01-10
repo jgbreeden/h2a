@@ -11,12 +11,26 @@ load theme
 load import file - don't check download attachments
 go through customize theme, match old site
 set menu to primary postition
+customize - header style centered
+logo - Divi theme options
 
+MX
+0
 
+@
 
+mail.bxx.aap.mybluehost.me
 
+4 Hours
 
+Host Record
+TXT Value
+TTL
+@
 
+v=spf1 a mx include:websitewelcome.com ~all
+
+4 Hours
 
 
 
