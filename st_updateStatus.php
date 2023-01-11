@@ -15,4 +15,5 @@
 	} else {
 		echo "There was a problem saving the record, please try again.";
 	}
+	$conn->close();
 ?>
