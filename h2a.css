@@ -100,14 +100,14 @@ form {
 	padding: 4px;
 }
 .green {
-	background-color: rgb(200,255,200);
+	background-color: rgb(220,255,220);
 }
 .blue {
-	background-color: rgb(200,200,255);
+	background-color: rgb(220,220,255);
 }
 .tan {
-	background-color: rgb(238, 210, 101);
+	background-color: rgb(255, 245, 140);
 }
 .purple{
-	background-color: rgb(255,200,255);
+	background-color: rgb(250,235,255);
 }

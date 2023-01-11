@@ -35,4 +35,5 @@
 	echo ']}';
 	//loop through rows, add skill fields
 	//end record
+	$conn->close();
 ?>

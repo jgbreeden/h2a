@@ -24,5 +24,6 @@
 		$output = substr($output, 0, strlen($output) - 1); //remove trailing comma
 		echo $output;
 	}
+	$conn->close();
 ?>
 ]
