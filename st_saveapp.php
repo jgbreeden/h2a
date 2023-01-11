@@ -266,8 +266,9 @@ function getissues($issues){
     } else {
         return 0;
     }
-}
 
+}
+$conn->close();
 
 ?>
 </body>
