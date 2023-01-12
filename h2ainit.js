@@ -1,7 +1,7 @@
 getData(path + "st_getSkills.php", fillSkill);
 getData(path + "st_getIssues.php", fillIssue);
 document.getElementById("btnNewApps").addEventListener("click", function(){
-    st_show('newApplicants'); 
+    st_show('newapplicants'); 
     getEmployees('new');
 });
 document.getElementById("btnApps").addEventListener("click", function(){
