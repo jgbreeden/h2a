@@ -20,7 +20,7 @@
 		. '", "state": "' . $row["state"] . '", "zip": "' . $row["zip"]
 		. '", "assignments": [ ';
 
-	$query = "SELECT startdate, count(*) as count FROM h2a.assignments" 
+	$query = "SELECT startdate, count(*) as count FROM assignments" 
 		. " where employersid=?" 
 		. " group by startdate;";
 	$stmt = $conn->prepare($query);
