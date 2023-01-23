@@ -4,11 +4,12 @@ require 'cred.php';
 $conn = new mysqli($host, $user, $password, $db);
 $new_assignstart = date('Y-m-d', strtotime(str_replace('/', '-', $_POST["assignstart"])));
 $new_assignend = date('Y-m-d', strtotime(str_replace('/', '-', $_POST["assignend"])));
+echo $new_assignstart;
 
 //save ability record
 $sql = "insert into assignments (applicantsid, employersid, startdate, enddate, assignedby) values (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("iidds", $_POST["assignappid"], $_POST["assigncomp"], $new_assignstart, $new_assignend, $_POST["assignedby"]);
+$stmt->bind_param("iisss", $_POST["assignappid"], $_POST["assigncomp"], $new_assignstart, $new_assignend, $_POST["assignedby"]);
 $result = $stmt->execute();
 if ($result == 1) {
     echo "record saved";
