@@ -1,5 +1,8 @@
 <?php
-
+	header('Pragma: public');
+	header('Cache-Control: maxage=1');
+	header('Expires: ' . date('D, d M Y H:i:s'));
+	header('Content-Type: application/json; charset=utf-8');
 require 'cred.php';
 $conn = new mysqli($host, $user, $password, $db);
 

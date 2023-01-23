@@ -1,5 +1,9 @@
 [
 <?php
+	header('Pragma: public');
+	header('Cache-Control: maxage=1');
+	header('Expires: ' . date('D, d M Y H:i:s'));
+	header('Content-Type: application/json; charset=utf-8');
 	require 'cred.php';
 	//echo '{"test": "test value1"}, {"test": "test value2"}';
 	$conn = new mysqli($host, $user, $password, $db);
