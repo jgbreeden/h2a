@@ -882,7 +882,21 @@ function showAssignedData(data){
 
 function saveAssignment() {
 	rows = document.getElementById("wancomptab").getElementsByTagName("tr");
-	console.log(rows[0].firstChild.innerText)
+	if (rows.length == 1) {
+		alert("You need to move applicants with the arrow button to the list on the right!")
+		return
+
+	}
+	if (document.getElementById("selectcomps").value =="") {
+		alert("You have not assigned a company")
+		return
+
+	}
+	if (document.getElementById("assignstart").value == 0) {
+		alert("You have not assigned starting date")
+		return
+
+	}
 	for (let i = 1; i < rows.length; i++) {
 		document.getElementById("assignappid").value = rows[i].firstChild.innerText;
 		let formData = new FormData(document.getElementById("assignform"));
@@ -901,7 +915,7 @@ function showAssignResult(data) {
 	}
 	
 	
-	document.getElementById("wancomptab").innerHTML = "";
+	document.getElementById("wancomptab").innerHTML = '<tr><th colspan="2">Applicants to assign</th></tr>';
 }
 
 function mtc(){
