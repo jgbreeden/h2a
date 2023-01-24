@@ -10,11 +10,13 @@
 	if ($conn->connect_error) {
 		die("Comunicaton failed: " . $conn->connect_error);
 	}
-	$query = "SELECT DISTINCT applicants.id, firstname, lastname FROM "
-			. "applicants INNER JOIN experience ON "
-			. "applicants.id = experience.applicantsid INNER "
-			. "JOIN skills ON experience.skillsid = skills.id "
-			. "AND locate(skillenglish, '" . $_GET["status"] . "') > 0 "
+	$query = "SELECT DISTINCT applicants.id, firstname, lastname FROM applicants "
+			. "INNER JOIN experience ON applicants.id = experience.applicantsid "
+			. "INNER JOIN skills ON experience.skillsid = skills.id "
+			. "AND locate(skills.skillenglish, '" . $_GET["status"] . "') > 0 "
+			. "INNER JOIN ability ON applicants.id = ability.applicantsid "
+			. "INNER JOIN skills as sk ON ability.skillsid = sk.id "
+			. "AND locate(sk.skillenglish, '" . $_GET["status"] . "') > 0 "
 			. "WHERE applicants.status = 'accepted'";
 	$result = $conn->query($query);
 	if ($result->num_rows > 0) {
