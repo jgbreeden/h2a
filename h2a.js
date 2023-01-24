@@ -502,8 +502,8 @@ function fillSkill(data){
 		if (data[i].skilltype == "produce"){
 			split++
 			choices1a += "<tr><td><input type='checkbox' onclick='getMatchingEmps()'></td><td>" + data[i].skillenglish + "</td></tr>"
-			if (split == 24){
-				split = i; 
+			if (split == 23){
+				split = i + 1; 
 				break
 			}
 		}
