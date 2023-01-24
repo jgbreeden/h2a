@@ -1,6 +1,6 @@
 getData(path + "st_getSkills.php", fillSkill);
 getData(path + "st_getIssues.php", fillIssue);
-document.getElementById("btnNewApps").addEventListener("click", function(){
+/*document.getElementById("btnNewApps").addEventListener("click", function(){
     st_show('newapplicants'); 
     getEmployees('new');
 });
@@ -27,4 +27,4 @@ document.getElementById("clearDoc").addEventListener("click", clearDoc);
 document.getElementById("saveHealth").addEventListener("click", saveHealth);
 document.getElementById("clearHealth").addEventListener("click", clearHealth);
 document.getElementById("saveStatus").addEventListener("click", saveStatus);
-document.getElementById("clearStatus").addEventListener("click", clearStatus);
+document.getElementById("clearStatus").addEventListener("click", clearStatus);*/

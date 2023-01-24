@@ -809,7 +809,7 @@ function getMatchingEmps(){
 	let rows1a = document.getElementById("chooseskills1a").getElementsByTagName("tr");
 	let rows1b = document.getElementById("chooseskills1b").getElementsByTagName("tr");
 	let rows2 = document.getElementById("chooseskills2").getElementsByTagName("tr");
-	let list = "";
+	let list = "~";
 	for (let i = 1; i < rows1a.length; i++){
 		if(rows1a[i].firstChild.firstChild.checked){
 			list += rows1a[i].firstChild.nextSibling.innerText + " ~ ";
