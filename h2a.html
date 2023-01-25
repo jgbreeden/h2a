@@ -592,6 +592,12 @@
 				<br>
 				<button onclick="moc()">&nbsp; &#9664; &nbsp;</button>
 			</div>
+			<div class="chosencomp tall lefty">
+				<table id="wancomptab" width="150" height="25">
+					<tr><th colspan="2">Applicants to Assign</th>
+					</tr>
+				</table>
+			</div>
 			<div>
 				<form method="post" id="assignform" class="lefty divborder">
 					<b>Assign to</b><br>
@@ -610,15 +616,9 @@
 					<br>
 					<input name="assignappid" id="assignappid" type="number" style="display:none">
 					<input style="display:none" name="assignedby" value="0">
-					
+					<br><button type="button" onclick="saveAssignment()">Save Assignment</button>
 				</form>
-			</div>
-			<div class="chosencomp tall lefty">
-				<table id="wancomptab" width="150" height="25">
-					<tr><th colspan="2">Applicants to Assign</th>
-					</tr>
-				</table>
-				<button onclick="saveAssignment()">Save Assignment</button>
+				
 			</div>
 		</div>
 		<p id="assignresult">
