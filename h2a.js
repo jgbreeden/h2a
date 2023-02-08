@@ -731,6 +731,8 @@ function fillCompDetail(data) {
 function getAssigned(row) {
 	getCompData(path + "st_getCompAssignedEmps.php?id=" + document.getElementById("compid").value + "&startdate=" + row.firstChild.innerHTML, showAssigned);
 	console.log(row.firstChild.innerHTML)
+	resetTable(document.getElementById("compassigntab"));
+	row.classList.add("selected");
 }
 function showAssigned(data) {
 	let empstab = document.getElementById("compempstab");
