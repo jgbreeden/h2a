@@ -937,6 +937,12 @@ function mtc(){
 	document.getElementById("distanceyuma2").checked = false;
 	document.getElementById("distanceany2").checked = false;
 	document.getElementById("whatarea2").value = "";
+	document.getElementById("overtimeyes2").checked = false;
+	document.getElementById("overtimeno2").checked = false;
+	document.getElementById("extendyes2").checked = false; 
+	document.getElementById("extendno2").checked = false; 
+
+
 }
 
 function moc() {
