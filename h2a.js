@@ -165,7 +165,7 @@ function setBackColor(tab, tabs){
 	
 }
 
-function getData(phpFile, callBack){
+function getData(phpFile, callBack, data){
 	let xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200) {
@@ -173,17 +173,18 @@ function getData(phpFile, callBack){
 			callBack(JSON.parse(this.responseText));
 		}
 	}
-	xhr.open("get", phpFile);
-	xhr.send();
+	xhr.open("post", phpFile);
+	xhr.send(data);
 }
 
 function getEmployees (stuff) {
+	let temp = '';
 	if (stuff != 'accepted'){
-		getData(path + "st_getEmps.php?stat=" + stuff, fillEmps);
+		temp = stuff;
 	} else {
-		let temp = document.getElementById("searchstat").value;
-		getData(path + "st_getEmps.php?stat=" + temp, fillEmps);
+		temp = document.getElementById("searchstat").value;
 	}
+	getData(path + "st_getEmps.php?stat=" + temp, fillEmps);
 }
 
 function getEmp(row) {
