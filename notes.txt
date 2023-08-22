@@ -21,7 +21,7 @@ MX
 @
 
 mail.bxx.aap.mybluehost.me
-
+jacobs custom code.
 4 Hours
 
 Host Record
@@ -34,7 +34,7 @@ v=spf1 a mx include:websitewelcome.com ~all
 4 Hours
 
 
-
+Ashley's custom code
 notes:
 questions:
 need zip code on application? sure
