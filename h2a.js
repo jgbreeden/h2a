@@ -853,7 +853,9 @@ function fillSim(data){
 function selectApp(row){
 	resetTable(document.getElementById("wanapptab"));
 	row.classList.add("selected");
-	getData(path + "st_getEmpDetail.php?id=" + row.firstChild.innerText, showAssignedData)
+	let fd = new FormData();
+	fd.append("id", row.firstChild.innerText);
+	getData(path + "st_getEmpDetail.php", showAssignedData, fd)
 }
 
 function selectappback(row) {
