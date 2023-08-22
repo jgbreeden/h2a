@@ -184,7 +184,9 @@ function getEmployees (stuff) {
 	} else {
 		temp = document.getElementById("searchstat").value;
 	}
-	getData(path + "st_getEmps.php?stat=" + temp, fillEmps);
+	let fd = new FormData();
+	fd.append("stat", temp);
+	getData(path + "st_getEmps.php", fillEmps, fd);
 }
 
 function getEmp(row) {
@@ -846,7 +848,6 @@ function selectApp(row){
 	resetTable(document.getElementById("wanapptab"));
 	row.classList.add("selected");
 	getData(path + "st_getEmpDetail.php?id=" + row.firstChild.innerText, showAssignedData)
-
 }
 
 function selectappback(row) {

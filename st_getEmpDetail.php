@@ -14,7 +14,7 @@
 			. "OUTER JOIN experience ON applicants.id = experience.applicantsid LEFT OUTER JOIN "
 			. "skills ON experience.skillsid = skills.id WHERE applicants.id =?";
 	$stmt = $conn->prepare($query);
-	$stmt->bind_param("i", $_GET["id"]);
+	$stmt->bind_param("i", $_POST["id"]);
 	$stmt->execute();
 	$results = $stmt->get_result();
 	//echo $results->num_rows;
@@ -50,7 +50,7 @@
 			. "ability.details, skills.skillenglish as abeng, ability.skillsid FROM ability INNER JOIN skills ON "
 			. "ability.skillsid = skills.id WHERE ability.applicantsid =?";
 	$stmt = $conn->prepare($query);
-	$stmt->bind_param("i", $_GET["id"]);
+	$stmt->bind_param("i", $_POST["id"]);
 	$stmt->execute();
 	$comma = "";
 	$results = $stmt->get_result();
@@ -66,7 +66,7 @@
 			. "documents.issuesid = issues.id WHERE documents.applicantsid =?";
 
 	$stmt = $conn->prepare($query);
-	$stmt->bind_param("i", $_GET["id"]);
+	$stmt->bind_param("i", $_POST["id"]);
 	$stmt->execute();
 	$comma = "";
 	$results = $stmt->get_result();
@@ -82,7 +82,7 @@
 			. "health.issuesid = issues.id WHERE health.applicantsid =?";
 
 	$stmt = $conn->prepare($query);
-	$stmt->bind_param("i", $_GET["id"]);
+	$stmt->bind_param("i", $_POST["id"]);
 	$stmt->execute();
 	$comma = "";
 	$results = $stmt->get_result();
@@ -98,7 +98,7 @@
 			. "status.issuesid = issues.id WHERE status.applicantsid =?";
 
 	$stmt = $conn->prepare($query);
-	$stmt->bind_param("i", $_GET["id"]);
+	$stmt->bind_param("i", $_POST["id"]);
 	$stmt->execute();
 	$comma = "";
 	$results = $stmt->get_result();
