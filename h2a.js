@@ -184,12 +184,16 @@ function getEmployees (stuff) {
 	} else {
 		temp = document.getElementById("searchstat").value;
 	}
-	getData(path + "st_getEmps.php?stat=" + temp, fillEmps);
+	let fd = new FormData();
+	fd.append("stat", temp);
+	getData(path + "st_getEmps.php", fillEmps, fd);
 }
 
 function getEmp(row) {
 	//console.log(row.firstChild.innerHTML);
-	getData(path + "st_getEmpDetail.php?id=" + row.firstChild.innerHTML, fillEmpDetail);
+	let fd = new FormData();
+	fd.append("id", row.firstChild.innerHTML)
+	getData(path + "st_getEmpDetail.php", fillEmpDetail, fd);
 	resetTable(document.getElementById("newapptab"));
 	row.classList.add("selected");
 }
