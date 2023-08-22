@@ -10,8 +10,8 @@
 	if ($conn->connect_error) {
 		die("Comunicaton failed: " . $conn->connect_error);
 	}
-	if (isset($_GET["stat"])){
-		$query = "SELECT * FROM applicants WHERE status ='" . $_GET["stat"] . "' ORDER BY lastname";
+	if (isset($_POST["stat"])){
+		$query = "SELECT * FROM applicants WHERE status ='" . $_POST["stat"] . "' ORDER BY lastname";
 	} else {
 		$query = "SELECT * FROM applicants";
 	}
