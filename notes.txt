@@ -14,7 +14,7 @@ go through customize theme, match old site
 set menu to primary postition
 customize - header style centered
 logo - Divi theme options
-
+Logans Custom Code
 MX
 0
 

@@ -834,7 +834,9 @@ function getMatchingEmps(){
 			list += rows2[i].firstChild.nextSibling.innerText + " ~ ";
 		}
 	}
-	getData(path + "st_getEmpsBySkill.php?status=" + list, fillSim)
+	let fd = new FormData();
+	fd.append("status", list);
+	getData(path + "st_getEmpsBySkill.php?status=" + list, fillSim, fd);
 }
 
 function fillSim(data){
