@@ -836,7 +836,7 @@ function getMatchingEmps(){
 	}
 	let fd = new FormData();
 	fd.append("status", list);
-	getData(path + "st_getEmpsBySkill.php?status=" + list, fillSim, fd);
+	getData(path + "st_getEmpsBySkill.php", fillSim, fd);
 }
 
 function fillSim(data){
