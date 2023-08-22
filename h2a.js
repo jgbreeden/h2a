@@ -407,7 +407,9 @@ function showResult(data){
 	} else {
 		temp = "new";
 	}
-	getData(path + "st_getEmps.php?stat=" + temp, fillEmps);
+	let fd = new FormData();
+	fd.append("stat", temp);
+	getData(path + "st_getEmps.php", fillEmps, fd);
 }
 
 function showSkill(row){
