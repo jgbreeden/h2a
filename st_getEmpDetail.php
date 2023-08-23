@@ -60,6 +60,7 @@
 			. '", "details": "' . $row["details"] . '", "skillsid": "' . $row["skillsid"] . '"}';
 		$comma = ", ";
 	}
+	/*
 	echo '], "docs": [';
 	$query = "SELECT documents.id as docid, documents.doctype, documents.whengot, documents.location, "
 			. " issues.issueenglish as doceng, documents.issuesid FROM documents INNER JOIN issues ON "
@@ -76,10 +77,12 @@
 			. '", "issuesid": "' . $row["issuesid"] . '"}';
 		$comma = ", ";
 	}
+	*/
+
 	echo '],	"health": [';
-	$query = "SELECT health.id as healthid, health.medtreatment, health.reason, health.issuesid,"
-			. " issues.issueenglish as healtheng FROM health INNER JOIN issues ON "
-			. "health.issuesid = issues.id WHERE health.applicantsid =?";
+	$query = "SELECT health.id as healthid, health.medtreatment, health.reason, health.skillsid,"
+			. " skills.skillenglish as healtheng FROM health INNER JOIN skills ON "
+			. "health.skillsid = skills.id WHERE health.applicantsid =?";
 
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_GET["id"]);
@@ -88,10 +91,11 @@
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
 		echo $comma . '{ "healthid": "' . $row["healthid"] . '", "healtheng": "' 
-			. $row["healtheng"] . '", "reason": "' . $row["reason"] . '", "medtreatment": "' . $row["medtreatment"] . '", "issuesid": "' 
-			. $row["issuesid"] . '"}';
+			. $row["healtheng"] . '", "reason": "' . $row["reason"] . '", "medtreatment": "' . $row["medtreatment"] . '", "skillsid": "' 
+			. $row["skillsid"] . '"}';
 		$comma = ", ";
 	}
+	/*
 	echo '],	"issues": [';
 	$query = "SELECT status.id as statusid, status.details, status.issuesid,"
 			. " issues.issueenglish as statuseng FROM status INNER JOIN issues ON "
@@ -109,6 +113,8 @@
 			. $row["issuesid"] . '"}';
 		$comma = ", ";
 	}
+	*/
+
 	echo ']}';
 	//loop through rows, add skill fields
 	//end record
