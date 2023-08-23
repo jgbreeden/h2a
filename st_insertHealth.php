@@ -4,7 +4,7 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "INSERT INTO health (issuesid, applicantsid, medtreatment, reason) VALUES (?, ?, ?, ?);";
+	$sql = "INSERT INTO health (skillsid, applicantsid, medtreatment, reason) VALUES (?, ?, ?, ?);";
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("iiss",  $_POST["healthlist"],  $_POST["apid4"], $_POST["treatment2"], $_POST["reason2"]);
 	$result = $stmt->execute();
