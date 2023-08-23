@@ -1,3 +1,4 @@
+Mr. Breeden's custom code.
 wide page plugin
 restrict access plugin
 run sql script on the wp db
@@ -13,14 +14,14 @@ go through customize theme, match old site
 set menu to primary postition
 customize - header style centered
 logo - Divi theme options
-
+Logans Custom Code
 MX
 0
 
 @
 
 mail.bxx.aap.mybluehost.me
-
+jacobs custom code.
 4 Hours
 
 Host Record
@@ -33,7 +34,7 @@ v=spf1 a mx include:websitewelcome.com ~all
 4 Hours
 
 
-
+Ashley's custom code
 notes:
 questions:
 need zip code on application? sure

@@ -6,12 +6,13 @@
 require 'cred.php';
 $conn = new mysqli($host, $user, $password, $db);
 
+$date = date("Y/m/d", strtotime($_GET["startdate"]));
 
 $sql = "SELECT applicants.firstname, applicants.lastname, applicants.phonecell"
     . " FROM applicants INNER JOIN assignments ON applicants.id = assignments.applicantsid"
     . " and employersid=? and startdate=?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("id", $_GET["id"], $_GET["startdate"]);
+$stmt->bind_param("is", $_GET["id"], $date);
 $stmt->execute();
 $result = $stmt->get_result();
 $output = "[";
