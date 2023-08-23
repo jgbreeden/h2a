@@ -165,7 +165,7 @@ function setBackColor(tab, tabs){
 	
 }
 
-function getData(phpFile, callBack){
+function getData(phpFile, callBack, data){
 	let xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200) {
@@ -173,22 +173,27 @@ function getData(phpFile, callBack){
 			callBack(JSON.parse(this.responseText));
 		}
 	}
-	xhr.open("get", phpFile);
-	xhr.send();
+	xhr.open("post", phpFile);
+	xhr.send(data);
 }
 
 function getEmployees (stuff) {
+	let temp = '';
 	if (stuff != 'accepted'){
-		getData(path + "st_getEmps.php?stat=" + stuff, fillEmps);
+		temp = stuff;
 	} else {
-		let temp = document.getElementById("searchstat").value;
-		getData(path + "st_getEmps.php?stat=" + temp, fillEmps);
+		temp = document.getElementById("searchstat").value;
 	}
+	let fd = new FormData();
+	fd.append("stat", temp);
+	getData(path + "st_getEmps.php", fillEmps, fd);
 }
 
 function getEmp(row) {
 	//console.log(row.firstChild.innerHTML);
-	getData(path + "st_getEmpDetail.php?id=" + row.firstChild.innerHTML, fillEmpDetail);
+	let fd = new FormData();
+	fd.append("id", row.firstChild.innerHTML)
+	getData(path + "st_getEmpDetail.php", fillEmpDetail, fd);
 	resetTable(document.getElementById("newapptab"));
 	row.classList.add("selected");
 }
@@ -406,7 +411,9 @@ function showResult(data){
 	} else {
 		temp = "new";
 	}
-	getData(path + "st_getEmps.php?stat=" + temp, fillEmps);
+	let fd = new FormData();
+	fd.append("stat", temp);
+	getData(path + "st_getEmps.php", fillEmps, fd);
 }
 
 function showSkill(row){
@@ -827,7 +834,9 @@ function getMatchingEmps(){
 			list += rows2[i].firstChild.nextSibling.innerText + " ~ ";
 		}
 	}
-	getData(path + "st_getEmpsBySkill.php?status=" + list, fillSim)
+	let fd = new FormData();
+	fd.append("status", list);
+	getData(path + "st_getEmpsBySkill.php", fillSim, fd);
 }
 
 function fillSim(data){
@@ -844,8 +853,9 @@ function fillSim(data){
 function selectApp(row){
 	resetTable(document.getElementById("wanapptab"));
 	row.classList.add("selected");
-	getData(path + "st_getEmpDetail.php?id=" + row.firstChild.innerText, showAssignedData)
-
+	let fd = new FormData();
+	fd.append("id", row.firstChild.innerText);
+	getData(path + "st_getEmpDetail.php", showAssignedData, fd)
 }
 
 function selectappback(row) {
