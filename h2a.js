@@ -230,26 +230,26 @@ function fillEmpDetail(data) {
 					+ "</td><td class='id'>" + data.ability[i].details + "</td><td class='id'>" + data.ability[i].skillsid + "</td></tr>";
 	}
 
-	let docTable = document.getElementById("docTab");
+	/*let docTable = document.getElementById("docTab");
 	let docContents = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
 	for (let i = 0; i < data.docs.length; i++){
 		docContents += "<tr onclick='showDocs(this)'><td class='id'>" + data.docs[i].docid + "</td><td>" +  data.docs[i].doceng + "</td><td>"
 					+ data.docs[i].whengot + "</td><td>" + data.docs[i].location + "</td><td class='id'>" + data.docs[i].issuesid + "</td></tr>";
-	}
+	}*/
 
 	let healthTable = document.getElementById("healthTab");
 	let healthContents = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
 	for (let i = 0; i < data.health.length; i++){
 		healthContents += "<tr onclick='showHealth(this)'><td class='id'>" + data.health[i].healthid + "</td><td>" +  data.health[i].healtheng + "</td><td>"
-					+ data.health[i].medtreatment + "</td><td class='id'>" + data.health[i].reason + "</td><td class='id'>" + data.health[i].issuesid + "</td></tr>";
+					+ data.health[i].medtreatment + "</td><td class='id'>" + data.health[i].reason + "</td><td class='id'>" + data.health[i].skillsid + "</td></tr>";
 	}
 
-	let statusTable = document.getElementById("statusTab");
+	/*let statusTable = document.getElementById("statusTab");
 	let statusContents = "<tr><th>Issue Type</th></tr>";
 	for (let i = 0; i < data.issues.length; i++){
 		statusContents += "<tr onclick='showStatus(this)'><td class='id'>" + data.issues[i].statusid + "</td><td>" +  data.issues[i].statuseng + "</td><td class='id'>"
 					+ data.issues[i].details + "</td><td class ='id'>" + data.issues[i].issuesid + "</td></tr>";
-	}
+	}*/
 
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
@@ -866,7 +866,7 @@ function showAssignedData(data){
 	let healthContents = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
 	for (let i = 0; i < data.health.length; i++){
 		healthContents += "<tr><td class='id'>" + data.health[i].healthid + "</td><td>" +  data.health[i].healtheng + "</td><td>"
-					+ data.health[i].medtreatment + "</td><td class='id'>" + data.health[i].reason + "</td><td class='id'>" + data.health[i].issuesid + "</td></tr>";
+					+ data.health[i].medtreatment + "</td><td class='id'>" + data.health[i].reason + "</td><td class='id'>" + data.health[i].skillsid + "</td></tr>";
 	}
 
 	if (data.specificarea == "1") {
