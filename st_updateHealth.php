@@ -4,7 +4,7 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "UPDATE health SET issuesid = ?, applicantsid = ?, medtreatment = ?, reason = ?"
+	$sql = "UPDATE health SET skillsid = ?, applicantsid = ?, medtreatment = ?, reason = ?"
 		. " WHERE id=?;";
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("iissi", $_POST["healthlist"], $_POST["apid4"],
@@ -17,4 +17,4 @@
 		echo "There was a problem saving the record, please try again.";
 	}
 	$conn->close();
-?>
+?>`	
