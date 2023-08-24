@@ -45,6 +45,15 @@ $kilos = htmlspecialchars($_POST["kilos"]);
 $datesigned = htmlspecialchars($_POST["datesigned"]);
 $signature = htmlspecialchars($_POST["signature"]);
 $status = "new";
+$ppnumber = htmlspecialchars($_POST["npass"]);
+$ppcity = htmlspecialchars($_POST["wherepass"]);
+$ppstate = "";
+$ppdateissue = htmlspecialchars($_POST["expdate"]);
+$ppdatedue = "";
+$visas = "";
+$visaissues = "";
+$visarefused =  ($_POST["denied"] == "yes")? "Visa Denied - Type: " . $_POST["deniedtype"] . "Year: " . $_POST["deniedyear"] . 
+    "Reason: " . $_POST["deniedreason"] . "Times Applied: " . $_POST["timesapplied"] : "";
 
 if ($_POST["aware"] == "yes") {
     $whatknowvisa = "Yes, I know it is a work visa" . $whatknowvisa;
@@ -58,13 +67,15 @@ $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, 
     state, zipcode, gender, specificarea, 
     whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
     email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, 
-    otherhelp, whatknowcita, status, lift25to40, datesigned, signature) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
+    otherhelp, whatknowcita, status, lift25to40, datesigned, signature, ppnumber, 
+    ppcity, ppstate, ppdateissue, ppdatedue, visas, visaissues, visarefused) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
     $state, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
-    $otherhelp, $whatknowcita, $status, $kilos, $datesigned, $signature);
+    $otherhelp, $whatknowcita, $status, $kilos, $datesigned, $signature, $ppnumber, $ppcity,
+    $ppstate, $ppdateissue, $ppdatedue, $visas, $visaissues, $visarefused);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;
@@ -169,6 +180,7 @@ for($i = 0; $i < $count; $i++){
     }
     $stmt->execute();
 }
+/*
 $stmt = $conn->prepare("INSERT INTO documents (issuesid, applicantsid, doctype, whengot, location) VALUES(?, ?, ?, ?, ?)");
 $stmt->bind_param("iisss", $issuesid, $id, $doc, $when1, $where);
 $issues = [];
@@ -188,10 +200,10 @@ for($i = 0; $i < $count; $i++){
     $where = $issues[$i][3];
     $stmt->execute();
 }
+*/
 
-
-$stmt = $conn->prepare("INSERT INTO health (issuesid, applicantsid, medtreatment, reason) VALUES(?, ?, ?, ?)");
-$stmt->bind_param("iiss", $issuesid, $id, $med, $reason1);
+$stmt = $conn->prepare("INSERT INTO health (skillsid, applicantsid, medtreatment, reason) VALUES(?, ?, ?, ?)");
+$stmt->bind_param("iiss", $skillsid, $id, $med, $reason1);
 $issues = [];
 $empty = "";
 
@@ -206,12 +218,12 @@ if ($_POST["disability"] == "yes") array_push($issues, array("disability", $_POS
 
 $count = count($issues);
 for($i = 0; $i < $count; $i++){
-    $issuesid = getissues($issues[$i]);
+    $skillsid = getskills($issues[$i]);
     $med = $issues[$i][1];
     $reason1 = $issues[$i][2];
     $stmt->execute();
 }
-
+/*
 $stmt = $conn->prepare("INSERT INTO status (issuesid, applicantsid, details) VALUES(?, ?, ?)");
 $stmt->bind_param("iis", $issuesid, $id, $details2);
 $issues = [];
@@ -240,7 +252,7 @@ for($i = 0; $i < $count; $i++){
     $details2 = $issues[$i][1];
     $stmt->execute();
 }
-
+*/
 if ($result == 1){
     echo " Su solicitud ha sido guardada, CITA se comunicará con usted cuando revisen su solicitud";
 } else {
