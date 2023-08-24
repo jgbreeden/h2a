@@ -1,7 +1,8 @@
 class Applicant {
 	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, specificarea, 
 		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, age, height, weight, lift25to40,
-		maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita) {
+		maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita, ppnumber, ppcity, ppstate, ppdateissue,
+		ppdatedue, visas, visaissues, visarefused, license) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -31,6 +32,16 @@ class Applicant {
 		this.howhearcita = howhearcita; 
 		this.otherhelp = otherhelp; 
 		this.whatknowcita = whatknowcita;
+		this.ppnumber = ppnumber;
+		this.ppcity = ppcity;
+		this.ppstate = ppstate;
+		this.ppdateissue = ppdateissue;
+		this.ppdatedue = ppdatedue;
+		this.visas = visas;
+		this.visaissues = visaissues;
+		this.visarefused = visarefused;
+		this.lisence = lisence;
+		this.ds160= new Appds160();
 	}
 	
 	update() {
@@ -38,6 +49,36 @@ class Applicant {
 		sendData(formData, path + path + "st_updateEmp.php", showResult);
 	}
 	
+}
+class Appds160{
+	constructor(marriage, nationalilty, othernations, otherresident, nationid, ssn, othercontact, socalmedia,
+	pploststolen, fatherinfo, motherinfo, relatives, spouse, countries, groups, military, Issues, crimes, 
+	deportation, applicants){
+		this.marriage = marriage;
+		this.nationalilty = nationalilty;
+		this.othernations = othernations;
+		this.otherresident = otherresident;
+		this.nationid = nationid;
+		this.ssn = ssn;
+		this.othercontact = othercontact;
+		this.socalmedia = socalmedia;
+		this.pploststolen = pploststolen;
+		this.fatherinfo = fatherinfo;
+		this.motherinfo = motherinfo;
+		this.relatives = relatives;
+		this.spouse = spouse;
+		this.countries = countries;
+		this.groups = groups;
+		this.military = military;
+		this.Issues = Issues;
+		this.crimes = crimes;
+		this.deportation = deportation;
+		this.applicants = applicants;
+	}
+	update(){
+		var formData = new FormData(document.getElementById("newappform"));
+		sendData(formData, path + path + "st_updateEmp.php", showResult);
+	}
 }
 
 class Experience {
@@ -147,9 +188,13 @@ function st_show(tab) {
 	buttons[bi].classList.add("selected");
 	document.getElementById("searchapp").style.display = "none";
 	document.getElementById("newapplabel").style.display = "none";
+	document.getElementById("nation").style.display = "none";
+	document.getElementById("mainform2").style.display = "none";
 	if (tab == "applicants"){
 		document.getElementById("newapplicants").style.display = "block";
 		document.getElementById("searchapp").style.display = "block";
+		document.getElementById("nation").style.display = "block";
+		document.getElementById("mainform2").style.display = "block";
 		tabs[0].classList.remove("green");
 		tabs[0].classList.add("blue");
 	} else {
@@ -254,7 +299,30 @@ function fillEmpDetail(data) {
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
-		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita)
+		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
+		data.ppdatedue, data.visas, data.visaissues, data.visarefused, data.license)
+	if(data.ds160 != undefined){
+		currappl.ds160.marriage = data.ds160.marriage
+		currappl.ds160.nationalilty = data.ds160.nationalilty
+		currappl.ds160.othernations = data.ds160.othernations
+        currappl.ds160.otherresident = data.ds160.otherresident
+		currappl.ds160.nationid = data.ds160.nationid
+		currappl.ds160.ssn = data.ds160.ssn
+		currappl.ds160.othercontact = data.ds160.othercontact
+		currappl.ds160.socalmedia = data.ds160.socalmedia
+		currappl.ds160.pploststolen = data.ds160.pploststolen
+		currappl.ds160.fatherinfo = data.ds160.fatherinfo
+		currappl.ds160.motherinfo = data.ds160.motherinfo
+		currappl.ds160.relatives = data.ds160.relatives
+		currappl.ds160.spouse = data.ds160.spouse
+		currappl.ds160.countries = data.ds160.countries
+		currappl.ds160.groups = data.ds160.groups
+		currappl.ds160.military = data.ds160.military
+		currappl.ds160.Issues = data.ds160.Issues
+		currappl.ds160.crimes = data.ds160.crimes
+		currappl.ds160.deportation = data.ds160.deportation
+		currappl.ds160.applicants = data.ds160.applicants
+	}
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
@@ -269,9 +337,9 @@ function fillEmpDetail(data) {
 	document.getElementById("apid5").value = currappl.id;
 	clearSkill();
 	clearAbility();
-	clearDoc();
+	//clearDoc();
 	clearHealth();
-	clearStatus();
+	//clearStatus();
 	resetNewApp();
 }
 
@@ -337,7 +405,34 @@ function resetNewApp(){
 	document.getElementById("howhearcita").value = currappl.howhearcita;
 	document.getElementById("otherhelp").value = currappl.otherhelp;
 	document.getElementById("whatknowcita").value = currappl.whatknowcita;
+    document.getElementById("nationality").value = currappl.nationality
+	document.getElementById("othernations").value = currappl.othernations
+	document.getElementById("otherresident").value = currappl.otherresident
+	document.getElementById("nationid").value = currappl.nationid
+	document.getElementById("license").value = currappl.license
+    if(currappl.ds160.marriage != undefined){
+		document.getElementById("marriage").value = currappl.ds160.marriage;
+		document.getElementById("nationality").value = currappl.ds160.nationalilty;
+		document.getElementById("othernations").value = currappl.ds160.othernations;
+		document.getElementById("otherresident").value = currappl.ds160.otherresident;
+		document.getElementById("nationid").value = currappl.ds160.nationid;
+		document.getElementById("ssn").value = currappl.ds160.ssn;
+		document.getElementById("othercontact").value = currappl.ds160.othercontact;
+		document.getElementById("socalmedia").value = currappl.ds160.socalmedia;
+		document.getElementById("pploststolen").value = currappl.ds160.pploststolen;
+		document.getElementById("fatherinfo").value = currappl.ds160.fatherinfo;
+		document.getElementById("motherinfo").value = currappl.ds160.motherinfo;
+		document.getElementById("relatives").value = currappl.ds160.relatives;
+		document.getElementById("spouse").value = currappl.ds160.spouse;
+		document.getElementById("countries").value = currappl.ds160.countries;
+		document.getElementById("groups").value = currappl.ds160.groups;
+		document.getElementById("military").value = currappl.ds160.military;
+		document.getElementById("Issues").value = currappl.ds160.Issues;
+		document.getElementById("crimes").value = currappl.ds160.crimes;
+		document.getElementById("deportation").value = currappl.ds160.deportation;
+		document.getElementById("applicants").value = currappl.ds160.applicants;
 
+	}
 }
 
 function clearNewApp(){
@@ -380,12 +475,20 @@ function clearNewApp(){
 	document.getElementById("howhearcita").value = ""; 
 	document.getElementById("otherhelp").value = ""; 
 	document.getElementById("whatknowcita").value = ""; 
+    document.getElementById("ppnumber").value = "";
+	document.getElementById("ppcity").value = "";
+	document.getElementById("ppstate").value = "";
+	document.getElementById("ppdateissue").value = "";
+	document.getElementById("ppdatedue").value = "";
+	document.getElementById("visas").value = "";
+	document.getElementById("visaissues").value = "";
+	document.getElementById("visarefused").value = "";
 
 	clearSkill();
 	clearAbility();
-	clearDoc();
+	//clearDoc();
 	clearHealth();
-	clearStatus();
+	//clearStatus();
 	//resetNewApp();
 }
 
@@ -489,17 +592,22 @@ function resetTable(tabl){
 function fillSkill(data){
 	let options = document.getElementById("skill");
 	let contents = "<option value=''></option>";
+	let health = document.getElementById("healthlist");
+	let healthcontents = "<option value=''></option>";
 	let abilities = document.getElementById("abilities");
 	let abcontents = "<option value=''></option>";
 	for (let i = 0; i < data.length; i++){
 		if (data[i].skilltype == "produce"){
 			contents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
+		} else if (data[i].skilltype == "health") {
+			healthcontents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
 		} else {
 			abcontents += "<option value='" + data[i].id + "'>" + data[i].skillenglish + "</option>"
 		}
 
 	}
 	
+	health.innerHTML = healthcontents;
 	options.innerHTML = contents;
 	abilities.innerHTML = abcontents;
 	let matchlist1a = document.getElementById("chooseskills1a")
@@ -556,7 +664,7 @@ function clearAbility(){
 	resetTable(document.getElementById("abilityTab"));
 }
 
-function clearDoc(){
+/*function clearDoc(){
 	document.getElementById("docid2").value = "";
 	document.getElementById("when2").value = "";
 	document.getElementById("doclist").value = "";
@@ -565,7 +673,7 @@ function clearDoc(){
 	document.getElementById("isid").value = 0;
 	document.getElementById("apid3").value = currappl.id;
 	resetTable(document.getElementById("docTab"));
-}
+}*/
 
 function clearHealth(){
 	document.getElementById("healthlist").value = "";
@@ -576,13 +684,13 @@ function clearHealth(){
 	resetTable(document.getElementById("healthTab"));
 }
 
-function clearStatus(){
+/*function clearStatus(){
 	document.getElementById("statuslist").value = "";
 	document.getElementById("details5").value = "";
 	document.getElementById("statusid").value = 0;
 	document.getElementById("apid5").value = currappl.id;
 	resetTable(document.getElementById("statusTab"));
-}
+}*/
 
 function saveSkill(){
 	if (document.getElementById("exid").value == 0) {
@@ -627,7 +735,7 @@ function saveStatus(){
 }
 
 
-function fillIssue(data){
+/*function fillIssue(data){
 	let docs = document.getElementById("doclist");
 	let doccontents = "<option value=''></option>";
 	let health = document.getElementById("healthlist");
@@ -647,7 +755,7 @@ function fillIssue(data){
 	docs.innerHTML = doccontents;
 	health.innerHTML = healthcontents;
 	status.innerHTML= statuscontents;
-}
+}*/
 
 // ................................................................................................................
 // ................................................................................................................
