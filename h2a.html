@@ -340,11 +340,52 @@
 					</textarea></td>
 				</tr>
 				</table>	
+				<fieldset>
+					<legend>Family information</legend>
+					<table id="mainform3">
+					<tr>
+						<td>Father</td>
+						<td><textarea id="father" name="father" rows="6" cols="30"></textarea></td>
+					</tr>
+					<tr>
+						<td>Mother</td>
+						<td><textarea id="mother" name="mother" rows="4" cols="30"></textarea></td>
+					</tr>
+					<tr>
+						<td>Spouse</td>
+						<td><textarea id="spouse" name="spouse" rows="4" cols="30"></textarea></td>
+					</tr>
+					<tr>
+						<td>Relatives</td>
+						<td><textarea id="relatives" name="relatives" rows="4" cols="30"></textarea></td>
+					</tr>
+					</table>
+				</fieldset>
+	
 				</div>
 				<fieldset>
 					<legend>Legal Issues:</legend>
 
-					<input type="textarea" id="legalissues" name="legalissues">
+					<textarea id="legalissues" name="legalissues" rows="3" cols="40"></textarea>
+				</fieldset>
+				<fieldset>
+					<legend>Groups, Countries, Military</legend><table>
+						<tr><td>
+							Groups
+						</td><td>
+							<textarea id="groups" name="groups" rows="2" cols=30></textarea>
+						</td></tr>
+						<tr><td>
+							Countries
+						</td><td>
+							<textarea id="Countries" name="Countries" rows="2" cols=30></textarea>
+						</td></tr>
+						<tr><td>
+							Military
+						</td><td>
+							<textarea id="military" name="military" rows="2" cols=30></textarea>
+						</td></tr>
+						</table>
 				</fieldset>
 				<div>
 					<button type="button" onclick="resetNewApp()">Cancel</button>
