@@ -84,7 +84,58 @@
 				</td><td>
 				<input type="text" id="placeofbirth" name="placeofbirth">
 				</td>
-				</tr><tr>			
+				</tr>
+			<div id="nation">
+				<tr>
+				<td>
+				<label for="nationality">Nationality:</label>
+				</td><td>
+				<input type="text" id="nationality" name="nationality">
+				</td>
+				</tr><tr>
+				<td>
+				<label for="othernations">Other Nations:</label>
+				</td><td>
+				<input type="text" id="othernations" name="othernations">
+				</td>
+				</tr><tr>
+				<td>
+				<label for="otherresident">Other Resident:</label>
+				</td><td>
+				<input type="text" id="otherresident" name="otherresident">
+				</td>
+				</tr><tr>
+				<td>
+				<label for="nationid">Nation Id:</label>
+				</td><td>
+				<input type="text" id="nationid" name="nationid">
+				</td>
+				</tr><tr>
+				<td>
+				<label for="ssn">Social Secuirty Number:</label>
+				</td><td>
+				<input type="text" id="ssn" name="ssn">
+				</td>
+				</tr>
+			</div>
+			<div id="visa">
+				<tr>
+				</tr><tr>
+				<td>
+				<label for="visas">Visas:</label>
+				</td><td>
+				<input type="text" id="visas" name="visas">
+				</td>
+				</tr><tr>
+				<td>
+				<label for="visarefused">Visa Refused:</label>
+				</td><td>
+				<input type="text" id="visarefused" name="visarefused">
+				</td>
+				</tr>
+				</div>
+				<div id="contact">
+				<tr>
 				<td>
 				<label for="cphone">Cellphone:</label>
 				</td><td>
@@ -128,88 +179,50 @@
 				</td>
 				</tr><tr>
 				<td>
-				<label for="age">Age:</label>
+				<label for="othercontact">Other Contact:</label>
 				</td><td>
-				<input type="text" id="age" name="age">
+				<input type="textarea" id="othercontact" name="othercontact">
+				</td>
+				</tr>
+			</div>
+			<div id="social">
+				<tr>
+				<td>
+				<label for="socialmedia">Social Media:</label>
+				</td><td>
+				<input type="textarea" id="socialmedia" name="socialmedia">
+				</td>
+				</tr>
+			</div>
+				<tr>
+				<td>
+				<label for="ppnumber">Passaport Number:</label>
+				</td><td>
+				<input type="text" id="ppnumber" name="ppnumber">
 				</td>
 				</tr><tr>
 				<td>
-				<label for="height">Height:</label>
+				<label for="ppcity">Passport City:</label>
 				</td><td>
-				<input type="text" id="height" name="weight">
+				<input type="text" id="ppcity" name="ppcity">
 				</td>
 				</tr><tr>
 				<td>
-				<label for="weight">Weight:</label>
+				<label for="ppstate">Passport state:</label>
 				</td><td>
-				<input type="text" id="weight" name="weight">
+				<input type="text" id="ppstate" name="ppstate">
 				</td>
 				</tr><tr>
 				<td>
-				Lift 25 to 40 kilos:
+				<label for="ppdateissue">Passport Date Issue:</label>
 				</td><td>
-				<label for="lift25to40yes">Yes:</label>
-			
-				<input type="radio" id="lift25to40yes" name="lift25to40" value="1">
-				<label for="lift25to40no">No:</label>
-					
-				<input type="radio" id="lift25to40no" name="lift25to40" value="0">
+				<input type="text" id="ppdateissue" name="ppdateissue">
 				</td>
 				</tr><tr>
 				<td>
-				Stay 8 months:
+				<label for="ppdatedue">Passport Date Due:</label>
 				</td><td>
-				<label for="stay8mo">Yes:</label>
-				
-				<input type="radio" id="stay8moyes" name="stay8mo" value="1">
-				<label for="stay8mo">No:</label>
-				
-				<input type="radio" id="stay8mono" name="stay8mo" value="0">
-				</td>
-				</tr><tr>
-				<td>
-				Over Time:
-				</td><td>
-				<label for="overtime">Yes:</label>
-				
-				<input type="radio" id="overtimeyes" name="overtime" value="1">
-				<label for="overtime">No:</label>
-				
-				<input type="radio" id="overtimeno" name="overtime" value="0">
-				</td>
-				</tr><tr>
-				<td>
-				Extended Time:
-				</td><td>
-				<label for="extend">Yes:</label>
-				
-				<input type="radio" id="extendyes" name="extend" value="1">
-				<label for="extend">No:</label>
-				
-				<input type="radio" id="extendno" name="extend" value="0">
-				</td>
-				</tr><tr>
-				<td>
-				<label for="extendwhynot">No Extended Time:</label>
-				</td><td>
-				<input type="text" id="extendwhynot" name="extendwhynot" value="">
-				</td>
-				</tr><tr>
-				<td>
-	
-				<label for="radio">Specific Area:</label>
-					
-				<input type="radio" id="distanceyuma" name="specificarea" value="1">
-				</td><td>
-				<label for="radio">Any Area:</label>
-					
-				<input type="radio" id="distanceany" name="specificarea" value="0">
-				</td>
-				</tr><tr>
-				<td>
-				<label for="whatarea">What Area:</label>
-				</td><td>
-				<input type="text" id="whatarea" name="whatarea" value="">
+				<input type="text" id="ppdatedue" name="ppdatedue">
 				</td>
 				</tr><tr>
 				<td>
@@ -224,20 +237,115 @@
 				</tr>
 				</table>
 				<div class="newappdiv maindivs">
-					<label for="whatknowvisa">What do you know<br>about this Visa?:</label><br>
-					<textarea id="whatknowvisa" name="whatknowvisa" rows="6" cols="18">
-					</textarea><br>
-					<label for="whatknowcita">What do you know<br>about Cita?:</label><br>
-					<textarea id="whatknowcita" name="whatknowcita" rows="6" cols="18">
-					</textarea><br>
-					<label for="howhearcita">How did you hear<br>about Cita?:</label><br>
-					<textarea id="howhearcita" name="howhearcita" rows="6" cols="18">
-					</textarea><br>
-					<label for="otherhelp">Can we help you<br>with something else?:</label><br>
-					<textarea id="otherhelp" name="otherhelp" rows="6" cols="18">
-					</textarea><br>
+				<table id="mainform2">
+					<tr>
+						<td>
+						<label for="age">Age:</label>
+						</td><td>
+						<input type="text" id="age" name="age">
+						</td>
+						</tr><tr>
+						<td>
+						<label for="height">Height:</label>
+						</td><td>
+						<input type="text" id="height" name="weight">
+						</td>
+						</tr><tr>
+						<td>
+						<label for="weight">Weight:</label>
+						</td><td>
+						<input type="text" id="weight" name="weight">
+						</td>
+						</tr><tr>
+						<td>
+						Lift 25 to 40 kilos:
+						</td><td>
+						<label for="lift25to40yes">Yes:</label>
 					
+						<input type="radio" id="lift25to40yes" name="lift25to40" value="1">
+						<label for="lift25to40no">No:</label>
+							
+						<input type="radio" id="lift25to40no" name="lift25to40" value="0">
+						</td>
+						</tr><tr>
+						<td>
+						Stay 8 months:
+						</td><td>
+						<label for="stay8mo">Yes:</label>
+						
+						<input type="radio" id="stay8moyes" name="stay8mo" value="1">
+						<label for="stay8mo">No:</label>
+						
+						<input type="radio" id="stay8mono" name="stay8mo" value="0">
+						</td>
+						</tr><tr>
+						<td>
+						Over Time:
+						</td><td>
+						<label for="overtime">Yes:</label>
+						
+						<input type="radio" id="overtimeyes" name="overtime" value="1">
+						<label for="overtime">No:</label>
+						
+						<input type="radio" id="overtimeno" name="overtime" value="0">
+						</td>
+						</tr><tr>
+						<td>
+						Extended Time:
+						</td><td>
+						<label for="extend">Yes:</label>
+						
+						<input type="radio" id="extendyes" name="extend" value="1">
+						<label for="extend">No:</label>
+						
+						<input type="radio" id="extendno" name="extend" value="0">
+						</td>
+						</tr><tr>
+						<td>
+						<label for="extendwhynot">No Extended Time:</label>
+						</td><td>
+						<input type="text" id="extendwhynot" name="extendwhynot" value="">
+						</td>
+						</tr><tr>
+						<td>
+			
+						<label for="radio">Specific Area:</label>
+							
+						<input type="radio" id="distanceyuma" name="specificarea" value="1">
+						</td><td>
+						<label for="radio">Any Area:</label>
+							
+						<input type="radio" id="distanceany" name="specificarea" value="0">
+						</td>
+						</tr><tr>
+						<td>
+						<label for="whatarea">What Area:</label>
+						</td><td>
+						<input type="text" id="whatarea" name="whatarea" value="">
+						</td>
+						</tr>
+					<tr>
+					<td>
+					<label for="whatknowvisa">What do you know<br>about this Visa?:</label></td><td>
+					<textarea id="whatknowvisa" name="whatknowvisa" rows="6" cols="18">
+					</textarea></td></tr><tr><td>
+					<label for="whatknowcita">What do you know<br>about Cita?:</label></td><td>
+					<textarea id="whatknowcita" name="whatknowcita" rows="6" cols="18">
+					</textarea></td></tr><tr><td>
+					<label for="howhearcita">How did you hear<br>about Cita?:</label></td><td>
+					<textarea id="howhearcita" name="howhearcita" rows="6" cols="18">
+					</textarea></td></tr><tr><td>
+					<label for="otherhelp">Can we help you<br>with something else?:</label></td><td>
+					<textarea id="otherhelp" name="otherhelp" rows="6" cols="18">
+					</textarea></td>
+				</tr>
+				</table>	
 				</div>
+				<fieldset>
+					<legend>Legal Issues:</legend>
+
+					<input type="textarea" id="legalissues" name="legalissues">
+				</fieldset>
 				<div>
 					<button type="button" onclick="resetNewApp()">Cancel</button>
 					<button type="button" onclick="currappl.update()">Save</button>
