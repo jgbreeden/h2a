@@ -40,7 +40,7 @@ class Applicant {
 		this.visas = visas;
 		this.visaissues = visaissues;
 		this.visarefused = visarefused;
-		this.lisence = lisence;
+		this.license = license;
 		this.ds160= new Appds160();
 	}
 	
@@ -52,7 +52,7 @@ class Applicant {
 }
 class Appds160{
 	constructor(marriage, nationalilty, othernations, otherresident, nationid, ssn, othercontact, socalmedia,
-	pploststolen, fatherinfo, motherinfo, relatives, spouse, countries, groups, military, Issues, crimes, 
+	pploststolen, father, mother, relatives, spouse, countries, groups, military, legalissues, crimes, 
 	deportation, applicants){
 		this.marriage = marriage;
 		this.nationalilty = nationalilty;
@@ -63,14 +63,14 @@ class Appds160{
 		this.othercontact = othercontact;
 		this.socalmedia = socalmedia;
 		this.pploststolen = pploststolen;
-		this.fatherinfo = fatherinfo;
-		this.motherinfo = motherinfo;
+		this.father = father;
+		this.mother = mother;
 		this.relatives = relatives;
 		this.spouse = spouse;
 		this.countries = countries;
 		this.groups = groups;
 		this.military = military;
-		this.Issues = Issues;
+		this.legalissues = legalissues;
 		this.crimes = crimes;
 		this.deportation = deportation;
 		this.applicants = applicants;
@@ -311,14 +311,14 @@ function fillEmpDetail(data) {
 		currappl.ds160.othercontact = data.ds160.othercontact
 		currappl.ds160.socalmedia = data.ds160.socalmedia
 		currappl.ds160.pploststolen = data.ds160.pploststolen
-		currappl.ds160.fatherinfo = data.ds160.fatherinfo
-		currappl.ds160.motherinfo = data.ds160.motherinfo
+		currappl.ds160.father = data.ds160.father
+		currappl.ds160.mother = data.ds160.mother
 		currappl.ds160.relatives = data.ds160.relatives
 		currappl.ds160.spouse = data.ds160.spouse
 		currappl.ds160.countries = data.ds160.countries
 		currappl.ds160.groups = data.ds160.groups
 		currappl.ds160.military = data.ds160.military
-		currappl.ds160.Issues = data.ds160.Issues
+		currappl.ds160.legalissues = data.ds160.legalissues
 		currappl.ds160.crimes = data.ds160.crimes
 		currappl.ds160.deportation = data.ds160.deportation
 		currappl.ds160.applicants = data.ds160.applicants
@@ -420,14 +420,14 @@ function resetNewApp(){
 		document.getElementById("othercontact").value = currappl.ds160.othercontact;
 		document.getElementById("socalmedia").value = currappl.ds160.socalmedia;
 		document.getElementById("pploststolen").value = currappl.ds160.pploststolen;
-		document.getElementById("fatherinfo").value = currappl.ds160.fatherinfo;
-		document.getElementById("motherinfo").value = currappl.ds160.motherinfo;
+		document.getElementById("father").value = currappl.ds160.father;
+		document.getElementById("mother").value = currappl.ds160.mother;
 		document.getElementById("relatives").value = currappl.ds160.relatives;
 		document.getElementById("spouse").value = currappl.ds160.spouse;
 		document.getElementById("countries").value = currappl.ds160.countries;
 		document.getElementById("groups").value = currappl.ds160.groups;
 		document.getElementById("military").value = currappl.ds160.military;
-		document.getElementById("Issues").value = currappl.ds160.Issues;
+		document.getElementById("Issues").value = currappl.ds160.legalissues;
 		document.getElementById("crimes").value = currappl.ds160.crimes;
 		document.getElementById("deportation").value = currappl.ds160.deportation;
 		document.getElementById("applicants").value = currappl.ds160.applicants;
