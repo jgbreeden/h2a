@@ -29,11 +29,15 @@
 		. $row["whatarea"] . '", "stay8mo": "' . $row["stay8mo"] . '", "overtime": "' 
 		. $row["overtime"] . '", "extend": "' . $row["extend"] . '", "extendwhynot": "'
 		. $row["extendwhynot"] . '", "dateofbirth": "' . $row["dateofbirth"] . '", "email": "'
-		.$row["email"] . '", "gender": "' . $row["gender"] . '", "age": "' . $row["age"] . '", "height": "' 
+		. $row["email"] . '", "gender": "' . $row["gender"] . '", "age": "' . $row["age"] . '", "height": "' 
 		. $row["height"] . '", "weight": "' . $row["weight"] . '", "lift25to40": "' . $row["lift25to40"] . '", "maritalstatus": "'
 		. $row["maritalstatus"] . '", "placeofbirth": "' . $row["placeofbirth"] . '", "whatknowvisa": "' 
 		. $row["whatknowvisa"] . '", "howhearcita": "' . $row["howhearcita"] . '", "otherhelp": "'
-		. $row["otherhelp"] . '", "whatknowcita": "' . $row["whatknowcita"] . '", "skills": [ '; 
+		. $row["otherhelp"] . '", "whatknowcita": "' . $row["whatknowcita"] . '", "ppnumber": "' 
+		. $row["ppnumber"] . '", "ppcity": "' . $row["ppcity"] . '", "ppstate"; "' . $row["ppstate"] . '", "ppdateissue": "'
+		. $row["ppdateissue"] . '", "ppdatedue": "' . $row["ppdatedue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
+		. $row["visaissues"] . '", "visarefused": "' . $row["visarefused"] . '", "license": "'
+		. $row["license"] . '", "skills": [ '; 
 
 	if (! is_null( $row["skillenglish"])) {
 		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"] 
@@ -114,8 +118,28 @@
 		$comma = ", ";
 	}
 	*/
+	echo ']';
+	$query = "SELECT appds160.*,
 
-	echo ']}';
+			WHERE appds160.id =?";
+
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param("i", $_POST["id"]);
+	$stmt->execute();
+	$results = $stmt->get_result();
+	if ($row = $results->fetch_assoc()) {
+		echo ', "ds160": {"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
+		. $row["nationality"] . '", "othernations": "' . $row["othernations"] . '", "otherresident": "' 
+		. $row["otherresident"] . '", "nationid": "' . $row["nationid"] . '", "ssn": "' . $row["ssn"] . '", "othercontact": "' 
+		. $row["othercontact"] . '", "socialmedia": "' . $row["socialmedia"] . '", "pploststolen": "' 
+		. $row["pploststolen"] . '", "fatherinfo": "' . $row["fatherinfo"] . '", "motherinfo": "' 
+		. $row["motherinfo"] . '", "relatives": "' . $row["relatives"] . '", "spouse": "' 
+		. $row["spouse"] . '", "countries": "' . $row["countries"] . '", "groups": "' . $row["groups"] . '", "military": "' 
+		. $row["military"] . '", "issues": "' . $row["issues"] . '", "crimes": "' . $row["crimes"] . '", "deportation": "' 
+		. $row["deportation"] . '", "applicantsid": "' . $row["applicantsid"] . '"}	';
+	}
+
+	echo '}';
 	//loop through rows, add skill fields
 	//end record
 	$conn->close();
