@@ -85,39 +85,37 @@
 				<input type="text" id="placeofbirth" name="placeofbirth">
 				</td>
 				</tr>
-			<div id="nation">
-				<tr>
+				<tr class="nation">
 				<td>
 				<label for="nationality">Nationality:</label>
 				</td><td>
 				<input type="text" id="nationality" name="nationality">
 				</td>
-				</tr><tr>
+				</tr><tr class="nation">
 				<td>
 				<label for="othernations">Other Nations:</label>
 				</td><td>
 				<input type="text" id="othernations" name="othernations">
 				</td>
-				</tr><tr>
+				</tr><tr class="nation">
 				<td>
 				<label for="otherresident">Other Resident:</label>
 				</td><td>
 				<input type="text" id="otherresident" name="otherresident">
 				</td>
-				</tr><tr>
+				</tr><tr class="nation">
 				<td>
 				<label for="nationid">Nation Id:</label>
 				</td><td>
 				<input type="text" id="nationid" name="nationid">
 				</td>
-				</tr><tr>
+				</tr><tr class="nation">
 				<td>
 				<label for="ssn">Social Secuirty Number:</label>
 				</td><td>
 				<input type="text" id="ssn" name="ssn">
 				</td>
 				</tr>
-			</div>
 			<div id="visa">
 				<tr>
 				</tr><tr>
@@ -134,66 +132,62 @@
 				</td>
 				</tr>
 				</div>
-				<div id="contact">
-				<tr>
+				<tr class="contact">
 				<td>
 				<label for="cphone">Cellphone:</label>
 				</td><td>
 				<input type="text" id="cphone" name="cphone">
 				</td>
-				</tr><tr>				
+				</tr><tr class="contact">				
 				<td>
 				<label for="hphone">Home phone:</label>
 				</td><td>
 				<input type="text" id="hphone" name="hphone">
 				</td>
-				</tr><tr>
+				</tr><tr class="contact">
 				<td>
 				<label for="address">Address:</label>
 				</td><td>
 				<input type="text" id="address" name="address">
 				</td>
-				</tr><tr>
+				</tr><tr class="contact">
 				<td>
 				<label for="city">City:</label>
 				</td><td>
 				<input type="text" id="city" name="city">
 				</td>
-				</tr><tr>
+				</tr><tr class="contact">
 				<td>
 				<label for="state">State:</label>
 				</td><td>
 				<input type="text" id="state" name="state">
 				</td>
-				</tr><tr>
+				</tr><tr class="contact">
 				<td>
 				<label for="zip">Zip:</label>
 				</td><td>
 				<input type="text" id="zip" name="zip">
 				</td>
-				</tr><tr>
+				</tr><tr class="contact">
 				<td>
 				<label for="email">Email:</label>
 				</td><td>
 				<input type="text" id="email" name="email">
 				</td>
-				</tr><tr>
+				</tr><tr class="contact">
 				<td>
 				<label for="othercontact">Other Contact:</label>
 				</td><td>
 				<input type="textarea" id="othercontact" name="othercontact">
 				</td>
 				</tr>
-			</div>
-			<div id="social">
-				<tr>
+				<tr class="social">
 				<td>
 				<label for="socialmedia">Social Media:</label>
 				</td><td>
 				<input type="textarea" id="socialmedia" name="socialmedia">
 				</td>
 				</tr>
-			</div>
 				<tr>
 				<td>
 				<label for="ppnumber">Passaport Number:</label>
@@ -345,24 +339,24 @@
 					<table id="mainform3">
 					<tr>
 						<td>Father</td>
-						<td><textarea id="father" name="father" rows="6" cols="30"></textarea></td>
+						<td><textarea id="father" name="father" rows="5" cols="30"></textarea></td>
 					</tr>
 					<tr>
 						<td>Mother</td>
-						<td><textarea id="mother" name="mother" rows="4" cols="30"></textarea></td>
+						<td><textarea id="mother" name="mother" rows="3" cols="30"></textarea></td>
 					</tr>
 					<tr>
 						<td>Spouse</td>
-						<td><textarea id="spouse" name="spouse" rows="4" cols="30"></textarea></td>
+						<td><textarea id="spouse" name="spouse" rows="3" cols="30"></textarea></td>
 					</tr>
 					<tr>
 						<td>Relatives</td>
-						<td><textarea id="relatives" name="relatives" rows="4" cols="30"></textarea></td>
+						<td><textarea id="relatives" name="relatives" rows="3" cols="30"></textarea></td>
 					</tr>
 					</table>
 				</fieldset>
 	
-				</div>
+				
 				<fieldset>
 					<legend>Legal Issues:</legend>
 
@@ -391,7 +385,8 @@
 					<button type="button" onclick="resetNewApp()">Cancel</button>
 					<button type="button" onclick="currappl.update()">Save</button>
 				</div>
-			</form>
+			</div>
+		</form>
 			<div class="newappdiv">
 				<div class="newappdiv">
 					<table id="skillsTab">
