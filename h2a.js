@@ -188,18 +188,22 @@ function st_show(tab) {
 	buttons[bi].classList.add("selected");
 	document.getElementById("searchapp").style.display = "none";
 	document.getElementById("newapplabel").style.display = "none";
-	document.getElementById("nation").style.display = "none";
 	document.getElementById("mainform2").style.display = "none";
+	document.querySelectorAll(".contact").forEach(el=>el.classList.add("hide"));
+	document.querySelectorAll(".social").forEach(el=>el.classList.add("hide"));
+	document.querySelectorAll(".nation").forEach(el=>el.classList.add("hide"));
 	if (tab == "applicants"){
 		document.getElementById("newapplicants").style.display = "block";
 		document.getElementById("searchapp").style.display = "block";
-		document.getElementById("nation").style.display = "block";
-		document.getElementById("mainform2").style.display = "block";
+		document.querySelectorAll(".social").forEach(el=>el.classList.remove("hide"));
+		document.querySelectorAll(".nation").forEach(el=>el.classList.remove("hide"));
 		tabs[0].classList.remove("green");
 		tabs[0].classList.add("blue");
 	} else {
 		document.getElementById(tab).style.display = "block";
 		document.getElementById("newapplabel").style.display = "inline";
+		document.getElementById("mainform2").style.display = "block";
+		document.querySelectorAll(".contact").forEach(el=>el.classList.remove("hide"));
 		tabs[0].classList.add("green");
 		tabs[0].classList.remove("blue");
 

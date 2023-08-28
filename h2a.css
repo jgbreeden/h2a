@@ -111,3 +111,6 @@ form {
 .purple{
 	background-color: rgb(250,235,255);
 }
+.hide {
+	display: none;
+}
