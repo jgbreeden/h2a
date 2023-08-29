@@ -330,9 +330,9 @@ function fillEmpDetail(data) {
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
-	docTable.innerHTML = docContents;
+	//docTable.innerHTML = docContents;
 	healthTable.innerHTML = healthContents;
-	statusTable.innerHTML = statusContents;
+	//statusTable.innerHTML = statusContents;
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	document.getElementById("apid2").value = currappl.id;
