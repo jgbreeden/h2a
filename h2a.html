@@ -90,12 +90,19 @@
 				<input type="text" id="placeofbirth" name="placeofbirth">
 				</td>
 				</tr><tr>
-					<td>
-					<label for="license">Drivers License:</label>
-					</td><td>
-					<input type="text" id="license" name=license"">
-					</td>
-					</tr>
+				<td>
+				<label for="ustravel">US Travel:</label>
+				</td><td>
+				<input type="text" id="ustravel" name=ustravel"">
+				</td>
+				</tr><tr>
+				<td>
+				<label for="license">Drivers License:</label>
+				</td><td>
+				<input type="text" id="license" name=license"">
+				</td>
+				</tr>
+				
 				<tr class="nation">
 				<td>
 				<label for="nationality">Nationality:</label>
@@ -236,6 +243,12 @@
 				<input type="text" id="ppdatedue" name="ppdatedue">
 				</td>
 				</tr><tr>
+					<td>
+					<label for="ppissues">Passport Issues:</label>
+					</td><td>
+					<input type="text" id="ppissues" name="ppissues">
+					</td>
+					</tr><tr>
 				<td>
 				<label for="status">Status:</label>
 				<select id="status" name="status">
@@ -247,7 +260,9 @@
 				</td>
 				</tr>
 				</table>
-				<div class="newappdiv maindivs">
+			<div class="newappdiv maindivs"> 
+					<button type="button" onclick="showInfoTab(0)" class="tabbutton">Work Info</button>
+					<button type="button" onclick="showInfoTab(1)" class="tabbutton">DS-160 Info</button>
 				<table id="mainform2">
 					<tr>
 						<td>
@@ -373,8 +388,7 @@
 					</table>
 				</fieldset>
 	
-				
-				
+			
 				<fieldset id="groups">
 					<legend>Groups, Countries, Military</legend><table>
 						<tr><td>
@@ -394,6 +408,8 @@
 						</td></tr>
 						</table>
 				</fieldset>
+			</div>
+			<div class="newappdiv maindivs">
 				<fieldset id="legal">
 					<legend>Legal and US residency:</legend>
 
