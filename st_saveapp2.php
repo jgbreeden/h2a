@@ -59,3 +59,20 @@ $stmt->bind_param("sssssssssssssssssssssssssssssssssssssi", $_POST["fname"], $_P
 
 //insert into app ds160
 
+$sql = "INSERT INTO `h2a`.`appds160` (`marriage`,`nationalilty`,`othernations`,`otherresident`,`nationid`,`ssn`,`othercontact`,"
+		."`socalmedia`,`pploststolen`,`fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,`crimes`,"
+		."`deportation`,`applicantsid`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ssssssssssssssssssssi", $_POST["marriage"], $_POST["nationalilty"], $_POST["othernations"], $_POST["otherresident"], $_POST["nationid"], 
+                                $_POST["ssn"], $_POST["othercontact"], $_POST["socialmedia"], $_POST["pploststolen"], $_POST["fatherinfo"], $_POST["motherinfo"], $_POST["relatives"],
+                                $_POST["spouse"], $_POST["countires"], $_POST["groups"], $_POST["military"], $_POST["issues"], $_POST["crimes"], $_POST["deportation"], $_POST["applicantsid"],
+                                $_POST["id"]);
+$result = $stmt->execute();
+if ($result == 1) {
+    $message .= "along with DS160"
+} else {
+    $message .= "There was a problem saving the DS160 info.";
+}
+echo $message; 								
+$conn->close();
