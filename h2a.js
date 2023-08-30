@@ -342,9 +342,9 @@ function fillEmpDetail(data) {
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	document.getElementById("apid2").value = currappl.id;
-	document.getElementById("apid3").value = currappl.id;
+	//document.getElementById("apid3").value = currappl.id;
 	document.getElementById("apid4").value = currappl.id;
-	document.getElementById("apid5").value = currappl.id;
+	//document.getElementById("apid5").value = currappl.id;
 	clearSkill();
 	clearAbility();
 	//clearDoc();
@@ -478,9 +478,9 @@ function clearNewApp(){
 	document.getElementById("placeofbirth").value = "";
 	document.getElementById("skillsTab").innerHTML = "<tr><th>Experience</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("abilityTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
-	document.getElementById("docTab").innerHTML = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
+	//document.getElementById("docTab").innerHTML = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("healthTab").innerHTML = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
-	document.getElementById("statusTab").innerHTML = "<tr><th>Issue Type</th></tr>";
+	//document.getElementById("statusTab").innerHTML = "<tr><th>Issue Type</th></tr>";
 	document.getElementById("whatknowvisa").value = ""; 
 	document.getElementById("howhearcita").value = ""; 
 	document.getElementById("otherhelp").value = ""; 
