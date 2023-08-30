@@ -114,3 +114,12 @@ form {
 .hide {
 	display: none;
 }
+#jstate, #sstate {
+	width: 100px;	
+}
+#jzip, #szip {
+	width: 50px;
+}
+#salary{
+	width: 100px;
+}

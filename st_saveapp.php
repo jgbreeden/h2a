@@ -55,7 +55,7 @@ $visaissues = "";
 $visarefused =  ($_POST["denied"] == "yes")? "Visa Denied - Type: " . $_POST["deniedtype"] . "Year: " . $_POST["deniedyear"] . 
     "Reason: " . $_POST["deniedreason"] . "Times Applied: " . $_POST["timesapplied"] : "";
 $license = htmlspecialchars($_POST["driverlicensetype"]);
-
+/
 if ($_POST["aware"] == "yes") {
     $whatknowvisa = "Yes, I know it is a work visa" . $whatknowvisa;
 } else {
