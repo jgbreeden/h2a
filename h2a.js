@@ -767,6 +767,15 @@ function saveStatus(){
 	status.innerHTML= statuscontents;
 }*/
 
+function showInfoTab(tab){
+	if (tab == 0){
+		document.getElementById("mainform2").style.display = "block";
+		document.getElementById("mainform3").style.display = "none";
+	}else{
+		document.getElementById("mainform2").style.display = "none";
+		document.getElementById("mainform3").style.display = "block";
+	}
+}
 // ................................................................................................................
 // ................................................................................................................
 // ................................................................................................................
