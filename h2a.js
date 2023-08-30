@@ -771,9 +771,13 @@ function showInfoTab(tab){
 	if (tab == 0){
 		document.getElementById("mainform2").style.display = "block";
 		document.getElementById("mainform3").style.display = "none";
+		document.getElementById("DS-160").classList.remove("selected");
+		document.getElementById("workinfo").classList.add("selected");
 	}else{
 		document.getElementById("mainform2").style.display = "none";
 		document.getElementById("mainform3").style.display = "block";
+		document.getElementById("workinfo").classList.remove("selected");
+		document.getElementById("DS-160").classList.add("selected");
 	}
 }
 // ................................................................................................................
