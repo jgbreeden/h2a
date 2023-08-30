@@ -261,8 +261,8 @@
 				</tr>
 				</table>
 			<div class="newappdiv maindivs"> 
-					<button type="button" onclick="showInfoTab(0)" class="tabbutton">Work Info</button>
-					<button type="button" onclick="showInfoTab(1)" class="tabbutton">DS-160 Info</button>
+					<button type="button" onclick="showInfoTab(0)" class="tabbutton" id="workinfo">Work Info</button>
+					<button type="button" onclick="showInfoTab(1)" class="tabbutton" id="DS-160">DS-160 Info</button>
 				<table id="mainform2">
 					<tr>
 						<td>
@@ -353,16 +353,16 @@
 					<tr>
 					<td>
 					<label for="whatknowvisa">What do you know<br>about this Visa?:</label></td><td>
-					<textarea id="whatknowvisa" name="whatknowvisa" rows="6" cols="18">
+					<textarea id="whatknowvisa" name="whatknowvisa" rows="3" cols="18">
 					</textarea></td></tr><tr><td>
 					<label for="whatknowcita">What do you know<br>about Cita?:</label></td><td>
-					<textarea id="whatknowcita" name="whatknowcita" rows="6" cols="18">
+					<textarea id="whatknowcita" name="whatknowcita" rows="3" cols="18">
 					</textarea></td></tr><tr><td>
 					<label for="howhearcita">How did you hear<br>about Cita?:</label></td><td>
-					<textarea id="howhearcita" name="howhearcita" rows="6" cols="18">
+					<textarea id="howhearcita" name="howhearcita" rows="3" cols="18">
 					</textarea></td></tr><tr><td>
 					<label for="otherhelp">Can we help you<br>with something else?:</label></td><td>
-					<textarea id="otherhelp" name="otherhelp" rows="6" cols="18">
+					<textarea id="otherhelp" name="otherhelp" rows="3" cols="18">
 					</textarea></td>
 				</tr>
 				</table>	
@@ -371,7 +371,7 @@
 					<table>
 					<tr>
 						<td>Father</td>
-						<td><textarea id="father" name="father" rows="5" cols="30"></textarea></td>
+						<td><textarea id="father" name="father" rows="3" cols="30"></textarea></td>
 					</tr>
 					<tr>
 						<td>Mother</td>
@@ -408,7 +408,7 @@
 						</td></tr>
 						</table>
 				</fieldset>
-			</div>
+			
 			<div class="newappdiv maindivs">
 				<fieldset id="legal">
 					<legend>Legal and US residency:</legend>
@@ -422,6 +422,7 @@
 					<button type="button" onclick="currappl.update()">Save</button>
 				</div>
 			</div>
+		</div>
 		</form>
 			<div class="newappdiv">
 				<div class="newappdiv">
