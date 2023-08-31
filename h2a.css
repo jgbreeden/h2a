@@ -2,7 +2,7 @@
 	border: 2px solid black;
 	width: 100%;
 	display: none;
-	height: 640px;
+	height: 690px;
 	overflow: auto;
 }
 
@@ -113,4 +113,13 @@ form {
 }
 .hide {
 	display: none;
+}
+#jstate, #sstate {
+	width: 100px;	
+}
+#jzip, #szip {
+	width: 50px;
+}
+#salary{
+	width: 100px;
 }
