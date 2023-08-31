@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<title>Application</title>
+<head>
+<link rel="stylesheet" href="mk.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
 <?php
 require 'cred.php';
 echo $_POST["fname"];
@@ -37,6 +45,7 @@ $kilos = htmlspecialchars($_POST["kilos"]);
 $datesigned = htmlspecialchars($_POST["datesigned"]);
 $signature = htmlspecialchars($_POST["signature"]);
 $status = "new";
+$id = $_POST["id"];
 
 //change to an update
 
@@ -46,16 +55,10 @@ $sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phoneh
 . "placeofbirth = ?, whatknowvisa = ?, howhearcita = ?, otherhelp = ?, whatknowcita = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
 . "ppdateissue = ?, ppdatedue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? WHERE id = ?;";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssssssssssssssssssssssssssssssssssssi", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
-                            $_POST["hphone"], $_POST["address"], $_POST["city"],
-                            $_POST["state"], $_POST["zip"], $_POST["gender"], $_POST["status"], $_POST["specificarea"], $_POST["whatarea"], 
-                            $_POST["stay8mo"], $_POST["overtime"], $_POST["extend"],
-                            $_POST["extendwhynot"], $_POST["dateofbirth"],  $_POST["email"], $_POST["age"],
-                            $_POST["height"], $_POST["weight"], $_POST["lift25to40"], $_POST["maritalstatus"], $_POST["placeofbirth"],
-                            $_POST["whatknowvisa"], $_POST["howhearcita"], $_POST["otherhelp"], $_POST["whatknowcita"],
-                            $_POST["ppnumber"], $_PODT["ppcity"], $_POST["ppstate"], $_POST["ppdataissue"], $_POST["ppdatedue"], $_POST["visas"],
-                            $_POST["visaissues"], $_POST["visarefused"], $_POST["license"],
-                            $_POST["id"]);
+$stmt->bind_param("ssssssssssssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, 
+                            $gender, $specificarea, $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth, $email,
+                            $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, $otherhelp, 
+                            $whatknowcita, $otherhelp, $whatknowcita, $kilos, $datesigned, $signature, $id);
 
 //insert into app ds160
 
@@ -76,3 +79,52 @@ if ($result == 1) {
 }
 echo $message; 								
 $conn->close();
+
+
+$stmt = $conn->prepare("INSERT INTO jobhistory (empname, address, address2, city, state, zip, phone, salary, jobtitle, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssssssi", $id, $empname, $address, $address2, $city, $state, $zip, $phone, $salary, $jobtitle, $datefrom, $dateto, $applicantsid);
+
+$jobcount = count($_POST["company"])
+for($i = 0; $i < $jobcount; $i++){
+  $empname = htmlspecialchars($_POST["jcompany"][i]);
+  $address = htmlspecialchars($_POST["jaddress"][i]);
+  $address2 = htmlspecialchars($_POST["jaddress2"][i]);
+  $city = htmlspecialchars($_POST["jcity"][i]);
+  $state = htmlspecialchars($_POST["jstate"][i]);
+  $zip = htmlspecialchars($_POST["jzip"][i]);
+  $phone = htmlspecialchars($_POST["jphone"][i]);
+  $salary = htmlspecialchars($_POST["jsalary"][i]);
+  $jobtitle = htmlspecialchars($_POST["jjobtitle"][i]);
+  $datefrom = htmlspecialchars($_POST["jdatefrom"][i]);
+  $dateto = htmlspecialchars($_POST["jdateto"][i]);
+  $stmt->execute();
+}
+
+$stmt = $conn->prepare("INSERT INTO school (schoolname, address, address2, city, state, zip, major, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssi", $schoolname, $address, $address2, $city, $state, $zip, $major, $datefrom, $dateto, $id);
+
+$schoolcount = count($_POST["school"])
+for($i = 0; $i < $schoolcount; $i++){
+  $schoolname = htmlspecialchars($_POST["jschoolname"][i]);
+  $address = htmlspecialchars($_POST["jaddress"][i]);
+  $address2 = htmlspecialchars($_POST["jaddress2"][i]);
+  $city = htmlspecialchars($_POST["jcity"][i]);
+  $state = htmlspecialchars($_POST["jstate"][i]);
+  $zip = htmlspecialchars($_POST["jzip"][i]);
+  $major = htmlspecialchars($_POST["jmajor"][i]);
+  $datefrom = htmlspecialchars($_POST["jdatefrom"][i]);
+  $dateto = htmlspecialchars($_POST["jdateto"][i]);
+  $stmt->execute();
+}
+
+if ($result == 1){
+  echo " Su solicitud ha sido guardada, CITA se comunicará con usted cuando revisen su solicitud";
+} else {
+  echo " Hubo un problema al guardar su solicitud por favor contacte a CITA al (928)271-2619";
+};
+
+$conn->close();
+
+?>
+</body>
+</html>
