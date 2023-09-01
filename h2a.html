@@ -135,7 +135,7 @@
 				</td>
 				</tr><tr class="nation">
 				<td>
-				<label for="ssn">Social Secuirty Number:</label>
+				<label for="ssn">Social Secuirty #:</label>
 				</td><td>
 				<input type="text" id="ssn" name="ssn">
 				</td>
@@ -269,8 +269,8 @@
 				</table>
 			</div>
 			<div class="newappdiv maindivs"> 
-					<button type="button" onclick="showInfoTab(0)" class="tabbutton">Work Info</button>
-					<button type="button" onclick="showInfoTab(1)" class="tabbutton">DS-160 Info</button>
+					<button type="button" onclick="showInfoTab(0)" class="tabbutton" id="workinfo">Work Info</button>
+					<button type="button" onclick="showInfoTab(1)" class="tabbutton" id="DS-160">DS-160 Info</button>
 				<table id="mainform2">
 					<tr>
 						<td>
@@ -379,7 +379,7 @@
 					<table>
 					<tr>
 						<td>Father</td>
-						<td><textarea id="father" name="father" rows="5" cols="30"></textarea></td>
+						<td><textarea id="father" name="father" rows="3" cols="30"></textarea></td>
 					</tr>
 					<tr>
 						<td>Mother</td>
@@ -430,12 +430,13 @@
 				</div>
 			</div>
 		</div>
+		</div>
 		</form>
 		<div class="newappdiv">
 			<div class="newappdiv">
 				<table id="jobsTab">
 					<tr>
-						<th>Company</th>
+						<th>Employer</th>
 					</tr>
 				</table>
 			</div>
@@ -446,6 +447,8 @@
 						<tr>
 							<td><label for="company">Company:</label></td>
 							<td><input type="text" id="Company" name="Company"></td>
+							<td><label for="salary">Salary:</label>
+							<input type="text" id="salary" name="salary"></td>
 						</tr>
 						<tr>
 							<td><label for="address">Address:</label></td>
@@ -453,20 +456,16 @@
 							<td><input type="text" id="jaddress2" name="address2"></td>
 						</tr>
 						<tr>
-							<td><label for="city">City, State, Zip:</label></td>
+							<td><label for="city">City, St, Zip:</label></td>
 							<td><input type="text" id="jcity" name="city"></td>
 							<td><input type="text" id="jstate" name="state">
 							<input type="text" id="jzip" name="zip"></td>
 						</tr>
 						<tr>
-							<td><label for="phone">Phone:</label></td>
-							<td><input type="text" id="jphone" name="phone"></td>
-						</tr>
-						<tr>
-							<td><label for="salary">Salary:</label></td>
-							<td><input type="text" id="salary" name="salary">
-								<label for="jobtitle">Job title:</label></td>
-							<td><input type="text" id="jobtitle" name="jobtitle"></td>
+							<td><label for="salary">Supervisor:</label></td>
+							<td><input type="text" id="supervisor" name="supervisor"></td>
+							<td><label for="jobtitle">Job title:</label>
+							<input type="text" id="jobtitle" name="jobtitle"></td>
 						</tr>
 						<tr>
 							<td><label for="datefrom">Date From:</label></td>
@@ -475,8 +474,14 @@
 							<td><input type="date" id="dateto" name="dateto"></td>
 						</tr>
 						<tr>
-						<td><button type="button" onclick="saveJob()">Save Job</button></td>
+							<td><label for="phone">Phone:</label></td>
+							<td><input type="text" id="jphone" name="phone">
+							<label for="duties">Duties:</label></td>
+							<td rowspan=2><textarea rows=2 columns=20 name="duties" id="duties"></textarea></td>
+						</tr>
+						<tr>
 						<td><button type="button" onclick="clearJob()">Clear</button></td>
+						<td><button type="button" onclick="saveJob()">Save Job</button></td>
 						</tr>
 					</table>
 					<br>
@@ -500,8 +505,10 @@
 					<input type="text" id="exid" name="exid" class="id">
 					<table class="lefty">
 						<tr>
-							<td><label for="School">Company:</label></td>
+							<td><label for="School">School:</label></td>
 							<td><input type="text" id="Company" name="Company"></td>
+							<td><label for="Major">Major:</label>
+							<input type="text" id="major" name="major"></td>
 						</tr>
 						<tr>
 							<td><label for="address">Address:</label></td>
@@ -509,18 +516,10 @@
 							<td><input type="text" id="saddress2" name="address2"></td>
 						</tr>
 						<tr>
-							<td><label for="city">City, State, Zip:</label></td>
+							<td><label for="city">City, St, Zip:</label></td>
 							<td><input type="text" id="scity" name="city"></td>
 							<td><input type="text" id="sstate" name="state">
 							<input type="text" id="szip" name="zip"></td>
-						</tr>
-						<tr>
-							<td><label for="phone">Phone:</label></td>
-							<td><input type="text" id="sphone" name="phone"></td>
-						</tr>
-						<tr>
-							<td><label for="Major">Major:</label></td>
-							<td><input type="text" id="Major" name="Major"></td>
 						</tr>
 						<tr>
 							<td><label for="datefrom">Date From:</label></td>
@@ -529,8 +528,8 @@
 							<td><input type="date" id="dateto" name="dateto"></td>
 						</tr>
 						<tr>
-						<td><button type="button" onclick="saveJob()">Save Job</button></td>
-						<td><button type="button" onclick="clearJob()">Clear</button></td>
+						<td><button type="button" onclick="clearSchool()">Clear</button></td>
+						<td><button type="button" onclick="saveSchool()">Save School</button></td>
 						</tr>
 					</table>
 					<br>
@@ -575,8 +574,8 @@
 								<td><input type="text" id="details" name="details"></td>
 							</tr>
 							<tr>
-							<td><button type="button" onclick="saveSkill()">Save Experience</button></td>
 							<td><button type="button" onclick="clearSkill()">Clear</button></td>
+							<td><button type="button" onclick="saveSkill()">Save Experience</button></td>
 							</tr>
 						</table>
 						<br>
@@ -621,8 +620,8 @@
 								<td><input type="text" id="details2" name="details2"></td>
 							</tr>
 							<tr>
-							<td><button type="button" onclick="saveAbility()">Save Skill</button></td>
 							<td><button type="button" onclick="clearAbility()">Clear</button></td>
+							<td><button type="button" onclick="saveAbility()">Save Skill</button></td>
 							</tr>
 						</table>
 						<input type="text" id="apid2" name="apid2" class="id">
@@ -704,8 +703,8 @@
 								<td><input type="text" id="reason2" name="reason2"></td>
 							</tr>
 							<tr>
-							<td><button type="button" onclick="saveHealth()">Save Health</button></td>
 							<td><button type="button" onclick="clearHealth()">Clear</button></td>
+							<td><button type="button" onclick="saveHealth()">Save Health</button></td>
 							</tr>
 						</table>
 						<input type="text" id="apid4" name="apid4" class="id">
