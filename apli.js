@@ -1,5 +1,6 @@
 var currentTab = 0;
 document.getElementById("btnnext").addEventListener("click", function(e){
+    alert("click")
     e.preventDefault()
     btnnext(1)
 })
