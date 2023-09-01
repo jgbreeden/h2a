@@ -34,7 +34,7 @@
 		. $row["maritalstatus"] . '", "placeofbirth": "' . $row["placeofbirth"] . '", "whatknowvisa": "' 
 		. $row["whatknowvisa"] . '", "howhearcita": "' . $row["howhearcita"] . '", "otherhelp": "'
 		. $row["otherhelp"] . '", "whatknowcita": "' . $row["whatknowcita"] . '", "ppnumber": "' 
-		. $row["ppnumber"] . '", "ppcity": "' . $row["ppcity"] . '", "ppstate"; "' . $row["ppstate"] . '", "ppdateissue": "'
+		. $row["ppnumber"] . '", "ppcity": "' . $row["ppcity"] . '", "ppstate": "' . $row["ppstate"] . '", "ppdateissue": "'
 		. $row["ppdateissue"] . '", "ppdatedue": "' . $row["ppdatedue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
 		. $row["visaissues"] . '", "visarefused": "' . $row["visarefused"] . '", "license": "'
 		. $row["license"] . '", "skills": [ '; 
@@ -119,7 +119,7 @@
 	}
 	*/
 	echo ']';
-	$query = "SELECT appds160.*,
+	$query = "SELECT * FROM appds160
 
 			WHERE appds160.id =?";
 

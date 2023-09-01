@@ -189,12 +189,18 @@ function st_show(tab) {
 	document.getElementById("searchapp").style.display = "none";
 	document.getElementById("newapplabel").style.display = "none";
 	document.getElementById("mainform2").style.display = "none";
+	document.getElementById("mainform3").style.display = "none";
+	document.getElementById("legal").style.display = "none";
+	document.getElementById("groups").style.display = "none";
 	document.querySelectorAll(".contact").forEach(el=>el.classList.add("hide"));
 	document.querySelectorAll(".social").forEach(el=>el.classList.add("hide"));
 	document.querySelectorAll(".nation").forEach(el=>el.classList.add("hide"));
 	if (tab == "applicants"){
 		document.getElementById("newapplicants").style.display = "block";
 		document.getElementById("searchapp").style.display = "block";
+		document.getElementById("mainform3").style.display = "block";
+		document.getElementById("legal").style.display = "block";
+	    document.getElementById("groups").style.display = "block";
 		document.querySelectorAll(".social").forEach(el=>el.classList.remove("hide"));
 		document.querySelectorAll(".nation").forEach(el=>el.classList.remove("hide"));
 		tabs[0].classList.remove("green");
@@ -330,15 +336,15 @@ function fillEmpDetail(data) {
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
-	docTable.innerHTML = docContents;
+	//docTable.innerHTML = docContents;
 	healthTable.innerHTML = healthContents;
-	statusTable.innerHTML = statusContents;
+	//statusTable.innerHTML = statusContents;
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	document.getElementById("apid2").value = currappl.id;
-	document.getElementById("apid3").value = currappl.id;
+	//document.getElementById("apid3").value = currappl.id;
 	document.getElementById("apid4").value = currappl.id;
-	document.getElementById("apid5").value = currappl.id;
+	//document.getElementById("apid5").value = currappl.id;
 	clearSkill();
 	clearAbility();
 	//clearDoc();
@@ -472,9 +478,9 @@ function clearNewApp(){
 	document.getElementById("placeofbirth").value = "";
 	document.getElementById("skillsTab").innerHTML = "<tr><th>Experience</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("abilityTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
-	document.getElementById("docTab").innerHTML = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
+	//document.getElementById("docTab").innerHTML = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
 	document.getElementById("healthTab").innerHTML = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
-	document.getElementById("statusTab").innerHTML = "<tr><th>Issue Type</th></tr>";
+	//document.getElementById("statusTab").innerHTML = "<tr><th>Issue Type</th></tr>";
 	document.getElementById("whatknowvisa").value = ""; 
 	document.getElementById("howhearcita").value = ""; 
 	document.getElementById("otherhelp").value = ""; 
@@ -761,6 +767,19 @@ function saveStatus(){
 	status.innerHTML= statuscontents;
 }*/
 
+function showInfoTab(tab){
+	if (tab == 0){
+		document.getElementById("mainform2").style.display = "block";
+		document.getElementById("mainform3").style.display = "none";
+		document.getElementById("DS-160").classList.remove("selected");
+		document.getElementById("workinfo").classList.add("selected");
+	}else{
+		document.getElementById("mainform2").style.display = "none";
+		document.getElementById("mainform3").style.display = "block";
+		document.getElementById("workinfo").classList.remove("selected");
+		document.getElementById("DS-160").classList.add("selected");
+	}
+}
 // ................................................................................................................
 // ................................................................................................................
 // ................................................................................................................

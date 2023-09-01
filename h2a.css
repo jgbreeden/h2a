@@ -2,7 +2,7 @@
 	border: 2px solid black;
 	width: 100%;
 	display: none;
-	height: 640px;
+	height: 690px;
 	overflow: auto;
 }
 
@@ -113,4 +113,19 @@ form {
 }
 .hide {
 	display: none;
+}
+#jstate, #sstate, #jobtitle, #jphone, #salary, #major {
+	width: 100px;	
+}
+#jzip, #szip {
+	width: 50px;
+}
+#jobsTab, #schoolsTab{
+	width: 120px;
+}
+#newappform{
+	margin-top: -10px;
+}
+.tabbutton{
+	border-radius: 8px 8px 0px 0px;
 }
