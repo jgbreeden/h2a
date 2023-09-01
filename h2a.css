@@ -114,12 +114,18 @@ form {
 .hide {
 	display: none;
 }
-#jstate, #sstate {
+#jstate, #sstate, #jobtitle, #jphone, #salary, #major {
 	width: 100px;	
 }
 #jzip, #szip {
 	width: 50px;
 }
-#salary{
-	width: 100px;
+#jobsTab, #schoolsTab{
+	width: 120px;
+}
+#newappform{
+	margin-top: -10px;
+}
+.tabbutton{
+	border-radius: 8px 8px 0px 0px;
 }
