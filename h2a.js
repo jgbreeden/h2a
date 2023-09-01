@@ -780,6 +780,19 @@ function showInfoTab(tab){
 		document.getElementById("DS-160").classList.add("selected");
 	}
 }
+function showContactTab(tab){
+	if (tab == 0){
+		document.getElementById("contactinfo").style.display = "block";
+		document.getElementById("visainfo").style.display = "none";
+		document.getElementById("visabtn").classList.remove("selected");
+		document.getElementById("contactbtn").classList.add("selected");
+	}else{
+		document.getElementById("contactinfo").style.display = "none";
+		document.getElementById("visainfo").style.display = "block";
+		document.getElementById("contactbtn").classList.remove("selected");
+		document.getElementById("visabtn").classList.add("selected");
+	}
+}
 // ................................................................................................................
 // ................................................................................................................
 // ................................................................................................................
