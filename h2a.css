@@ -114,6 +114,9 @@ form {
 .hide {
 	display: none;
 }
+input[type=text] {
+	width: 140px;
+}
 #jstate, #sstate, #jobtitle, #jphone, #salary, #major {
 	width: 100px;	
 }
