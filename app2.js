@@ -48,31 +48,6 @@ function initData(data) {
 
 }
 
-
-
-function btnnext(inc) {
-	document.getElementById("form").submit();
-	return
-    var tabs = document.getElementsByClassName("tab");
-    if (!isValid(currentTab)) {
-        return false;
-    }
-    tabs[currentTab].style.display = "none";
-    console.log( tabs[currentTab].style.display);
-    currentTab = currentTab + inc;
-    if (currentTab == tabs.length) {
-        document.getElementById("form").submit();
-        
-    } else {
-        tabChange(currentTab)
-    }
-    return false;
-}
-
-function prevent (){
-    return false;
-}
-
 let usp = new URLSearchParams(window.location.search);
 //getApp(usp.get("id"));
 
