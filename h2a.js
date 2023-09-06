@@ -196,13 +196,16 @@ function st_show(tab) {
 		document.getElementById("mainform3").style.display = "block";
 		tabs[0].classList.remove("green");
 		tabs[0].classList.add("blue");
+		showContactTab(1)
+		showInfoTab(1)
 	} else {
 		document.getElementById(tab).style.display = "block";
 		document.getElementById("newapplabel").style.display = "inline";
 		document.getElementById("mainform2").style.display = "block";
 		tabs[0].classList.add("green");
 		tabs[0].classList.remove("blue");
-
+		showContactTab(0)
+		showInfoTab(0)
 	}
 }
 
