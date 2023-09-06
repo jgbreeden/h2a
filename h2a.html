@@ -373,7 +373,8 @@
 					</textarea></td>
 				</tr>
 				</table>	
-					<table id="mainform3">
+				<div id="mainform3">
+					<table>
 					<tr>
 						<td>Father</td>
 						<td><textarea id="father" name="father" rows="3" cols="30"></textarea></td>
@@ -394,31 +395,23 @@
 	
 			
 				<fieldset id="groups">
-					<legend>Groups, Countries, Military</legend><table>
-						<tr><td>
-							Groups
-						</td><td>
-							<textarea id="groups" name="groups" rows="2" cols=30></textarea>
-						</td></tr>
-						<tr><td>
-							Countries
-						</td><td>
-							<textarea id="Countries" name="Countries" rows="2" cols=30></textarea>
-						</td></tr>
-						<tr><td>
-							Military
-						</td><td>
-							<textarea id="military" name="military" rows="2" cols=30></textarea>
-						</td></tr>
-						</table>
+					<legend>Groups, Countries, Military</legend>
+							
+							<textarea id="groups" name="groups" rows="2" cols=36></textarea>
+							<br>
+							<textarea id="Countries" name="Countries" rows="2" cols=36></textarea>
+							<br>
+							<textarea id="military" name="military" rows="2" cols=36></textarea>
+						
 				</fieldset>
+			</div>
 			<div class="newappdiv maindivs">
 				<fieldset id="legal">
 					<legend>Legal and US residency:</legend>
 
-					<textarea id="legalissues" name="legalissues" rows="3" cols="40"></textarea>
+					<textarea id="legalissues" name="legalissues" rows="3" cols="32"></textarea>
 					<br>
-					<textarea id="usresidency" name="usresidency" rows="3" cols="40"></textarea>
+					<textarea id="usresidency" name="usresidency" rows="3" cols="32"></textarea>
 				</fieldset>
 				<div>
 					<button type="button" onclick="resetNewApp()">Cancel</button>
