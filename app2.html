@@ -801,20 +801,87 @@ Esta Usted enterado, que esta Pre-solicitud, es para aplicar para una Visa H-2A,
 <div class="tab" id="tab3">
 
     <hr>
-        En esta sigiente pagina llenara lo que es su Experiencia Laboral, por favor prosiga
+    Proporcione la siguiente información de seguridad y antecedentes.
+    Proporcione información completa y precisa a todas las preguntas que requieran una explicación.
+    No se puede emitir una visa a personas que se encuentren dentro de categorías específicas definidas por la ley
+    como inadmisibles para los Estados Unidos (excepto cuando se obtiene una exención por adelantado).
+    ¿Alguno de los siguientes es aplicable a usted? Si bien una respuesta SÍ no significa automáticamente
+    la inelegibilidad para una visa, si responde SÍ, es posible que se le pida que comparezca personalmente ante un oficial consular.
     <hr>
 
-    <hr>Acelga
+    <hr>¿Tienes una enfermedad transmisible de importancia para la salud pública?
+    (Las enfermedades transmisibles de importancia pública incluyen el cánceroide,
+    la gonorrea, el granuloma inguinal, la lepra infecciosa, el linfogranuloma venéreo,
+    la sífilis en etapa infecciosa, la tuberculosis activa y otras enfermedades según lo 
+    determinado por el Departamento de Salud y Servicios Humanos).
+
+    <div class="inline"><input type="radio" name="diesease" id="diesease" value="yes" onclick="showOption(this)">
+    <label for="diesease">Si</label><br>
+    <input type="radio" name="diesease" id="dieseaseno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="dieseaseno">No</label><br>
+    </div>
+    <div class="options" id="dieseaseoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="dieseaseexp"><br>
+    </div>
+    <hr>
+    <hr>¿Tienes un trastorno mental o físico que represente o es probable que represente una
+    amenaza para la seguridad o el bienestar de ti mismo o de los demás?
+
+    <div class="inline"><input type="radio" name="disorder" id="disorder" value="yes" onclick="showOption(this)">
+    <label for="disorder">Si</label><br>
+    <input type="radio" name="disorder" id="disorderno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="disorderno">No</label><br>
+    </div>
+    <div class="options" id="disorderoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="disorderexp"><br>
+    </div>
+    <hr>
+    <hr>¿Eres o alguna vez has sido un abusador de drogas o adicto?
+
+    <div class="inline"><input type="radio" name="druguse" id="druguse" value="yes" onclick="showOption(this)">
+    <label for="druguse">Si</label><br>
+    <input type="radio" name="druguse" id="druguseno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="acelgano">No</label><br>
+    </div>
+    <div class="options" id="druguseoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="druguseexp"><br>
+    </div>
+    <hr>
+    <hr>¿Tiene documentación para demostrar que ha recibido vacunas de acuerdo con la ley de los Estados Unidos?
+    <div class="inline"><input type="radio" name="vaccinations" id="vaccinations" value="yes" onclick="showOption(this)">
+    <label for="vaccinations">Si</label><br>
+    <input type="radio" name="vaccinations" id="vaccinationsno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="vaccinationsno">No</label><br>
+    </div>
+    <div class="options" id="vaccinationsoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="vaccinationsexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez ha sido arrestado o condenado por algún delito o delito,
+    a pesar de haber sido objeto de un indulto, amnistía u otra acción similar?
     <div class="inline"><input type="radio" name="acelga" id="acelga" value="yes" onclick="showOption(this)">
     <label for="acelga">Si</label><br>
     <input type="radio" name="acelga" id="acelgano" value="no" checked="true" onclick="hideOption(this)">
     <label for="acelgano">No</label><br>
     </div>
     <div class="options" id="acelgaoptions">
-    <label for="exp">Anos de Experiencia</label><br>
+    <label for="exp">Explicar</label><br>
     <input type="number" name="acelgaexp"><br>
-    <label for="where">Donde lo Trabajo</label><br>
-    <input type="text" name="acelgawhere"><br>
+    </div>
+    <hr>
+    <hr>
+    <div class="inline"><input type="radio" name="acelga" id="acelga" value="yes" onclick="showOption(this)">
+    <label for="acelga">Si</label><br>
+    <input type="radio" name="acelga" id="acelgano" value="no" checked="true" onclick="hideOption(this)">
+    <label for="acelgano">No</label><br>
+    </div>
+    <div class="options" id="acelgaoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="acelgaexp"><br>
     </div>
     <hr>
     <button id="btnback" onclick="btnnext(-1)">Atras</button>
