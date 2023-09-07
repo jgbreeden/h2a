@@ -250,7 +250,7 @@ function fillEmps(data) {
 	//data is an array of objects
 	//loop and fill table
 	let table = document.getElementById("newapptab");
-	let contents = "<tr><th>First name</th><th>Last name</th><th>Phone number</th></tr>";
+	let contents = "<tr><th class='namehead'>First name</th><th class='namehead'>Last name</th><th>Phone number</th></tr>";
 	
 	for (let i = 0; i < data.length; i++){
 		contents += "<tr onclick='getEmp(this)'><td class='id'>" + data[i].id + "</td><td>"
