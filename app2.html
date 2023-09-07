@@ -863,25 +863,332 @@ Esta Usted enterado, que esta Pre-solicitud, es para aplicar para una Visa H-2A,
     <hr>
     <hr>¿Alguna vez ha sido arrestado o condenado por algún delito o delito,
     a pesar de haber sido objeto de un indulto, amnistía u otra acción similar?
-    <div class="inline"><input type="radio" name="acelga" id="acelga" value="yes" onclick="showOption(this)">
-    <label for="acelga">Si</label><br>
-    <input type="radio" name="acelga" id="acelgano" value="no" checked="true" onclick="hideOption(this)">
-    <label for="acelgano">No</label><br>
+    <div class="inline"><input type="radio" name="arrested" id="arrested" value="yes" onclick="showOption(this)">
+    <label for="arrested">Si</label><br>
+    <input type="radio" name="arrested" id="arrestedno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="arrestedno">No</label><br>
     </div>
-    <div class="options" id="acelgaoptions">
+    <div class="options" id="arrestedoptions">
     <label for="exp">Explicar</label><br>
-    <input type="number" name="acelgaexp"><br>
+    <input type="number" name="arrestedexp"><br>
     </div>
     <hr>
-    <hr>
-    <div class="inline"><input type="radio" name="acelga" id="acelga" value="yes" onclick="showOption(this)">
-    <label for="acelga">Si</label><br>
-    <input type="radio" name="acelga" id="acelgano" value="no" checked="true" onclick="hideOption(this)">
-    <label for="acelgano">No</label><br>
+    <hr>¿Alguna vez ha violado, o ha participado en una conspiración para violar,
+    alguna ley relacionada con las sustancias controladas?
+
+    <div class="inline"><input type="radio" name="substances" id="substances" value="yes" onclick="showOption(this)">
+    <label for="substances">Si</label><br>
+    <input type="radio" name="substances" id="substancesno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="substancesno">No</label><br>
     </div>
-    <div class="options" id="acelgaoptions">
+    <div class="options" id="substancesoptions">
     <label for="exp">Explicar</label><br>
-    <input type="number" name="acelgaexp"><br>
+    <input type="number" name="substancesexp"><br>
+    </div>
+    <hr>
+    <hr>¿Vienes a los Estados Unidos para participar en la prostitución o el vicio 
+    comercializado ilegalmente o has estado involucrado en la prostitución o el 
+    aproporción de prostitutas en los últimos 10 años?
+    <div class="inline"><input type="radio" name="postitution" id="postitution" value="yes" onclick="showOption(this)">
+    <label for="postitution">Si</label><br>
+    <input type="radio" name="postitution" id="postitutionno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="postitutionno">No</label><br>
+    </div>
+    <div class="options" id="postitutionoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="postitutionexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez has estado involucrado en el lavado de dinero o buscas participar en el lavado de dinero?
+
+    <div class="inline"><input type="radio" name="laundering" id="laundering" value="yes" onclick="showOption(this)">
+    <label for="laundering">Si</label><br>
+    <input type="radio" name="laundering" id="launderingno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="launderingno">No</label><br>
+    </div>
+    <div class="options" id="launderingoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="launderingexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez has cometido o conspirado para cometer un delito de trata de personas
+     en los Estados Unidos o fuera de los Estados Unidos?
+
+    <div class="inline"><input type="radio" name="trafficking" id="trafficking" value="yes" onclick="showOption(this)">
+    <label for="trafficking">Si</label><br>
+    <input type="radio" name="trafficking" id="traffickingno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="traffickingno">No</label><br>
+    </div>
+    <div class="options" id="traffickingoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="traffickingexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez ha ayudado, instigado, asistido o confabular a sabiendas con una persona que ha 
+    cometido o conspirado para cometer un delito grave de trata de personas en los Estados Unidos o fuera de los Estados Unidos?
+
+    <div class="inline"><input type="radio" name="aidtrafficking" id="aidtrafficking" value="yes" onclick="showOption(this)">
+    <label for="aidtrafficking">Si</label><br>
+    <input type="radio" name="aidtrafficking" id="aidtraffickingno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="aidtraffickingno">No</label><br>
+    </div>
+    <div class="options" id="aidtraffickingoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="aidtraffickingexp"><br>
+    </div>
+    <hr>
+    <hr>¿Es usted el cónyuge, hijo o hija de una persona que ha cometido o conspirado para
+     cometer un delito de trata de personas en los Estados Unidos o fuera de los Estados Unidos y, 
+     en los últimos cinco años, se ha beneficiado a sabiendas de las actividades de trata?
+
+    <div class="inline"><input type="radio" name="famtrafficking" id="famtrafficking" value="yes" onclick="showOption(this)">
+    <label for="famtrafficking">Si</label><br>
+    <input type="radio" name="famtrafficking" id="famtraffickingno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="famtraffickingno">No</label><br>
+    </div>
+    <div class="options" id="famtraffickingoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="famtraffickingexp"><br>
+    </div>
+    <hr>
+    <hr>¿Es usted el cónyuge, hijo o hija de una persona que ha sido identificada
+     por el Presidente de los Estados Unidos como una persona que desempeña un 
+     papel importante en una forma grave de trata de personas y, en los últimos cinco años,
+      se ha beneficiado a sabiendas de las actividades de trata?
+
+    <div class="inline"><input type="radio" name="severetrafficking" id="severetrafficking" value="yes" onclick="showOption(this)">
+    <label for="severetrafficking">Si</label><br>
+    <input type="radio" name="trafficking" id="severetraffickingno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="severetraffickingno">No</label><br>
+    </div>
+    <div class="options" id="severetraffickingoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="severetraffickingexp"><br>
+    </div>
+    <hr>
+    <hr>¿Es usted el cónyuge, hijo o hija de una persona que ha violado cualquier 
+    ley de tráfico de sustancias controladas y que se ha beneficiado a sabiendas 
+    de las actividades de tráfico en los últimos cinco años?
+
+    <div class="inline"><input type="radio" name="famsubstances" id="famsubstances" value="yes" onclick="showOption(this)">
+    <label for="famsubstances">Si</label><br>
+    <input type="radio" name="famsubstances" id="famsubstancesno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="famsubstancesno">No</label><br>
+    </div>
+    <div class="options" id="famsubstancesoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="famsubstancesexp"><br>
+    </div>
+    <hr>
+    <hr>¿Busca participar en espionaje, sabotaje, violaciones del control de exportaciones
+     o cualquier otra actividad ilegal mientras se encuentran en los Estados Unidos?
+
+    <div class="inline"><input type="radio" name="espionage" id="espionage" value="yes" onclick="showOption(this)">
+    <label for="espionage">Si</label><br>
+    <input type="radio" name="espionage" id="espionageno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="espionageno">No</label><br>
+    </div>
+    <div class="options" id="espionageoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="espionageexp"><br>
+    </div>
+    <hr>
+    <hr>¿Busca participar en actividades terroristas mientras está en los 
+    Estados Unidos o alguna vez ha participado en actividades terroristas?
+
+    <div class="inline"><input type="radio" name="terrorist" id="terrorist" value="yes" onclick="showOption(this)">
+    <label for="terrorist">Si</label><br>
+    <input type="radio" name="terrorist" id="terroristno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="terroristno">No</label><br>
+    </div>
+    <div class="options" id="terroristoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="terroristexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez ha proporcionado o tiene la intención de proporcionar
+     asistencia financiera o otro tipo de apoyo a terroristas o organizaciones terroristas?
+
+    <div class="inline"><input type="radio" name="financial" id="financial" value="yes" onclick="showOption(this)">
+    <label for="financial">Si</label><br>
+    <input type="radio" name="financial" id="financialno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="financialno">No</label><br>
+    </div>
+    <div class="options" id="financialoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="financialexp"><br>
+    </div>
+    <hr>
+    <hr>¿Eres miembro o representante de una organización terrorista?
+
+    <div class="inline"><input type="radio" name="terrororg" id="terrororg" value="yes" onclick="showOption(this)">
+    <label for="terrororg">Si</label><br>
+    <input type="radio" name="terrororg" id="terrororgno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="terrororgno">No</label><br>
+    </div>
+    <div class="options" id="terrororgoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="terrororgexp"><br>
+    </div>
+    <hr>
+    <hr>¿Es usted el cónyuge, hijo o hija de una persona que ha participado en actividades terroristas, 
+    incluida la prestación de asistencia financiera u otro tipo de apoyo a terroristas u organizaciones 
+    terroristas, en los últimos cinco años?
+
+    <div class="inline"><input type="radio" name="famterrorist" id="famterrorist" value="yes" onclick="showOption(this)">
+    <label for="famterrorist">Si</label><br>
+    <input type="radio" name="famterrorist" id="famterroristno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="famterroristno">No</label><br>
+    </div>
+    <div class="options" id="famterroristoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="famterroristexp"><br>
+    </div>
+    <hr>
+    <hr>¿¿Alguna vez ha ordenado, incitado, cometido, asistido o participado de alguna otra manera en el genocidio?
+
+    <div class="inline"><input type="radio" name="genocide" id="genocide" value="yes" onclick="showOption(this)">
+    <label for="genocide">Si</label><br>
+    <input type="radio" name="genocide" id="genocideno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="genocideno">No</label><br>
+    </div>
+    <div class="options" id="genocideoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="genocideexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez has cometido, ordenado, incitado, asistido o participado de alguna otra manera en torturas?
+
+    <div class="inline"><input type="radio" name="torture" id="torture" value="yes" onclick="showOption(this)">
+    <label for="torture">Si</label><br>
+    <input type="radio" name="torture" id="tortureno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="tortureno">No</label><br>
+    </div>
+    <div class="options" id="tortureoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="tortureexp"><br>
+    </div>
+    <hr>
+    <hr>¿Ha cometido, ordenado, incitado, asistido o participado de alguna otra manera
+     en ejecuciones extrajudiciales, asesinatos políticos u otros actos de violencia?
+
+    <div class="inline"><input type="radio" name="killings" id="killings" value="yes" onclick="showOption(this)">
+    <label for="killings">Si</label><br>
+    <input type="radio" name="killings" id="killingsno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="killingsno">No</label><br>
+    </div>
+    <div class="options" id="killingsoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="killingsexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez te has involucrado en el reclutamiento o el uso de niños soldados?
+
+    <div class="inline"><input type="radio" name="childsoldiers" id="torture" value="yes" onclick="showOption(this)">
+    <label for="childsoldiers">Si</label><br>
+    <input type="radio" name="childsoldiers" id="childsoldiersno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="childsoldiersno">No</label><br>
+    </div>
+    <div class="options" id="childsoldiersoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="childsoldiersexp"><br>
+    </div>
+    <hr>
+    <hr>¿Has estado, mientras servías como funcionario del gobierno, Responsable o llevado a cabo directamente, 
+    en cualquier momento, violaciones particularmente graves de la libertad religiosa?
+
+    <div class="inline"><input type="radio" name="violatereligions" id="violatereligions" value="yes" onclick="showOption(this)">
+    <label for="violatereligions">Si</label><br>
+    <input type="radio" name="violatereligions" id="violatereligionsno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="violatereligionsno">No</label><br>
+    </div>
+    <div class="options" id="violatereligionsoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="violatereligionsexp"><br>
+    </div>
+    <hr>
+    <hr>¿Eres miembro o estás afiliado al partido comunista u otro partido totalitario?
+
+    <div class="inline"><input type="radio" name="communist" id="communist" value="yes" onclick="showOption(this)">
+    <label for="communist">Si</label><br>
+    <input type="radio" name="communist" id="communistno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="childsoldiersno">No</label><br>
+    </div>
+    <div class="options" id="childsoldiersoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="childsoldiersexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez te has involucrado en el reclutamiento o el uso de niños soldados?
+
+    <div class="inline"><input type="radio" name="childsoldiers" id="torture" value="yes" onclick="showOption(this)">
+    <label for="childsoldiers">Si</label><br>
+    <input type="radio" name="childsoldiers" id="childsoldiersno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="childsoldiersno">No</label><br>
+    </div>
+    <div class="options" id="childsoldiersoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="childsoldiersexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez te has involucrado en el reclutamiento o el uso de niños soldados?
+
+    <div class="inline"><input type="radio" name="childsoldiers" id="torture" value="yes" onclick="showOption(this)">
+    <label for="childsoldiers">Si</label><br>
+    <input type="radio" name="childsoldiers" id="childsoldiersno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="childsoldiersno">No</label><br>
+    </div>
+    <div class="options" id="childsoldiersoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="childsoldiersexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez te has involucrado en el reclutamiento o el uso de niños soldados?
+
+    <div class="inline"><input type="radio" name="childsoldiers" id="torture" value="yes" onclick="showOption(this)">
+    <label for="childsoldiers">Si</label><br>
+    <input type="radio" name="childsoldiers" id="childsoldiersno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="childsoldiersno">No</label><br>
+    </div>
+    <div class="options" id="childsoldiersoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="childsoldiersexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez te has involucrado en el reclutamiento o el uso de niños soldados?
+
+    <div class="inline"><input type="radio" name="childsoldiers" id="torture" value="yes" onclick="showOption(this)">
+    <label for="childsoldiers">Si</label><br>
+    <input type="radio" name="childsoldiers" id="childsoldiersno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="childsoldiersno">No</label><br>
+    </div>
+    <div class="options" id="childsoldiersoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="childsoldiersexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez te has involucrado en el reclutamiento o el uso de niños soldados?
+
+    <div class="inline"><input type="radio" name="childsoldiers" id="torture" value="yes" onclick="showOption(this)">
+    <label for="childsoldiers">Si</label><br>
+    <input type="radio" name="childsoldiers" id="childsoldiersno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="childsoldiersno">No</label><br>
+    </div>
+    <div class="options" id="childsoldiersoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="childsoldiersexp"><br>
+    </div>
+    <hr>
+    <hr>¿Alguna vez te has involucrado en el reclutamiento o el uso de niños soldados?
+
+    <div class="inline"><input type="radio" name="childsoldiers" id="torture" value="yes" onclick="showOption(this)">
+    <label for="childsoldiers">Si</label><br>
+    <input type="radio" name="childsoldiers" id="childsoldiersno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="childsoldiersno">No</label><br>
+    </div>
+    <div class="options" id="childsoldiersoptions">
+    <label for="exp">Explicar</label><br>
+    <input type="number" name="childsoldiersexp"><br>
     </div>
     <hr>
     <button id="btnback" onclick="btnnext(-1)">Atras</button>
