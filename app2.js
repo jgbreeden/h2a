@@ -73,6 +73,8 @@ function prevent (){
     return false;
 }
 
+
+
 let usp = new URLSearchParams(window.location.search);
 //getApp(usp.get("id"));
 

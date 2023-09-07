@@ -1,8 +1,7 @@
 var currentTab = 0;
 document.getElementById("btnnext").addEventListener("click", function(e){
-    alert("click")
-    e.preventDefault()
-    btnnext(1)
+    e.preventDefault();
+    btnnext(1);
 })
 tabChange(currentTab);
 
@@ -44,11 +43,10 @@ function btnnext(inc) {
         return false;
     }
     tabs[currentTab].style.display = "none";
-    console.log( tabs[currentTab].style.display);
+    //console.log( tabs[currentTab].style.display);
     currentTab = currentTab + inc;
     if (currentTab == tabs.length) {
         document.getElementById("form").submit();
-        
     } else {
         tabChange(currentTab)
     }
