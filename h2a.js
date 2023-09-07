@@ -190,29 +190,22 @@ function st_show(tab) {
 	document.getElementById("newapplabel").style.display = "none";
 	document.getElementById("mainform2").style.display = "none";
 	document.getElementById("mainform3").style.display = "none";
-	document.getElementById("legal").style.display = "none";
-	document.getElementById("groups").style.display = "none";
-	document.querySelectorAll(".contact").forEach(el=>el.classList.add("hide"));
-	document.querySelectorAll(".social").forEach(el=>el.classList.add("hide"));
-	document.querySelectorAll(".nation").forEach(el=>el.classList.add("hide"));
 	if (tab == "applicants"){
 		document.getElementById("newapplicants").style.display = "block";
 		document.getElementById("searchapp").style.display = "block";
 		document.getElementById("mainform3").style.display = "block";
-		document.getElementById("legal").style.display = "block";
-	    document.getElementById("groups").style.display = "block";
-		document.querySelectorAll(".social").forEach(el=>el.classList.remove("hide"));
-		document.querySelectorAll(".nation").forEach(el=>el.classList.remove("hide"));
 		tabs[0].classList.remove("green");
 		tabs[0].classList.add("blue");
+		showContactTab(1)
+		showInfoTab(1)
 	} else {
 		document.getElementById(tab).style.display = "block";
 		document.getElementById("newapplabel").style.display = "inline";
 		document.getElementById("mainform2").style.display = "block";
-		document.querySelectorAll(".contact").forEach(el=>el.classList.remove("hide"));
 		tabs[0].classList.add("green");
 		tabs[0].classList.remove("blue");
-
+		showContactTab(0)
+		showInfoTab(0)
 	}
 }
 
@@ -778,6 +771,19 @@ function showInfoTab(tab){
 		document.getElementById("mainform3").style.display = "block";
 		document.getElementById("workinfo").classList.remove("selected");
 		document.getElementById("DS-160").classList.add("selected");
+	}
+}
+function showContactTab(tab){
+	if (tab == 0){
+		document.getElementById("contactinfo").style.display = "block";
+		document.getElementById("visainfo").style.display = "none";
+		document.getElementById("visabtn").classList.remove("selected");
+		document.getElementById("contactbtn").classList.add("selected");
+	}else{
+		document.getElementById("contactinfo").style.display = "none";
+		document.getElementById("visainfo").style.display = "block";
+		document.getElementById("contactbtn").classList.remove("selected");
+		document.getElementById("visabtn").classList.add("selected");
 	}
 }
 // ................................................................................................................
