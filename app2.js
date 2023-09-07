@@ -19,32 +19,21 @@ function initData(data) {
 	document.getElementById("dateofbirth").value = data.lastname;
 	document.getElementById("phonecell").value = data.lastname;
 	document.getElementById("phonehome").value = data.lastname;
+	document.getElementById("otherphonelast5years").value = data.lastname;
 	document.getElementById("email").value = data.lastname;
+	document.getElementById("otheremaillast5years").value = data.lastname;
 	document.getElementById("address").value = data.lastname;
 	document.getElementById("city").value = data.lastname;
 	document.getElementById("state").value = data.lastname;
 	document.getElementById("zipcode").value = data.lastname;
 	document.getElementById("placeofbirth").value = data.lastname;
-	document.getElementById("age").value = data.lastname;
-	document.getElementById("height").value = data.lastname;
-	document.getElementById("weight").value = data.lastname;
-	document.getElementById("male").value = data.lastname;
-	document.getElementById("female").value = data.lastname;
-	document.getElementById("tab2").value = data.lastname;
-	document.getElementById("english").value = data.lastname;
-	document.getElementById("npass").value = data.lastname;
-	document.getElementById("speakpercent").value = data.lastname;
-	document.getElementById("writepercent").value = data.lastname;
-	document.getElementById("whereenglish").value = data.lastname;
+	if (data.gender == "male") {
+		document.getElementById("male").checked = true;
+	} else {
+		document.getElementById("female").checked = true;
+	}
+	document.getElementById("ppnumber").value = data.ppnumber;
 	document.getElementById("driverlicense").value = data.lastname;
-	document.getElementById("nodriverlicense").value = data.lastname;
-	document.getElementById("driverlicensetype").value = data.lastname;
-	document.getElementById("passport").value = data.lastname;
-	document.getElementById("nopassport").value = data.lastname;
-	document.getElementById("passportoptions").value = data.lastname;
-	document.getElementById("expdate").value = data.lastname;
-	document.getElementById("npass").value = data.lastname;
-
 
 }
 
@@ -66,3 +55,13 @@ function addschool() {
 }
 
 tabChange(0);
+
+function setMarital(select) {
+	console.log(select.value)
+	if (select.value == "divorced") {
+		showOption(select);
+	} else {
+		hideOption(select);
+	}
+
+}

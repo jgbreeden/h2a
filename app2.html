@@ -35,103 +35,13 @@
 <form  action="st_saveapp.php" method="post" id="form">
 <div class="tab" id="tab1">
     <hr>
-    <label for="name">Nombre:</label><br>
+    <label for="fname">Nombre:</label><br>
     <input type="text" id="fname" name="fname"><br>
     <hr>
 
     <hr>
-    <label for="name">Apellido: </label><br>
-    <input type="text" id="lname" name="fname"><br>
-    <hr>
-    
-    <hr>
-    <label for="name">Estado Civil: </label><br>
-    <input type="text" id="civilstate" name="civilstate" required><br>
-    <hr>
-
-    <hr>
-    <label for="birth"></label>Fecha de Nacimiento:</label><br>
-    <input type="date" id="dateofbirth" name="dateofbirth"><br>
-    <hr>
-
-    <hr>
-    <label for="phonecel">Lugar de Nacimiento (Ponga Solo el Estado donde Nació)</label><br>
-    <input type="tel" id="phonecell" name="phonecell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
-    <hr>
-
-    <hr>
-    <label for="phone">No. De Identificación Nacional (números detrás de su credencial de Elector)</label><br>
-    <input type="tel" id="phonehome" name="phonehome" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
-    <hr>
-
-    <hr>
-    <label for="email">Número de seguro social de Estados Unidos (si lo tiene) o</label><br>
-    <input type="email" id="email" name="email"><br>
-    <hr>
-
-    <hr>
-    <h3>(Las siguientes preguntas son solo para personas que se han Divorciado):</h3>
-    <hr>
-
-    <hr>
-    <label for="address">Fecha Cuando se Caso</label><br>
-    <input type="text" id="address" name="address"><br>
-    <hr>
-
-    <hr>
-    <label for="city">Fecha cuando se Divorcio:</label><br>
-    <input type="text" id="city" name="city"><br>
-    <hr>
-
-    <hr>
-    <label for="state">Motivos del divorcio:</label><br>
-    <input type="text" id="state" name="state"><br>
-    <hr>
-
-    <hr>
-    <h3>DATOS DE SU DOMICILIO</h3>
-    <hr>
-
-    <hr>
-    <label for="zipcode">Domicilio:</label><br>
-    <input type="text" id="zipcode" name="zipcode"><br>
-    <hr>
-
-    <hr>
-    <label for="pbirth">Colonia:</label><br>
-    <input type="text" id="placeofbirth" name="placeofbirth"><br>
-    <hr>
-
-    <hr>
-    <label for="age">Código Postal:</label><br>
-    <input type="number" id="age" name="age" min="1" max="20"><br>
-    <hr>
-
-    <hr>
-    <label for="height">Ciudad:</label><br>
-    <input type="text" id="height" name="height"><br>
-    <hr>
-
-    <hr>
-    <label for="peso"> Estado:</label><br>
-    <input type="text" id="weight" name="weight"><br>
-    <hr>
-
-    <!--<hr>
-    <label for="ppl">Cuantas personas dependen de usted</label><br>
-    <input type="text" id="ppl" name="ppl"><br>
-    <hr>-->
-
-    <hr>
-    <label for="civil">Estado civil</label><br>
-    <select type="text" id="maritalstatus" name="maritalstatus">
-        <option value=""></option>
-        <option value="married">Casado</option>
-		<option value="widowed">Viudo/Viuda</option>
-		<option value="seperated">Speparados</option>
-		<option value="divorced">Divorciado/Divorciada</option>
-		<option value="single">Soltero/Soltera</option>
-    </select>
+    <label for="lname">Apellido: </label><br>
+    <input type="text" id="lname" name="lname"><br>
     <hr>
 
     <hr>
@@ -142,20 +52,134 @@
     <input type="radio" id="female" name="gender" value="female">
     <label for="female">Female</label><br>
     <hr>
-
-
-
-
     
+    <hr>
+    <label for="civil">Estado civil</label><br>
+    <select type="text" id="maritalstatus" name="maritalstatus" onchange="setMarital(this)">
+        <option value=""></option>
+        <option value="married">Casado</option>
+		<option value="widowed">Viudo/Viuda</option>
+		<option value="seperated">Speparados</option>
+		<option value="divorced">Divorciado/Divorciada</option>
+		<option value="single">Soltero/Soltera</option>
+    </select>
+    <hr>
+    <div id="maritalstatusoptions" class="options">
+        <hr>
+        <label for="city">Fecha cuando se Divorcio:</label><br>
+        <input type="text" id="city" name="city"><br>
+        <hr>
+    
+        <hr>
+        <label for="state">Motivos del divorcio:</label><br>
+        <input type="text" id="state" name="state"><br>
+        <hr>
+    </div>
+
+    <hr>
+    <label for="dateofbirth"></label>Fecha de Nacimiento:</label><br>
+    <input type="date" id="dateofbirth" name="dateofbirth"><br>
+    <hr>
+
+    <hr>
+    <label for="phonecel">Celular</label><br>
+    <input type="tel" id="phonecell" name="phonecell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+    <hr>
+
+    <hr>
+    <label for="phone">Telefono de Casa</label><br>
+    <input type="tel" id="phonehome" name="phonehome" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+    <hr>
+
+    <hr>
+    <label for="otherphones">Otros telefonos duran 5 anos</label><br>
+    <input type="tel" id="otherphones" name="otherphones" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+
+    <hr>
+    <label for="email">Correo Electronico</label><br>
+    <input type="email" id="email" name="email"><br>
+    <hr>
+
+    <hr>
+    <label for="otheremail">otro correo electronico en los ultimos 5 anos</label><br>
+    <input type="email" id="otheremail" name="otheremail"><br>
+    <hr>
+
+    <hr>
+    <label for="socialmedia">cuentas de redes sociales (sitio web y nombre de usuario)</label><br>
+    <textarea type="text" id="socialmedia" name="socialmedia" rows="2" cols="22"></textarea><br>
+    <hr>
+
+    <hr>
+    <label for="nationality">Nacionalidad</label><br>
+    <input type="text" id="nationality" name="nationality"><br>
+    <hr>
+
+    <hr>
+    <label for="othernationality">Otra Nacionalidad</label><br>
+    <input type="text" id="othernationality" name="othernationality"><br>
+    <hr>
 
 
 
+    <hr>
+    <label for="nationid">No. De Identificación Nacional (números detrás de su credencial de Elector)</label><br>
+    <input type="tel" id="nationid" name="nationid" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+    <hr>
 
+    <hr>
+    <label for="ssd">Número de seguro social de Estados Unidos (si lo tiene) o</label><br>
+    <input type="email" id="ssd" name="ssd"><br>
+    <hr>
 
+    <hr>
+    <h3>DATOS DE SU DOMICILIO</h3>
+    <hr>
 
+    <hr>
+    <label for="address">Direccion</label><br>
+    <input type="text" id="address" name="address"><br>
+    <hr>
 
+    <hr>
+    <label for="city">Ciudad</label><br>
+    <input type="text" id="city" name="city"><br>
+    <hr>
 
+    <hr>
+    <label for="state">Estado</label><br>
+    <input type="text" id="state" name="state"><br>
+    <hr>
 
+    <hr>
+    <label for="zipcode">Codigo Postal</label><br>
+    <input type="text" id="zipcode" name="zipcode"><br>
+    <hr>
+
+    <hr>
+    <label for="ppnumber">número de pasaporte</label><br>
+    <input type="number" id="ppnumber" name="ppnumber"><br>
+    <hr>
+
+    <hr>
+    <label for="ppcity">ciudad pasaporte</label><br>
+    <input type="number" id="ppcity" name="ppcity"><br>
+    <hr>
+
+    <hr>
+    <label for="ppissuedate">fecha de emisión del pasaporte</label><br>
+    <input type="number" id="ppissuedate" name="ppissuedate"><br>
+    <hr>
+
+    <hr>
+    <label for="ppduedate">fecha de vencimiento del pasaporte</label><br>
+    <input type="number" id="ppduedate" name="ppduedate"><br>
+    <hr>
+
+    <hr>
+    <label for="ppissues">problemas de pasaporte</label><br>
+    <input type="number" id="ppissues" name="ppissues"><br>
+    <hr>
 
 </div>
 
