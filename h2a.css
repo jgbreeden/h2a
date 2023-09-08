@@ -30,7 +30,7 @@ th {
 }
 
 .tall {
-	height: 640px;
+	height: 650px;
 	overflow: auto;
 }
 
@@ -100,19 +100,22 @@ form {
 	padding: 4px;
 }
 .green {
-	background-color: rgb(220,255,220);
+	background-color: rgb(230,255,230);
 }
 .blue {
-	background-color: rgb(220,220,255);
+	background-color: rgb(230,235,255);
 }
 .tan {
-	background-color: rgb(255, 245, 140);
+	background-color: rgb(255, 245, 160);
 }
 .purple{
-	background-color: rgb(250,235,255);
+	background-color: rgb(250,240,255);
 }
 .hide {
 	display: none;
+}
+input[type="text"] {
+	width: 150px;
 }
 #jstate, #sstate, #jobtitle, #jphone, #salary, #major, .namehead {
 	width: 100px;	
@@ -128,4 +131,7 @@ form {
 }
 .tabbutton{
 	border-radius: 8px 8px 0px 0px;
+}
+fieldset {
+	padding-bottom: 2px;
 }
