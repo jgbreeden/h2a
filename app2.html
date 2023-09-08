@@ -185,182 +185,298 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="tab" id="tab2">
   
-        <div id="jobs" >
+        <div id="relatives" >
 
             <hr>
-            <h3>Historial de trabajo:</h3>
+            <h3>Familares en los Estados Unidos:</h3>
             <hr>
+
+            <hr>
+            <h4>Padre</h4>
+            </hr>
         
-        
-            <hr>
-            <label for="jcompany">Empleador primero</label><br>
-            <input type="text" id="jcompany" name="jcompany" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="jaddress">Direction De Empleador:</label><br>
-            <input type="text" id="jaddress" name="jaddress" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="jaddress2">Direction De Empleador 2:</label><br>
-            <input type="text" id="jaddress" name="jaddress2" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="supervisor">Supervisor:</label><br>
-            <input type="text" id="supervisor" name="supervisor" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="jobtitle">Ti&#768;tulo:</label><br>
-            <input type="text" id="jobtitle" name="jobtitle" min="1" max="20"><br>
-            <hr>
-        
-        
-            <hr>
-            <label for="age">Co&#768;digo Postal:</label><br>
-            <input type="number" id="age" name="age" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="state">Estado:</label><br>
-            <input type="text" id="state" name="state" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="city">Ciudad:</label><br>
-            <input type="text" id="city" name="city" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="country">Pais:</label><br>
-            <input type="text" id="country" name="country" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="sdate">Fetcha de inico :</label><br>
-            <input type="date" id="sdate" name="sdate" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="mincome">Ingreso mensuall:</label><br>
-            <input type="text" id="mincome" name="mincome" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="duties">Deberes:</label><br>
-            <input type="text" id="duties" name="duties" min="1" max="20"><br>
-            <hr>
-        
-            <button onclick="addJob()"> Add Job</button>
-        
-        </div>
-        
-        
-        
-        
-        <div id="school">
+
+            <div id="father">
+                <hr>
+                <label for="fatherFname">Nombre de su parde:</label><br>
+                <input type="text" id="Lrelatives" name="Lrelatives" min="1" max="20"><br>
+                <hr>
             
+                <hr>
+                <label for="fatherLname">Apellido:</label><br>
+                <input type="text" id="fatherLname" name="fatherLname" min="1" max="20"><br>
+                <hr>
+            
+                <hr>
+                Su Padre esta vivo?
+            
+                <input type="radio" id="si" name="Astatus" value="si" checked="true">
+                <label for="si">Si</label><br>
+                <input type="radio" id="no" name="Dstatus" value="no">
+                <label for="no">No</label><br>
+                <hr>
+                <hr>
+                <label for="Fatherage">Edad de su Padre:</label><br>
+                <input type="number" id="Fatherage" name="Fatherage" min="1" max="20"><br>
+                <hr>
+
+                <hr>
+                <label for="Fatherdob"></label>Fecha de Nacimiento:</label><br>
+                <input type="date" id="Fatherdob" name="Fatherdob"><br>
+            
+                <hr>
+                <label for="Faddress">Dirrection:</label><br>
+                <input type="text" id="Faddress" name="Faddress" min="1" max="20"><br>
+                <hr>
+
+                <hr>
+                <label for="Faddress">Dirrection 2:</label><br>
+                <input type="text" id="Faddress" name="Faddress" min="1" max="20"><br>
+                <hr>
+
+                <hr>
+                <label for="Fstate">Estado:</label><br>
+                <input type="text" id="state" name="state" min="1" max="20"><br>
+                <hr>
+
+                <hr>
+                <label for="Fzipcode">Codigo Postal:</label><br>
+                <input type="text" id="state" name="state" min="1" max="20"><br>
+                <hr>
+            
+            
+                <hr>
+                <label for="Fcity">Ciudad:</label><br>
+                <input type="text" id="city" name="city" min="1" max="20"><br>
+                <hr>
+            
+                <hr>
+                <label for="Fcountry">Pais:</label><br>
+                <input type="text" id="country" name="country" min="1" max="20"><br>
+                <hr>
+
+                <hr>
+                Su Padre esta en los Estados Unidos?
+            
+                <input type="radio" id="si" name="Astatus" value="si" checked="true">
+                <label for="si">Si</label><br>
+                <input type="radio" id="no" name="Dstatus" value="no">
+                <label for="no">No</label><br>
+                <hr>
+            </div>
+
             <hr>
-            <h3>Historial de educatio&#768;n:</h3>
-            <hr>
+            <h4>Madre</h4>
+            </hr>
+
+            <div id="Mother">
+
+
+
+                <hr>
+                <label for="MotherFname">Nombre de su parde:</label><br>
+                <input type="text" id="MotherFname" name="MotherFname" min="1" max="20"><br>
+                <hr>
+            
+                <hr>
+                <label for="MotherLname">Apellido:</label><br>
+                <input type="text" id="MotherLname" name="MotherLname" min="1" max="20"><br>
+                <hr>
+            
+                <hr>
+                Su Madre esta viva?
+            
+                <input type="radio" id="si" name="Astatus" value="si" checked="true">
+                <label for="si">Si</label><br>
+                <input type="radio" id="no" name="status" value="no">
+                <label for="no">No</label><br>
+                <hr>
+                <hr>
+                <label for="Motehrage">Edad de su Madre:</label><br>
+                <input type="number" id="Motehrage" name="Motehrage" min="1" max="20"><br>
+                <hr>
+
+                <hr>
+                <label for="Motherdob"></label>Fecha de Nacimiento:</label><br>
+                <input type="date" id="Motherdob" name="Motherdob"><br>
+            
+                <hr>
+                <label for="Maddress">Dirrection:</label><br>
+                <input type="text" id="Faddress" name="Faddress" min="1" max="20"><br>
+                <hr>
+
+                <hr>
+                <label for="Maddress">Dirrection 2:</label><br>
+                <input type="text" id="Maddress" name="Maddress" min="1" max="20"><br>
+                <hr>
+
+                <hr>
+                <label for="Mstate">Estado:</label><br>
+                <input type="text" id="state" name="state" min="1" max="20"><br>
+                <hr>
+
+                <hr>
+                <label for="Mzipcode">Codigo Postal:</label><br>
+                <input type="text" id="state" name="state" min="1" max="20"><br>
+                <hr>
+            
+            
+                <hr>
+                <label for="Mcity">Ciudad:</label><br>
+                <input type="text" id="city" name="city" min="1" max="20"><br>
+                <hr>
+            
+                <hr>
+                <label for="Mcountry">Pais:</label><br>
+                <input type="text" id="country" name="country" min="1" max="20"><br>
+                <hr>
+
+                <hr>
+                Su Madre esta en los Estados Unidos?
+            
+                <input type="radio" id="si" name="MYstatus" value="si" checked="true">
+                <label for="si">Si</label><br>
+                <input type="radio" id="no" name="MNstatus" value="no">
+                <label for="no">No</label><br>
+                <hr>
+            </div>
+
+            <div id="otherRelatives">
+
+                <hr>
+                <h4>Otros Familares</h4>
+                </hr>
+
+
+                <hr>
+               Tiene alguno otro familar en los Estados Unidos, no incluendo sus padres?
+            
+                <input type="radio" id="si" name="RYstatus" value="si" checked="true">
+                <label for="si">Si</label><br>
+                <input type="radio" id="no" name="RNstatus" value="no">
+                <label for="no">No</label><br>
+                <hr>
+
+
+                <hr>
+                <h4>Nombre de sus Familares: </h4>
+                <textarea id="Otherrelatives" rows="2" cols="25" name="Otherrelatives"></textarea>
+
+                <hr>
+
+            </div>
         
+            <div id="spouse">
+
+                <hr>
+                <h4>Conyuge</h4>
+
+                <hr>
+                <label for="SFname">Nombre de su Conyuge:</label><br>
+                <input type="text" id="SFname" name="SFname" min="1" max="20"><br>
+                </hr>
+            
+                <hr>
+                <label for="SLname">Apellido:</label><br>
+                <input type="text" id="SLname" name="SLname" min="1" max="20"><br>
+                </hr>
+            
+                <hr>
+                Su Madre esta viva?
+            
+               
+                <hr>
+                <label for="Sage">Edad de su conyuge:</label><br>
+                <input type="number" id="Sage" name="Sage" min="1" max="20"><br>
+                </hr>
+
+                <hr>
+                <label for="Sdob"></label>Fecha de Nacimiento:</label><br>
+                <input type="date" id="Sdob" name="Sdob"><br>
+                </hr>
+            
+                <hr>
+                <label for="Saddress">Dirrection:</label><br>
+                <input type="text" id="Saddress" name="Saddress" min="1" max="20"><br>
+                </hr>
+
+                <hr>
+                <label for="Saddress2">Dirrection 2:</label><br>
+                <input type="text" id="Saddress2" name="Saddress2" min="1" max="20"><br>
+                </hr>
+
+                <hr>
+                <label for="Sstate">Estado:</label><br>
+                <input type="text" id="Sstate" name="Sstate" min="1" max="20"><br>
+                </hr>
+
+                <hr>
+                <label for="Szipcode">Codigo Postal:</label><br>
+                <input type="text" id="Szipcode" name="Szipcode" min="1" max="20"><br>
+                </hr>
+            
+            
+                <hr>
+                <label for="Scity">Ciudad:</label><br>
+                <input type="text" id="Scity" name="citScityy" min="1" max="20"><br>
+                </hr>
+            
+                <hr>
+                <label for="Scountry">Pais:</label><br>
+                <input type="text" id="Scountry" name="Scountry" min="1" max="20"><br>
+                </hr>
+
+
+            </div>
+
         
-            <hr>
-            <label for="sname">Education primaria</label><br>
-            <input type="text" id="sname" name="sname" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="">Direction De Empleador:</label><br>
-            <input type="text" id="jaddress" name="jaddress" min="1" max="20"><br>
-            <hr>
-        
-            <hr>
-            <label for="jaddress2">Direction De Empleador 2:</label><br>
-            <input type="text" id="jaddres2s" name="jaddress2" min="1" max="20"><br>
-            <hr>
-        
-        
-            <hr>
-            <label for="age">Co&#768;digo Postal:</label><br>
-            <input type="number" id="age" name="age" min="1" max="20"><br>
-            <hr>
-        
-            <button onclick="addSchool()"> Add school</button>
         </div>
         
+        
+        
+        
 
 
 
 
 
 
-<hr>
-    En esta pagina llenara lo que son sus datos sobre su possible contratacion.
-<hr>
 
-<hr>
-    Sabe Usted Ingles?
-    <div class="inline"><input type="radio" name="english" id="english" value="yes" onclick="showOption(this)">
-    <label for="passport">Si</label><br>
-    <input type="radio" name="english" value="No" id="npass" checked="true" onclick="hideOption(this)">
-    <label for="npass">No</label><br>
-    </div>
-    <div class="options" id="englishoptions">
-    <label for="speakpercent">Que porcentaje hablado</label><br>
-    <input type="number" id="speakpercent" name="speakpercent"><br>
 
-    <label for="writepercent">Que procentaje escrito</label><br>
-    <input type="number" id="writepercent" name="writepercent"><br>
 
-    <label for="whereenglish">Donde aprendio el ingles</label><br>
-    <input type="text" name="whereenglish"><br>
-    </div>
-    
-<hr>
 
-<hr>
-    Tiene Licencia de Conducir?
-    <div class="inline"><input type="radio" name="driverlicense" id="driverlicense" value="yes" onclick="showOption(this)">
-    <label for="driverlicense">Si</label><br>
-    <input type="radio" name="driverlicense" value="No" id="nodriverlicense" checked="true" onclick="hideOption(this)">
-    <label for="nodriverlicense">No</label><br>
-    </div>
-    <div class="options" id="driverlicenseoptions">
-    <label for="driverlicensetype">Que tipo de licencia</label><br>
-    <input type="text" id="driverlicensetype" name="driverlicensetype"><br>
-    </div>
-   
-<hr>
 
-<hr>
-    Cuenta con su Pasaporte Mexicano?
-    <div class="inline"><input type="radio" name="passport" id="passport" value="yes" onclick="showOption(this); hideOption(this)">
-    <label for="passport">Si</label><br>
-    <input type="radio" name="passport" value="No" id="nopassport" checked="true" onclick="showOption(this); hideOption(this)">
-    <label for="npass">No</label><br>
-    </div>
-    <div class="options" id="passportoptions">
-    <label for="expdate">Cuando se vence</label><br>
-    <input type="date" id="expdate" name="expdate"><br>
 
-    <label for="npass">Numero de Pasaporte</label><br>
-    <input type="text" id="npass" name="npass"><br>
 
-    <label for="npass">Donde lo Tramito</label><br>
-    <input type="text" name="wherepass"><br>
-    </div>
-    <div class="options" id="nopassportoptions">
-    <label for="npass">Si no tiene su Pasaporte, Cuenta con los recursos para tramitarlo de inmediato, si asi se lo requieren</label><br>
-    <input type="text" name="npass"><br>
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
-
 <div class="tab" id="tab3">
 
     <hr>
