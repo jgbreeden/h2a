@@ -114,16 +114,16 @@ form {
 .hide {
 	display: none;
 }
-#jstate, #sstate, #jobtitle, #jphone, #salary, #major {
+#jstate, #sstate, #jobtitle, #jphone, #salary, #major, .namehead {
 	width: 100px;	
 }
-#jzip, #szip {
+#jzip, #szip, #years, #years2 {
 	width: 50px;
 }
 #jobsTab, #schoolsTab{
 	width: 120px;
 }
-#newappform{
+#newappform, #empdiv {
 	margin-top: -10px;
 }
 .tabbutton{
