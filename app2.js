@@ -53,6 +53,8 @@ function addschool() {
 	document.getElementById("school").innerHTML += blankschool;
 
 }
+let par = new URL(document.location).searchParams;
+getApp(par.get("id"));
 
 tabChange(0);
 
