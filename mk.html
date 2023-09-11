@@ -155,8 +155,8 @@
     Sabe Usted Ingles?
     <div class="inline"><input type="radio" name="english" id="english" value="yes" onclick="showOption(this)">
     <label for="passport">Si</label><br>
-    <input type="radio" name="english" value="No" id="npass" checked="true" onclick="hideOption(this)">
-    <label for="npass">No</label><br>
+    <input type="radio" name="english" value="No" id="englishno" checked="true" onclick="hideOption(this)">
+    <label for="englishno">No</label><br>
     </div>
     <div class="options" id="englishoptions">
     <label for="speakpercent">Que porcentaje hablado</label><br>
@@ -190,7 +190,7 @@
     <div class="inline"><input type="radio" name="passport" id="passport" value="yes" onclick="showOption(this); hideOption(this)">
     <label for="passport">Si</label><br>
     <input type="radio" name="passport" value="No" id="nopassport" checked="true" onclick="showOption(this); hideOption(this)">
-    <label for="npass">No</label><br>
+    <label for="nopassport">No</label><br>
     </div>
     <div class="options" id="passportoptions">
     <label for="expdate">Cuando se vence</label><br>
@@ -199,12 +199,12 @@
     <label for="npass">Numero de Pasaporte</label><br>
     <input type="text" id="npass" name="npass"><br>
 
-    <label for="npass">Donde lo Tramito</label><br>
-    <input type="text" name="wherepass"><br>
+    <label for="wherepass">Donde lo Tramito</label><br>
+    <input type="text" id="wherepass" name="wherepass"><br>
     </div>
     <div class="options" id="nopassportoptions">
-    <label for="npass">Si no tiene su Pasaporte, Cuenta con los recursos para tramitarlo de inmediato, si asi se lo requieren</label><br>
-    <input type="text" name="npass"><br>
+    <label for="readypass">Si no tiene su Pasaporte, Cuenta con los recursos para tramitarlo de inmediato, si asi se lo requieren</label><br>
+    <input type="text" name="readypass"><br>
     </div>
    
 <hr>
