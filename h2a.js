@@ -196,16 +196,20 @@ function st_show(tab) {
 		document.getElementById("mainform3").style.display = "block";
 		tabs[0].classList.remove("green");
 		tabs[0].classList.add("blue");
-		showContactTab(1)
-		showInfoTab(1)
+		showContactTab(1);
+		showInfoTab(1);
+		document.querySelectorAll(".ds160").forEach(inp => inp.disabled = false);
+		document.getElementById("DS-160").disabled = false;
 	} else {
 		document.getElementById(tab).style.display = "block";
 		document.getElementById("newapplabel").style.display = "inline";
 		document.getElementById("mainform2").style.display = "block";
 		tabs[0].classList.add("green");
 		tabs[0].classList.remove("blue");
-		showContactTab(0)
-		showInfoTab(0)
+		showContactTab(0);
+		showInfoTab(0);
+		document.querySelectorAll(".ds160").forEach(inp => inp.disabled = true);
+		document.getElementById("DS-160").disabled = true;
 	}
 }
 

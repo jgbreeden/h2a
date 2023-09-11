@@ -50,7 +50,9 @@ $ppcity = htmlspecialchars($_POST["wherepass"]);
 $ppstate = "";
 $ppdateissue = htmlspecialchars($_POST["expdate"]);
 $ppdatedue = "";
-$visas = "";
+$visas = ($_POST["hish2a"] == "yes")? "h2a:" . $_POST["h2acompany"] . " - " . $_POST["h2amonths"] : "";
+$visas .= ($_POST["pasth2a"] == "yes")? " pastcount:" . $_POST["h2acount"] . " companies:" . $_POST["h2apastco"] .
+ " type:" . $_POST["h2atype"]:  "";
 $visaissues = "";
 $visarefused =  ($_POST["denied"] == "yes")? "Visa Denied - Type: " . $_POST["deniedtype"] . "Year: " . $_POST["deniedyear"] . 
     "Reason: " . $_POST["deniedreason"] . "Times Applied: " . $_POST["timesapplied"] : "";
