@@ -2,7 +2,7 @@ class Applicant {
 	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, specificarea, 
 		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, age, height, weight, lift25to40,
 		maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita, ppnumber, ppcity, ppstate, ppdateissue,
-		ppdatedue, visas, visaissues, visarefused, license) {
+		ppdatedue, visas, visaissues, visarefused, license, deported) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -41,6 +41,7 @@ class Applicant {
 		this.visaissues = visaissues;
 		this.visarefused = visarefused;
 		this.license = license;
+		this.deported = deported;
 		this.ds160= new Appds160();
 	}
 	
@@ -307,7 +308,7 @@ function fillEmpDetail(data) {
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
-		data.ppdatedue, data.visas, data.visaissues, data.visarefused, data.license)
+		data.ppdatedue, data.visas, data.visaissues, data.visarefused, data.license, data.deported)
 	if(data.ds160 != undefined){
 		currappl.ds160.marriage = data.ds160.marriage
 		currappl.ds160.nationalilty = data.ds160.nationalilty
@@ -417,6 +418,7 @@ function resetNewApp(){
 	document.getElementById("otherresident").value = currappl.otherresident
 	document.getElementById("nationid").value = currappl.nationid
 	document.getElementById("license").value = currappl.license
+	document.getElementById("usresidency").value = currappl.deported
     if(currappl.ds160.marriage != undefined){
 		document.getElementById("marriage").value = currappl.ds160.marriage;
 		document.getElementById("nationality").value = currappl.ds160.nationalilty;
@@ -490,6 +492,7 @@ function clearNewApp(){
 	document.getElementById("visas").value = "";
 	document.getElementById("visaissues").value = "";
 	document.getElementById("visarefused").value = "";
+	document.getElementById("usresidency").value= "";
 
 	clearSkill();
 	clearAbility();
