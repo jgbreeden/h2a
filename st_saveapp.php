@@ -50,9 +50,11 @@ $ppcity = htmlspecialchars($_POST["wherepass"]);
 $ppstate = "";
 $ppdateissue = htmlspecialchars($_POST["expdate"]);
 $ppdatedue = "";
-$visas = ($_POST["hish2a"] == "yes")? "h2a:" . $_POST["h2acompany"] . " - " . $_POST["h2amonths"] : "";
+$visas = ($_POST["hish2a"] == "yes")? " h2a:" . $_POST["h2acompany"] . " - " . $_POST["h2amonths"] : "";
 $visas .= ($_POST["pasth2a"] == "yes")? " pastcount:" . $_POST["h2acount"] . " companies:" . $_POST["h2apastco"] .
  " type:" . $_POST["h2atype"]:  "";
+$deported = ($_POST["deport"] == "yes")? " when:" . $_POST["deportwhen"] . " why:" . $_POST["deportwhy"]: "";
+$deported .= ($_POST["detdeport"] == "yes")? " time:" . $_POST["howmuchtime"] . " reason:" . $_POST["whatreason"]: "";
 $visaissues = "";
 $visarefused =  ($_POST["denied"] == "yes")? "Visa Denied - Type: " . $_POST["deniedtype"] . "Year: " . $_POST["deniedyear"] . 
     "Reason: " . $_POST["deniedreason"] . "Times Applied: " . $_POST["timesapplied"] : "";
@@ -71,14 +73,14 @@ $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, 
     whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
     email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, 
     otherhelp, whatknowcita, status, lift25to40, datesigned, signature, ppnumber, 
-    ppcity, ppstate, ppdateissue, ppdatedue, visas, visaissues, visarefused, license) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    ppcity, ppstate, ppdateissue, ppdatedue, visas, visaissues, visarefused, license, deported) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
     $state, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
     $otherhelp, $whatknowcita, $status, $kilos, $datesigned, $signature, $ppnumber, $ppcity,
-    $ppstate, $ppdateissue, $ppdatedue, $visas, $visaissues, $visarefused, $license);
+    $ppstate, $ppdateissue, $ppdatedue, $visas, $visaissues, $visarefused, $license, $deported);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;
