@@ -10,7 +10,7 @@
 		. "placeofbirth = ?, whatknowvisa = ?, howhearcita = ?, otherhelp = ?, whatknowcita = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
 		. "ppdateissue = ?, ppdatedue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ?, deported = ? WHERE id = ?;";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("sssssssssssssssssssssssssssssssssssssi", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
+	$stmt->bind_param("ssssssssssssssssssssssssssssssssssssssi", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
 									$_POST["hphone"], $_POST["address"], $_POST["city"],
 									$_POST["state"], $_POST["zip"], $_POST["gender"], $_POST["status"], $_POST["specificarea"], $_POST["whatarea"], 
 									$_POST["stay8mo"], $_POST["overtime"], $_POST["extend"],
