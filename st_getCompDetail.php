@@ -19,7 +19,7 @@
 	$row = $results->fetch_assoc();
 	//write person fields, then "skills": [
 	echo '{ "id": ' . $row["id"] . ', "company": "' . $row["company"]
-		. '", "phone": "' . $row[ "phone"] . '", "address": "'
+		. '", "phone": "' . $row["phone"] . '", "address": "'
 		. $row["address"] . '", "city": "' . $row["city"]
 		. '", "state": "' . $row["state"] . '", "zip": "' . $row["zip"]
 		. '", "assignments": [ ';
