@@ -223,7 +223,7 @@ if ($_POST["disability"] == "yes") array_push($issues, array("disability", $_POS
 
 $count = count($issues);
 for($i = 0; $i < $count; $i++){
-    $skillsid = getskills($issues[$i]);
+    $skillsid = getskill($issues[$i]);
     $med = $issues[$i][1];
     $reason1 = $issues[$i][2];
     $stmt->execute();
