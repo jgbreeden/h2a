@@ -44,6 +44,7 @@ function tabChange(tab) {
             document.getElementById("diesease").focus();
         }
     }
+}
     
 function btnnext(inc) {
     var tabs = document.getElementsByClassName("tab");
