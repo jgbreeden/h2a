@@ -75,7 +75,7 @@ $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, 
     otherhelp, whatknowcita, status, lift25to40, datesigned, signature, ppnumber, 
     ppcity, ppstate, ppdateissue, ppdatedue, visas, visaissues, visarefused, license, deported) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
+$stmt->bind_param("ssssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
     $state, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
