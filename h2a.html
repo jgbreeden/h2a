@@ -76,7 +76,7 @@
 					<td style="text-align: right;">
 					<label for="marriagedetails">If Divorced:</label>
 					</td><td>
-					<input type="text" id=">marriagedetails" name="marriagedetails">
+					<input type="text" class="ds160" id=">marriagedetails" name="marriagedetails">
 					</td>
 					</tr><tr>
 				<td>
@@ -179,6 +179,11 @@
 				</td><td>
 				<input type="text" id="address" name="address">
 				</td>
+				<td>
+					<label for="address2">Address 2:</label>
+					</td><td>
+					<input type="text" id="address2" name="address2">
+					</td>
 				</tr><tr>
 				<td>
 				<label for="city">City:</label>
@@ -417,6 +422,7 @@
 				<div>
 					<button type="button" onclick="resetNewApp()">Cancel</button>
 					<button type="button" onclick="currappl.update()">Save</button>
+					<button type="button" onclick="createLink()">Create Link</button>
 				</div>
 			</div>
 		</div>
