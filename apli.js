@@ -27,15 +27,24 @@ function tabChange(tab) {
 
    items[tab].classList.add("current")
    tabs[tab].style.display = "block"
-   if (tab == 1) {
-        document.getElementById("english").focus();
+   if(usp != undefined ){
+        if (tab == 1) {
+                document.getElementById("english").focus();
 
-    } else if (tab == 2) {
-        document.getElementById("acelga").focus();
+            } else if (tab == 2) {
+                document.getElementById("acelga").focus();
+            }
+            // items[0].toggle("current");
+        // items[1].toggle("current");
     }
-    // items[0].toggle("current");
-   // items[1].toggle("current");
+    else{ 
+        if(tab == 1){
+            document.getElementById("fatherFname").focus(); 
+        } else if (tab == 2) {
+            document.getElementById("diesease").focus();
+        }
     }
+}
     
 function btnnext(inc) {
     var tabs = document.getElementsByClassName("tab");
