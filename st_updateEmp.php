@@ -8,7 +8,7 @@
 		. "address = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, specificarea = ?, whatarea = ?, stay8mo = ?, overtime = ?,"
 		. "extend = ?, extendwhynot = ?, dateofbirth = ?, email = ?, age = ?, height = ?, weight = ?, lift25to40 = ?, maritalstatus = ?,"
 		. "placeofbirth = ?, whatknowvisa = ?, howhearcita = ?, otherhelp = ?, whatknowcita = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
-		. "ppdateissue = ?, ppdatedue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? WHERE id = ?;";
+		. "ppdateissue = ?, ppdatedue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ?, deported = ?, WHERE id = ?;";
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("sssssssssssssssssssssssssssssssssssssi", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
 									$_POST["hphone"], $_POST["address"], $_POST["city"],
@@ -18,7 +18,7 @@
 									$_POST["height"], $_POST["weight"], $_POST["lift25to40"], $_POST["maritalstatus"], $_POST["placeofbirth"],
 									$_POST["whatknowvisa"], $_POST["howhearcita"], $_POST["otherhelp"], $_POST["whatknowcita"],
 									$_POST["ppnumber"], $_PODT["ppcity"], $_POST["ppstate"], $_POST["ppdataissue"], $_POST["ppdatedue"], $_POST["visas"],
-									$_POST["visaissues"], $_POST["visarefused"], $_POST["license"],
+									$_POST["visaissues"], $_POST["visarefused"], $_POST["license"], $_POST["usresidency"],
 									$_POST["id"]);
 	$result = $stmt->execute();
 	$message = "";
@@ -38,7 +38,7 @@
 									$_POST["id"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
-		$message .= "along with DS160"
+		$message .= "along with DS160";
 	} else {
 		$message .= "There was a problem saving the DS160 info.";
 	}
