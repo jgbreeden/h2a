@@ -101,7 +101,7 @@ $conn->close();
 $stmt = $conn->prepare("INSERT INTO jobhistory (empname, address, address2, city, state, zip, phone, salary, jobtitle, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssssssssssi", $id, $empname, $address, $address2, $city, $state, $zip, $phone, $salary, $jobtitle, $datefrom, $dateto, $applicantsid);
 
-$jobcount = count($_POST["company"])
+$jobcount = count($_POST["company"]);
 for($i = 0; $i < $jobcount; $i++){
   $empname = htmlspecialchars($_POST["jcompany"][i]);
   $address = htmlspecialchars($_POST["jaddress"][i]);
@@ -120,7 +120,7 @@ for($i = 0; $i < $jobcount; $i++){
 $stmt = $conn->prepare("INSERT INTO school (schoolname, address, address2, city, state, zip, major, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssssssi", $schoolname, $address, $address2, $city, $state, $zip, $major, $datefrom, $dateto, $id);
 
-$schoolcount = count($_POST["school"])
+$schoolcount = count($_POST["school"]);
 for($i = 0; $i < $schoolcount; $i++){
   $schoolname = htmlspecialchars($_POST["jschoolname"][i]);
   $address = htmlspecialchars($_POST["jaddress"][i]);

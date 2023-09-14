@@ -28,7 +28,7 @@
 	} else {
 		$message ="There was a problem saving the record, please try again.";
 	}
-	$sql = "UPDATE appds160 SET marriage = ?, nationalilty = ?, othernation = ?, mationid = ?, ssn = ?, othercontact = ?, socialmedia = ?,"
+	$sql = "UPDATE appds160 SET marriage = ?, nationalilty = ?, othernations = ?, nationid = ?, ssn = ?, othercontact = ?, socialmedia = ?,"
 		. "pploststolen = ?, fatherinfo = ?, motherinfo = ?, relatives = ?, spouse = ?, countries = ?, groups = ?, military = ?"
 		. "issues = ?, crimes = ? , deportation = ?, applicantsid = ? WHERE id = ?;";
 	$stmt = $conn->prepare($sql);
