@@ -24,27 +24,27 @@ $city = htmlspecialchars($_POST["city"]);
 $state = htmlspecialchars($_POST["state"]);
 $zipcode = htmlspecialchars($_POST["zipcode"]);
 $gender = htmlspecialchars($_POST["gender"]);
-$specificarea = htmlspecialchars($_POST["specificarea"]);
-$whatarea = htmlspecialchars($_POST["whatarea"]);
-$stay8mo = htmlspecialchars($_POST["stay8mo"]);
-$overtime = htmlspecialchars($_POST["overtime"]);
-$extend = htmlspecialchars($_POST["extend"]);
-$extendwhynot = htmlspecialchars($_POST["extendwhynot"]);
+//$specificarea = htmlspecialchars($_POST["specificarea"]);
+//$whatarea = htmlspecialchars($_POST["whatarea"]);
+//$stay8mo = htmlspecialchars($_POST["stay8mo"]);
+//$overtime = htmlspecialchars($_POST["overtime"]);
+//$extend = htmlspecialchars($_POST["extend"]);
+//$extendwhynot = htmlspecialchars($_POST["extendwhynot"]);
 $dateofbirth = htmlspecialchars($_POST["dateofbirth"]);
 $email = htmlspecialchars($_POST["email"]);
-$age = htmlspecialchars($_POST["age"]);
-$height = htmlspecialchars($_POST["height"]);
-$weight = htmlspecialchars($_POST["weight"]);
+//$age = htmlspecialchars($_POST["age"]);
+//$height = htmlspecialchars($_POST["height"]);
+//$weight = htmlspecialchars($_POST["weight"]);
 $maritalstatus = htmlspecialchars($_POST["maritalstatus"]);
-$placeofbirth = htmlspecialchars($_POST["placeofbirth"]);
-$whatknowvisa = htmlspecialchars($_POST["whatknowvisa"]);
-$howhearcita = htmlspecialchars($_POST["howhearcita"]);
-$otherhelp = htmlspecialchars($_POST["otherhelp"]);
-$whatknowcita = htmlspecialchars($_POST["whatknowcita"]);
-$kilos = htmlspecialchars($_POST["kilos"]);
-$datesigned = htmlspecialchars($_POST["datesigned"]);
-$signature = htmlspecialchars($_POST["signature"]);
-$status = "new";
+//$placeofbirth = htmlspecialchars($_POST["placeofbirth"]);
+//$whatknowvisa = htmlspecialchars($_POST["whatknowvisa"]);
+//$howhearcita = htmlspecialchars($_POST["howhearcita"]);
+//$otherhelp = htmlspecialchars($_POST["otherhelp"]);
+//$whatknowcita = htmlspecialchars($_POST["whatknowcita"]);
+//$kilos = htmlspecialchars($_POST["kilos"]);
+//$datesigned = htmlspecialchars($_POST["datesigned"]);
+//$signature = htmlspecialchars($_POST["signature"]);
+$status = "App 2 Ready";
 $id = $_POST["id"];
 
 //change to an update
@@ -57,36 +57,46 @@ $stmt->bind_param("sssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome
                             $gender, $status, $ppnumber, $ppcity, $ppstate, $ppdateissue, $ppdatedue, $visas, $visaissues,
                             $visarefused, $license, $id);
 
+$result = $stmt->execute();
+if ($result == 1) {
+    $message = "Record saved ";
+} else {
+    $message = "There was a problem saving the applicant info: " . result.error;
+    $conn->close();
+    die $message;
+}
 //insert into app ds160
-$marriage = htmlspecialchars($_POST["marriage"]);
+$marriage = htmlspecialchars($_POST["datedivorce"]) . ": " . htmlspecialchars($_POST["reasondivorce"]);
 $nationality = htmlspecialchars($_POST["nationality"]);
 $othernations = htmlspecialchars($_POST["othernations"]);
-$otherresident = htmlspecialchars($_POST["otherresident"]);
+$otherresident = ""; //htmlspecialchars($_POST["otherresident"]);
 $nationid = htmlspecialchars($_POST["nationid"]);
 $ssn = htmlspecialchars($_POST["ssn"]);
-$othercontact = htmlspecialchars($_POST["othercontact"]);
+$othercontact = htmlspecialchars($_POST["otherphones"]) . "\n" . htmlspecialchars($_POST["otheremail"]);
 $socialmedia = htmlspecialchars($_POST["socialmedia"]);
-$pploststolen = htmlspecialchars($_POST["pploststolen"]);
-$fatherinfo = htmlspecialchars($_POST["fatherinfo"]);
-$motherinfo = htmlspecialchars($_POST["motherinfo"]);
-$relatives = htmlspecialchars($_POST["relatives"]);
-$spouse = htmlspecialchars($_POST["spouse"]);
-$countries = htmlspecialchars($_POST["countries"]);
-$groups = htmlspecialchars($_POST["groups"]);
+$pploststolen = ""; // htmlspecialchars($_POST["pploststolen"]);
+$fatherinfo = htmlspecialchars($_POST["fatherFname"]) . " " . htmlspecialchars($_POST["fatherLname"])
+. " " . htmlspecialchars($_POST["fatherdob"]);
+$motherinfo = htmlspecialchars($_POST["motherFname"]) . " " . htmlspecialchars($_POST["motherLname"])
+. " " . htmlspecialchars($_POST["motherdob"]);
+$relatives = htmlspecialchars($_POST["Otherrelatives"]);
+$spouse = htmlspecialchars($_POST["SFname"]). " " . htmlspecialchars($_POST["SLname"]);
+$countries = ""; // htmlspecialchars($_POST["countries"]);
+$groups = ""; // htmlspecialchars($_POST["groups"]);
 $military = htmlspecialchars($_POST["military"]);
-$issues = htmlspecialchars($_POST["issues"]);
-$crimes = htmlspecialchars($_POST["crimes"]);
+$issues = ""; // htmlspecialchars($_POST["issues"]);
+$crimes = ""; // htmlspecialchars($_POST["crimes"]);
 $deportation = htmlspecialchars($_POST["deportation"]);
-$applicantsid = htmlspecialchars($_POST["applicantsid"]);
+//$applicantsid = htmlspecialchars($_POST["applicantsid"]);
 
 $sql = "INSERT INTO `h2a`.`appds160` (`marriage`,`nationalilty`,`othernations`,`otherresident`,`nationid`,`ssn`,`othercontact`,"
-		."`socalmedia`,`pploststolen`,`fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,`crimes`,"
+		."`socialmedia`,`pploststolen`,`fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,`crimes`,"
 		."`deportation`,`applicantsid`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssssssssssssssi", $_POST["marriage"], $_POST["nationalilty"], $_POST["othernations"], $_POST["otherresident"], $_POST["nationid"], 
+$stmt->bind_param("sssssssssssssssssssi", $_POST["marriage"], $_POST["nationalilty"], $_POST["othernations"], $_POST["otherresident"], $_POST["nationid"], 
                                 $_POST["ssn"], $_POST["othercontact"], $_POST["socialmedia"], $_POST["pploststolen"], $_POST["fatherinfo"], $_POST["motherinfo"], $_POST["relatives"],
-                                $_POST["spouse"], $_POST["countires"], $_POST["groups"], $_POST["military"], $_POST["issues"], $_POST["crimes"], $_POST["deportation"], $_POST["applicantsid"],
+                                $_POST["spouse"], $_POST["countires"], $_POST["groups"], $_POST["military"], $_POST["issues"], $_POST["crimes"], $_POST["deportation"],
                                 $_POST["id"]);
 $result = $stmt->execute();
 if ($result == 1) {
@@ -95,11 +105,10 @@ if ($result == 1) {
     $message .= "There was a problem saving the DS160 info.";
 }
 echo $message; 								
-$conn->close();
-
 
 $stmt = $conn->prepare("INSERT INTO jobhistory (empname, address, address2, city, state, zip, phone, salary, jobtitle, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssssssi", $id, $empname, $address, $address2, $city, $state, $zip, $phone, $salary, $jobtitle, $datefrom, $dateto, $applicantsid);
+$stmt->bind_param("ssssssssssssi", $id, $empname, $address, $address2, $city, $state, $zip, $phone, 
+  $salary, $jobtitle, $datefrom, $dateto, $id);
 
 $jobcount = count($_POST["company"]);
 for($i = 0; $i < $jobcount; $i++){
@@ -118,7 +127,8 @@ for($i = 0; $i < $jobcount; $i++){
 }
 
 $stmt = $conn->prepare("INSERT INTO school (schoolname, address, address2, city, state, zip, major, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssi", $schoolname, $address, $address2, $city, $state, $zip, $major, $datefrom, $dateto, $id);
+$stmt->bind_param("sssssssssi", $schoolname, $address, $address2, $city, $state, $zip, $major, 
+  $datefrom, $dateto, $id);
 
 $schoolcount = count($_POST["school"]);
 for($i = 0; $i < $schoolcount; $i++){
