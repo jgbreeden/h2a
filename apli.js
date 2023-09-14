@@ -27,7 +27,8 @@ function tabChange(tab) {
 
    items[tab].classList.add("current")
    tabs[tab].style.display = "block"
-   if (typeof usp != "undefined" ){
+   //allow use of this file in both mk.html and app2.html
+   if (typeof usp === "undefined" ){
         if (tab == 1) {
                 document.getElementById("english").focus();
 

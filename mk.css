@@ -127,12 +127,12 @@ hr {
 
 #jobs{
     border: 2px solid black;
-    
-
 }
 
 #school{
     border: 2px solid black;
-    
+}
 
+.hidden {
+    display: none;
 }

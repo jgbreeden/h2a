@@ -123,7 +123,7 @@ input[type="text"] {
 #jzip, #szip, #years, #years2 {
 	width: 50px;
 }
-#jobsTab, #schoolsTab{
+#jobsTab, #schoolsTab, .tabcolumn {
 	width: 120px;
 }
 #newappform, #empdiv {
