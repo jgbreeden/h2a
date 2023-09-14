@@ -50,17 +50,34 @@ $id = $_POST["id"];
 //change to an update
 
 $sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phonehome = ?,"
-. "address = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, specificarea = ?, whatarea = ?, stay8mo = ?, overtime = ?,"
-. "extend = ?, extendwhynot = ?, dateofbirth = ?, email = ?, age = ?, height = ?, weight = ?, lift25to40 = ?, maritalstatus = ?,"
-. "placeofbirth = ?, whatknowvisa = ?, howhearcita = ?, otherhelp = ?, whatknowcita = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
+. "address = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
 . "ppdateissue = ?, ppdatedue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? WHERE id = ?;";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssssssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, 
-                            $gender, $specificarea, $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth, $email,
-                            $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, $otherhelp, 
-                            $whatknowcita, $otherhelp, $whatknowcita, $kilos, $datesigned, $signature, $id);
+$stmt->bind_param("sssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, 
+                            $gender, $status, $ppnumber, $ppcity, $ppstate, $ppdateissue, $ppdatedue, $visas, $visaissues,
+                            $visarefused, $license, $id);
 
 //insert into app ds160
+$marriage = htmlspecialchars($_POST["marriage"]);
+$nationality = htmlspecialchars($_POST["nationality"]);
+$othernations = htmlspecialchars($_POST["othernations"]);
+$otherresident = htmlspecialchars($_POST["otherresident"]);
+$nationid = htmlspecialchars($_POST["nationid"]);
+$ssn = htmlspecialchars($_POST["ssn"]);
+$othercontact = htmlspecialchars($_POST["othercontact"]);
+$socialmedia = htmlspecialchars($_POST["socialmedia"]);
+$pploststolen = htmlspecialchars($_POST["pploststolen"]);
+$fatherinfo = htmlspecialchars($_POST["fatherinfo"]);
+$motherinfo = htmlspecialchars($_POST["motherinfo"]);
+$relatives = htmlspecialchars($_POST["relatives"]);
+$spouse = htmlspecialchars($_POST["spouse"]);
+$countries = htmlspecialchars($_POST["countries"]);
+$groups = htmlspecialchars($_POST["groups"]);
+$military = htmlspecialchars($_POST["military"]);
+$issues = htmlspecialchars($_POST["issues"]);
+$crimes = htmlspecialchars($_POST["crimes"]);
+$deportation = htmlspecialchars($_POST["deportation"]);
+$applicantsid = htmlspecialchars($_POST["applicantsid"]);
 
 $sql = "INSERT INTO `h2a`.`appds160` (`marriage`,`nationalilty`,`othernations`,`otherresident`,`nationid`,`ssn`,`othercontact`,"
 		."`socalmedia`,`pploststolen`,`fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,`crimes`,"
@@ -84,7 +101,7 @@ $conn->close();
 $stmt = $conn->prepare("INSERT INTO jobhistory (empname, address, address2, city, state, zip, phone, salary, jobtitle, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssssssssssi", $id, $empname, $address, $address2, $city, $state, $zip, $phone, $salary, $jobtitle, $datefrom, $dateto, $applicantsid);
 
-$jobcount = count($_POST["company"]);
+$jobcount = count($_POST["company"])
 for($i = 0; $i < $jobcount; $i++){
   $empname = htmlspecialchars($_POST["jcompany"][i]);
   $address = htmlspecialchars($_POST["jaddress"][i]);
@@ -103,7 +120,7 @@ for($i = 0; $i < $jobcount; $i++){
 $stmt = $conn->prepare("INSERT INTO school (schoolname, address, address2, city, state, zip, major, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssssssi", $schoolname, $address, $address2, $city, $state, $zip, $major, $datefrom, $dateto, $id);
 
-$schoolcount = count($_POST["school"]);
+$schoolcount = count($_POST["school"])
 for($i = 0; $i < $schoolcount; $i++){
   $schoolname = htmlspecialchars($_POST["jschoolname"][i]);
   $address = htmlspecialchars($_POST["jaddress"][i]);
