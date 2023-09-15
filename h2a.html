@@ -99,13 +99,13 @@
 				<td>
 				<label for="ustravel">US Travel:</label>
 				</td><td>
-				<textarea type="text" id="ustravel" name="ustravel" rows="1" cols="19" class="ds160"></textarea>
+				<textarea type="text" id="ustravel" name="ustravel" rows="3" cols="19" class="ds160"></textarea>
 				</td>
 				</tr><tr>
 				<td>
 				<label for="license">Driver license:</label>
 				</td><td>
-				<input type="text" id="license" name=license"">
+				<textarea type="text" id="license" name="license" rows="2" cols="19"></textarea>
 				</td>
 				</tr>
 				
@@ -144,21 +144,28 @@
 				<td>
 				<label for="visas">Visas:</label>
 				</td><td>
-				<textarea id="visas" name="visas" rows="1" cols="19"></textarea>
+				<textarea id="visas" name="visas" rows="3" cols="19"></textarea>
 				</td>
 				</tr><tr>
 				<td>
 				<label for="visaissues">Visa Issues:</label>
 				</td><td>
-				<textarea id="visaissues" name="visaissues" rows="1" cols="19"></textarea>
+				<textarea id="visaissues" name="visaissues" rows="3" cols="19"></textarea>
 				</td>
 				</tr><tr>
 				<td>
 				<label for="visarefused">Visa Refused:</label>
 				</td><td>
-				<textarea id="visarefused" name="visarefused" rows="1" cols="19"></textarea>
+				<textarea id="visarefused" name="visarefused" rows="2" cols="19"></textarea>
 				</td>
 				</tr>
+				<tr>
+					<td>
+					<label for="petition">Petition:</label>
+					</td><td>
+					<input type="text" id="petition" name="petition">
+					</td>
+					</tr>
 				</table>
 				<table id="contactinfo">
 				<tr>
@@ -222,8 +229,6 @@
 				<textarea id="socialmedia" name="socialmedia" rows="2" cols="19"class="ds160"></textarea>
 				</td>
 				</tr>
-			</table>
-			<table>
 				<tr>
 				<td>
 				<label for="ppnumber">Passport #:</label>
@@ -260,7 +265,10 @@
 					</td><td>
 					<input type="text" id="ppissues" name="ppissues" class="ds160">
 					</td>
-					</tr><tr>
+					</tr>
+				</table>
+				<table>
+					<tr>
 				<td>
 				<label for="status">Status:</label>
 				</td><td>
@@ -476,8 +484,8 @@
 							<td rowspan=2><textarea rows=2 columns=20 name="duties" id="duties"></textarea></td>
 						</tr>
 						<tr>
-						<td><button type="button" onclick="clearJob()">Clear</button></td>
-						<td><button type="button" onclick="saveJob()">Save Job</button></td>
+						<td><button type="button" onclick="clearJob()" class="ds160">Clear</button></td>
+						<td><button type="button" onclick="saveJob()" class="ds160">Save Job</button></td>
 						</tr>
 					</table>
 					<br>
@@ -501,31 +509,31 @@
 					<input type="text" id="exid" name="exid" class="id">
 					<table class="lefty">
 						<tr>
-							<td><label for="School">School:</label></td>
-							<td><input type="text" id="Company" name="Company"></td>
+							<td><label for="school">School:</label></td>
+							<td><input type="text" id="school" name="school" class="ds160"></td>
 							<td><label for="Major">Major:</label>
-							<input type="text" id="major" name="major"></td>
+							<input type="text" id="major" name="major" class="ds160"></td>
 						</tr>
 						<tr>
 							<td><label for="address">Address:</label></td>
-							<td><input type="text" id="saddress" name="address"></td>
-							<td><input type="text" id="saddress2" name="address2"></td>
+							<td><input type="text" id="saddress" name="address" class="ds160"></td>
+							<td><input type="text" id="saddress2" name="address2" class="ds160"></td>
 						</tr>
 						<tr>
-							<td><label for="city">City, St, Zip:</label></td>
-							<td><input type="text" id="scity" name="city"></td>
-							<td><input type="text" id="sstate" name="state">
-							<input type="text" id="szip" name="zip"></td>
+							<td><label for="scity">City, St, Zip:</label></td>
+							<td><input type="text" id="scity" name="scity" class="ds160"></td>
+							<td><input type="text" id="sstate" name="sstate" class="ds160">
+							<input type="text" id="szip" name="szip" class="ds160"></td>
 						</tr>
 						<tr>
-							<td><label for="datefrom">Date From:</label></td>
-							<td><input type="date" id="datefrom" name="datefrom">
-							<label for="dateto">To:</label></td>
-							<td><input type="date" id="dateto" name="dateto"></td>
+							<td><label for="sdatefrom">Date From:</label></td>
+							<td><input type="date" id="sdatefrom" name="sdatefrom" class="ds160">
+							<label for="sdateto">To:</label></td>
+							<td><input type="date" id="sdateto" name="sdateto" class="ds160"></td>
 						</tr>
 						<tr>
-						<td><button type="button" onclick="clearSchool()">Clear</button></td>
-						<td><button type="button" onclick="saveSchool()">Save School</button></td>
+						<td><button type="button" onclick="clearSchool()" class="ds160">Clear</button></td>
+						<td><button type="button" onclick="saveSchool()" class="ds160">Save School</button></td>
 						</tr>
 					</table>
 					<br>

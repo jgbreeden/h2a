@@ -533,6 +533,9 @@ function sendData(data, phpFile, callBack){
 
 function showResult(data){
 	document.getElementById("result").innerHTML = data;
+	if(data.indexOf("saved") == -1) {
+		console.log(data);
+	}
 	document.getElementById("result").classList.remove("fade");
 	setTimeout(function(){document.getElementById("result").style.visibility="hidden";}, 5000)
 	let temp;
