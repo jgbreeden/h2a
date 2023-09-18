@@ -194,6 +194,7 @@ function st_show(tab) {
 	if (tab == "applicants"){
 		document.getElementById("newapplicants").style.display = "block";
 		document.getElementById("searchstat").innerHTML = allstats;
+		document.getElementById("status").innerHTML = allstats;
 		document.getElementById("mainform3").style.display = "block";
 		tabs[0].classList.remove("green");
 		tabs[0].classList.add("blue");
@@ -204,6 +205,7 @@ function st_show(tab) {
 	} else {
 		document.getElementById(tab).style.display = "block";
 		document.getElementById("searchstat").innerHTML = newstats
+		document.getElementById("status").innerHTML = newstats
 		document.getElementById("mainform2").style.display = "block";
 		tabs[0].classList.add("green");
 		tabs[0].classList.remove("blue");
