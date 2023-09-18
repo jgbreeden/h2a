@@ -14,10 +14,9 @@ if ($row = $results->fetch_assoc()) {
     . $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
     . $row["phonehome"] . '", "address": "' . $row["address"] . '", "city": "'
     . $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . $row["zipcode"]
-    . '", "status": "' . $row["status"] . '", "specificarea": "' . $row["specificarea"] . '", "whatarea": "' 
-    . $row["whatarea"] . '", "stay8mo": "' . $row["stay8mo"] . '", "overtime": "' 
-    . $row["overtime"] . '", "extend": "' . $row["extend"] . '", "extendwhynot": "'
-    . $row["extendwhynot"] . '", "dateofbirth": "' . $row["dateofbirth"] . '", "email": "'
+    . '", "maritalstatus": "' . $row["maritalstatus"] . '", "status": "' . $row["status"] 
+    . '", "license": "' . $row["license"] . '", "ppnumber": "' . $row["ppnumber"] . '", "placeofbirth": "'
+    . $row["placeofbirth"] . '", "dateofbirth": "' . $row["dateofbirth"] . '", "email": "'
     . $row["email"] . '", "gender": "' . $row["gender"] . '"}';
 } else {
     echo "{}";

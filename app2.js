@@ -15,25 +15,23 @@ function initData(data) {
 
     document.getElementById("fname").value = data.firstname;
 	document.getElementById("lname").value = data.lastname;
-	document.getElementById("civilstate").value = data.lastname;
-	document.getElementById("dateofbirth").value = data.lastname;
-	document.getElementById("phonecell").value = data.lastname;
-	document.getElementById("phonehome").value = data.lastname;
-	document.getElementById("otherphonelast5years").value = data.lastname;
-	document.getElementById("email").value = data.lastname;
-	document.getElementById("otheremaillast5years").value = data.lastname;
-	document.getElementById("address").value = data.lastname;
-	document.getElementById("city").value = data.lastname;
-	document.getElementById("state").value = data.lastname;
-	document.getElementById("zipcode").value = data.lastname;
-	document.getElementById("placeofbirth").value = data.lastname;
+	document.getElementById("maritalstatus").value = data.maritalstatus;
+	document.getElementById("dateofbirth").value = data.dateofbirth;
+	document.getElementById("phonecell").value = data.cphone;
+	document.getElementById("phonehome").value = data.hphone;
+	document.getElementById("email").value = data.email;
+	document.getElementById("address").value = data.address;
+	document.getElementById("city").value = data.city;
+	document.getElementById("state").value = data.state;
+	document.getElementById("zipcode").value = data.zip;
+	//document.getElementById("placeofbirth").value = data.placeofbirth;
 	if (data.gender == "male") {
 		document.getElementById("male").checked = true;
 	} else {
 		document.getElementById("female").checked = true;
 	}
 	document.getElementById("ppnumber").value = data.ppnumber;
-	document.getElementById("driverlicense").value = data.lastname;
+	//document.getElementById("driverlicense").value = data.lastname;
 
 }
 

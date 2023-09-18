@@ -52,11 +52,11 @@ class Applicant {
 	
 }
 class Appds160{
-	constructor(marriage, nationalilty, othernations, otherresident, nationid, ssn, othercontact, socalmedia,
+	constructor(marriage, nationality, othernations, otherresident, nationid, ssn, othercontact, socalmedia,
 	pploststolen, father, mother, relatives, spouse, countries, groups, military, legalissues, crimes, 
 	deportation, applicants){
 		this.marriage = marriage;
-		this.nationalilty = nationalilty;
+		this.nationality = nationality;
 		this.othernations = othernations;
 		this.otherresident = otherresident;
 		this.nationid = nationid;
@@ -269,14 +269,14 @@ function fillEmps(data) {
 
 function fillEmpDetail(data) {
 	let table = document.getElementById("skillsTab");
-	let contents = "<tr><th>Experiance</th><th>Years</th><th>Where</th></tr>";
+	let contents = "<tr><th>Experiance</th><th>Years</th><th class='tabcolumn'>Where</th></tr>";
 	for (let i = 0; i < data.skills.length; i++){
 		contents += "<tr onclick='showSkill(this)'><td class='id'>" + data.skills[i].exid + "</td><td>" + data.skills[i].skillenglish + "</td><td>"
 					+ data.skills[i].years + "</td><td>" + data.skills[i].location + "</td><td class='id'>" + data.skills[i].skillsid
 					+ "</td><td class='id'>" + data.skills[i].details + "</td></tr>";
 	}
 	let table2 = document.getElementById("abilityTab");
-	let contents2 = "<tr><th>Job Skill</th><th>Years</th><th>Where</th></tr>";
+	let contents2 = "<tr><th>Job Skill</th><th>Years</th><th class='tabcolumn'>Where</th></tr>";
 	for (let i = 0; i < data.ability.length; i++){
 		contents2 += "<tr onclick='showAbility2(this)'><td class='id'>" + data.ability[i].abid + "</td><td>" + data.ability[i].abeng + "</td><td>"
 					+ data.ability[i].years + "</td><td>" + data.ability[i].location
@@ -291,7 +291,7 @@ function fillEmpDetail(data) {
 	}*/
 
 	let healthTable = document.getElementById("healthTab");
-	let healthContents = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
+	let healthContents = "<tr><th>Health Issue</th><th class='tabcolumn'>Treatment</th></tr>";
 	for (let i = 0; i < data.health.length; i++){
 		healthContents += "<tr onclick='showHealth(this)'><td class='id'>" + data.health[i].healthid + "</td><td>" +  data.health[i].healtheng + "</td><td>"
 					+ data.health[i].medtreatment + "</td><td class='id'>" + data.health[i].reason + "</td><td class='id'>" + data.health[i].skillsid + "</td></tr>";
@@ -311,13 +311,13 @@ function fillEmpDetail(data) {
 		data.ppdatedue, data.visas, data.visaissues, data.visarefused, data.license, data.deported)
 	if(data.ds160 != undefined){
 		currappl.ds160.marriage = data.ds160.marriage
-		currappl.ds160.nationalilty = data.ds160.nationalilty
+		currappl.ds160.nationality = data.ds160.nationality
 		currappl.ds160.othernations = data.ds160.othernations
         currappl.ds160.otherresident = data.ds160.otherresident
 		currappl.ds160.nationid = data.ds160.nationid
 		currappl.ds160.ssn = data.ds160.ssn
 		currappl.ds160.othercontact = data.ds160.othercontact
-		currappl.ds160.socalmedia = data.ds160.socalmedia
+		currappl.ds160.socialmedia = data.ds160.socialmedia
 		currappl.ds160.pploststolen = data.ds160.pploststolen
 		currappl.ds160.father = data.ds160.father
 		currappl.ds160.mother = data.ds160.mother
@@ -420,15 +420,15 @@ function resetNewApp(){
 	document.getElementById("license").value = currappl.license
 	document.getElementById("usresidency").value = currappl.deported
     if(currappl.ds160.marriage != undefined){
-		document.getElementById("marriage").value = currappl.ds160.marriage;
-		document.getElementById("nationality").value = currappl.ds160.nationalilty;
+		document.getElementById("marriagedetails").value = currappl.ds160.marriage;
+		document.getElementById("nationality").value = currappl.ds160.nationality;
 		document.getElementById("othernations").value = currappl.ds160.othernations;
 		document.getElementById("otherresident").value = currappl.ds160.otherresident;
 		document.getElementById("nationid").value = currappl.ds160.nationid;
 		document.getElementById("ssn").value = currappl.ds160.ssn;
 		document.getElementById("othercontact").value = currappl.ds160.othercontact;
-		document.getElementById("socalmedia").value = currappl.ds160.socalmedia;
-		document.getElementById("pploststolen").value = currappl.ds160.pploststolen;
+		document.getElementById("socialmedia").value = currappl.ds160.socialmedia;
+		document.getElementById("ppissues").value = currappl.ds160.ppissues;
 		document.getElementById("father").value = currappl.ds160.father;
 		document.getElementById("mother").value = currappl.ds160.mother;
 		document.getElementById("relatives").value = currappl.ds160.relatives;
@@ -436,10 +436,10 @@ function resetNewApp(){
 		document.getElementById("countries").value = currappl.ds160.countries;
 		document.getElementById("groups").value = currappl.ds160.groups;
 		document.getElementById("military").value = currappl.ds160.military;
-		document.getElementById("Issues").value = currappl.ds160.legalissues;
-		document.getElementById("crimes").value = currappl.ds160.crimes;
-		document.getElementById("deportation").value = currappl.ds160.deportation;
-		document.getElementById("applicants").value = currappl.ds160.applicants;
+		document.getElementById("legalissues").value = currappl.ds160.legalissues;
+		//document.getElementById("crimes").value = currappl.ds160.crimes;
+		//document.getElementById("deportation").value = currappl.ds160.deportation;
+		//document.getElementById("applicants").value = currappl.ds160.applicants;
 
 	}
 }
@@ -493,6 +493,23 @@ function clearNewApp(){
 	document.getElementById("visaissues").value = "";
 	document.getElementById("visarefused").value = "";
 	document.getElementById("usresidency").value= "";
+	document.getElementById("marriagedetails").value = "";
+	document.getElementById("nationality").value = "";
+	document.getElementById("othernations").value = "";
+	document.getElementById("otherresident").value = "";
+	document.getElementById("nationid").value = "";
+	document.getElementById("ssn").value = "";
+	document.getElementById("othercontact").value = "";
+	document.getElementById("socialmedia").value = "";
+	document.getElementById("ppissues").value = "";
+	document.getElementById("father").value = "";
+	document.getElementById("mother").value = "";
+	document.getElementById("relatives").value = "";
+	document.getElementById("spouse").value = "";
+	document.getElementById("countries").value = "";
+	document.getElementById("groups").value = "";
+	document.getElementById("military").value = "";
+	document.getElementById("legalissues").value = "";
 
 	clearSkill();
 	clearAbility();
@@ -516,6 +533,9 @@ function sendData(data, phpFile, callBack){
 
 function showResult(data){
 	document.getElementById("result").innerHTML = data;
+	if(data.indexOf("saved") == -1) {
+		console.log(data);
+	}
 	document.getElementById("result").classList.remove("fade");
 	setTimeout(function(){document.getElementById("result").style.visibility="hidden";}, 5000)
 	let temp;

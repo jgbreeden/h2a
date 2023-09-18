@@ -119,7 +119,7 @@ input[type="text"] {
 #jzip, #szip, #years, #years2 {
 	width: 50px;
 }
-#jobsTab, #schoolsTab{
+#jobsTab, #schoolsTab, .tabcolumn {
 	width: 120px;
 }
 #newappform, #empdiv {
@@ -130,4 +130,7 @@ input[type="text"] {
 }
 fieldset {
 	padding-bottom: 2px;
+}
+#mainform2 {
+	margin-bottom: 10px;
 }

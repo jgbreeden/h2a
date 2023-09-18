@@ -35,7 +35,7 @@
 		. $row["whatknowvisa"] . '", "howhearcita": "' . $row["howhearcita"] . '", "otherhelp": "'
 		. $row["otherhelp"] . '", "whatknowcita": "' . $row["whatknowcita"] . '", "ppnumber": "' 
 		. $row["ppnumber"] . '", "ppcity": "' . $row["ppcity"] . '", "ppstate": "' . $row["ppstate"] . '", "ppdateissue": "'
-		. $row["ppdateissue"] . '", "ppdatedue": "' . $row["ppdatedue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
+		. $row["ppdateissue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
 		. $row["visaissues"] . '", "visarefused": "' . $row["visarefused"] . '", "license": "'
 		. $row["license"] . '", "deported": "' . $row["deported"] . '", "skills": [ '; 
 
@@ -119,9 +119,7 @@
 	}
 	*/
 	echo ']';
-	$query = "SELECT * FROM appds160
-
-			WHERE appds160.id =?";
+	$query = "SELECT * FROM appds160 WHERE applicantsid =?";
 
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_POST["id"]);
@@ -132,10 +130,10 @@
 		. $row["nationality"] . '", "othernations": "' . $row["othernations"] . '", "otherresident": "' 
 		. $row["otherresident"] . '", "nationid": "' . $row["nationid"] . '", "ssn": "' . $row["ssn"] . '", "othercontact": "' 
 		. $row["othercontact"] . '", "socialmedia": "' . $row["socialmedia"] . '", "pploststolen": "' 
-		. $row["pploststolen"] . '", "fatherinfo": "' . $row["fatherinfo"] . '", "motherinfo": "' 
+		. $row["pploststolen"] . '", "father": "' . $row["fatherinfo"] . '", "mother": "' 
 		. $row["motherinfo"] . '", "relatives": "' . $row["relatives"] . '", "spouse": "' 
 		. $row["spouse"] . '", "countries": "' . $row["countries"] . '", "groups": "' . $row["groups"] . '", "military": "' 
-		. $row["military"] . '", "issues": "' . $row["issues"] . '", "crimes": "' . $row["crimes"] . '", "deportation": "' 
+		. $row["military"] . '", "issues": "' . $row["issues"] . '", "legalissues": "' . $row["crimes"] . '", "deportation": "' 
 		. $row["deportation"] . '", "applicantsid": "' . $row["applicantsid"] . '"}	';
 	}
 

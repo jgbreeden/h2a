@@ -33,6 +33,7 @@
 
 <div class="formi">
 <form action="st_saveapp2.php" method="post" id="form">
+    <input name="id" id="id" class="hidden">
 <div class="tab" id="tab1">
     <hr>
     <label for="fname">Nombre:</label><br>
@@ -66,13 +67,13 @@
     <hr>
     <div id="maritalstatusoptions" class="options">
         <hr>
-        <label for="city">Fecha cuando se Divorcio:</label><br>
-        <input type="text" id="city" name="city"><br>
+        <label for="datedivorce">Fecha cuando se Divorcio:</label><br>
+        <input type="text" id="datedivorce" name="datedivorce"><br>
         <hr>
     
         <hr>
-        <label for="state">Motivos del divorcio:</label><br>
-        <input type="text" id="state" name="state"><br>
+        <label for="reasondivorce">Motivos del divorcio:</label><br>
+        <input type="text" id="reasondivorce" name="reasondivorce"><br>
         <hr>
     </div>
 
@@ -117,7 +118,7 @@
 
     <hr>
     <label for="othernationality">Otra Nacionalidad</label><br>
-    <input type="text" id="othernationality" name="othernationality"><br>
+    <input type="text" id="othernations" name="othernations"><br>
     <hr>
 
 
@@ -128,8 +129,8 @@
     <hr>
 
     <hr>
-    <label for="ssd">Nu&#769;mero de seguro social de Estados Unidos (si lo tiene) o</label><br>
-    <input type="email" id="ssd" name="ssd"><br>
+    <label for="ssn">Nu&#769;mero de seguro social de Estados Unidos (si lo tiene) o</label><br>
+    <input type="email" id="ssn" name="ssn"><br>
     <hr>
 
     <hr>
@@ -236,7 +237,7 @@
 
                 <hr>
                 <label for="Fatherdob"></label>Fecha de Nacimiento:</label><br>
-                <input type="date" id="Fatherdob" name="Fatherdob"><br>
+                <input type="date" id="fatherdob" name="fatherdob"><br>
             
                 <hr>
                 <label for="Faddress">Dirrection:</label><br>
@@ -244,8 +245,8 @@
                 <hr>
 
                 <hr>
-                <label for="Faddress">Dirrection 2:</label><br>
-                <input type="text" id="Faddress" name="Faddress" min="1" max="20"><br>
+                <label for="Faddress2">Dirrection 2:</label><br>
+                <input type="text" id="Faddress2" name="Faddress2" min="1" max="20"><br>
                 <hr>
 
                 <hr>
@@ -289,12 +290,12 @@
 
                 <hr>
                 <label for="MotherFname">Nombre de su parde:</label><br>
-                <input type="text" id="MotherFname" name="MotherFname" min="1" max="20"><br>
+                <input type="text" id="motherFname" name="motherFname" min="1" max="20"><br>
                 <hr>
             
                 <hr>
                 <label for="MotherLname">Apellido:</label><br>
-                <input type="text" id="MotherLname" name="MotherLname" min="1" max="20"><br>
+                <input type="text" id="motherLname" name="motherLname" min="1" max="20"><br>
                 <hr>
             
                 <hr>
@@ -306,13 +307,13 @@
                 <label for="no">No</label><br>
                 <hr>
                 <hr>
-                <label for="Motehrage">Edad de su Madre:</label><br>
-                <input type="number" id="Motehrage" name="Motehrage" min="1" max="20"><br>
+                <label for="motherage">Edad de su Madre:</label><br>
+                <input type="number" id="motherage" name="motherage" min="1" max="20"><br>
                 <hr>
 
                 <hr>
-                <label for="Motherdob"></label>Fecha de Nacimiento:</label><br>
-                <input type="date" id="Motherdob" name="Motherdob"><br>
+                <label for="motherdob"></label>Fecha de Nacimiento:</label><br>
+                <input type="date" id="motherdob" name="motherdob"><br>
             
                 <hr>
                 <label for="Maddress">Dirrection:</label><br>
