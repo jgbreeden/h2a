@@ -44,24 +44,24 @@ $maritalstatus = htmlspecialchars($_POST["maritalstatus"]);
 //$kilos = htmlspecialchars($_POST["kilos"]);
 //$datesigned = htmlspecialchars($_POST["datesigned"]);
 //$signature = htmlspecialchars($_POST["signature"]);
-$status = "App 2 Ready";
+$status = "waiting";
 $id = $_POST["id"];
 
 //change to an update
 
 $sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phonehome = ?,"
 . "address = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
-. "ppdateissue = ?, ppdatedue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? WHERE id = ?;";
+. "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? WHERE id = ?;";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, 
-                            $gender, $status, $ppnumber, $ppcity, $ppstate, $ppdateissue, $ppdatedue, $visas, $visaissues,
+                            $gender, $status, $ppnumber, $ppcity, $ppstate, $ppdateissue, $visas, $visaissues,
                             $visarefused, $license, $id);
 
 $result = $stmt->execute();
 if ($result == 1) {
-    $message = "Record saved ";
+    $message = "Registro guardado ";
 } else {
-    $message = "There was a problem saving the applicant info: " . result.error;
+    $message = "Hubo un problema al guardar la información del solicitante: " . result.error;
     $conn->close();
     die $message;
 }
@@ -90,19 +90,19 @@ $deportation = htmlspecialchars($_POST["deportation"]);
 //$applicantsid = htmlspecialchars($_POST["applicantsid"]);
 
 $sql = "INSERT INTO `h2a`.`appds160` (`marriage`,`nationalilty`,`othernations`,`otherresident`,`nationid`,`ssn`,`othercontact`,"
-		."`socialmedia`,`pploststolen`,`fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,`crimes`,"
-		."`deportation`,`applicantsid`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		."`socialmedia`,`pploststolen`,`ppdatedue`, `fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,`crimes`,"
+		."`deportation`,`applicantsid`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssssssssssssssssssi", $_POST["marriage"], $_POST["nationalilty"], $_POST["othernations"], $_POST["otherresident"], $_POST["nationid"], 
-                                $_POST["ssn"], $_POST["othercontact"], $_POST["socialmedia"], $_POST["pploststolen"], $_POST["fatherinfo"], $_POST["motherinfo"], $_POST["relatives"],
-                                $_POST["spouse"], $_POST["countires"], $_POST["groups"], $_POST["military"], $_POST["issues"], $_POST["crimes"], $_POST["deportation"],
-                                $_POST["id"]);
+$stmt->bind_param("sssssssssssssssssssi", $marriage, $nationality, $othernations, $otherresident, $nationid, 
+                                $ssn, $othercontact, $socialmedia, $pploststolen, $ppdatedue, $fatherinfo, $motherinfo, $relatives,
+                                $spouse, $countries, $groups, $military, $issues, $crimes, $deportation,
+                                $id);
 $result = $stmt->execute();
 if ($result == 1) {
-    $message .= "along with DS160";
+    $message .= "junto con DS160";
 } else {
-    $message .= "There was a problem saving the DS160 info.";
+    $message .= "Hubo un problema al guardar la información del DS160.";
 }
 echo $message; 								
 
