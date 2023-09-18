@@ -35,7 +35,7 @@
 		. $row["whatknowvisa"] . '", "howhearcita": "' . $row["howhearcita"] . '", "otherhelp": "'
 		. $row["otherhelp"] . '", "whatknowcita": "' . $row["whatknowcita"] . '", "ppnumber": "' 
 		. $row["ppnumber"] . '", "ppcity": "' . $row["ppcity"] . '", "ppstate": "' . $row["ppstate"] . '", "ppdateissue": "'
-		. $row["ppdateissue"] . '", "ppdatedue": "' . $row["ppdatedue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
+		. $row["ppdateissue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
 		. $row["visaissues"] . '", "visarefused": "' . $row["visarefused"] . '", "license": "'
 		. $row["license"] . '", "deported": "' . $row["deported"] . '", "skills": [ '; 
 
