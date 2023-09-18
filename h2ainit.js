@@ -1,4 +1,6 @@
 getData(path + "st_getSkills.php", fillSkill);
+var allstats=document.getElementById("searchapp").innerHTML;
+var newstats = '<option value = "new">New</option><option value = "waiting">Waiting</option><option value = "declined">Declined</option>';
 //getData(path + "st_getIssues.php", fillIssue);
 /*document.getElementById("btnNewApps").addEventListener("click", function(){
     st_show('newapplicants'); 

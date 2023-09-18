@@ -46,10 +46,6 @@ form {
 	background-color: grey;
 }
 
-#searchapp {
-	display: none;
-}
-
 .companylist {
 	float: left;
 	border: 1px solid black;
@@ -134,4 +130,7 @@ input[type="text"] {
 }
 fieldset {
 	padding-bottom: 2px;
+}
+#mainform2 {
+	margin-bottom: 10px;
 }

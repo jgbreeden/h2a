@@ -174,7 +174,7 @@ var currhealth = new Issues (0, "", 0, "", "", "", "", "health");
 var currstatus = new Issues (0, "", 0, "", "status");
 var skilllist = [];
 var path = "";
-var curdoc;
+
 
 function st_show(tab) {
 	let tabs = document.getElementsByClassName("st_tab");
@@ -187,13 +187,13 @@ function st_show(tab) {
 	}
 	let bi = ['newapplicants', 'applicants', 'companies', 'assignments'].findIndex((t)=>t==tab);
 	buttons[bi].classList.add("selected");
-	document.getElementById("searchapp").style.display = "none";
-	document.getElementById("newapplabel").style.display = "none";
+	//document.getElementById("searchapp").style.display = "none";
+	//document.getElementById("newapplabel").style.display = "none";
 	document.getElementById("mainform2").style.display = "none";
 	document.getElementById("mainform3").style.display = "none";
 	if (tab == "applicants"){
 		document.getElementById("newapplicants").style.display = "block";
-		document.getElementById("searchapp").style.display = "block";
+		document.getElementById("searchstat").innerHTML = allstats;
 		document.getElementById("mainform3").style.display = "block";
 		tabs[0].classList.remove("green");
 		tabs[0].classList.add("blue");
@@ -203,7 +203,7 @@ function st_show(tab) {
 		document.getElementById("DS-160").disabled = false;
 	} else {
 		document.getElementById(tab).style.display = "block";
-		document.getElementById("newapplabel").style.display = "inline";
+		document.getElementById("searchstat").innerHTML = newstats
 		document.getElementById("mainform2").style.display = "block";
 		tabs[0].classList.add("green");
 		tabs[0].classList.remove("blue");

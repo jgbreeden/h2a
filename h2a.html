@@ -20,13 +20,21 @@
 				<div id="searchapp">
 					<label for="searchstat">Show Status:</label>
 					<select id="searchstat" onchange="getEmployees('accepted');">
+						<option value="new">New</option>
+						<option value="waiting">Waiting</option>
+						<option value="ready">Ready</option>
+						<option value="pending">Pending</option>
+						<option value="approved">Approved</option>
 						<option value="accepted">Accepted</option>
 						<option value="rejected">Rejected</option>
 						<option value="assigned">Assigned</option>
+						<option value="returning">Returning</option>
+						<option value="declined">Declined</option>
+						<option value="inactive">Inactive</option>
 					</select>
 				</div>
 				<table id="newapptab">
-					<span id="newapplabel">New Applicants</span>
+					<!--<span id="newapplabel">New Applicants</span>-->
 					<tr>
 						<th>first name</th>
 						<th>last name</th>
@@ -90,8 +98,20 @@
 				</td><td>
 				<input type="text" id="placeofbirth" name="placeofbirth">
 				</td>
-				</tr></table>
-				 
+				</tr>
+				<tr>
+					<td>
+					<label for="status">Status:</label>
+					</td><td>
+					<select id="status" name="status">
+						<option value="new">New</option>
+						<option value="accepted">Accepted</option>
+						<option value="rejected">Rejected</option>
+						<option value="assigned">Assigned</option>
+					</select>
+					</td>
+					</tr>
+				</table>
 					<button type="button" onclick="showContactTab(0)" class="tabbutton" id="contactbtn">Contact Info</button>
 					<button type="button" onclick="showContactTab(1)" class="tabbutton" id="visabtn">Nation/Visa</button>
 				<table id="visainfo">
@@ -99,7 +119,7 @@
 				<td>
 				<label for="ustravel">US Travel:</label>
 				</td><td>
-				<textarea type="text" id="ustravel" name="ustravel" rows="3" cols="19" class="ds160"></textarea>
+				<textarea type="text" id="ustravel" name="ustravel" rows="2" cols="19" class="ds160"></textarea>
 				</td>
 				</tr><tr>
 				<td>
@@ -141,6 +161,12 @@
 				</td>
 				</tr>
 				<tr>
+					<td>
+					<label for="farmwork">Farm work:</label>
+					</td><td>
+					<textarea type="text" id="farmwork" name="farmwork" rows="2" cols="19"></textarea>
+					</td>
+				</tr><tr>
 				<td>
 				<label for="visas">Visas:</label>
 				</td><td>
@@ -150,7 +176,7 @@
 				<td>
 				<label for="visaissues">Visa Issues:</label>
 				</td><td>
-				<textarea id="visaissues" name="visaissues" rows="3" cols="19"></textarea>
+				<textarea id="visaissues" name="visaissues" rows="2" cols="19"></textarea>
 				</td>
 				</tr><tr>
 				<td>
@@ -261,25 +287,11 @@
 				</td>
 				</tr><tr>
 					<td>
-					<label for="ppissues">Pp Lost/Stolen:</label>
+					<label for="ppissues">Pp Issues:</label>
 					</td><td>
 					<input type="text" id="ppissues" name="ppissues" class="ds160">
 					</td>
 					</tr>
-				</table>
-				<table>
-					<tr>
-				<td>
-				<label for="status">Status:</label>
-				</td><td>
-				<select id="status" name="status">
-					<option value="new">New</option>
-					<option value="accepted">Accepted</option>
-					<option value="rejected">Rejected</option>
-					<option value="assigned">Assigned</option>
-				</select>
-				</td>
-				</tr>
 				</table>
 			</div>
 			<div class="newappdiv maindivs"> 
@@ -546,45 +558,38 @@
 		</div>
 			<div class="newappdiv">
 				<div class="newappdiv">
-					<table id="skillsTab">
+					<table id="healthTab">
 						<tr>
-							<th>Experience</th>
-							<th>Years</th>
-							<th>Where</th>
+							<th>Health Issue</th>
+							<th>Treatment</th>
 						</tr>
 					</table>
 				</div>
 				<div class="newappdiv">
-					<form id="skillsForm">
-						<input type="text" id="exid" name="exid" class="id">
+					<form id="healthsec">
+						<input type="text" id="healthid2" name="healthid2" class="id">
 						<table class="lefty">
 							<tr>
-								<td><label for="skill">Crops:</label></td>
-								<td><select id="skill" name="skill">
+								<td><label for="healthlist">Health Issue:</label></td>
+								<td><select id="healthlist" name="healthlist">
 									<option value=""></option>
 									<option value="Avocado">Avocado</option>
-								</select>
-							
-								<label for="years">Years:</label></td>
-								<td><input type="text" id="years" name="years"></td>
+								</select></td>
 							</tr>
 							<tr>
-								<td><label for="location">Location:</label></td>
-								<td><input type="text" id="location" name="location"></td>
+								<td><label for="treatment2">Treatment:</label></td>
+								<td><input type="text" id="treatment2" name="treatment2"></td>
 							</tr>
 							<tr>
-								<td><label for="details">Details:</label></td>
-								<td><input type="text" id="details" name="details"></td>
+								<td><label for="reason2">Reason:</label></td>
+								<td><input type="text" id="reason2" name="reason2"></td>
 							</tr>
 							<tr>
-							<td><button type="button" onclick="clearSkill()">Clear</button></td>
-							<td><button type="button" onclick="saveSkill()">Save Experience</button></td>
+							<td><button type="button" onclick="clearHealth()">Clear</button></td>
+							<td><button type="button" onclick="saveHealth()">Save Health</button></td>
 							</tr>
 						</table>
-						<br>
-						<input type="text" id="apid" name="apid" class="id">
-						<input type="text" id="skid" name="skid" class="id">
-						
+						<input type="text" id="apid4" name="apid4" class="id">
 						
 					</form>
 				</div>
@@ -632,6 +637,51 @@
 					</form>
 				</div>
 			</div>
+			<div class="newappdiv">
+				<div class="newappdiv">
+					<table id="skillsTab">
+						<tr>
+							<th>Experience</th>
+							<th>Years</th>
+							<th>Where</th>
+						</tr>
+					</table>
+				</div>
+				<div class="newappdiv">
+					<form id="skillsForm">
+						<input type="text" id="exid" name="exid" class="id">
+						<table class="lefty">
+							<tr>
+								<td><label for="skill">Crops:</label></td>
+								<td><select id="skill" name="skill">
+									<option value=""></option>
+									<option value="Avocado">Avocado</option>
+								</select>
+							
+								<label for="years">Years:</label></td>
+								<td><input type="text" id="years" name="years"></td>
+							</tr>
+							<tr>
+								<td><label for="location">Location:</label></td>
+								<td><input type="text" id="location" name="location"></td>
+							</tr>
+							<tr>
+								<td><label for="details">Details:</label></td>
+								<td><input type="text" id="details" name="details"></td>
+							</tr>
+							<tr>
+							<td><button type="button" onclick="clearSkill()">Clear</button></td>
+							<td><button type="button" onclick="saveSkill()">Save Experience</button></td>
+							</tr>
+						</table>
+						<br>
+						<input type="text" id="apid" name="apid" class="id">
+						<input type="text" id="skid" name="skid" class="id">
+						
+						
+					</form>
+				</div>
+			</div>
 	<!--		<div class="newappdiv">
 				<div class="newappdiv">
 					<table id="docTab">
@@ -676,44 +726,6 @@
 					</form>
 				</div>
 			</div> -->
-			<div class="newappdiv">
-				<div class="newappdiv">
-					<table id="healthTab">
-						<tr>
-							<th>Health Issue</th>
-							<th>Treatment</th>
-						</tr>
-					</table>
-				</div>
-				<div class="newappdiv">
-					<form id="healthsec">
-						<input type="text" id="healthid2" name="healthid2" class="id">
-						<table class="lefty">
-							<tr>
-								<td><label for="healthlist">Health Issue:</label></td>
-								<td><select id="healthlist" name="healthlist">
-									<option value=""></option>
-									<option value="Avocado">Avocado</option>
-								</select></td>
-							</tr>
-							<tr>
-								<td><label for="treatment2">Treatment:</label></td>
-								<td><input type="text" id="treatment2" name="treatment2"></td>
-							</tr>
-							<tr>
-								<td><label for="reason2">Reason:</label></td>
-								<td><input type="text" id="reason2" name="reason2"></td>
-							</tr>
-							<tr>
-							<td><button type="button" onclick="clearHealth()">Clear</button></td>
-							<td><button type="button" onclick="saveHealth()">Save Health</button></td>
-							</tr>
-						</table>
-						<input type="text" id="apid4" name="apid4" class="id">
-						
-					</form>
-				</div>
-			</div>
 			</div>
 	<!--		<div class="newappdiv">
 				<div class="newappdiv">
