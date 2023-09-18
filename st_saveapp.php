@@ -49,7 +49,7 @@ $ppnumber = htmlspecialchars($_POST["npass"]);
 $ppcity = htmlspecialchars($_POST["wherepass"]);
 $ppstate = "";
 $ppdateissue = htmlspecialchars($_POST["expdate"]);
-$ppdatedue = "";
+//$ppdatedue = "";
 $visas = ($_POST["hish2a"] == "yes")? " h2a:" . $_POST["h2acompany"] . " - " . $_POST["h2amonths"] : "";
 $visas .= ($_POST["pasth2a"] == "yes")? " pastcount:" . $_POST["h2acount"] . " companies:" . $_POST["h2apastco"] .
  " type:" . $_POST["h2atype"]:  "";
@@ -73,14 +73,14 @@ $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, 
     whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
     email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, 
     otherhelp, whatknowcita, status, lift25to40, datesigned, signature, ppnumber, 
-    ppcity, ppstate, ppdateissue, ppdatedue, visas, visaissues, visarefused, license, deported) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
+    ppcity, ppstate, ppdateissue, visas, visaissues, visarefused, license, deported) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
     $state, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
     $otherhelp, $whatknowcita, $status, $kilos, $datesigned, $signature, $ppnumber, $ppcity,
-    $ppstate, $ppdateissue, $ppdatedue, $visas, $visaissues, $visarefused, $license, $deported);
+    $ppstate, $ppdateissue, $visas, $visaissues, $visarefused, $license, $deported);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;
