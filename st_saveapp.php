@@ -59,6 +59,8 @@ $visaissues = "";
 $visarefused =  ($_POST["denied"] == "yes")? "Visa Denied - Type: " . $_POST["deniedtype"] . "Year: " . $_POST["deniedyear"] . 
     "Reason: " . $_POST["deniedreason"] . "Times Applied: " . $_POST["timesapplied"] : "";
 $license = htmlspecialchars($_POST["driverlicensetype"]);
+$farmwork = ($_POST["farm"] == "yes")? " workhistory:" . $_POST["farmwhat"] . " whatfarm:"; . $_POST["farmwhere"] . 
+" wherefarm" :"";
 
 if ($_POST["aware"] == "yes") {
     $whatknowvisa = "Yes, I know it is a work visa" . $whatknowvisa;
@@ -73,14 +75,14 @@ $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, 
     whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
     email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, 
     otherhelp, whatknowcita, status, lift25to40, datesigned, signature, ppnumber, 
-    ppcity, ppstate, ppdateissue, visas, visaissues, visarefused, license, deported) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    ppcity, ppstate, ppdateissue, visas, visaissues, visarefused, license, deported. farmwork) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?");
 $stmt->bind_param("sssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
     $state, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
     $otherhelp, $whatknowcita, $status, $kilos, $datesigned, $signature, $ppnumber, $ppcity,
-    $ppstate, $ppdateissue, $visas, $visaissues, $visarefused, $license, $deported);
+    $ppstate, $ppdateissue, $visas, $visaissues, $visarefused, $license, $deported, $farmwork);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;
