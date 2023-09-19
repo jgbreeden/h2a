@@ -148,21 +148,22 @@ for($i = 0; $i < $jobcount; $i++){
   $stmt->execute();
 }
 
-$stmt = $conn->prepare("INSERT INTO school (schoolname, address, address2, city, state, zip, major, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO school (schoolname, address, address2, city, state, zip, major, datefrom, dateto, applicantsid) "
+      ." VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssssssi", $schoolname, $address, $address2, $city, $state, $zip, $major, 
   $datefrom, $dateto, $id);
 
-$schoolcount = count($_POST["school"]);
+$schoolcount = count($_POST["scname"]);
 for($i = 0; $i < $schoolcount; $i++){
-  $schoolname = htmlspecialchars($_POST["jschoolname"][i]);
-  $address = htmlspecialchars($_POST["jaddress"][i]);
-  $address2 = htmlspecialchars($_POST["jaddress2"][i]);
-  $city = htmlspecialchars($_POST["jcity"][i]);
-  $state = htmlspecialchars($_POST["jstate"][i]);
-  $zip = htmlspecialchars($_POST["jzip"][i]);
-  $major = htmlspecialchars($_POST["jmajor"][i]);
-  $datefrom = htmlspecialchars($_POST["jdatefrom"][i]);
-  $dateto = htmlspecialchars($_POST["jdateto"][i]);
+  $schoolname = htmlspecialchars($_POST["scname"][$i]);
+  $address = htmlspecialchars($_POST["scaddress"][$i]);
+  $address2 = htmlspecialchars($_POST["scaddress2"][$i]);
+  $city = htmlspecialchars($_POST["sccity"][$i]);
+  $state = htmlspecialchars($_POST["scstate"][$i]);
+  $zip = htmlspecialchars($_POST["sczip"][$i]);
+  $major = htmlspecialchars($_POST["scmajor"][$i]);
+  $datefrom = htmlspecialchars($_POST["scdatefrom"][$i]);
+  $dateto = htmlspecialchars($_POST["scdateto"][$i]);
   $stmt->execute();
 }
 

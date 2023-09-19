@@ -28,20 +28,23 @@
 	} else {
 		$message ="There was a problem saving the record, please try again.";
 	}
-	$sql = "UPDATE appds160 SET marriage = ?, nationality = ?, othernations = ?, otherresident = ?, nationid = ?, ssn = ?, othercontact = ?, socialmedia = ?,"
-		. "pploststolen = ?, fatherinfo = ?, motherinfo = ?, relatives = ?, spouse = ?, countries = ?, groups = ?, military = ?,"
-		. "issues = ?, crimes = ? , deportation = ?, applicantsid = ? WHERE id = ?;";
-	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("ssssssssssssssssssssi", $_POST["marriage"], $_POST["nationality"], $_POST["othernations"], $_POST["otherresident"], $_POST["nationid"], 
-									$_POST["ssn"], $_POST["othercontact"], $_POST["socialmedia"], $_POST["pploststolen"], $_POST["fatherinfo"], $_POST["motherinfo"], $_POST["relatives"],
-									$_POST["spouse"], $_POST["countires"], $_POST["groups"], $_POST["military"], $_POST["issues"], $_POST["crimes"], $_POST["deportation"], $_POST["applicantsid"],
-									$_POST["id"]);
-	$result = $stmt->execute();
-	if ($result == 1) {
-		$message .= "along with DS160";
-	} else {
-		$message .= "There was a problem saving the DS160 info.";
+	if ($_POST["ds160id"] != "") {
+		$sql = "UPDATE appds160 SET marriage = ?, nationality = ?, othernations = ?, otherresident = ?, nationid = ?, ssn = ?, othercontact = ?, socialmedia = ?,"
+			. "pploststolen = ?, fatherinfo = ?, motherinfo = ?, relatives = ?, spouse = ?, countries = ?, groups = ?, military = ?,"
+			. "issues = ?, crimes = ? , deportation = ?, applicantsid = ? WHERE id = ?;";
+		$stmt = $conn->prepare($sql);
+		$stmt->bind_param("ssssssssssssssssssssi", $_POST["marriage"], $_POST["nationality"], $_POST["othernations"], $_POST["otherresident"], $_POST["nationid"], 
+										$_POST["ssn"], $_POST["othercontact"], $_POST["socialmedia"], $_POST["pploststolen"], $_POST["fatherinfo"], $_POST["motherinfo"], $_POST["relatives"],
+										$_POST["spouse"], $_POST["countires"], $_POST["groups"], $_POST["military"], $_POST["issues"], $_POST["crimes"], $_POST["deportation"], $_POST["id"],
+										$_POST["ds160id"]);
+		$result = $stmt->execute();
+		if ($result == 1) {
+			$message .= "along with DS160";
+		} else {
+			$message .= "There was a problem saving the DS160 info.";
+		}
 	}
 	echo $message; 								
 	$conn->close();
+	
 ?>

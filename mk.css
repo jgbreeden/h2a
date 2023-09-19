@@ -136,3 +136,7 @@ hr {
 .hidden {
     display: none;
 }
+
+input {
+    font-size: 25px;
+}
