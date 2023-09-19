@@ -52,9 +52,10 @@ class Applicant {
 	
 }
 class Appds160{
-	constructor(marriage, nationality, othernations, otherresident, nationid, ssn, othercontact, socalmedia,
+	constructor(id, marriage, nationality, othernations, otherresident, nationid, ssn, othercontact, socalmedia,
 	pploststolen, father, mother, relatives, spouse, countries, groups, military, legalissues, crimes, 
 	deportation, applicants){
+		this.id = id;
 		this.marriage = marriage;
 		this.nationality = nationality;
 		this.othernations = othernations;
@@ -312,6 +313,7 @@ function fillEmpDetail(data) {
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
 		data.ppdatedue, data.visas, data.visaissues, data.visarefused, data.license, data.deported)
 	if(data.ds160 != undefined){
+		currappl.ds160.id = data.ds160.id
 		currappl.ds160.marriage = data.ds160.marriage
 		currappl.ds160.nationality = data.ds160.nationality
 		currappl.ds160.othernations = data.ds160.othernations
@@ -422,6 +424,7 @@ function resetNewApp(){
 	document.getElementById("license").value = currappl.license
 	document.getElementById("usresidency").value = currappl.deported
     if(currappl.ds160.marriage != undefined){
+		document.getElementById("id").value = currappl.id;
 		document.getElementById("marriagedetails").value = currappl.ds160.marriage;
 		document.getElementById("nationality").value = currappl.ds160.nationality;
 		document.getElementById("othernations").value = currappl.ds160.othernations;
