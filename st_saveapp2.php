@@ -82,10 +82,31 @@ $motherinfo = htmlspecialchars($_POST["motherFname"]) . " " . htmlspecialchars($
 $relatives = htmlspecialchars($_POST["Otherrelatives"]);
 $spouse = htmlspecialchars($_POST["SFname"]). " " . htmlspecialchars($_POST["SLname"]);
 $countries = ""; // htmlspecialchars($_POST["countries"]);
-$groups = ""; // htmlspecialchars($_POST["groups"]);
+$groups = ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\n" : ""; // htmlspecialchars($_POST["groups"]);
+//$groups .= ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\n" : "";
 $military = htmlspecialchars($_POST["military"]);
 $issues = ""; // htmlspecialchars($_POST["issues"]);
-$crimes = ""; // htmlspecialchars($_POST["crimes"]);
+$crimes =  ($_POST["arrested"] == "yes")? " arrested:" . $_POST["arrestedexp"] ."\n" :  "";
+$crimes .= ($_POST["substances"] == "yes")? " substances:" . $_POST["substancesexp"]."\n" : "";
+$crimes .= ($_POST["postitution"] == "yes")? " postitution:" . $_POST["postitutionexp"]."\n" : "";
+$crimes .= ($_POST["laundering"] == "yes")? " laundering:" . $_POST["launderingexp"]."\n" : "";
+$crimes .= ($_POST["trafficking"] == "yes")? " trafficking:" . $_POST["traffickingexp"]."\n" : "";
+$crimes .= ($_POST["aidtrafficking"] == "yes")? " aidtrafficking:" . $_POST["aidtraffickingexp"]."\n" : "";
+$crimes .= ($_POST["famtrafficking"] == "yes")? " famtrafficking:" . $_POST["famtraffickingexp"]."\n" : "";
+$crimes .= ($_POST["severetrafficking"] == "yes")? " severetrafficking:" . $_POST["severetraffickingexp"]."\n" : "";
+$crimes .= ($_POST["famsubstances"] == "yes")? " famsubstances:" . $_POST["famsubstancesexp"]."\n" : "";
+$crimes .= ($_POST["espionage"] == "yes")? " espionage:" . $_POST["espionageexp"]."\n" : "";
+$crimes .= ($_POST["terrorist"] == "yes")? " terrorist:" . $_POST["terroristexp"]."\n" : "";
+$crimes .= ($_POST["financial"] == "yes")? " financial:" . $_POST["financialexp"]."\n" : "";
+$crimes .= ($_POST["terrororg"] == "yes")? " terrororg:" . $_POST["terrororgexp"]."\n" : "";
+$crimes .= ($_POST["famterrorist"] == "yes")? " famterrorist:" . $_POST["famterroristexp"]."\n" : "";
+$crimes .= ($_POST["genocide"] == "yes")? " genocide:" . $_POST["genocideexp"]."\n" : "";
+$crimes .= ($_POST["torture"] == "yes")? " torture:" . $_POST["tortureexp"]."\n" : "";
+$crimes .= ($_POST["killings"] == "yes")? " killings:" . $_POST["killingsexp"]."\n" : "";
+$crimes .= ($_POST["childsoldiers"] == "yes")? " childsoldiers:" . $_POST["childsoldiersexp"]."\n" : "";
+$crimes .= ($_POST["violatereligions"] == "yes")? " violatereligions:" . $_POST["violatereligionsexp"]."\n" : "";
+$crimes .= ($_POST[""] == "yes")? " :" . $_POST["exp"]."\n" : "";
+
 $deportation = htmlspecialchars($_POST["deportation"]);
 //$applicantsid = htmlspecialchars($_POST["applicantsid"]);
 
