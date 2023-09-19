@@ -53,7 +53,7 @@ $sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phoneh
 . "address = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
 . "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? WHERE id = ?;";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, 
+$stmt->bind_param("ssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, 
                             $gender, $status, $ppnumber, $ppcity, $ppstate, $ppdateissue, $visas, $visaissues,
                             $visarefused, $license, $id);
 
@@ -63,7 +63,7 @@ if ($result == 1) {
 } else {
     $message = "Hubo un problema al guardar la información del solicitante: " . result.error;
     $conn->close();
-    die $message;
+    die($message);
 }
 //insert into app ds160
 $marriage = htmlspecialchars($_POST["datedivorce"]) . ": " . htmlspecialchars($_POST["reasondivorce"]);
@@ -89,12 +89,12 @@ $crimes = ""; // htmlspecialchars($_POST["crimes"]);
 $deportation = htmlspecialchars($_POST["deportation"]);
 //$applicantsid = htmlspecialchars($_POST["applicantsid"]);
 
-$sql = "INSERT INTO `h2a`.`appds160` (`marriage`,`nationalilty`,`othernations`,`otherresident`,`nationid`,`ssn`,`othercontact`,"
-		."`socialmedia`,`pploststolen`,`ppdatedue`, `fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,`crimes`,"
+$sql = "INSERT INTO `h2a`.`appds160` (`marriage`,`nationality`,`othernations`,`otherresident`,`nationid`,`ssn`,`othercontact`,"
+		."`socialmedia`,`pploststolen`,`ppduedate`, `fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,`crimes`,"
 		."`deportation`,`applicantsid`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssssssssssssssssssi", $marriage, $nationality, $othernations, $otherresident, $nationid, 
+$stmt->bind_param("ssssssssssssssssssssi", $marriage, $nationality, $othernations, $otherresident, $nationid, 
                                 $ssn, $othercontact, $socialmedia, $pploststolen, $ppdatedue, $fatherinfo, $motherinfo, $relatives,
                                 $spouse, $countries, $groups, $military, $issues, $crimes, $deportation,
                                 $id);
@@ -106,23 +106,24 @@ if ($result == 1) {
 }
 echo $message; 								
 
-$stmt = $conn->prepare("INSERT INTO jobhistory (empname, address, address2, city, state, zip, phone, salary, jobtitle, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssssssi", $id, $empname, $address, $address2, $city, $state, $zip, $phone, 
+$stmt = $conn->prepare("INSERT INTO jobhistory (empname, address, address2, city, state, zip, phone, salary,"
+    ." jobtitle, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssi", $empname, $address, $address2, $city, $state, $zip, $phone, 
   $salary, $jobtitle, $datefrom, $dateto, $id);
 
-$jobcount = count($_POST["company"]);
+$jobcount = count($_POST["jcompany"]);
 for($i = 0; $i < $jobcount; $i++){
-  $empname = htmlspecialchars($_POST["jcompany"][i]);
-  $address = htmlspecialchars($_POST["jaddress"][i]);
-  $address2 = htmlspecialchars($_POST["jaddress2"][i]);
-  $city = htmlspecialchars($_POST["jcity"][i]);
-  $state = htmlspecialchars($_POST["jstate"][i]);
-  $zip = htmlspecialchars($_POST["jzip"][i]);
-  $phone = htmlspecialchars($_POST["jphone"][i]);
-  $salary = htmlspecialchars($_POST["jsalary"][i]);
-  $jobtitle = htmlspecialchars($_POST["jjobtitle"][i]);
-  $datefrom = htmlspecialchars($_POST["jdatefrom"][i]);
-  $dateto = htmlspecialchars($_POST["jdateto"][i]);
+  $empname = htmlspecialchars($_POST["jcompany"][$i]);
+  $address = htmlspecialchars($_POST["jaddress"][$i]);
+  $address2 = htmlspecialchars($_POST["jaddress2"][$i]);
+  $city = htmlspecialchars($_POST["jcity"][$i]);
+  $state = htmlspecialchars($_POST["jstate"][$i]);
+  $zip = htmlspecialchars($_POST["jzip"][$i]);
+  $phone = htmlspecialchars($_POST["jphone"][$i]);
+  $salary = htmlspecialchars($_POST["jsalary"][$i]);
+  $jobtitle = htmlspecialchars($_POST["jobtitle"][$i]);
+  $datefrom = htmlspecialchars($_POST["jsdate"][$i]);
+  $dateto = htmlspecialchars($_POST["jedate"][$i]);
   $stmt->execute();
 }
 
