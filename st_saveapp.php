@@ -59,7 +59,7 @@ $visaissues = "";
 $visarefused =  ($_POST["denied"] == "yes")? "Visa Denied - Type: " . $_POST["deniedtype"] . "Year: " . $_POST["deniedyear"] . 
     "Reason: " . $_POST["deniedreason"] . "Times Applied: " . $_POST["timesapplied"] : "";
 $license = htmlspecialchars($_POST["driverlicensetype"]);
-$farmwork = ($_POST["farm"] == "yes")? " workhistory:" . $_POST["farmwhat"] . " whatfarm:"; . $_POST["farmwhere"] . 
+$farmwork = ($_POST["farm"] == "yes")? " workhistory:" . $_POST["farmwhat"] . " whatfarm:" . $_POST["farmwhere"] . 
 " wherefarm" :"";
 
 if ($_POST["aware"] == "yes") {
