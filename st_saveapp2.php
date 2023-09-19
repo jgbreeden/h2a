@@ -44,7 +44,7 @@ $maritalstatus = htmlspecialchars($_POST["maritalstatus"]);
 //$kilos = htmlspecialchars($_POST["kilos"]);
 //$datesigned = htmlspecialchars($_POST["datesigned"]);
 //$signature = htmlspecialchars($_POST["signature"]);
-$status = "waiting";
+$status = "ready";
 $id = $_POST["id"];
 
 //change to an update
