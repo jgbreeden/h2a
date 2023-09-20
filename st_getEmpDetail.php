@@ -37,7 +37,7 @@
 		. $row["ppnumber"] . '", "ppcity": "' . $row["ppcity"] . '", "ppstate": "' . $row["ppstate"] . '", "ppdateissue": "'
 		. $row["ppdateissue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
 		. $row["visaissues"] . '", "visarefused": "' . $row["visarefused"] . '", "license": "'
-		. $row["license"] . '", "deported": "' . $row["deported"] . '", "skills": [ '; 
+		. $row["license"] . '", "deported": "' . $row["deported"] .  '", "ustravel": "' . $row["ustravel"] . '", "skills": [ '; 
 
 	if (! is_null( $row["skillenglish"])) {
 		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"] 
