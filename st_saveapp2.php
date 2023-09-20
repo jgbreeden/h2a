@@ -105,7 +105,7 @@ $crimes .= ($_POST["torture"] == "yes")? " torture:" . $_POST["tortureexp"]."\n"
 $crimes .= ($_POST["killings"] == "yes")? " killings:" . $_POST["killingsexp"]."\n" : "";
 $crimes .= ($_POST["childsoldiers"] == "yes")? " childsoldiers:" . $_POST["childsoldiersexp"]."\n" : "";
 $crimes .= ($_POST["violatereligions"] == "yes")? " violatereligions:" . $_POST["violatereligionsexp"]."\n" : "";
-$crimes .= ($_POST[""] == "yes")? " :" . $_POST["exp"]."\n" : "";
+//$crimes .= ($_POST[""] == "yes")? " :" . $_POST["exp"]."\n" : "";
 
 $deportation = htmlspecialchars($_POST["deportation"]);
 //$applicantsid = htmlspecialchars($_POST["applicantsid"]);
