@@ -67,7 +67,9 @@ if ($_POST["aware"] == "yes") {
 } else {
     $whatknowvisa = "No, I didn't know it was a work visa" . $whatknowvisa;
 }
-
+$ustravel = ($_POST["detention"] == "yes")? "Caught Crossing #Times:" . $_POST["detentiontimes"] . 
+        " Last Time: " . $_POST["detentionlast"] . " Punished: " . $_POST["detentionpunish"] . " Length: " . $_POST["detentiontime"] . 
+        " Completed: " . $_POST["completed"] . " Pardon: " . $_POST["pardon"]:"";
 
 
 $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, 
@@ -75,14 +77,14 @@ $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, 
     whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
     email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, 
     otherhelp, whatknowcita, status, lift25to40, datesigned, signature, ppnumber, 
-    ppcity, ppstate, ppdateissue, visas, visaissues, visarefused, license, deported, farmwork) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
+    ppcity, ppstate, ppdateissue, visas, visaissues, visarefused, license, deported, farmwork, ustravel) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
     $state, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
     $otherhelp, $whatknowcita, $status, $kilos, $datesigned, $signature, $ppnumber, $ppcity,
-    $ppstate, $ppdateissue, $visas, $visaissues, $visarefused, $license, $deported, $farmwork);
+    $ppstate, $ppdateissue, $visas, $visaissues, $visarefused, $license, $deported, $farmwork, $ustravel);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;
