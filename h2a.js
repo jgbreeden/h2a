@@ -195,7 +195,7 @@ function st_show(tab) {
 	document.getElementById("mainform3").style.display = "none";
 	if (tab == "applicants"){
 		document.getElementById("newapplicants").style.display = "block";
-		document.getElementById("searchstat").innerHTML = allstats;
+		document.getElementById("searchstat").innerHTML = oldstats;
 		document.getElementById("status").innerHTML = allstats;
 		document.getElementById("mainform3").style.display = "block";
 		tabs[0].classList.remove("green");
