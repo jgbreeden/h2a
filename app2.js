@@ -24,6 +24,7 @@ function initData(data) {
 	document.getElementById("city").value = data.city;
 	document.getElementById("state").value = data.state;
 	document.getElementById("zipcode").value = data.zip;
+	document.getElementById("id").value = data.id;
 	//document.getElementById("placeofbirth").value = data.placeofbirth;
 	if (data.gender == "male") {
 		document.getElementById("male").checked = true;
