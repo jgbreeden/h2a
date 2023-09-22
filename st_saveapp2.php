@@ -107,7 +107,7 @@ $crimes .= ($_POST["childsoldiers"] == "yes")? " childsoldiers:" . $_POST["child
 $crimes .= ($_POST["violatereligions"] == "yes")? " violatereligions:" . $_POST["violatereligionsexp"]."\n" : "";
 //$crimes .= ($_POST[""] == "yes")? " :" . $_POST["exp"]."\n" : "";
 
-$deportation = htmlspecialchars($_POST["deportation"]);
+$deportation = ($_POST["deported"] == "yes")? "deported:" . htmlspecialchars($_POST["deportedexp"])."\n" : "";
 //$applicantsid = htmlspecialchars($_POST["applicantsid"]);
 
 $sql = "INSERT INTO `h2a`.`appds160` (`marriage`,`nationality`,`othernations`,`otherresident`,`nationid`,`ssn`,`othercontact`,"
