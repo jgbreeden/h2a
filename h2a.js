@@ -2,7 +2,7 @@ class Applicant {
 	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, specificarea, 
 		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, age, height, weight, lift25to40,
 		maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita, ppnumber, ppcity, ppstate, ppdateissue,
-		ppdatedue, visas, visaissues, visarefused, license, deported, ustravel) {
+		visas, visaissues, visarefused, license, deported, ustravel, crimes) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -36,13 +36,13 @@ class Applicant {
 		this.ppcity = ppcity;
 		this.ppstate = ppstate;
 		this.ppdateissue = ppdateissue;
-		this.ppdatedue = ppdatedue;
 		this.visas = visas;
 		this.visaissues = visaissues;
 		this.visarefused = visarefused;
 		this.license = license;
 		this.deported = deported;
 		this.ustravel = ustravel;
+		this.crimes = crimes;
 		this.ds160= new Appds160();
 	}
 	
@@ -54,7 +54,7 @@ class Applicant {
 }
 class Appds160{
 	constructor(id, marriage, nationality, othernations, otherresident, nationid, ssn, othercontact, socalmedia,
-	pploststolen, father, mother, relatives, spouse, countries, groups, military, legalissues, crimes, 
+	pploststolen, ppdatedue, father, mother, relatives, spouse, countries, groups, military, legalissues, 
 	deportation, applicants){
 		this.id = id;
 		this.marriage = marriage;
@@ -66,6 +66,7 @@ class Appds160{
 		this.othercontact = othercontact;
 		this.socalmedia = socalmedia;
 		this.pploststolen = pploststolen;
+		this.ppdatedue = ppdatedue;
 		this.father = father;
 		this.mother = mother;
 		this.relatives = relatives;
@@ -74,7 +75,6 @@ class Appds160{
 		this.groups = groups;
 		this.military = military;
 		this.legalissues = legalissues;
-		this.crimes = crimes;
 		this.deportation = deportation;
 		this.applicants = applicants;
 	}
@@ -312,7 +312,7 @@ function fillEmpDetail(data) {
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
-		data.ppdatedue, data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel)
+		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.crimes)
 	if(data.ds160 != undefined){
 		currappl.ds160.id = data.ds160.id
 		currappl.ds160.marriage = data.ds160.marriage
@@ -324,6 +324,7 @@ function fillEmpDetail(data) {
 		currappl.ds160.othercontact = data.ds160.othercontact
 		currappl.ds160.socialmedia = data.ds160.socialmedia
 		currappl.ds160.pploststolen = data.ds160.pploststolen
+		currappl.ds160.ppdatedue = data.ds160.ppdatedue
 		currappl.ds160.father = data.ds160.father
 		currappl.ds160.mother = data.ds160.mother
 		currappl.ds160.relatives = data.ds160.relatives
@@ -332,7 +333,6 @@ function fillEmpDetail(data) {
 		currappl.ds160.groups = data.ds160.groups
 		currappl.ds160.military = data.ds160.military
 		currappl.ds160.legalissues = data.ds160.legalissues
-		currappl.ds160.crimes = data.ds160.crimes
 		currappl.ds160.deportation = data.ds160.deportation
 		currappl.ds160.applicants = data.ds160.applicants
 	}
@@ -425,6 +425,7 @@ function resetNewApp(){
 	document.getElementById("nationid").value = currappl.nationid
 	document.getElementById("license").value = currappl.license
 	document.getElementById("usresidency").value = currappl.deported
+	document.getElementById("legalissues").value = currappl.crimes;
     if(currappl.ds160.marriage != undefined){
 		document.getElementById("id").value = currappl.id;
 		document.getElementById("marriagedetails").value = currappl.ds160.marriage;
@@ -443,7 +444,6 @@ function resetNewApp(){
 		document.getElementById("countries").value = currappl.ds160.countries;
 		document.getElementById("groups").value = currappl.ds160.groups;
 		document.getElementById("military").value = currappl.ds160.military;
-		document.getElementById("legalissues").value = currappl.ds160.legalissues;
 		//document.getElementById("crimes").value = currappl.ds160.crimes;
 		//document.getElementById("deportation").value = currappl.ds160.deportation;
 		//document.getElementById("applicants").value = currappl.ds160.applicants;

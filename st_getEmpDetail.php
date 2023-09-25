@@ -37,7 +37,8 @@
 		. $row["ppnumber"] . '", "ppcity": "' . $row["ppcity"] . '", "ppstate": "' . $row["ppstate"] . '", "ppdateissue": "'
 		. $row["ppdateissue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
 		. $row["visaissues"] . '", "visarefused": "' . $row["visarefused"] . '", "license": "'
-		. $row["license"] . '", "deported": "' . $row["deported"] .  '", "ustravel": "' . $row["ustravel"] . '", "skills": [ '; 
+		. $row["license"] . '", "deported": "' . $row["deported"] . '", "legalissues": "' 
+		. $row["crimes"] .  '", "ustravel": "' . $row["ustravel"] . '", "skills": [ '; 
 
 	if (! is_null( $row["skillenglish"])) {
 		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"] 
@@ -133,8 +134,7 @@
 		. $row["pploststolen"] . '", "father": "' . $row["fatherinfo"] . '", "mother": "' 
 		. $row["motherinfo"] . '", "relatives": "' . $row["relatives"] . '", "spouse": "' 
 		. $row["spouse"] . '", "countries": "' . $row["countries"] . '", "groups": "' . $row["groups"] . '", "military": "' 
-		. $row["military"] . '", "issues": "' . $row["issues"] . '", "legalissues": "' . $row["crimes"] . '", "deportation": "' 
-		. $row["deportation"] . '", "applicantsid": "' . $row["applicantsid"] . '"}	';
+		. $row["military"] . '", "issues": "' . $row["issues"] . '", "applicantsid": "' . $row["applicantsid"] . '"}	';
 	}
 
 	echo '}';

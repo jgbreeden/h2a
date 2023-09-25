@@ -87,7 +87,7 @@ form {
 }
 
 #blobs {
-    width: 300px
+    width: 300px;
 }
 
 .divborder {
@@ -119,7 +119,7 @@ input[type="text"] {
 #jzip, #szip, #years, #years2 {
 	width: 50px;
 }
-#jobsTab, #schoolsTab, .tabcolumn {
+#jobsTab, #schoolsTab, .tabcolumn, #appconfirm {
 	width: 120px;
 }
 #newappform, #empdiv {
@@ -133,4 +133,7 @@ fieldset {
 }
 #mainform2 {
 	margin-bottom: 10px;
+}
+#whatarea {
+	margin-bottom: 8px;
 }

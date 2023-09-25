@@ -400,6 +400,12 @@
 				</table>	
 				<div id="mainform3">
 					<table>
+						<tr><td>
+							<label for="appconfirm">DS-160 Application ID: &nbsp;&nbsp;</label></td>
+							<td><input type="text" id="appconfirm" name="appconfirm">
+						</td></tr>
+					</table>
+					<table>
 					<tr>
 						<td>Father</td>
 						<td><textarea id="father" name="father" rows="3" cols="29"></textarea></td>
@@ -419,16 +425,24 @@
 					</table>
 	
 			
-				<fieldset id="groups">
-					<legend>Groups, Countries, Military</legend>
-							
-							<textarea id="groups" name="groups" rows="3" cols=35></textarea>
-							<br>
-							<textarea id="countries" name="countries" rows="3" cols=35></textarea>
-							<br>
-							<textarea id="military" name="military" rows="3" cols=35></textarea>
-						
-				</fieldset>
+				<table id="groupstab">
+					<tr><td>		
+					<label for="groups">Groups</label></td>
+					<td><textarea id="groups" name="groups" rows="2" cols="29"></textarea>
+					</td></tr>
+					<tr><td>
+					<label for="countries">Countries</label></td>
+					<td><textarea id="countries" name="countries" rows="2" cols="29"></textarea>
+					</td></tr>
+					<tr><td>
+					<label for="military">Military</label></td>
+					<td><textarea id="military" name="military" rows="2" cols="29"></textarea>
+					</td></tr>
+					<tr><td>
+					<label for="issues">Issues</label></td>
+					<td><textarea id="issues" name="issues" rows="2" cols="29"></textarea>
+					</td></tr>
+				</table>
 			</div>
 			<div class="newappdiv maindivs">
 				<fieldset id="legal">

@@ -8,9 +8,10 @@
 		. "address = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, specificarea = ?, whatarea = ?, stay8mo = ?, overtime = ?,"
 		. "extend = ?, extendwhynot = ?, dateofbirth = ?, email = ?, age = ?, height = ?, weight = ?, lift25to40 = ?, maritalstatus = ?,"
 		. "placeofbirth = ?, whatknowvisa = ?, howhearcita = ?, otherhelp = ?, whatknowcita = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
-		. "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ?, deported = ? WHERE id = ?;";
+		. "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ?, deported = ?, crimes = ? "
+		. "WHERE id = ?;";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("sssssssssssssssssssssssssssssssssssssi", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
+	$stmt->bind_param("ssssssssssssssssssssssssssssssssssssssi", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
 									$_POST["hphone"], $_POST["address"], $_POST["city"],
 									$_POST["state"], $_POST["zip"], $_POST["gender"], $_POST["status"], $_POST["specificarea"], $_POST["whatarea"], 
 									$_POST["stay8mo"], $_POST["overtime"], $_POST["extend"],
@@ -19,7 +20,7 @@
 									$_POST["whatknowvisa"], $_POST["howhearcita"], $_POST["otherhelp"], $_POST["whatknowcita"],
 									$_POST["ppnumber"], $_PODT["ppcity"], $_POST["ppstate"], $_POST["ppdataissue"], $_POST["visas"],
 									$_POST["visaissues"], $_POST["visarefused"], $_POST["license"], $_POST["usresidency"],
-									$_POST["id"]);
+									$_POST["legalissues"], $_POST["id"]);
 	$result = $stmt->execute();
 	$message = "";
 	if ($result == 1) {
@@ -31,11 +32,11 @@
 	if ($_POST["ds160id"] != "") {
 		$sql = "UPDATE appds160 SET marriage = ?, nationality = ?, othernations = ?, otherresident = ?, nationid = ?, ssn = ?, othercontact = ?, socialmedia = ?,"
 			. "pploststolen = ?, fatherinfo = ?, motherinfo = ?, relatives = ?, spouse = ?, countries = ?, groups = ?, military = ?,"
-			. "issues = ?, crimes = ? , deportation = ?, applicantsid = ? WHERE id = ?;";
+			. "issues = ?, applicantsid = ? WHERE id = ?;";
 		$stmt = $conn->prepare($sql);
-		$stmt->bind_param("ssssssssssssssssssssi", $_POST["marriage"], $_POST["nationality"], $_POST["othernations"], $_POST["otherresident"], $_POST["nationid"], 
+		$stmt->bind_param("ssssssssssssssssssi", $_POST["marriage"], $_POST["nationality"], $_POST["othernations"], $_POST["otherresident"], $_POST["nationid"], 
 										$_POST["ssn"], $_POST["othercontact"], $_POST["socialmedia"], $_POST["pploststolen"], $_POST["fatherinfo"], $_POST["motherinfo"], $_POST["relatives"],
-										$_POST["spouse"], $_POST["countires"], $_POST["groups"], $_POST["military"], $_POST["issues"], $_POST["crimes"], $_POST["deportation"], $_POST["id"],
+										$_POST["spouse"], $_POST["countires"], $_POST["groups"], $_POST["military"], $_POST["issues"], $_POST["id"],
 										$_POST["ds160id"]);
 		$result = $stmt->execute();
 		if ($result == 1) {
