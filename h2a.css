@@ -43,7 +43,8 @@ form {
 }
 
 .selected {
-	background-color: grey;
+	background-color: rgb(180, 180, 180);
+	color: black;
 }
 
 .companylist {
