@@ -55,7 +55,7 @@ class Applicant {
 class Appds160{
 	constructor(id, marriage, nationality, othernations, otherresident, nationid, ssn, othercontact, socalmedia,
 	pploststolen, ppdatedue, father, mother, relatives, spouse, countries, groups, military, legalissues, 
-	deportation, applicants){
+	deportation, applicants, issues, confirmation){
 		this.id = id;
 		this.marriage = marriage;
 		this.nationality = nationality;
@@ -77,6 +77,8 @@ class Appds160{
 		this.legalissues = legalissues;
 		this.deportation = deportation;
 		this.applicants = applicants;
+		this.issues = issues;
+		this.confirmation = confirmation
 	}
 	update(){
 		var formData = new FormData(document.getElementById("newappform"));
@@ -312,7 +314,7 @@ function fillEmpDetail(data) {
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
-		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.crimes)
+		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.crimes, data.confirmation)
 	if(data.ds160 != undefined){
 		currappl.ds160.id = data.ds160.id
 		currappl.ds160.marriage = data.ds160.marriage
@@ -335,6 +337,8 @@ function fillEmpDetail(data) {
 		currappl.ds160.legalissues = data.ds160.legalissues
 		currappl.ds160.deportation = data.ds160.deportation
 		currappl.ds160.applicants = data.ds160.applicants
+		currappl.ds160.issues = data.ds160.issues
+		currappl.ds160.confirmation = data.ds160.confirmation
 	}
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
@@ -374,6 +378,8 @@ function resetNewApp(){
 	document.getElementById("maritalstatus").value = currappl.maritalstatus;
 	document.getElementById("placeofbirth").value = currappl.placeofbirth;
 	document.getElementById("ustravel").value = currappl.ustravel;
+	document.getElementById("legalissues").value = currappl.crimes;
+	document.getElementById("appconfirm").value = currappl.confirmation;
 
 	if (currappl.gender == "male") {
 		document.getElementById("male").checked = true;
@@ -444,6 +450,8 @@ function resetNewApp(){
 		document.getElementById("countries").value = currappl.ds160.countries;
 		document.getElementById("groups").value = currappl.ds160.groups;
 		document.getElementById("military").value = currappl.ds160.military;
+		document.getElementById("issues").value = currappl.ds160.issues;
+		document.getElementById("appconfirm").value = currappl.ds160.confrimation;
 		//document.getElementById("crimes").value = currappl.ds160.crimes;
 		//document.getElementById("deportation").value = currappl.ds160.deportation;
 		//document.getElementById("applicants").value = currappl.ds160.applicants;
