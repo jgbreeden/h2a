@@ -44,6 +44,25 @@ $maritalstatus = htmlspecialchars($_POST["maritalstatus"]);
 //$kilos = htmlspecialchars($_POST["kilos"]);
 //$datesigned = htmlspecialchars($_POST["datesigned"]);
 //$signature = htmlspecialchars($_POST["signature"]);
+$crimes =  ($_POST["arrested"] == "yes")? " arrested:" . $_POST["arrestedexp"] ."\\n" :  "";
+$crimes .= ($_POST["substances"] == "yes")? " substances:" . $_POST["substancesexp"]."\\n" : "";
+$crimes .= ($_POST["postitution"] == "yes")? " postitution:" . $_POST["postitutionexp"]."\\n" : "";
+$crimes .= ($_POST["laundering"] == "yes")? " laundering:" . $_POST["launderingexp"]."\\n" : "";
+$crimes .= ($_POST["trafficking"] == "yes")? " trafficking:" . $_POST["traffickingexp"]."\\n" : "";
+$crimes .= ($_POST["aidtrafficking"] == "yes")? " aidtrafficking:" . $_POST["aidtraffickingexp"]."\\n" : "";
+$crimes .= ($_POST["famtrafficking"] == "yes")? " famtrafficking:" . $_POST["famtraffickingexp"]."\\n" : "";
+$crimes .= ($_POST["severetrafficking"] == "yes")? " severetrafficking:" . $_POST["severetraffickingexp"]."\\n" : "";
+$crimes .= ($_POST["famsubstances"] == "yes")? " famsubstances:" . $_POST["famsubstancesexp"]."\\n" : "";
+$crimes .= ($_POST["espionage"] == "yes")? " espionage:" . $_POST["espionageexp"]."\\n" : "";
+$crimes .= ($_POST["terrorist"] == "yes")? " terrorist:" . $_POST["terroristexp"]."\\n" : "";
+$crimes .= ($_POST["financial"] == "yes")? " financial:" . $_POST["financialexp"]."\\n" : "";
+$crimes .= ($_POST["terrororg"] == "yes")? " terrororg:" . $_POST["terrororgexp"]."\\n" : "";
+$crimes .= ($_POST["famterrorist"] == "yes")? " famterrorist:" . $_POST["famterroristexp"]."\\n" : "";
+$crimes .= ($_POST["genocide"] == "yes")? " genocide:" . $_POST["genocideexp"]."\\n" : "";
+$crimes .= ($_POST["torture"] == "yes")? " torture:" . $_POST["tortureexp"]."\\n" : "";
+$crimes .= ($_POST["killings"] == "yes")? " killings:" . $_POST["killingsexp"]."\\n" : "";
+$crimes .= ($_POST["childsoldiers"] == "yes")? " childsoldiers:" . $_POST["childsoldiersexp"]."\\n" : "";
+$crimes .= ($_POST["violatereligions"] == "yes")? " violatereligions:" . $_POST["violatereligionsexp"]."\\n" : "";
 $status = "ready";
 $id = $_POST["id"];
 
@@ -51,11 +70,11 @@ $id = $_POST["id"];
 
 $sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phonehome = ?,"
 . "address = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
-. "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? WHERE id = ?;";
+. "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? , crimes = ? WHERE id = ?;";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, 
+$stmt->bind_param("sssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, 
                             $gender, $status, $ppnumber, $ppcity, $ppstate, $ppdateissue, $visas, $visaissues,
-                            $visarefused, $license, $id);
+                            $visarefused, $license, $crimes, $id);
 
 $result = $stmt->execute();
 if ($result == 1) {
@@ -72,7 +91,7 @@ $othernations = htmlspecialchars($_POST["othernations"]);
 $otherresident = ""; //htmlspecialchars($_POST["otherresident"]);
 $nationid = htmlspecialchars($_POST["nationid"]);
 $ssn = htmlspecialchars($_POST["ssn"]);
-$othercontact = htmlspecialchars($_POST["otherphones"]) . "\n" . htmlspecialchars($_POST["otheremail"]);
+$othercontact = htmlspecialchars($_POST["otherphones"]) . "\\n" . htmlspecialchars($_POST["otheremail"]);
 $socialmedia = htmlspecialchars($_POST["socialmedia"]);
 $pploststolen = ""; // htmlspecialchars($_POST["pploststolen"]);
 $fatherinfo = htmlspecialchars($_POST["fatherFname"]) . " " . htmlspecialchars($_POST["fatherLname"])
@@ -82,42 +101,24 @@ $motherinfo = htmlspecialchars($_POST["motherFname"]) . " " . htmlspecialchars($
 $relatives = htmlspecialchars($_POST["Otherrelatives"]);
 $spouse = htmlspecialchars($_POST["SFname"]). " " . htmlspecialchars($_POST["SLname"]);
 $countries = ""; // htmlspecialchars($_POST["countries"]);
-$groups = ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\n" : ""; // htmlspecialchars($_POST["groups"]);
-//$groups .= ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\n" : "";
+$groups = ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\\n" : ""; // htmlspecialchars($_POST["groups"]);
+//$groups .= ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\\n" : "";
 $military = htmlspecialchars($_POST["military"]);
 $issues = ""; // htmlspecialchars($_POST["issues"]);
-$crimes =  ($_POST["arrested"] == "yes")? " arrested:" . $_POST["arrestedexp"] ."\n" :  "";
-$crimes .= ($_POST["substances"] == "yes")? " substances:" . $_POST["substancesexp"]."\n" : "";
-$crimes .= ($_POST["postitution"] == "yes")? " postitution:" . $_POST["postitutionexp"]."\n" : "";
-$crimes .= ($_POST["laundering"] == "yes")? " laundering:" . $_POST["launderingexp"]."\n" : "";
-$crimes .= ($_POST["trafficking"] == "yes")? " trafficking:" . $_POST["traffickingexp"]."\n" : "";
-$crimes .= ($_POST["aidtrafficking"] == "yes")? " aidtrafficking:" . $_POST["aidtraffickingexp"]."\n" : "";
-$crimes .= ($_POST["famtrafficking"] == "yes")? " famtrafficking:" . $_POST["famtraffickingexp"]."\n" : "";
-$crimes .= ($_POST["severetrafficking"] == "yes")? " severetrafficking:" . $_POST["severetraffickingexp"]."\n" : "";
-$crimes .= ($_POST["famsubstances"] == "yes")? " famsubstances:" . $_POST["famsubstancesexp"]."\n" : "";
-$crimes .= ($_POST["espionage"] == "yes")? " espionage:" . $_POST["espionageexp"]."\n" : "";
-$crimes .= ($_POST["terrorist"] == "yes")? " terrorist:" . $_POST["terroristexp"]."\n" : "";
-$crimes .= ($_POST["financial"] == "yes")? " financial:" . $_POST["financialexp"]."\n" : "";
-$crimes .= ($_POST["terrororg"] == "yes")? " terrororg:" . $_POST["terrororgexp"]."\n" : "";
-$crimes .= ($_POST["famterrorist"] == "yes")? " famterrorist:" . $_POST["famterroristexp"]."\n" : "";
-$crimes .= ($_POST["genocide"] == "yes")? " genocide:" . $_POST["genocideexp"]."\n" : "";
-$crimes .= ($_POST["torture"] == "yes")? " torture:" . $_POST["tortureexp"]."\n" : "";
-$crimes .= ($_POST["killings"] == "yes")? " killings:" . $_POST["killingsexp"]."\n" : "";
-$crimes .= ($_POST["childsoldiers"] == "yes")? " childsoldiers:" . $_POST["childsoldiersexp"]."\n" : "";
-$crimes .= ($_POST["violatereligions"] == "yes")? " violatereligions:" . $_POST["violatereligionsexp"]."\n" : "";
-//$crimes .= ($_POST[""] == "yes")? " :" . $_POST["exp"]."\n" : "";
 
-$deportation = ($_POST["deported"] == "yes")? "deported:" . htmlspecialchars($_POST["deportedexp"])."\n" : "";
+//$crimes .= ($_POST[""] == "yes")? " :" . $_POST["exp"]."\\n" : "";
+
+$deportation = ($_POST["deported"] == "yes")? "deported:" . htmlspecialchars($_POST["deportedexp"])."\\n" : "";
 //$applicantsid = htmlspecialchars($_POST["applicantsid"]);
 
 $sql = "INSERT INTO `h2a`.`appds160` (`marriage`,`nationality`,`othernations`,`otherresident`,`nationid`,`ssn`,`othercontact`,"
-		."`socialmedia`,`pploststolen`,`ppduedate`, `fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,`crimes`,"
-		."`deportation`,`applicantsid`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		."`socialmedia`,`pploststolen`,`ppduedate`, `fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,"
+		."`applicantsid`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssssssssssssssi", $marriage, $nationality, $othernations, $otherresident, $nationid, 
+$stmt->bind_param("ssssssssssssssssssi", $marriage, $nationality, $othernations, $otherresident, $nationid, 
                                 $ssn, $othercontact, $socialmedia, $pploststolen, $ppdatedue, $fatherinfo, $motherinfo, $relatives,
-                                $spouse, $countries, $groups, $military, $issues, $crimes, $deportation,
+                                $spouse, $countries, $groups, $military, $issues,
                                 $id);
 $result = $stmt->execute();
 if ($result == 1) {
