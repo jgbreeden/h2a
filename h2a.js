@@ -314,7 +314,7 @@ function fillEmpDetail(data) {
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
-		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.crimes, data.confirmation)
+		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.legalissues);
 	if(data.ds160 != undefined){
 		currappl.ds160.id = data.ds160.id
 		currappl.ds160.marriage = data.ds160.marriage
@@ -378,9 +378,7 @@ function resetNewApp(){
 	document.getElementById("maritalstatus").value = currappl.maritalstatus;
 	document.getElementById("placeofbirth").value = currappl.placeofbirth;
 	document.getElementById("ustravel").value = currappl.ustravel;
-	document.getElementById("legalissues").value = currappl.crimes;
-	document.getElementById("appconfirm").value = currappl.confirmation;
-
+	
 	if (currappl.gender == "male") {
 		document.getElementById("male").checked = true;
 	} else {
