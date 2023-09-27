@@ -449,7 +449,7 @@ function resetNewApp(){
 		document.getElementById("groups").value = currappl.ds160.groups;
 		document.getElementById("military").value = currappl.ds160.military;
 		document.getElementById("issues").value = currappl.ds160.issues;
-		document.getElementById("appconfirm").value = currappl.ds160.confrimation;
+		document.getElementById("appconfirm").value = currappl.ds160.confirmation;
 		//document.getElementById("crimes").value = currappl.ds160.crimes;
 		//document.getElementById("deportation").value = currappl.ds160.deportation;
 		//document.getElementById("applicants").value = currappl.ds160.applicants;
@@ -524,6 +524,7 @@ function clearNewApp(){
 	document.getElementById("military").value = "";
 	document.getElementById("legalissues").value = "";
 	document.getElementById("ustravel").value = "";
+	document.getElementById("appconfirm").value = "";
 
 	clearSkill();
 	clearAbility();
@@ -602,7 +603,7 @@ function showHealth(row){
 	row.classList.add("selected");
 }
 
-function showDocs(row){
+/*function showDocs(row){
 	let cells = row.getElementsByTagName("td");
 	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, "",cells[1].innerHTML, "document");
 	document.getElementById("docid2").value = cells[0].innerHTML;
@@ -625,7 +626,7 @@ function showStatus(row){
 	resetTable(document.getElementById("statusTab"));
 	row.classList.add("selected");
 }
-
+*/
 function resetTable(tabl){
 	rows = tabl.getElementsByTagName("tr");
 	for (let i = 0; i < rows.length; i++){
