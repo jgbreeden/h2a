@@ -119,7 +119,38 @@
 		$comma = ", ";
 	}
 	*/
-	echo ']';
+	echo'],  "jobhistory": [';
+	$query = "SELECT * FROM jobs WHERE applicantsid =?"
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param("i", $_POST["id"]);
+	$stmt->execute();
+	$comma = "";
+	$results = $stmt->get_result();
+	while ($row = $results->fetchassoc()) {								
+		echo $comma .' { "id": ' . $row["id"] . ', "empname": "' . $row["empname"] . '",  "address": "' . $row["address"]
+			. '", "address2": "' . $row["address2"] . '", "city": "' . $row["city"] . '", "state": "' . $row["state"] 
+			. '", "zip": "' . $row["zip"] . '", "phone" "' . $row["phone"] . '", "salary" "' . $row["salary"] . '", "jobtitle" "' . $row["jobtitle"] 
+			. '", "datefrom" "' . $row["datefrom"] . '", "dateto" "'. $row["dateto"] . '", "applicantsid" "' . $row["applicantsid"] 
+			. '", "duties" "' . $row["duties"] . '", "supervisor" "' . $row["supervisor"]	. '"}';
+		$comma = ", ";
+		}
+
+	echo '], "school": [';
+	$query = "SELECT * FROM schools WHERE applicantsid =?"
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param("i", $_POST["id"]);
+	$stmt->execute();
+	$comma = "";
+	$results = $stmt->get_result();
+	while ($row = $results->fetchassoc()) {	
+		echo $comma . '{ "id": ' . $row["id"] . ', "schoolname": "' . $row["schoolname"] . '",  "address": "' . $row["address"]
+			. '", "address2": "' . $row["address2"] . '", "city": "' . $row["city"] . '", "state": "' . $row["state"] 
+			. '", "zip": "' . $row["zip"] . '", "major": "' . $row["major"] . '", "datefrom" "' . $row["datefrom"] . '", "dateto" "'
+			. $row["dateto"] . '", "applicantsid" "' . $row["applicantsid"] . '"} ';
+		$comma = ", ";
+	}
+
+	echo '] "ds160": ';
 	$query = "SELECT * FROM appds160 WHERE applicantsid =?";
 
 	$stmt = $conn->prepare($query);
