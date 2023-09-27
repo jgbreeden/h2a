@@ -150,14 +150,14 @@
 		$comma = ", ";
 	}
 
-	echo '], "appds160": ';
+	echo ']';
 	$query = "SELECT * FROM appds160 WHERE applicantsid =?";
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_POST["id"]);
 	$stmt->execute();
 	$results = $stmt->get_result();
 	if ($row = $results->fetch_assoc()) {
-		echo '{"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
+		echo ', "appds160": {"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
 		. $row["nationality"] . '", "othernations": "' . $row["othernations"] . '", "otherresident": "' 
 		. $row["otherresident"] . '", "nationid": "' . $row["nationid"] . '", "ssn": "' . $row["ssn"] . '", "othercontact": "' 
 		. $row["othercontact"] . '", "socialmedia": "' . $row["socialmedia"] . '", "pploststolen": "' 
