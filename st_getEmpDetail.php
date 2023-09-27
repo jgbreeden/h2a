@@ -119,22 +119,52 @@
 		$comma = ", ";
 	}
 	*/
-	echo ']';
-	$query = "SELECT * FROM appds160 WHERE applicantsid =?";
+	echo'],  "jobhistory": [';
+	$query = "SELECT * FROM jobhistory WHERE applicantsid =?";
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param("i", $_POST["id"]);
+	$stmt->execute();
+	$comma = "";
+	$results = $stmt->get_result();
+	while ($row = $results->fetch_assoc()) {								
+		echo $comma .' { "id": ' . $row["id"] . ', "empname": "' . $row["empname"] . '",  "address": "' . $row["address"]
+			. '", "address2": "' . $row["address2"] . '", "city": "' . $row["city"] . '", "state": "' . $row["state"] 
+			. '", "zip": "' . $row["zip"] . '", "phone": "' . $row["phone"] . '", "salary": "' . $row["salary"] . '", "jobtitle": "' . $row["jobtitle"] 
+			. '", "datefrom": "' . $row["datefrom"] . '", "dateto": "'. $row["dateto"] . '", "applicantsid": "' . $row["applicantsid"] 
+			. '", "duties": "' . $row["duties"] . '", "supervisor": "' . $row["supervisor"]	. '"}';
+		$comma = ", ";
+		}
 
+	echo '], "school": [';
+	$query = "SELECT * FROM school WHERE applicantsid =?";
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param("i", $_POST["id"]);
+	$stmt->execute();
+	$comma = "";
+	$results = $stmt->get_result();
+	while ($row = $results->fetch_assoc()) {	
+		echo $comma . '{ "id": ' . $row["id"] . ', "schoolname": "' . $row["schoolname"] . '",  "address": "' . $row["address"]
+			. '", "address2": "' . $row["address2"] . '", "city": "' . $row["city"] . '", "state": "' . $row["state"] 
+			. '", "zip": "' . $row["zip"] . '", "major": "' . $row["major"] . '", "datefrom": "' . $row["datefrom"] . '", "dateto": "'
+			. $row["dateto"] . '", "applicantsid": "' . $row["applicantsid"] . '"}';
+		$comma = ", ";
+	}
+
+	echo '], "appds160": ';
+	$query = "SELECT * FROM appds160 WHERE applicantsid =?";
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_POST["id"]);
 	$stmt->execute();
 	$results = $stmt->get_result();
 	if ($row = $results->fetch_assoc()) {
-		echo ', "ds160": {"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
+		echo '{"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
 		. $row["nationality"] . '", "othernations": "' . $row["othernations"] . '", "otherresident": "' 
 		. $row["otherresident"] . '", "nationid": "' . $row["nationid"] . '", "ssn": "' . $row["ssn"] . '", "othercontact": "' 
 		. $row["othercontact"] . '", "socialmedia": "' . $row["socialmedia"] . '", "pploststolen": "' 
 		. $row["pploststolen"] . '", "father": "' . $row["fatherinfo"] . '", "mother": "' 
 		. $row["motherinfo"] . '", "relatives": "' . $row["relatives"] . '", "spouse": "' 
 		. $row["spouse"] . '", "countries": "' . $row["countries"] . '", "groups": "' . $row["groups"] . '", "military": "' 
-		. $row["military"] . '", "issues": "' . $row["issues"] . '", "applicantsid": "' . $row["applicantsid"] . '"}	';
+		. $row["military"] . '", "issues": "' . $row["issues"] . '", "applicantsid": "' . $row["applicantsid"] . '"}';
 	}
 
 	echo '}';
