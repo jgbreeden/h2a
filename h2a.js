@@ -52,6 +52,25 @@ class Applicant {
 		var formData = new FormData(document.getElementById("newappform"));
 		sendData(formData, path + path + "st_updateEmp.php", showResult);
 	}
+
+	updateJob() {
+		var formData= new FormData(document.getElementById("jobsForm"));
+		sendData(formData, path + "st_updateJobs.php", showResult);
+	}
+
+	insertJob() {
+		var formData = new FormData(document.getElementById("jobsForm"));
+		sendData(formData, path + "st_insertJobs.php", showResult)
+	}
+
+	updateSchool () {
+			formData = new FormData(document.getElementById("schoolForm"));
+			sendData(formData, path + "st_updateSchool.php", showResult);
+	}
+	insertSchool () {
+			formData = new FormData(document.getElementById("schoolForm"));
+			sendData(formData, path + "st_insertSchool.php", showResult);
+	}
 	
 }
 class Appds160{
@@ -276,36 +295,6 @@ function fillEmps(data) {
 }
 
 function fillEmpDetail(data) {
-	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
-		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
-		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
-		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
-		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.crimes, data.confirmation)
-	if(data.ds160 != undefined){
-		currappl.ds160.id = data.ds160.id
-		currappl.ds160.marriage = data.ds160.marriage
-		currappl.ds160.nationality = data.ds160.nationality
-		currappl.ds160.othernations = data.ds160.othernations
-        currappl.ds160.otherresident = data.ds160.otherresident
-		currappl.ds160.nationid = data.ds160.nationid
-		currappl.ds160.ssn = data.ds160.ssn
-		currappl.ds160.othercontact = data.ds160.othercontact
-		currappl.ds160.socialmedia = data.ds160.socialmedia
-		currappl.ds160.pploststolen = data.ds160.pploststolen
-		currappl.ds160.ppdatedue = data.ds160.ppdatedue
-		currappl.ds160.father = data.ds160.father
-		currappl.ds160.mother = data.ds160.mother
-		currappl.ds160.relatives = data.ds160.relatives
-		currappl.ds160.spouse = data.ds160.spouse
-		currappl.ds160.countries = data.ds160.countries
-		currappl.ds160.groups = data.ds160.groups
-		currappl.ds160.military = data.ds160.military
-		currappl.ds160.legalissues = data.ds160.legalissues
-		currappl.ds160.deportation = data.ds160.deportation
-		currappl.ds160.applicants = data.ds160.applicants
-		currappl.ds160.issues = data.ds160.issues
-		currappl.ds160.confirmation = data.ds160.confirmation
-	}
 	let table = document.getElementById("skillsTab");
 	let contents = "<tr><th>Experiance</th><th>Years</th><th class='tabcolumn'>Where</th></tr>";
 	for (let i = 0; i < data.skills.length; i++){
@@ -344,20 +333,49 @@ function fillEmpDetail(data) {
 
 	let jobsTable = document.getElementById("jobsTab");
 	let jobsContents = "<tr><th class='tabcolumn'>Jobs</th></tr>";
-	for (let i =0; i < data.jobs.length; i++){
-		jobsContents += "<tr onclick='showJobs(this)'><td class='id'>" + data.jobs[i].id + "</td><td>" 
-			+ data.jobs[i].empname + "</td></tr>";
+	for (let i =0; i < data.job.length; i++){
+		jobsContents += "tr onclick='showJobs(this)'><td class='id'>" + data.jobs[i].id + "</td><td>" + data.jobs[i].company + "</td></tr>"
 		currappl.jobs.push(new History("jobs", data.jobs[i].id, data.jobs[i].empname, data.jobs[i].address, data.jobs[i].address2, data.jobs[i].city, 
 		data.jobs[i].state, data.jobs[i].zip, data.jobs[i].phone, data.jobs[i].salary, data.jobs[i].jobtitle, data.jobs[i].datefrom, data.jobs[i].dateto,
 		data.jobs[i].applicantsid, data.jobs[i].duties, data.jobs[i].supervisor))
 	}
 
-	let schoolTable = document.getElementById("schoolsTab");
+	let schoolTable = document.getElementById("schoolTab");
 	let schoolContents = "<tr><th class='tabcolumn'>School</th></tr>";
 	for (let i =0; i < data.school.length; i++){
 		schoolContents += "tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].school + "</td></tr>"
 	}
 
+	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
+		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
+		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
+		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
+		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.crimes, data.confirmation)
+	if(data.ds160 != undefined){
+		currappl.ds160.id = data.ds160.id
+		currappl.ds160.marriage = data.ds160.marriage
+		currappl.ds160.nationality = data.ds160.nationality
+		currappl.ds160.othernations = data.ds160.othernations
+        currappl.ds160.otherresident = data.ds160.otherresident
+		currappl.ds160.nationid = data.ds160.nationid
+		currappl.ds160.ssn = data.ds160.ssn
+		currappl.ds160.othercontact = data.ds160.othercontact
+		currappl.ds160.socialmedia = data.ds160.socialmedia
+		currappl.ds160.pploststolen = data.ds160.pploststolen
+		currappl.ds160.ppdatedue = data.ds160.ppdatedue
+		currappl.ds160.father = data.ds160.father
+		currappl.ds160.mother = data.ds160.mother
+		currappl.ds160.relatives = data.ds160.relatives
+		currappl.ds160.spouse = data.ds160.spouse
+		currappl.ds160.countries = data.ds160.countries
+		currappl.ds160.groups = data.ds160.groups
+		currappl.ds160.military = data.ds160.military
+		currappl.ds160.legalissues = data.ds160.legalissues
+		currappl.ds160.deportation = data.ds160.deportation
+		currappl.ds160.applicants = data.ds160.applicants
+		currappl.ds160.issues = data.ds160.issues
+		currappl.ds160.confirmation = data.ds160.confirmation
+	}
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
@@ -365,7 +383,7 @@ function fillEmpDetail(data) {
 	healthTable.innerHTML = healthContents;
 	//statusTable.innerHTML = statusContents;
 	jobsTable.innerHTML = jobsContents;
-	schoolTable.innerHTML = schoolContents;
+	schoolTable.innnerHTML = schoolContents;
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	document.getElementById("apid2").value = currappl.id;
@@ -374,7 +392,7 @@ function fillEmpDetail(data) {
 	//document.getElementById("apid5").value = currappl.id;
 	clearSkill();
 	clearAbility();
-	clearJob();
+	clearJobs();
 	clearHealth();
 	clearSchool();
 	resetNewApp();
@@ -549,9 +567,9 @@ function clearNewApp(){
 
 	clearSkill();
 	clearAbility();
-	clearJob();
+	//clearDoc();
 	clearHealth();
-	clearSchool();
+	//clearStatus();
 	//resetNewApp();
 }
 
@@ -569,15 +587,13 @@ function sendData(data, phpFile, callBack){
 
 function showResult(data){
 	document.getElementById("result").innerHTML = data;
-	document.getElementById("result").classList.remove("fade");
-	document.getElementById("result").style.visibility="visible";
 	if(data.indexOf("saved") == -1) {
 		console.log(data);
 	}
-	document.getElementById("result").classList.add("fade");
+	document.getElementById("result").classList.remove("fade");
 	setTimeout(function(){document.getElementById("result").style.visibility="hidden";}, 5000)
 	let temp;
-	if (document.getElementById("searchstat").innerHTML != newstats) {
+	if (document.getElementById("searchapp").style.display != "none") {
 		temp = document.getElementById("searchstat").value;
 	} else {
 		temp = "new";
@@ -629,23 +645,23 @@ function showHealth(row){
 function showJobs(row){
 	let cells = row.getElementsByTagName("td");
 	for (i = 0; i < currappl.jobs.length; i++) {
-		if (cells[0].innerHTML == currappl.jobs[i].id) {
+		if (cells[0].innerHTML == currappl.jobs[i]) {
 			break
 		}
 	}
 	document.getElementById("jid").value = currappl.jobs[i].id;
-	document.getElementById("company").value = currappl.jobs[i].empname;
+	document.getElementById("company").value = currappl.jobs[i].company;
 	document.getElementById("salary").value = currappl.jobs[i].salary;
 	document.getElementById("address").value = currappl.jobs[i].address;
 	document.getElementById("address2").value = currappl.jobs[i].address;
-	document.getElementById("jcity").value = currappl.jobs[i].city;
-	document.getElementById("jstate").value = currappl.jobs[i].state;
-	document.getElementById("jzip").value = currappl.jobs[i].zip;
+	document.getElementById("jcity").value = currappl.jobs[i].jcity;
+	document.getElementById("jstate").value = currappl.jobs[i].jstate;
+	document.getElementById("jzip").value = currappl.jobs[i].jzip;
 	document.getElementById("supervisor").value = currappl.jobs[i].supervisor;
 	document.getElementById("jobtitle").value = currappl.jobs[i].jobtitle;
 	document.getElementById("datefrom").value = currappl.jobs[i].datefrom;
 	document.getElementById("dateto").value = currappl.jobs[i].dateto;
-	document.getElementById("jphone").value = currappl.jobs[i].phone;
+	document.getElementById("jphone").value = currappl.jobs[i].jphone;
 	resetTable(document.getElementById("jobsTab"));
 	row.classList.add("selected");
 }
@@ -659,13 +675,13 @@ function showSchool(row){
 	}
 	document.getElementById("school").value = currappl.jobs[i].school;
 	document.getElementById("major").value = currappl.jobs[i].major;
-	document.getElementById("saddress").value = currappl.jobs[i].address;
-	document.getElementById("saddress2").value = currappl.jobs[i].address2;
-	document.getElementById("scity").value = currappl.jobs[i].city;
-	document.getElementById("sstate").value = currappl.jobs[i].state;
-	document.getElementById("szip").value = currappl.jobs[i].zip;
-	document.getElementById("sdatefrom").value = currappl.jobs[i].datefrom;
-	document.getElementById("sdateto").value = currappl.jobs[i].dateto;
+	document.getElementById("saddress").value = currappl.jobs[i].saddress;
+	document.getElementById("saddress2").value = currappl.jobs[i].saddress2;
+	document.getElementById("scity").value = currappl.jobs[i].scity;
+	document.getElementById("sstate").value = currappl.jobs[i].sstate;
+	document.getElementById("szip").value = currappl.jobs[i].szip;
+	document.getElementById("sdatefrom").value = currappl.jobs[i].sdatefrom;
+	document.getElementById("sdateto").value = currappl.jobs[i].sdateto;
 	resetTable(document.getElementById("schoolTab"));
 	row.classList.add("selected");
 }
@@ -752,7 +768,7 @@ function clearAbility(){
 	resetTable(document.getElementById("abilityTab"));
 }
 
-function clearJob(){
+function clearJobs(){
 	document.getElementById("company").value = "";
 	document.getElementById("jaddress").value = "";
 	document.getElementById("jaddress2").value = "";
@@ -764,7 +780,7 @@ function clearJob(){
 	document.getElementById("datefrom").value = "";
 	document.getElementById("dateto").value = "";
 	document.getElementById("jphone").value = "";
-	resetTable(document.getElementById("jobsTab"));
+	resetTable(document.getElementById("jobTab"));
 }
 
 function clearHealth(){
@@ -779,6 +795,7 @@ function clearHealth(){
 function clearSchool(){
 	document.getElementById("school").value = "";
 	document.getElementById("major").value = "";
+	document.getElementById("statusid").value = "";
 	document.getElementById("saddress").value = "";
 	document.getElementById("saddress2").value = "";
 	document.getElementById("scity").value = "";
@@ -786,7 +803,7 @@ function clearSchool(){
 	document.getElementById("szip").value = "";
 	document.getElementById("datefrom").value = "";
 	document.getElementById("dateto").value = "";
-	resetTable(document.getElementById("schoolsTab"));
+	resetTable(document.getElementById("schoolTab"));
 }
 
 function saveSkill(){
@@ -806,11 +823,11 @@ function saveAbility(){
 }
 
 
-function saveDoc(){
-	if (document.getElementById("docid2").value == 0) {
-		currdoc.insert()
+function saveJob(){
+	if (document.getElementById("jid").value == 0) {
+		currappl.insertJob()
 	} else {
-		currdoc.update()
+		currappl.updateJob()
 	}
 }
 
@@ -823,11 +840,11 @@ function saveHealth(){
 	}
 }
 
-function saveStatus(){
-	if (document.getElementById("statusid").value == 0) {
-		currstatus.insert()
+function saveSchool(){
+	if (document.getElementById("scid").value == 0) {
+		curraappl.insertSchool()
 	} else {
-		currstatus.update()
+		currappl.updateSchool()
 	}
 }
 
