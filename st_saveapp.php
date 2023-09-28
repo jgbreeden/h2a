@@ -53,11 +53,11 @@ $ppdateissue = htmlspecialchars($_POST["expdate"]);
 $visas = ($_POST["hish2a"] == "yes")? "H-2a:" . $_POST["h2acompany"] . " - " . $_POST["h2amonths"] : "";
 $visas .= ($_POST["pasth2a"] == "yes")? (($visas != "")? "\\n":"") ."Past count:" . $_POST["h2acount"] 
     . " companies:" . $_POST["h2apastco"] . " type:" . $_POST["h2atype"]:  "";
-$deported = ($_POST["deport"] == "yes")? " when:" . $_POST["deportwhen"] . " why:" . $_POST["deportwhy"]: "";
-$deported .= ($_POST["detdeport"] == "yes")? " time:" . $_POST["howmuchtime"] . " reason:" . $_POST["whatreason"]: "";
+$deported = ($_POST["deport"] == "yes")? "Deported:" . $_POST["deportwhen"] . " why:" . $_POST["deportwhy"]: "";
+$deported .= ($_POST["detdeport"] == "yes")? " punished time:" . $_POST["howmuchtime"] . " reason:" . $_POST["whatreason"]: "";
 $visaissues = "";
-$visarefused =  ($_POST["denied"] == "yes")? "Visa Denied - Type: " . $_POST["deniedtype"] . "Year: " . $_POST["deniedyear"] . 
-    "Reason: " . $_POST["deniedreason"] . "Times Applied: " . $_POST["timesapplied"] : "";
+$visarefused =  ($_POST["denied"] == "yes")? "Type:" . $_POST["deniedtype"] . " Year:" . $_POST["deniedyear"] . 
+    " Reason:" . $_POST["deniedreason"] . " Times Applied:" . $_POST["timesapplied"] : "";
 $license = htmlspecialchars($_POST["driverlicensetype"]);
 
 $farmwork = ($_POST["historywork"] == "yes")? "Farm work:" . $_POST["manner"] . " Tourist Visa:" 

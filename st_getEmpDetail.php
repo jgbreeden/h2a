@@ -119,7 +119,7 @@
 		$comma = ", ";
 	}
 	*/
-	echo'],  "jobhistory": [';
+	echo'],  "jobs": [';
 	$query = "SELECT * FROM jobhistory WHERE applicantsid =?";
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_POST["id"]);
