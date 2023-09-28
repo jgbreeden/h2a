@@ -337,7 +337,7 @@ function fillEmpDetail(data) {
 	for (let i =0; i < data.jobs.length; i++){
 		jobsContents += "<tr onclick='showJobs(this)'><td class='id'>" + data.jobs[i].id + "</td><td>" 
 			+ data.jobs[i].entity + "</td></tr>";
-		currappl.jobs.push(new History("jobs", data.jobs[i].id, data.jobs[i].entity, data.jobs[i].address, data.jobs[i].address2, 
+		currappl.jobs.push(new History("jobs", data.jobs[i].id, data.jobs[i].empname, data.jobs[i].address, data.jobs[i].address2, 
 			data.jobs[i].city, data.jobs[i].state, data.jobs[i].zip, data.jobs[i].datefrom, data.jobs[i].dateto, 
 			data.jobs[i].applicantsid, "", data.jobs[i].phone, data.jobs[i].salary, data.jobs[i].jobtitle,
 			data.jobs[i].duties, data.jobs[i].supervisor))
