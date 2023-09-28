@@ -374,7 +374,7 @@ function fillEmpDetail(data) {
 	//document.getElementById("apid5").value = currappl.id;
 	clearSkill();
 	clearAbility();
-	clearJobs();
+	clearJob();
 	clearHealth();
 	clearSchool();
 	resetNewApp();
@@ -549,9 +549,9 @@ function clearNewApp(){
 
 	clearSkill();
 	clearAbility();
-	//clearDoc();
+	clearJob();
 	clearHealth();
-	//clearStatus();
+	clearSchool();
 	//resetNewApp();
 }
 
@@ -569,13 +569,15 @@ function sendData(data, phpFile, callBack){
 
 function showResult(data){
 	document.getElementById("result").innerHTML = data;
+	document.getElementById("result").classList.remove("fade");
+	document.getElementById("result").style.visibility="visible";
 	if(data.indexOf("saved") == -1) {
 		console.log(data);
 	}
-	document.getElementById("result").classList.remove("fade");
+	document.getElementById("result").classList.add("fade");
 	setTimeout(function(){document.getElementById("result").style.visibility="hidden";}, 5000)
 	let temp;
-	if (document.getElementById("searchapp").style.display != "none") {
+	if (document.getElementById("searchstat").innerHTML != newstats) {
 		temp = document.getElementById("searchstat").value;
 	} else {
 		temp = "new";
@@ -631,20 +633,19 @@ function showJobs(row){
 			break
 		}
 	}
-	console.log(currappl.jobs);
 	document.getElementById("jid").value = currappl.jobs[i].id;
 	document.getElementById("company").value = currappl.jobs[i].empname;
 	document.getElementById("salary").value = currappl.jobs[i].salary;
 	document.getElementById("address").value = currappl.jobs[i].address;
 	document.getElementById("address2").value = currappl.jobs[i].address;
-	document.getElementById("jcity").value = currappl.jobs[i].jcity;
-	document.getElementById("jstate").value = currappl.jobs[i].jstate;
-	document.getElementById("jzip").value = currappl.jobs[i].jzip;
+	document.getElementById("jcity").value = currappl.jobs[i].city;
+	document.getElementById("jstate").value = currappl.jobs[i].state;
+	document.getElementById("jzip").value = currappl.jobs[i].zip;
 	document.getElementById("supervisor").value = currappl.jobs[i].supervisor;
 	document.getElementById("jobtitle").value = currappl.jobs[i].jobtitle;
 	document.getElementById("datefrom").value = currappl.jobs[i].datefrom;
 	document.getElementById("dateto").value = currappl.jobs[i].dateto;
-	document.getElementById("jphone").value = currappl.jobs[i].jphone;
+	document.getElementById("jphone").value = currappl.jobs[i].phone;
 	resetTable(document.getElementById("jobsTab"));
 	row.classList.add("selected");
 }
@@ -658,13 +659,13 @@ function showSchool(row){
 	}
 	document.getElementById("school").value = currappl.jobs[i].school;
 	document.getElementById("major").value = currappl.jobs[i].major;
-	document.getElementById("saddress").value = currappl.jobs[i].saddress;
-	document.getElementById("saddress2").value = currappl.jobs[i].saddress2;
-	document.getElementById("scity").value = currappl.jobs[i].scity;
-	document.getElementById("sstate").value = currappl.jobs[i].sstate;
-	document.getElementById("szip").value = currappl.jobs[i].szip;
-	document.getElementById("sdatefrom").value = currappl.jobs[i].sdatefrom;
-	document.getElementById("sdateto").value = currappl.jobs[i].sdateto;
+	document.getElementById("saddress").value = currappl.jobs[i].address;
+	document.getElementById("saddress2").value = currappl.jobs[i].address2;
+	document.getElementById("scity").value = currappl.jobs[i].city;
+	document.getElementById("sstate").value = currappl.jobs[i].state;
+	document.getElementById("szip").value = currappl.jobs[i].zip;
+	document.getElementById("sdatefrom").value = currappl.jobs[i].datefrom;
+	document.getElementById("sdateto").value = currappl.jobs[i].dateto;
 	resetTable(document.getElementById("schoolTab"));
 	row.classList.add("selected");
 }
@@ -751,7 +752,7 @@ function clearAbility(){
 	resetTable(document.getElementById("abilityTab"));
 }
 
-function clearJobs(){
+function clearJob(){
 	document.getElementById("company").value = "";
 	document.getElementById("jaddress").value = "";
 	document.getElementById("jaddress2").value = "";
