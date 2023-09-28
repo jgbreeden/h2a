@@ -46,13 +46,13 @@
 				<table>
 				<tr>
 				<td>
-				<label for="fname">First name:</label>
+				<label for="first">First name:</label>
 				</td><td>
 				<input type="text" id="first" name="fname">
 				</td>
 				</tr><tr>
 				<td>
-				<label for="lname">Last name:</label>
+				<label for="last">Last name:</label>
 				</td><td>
 				<input type="text" id="last" name="lname">
 				</td>
@@ -61,9 +61,9 @@
 				Gender:
 				</td><td>
 				<input type="radio" id="male" name="gender" value="male">
-				<label for="gender">Male&nbsp;&nbsp;</label>
+				<label for="male">Male&nbsp;&nbsp;</label>
 				<input type="radio" id="female" name="gender" value="female">
-				<label for="gender">Female</label>
+				<label for="female">Female</label>
 				</td><tr>
 				<td>
 				<label for="maritalstatus">Marital Status:</label>
@@ -330,7 +330,7 @@
 						</td><td>
 						<label for="stay8mo">Yes:</label>
 						
-						<input type="radio" id="stay8moyes" name="stay8mo" value="1">
+						<input type="radio" id="stay8mo" name="stay8mo" value="1">
 						<label for="stay8mo">No:</label>
 						
 						<input type="radio" id="stay8mono" name="stay8mo" value="0">
@@ -341,7 +341,7 @@
 						</td><td>
 						<label for="overtime">Yes:</label>
 						
-						<input type="radio" id="overtimeyes" name="overtime" value="1">
+						<input type="radio" id="overtime" name="overtime" value="1">
 						<label for="overtime">No:</label>
 						
 						<input type="radio" id="overtimeno" name="overtime" value="0">
@@ -352,7 +352,7 @@
 						</td><td>
 						<label for="extend">Yes:</label>
 						
-						<input type="radio" id="extendyes" name="extend" value="1">
+						<input type="radio" id="extend" name="extend" value="1">
 						<label for="extend">No:</label>
 						
 						<input type="radio" id="extendno" name="extend" value="0">
@@ -366,11 +366,11 @@
 						</tr><tr>
 						<td>
 			
-						<label for="radio">Specific Area:</label>
+						<label for="distanceyuma">Specific Area:</label>
 							
 						<input type="radio" id="distanceyuma" name="specificarea" value="1">
 						</td><td>
-						<label for="radio">Any Area:</label>
+						<label for="distanceany">Any Area:</label>
 							
 						<input type="radio" id="distanceany" name="specificarea" value="0">
 						</td>
@@ -501,7 +501,7 @@
 							<td><input type="date" id="dateto" name="dateto" class="ds160"></td>
 						</tr>
 						<tr>
-							<td><label for="phone">Phone:</label></td>
+							<td><label for="jphone">Phone:</label></td>
 							<td><input type="text" id="jphone" name="phone" class="ds160">
 							<label for="duties">Duties:</label></td>
 							<td rowspan=2><textarea rows=2 columns=20 name="duties" id="duties" class="ds160"></textarea></td>
@@ -534,7 +534,7 @@
 						<tr>
 							<td><label for="school">School:</label></td>
 							<td><input type="text" id="school" name="school" class="ds160"></td>
-							<td><label for="Major">Major:</label>
+							<td><label for="major">Major:</label>
 							<input type="text" id="major" name="major" class="ds160"></td>
 						</tr>
 						<tr>
@@ -782,7 +782,7 @@
 				<input type="number" id="compid" name="compid" class="id">
 				<table class="lefty">
 					<tr>
-						<td><label for="fname">Company name:</label></td>
+						<td><label for="compname">Company name:</label></td>
 						<td><input type="text" id="compname" name="compfname"></td>
 					</tr>
 					<tr>
@@ -884,24 +884,24 @@
 			</div>
 			<div class="left divborder">
 				<b>Applicant Details</b><br>
-				<label for="radio">Specific Area:</label>
+				<label for="distanceyuma2">Specific Area:</label>
 				<input type="radio" id="distanceyuma2" name="specificarea2" value="1" onclick="return false">
-				<label for="radio">Any Area:</label>
+				<label for="distanceany2">Any Area:</label>
 				<input type="radio" id="distanceany2" name="specificarea2" value="0" onclick="return false">
 				<br>
 				<label for="whatarea2">What Area:</label>
 				<input type="text" id="whatarea2" name="whatarea2" value="" readonly>
 				<br>
 				Over Time:
-				<label for="overtime2">Yes:</label>
+				<label for="overtimeyes2">Yes:</label>
 				<input type="radio" id="overtimeyes2" name="overtime2" value="1" onclick="return false">
-				<label for="overtime2">No:</label>
+				<label for="overtimeno2">No:</label>
 				<input type="radio" id="overtimeno2" name="overtime2" value="0" onclick="return false">
 				<br>
 				Extended Time:
-				<label for="extend2">Yes:</label>
+				<label for="extendyes2">Yes:</label>
 				<input type="radio" id="extendyes2" name="extend2" value="1" onclick="return false">
-				<label for="extend2">No:</label>
+				<label for="extendno2">No:</label>
 				<input type="radio" id="extendno2" name="extend2" value="0" onclick="return false">
 				<table id="healthTab2">
 					<tr>

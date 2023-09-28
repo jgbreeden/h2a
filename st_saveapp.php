@@ -50,29 +50,37 @@ $ppcity = htmlspecialchars($_POST["wherepass"]);
 $ppstate = "";
 $ppdateissue = htmlspecialchars($_POST["expdate"]);
 //$ppdatedue = "";
-$visas = ($_POST["hish2a"] == "yes")? " h2a:" . $_POST["h2acompany"] . " - " . $_POST["h2amonths"] : "";
-$visas .= ($_POST["pasth2a"] == "yes")? " pastcount:" . $_POST["h2acount"] . " companies:" . $_POST["h2apastco"] .
- " type:" . $_POST["h2atype"]:  "";
+$visas = ($_POST["hish2a"] == "yes")? "H-2a:" . $_POST["h2acompany"] . " - " . $_POST["h2amonths"] : "";
+$visas .= ($_POST["pasth2a"] == "yes")? (($visas != "")? "\\n":"") ."Past count:" . $_POST["h2acount"] 
+    . " companies:" . $_POST["h2apastco"] . " type:" . $_POST["h2atype"]:  "";
 $deported = ($_POST["deport"] == "yes")? " when:" . $_POST["deportwhen"] . " why:" . $_POST["deportwhy"]: "";
 $deported .= ($_POST["detdeport"] == "yes")? " time:" . $_POST["howmuchtime"] . " reason:" . $_POST["whatreason"]: "";
 $visaissues = "";
 $visarefused =  ($_POST["denied"] == "yes")? "Visa Denied - Type: " . $_POST["deniedtype"] . "Year: " . $_POST["deniedyear"] . 
     "Reason: " . $_POST["deniedreason"] . "Times Applied: " . $_POST["timesapplied"] : "";
 $license = htmlspecialchars($_POST["driverlicensetype"]);
-$farmwork = ($_POST["farm"] == "yes")? " workhistory:" . $_POST["farmwhat"] . " whatfarm:" . $_POST["farmwhere"] . 
-" wherefarm" :"";
-$crimes = ($_POST["police"] == "yes")? "policeissue:" . $_POST ["policeproblem"] :"";
 
+$farmwork = ($_POST["historywork"] == "yes")? "Farm work:" . $_POST["manner"] . " Tourist Visa:" 
+    . $_POST["touristvisa"] . " State:" . $_POST["workstate"]: "";
+$farmwork .= ($_POST["otherwork"] != "")? (($farmwork != "")? "\\n":"") . "Other work:" 
+    . $_POST["otherwork"]: "";
+$farmwork .= ($_POST["otherworkus"] != "")? (($farmwork != "")? "\\n":"") . "Other work:" 
+    . $_POST["otherworkus"]: "";
+$farmwork .= ($_POST["migrate"] == "yes")? (($farmwork != "")? "\\n":"") . "In migration(how long):"
+    . $_POST["howlong"]: "";
+$crimes = ($_POST["police"] == "yes")? "Police issue:" . $_POST ["policeproblem"] :"";
 
-if ($_POST["aware"] == "yes") {
-    $whatknowvisa = "Yes, I know it is a work visa" . $whatknowvisa;
-} else {
-    $whatknowvisa = "No, I didn't know it was a work visa" . $whatknowvisa;
-}
 $ustravel = ($_POST["detention"] == "yes")? "Caught Crossing #Times:" . $_POST["detentiontimes"] . 
-        " Last Time: " . $_POST["detentionlast"] . " Punished: " . $_POST["detentionpunish"] . " Length: " . $_POST["detentiontime"] . 
-        " Completed: " . $_POST["completed"] . " Pardon: " . $_POST["pardon"]:"";
-
+        " Last Time:" . $_POST["detentionlast"] . " Punished:" . $_POST["detentionpunish"] . 
+        " Length:" . $_POST["detentiontime"] . " Completed:" . $_POST["completed"] . 
+        " Pardon:" . $_POST["pardon"]:"";
+$ustravel .= ($_POST["usdetention"] == "yes")? (($ustravel != "")? "\\n":"") . 
+    "Detained entering US:yes": "";
+if ($_POST["aware"] == "yes") {
+    $whatknowvisa = "Knows it's a work visa. " . $whatknowvisa;
+} else {
+    $whatknowvisa = "Didn't know it's a work visa. " . $whatknowvisa;
+}
 
 $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, 
     state, zipcode, gender, specificarea, 

@@ -43,7 +43,9 @@ class Applicant {
 		this.deported = deported;
 		this.ustravel = ustravel;
 		this.crimes = crimes;
-		this.ds160= new Appds160();
+		this.ds160 = new Appds160();
+		this.jobs = []
+		this.schools = []
 	}
 	
 	update() {
@@ -80,10 +82,6 @@ class Appds160{
 		this.issues = issues;
 		this.confirmation = confirmation
 	}
-	update(){
-		var formData = new FormData(document.getElementById("newappform"));
-		sendData(formData, path + path + "st_updateEmp.php", showResult);
-	}
 }
 
 class Experience {
@@ -104,6 +102,9 @@ class Experience {
 		if (this.skilltype == "produce") {
 			formData = new FormData(document.getElementById("skillsForm"));
 			sendData(formData, path + path + "st_updateSkill.php", showResult);
+		} else if (this.skillType == "health") {
+			formData = new FormData(document.getElementById("healthsec"));
+			sendData(formData, path + path + "st_updateHealth.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("abilityForm"));
 			sendData(formData, path + path + "st_updateAbility.php", showResult);
@@ -114,58 +115,58 @@ class Experience {
 		var formData;
 		if (this.skilltype == "produce") {
 			formData = new FormData(document.getElementById("skillsForm"));
-			sendData(formData, path + path + "st_insertSkill.php", showResult);
+			sendData(formData, path + "st_insertSkill.php", showResult);
+		} else if (this.skillType == "health") {
+			formData = new FormData(document.getElementById("healthsec"));
+			sendData(formData, path + "st_insertHealth.php", showResult);
 		} else {
 			formData = new FormData(document.getElementById("abilityForm"));
-			sendData(formData, path + path + "st_insertAbility.php", showResult);
+			sendData(formData, path + "st_insertAbility.php", showResult);
 		}
 	}
 	
 }
 
-class Issues  {
-	constructor(id, skillsid, applicantsid, whengot, location, type, issueenglish, issuetype, whyhow, punished, punishtime, punishreason) {
+class History {
+	constructor(historytype, id, empname, address, address2, city, state, zip, phone, salary, jobtitle, datefrom, dateto, applicantsid, duties, supervisor) {
+		this.historytype = historytype;
 		this.id = id
-		this.skillsid = skillsid;
+		this.empname = empname;
+		this.address = address;
+		this.address2 = address2;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.phone = phone;
+		this.salary = salary;
+		this.jobtitle = jobtitle;
+		this.datefrom = datefrom;
+		this.dateto = dateto;
 		this.applicantsid = applicantsid;
-		this.whengot = whengot;
-		this.location = location;
-		this.type = type;
-		this.issueenglish = issueenglish;
-		this.issuetype = issuetype;
-		this.whyhow = whyhow;
-		this.punished = punished;
-		this.punishtime = punishtime;
-		this.punishreason = punishreason;
+		this.duties = duties;
+		this.supervisor = supervisor;
+	
 	}
-
-
 
 	update() {
 		var formData;
-		if (this.issuetype == "document") {
-			formData = new FormData(document.getElementById("docform"));
-			sendData(formData, path + path + "st_updateDocs.php", showResult);
-		} else if (this.issuetype == "health") {
-			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, path + path + "st_updateHealth.php", showResult);
+		if (this.historytype == "jobs") {
+			formData = new FormData(document.getElementById("jobsForm"));
+			sendData(formData, path + "st_updateJobs.php", showResult);
 		} else {
-			formData = new FormData(document.getElementById("statusform"));
-			sendData(formData, path + path + "st_updateStatus.php", showResult);
+			formData = new FormData(document.getElementById("schoolForm"));
+			sendData(formData, path + "st_updateSchool.php", showResult);
 		}
 	}
 	
 	insert() {
 		var formData;
-		if (this.issuetype == "document") {
-			formData = new FormData(document.getElementById("docform"));
-			sendData(formData, path + path + "st_insertDocs.php", showResult);		
-		} else if (this.issuetype == "health") {
-			formData = new FormData(document.getElementById("healthsec"));
-			sendData(formData, path + path + "st_insertHealth.php", showResult);
+		if (this.historytype == "jobs") {
+			formData = new FormData(document.getElementById("jobsForm"));
+			sendData(formData, path + "st_insertJobs.php", showResult);
 		} else {
-			formData = new FormData(document.getElementById("statusform"));
-			sendData(formData, path + path + "st_insertStatus.php", showResult);
+			formData = new FormData(document.getElementById("schoolForm"));
+			sendData(formData, path + "st_insertSchool.php", showResult);
 		}
 	}
 }
@@ -173,10 +174,11 @@ class Issues  {
 var currappl = new Applicant (0, "", "", "", "", "", "", "", "", "", "", "");
 var currskill = new Experience (0, "", 0, "", "", "", "", "produce");
 var currability = new Experience (0, "", 0, "", "", "", "", "ability");
-var currdoc = new Issues (0, "", 0, "", "", "", "", "document");
-var currhealth = new Issues (0, "", 0, "", "", "", "", "health");
-var currstatus = new Issues (0, "", 0, "", "status");
-var skilllist = [];
+//var currdoc = new Issues (0, "", 0, "", "", "", "", "document");
+var currhealth = new Experience (0, "", 0, "", "", "", "", "health");
+//var currstatus = new Issues (0, "", 0, "", "status");
+var currJob = new History ("jobs", 0)
+var currSchool = new History ("school", 0)
 var path = "";
 
 
@@ -310,11 +312,26 @@ function fillEmpDetail(data) {
 					+ data.issues[i].details + "</td><td class ='id'>" + data.issues[i].issuesid + "</td></tr>";
 	}*/
 
+	let jobsTable = document.getElementById("jobsTab");
+	let jobsContents = "<tr><th class='tabcolumn'>Jobs</th></tr>";
+	for (let i =0; i < data.job.length; i++){
+		jobsContents += "tr onclick='showJobs(this)'><td class='id'>" + data.jobs[i].id + "</td><td>" + data.jobs[i].company + "</td></tr>"
+		currappl.jobs.push(new History("jobs", data.jobs[i].id, data.jobs[i].empname, data.jobs[i].address, data.jobs[i].address2, data.jobs[i].city, 
+		data.jobs[i].state, data.jobs[i].zip, data.jobs[i].phone, data.jobs[i].salary, data.jobs[i].jobtitle, data.jobs[i].datefrom, data.jobs[i].dateto,
+		data.jobs[i].applicantsid, data.jobs[i].duties, data.jobs[i].supervisor))
+	}
+
+	let schoolTable = document.getElementById("schoolTab");
+	let schoolContents = "<tr><th class='tabcolumn'>School</th></tr>";
+	for (let i =0; i < data.school.length; i++){
+		schoolContents += "tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].school + "</td></tr>"
+	}
+
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
-		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.legalissues);
+		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.crimes, data.confirmation)
 	if(data.ds160 != undefined){
 		currappl.ds160.id = data.ds160.id
 		currappl.ds160.marriage = data.ds160.marriage
@@ -346,6 +363,8 @@ function fillEmpDetail(data) {
 	//docTable.innerHTML = docContents;
 	healthTable.innerHTML = healthContents;
 	//statusTable.innerHTML = statusContents;
+	jobsTable.innerHTML = jobsContents;
+	schoolTable.innnerHTML = schoolContents;
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	document.getElementById("apid2").value = currappl.id;
@@ -354,9 +373,9 @@ function fillEmpDetail(data) {
 	//document.getElementById("apid5").value = currappl.id;
 	clearSkill();
 	clearAbility();
-	//clearDoc();
+	clearJobs();
 	clearHealth();
-	//clearStatus();
+	clearSchool();
 	resetNewApp();
 }
 
@@ -378,7 +397,9 @@ function resetNewApp(){
 	document.getElementById("maritalstatus").value = currappl.maritalstatus;
 	document.getElementById("placeofbirth").value = currappl.placeofbirth;
 	document.getElementById("ustravel").value = currappl.ustravel;
-	
+	document.getElementById("legalissues").value = currappl.crimes;
+	document.getElementById("appconfirm").value = currappl.confirmation;
+
 	if (currappl.gender == "male") {
 		document.getElementById("male").checked = true;
 	} else {
@@ -449,7 +470,7 @@ function resetNewApp(){
 		document.getElementById("groups").value = currappl.ds160.groups;
 		document.getElementById("military").value = currappl.ds160.military;
 		document.getElementById("issues").value = currappl.ds160.issues;
-		document.getElementById("appconfirm").value = currappl.ds160.confirmation;
+		document.getElementById("appconfirm").value = currappl.ds160.confrimation;
 		//document.getElementById("crimes").value = currappl.ds160.crimes;
 		//document.getElementById("deportation").value = currappl.ds160.deportation;
 		//document.getElementById("applicants").value = currappl.ds160.applicants;
@@ -524,7 +545,6 @@ function clearNewApp(){
 	document.getElementById("military").value = "";
 	document.getElementById("legalissues").value = "";
 	document.getElementById("ustravel").value = "";
-	document.getElementById("appconfirm").value = "";
 
 	clearSkill();
 	clearAbility();
@@ -603,30 +623,50 @@ function showHealth(row){
 	row.classList.add("selected");
 }
 
-/*function showDocs(row){
+function showJobs(row){
 	let cells = row.getElementsByTagName("td");
-	currdoc = new Issues (cells[0].innerHTML, cells[4].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, "",cells[1].innerHTML, "document");
-	document.getElementById("docid2").value = cells[0].innerHTML;
-	document.getElementById("doclist").value = cells[4].innerHTML;
-	document.getElementById("when2").value = cells[2].innerHTML;
-	document.getElementById("locationdoc2").value = cells[3].innerHTML;
-	document.getElementById("doctype2").value = "";
-	document.getElementById("apid3").value = currappl.id;
-	resetTable(document.getElementById("docTab"));
+	for (i = 0; i < currappl.jobs.length; i++) {
+		if (cells[0].innerHTML == currappl.jobs[i]) {
+			break
+		}
+	}
+	document.getElementById("jid").value = currappl.jobs[i].id;
+	document.getElementById("company").value = currappl.jobs[i].company;
+	document.getElementById("salary").value = currappl.jobs[i].salary;
+	document.getElementById("address").value = currappl.jobs[i].address;
+	document.getElementById("address2").value = currappl.jobs[i].address;
+	document.getElementById("jcity").value = currappl.jobs[i].jcity;
+	document.getElementById("jstate").value = currappl.jobs[i].jstate;
+	document.getElementById("jzip").value = currappl.jobs[i].jzip;
+	document.getElementById("supervisor").value = currappl.jobs[i].supervisor;
+	document.getElementById("jobtitle").value = currappl.jobs[i].jobtitle;
+	document.getElementById("datefrom").value = currappl.jobs[i].datefrom;
+	document.getElementById("dateto").value = currappl.jobs[i].dateto;
+	document.getElementById("jphone").value = currappl.jobs[i].jphone;
+	resetTable(document.getElementById("jobsTab"));
 	row.classList.add("selected");
 }
 
-function showStatus(row){
+function showSchool(row){
 	let cells = row.getElementsByTagName("td");
-	currstatus = new Issues (cells[0].innerHTML, currappl.id, cells[2].innerHTML, cells[3].innerHTML, cells[1].innerHTML, "status");
-	document.getElementById("statusid").value = cells[0].innerHTML;
-	document.getElementById("statuslist").value = cells[3].innerHTML;
-	document.getElementById("details5").value = cells[2].innerHTML;
-	document.getElementById("apid5").value = currappl.id;
-	resetTable(document.getElementById("statusTab"));
+	for (i = 0; i < currappl.school.length; i++) {
+		if (cells[0].innerHTML == currappl.school[i]) {
+			break
+		}
+	}
+	document.getElementById("school").value = currappl.jobs[i].school;
+	document.getElementById("major").value = currappl.jobs[i].major;
+	document.getElementById("saddress").value = currappl.jobs[i].saddress;
+	document.getElementById("saddress2").value = currappl.jobs[i].saddress2;
+	document.getElementById("scity").value = currappl.jobs[i].scity;
+	document.getElementById("sstate").value = currappl.jobs[i].sstate;
+	document.getElementById("szip").value = currappl.jobs[i].szip;
+	document.getElementById("sdatefrom").value = currappl.jobs[i].sdatefrom;
+	document.getElementById("sdateto").value = currappl.jobs[i].sdateto;
+	resetTable(document.getElementById("schoolTab"));
 	row.classList.add("selected");
 }
-*/
+
 function resetTable(tabl){
 	rows = tabl.getElementsByTagName("tr");
 	for (let i = 0; i < rows.length; i++){
@@ -709,16 +749,20 @@ function clearAbility(){
 	resetTable(document.getElementById("abilityTab"));
 }
 
-/*function clearDoc(){
-	document.getElementById("docid2").value = "";
-	document.getElementById("when2").value = "";
-	document.getElementById("doclist").value = "";
-	document.getElementById("locationdoc2").value = "";
-	document.getElementById("doctype2").value = "";
-	document.getElementById("isid").value = 0;
-	document.getElementById("apid3").value = currappl.id;
-	resetTable(document.getElementById("docTab"));
-}*/
+function clearJobs(){
+	document.getElementById("company").value = "";
+	document.getElementById("jaddress").value = "";
+	document.getElementById("jaddress2").value = "";
+	document.getElementById("jcity").value = "";
+	document.getElementById("jstate").value = "";
+	document.getElementById("jzip").value = "";
+	document.getElementById("supervisor").value = "";
+	document.getElementById("jobtitle").value = "";
+	document.getElementById("datefrom").value = "";
+	document.getElementById("dateto").value = "";
+	document.getElementById("jphone").value = "";
+	resetTable(document.getElementById("jobTab"));
+}
 
 function clearHealth(){
 	document.getElementById("healthlist").value = "";
@@ -729,13 +773,19 @@ function clearHealth(){
 	resetTable(document.getElementById("healthTab"));
 }
 
-/*function clearStatus(){
-	document.getElementById("statuslist").value = "";
-	document.getElementById("details5").value = "";
-	document.getElementById("statusid").value = 0;
-	document.getElementById("apid5").value = currappl.id;
-	resetTable(document.getElementById("statusTab"));
-}*/
+function clearSchool(){
+	document.getElementById("school").value = "";
+	document.getElementById("major").value = "";
+	document.getElementById("statusid").value = "";
+	document.getElementById("saddress").value = "";
+	document.getElementById("saddress2").value = "";
+	document.getElementById("scity").value = "";
+	document.getElementById("sstate").value = "";
+	document.getElementById("szip").value = "";
+	document.getElementById("datefrom").value = "";
+	document.getElementById("dateto").value = "";
+	resetTable(document.getElementById("schoolTab"));
+}
 
 function saveSkill(){
 	if (document.getElementById("exid").value == 0) {

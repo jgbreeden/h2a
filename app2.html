@@ -56,7 +56,7 @@
     <hr>
     
     <hr>
-    <label for="civil">Estado civil</label><br>
+    <label for="maritalstatus">Estado civil</label><br>
     <select type="text" id="maritalstatus" name="maritalstatus" onchange="setMarital(this)">
         <option value=""></option>
         <option value="married">Casado</option>
@@ -84,12 +84,12 @@
     <hr>
 
     <hr>
-    <label for="phonecel">Celular</label><br>
+    <label for="phonecell">Celular</label><br>
     <input type="tel" id="phonecell" name="phonecell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
     <hr>
 
     <hr>
-    <label for="phone">Telefono de Casa</label><br>
+    <label for="phonehome">Telefono de Casa</label><br>
     <input type="tel" id="phonehome" name="phonehome" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
     <hr>
 
@@ -118,7 +118,7 @@
     <hr>
 
     <hr>
-    <label for="othernationality">Otra Nacionalidad</label><br>
+    <label for="othernations">Otra Nacionalidad</label><br>
     <input type="text" id="othernations" name="othernations"><br>
     <hr>
 
@@ -226,17 +226,13 @@
                 <hr>
                 Su Padre esta vivo?
                 <div class="inline">
-                <input type="radio" id="si" name="Astatus" value="si" checked="true">
+                <input type="radio" id="FAstatus" name="Fstatus" value="yes" checked="true">
                 <label for="si">Si</label><br>
-                <input type="radio" id="no" name="Dstatus" value="no">
+                <input type="radio" id="FDstatus" name="Fstatus" value="no">
                 <label for="no">No</label><br>
                 </div>
                 <hr>
-                <hr>
-                <label for="Fatherage">Edad de su Padre:</label><br>
-                <input type="number" id="Fatherage" name="Fatherage" min="1" max="20"><br>
-                <hr>
-
+        
                 <hr>
                 <label for="Fatherdob"></label>Fecha de Nacimiento:</label><br>
                 <input type="date" id="fatherdob" name="fatherdob"><br>
@@ -252,19 +248,18 @@
                 <hr>
 
                 <hr>
+                <label for="Fcity">Ciudad:</label><br>
+                <input type="text" id="Fcity" name="Fcity" min="1" max="20"><br>
+                <hr>
+            
+                <hr>
                 <label for="Fstate">Estado:</label><br>
                 <input type="text" id="Fstate" name="Fstate" min="1" max="20"><br>
                 <hr>
 
                 <hr>
                 <label for="Fzipcode">Codigo Postal:</label><br>
-                <input type="text" id="state" name="state" min="1" max="20"><br>
-                <hr>
-            
-            
-                <hr>
-                <label for="Fcity">Ciudad:</label><br>
-                <input type="text" id="city" name="city" min="1" max="20"><br>
+                <input type="text" id="Fzipcode" name="Fzipcode" min="1" max="20"><br>
                 <hr>
             
                 <hr>
@@ -275,9 +270,9 @@
                 <hr>
                 Su Padre esta en los Estados Unidos?
                 <div class="inline">
-                <input type="radio" id="si" name="Astatus" value="si" checked="true">
+                <input type="radio" id="FYinUS" name="FinUS" value="yes" checked="true">
                 <label for="si">Si</label><br>
-                <input type="radio" id="no" name="Dstatus" value="no">
+                <input type="radio" id="FNinUS" name="FinUS" value="no">
                 <label for="no">No</label><br>
                 </div>
                 <hr>
@@ -292,70 +287,66 @@
 
 
                 <hr>
-                <label for="MotherFname">Nombre de su madre:</label><br>
+                <label for="motherFname">Nombre de su madre:</label><br>
                 <input type="text" id="motherFname" name="motherFname" min="1" max="20"><br>
                 <hr>
             
                 <hr>
-                <label for="MotherLname">Apellido:</label><br>
+                <label for="motherLname">Apellido:</label><br>
                 <input type="text" id="motherLname" name="motherLname" min="1" max="20"><br>
                 <hr>
             
                 <hr>
+                <label for="motherdob"></label>Fecha de Nacimiento:</label><br>
+                <input type="date" id="motherdob" name="motherdob"><br>
+                <hr>
+
+                <hr>
                 Su Madre esta viva?
                 <div class="inline">
-                <input type="radio" id="si" name="Astatus" value="si" checked="true">
+                <input type="radio" id="MAstatus" name="Mstatus" value="si" checked="true">
                 <label for="si">Si</label><br>
-                <input type="radio" id="no" name="status" value="no">
+                <input type="radio" id="MDstatus" name="Mstatus" value="no">
                 <label for="no">No</label><br>
                 </div>
                 <hr>
-                <hr>
-                <label for="motherage">Edad de su Madre:</label><br>
-                <input type="number" id="motherage" name="motherage" min="1" max="20"><br>
-                <hr>
 
-                <hr>
-                <label for="motherdob"></label>Fecha de Nacimiento:</label><br>
-                <input type="date" id="motherdob" name="motherdob"><br>
-            
-                <hr>
                 <label for="Maddress">Dirrection:</label><br>
-                <input type="text" id="Faddress" name="Faddress" min="1" max="20"><br>
-                <hr>
-
-                <hr>
-                <label for="Maddress">Dirrection 2:</label><br>
                 <input type="text" id="Maddress" name="Maddress" min="1" max="20"><br>
                 <hr>
 
                 <hr>
+                <label for="Maddress2">Dirrection 2:</label><br>
+                <input type="text" id="Maddress2" name="Maddress2" min="1" max="20"><br>
+                <hr>
+
+                <hr>
                 <label for="Mstate">Estado:</label><br>
-                <input type="text" id="state" name="state" min="1" max="20"><br>
+                <input type="text" id="Mstate" name="Mstate" min="1" max="20"><br>
                 <hr>
 
                 <hr>
                 <label for="Mzipcode">Codigo Postal:</label><br>
-                <input type="text" id="state" name="state" min="1" max="20"><br>
+                <input type="text" id="Mzipcode" name="Mzipcode" min="1" max="20"><br>
                 <hr>
             
             
                 <hr>
                 <label for="Mcity">Ciudad:</label><br>
-                <input type="text" id="city" name="city" min="1" max="20"><br>
+                <input type="text" id="Mcity" name="Mcity" min="1" max="20"><br>
                 <hr>
             
                 <hr>
                 <label for="Mcountry">Pais:</label><br>
-                <input type="text" id="country" name="country" min="1" max="20"><br>
+                <input type="text" id="Mcountry" name="Mcountry" min="1" max="20"><br>
                 <hr>
 
                 <hr>
                 Su Madre esta en los Estados Unidos?
                 <div class="inline">
-                <input type="radio" id="si" name="MYstatus" value="si" checked="true">
+                <input type="radio" id="MYstatus" name="MUSstatus" value="si" checked="true">
                 <label for="si">Si</label><br>
-                <input type="radio" id="no" name="MNstatus" value="no">
+                <input type="radio" id="MNstatus" name="MUSstatus" value="no">
                 <label for="no">No</label><br>
                 </div>
                 <hr>
@@ -401,17 +392,17 @@
                 <label for="SLname">Apellido:</label><br>
                 <input type="text" id="SLname" name="SLname" min="1" max="20"><br>
                 </hr>
-               
-                <hr>
-                <label for="Sage">Edad de su conyuge:</label><br>
-                <input type="number" id="Sage" name="Sage" min="1" max="20"><br>
-                </hr>
 
                 <hr>
                 <label for="Sdob"></label>Fecha de Nacimiento:</label><br>
                 <input type="date" id="Sdob" name="Sdob"><br>
                 </hr>
             
+                <hr>
+                <label for="Spob"></label>Lugar de nacimiento:</label><br>
+                <input type="text" id="Spob" name="Spob"><br>
+                </hr>
+
                 <hr>
                 <label for="Saddress">Dirrection:</label><br>
                 <input type="text" id="Saddress" name="Saddress" min="1" max="20"><br>
@@ -441,6 +432,16 @@
                 <hr>
                 <label for="Scountry">Pais:</label><br>
                 <input type="text" id="Scountry" name="Scountry" min="1" max="20"><br>
+                </hr>
+
+                <hr>
+                <label for="Dmarriage">Fecha de Casamiento:</label><br>
+                <input type="date" id="Dmarriage" name="Dmarriage" min="1" max="20"><br>
+                </hr>
+
+                <hr>
+                <label for="Pmarriage">Lugar de La Boda:</label><br>
+                <input type="text" id="Pmarriage" name="Pmarriage" min="1" max="20"><br>
                 </hr>
 
 
@@ -622,7 +623,7 @@
     <label for="dieseaseno">No</label><br>
     </div>
     <div class="options" id="dieseaseoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="dieseaseexp">Explicar</label><br>
     <input type="text" name="dieseaseexp"><br>
     </div>
     <hr>
@@ -635,7 +636,7 @@
     <label for="disorderno">No</label><br>
     </div>
     <div class="options" id="disorderoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="disorderexp">Explicar</label><br>
     <input type="text" name="disorderexp"><br>
     </div>
     <hr>
@@ -647,7 +648,7 @@
     <label for="acelgano">No</label><br>
     </div>
     <div class="options" id="druguseoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="druguseexp">Explicar</label><br>
     <input type="text" name="druguseexp"><br>
     </div>
     <hr>
@@ -658,7 +659,7 @@
     <label for="vaccinationsno">No</label><br>
     </div>
     <div class="options" id="vaccinationsoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="vaccinationsexp">Explicar</label><br>
     <input type="text" name="vaccinationsexp"><br>
     </div>
     <hr>
@@ -670,7 +671,7 @@
     <label for="arrestedno">No</label><br>
     </div>
     <div class="options" id="arrestedoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="arrestedexp">Explicar</label><br>
     <input type="text" name="arrestedexp"><br>
     </div>
     <hr>
@@ -683,7 +684,7 @@
     <label for="substancesno">No</label><br>
     </div>
     <div class="options" id="substancesoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="substancesexp">Explicar</label><br>
     <input type="text" name="substancesexp"><br>
     </div>
     <hr>
@@ -696,7 +697,7 @@
     <label for="postitutionno">No</label><br>
     </div>
     <div class="options" id="postitutionoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="postitutionexp">Explicar</label><br>
     <input type="text" name="postitutionexp"><br>
     </div>
     <hr>
@@ -708,7 +709,7 @@
     <label for="launderingno">No</label><br>
     </div>
     <div class="options" id="launderingoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="launderingexp">Explicar</label><br>
     <input type="text" name="launderingexp"><br>
     </div>
     <hr>
@@ -721,7 +722,7 @@
     <label for="traffickingno">No</label><br>
     </div>
     <div class="options" id="traffickingoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="traffickingexp">Explicar</label><br>
     <input type="text" name="traffickingexp"><br>
     </div>
     <hr>
@@ -734,7 +735,7 @@
     <label for="aidtraffickingno">No</label><br>
     </div>
     <div class="options" id="aidtraffickingoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="aidtraffickingexp">Explicar</label><br>
     <input type="text" name="aidtraffickingexp"><br>
     </div>
     <hr>
@@ -748,7 +749,7 @@
     <label for="famtraffickingno">No</label><br>
     </div>
     <div class="options" id="famtraffickingoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="famtraffickingexp">Explicar</label><br>
     <input type="text" name="famtraffickingexp"><br>
     </div>
     <hr>
@@ -763,7 +764,7 @@
     <label for="severetraffickingno">No</label><br>
     </div>
     <div class="options" id="severetraffickingoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="severetraffickingexp">Explicar</label><br>
     <input type="text" name="severetraffickingexp"><br>
     </div>
     <hr>
@@ -777,7 +778,7 @@
     <label for="famsubstancesno">No</label><br>
     </div>
     <div class="options" id="famsubstancesoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="famsubstancesexp">Explicar</label><br>
     <input type="text" name="famsubstancesexp"><br>
     </div>
     <hr>
@@ -790,7 +791,7 @@
     <label for="espionageno">No</label><br>
     </div>
     <div class="options" id="espionageoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="espionageexp">Explicar</label><br>
     <input type="text" name="espionageexp"><br>
     </div>
     <hr>
@@ -803,7 +804,7 @@
     <label for="terroristno">No</label><br>
     </div>
     <div class="options" id="terroristoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="terroristexp">Explicar</label><br>
     <input type="text" name="terroristexp"><br>
     </div>
     <hr>
@@ -816,7 +817,7 @@
     <label for="financialno">No</label><br>
     </div>
     <div class="options" id="financialoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="financialexp">Explicar</label><br>
     <input type="text" name="financialexp"><br>
     </div>
     <hr>
@@ -828,7 +829,7 @@
     <label for="terrororgno">No</label><br>
     </div>
     <div class="options" id="terrororgoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="terrororgexp">Explicar</label><br>
     <input type="text" name="terrororgexp"><br>
     </div>
     <hr>
@@ -842,7 +843,7 @@
     <label for="famterroristno">No</label><br>
     </div>
     <div class="options" id="famterroristoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="famterroristexp">Explicar</label><br>
     <input type="text" name="famterroristexp"><br>
     </div>
     <hr>
@@ -854,7 +855,7 @@
     <label for="genocideno">No</label><br>
     </div>
     <div class="options" id="genocideoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="genocideexp">Explicar</label><br>
     <input type="text" name="genocideexp"><br>
     </div>
     <hr>
@@ -866,7 +867,7 @@
     <label for="tortureno">No</label><br>
     </div>
     <div class="options" id="tortureoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="tortureexp">Explicar</label><br>
     <input type="text" name="tortureexp"><br>
     </div>
     <hr>
@@ -879,7 +880,7 @@
     <label for="killingsno">No</label><br>
     </div>
     <div class="options" id="killingsoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="killingsexp">Explicar</label><br>
     <input type="text" name="killingsexp"><br>
     </div>
     <hr>
@@ -891,7 +892,7 @@
     <label for="childsoldiersno">No</label><br>
     </div>
     <div class="options" id="childsoldiersoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="childsoldiersexp">Explicar</label><br>
     <input type="text" name="childsoldiersexp"><br>
     </div>
     <hr>
@@ -904,7 +905,7 @@
     <label for="violatereligionsno">No</label><br>
     </div>
     <div class="options" id="violatereligionsoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="violatereligionsexp">Explicar</label><br>
     <input type="text" name="violatereligionsexp"><br>
     </div>
     <hr>
@@ -916,7 +917,7 @@
     <label for="communistno">No</label><br>
     </div>
     <div class="options" id="communistoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="communistexp">Explicar</label><br>
     <input type="text" name="communistexp"><br>
     </div>
     <hr>
@@ -929,7 +930,7 @@
     <label for="farcelnaucno">No</label><br>
     </div>
     <div class="options" id="farcelnaucoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="farcelnaucexp">Explicar</label><br>
     <input type="text" name="farcelnaucexp"><br>
     </div>
     <hr>
@@ -942,8 +943,8 @@
     <label for="personalgainno">No</label><br>
     </div>
     <div class="options" id="personalgainoptions">
-    <label for="exp">Explicar</label><br>
-    <input type="text" name="personalgainexp"><br>
+    <label for="fampersonalgainexp">Explicar</label><br>
+    <input type="text" name="fampersonalgainexp"><br>
     </div>
     <hr>
     <hr>&#191;Es usted el conyuge, hijo menor o agente de una persona que, a trave&#769;s del abuso 
@@ -957,7 +958,7 @@
     <label for="fampersonalgainno">No</label><br>
     </div>
     <div class="options" id="fampersonalgainoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="fampersonalgainexp">Explicar</label><br>
     <input type="text" name="fampersonalgainexp"><br>
     </div>
     <hr>
@@ -971,7 +972,7 @@
     <label for="confidencialno">No</label><br>
     </div>
     <div class="options" id="confidencialoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="confidencialexp">Explicar</label><br>
     <input type="text" name="confidencialexp"><br>
     </div>
     <hr>
@@ -985,7 +986,7 @@
     <label for="famconfidencialno">No</label><br>
     </div>
     <div class="options" id="famconfidencialoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="childsoldiersexp">Explicar</label><br>
     <input type="text" name="childsoldiersexp"><br>
     </div>
     <hr>
@@ -999,7 +1000,7 @@
     <label for="popcontrolno">No</label><br>
     </div>
     <div class="options" id="popcontroloptions">
-    <label for="exp">Explicar</label><br>
+    <label for="popcontrolexp">Explicar</label><br>
     <input type="text" name="popcontrolexp"><br>
     </div>
     <hr>
@@ -1011,7 +1012,7 @@
     <label for="humanorgansno">No</label><br>
     </div>
     <div class="options" id="humanorgansoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="humanorgansexp">Explicar</label><br>
     <input type="text" name="humanorgansexp"><br>
     </div>
     <hr>
@@ -1023,7 +1024,7 @@
     <label for="hearingno">No</label><br>
     </div>
     <div class="options" id="hearingoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="hearingexp">Explicar</label><br>
     <input type="text" name="hearingexp"><br>
     </div>
     <hr>
@@ -1037,7 +1038,7 @@
     <label for="visafraudno">No</label><br>
     </div>
     <div class="options" id="visafraudoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="visafraudexp">Explicar</label><br>
     <input type="text" name="visafraudexp"><br>
     </div>
     <hr>
@@ -1049,7 +1050,7 @@
     <label for="failedhearingno">No</label><br>
     </div>
     <div class="options" id="failedhearingoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="failedhearingexp">Explicar</label><br>
     <input type="text" name="failedhearingexp"><br>
     </div>
     <hr>
@@ -1062,7 +1063,7 @@
     <label for="violatedtimeno">No</label><br>
     </div>
     <div class="options" id="violatedtimeoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="violatedtimeexp">Explicar</label><br>
     <input type="text" name="violatedtimeexp"><br>
     </div>
     <hr>
@@ -1074,7 +1075,7 @@
     <label for="INA274Cno">No</label><br>
     </div>
     <div class="options" id="INA274Coptions">
-    <label for="exp">Explicar</label><br>
+    <label for="INA274Cexp">Explicar</label><br>
     <input type="text" name="INA274Cexp"><br>
     </div>
     <hr>
@@ -1086,7 +1087,7 @@
     <label for="removed5no">No</label><br>
     </div>
     <div class="options" id="removed5options">
-    <label for="exp">Explicar</label><br>
+    <label for="removed5exp">Explicar</label><br>
     <input type="text" name="removed5exp"><br>
     </div>
     <hr>
@@ -1098,7 +1099,7 @@
     <label for="removed20no">No</label><br>
     </div>
     <div class="options" id="removed20options">
-    <label for="exp">Explicar</label><br>
+    <label for="removed20exp">Explicar</label><br>
     <input type="text" name="removed20exp"><br>
     </div>
     <hr>
@@ -1110,7 +1111,7 @@
     <label for="removed10no">No</label><br>
     </div>
     <div class="options" id="removed10options">
-    <label for="exp">Explicar</label><br>
+    <label for="removed10exp">Explicar</label><br>
     <input type="text" name="removed10exp"><br>
     </div>
     <hr>
@@ -1122,7 +1123,7 @@
     <label for="felonyno">No</label><br>
     </div>
     <div class="options" id="felonyoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="felonyexp">Explicar</label><br>
     <input type="text" name="felonyexp"><br>
     </div>
     <hr>
@@ -1135,7 +1136,7 @@
     <label for="present180no">No</label><br>
     </div>
     <div class="options" id="present180options">
-    <label for="exp">Explicar</label><br>
+    <label for="present180exp">Explicar</label><br>
     <input type="text" name="present180exp"><br>
     </div>
     <hr>
@@ -1148,7 +1149,7 @@
     <label for="present10no">No</label><br>
     </div>
     <div class="options" id="present10options">
-    <label for="exp">Explicar</label><br>
+    <label for="present10exp">Explicar</label><br>
     <input type="text" name="present10exp"><br>
     </div>
     <hr>
@@ -1160,7 +1161,7 @@
     <label for="deportedno">No</label><br>
     </div>
     <div class="options" id="deportedoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="deportedexp">Explicar</label><br>
     <input type="text" name="deportedexp"><br>
     </div>
     <hr>
@@ -1173,7 +1174,7 @@
     <label for="kidnappingno">No</label><br>
     </div>
     <div class="options" id="kidnappingoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="kidnappingexp">Explicar</label><br>
     <input type="text" name="kidnappingexp"><br>
     </div>
     <hr>
@@ -1185,7 +1186,7 @@
     <label for="votedno">No</label><br>
     </div>
     <div class="options" id="votedoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="votedexp">Explicar</label><br>
     <input type="text" name="votedexp"><br>
     </div>
     <hr>
@@ -1197,7 +1198,7 @@
     <label for="taxationno">No</label><br>
     </div>
     <div class="options" id="taxationoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="taxationexp">Explicar</label><br>
     <input type="text" name="taxationexp"><br>
     </div>
     <hr>
@@ -1209,7 +1210,7 @@
     <label for="exchangeno">No</label><br>
     </div>
     <div class="options" id="exchangeoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="exchangeexp">Explicar</label><br>
     <input type="text" name="exchangeexp"><br>
     </div>
     <hr>
@@ -1222,7 +1223,7 @@
     <label for="laborno">No</label><br>
     </div>
     <div class="options" id="laboroptions">
-    <label for="exp">Explicar</label><br>
+    <label for="laborexp">Explicar</label><br>
     <input type="text" name="laborexp"><br>
     </div>
     <hr>
@@ -1236,8 +1237,8 @@
     <label for="medicalno">No</label><br>
     </div>
     <div class="options" id="medicaloptions">
-    <label for="exp">Explicar</label><br>
-    <input type="text" name="medicalexp"><br>
+    <label for="laborexp">Explicar</label><br>
+    <input type="text" name="laborexp"><br>
     </div>
     <hr>
     <hr>&#191;Es usted un trabajador del cuidado de la salud que busca realizar dicho 
@@ -1251,7 +1252,7 @@
     <label for="certificacionno">No</label><br>
     </div>
     <div class="options" id="certificacionoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="certificacionexp">Explicar</label><br>
     <input type="text" name="certificacionexp"><br>
     </div>
     <hr>
@@ -1263,7 +1264,7 @@
     <label for="citizenshipno">No</label><br>
     </div>
     <div class="options" id="citizenshipoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="citizenshipexp">Explicar</label><br>
     <input type="text" name="citizenshipexp"><br>
     </div>
     <hr>
@@ -1275,7 +1276,7 @@
     <label for="militaryno">No</label><br>
     </div>
     <div class="options" id="militaryoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="militaryexp">Explicar</label><br>
     <input type="text" name="militaryexp"><br>
     </div>
     <hr>
@@ -1287,7 +1288,7 @@
     <label for="polygamyno">No</label><br>
     </div>
     <div class="options" id="polygamyoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="polygamyexp">Explicar</label><br>
     <input type="text" name="polygamyexp"><br>
     </div>
     <hr>
@@ -1299,7 +1300,7 @@
     <label for="asylumno">No</label><br>
     </div>
     <div class="options" id="asylumoptions">
-    <label for="exp">Explicar</label><br>
+    <label for="asylumexp">Explicar</label><br>
     <input type="text" name="asylumexp"><br>
     </div>
     <hr>

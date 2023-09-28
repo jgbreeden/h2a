@@ -95,11 +95,19 @@ $othercontact = htmlspecialchars($_POST["otherphones"]) . "\\n" . htmlspecialcha
 $socialmedia = htmlspecialchars($_POST["socialmedia"]);
 $pploststolen = ""; // htmlspecialchars($_POST["pploststolen"]);
 $fatherinfo = htmlspecialchars($_POST["fatherFname"]) . " " . htmlspecialchars($_POST["fatherLname"])
-. " " . htmlspecialchars($_POST["fatherdob"]);
-$motherinfo = htmlspecialchars($_POST["motherFname"]) . " " . htmlspecialchars($_POST["motherLname"])
-. " " . htmlspecialchars($_POST["motherdob"]);
+. " " . htmlspecialchars($_POST["fatherdob"]) . " living: " .  htmlspecialchars($_POST["Fstatus"]). "\\n" . htmlspecialchars($_POST["Faddress"])
+. " " . htmlspecialchars($_POST["Faddress2"]) . "\\n" . htmlspecialchars($_POST["Fcity"]) . " " . htmlspecialchars($_POST["Fstate"]) 
+. " " . htmlspecialchars($_POST["Fzipcode"]) . " " . htmlspecialchars($_POST["Fcountry"]) . "\\n" .htmlspecialchars($_POST["FinUS"]);
+$motherinfo = htmlspecialchars($_POST["motherFname"]) . " " . htmlspecialchars($_POST["motherLname"]) . " " . 
+htmlspecialchars($_POST["motherdob"]) . " living: " . htmlspecialchars($_POST["Mstatus"]) . "\\n" . 
+htmlspecialchars($_POST["Maddress"]) . " " . htmlspecialchars($_POST["Maddress2"]) . "\\n" . 
+htmlspecialchars($_POST["Mstate"]) . " " . htmlspecialchars($_POST["Mzipcode"]) . " " . 
+htmlspecialchars($_POST["Mcity"]) . " " . htmlspecialchars($_POST["Mcountry"]) . "\\n" . htmlspecialchars($_POST["MUSstatus"]);
 $relatives = htmlspecialchars($_POST["Otherrelatives"]);
-$spouse = htmlspecialchars($_POST["SFname"]). " " . htmlspecialchars($_POST["SLname"]);
+$spouse = htmlspecialchars($_POST["SFname"]) . " " . htmlspecialchars($_POST["SLname"]) . " " . htmlspecialchars($_POST["Sdob"]) . " " . htmlspecialchars($_POST["Sdob"]) 
+. "\\n" . htmlspecialchars($_POST["Saddress"]) . " " . htmlspecialchars($_POST["Saddress2"]) . "\\n" . htmlspecialchars($_POST["Sstate"]) 
+. " " . htmlspecialchars($_POST["Szipcode"]) . " " . htmlspecialchars($_POST["Scity"]) . " " . htmlspecialchars($_POST["Scountry"]) 
+. "\\n" . htmlspecialchars($_POST["Dmarriage"]) . " " . htmlspecialchars($_POST["Pmarriage"]);
 $countries = ""; // htmlspecialchars($_POST["countries"]);
 $groups = ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\\n" : ""; // htmlspecialchars($_POST["groups"]);
 //$groups .= ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\\n" : "";
