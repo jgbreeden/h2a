@@ -68,7 +68,7 @@ class Applicant {
 			sendData(formData, path + "st_updateSchool.php", showResult);
 	}
 	insertSchool () {
-			formData = new FormData(document.getElementById("schoolForm"));
+			formData = new FormData(document.getElementById("schoolsForm"));
 			sendData(formData, path + "st_insertSchool.php", showResult);
 	}
 	
@@ -343,7 +343,7 @@ function fillEmpDetail(data) {
 			data.jobs[i].duties, data.jobs[i].supervisor))
 	}
 
-	let schoolTable = document.getElementById("schoolTab");
+	let schoolTable = document.getElementById("schoolsTab");
 	let schoolContents = "<tr><th class='tabcolumn'>School</th></tr>";
 	for (let i =0; i < data.school.length; i++){
 		schoolContents += "tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].school + "</td></tr>"
@@ -690,7 +690,7 @@ function showSchool(row){
 	document.getElementById("szip").value = currappl.school[i].zip;
 	document.getElementById("sdatefrom").value = currappl.school[i].datefrom;
 	document.getElementById("sdateto").value = currappl.school[i].dateto;
-	resetTable(document.getElementById("schoolTab"));
+	resetTable(document.getElementById("schoolsTab"));
 	row.classList.add("selected");
 }
 
@@ -788,7 +788,7 @@ function clearJobs(){
 	document.getElementById("datefrom").value = "";
 	document.getElementById("dateto").value = "";
 	document.getElementById("jphone").value = "";
-	resetTable(document.getElementById("jobTab"));
+	resetTable(document.getElementById("jobsTab"));
 }
 
 function clearHealth(){
@@ -803,7 +803,6 @@ function clearHealth(){
 function clearSchool(){
 	document.getElementById("school").value = "";
 	document.getElementById("major").value = "";
-	document.getElementById("statusid").value = "";
 	document.getElementById("saddress").value = "";
 	document.getElementById("saddress2").value = "";
 	document.getElementById("scity").value = "";
@@ -811,7 +810,7 @@ function clearSchool(){
 	document.getElementById("szip").value = "";
 	document.getElementById("datefrom").value = "";
 	document.getElementById("dateto").value = "";
-	resetTable(document.getElementById("schoolTab"));
+	resetTable(document.getElementById("schoolsTab"));
 }
 
 function saveSkill(){
@@ -850,7 +849,7 @@ function saveHealth(){
 
 function saveSchool(){
 	if (document.getElementById("scid").value == 0) {
-		curraappl.insertSchool()
+		currappl.insertSchool()
 	} else {
 		currappl.updateSchool()
 	}
