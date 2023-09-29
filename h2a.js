@@ -64,12 +64,12 @@ class Applicant {
 	}
 
 	updateSchool () {
-			formData = new FormData(document.getElementById("schoolForm"));
-			sendData(formData, path + "st_updateSchool.php", showResult);
+		var formData = new FormData(document.getElementById("schoolForm"));
+		sendData(formData, path + "st_updateSchool.php", showResult);
 	}
 	insertSchool () {
-			formData = new FormData(document.getElementById("schoolForm"));
-			sendData(formData, path + "st_insertSchool.php", showResult);
+		var formData = new FormData(document.getElementById("schoolsForm"));
+		sendData(formData, path + "st_insertSchool.php", showResult);
 	}
 	
 }
@@ -296,6 +296,36 @@ function fillEmps(data) {
 }
 
 function fillEmpDetail(data) {
+	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
+		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
+		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
+		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
+		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.crimes, data.confirmation)
+	if(data.ds160 != undefined){
+		currappl.ds160.id = data.ds160.id
+		currappl.ds160.marriage = data.ds160.marriage
+		currappl.ds160.nationality = data.ds160.nationality
+		currappl.ds160.othernations = data.ds160.othernations
+        currappl.ds160.otherresident = data.ds160.otherresident
+		currappl.ds160.nationid = data.ds160.nationid
+		currappl.ds160.ssn = data.ds160.ssn
+		currappl.ds160.othercontact = data.ds160.othercontact
+		currappl.ds160.socialmedia = data.ds160.socialmedia
+		currappl.ds160.pploststolen = data.ds160.pploststolen
+		currappl.ds160.ppdatedue = data.ds160.ppdatedue
+		currappl.ds160.father = data.ds160.father
+		currappl.ds160.mother = data.ds160.mother
+		currappl.ds160.relatives = data.ds160.relatives
+		currappl.ds160.spouse = data.ds160.spouse
+		currappl.ds160.countries = data.ds160.countries
+		currappl.ds160.groups = data.ds160.groups
+		currappl.ds160.military = data.ds160.military
+		currappl.ds160.legalissues = data.ds160.legalissues
+		currappl.ds160.deportation = data.ds160.deportation
+		currappl.ds160.applicants = data.ds160.applicants
+		currappl.ds160.issues = data.ds160.issues
+		currappl.ds160.confirmation = data.ds160.confirmation
+	}
 	let table = document.getElementById("skillsTab");
 	let contents = "<tr><th>Experiance</th><th>Years</th><th class='tabcolumn'>Where</th></tr>";
 	for (let i = 0; i < data.skills.length; i++){
@@ -337,16 +367,16 @@ function fillEmpDetail(data) {
 	for (let i =0; i < data.jobs.length; i++){
 		jobsContents += "<tr onclick='showJobs(this)'><td class='id'>" + data.jobs[i].id + "</td><td>" 
 			+ data.jobs[i].entity + "</td></tr>";
-		currappl.jobs.push(new History("jobs", data.jobs[i].id, data.jobs[i].entity, data.jobs[i].address, data.jobs[i].address2, 
+		currappl.jobs.push(new History("jobs", data.jobs[i].id, data.jobs[i].empname, data.jobs[i].address, data.jobs[i].address2, 
 			data.jobs[i].city, data.jobs[i].state, data.jobs[i].zip, data.jobs[i].datefrom, data.jobs[i].dateto, 
 			data.jobs[i].applicantsid, "", data.jobs[i].phone, data.jobs[i].salary, data.jobs[i].jobtitle,
 			data.jobs[i].duties, data.jobs[i].supervisor))
 	}
 
-	let schoolTable = document.getElementById("schoolTab");
+	let schoolTable = document.getElementById("schoolsTab");
 	let schoolContents = "<tr><th class='tabcolumn'>School</th></tr>";
 	for (let i =0; i < data.school.length; i++){
-		schoolContents += "tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].school + "</td></tr>"
+		schoolContents += "<tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].schoolname + "</td></tr>"
 			+data.school[i].entity + "</td></tr>";
 		currappl.schools.push(new History("school", data.school[i].id, data.school[i].entity, data.school[i].address,
 			data.school[i].address2, data.school[i].city, data.school[i].state, data.school[i].zip, data.school[i].datefrom,
@@ -354,36 +384,6 @@ function fillEmpDetail(data) {
 			data.school[i].duties, data.school[i].supervisor))
 	}
 
-	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
-		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
-		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
-		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
-		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.crimes, data.confirmation)
-	if(data.ds160 != undefined){
-		currappl.ds160.id = data.ds160.id
-		currappl.ds160.marriage = data.ds160.marriage
-		currappl.ds160.nationality = data.ds160.nationality
-		currappl.ds160.othernations = data.ds160.othernations
-        currappl.ds160.otherresident = data.ds160.otherresident
-		currappl.ds160.nationid = data.ds160.nationid
-		currappl.ds160.ssn = data.ds160.ssn
-		currappl.ds160.othercontact = data.ds160.othercontact
-		currappl.ds160.socialmedia = data.ds160.socialmedia
-		currappl.ds160.pploststolen = data.ds160.pploststolen
-		currappl.ds160.ppdatedue = data.ds160.ppdatedue
-		currappl.ds160.father = data.ds160.father
-		currappl.ds160.mother = data.ds160.mother
-		currappl.ds160.relatives = data.ds160.relatives
-		currappl.ds160.spouse = data.ds160.spouse
-		currappl.ds160.countries = data.ds160.countries
-		currappl.ds160.groups = data.ds160.groups
-		currappl.ds160.military = data.ds160.military
-		currappl.ds160.legalissues = data.ds160.legalissues
-		currappl.ds160.deportation = data.ds160.deportation
-		currappl.ds160.applicants = data.ds160.applicants
-		currappl.ds160.issues = data.ds160.issues
-		currappl.ds160.confirmation = data.ds160.confirmation
-	}
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
@@ -690,7 +690,7 @@ function showSchool(row){
 	document.getElementById("szip").value = currappl.school[i].zip;
 	document.getElementById("sdatefrom").value = currappl.school[i].datefrom;
 	document.getElementById("sdateto").value = currappl.school[i].dateto;
-	resetTable(document.getElementById("schoolTab"));
+	resetTable(document.getElementById("schoolsTab"));
 	row.classList.add("selected");
 }
 
@@ -788,7 +788,7 @@ function clearJobs(){
 	document.getElementById("datefrom").value = "";
 	document.getElementById("dateto").value = "";
 	document.getElementById("jphone").value = "";
-	resetTable(document.getElementById("jobTab"));
+	resetTable(document.getElementById("jobsTab"));
 }
 
 function clearHealth(){
@@ -803,7 +803,6 @@ function clearHealth(){
 function clearSchool(){
 	document.getElementById("school").value = "";
 	document.getElementById("major").value = "";
-	document.getElementById("statusid").value = "";
 	document.getElementById("saddress").value = "";
 	document.getElementById("saddress2").value = "";
 	document.getElementById("scity").value = "";
@@ -811,7 +810,7 @@ function clearSchool(){
 	document.getElementById("szip").value = "";
 	document.getElementById("datefrom").value = "";
 	document.getElementById("dateto").value = "";
-	resetTable(document.getElementById("schoolTab"));
+	resetTable(document.getElementById("schoolsTab"));
 }
 
 function saveSkill(){
@@ -850,7 +849,7 @@ function saveHealth(){
 
 function saveSchool(){
 	if (document.getElementById("scid").value == 0) {
-		curraappl.insertSchool()
+		currappl.insertSchool()
 	} else {
 		currappl.updateSchool()
 	}
