@@ -366,7 +366,7 @@ function fillEmpDetail(data) {
 	let jobsContents = "<tr><th class='tabcolumn'>Jobs</th></tr>";
 	for (let i =0; i < data.jobs.length; i++){
 		jobsContents += "<tr onclick='showJobs(this)'><td class='id'>" + data.jobs[i].id + "</td><td>" 
-			+ data.jobs[i].entity + "</td></tr>";
+			+ data.jobs[i].empname + "</td></tr>";
 		currappl.jobs.push(new History("jobs", data.jobs[i].id, data.jobs[i].empname, data.jobs[i].address, data.jobs[i].address2, 
 			data.jobs[i].city, data.jobs[i].state, data.jobs[i].zip, data.jobs[i].datefrom, data.jobs[i].dateto, 
 			data.jobs[i].applicantsid, "", data.jobs[i].phone, data.jobs[i].salary, data.jobs[i].jobtitle,
@@ -653,23 +653,23 @@ function showHealth(row){
 function showJobs(row){
 	let cells = row.getElementsByTagName("td");
 	for (i = 0; i < currappl.jobs.length; i++) {
-		if (cells[0].innerHTML == currappl.jobs[i]) {
+		if (cells[0].innerHTML == currappl.jobs[i].id) {
 			break
 		}
 	}
 	document.getElementById("jid").value = currappl.jobs[i].id;
-	document.getElementById("company").value = currappl.jobs[i].company;
+	document.getElementById("company").value = currappl.jobs[i].entity;
 	document.getElementById("salary").value = currappl.jobs[i].salary;
-	document.getElementById("address").value = currappl.jobs[i].address;
-	document.getElementById("address2").value = currappl.jobs[i].address;
-	document.getElementById("jcity").value = currappl.jobs[i].jcity;
-	document.getElementById("jstate").value = currappl.jobs[i].jstate;
-	document.getElementById("jzip").value = currappl.jobs[i].jzip;
+	document.getElementById("jaddress").value = currappl.jobs[i].address;
+	document.getElementById("jaddress2").value = currappl.jobs[i].address2;
+	document.getElementById("jcity").value = currappl.jobs[i].city;
+	document.getElementById("jstate").value = currappl.jobs[i].state;
+	document.getElementById("jzip").value = currappl.jobs[i].zip;
 	document.getElementById("supervisor").value = currappl.jobs[i].supervisor;
 	document.getElementById("jobtitle").value = currappl.jobs[i].jobtitle;
 	document.getElementById("datefrom").value = currappl.jobs[i].datefrom;
 	document.getElementById("dateto").value = currappl.jobs[i].dateto;
-	document.getElementById("jphone").value = currappl.jobs[i].jphone;
+	document.getElementById("jphone").value = currappl.jobs[i].phone;
 	resetTable(document.getElementById("jobsTab"));
 	row.classList.add("selected");
 }
