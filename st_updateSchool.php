@@ -10,9 +10,9 @@
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("sssssssssi",  $_POST["school"],  $_POST["major"],
                                          $_POST["saddress"], $_POST["saddress2"], 
-                                         $_POST["city"], $_POST["sstate"],  
-                                         $_POST["datefrom"] $_POST["dateto"],
-                                        $_POST["apid"]);
+                                         $_POST["scity"], $_POST["sstate"],  
+                                         $_POST["sdatefrom"], $_POST["sdateto"],
+                                         $_POST["apid"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";
