@@ -56,13 +56,23 @@ $crimes .= ($_POST["famsubstances"] == "yes")? " famsubstances:" . $_POST["famsu
 $crimes .= ($_POST["espionage"] == "yes")? " espionage:" . $_POST["espionageexp"]."\\n" : "";
 $crimes .= ($_POST["terrorist"] == "yes")? " terrorist:" . $_POST["terroristexp"]."\\n" : "";
 $crimes .= ($_POST["financial"] == "yes")? " financial:" . $_POST["financialexp"]."\\n" : "";
-$crimes .= ($_POST["terrororg"] == "yes")? " terrororg:" . $_POST["terrororgexp"]."\\n" : "";
-$crimes .= ($_POST["famterrorist"] == "yes")? " famterrorist:" . $_POST["famterroristexp"]."\\n" : "";
 $crimes .= ($_POST["genocide"] == "yes")? " genocide:" . $_POST["genocideexp"]."\\n" : "";
 $crimes .= ($_POST["torture"] == "yes")? " torture:" . $_POST["tortureexp"]."\\n" : "";
 $crimes .= ($_POST["killings"] == "yes")? " killings:" . $_POST["killingsexp"]."\\n" : "";
 $crimes .= ($_POST["childsoldiers"] == "yes")? " childsoldiers:" . $_POST["childsoldiersexp"]."\\n" : "";
 $crimes .= ($_POST["violatereligions"] == "yes")? " violatereligions:" . $_POST["violatereligionsexp"]."\\n" : "";
+$crimes .= ($_POST["personalgain"] == "yes")? " personalgain:" . $_POST["personalgainexp"]."\\n" : "";
+$crimes .= ($_POST["fampersonalgain"] == "yes")? " fampersonalgain:" . $_POST["fampersonalgainexp"]."\\n" : "";
+$crimes .= ($_POST["confidencial"] == "yes")? " confidencial:" . $_POST["confidencialexp"]."\\n" : "";
+$crimes .= ($_POST["famconfidencial"] == "yes")? " famconfidencial:" . $_POST["famconfidencialexp"]."\\n" : "";
+$crimes .= ($_POST["popcontrol"] == "yes")? " popcontrol:" . $_POST["popcontrolexp"]."\\n" : "";
+$crimes .= ($_POST["humanorgans"] == "yes")? " humanorgans:" . $_POST["humanorgansexp"]."\\n" : "";
+$groups = ($_POST["organization"] == "yes")? " organization:" . $_POST["organizationexp"]."\\n" : "";
+$groups .= ($_POST["taliban"] == "yes")? " taliban:" . $_POST["talibanexp"]."\\n" : "";
+$groups .= ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\\n" : "";
+$groups .= ($_POST["farcelnauc"] == "yes")? " farcelnauc:" . $_POST["farcelnaucexp"]."\\n" : "";
+$groups .= ($_POST["terrororg"] == "yes")? " terrororg:" . $_POST["terrororgexp"]."\\n" : "";
+$groups .= ($_POST["famterrorist"] == "yes")? " famterrorist:" . $_POST["famterroristexp"]."\\n" : "";
 $status = "ready";
 $id = $_POST["id"];
 

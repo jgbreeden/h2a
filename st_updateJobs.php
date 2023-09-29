@@ -11,8 +11,8 @@
 	$stmt->bind_param("ssssssssssssssi", $_POST["company"], $_POST["salary"],
 								$_POST["adddress"], $_POST["address2"],
 								$_POST["city"], $_POST["state"], $_POST["supervisor"], 
-                                $_POST["jobtitle"], $_POST["datefrom"], $_POST["dateto"]
-                                $_POST["phone"]$_POST["jid"]);
+                                $_POST["jobtitle"], $_POST["datefrom"], $_POST["dateto"],
+                                $_POST["phone"], $_POST["jid"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";

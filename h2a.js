@@ -52,6 +52,25 @@ class Applicant {
 		var formData = new FormData(document.getElementById("newappform"));
 		sendData(formData, path + path + "st_updateEmp.php", showResult);
 	}
+
+	updateJob() {
+		var formData= new FormData(document.getElementById("jobsForm"));
+		sendData(formData, path + "st_updateJobs.php", showResult);
+	}
+
+	insertJob() {
+		var formData = new FormData(document.getElementById("jobsForm"));
+		sendData(formData, path + "st_insertJobs.php", showResult)
+	}
+
+	updateSchool () {
+		var formData = new FormData(document.getElementById("schoolForm"));
+		sendData(formData, path + "st_updateSchool.php", showResult);
+	}
+	insertSchool () {
+		var formData = new FormData(document.getElementById("schoolsForm"));
+		sendData(formData, path + "st_insertSchool.php", showResult);
+	}
 	
 }
 class Appds160{
@@ -128,21 +147,22 @@ class Experience {
 }
 
 class History {
-	constructor(historytype, id, empname, address, address2, city, state, zip, phone, salary, jobtitle, datefrom, dateto, applicantsid, duties, supervisor) {
+	constructor(historytype, id, entity, address, address2, city, state, zip, datefrom, dateto, applicantsid, major, phone, salary, jobtitle, duties, supervisor) {
 		this.historytype = historytype;
 		this.id = id
-		this.empname = empname;
+		this.entity = entity;
 		this.address = address;
 		this.address2 = address2;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
-		this.phone = phone;
-		this.salary = salary;
-		this.jobtitle = jobtitle;
 		this.datefrom = datefrom;
 		this.dateto = dateto;
 		this.applicantsid = applicantsid;
+		this.major = major;
+		this.phone = phone;
+		this.salary = salary;
+		this.jobtitle = jobtitle;
 		this.duties = duties;
 		this.supervisor = supervisor;
 	
@@ -346,16 +366,22 @@ function fillEmpDetail(data) {
 	let jobsContents = "<tr><th class='tabcolumn'>Jobs</th></tr>";
 	for (let i =0; i < data.jobs.length; i++){
 		jobsContents += "<tr onclick='showJobs(this)'><td class='id'>" + data.jobs[i].id + "</td><td>" 
-			+ data.jobs[i].empname + "</td></tr>";
-		currappl.jobs.push(new History("jobs", data.jobs[i].id, data.jobs[i].empname, data.jobs[i].address, data.jobs[i].address2, data.jobs[i].city, 
-		data.jobs[i].state, data.jobs[i].zip, data.jobs[i].phone, data.jobs[i].salary, data.jobs[i].jobtitle, data.jobs[i].datefrom, data.jobs[i].dateto,
-		data.jobs[i].applicantsid, data.jobs[i].duties, data.jobs[i].supervisor))
+			+ data.jobs[i].entity + "</td></tr>";
+		currappl.jobs.push(new History("jobs", data.jobs[i].id, data.jobs[i].empname, data.jobs[i].address, data.jobs[i].address2, 
+			data.jobs[i].city, data.jobs[i].state, data.jobs[i].zip, data.jobs[i].datefrom, data.jobs[i].dateto, 
+			data.jobs[i].applicantsid, "", data.jobs[i].phone, data.jobs[i].salary, data.jobs[i].jobtitle,
+			data.jobs[i].duties, data.jobs[i].supervisor))
 	}
 
 	let schoolTable = document.getElementById("schoolsTab");
 	let schoolContents = "<tr><th class='tabcolumn'>School</th></tr>";
 	for (let i =0; i < data.school.length; i++){
-		schoolContents += "tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].school + "</td></tr>"
+		schoolContents += "<tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].schoolname + "</td></tr>"
+			+data.school[i].entity + "</td></tr>";
+		currappl.schools.push(new History("school", data.school[i].id, data.school[i].entity, data.school[i].address,
+			data.school[i].address2, data.school[i].city, data.school[i].state, data.school[i].zip, data.school[i].datefrom,
+			data.school[i].dateto, data.school[i].applicantsid, data.school[i].phone, data.school[i].salary, data.school[i].jobtitle,
+			data.school[i].duties, data.school[i].supervisor))
 	}
 
 	currskill.applicantsid = currappl.id
@@ -365,7 +391,7 @@ function fillEmpDetail(data) {
 	healthTable.innerHTML = healthContents;
 	//statusTable.innerHTML = statusContents;
 	jobsTable.innerHTML = jobsContents;
-	schoolTable.innerHTML = schoolContents;
+	schoolTable.innnerHTML = schoolContents;
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	document.getElementById("apid2").value = currappl.id;
@@ -374,7 +400,7 @@ function fillEmpDetail(data) {
 	//document.getElementById("apid5").value = currappl.id;
 	clearSkill();
 	clearAbility();
-	clearJob();
+	clearJobs();
 	clearHealth();
 	clearSchool();
 	resetNewApp();
@@ -549,9 +575,9 @@ function clearNewApp(){
 
 	clearSkill();
 	clearAbility();
-	clearJob();
+	//clearDoc();
 	clearHealth();
-	clearSchool();
+	//clearStatus();
 	//resetNewApp();
 }
 
@@ -569,15 +595,13 @@ function sendData(data, phpFile, callBack){
 
 function showResult(data){
 	document.getElementById("result").innerHTML = data;
-	document.getElementById("result").classList.remove("fade");
-	document.getElementById("result").style.visibility="visible";
 	if(data.indexOf("saved") == -1) {
 		console.log(data);
 	}
-	document.getElementById("result").classList.add("fade");
+	document.getElementById("result").classList.remove("fade");
 	setTimeout(function(){document.getElementById("result").style.visibility="hidden";}, 5000)
 	let temp;
-	if (document.getElementById("searchstat").innerHTML != newstats) {
+	if (document.getElementById("searchapp").style.display != "none") {
 		temp = document.getElementById("searchstat").value;
 	} else {
 		temp = "new";
@@ -629,23 +653,23 @@ function showHealth(row){
 function showJobs(row){
 	let cells = row.getElementsByTagName("td");
 	for (i = 0; i < currappl.jobs.length; i++) {
-		if (cells[0].innerHTML == currappl.jobs[i].id) {
+		if (cells[0].innerHTML == currappl.jobs[i]) {
 			break
 		}
 	}
 	document.getElementById("jid").value = currappl.jobs[i].id;
-	document.getElementById("company").value = currappl.jobs[i].empname;
+	document.getElementById("company").value = currappl.jobs[i].company;
 	document.getElementById("salary").value = currappl.jobs[i].salary;
 	document.getElementById("address").value = currappl.jobs[i].address;
 	document.getElementById("address2").value = currappl.jobs[i].address;
-	document.getElementById("jcity").value = currappl.jobs[i].city;
-	document.getElementById("jstate").value = currappl.jobs[i].state;
-	document.getElementById("jzip").value = currappl.jobs[i].zip;
+	document.getElementById("jcity").value = currappl.jobs[i].jcity;
+	document.getElementById("jstate").value = currappl.jobs[i].jstate;
+	document.getElementById("jzip").value = currappl.jobs[i].jzip;
 	document.getElementById("supervisor").value = currappl.jobs[i].supervisor;
 	document.getElementById("jobtitle").value = currappl.jobs[i].jobtitle;
 	document.getElementById("datefrom").value = currappl.jobs[i].datefrom;
 	document.getElementById("dateto").value = currappl.jobs[i].dateto;
-	document.getElementById("jphone").value = currappl.jobs[i].phone;
+	document.getElementById("jphone").value = currappl.jobs[i].jphone;
 	resetTable(document.getElementById("jobsTab"));
 	row.classList.add("selected");
 }
@@ -657,16 +681,16 @@ function showSchool(row){
 			break
 		}
 	}
-	document.getElementById("school").value = currappl.jobs[i].school;
-	document.getElementById("major").value = currappl.jobs[i].major;
-	document.getElementById("saddress").value = currappl.jobs[i].address;
-	document.getElementById("saddress2").value = currappl.jobs[i].address2;
-	document.getElementById("scity").value = currappl.jobs[i].city;
-	document.getElementById("sstate").value = currappl.jobs[i].state;
-	document.getElementById("szip").value = currappl.jobs[i].zip;
-	document.getElementById("sdatefrom").value = currappl.jobs[i].datefrom;
-	document.getElementById("sdateto").value = currappl.jobs[i].dateto;
-	resetTable(document.getElementById("schoolTab"));
+	document.getElementById("school").value = currappl.school[i].school;
+	document.getElementById("major").value = currappl.school[i].major;
+	document.getElementById("saddress").value = currappl.school[i].address;
+	document.getElementById("saddress2").value = currappl.school[i].address2;
+	document.getElementById("scity").value = currappl.school[i].city;
+	document.getElementById("sstate").value = currappl.school[i].state;
+	document.getElementById("szip").value = currappl.school[i].zip;
+	document.getElementById("sdatefrom").value = currappl.school[i].datefrom;
+	document.getElementById("sdateto").value = currappl.school[i].dateto;
+	resetTable(document.getElementById("schoolsTab"));
 	row.classList.add("selected");
 }
 
@@ -752,7 +776,7 @@ function clearAbility(){
 	resetTable(document.getElementById("abilityTab"));
 }
 
-function clearJob(){
+function clearJobs(){
 	document.getElementById("company").value = "";
 	document.getElementById("jaddress").value = "";
 	document.getElementById("jaddress2").value = "";
@@ -806,11 +830,11 @@ function saveAbility(){
 }
 
 
-function saveDoc(){
-	if (document.getElementById("docid2").value == 0) {
-		currdoc.insert()
+function saveJob(){
+	if (document.getElementById("jid").value == 0) {
+		currappl.insertJob()
 	} else {
-		currdoc.update()
+		currappl.updateJob()
 	}
 }
 
@@ -823,11 +847,11 @@ function saveHealth(){
 	}
 }
 
-function saveStatus(){
-	if (document.getElementById("statusid").value == 0) {
-		currstatus.insert()
+function saveSchool(){
+	if (document.getElementById("scid").value == 0) {
+		currappl.insertSchool()
 	} else {
-		currstatus.update()
+		currappl.updateSchool()
 	}
 }
 
