@@ -64,12 +64,12 @@ class Applicant {
 	}
 
 	updateSchool () {
-			formData = new FormData(document.getElementById("schoolForm"));
-			sendData(formData, path + "st_updateSchool.php", showResult);
+		var formData = new FormData(document.getElementById("schoolForm"));
+		sendData(formData, path + "st_updateSchool.php", showResult);
 	}
 	insertSchool () {
-			formData = new FormData(document.getElementById("schoolsForm"));
-			sendData(formData, path + "st_insertSchool.php", showResult);
+		var formData = new FormData(document.getElementById("schoolsForm"));
+		sendData(formData, path + "st_insertSchool.php", showResult);
 	}
 	
 }
@@ -376,7 +376,7 @@ function fillEmpDetail(data) {
 	let schoolTable = document.getElementById("schoolsTab");
 	let schoolContents = "<tr><th class='tabcolumn'>School</th></tr>";
 	for (let i =0; i < data.school.length; i++){
-		schoolContents += "tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].school + "</td></tr>"
+		schoolContents += "<tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].schoolname + "</td></tr>"
 			+data.school[i].entity + "</td></tr>";
 		currappl.schools.push(new History("school", data.school[i].id, data.school[i].entity, data.school[i].address,
 			data.school[i].address2, data.school[i].city, data.school[i].state, data.school[i].zip, data.school[i].datefrom,
