@@ -575,9 +575,9 @@ function clearNewApp(){
 
 	clearSkill();
 	clearAbility();
-	//clearDoc();
+	clearJobs();
 	clearHealth();
-	//clearStatus();
+	clearSchool();
 	//resetNewApp();
 }
 
