@@ -73,6 +73,10 @@ $groups .= ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"
 $groups .= ($_POST["farcelnauc"] == "yes")? " farcelnauc:" . $_POST["farcelnaucexp"]."\\n" : "";
 $groups .= ($_POST["terrororg"] == "yes")? " terrororg:" . $_POST["terrororgexp"]."\\n" : "";
 $groups .= ($_POST["famterrorist"] == "yes")? " famterrorist:" . $_POST["famterroristexp"]."\\n" : "";
+$countries = ($_POST["traveled"] == "yes")? " traveled:"$_POST["traveledexp"]."\\n" : "";
+$countries .= ($_POST["resided"] == "yes")? " resided:"$_POST["resided"]."\\n" : "";
+$military = ($_POST["served"] == "yes")? " served:"$_POST["served"]."\\n" : "";
+$military .= ($_POST["armygroup"] == "yes")? " armygroup:"$_POST["armygroup"]."\\n" : "";
 $status = "ready";
 $id = $_POST["id"];
 
@@ -186,6 +190,25 @@ for($i = 0; $i < $schoolcount; $i++){
   $stmt->execute();
 }
 
+$stmt = $conn->prepare("INSERT INTO health (skillsid, applicantsid, medtreatment, reason) VALUES(?, ?, ?, ?)");
+$stmt->bind_param("iiss", $skillsid, $id, $med, $reason1);
+$issues = [];
+$empty = "";
+
+if ($_POST["disease"] == "yes") array_push($issues, array("Disease", $_POST["diseaseexp"], $empty));
+if ($_POST["disorder"] == "yes") array_push($issues, array("Mental disorder", $_POST["disorderexp"], $empty));
+if ($_POST["druguse"] == "yes") array_push($issues, array("Drug Abuse", $_POST["druguseexp"], $empty));
+if ($_POST["vaccinations"] == "yes") array_push($issues, array("Vaccination docs", $_POST["vaccinationsexp"], $empty));
+if ($_POST["skills"] == "yes") array_push($issues, array("Firearms etc.", $_POST["skillsexp"], $empty));
+
+$count = count($issues);
+for($i = 0; $i < $count; $i++){
+    $skillsid = getHealth($issues[$i]);
+    $med = $issues[$i][1];
+    $reason1 = $issues[$i][2];
+    $stmt->execute();
+}
+
 if ($result == 1){
   echo " Su solicitud ha sido guardada, CITA se comunicará con usted cuando revisen su solicitud";
 } else {
@@ -193,6 +216,16 @@ if ($result == 1){
 };
 
 $conn->close();
+function getHealth($health){
+  global $conn;
+  $sql = "SELECT id FROM skills WHERE skillenglish  = '" .$issues[0] ."'";
+  $records = $conn->query($sql);
+  if ($row = $records->fetch_assoc()){
+      return $row["id"];
+  } else {
+      return 0;
+  }
+}
 
 ?>
 </body>
