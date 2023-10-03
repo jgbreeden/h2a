@@ -73,10 +73,10 @@ $groups .= ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"
 $groups .= ($_POST["farcelnauc"] == "yes")? " farcelnauc:" . $_POST["farcelnaucexp"]."\\n" : "";
 $groups .= ($_POST["terrororg"] == "yes")? " terrororg:" . $_POST["terrororgexp"]."\\n" : "";
 $groups .= ($_POST["famterrorist"] == "yes")? " famterrorist:" . $_POST["famterroristexp"]."\\n" : "";
-$countries = ($_POST["traveled"] == "yes")? " traveled:"$_POST["traveledexp"]."\\n" : "";
-$countries .= ($_POST["resided"] == "yes")? " resided:"$_POST["resided"]."\\n" : "";
-$military = ($_POST["served"] == "yes")? " served:"$_POST["served"]."\\n" : "";
-$military .= ($_POST["armygroup"] == "yes")? " armygroup:"$_POST["armygroup"]."\\n" : "";
+$countries = ($_POST["traveled"] == "yes")? " traveled:" . $_POST["traveledexp"]."\\n" : "";
+$countries .= ($_POST["resided"] == "yes")? " resided:" . $_POST["resided"]."\\n" : "";
+$military = ($_POST["served"] == "yes")? " served:" . $_POST["served"]."\\n" : "";
+$military .= ($_POST["armygroup"] == "yes")? " armygroup:" . $_POST["armygroup"]."\\n" : "";
 $status = "ready";
 $id = $_POST["id"];
 
