@@ -41,11 +41,6 @@ let usp = new URLSearchParams(window.location.search);
 
 var blankjob = document.getElementById("jobs").innerHTML;
 
-function addjob() {
-	document.getElementById("jobs").innerHTML += blankjob;
-
-}
-
 var blankschool = document.getElementById("school").innerHTML;
 
 function addschool() {
@@ -66,3 +61,15 @@ function setMarital(select) {
 	}
 
 }
+
+document.getElementById("addJobBtn").addEventListener("click", function(e){
+    e.preventDefault();
+	document.getElementById("jobs").innerHTML += blankjob;
+})
+tabChange(currentTab);
+
+document.getElementById("addSchoolsBtn").addEventListener("click", function(e){
+    e.preventDefault();
+	document.getElementById("school").innerHTML += blankjob;
+})
+tabChange(currentTab);
