@@ -1,14 +1,21 @@
 function getApp(id)  {
     let xhr = new XMLHttpRequest();
 	xhr.onload = function(){
-		
+		if (this.responseText == "completed" ){
+			deny();
+		}
+		else {
 			console.log(this.responseText);
 			initData(JSON.parse(this.responseText));
+		}
 		
 	}
 	xhr.open("get", "st_initapp2.php?id=" + id);
 	xhr.send();
 
+}
+function deny() {
+	return;
 }
 
 function initData(data) {
@@ -25,6 +32,18 @@ function initData(data) {
 	document.getElementById("state").value = data.state;
 	document.getElementById("zipcode").value = data.zip;
 	document.getElementById("id").value = data.id;
+	document.getElementById("ppcity").value = data.ppcity;
+	document.getElementById("ppstate").value = data.ppstate;
+	document.getElementById("ppdateissue").value = data.ppdateissue;
+	document.getElementById("ovisas").value = data.ovisas;
+	document.getElementById("ovisaissues").value = data.ovisaissues;
+	document.getElementById("ovisarefused").value = data.ovisarefused;
+	document.getElementById("olicense").value = data.olicense;
+	document.getElementById("oustravel").value = data.oustravel;
+	document.getElementById("odeported").value = data.odeported;
+	document.getElementById("ofarmwork").value = data.ofarmwork;
+	document.getElementById("ocrimes").value = data.ocrimes;
+
 	//document.getElementById("placeofbirth").value = data.placeofbirth;
 	if (data.gender == "male") {
 		document.getElementById("male").checked = true;
