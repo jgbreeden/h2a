@@ -226,18 +226,18 @@ $stmt->bind_param("iiss", $skillsid, $id, $med, $reason1);
 $issues = [];
 $empty = "";
 
-if ($_POST["asma"] == "yes") array_push($issues, array("asthma", $_POST["asthmamed"], $empty));
-if ($_POST["diabetic"] == "yes") array_push($issues, array("diabetic", $_POST["diabeticmed"], $empty));
-if ($_POST["heart"] == "yes") array_push($issues, array("heart problem", $_POST["heartmed"], $empty));
-if ($_POST["backp"] == "yes") array_push($issues, array("back", $empty, $empty));
-if ($_POST["injury"] == "yes") array_push($issues, array("fracture", $_POST["injurytype"], $empty));
-if ($_POST["pressure"] == "yes") array_push($issues, array("high blood pressure", $_POST["pressurecause"], $empty));
-if ($_POST["disability"] == "yes") array_push($issues, array("disability", $_POST["disabilityexp"], $empty));
+if ($_POST["asma"] == "yes") array_push($issues, array("Asthma", $_POST["asthmamed"], $empty));
+if ($_POST["diabetic"] == "yes") array_push($issues, array("Diabetic", $_POST["diabeticmed"], $empty));
+if ($_POST["heart"] == "yes") array_push($issues, array("Heart problem", $_POST["heartmed"], $empty));
+if ($_POST["backp"] == "yes") array_push($issues, array("Back", $empty, $empty));
+if ($_POST["injury"] == "yes") array_push($issues, array("Fracture", $_POST["injurytype"], $empty));
+if ($_POST["pressure"] == "yes") array_push($issues, array("High blood pressure", $_POST["pressurecause"], $empty));
+if ($_POST["disability"] == "yes") array_push($issues, array("Disability", $_POST["disabilityexp"], $empty));
 
 
 $count = count($issues);
 for($i = 0; $i < $count; $i++){
-    $skillsid = getskill($issues[$i]);
+    $skillsid = getissues($issues[$i]);
     $med = $issues[$i][1];
     $reason1 = $issues[$i][2];
     $stmt->execute();
