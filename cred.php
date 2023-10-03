@@ -1,6 +1,6 @@
 <?php
     $host = "localhost";
-    $user = "root";
-    $password = "";
-    $db = "h2a";
+    $user = "root"; //"bxxaapmy_app"
+    $password = ""; //"CTE@stedy01"
+    $db = "h2a"; //"bxxaapmy_h2a"
 ?>
