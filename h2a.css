@@ -9,6 +9,7 @@
 #staffmenu button{
 	padding: 10px;
 	border-radius: 10px 10px 0px 0px;
+	width: 120px;
 }
 
 table, th {
@@ -43,8 +44,9 @@ form {
 }
 
 .selected {
-	background-color: rgb(180, 180, 180);
+	background-color: rgb(200, 200, 200);
 	color: black;
+	font-weight: bold;
 }
 
 .companylist {
@@ -128,6 +130,7 @@ input[type="text"] {
 }
 .tabbutton{
 	border-radius: 8px 8px 0px 0px;
+	width: 120px;
 }
 fieldset {
 	padding-bottom: 2px;

@@ -103,12 +103,12 @@
     <hr>
 
     <hr>
-    <label for="otheremail">otro correo electronico en los ultimos 5 anos</label><br>
+    <label for="otheremail">Otro correo electronico en los ultimos 5 anos</label><br>
     <input type="text" id="otheremail" name="otheremail"><br>
     <hr>
 
     <hr>
-    <label for="socialmedia">cuentas de redes sociales (sitio web y nombre de usuario)</label><br>
+    <label for="socialmedia">Cuentas de redes sociales (sitio web y nombre de usuario)</label><br>
     <textarea type="text" id="socialmedia" name="socialmedia" rows="2" cols="22"></textarea><br>
     <hr>
 
@@ -142,6 +142,10 @@
     <label for="address">Direccion</label><br>
     <input type="text" id="address" name="address"><br>
     <hr>
+    <hr>
+    <label for="address2">Direccion 2</label><br>
+    <input type="text" id="address2" name="address2"><br>
+    <hr>
 
     <hr>
     <label for="city">Ciudad</label><br>
@@ -159,28 +163,28 @@
     <hr>
 
     <hr>
-    <label for="ppnumber">nu&#769;mero de pasaporte</label><br>
+    <label for="ppnumber">Nu&#769;mero de pasaporte</label><br>
     <input type="number" id="ppnumber" name="ppnumber"><br>
     <hr>
 
     <hr>
-    <label for="ppcity">ciudad pasaporte</label><br>
+    <label for="ppcity">Ciudad pasaporte</label><br>
     <input type="text" id="ppcity" name="ppcity"><br>
     <hr>
 
     <hr>
-    <label for="ppissuedate">fecha de emision del pasaporte</label><br>
+    <label for="ppissuedate">Fecha de emision del pasaporte</label><br>
     <input type="date" id="ppissuedate" name="ppissuedate"><br>
     <hr>
 
     <hr>
-    <label for="ppduedate">fecha de vencimiento del pasaporte</label><br>
+    <label for="ppduedate">Fecha de vencimiento del pasaporte</label><br>
     <input type="date" id="ppduedate" name="ppduedate"><br>
     <hr>
 
     <hr>
-    <label for="ppissues">problemas de pasaporte</label><br>
-    <input type="number" id="ppissues" name="ppissues"><br>
+    <label for="ppissues">Problemas de pasaporte</label><br>
+    <input type="text" id="ppissues" name="ppissues"><br>
     <hr>
 
 </div>
@@ -189,17 +193,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-    <div class="tab" id="tab2">
+<div class="tab" id="tab2">
   
         <div id="relatives" >
 
@@ -211,7 +205,6 @@
             <h4>Padre</h4>
             </hr>
         
-
             <div id="father">
                 <hr>
                 <label for="fatherFname">Nombre de su padre:</label><br>
@@ -284,8 +277,6 @@
 
             <div id="Mother">
 
-
-
                 <hr>
                 <label for="motherFname">Nombre de su madre:</label><br>
                 <input type="text" id="motherFname" name="motherFname" min="1" max="20"><br>
@@ -329,8 +320,7 @@
                 <label for="Mzipcode">Codigo Postal:</label><br>
                 <input type="text" id="Mzipcode" name="Mzipcode" min="1" max="20"><br>
                 <hr>
-            
-            
+                        
                 <hr>
                 <label for="Mcity">Ciudad:</label><br>
                 <input type="text" id="Mcity" name="Mcity" min="1" max="20"><br>
@@ -358,9 +348,8 @@
                 <h4>Otros Familares</h4>
                 </hr>
 
-
                 <hr>
-               Tiene alguno otro familar en los Estados Unidos, no incluendo sus padres?
+                Tiene alguno otro familar en los Estados Unidos, no incluendo sus padres?
                 <div class="inline">
                 <input type="radio" id="si" name="RYstatus" value="si" checked="true">
                 <label for="si">Si</label><br>
@@ -369,13 +358,11 @@
                 </div>
                 <hr>
 
-
                 <hr>
                 <h4>Nombre de sus Familares: </h4>
                 <textarea id="Otherrelatives" rows="2" cols="25" name="Otherrelatives"></textarea>
 
                 <hr>
-
             </div>
         
             <div id="spouse">
@@ -443,11 +430,7 @@
                 <label for="Pmarriage">Lugar de La Boda:</label><br>
                 <input type="text" id="Pmarriage" name="Pmarriage" min="1" max="20"><br>
                 </hr>
-
-
             </div>
-
-        
         </div>
         
         <div id="jobs" >
@@ -455,7 +438,6 @@
             <hr>
             <h3>Historial de trabajo:</h3>
             <hr>
-
 
             <hr>
             <label for="jcompany">Empleador primero</label><br>
@@ -471,7 +453,6 @@
             <label for="jaddress2">Direction De Empleador 2:</label><br>
             <input type="text" id="jaddress" name="jaddress2[]" min="1" max="20"><br>
             <hr>
-
 
             <hr>
             <label for="jcity">Ciudad:</label><br>
@@ -528,7 +509,7 @@
             <input type="text" id="duties" name="duties[]" min="1" max="20"><br>
             <hr>
 
-            <button onclick="addJob()"> Add Job</button>
+            <button type="button" id="addJobBtn">Add Job</button>
 
         </div>
 
@@ -581,52 +562,12 @@
             <hr>
             <label for="scdateto">fin de la iniciacio&#769;n</label><br>
             <input type="date" id="scdateto" name="scdateto[]" min="1" max="20"><br>
-            <hr>
-
+            <hr>    
             
+            <button type="button" id="addSchoolBtn">Add School</button>
         </div>    
         
 
-
-
-
-
-
-
-
-
-
-
-        
-
-</div>
-<div class="tab" id="tab3">
-
-    <hr>
-    Proporcione la siguiente informacion de seguridad y antecedentes.
-    Proporcione informacion completa y precisa a todas las preguntas que requieran una explicacion.
-    No se puede emitir una visa a personas que se encuentren dentro de categori&#769;as especi&#769;ficas definidas por la ley
-    como inadmisibles para los Estados Unidos (excepto cuando se obtiene una exencion por adelantado).
-    &#191;Alguno de los siguientes es aplicable a usted? Si bien una respuesta SÍ no significa automa&#769;ticamente
-    la inelegibilidad para una visa, si responde SÍ, es posible que se le pida que comparezca personalmente ante un oficial consular.
-    <hr>
-
-    <hr>&#191;Tienes una enfermedad transmisible de importancia para la salud pu&#769;blica?
-    (Las enfermedades transmisibles de importancia pu&#769;blica incluyen el ca&#769;nceroide,
-    la gonorrea, el granuloma inguinal, la lepra infecciosa, el linfogranuloma vene&#769;reo,
-    la si&#769;filis en etapa infecciosa, la tuberculosis activa y otras enfermedades segu&#769;n lo 
-    determinado por el Departamento de Salud y Servicios Humanos).
-
-    <div class="inline"><input type="radio" name="diesease" id="diesease" value="yes" onclick="showOption(this)">
-    <label for="diesease">Si</label><br>
-    <input type="radio" name="diesease" id="dieseaseno" value="no" checked="true" onclick="hideOption(this)">
-    <label for="dieseaseno">No</label><br>
-    </div>
-    <div class="options" id="dieseaseoptions">
-    <label for="dieseaseexp">Explicar</label><br>
-    <input type="text" name="dieseaseexp"><br>
-    </div>
-    <hr>
     <hr>&#191;Perteneces a un clan o tribu?
     <div class="inline"><input type="radio" name="clan" id="clan" value="yes" onclick="showOption(this)">
     <label for="clan">Si</label><br>
@@ -639,8 +580,6 @@
     </div>
     <hr>
     <hr>&#191;Has viajado a algún país/región en los últimos cinco años?
-
-
     <div class="inline"><input type="radio" name="traveled" id="traveled" value="yes" onclick="showOption(this)">
     <label for="traveled">Si</label><br>
     <input type="radio" name="traveled" id="traveledno" value="no" checked="true" onclick="hideOption(this)">
@@ -723,6 +662,35 @@
     <input type="text" name="armygroupexp"><br>
     </div>
     <hr>
+</div>
+<div class="tab" id="tab3">
+
+    <hr>
+    Proporcione la siguiente informacion de seguridad y antecedentes.
+    Proporcione informacion completa y precisa a todas las preguntas que requieran una explicacion.
+    No se puede emitir una visa a personas que se encuentren dentro de categori&#769;as especi&#769;ficas definidas por la ley
+    como inadmisibles para los Estados Unidos (excepto cuando se obtiene una exencion por adelantado).
+    &#191;Alguno de los siguientes es aplicable a usted? Si bien una respuesta SÍ no significa automa&#769;ticamente
+    la inelegibilidad para una visa, si responde SÍ, es posible que se le pida que comparezca personalmente ante un oficial consular.
+    <hr>
+
+    <hr>&#191;Tienes una enfermedad transmisible de importancia para la salud pu&#769;blica?
+    (Las enfermedades transmisibles de importancia pu&#769;blica incluyen el ca&#769;nceroide,
+    la gonorrea, el granuloma inguinal, la lepra infecciosa, el linfogranuloma vene&#769;reo,
+    la si&#769;filis en etapa infecciosa, la tuberculosis activa y otras enfermedades segu&#769;n lo 
+    determinado por el Departamento de Salud y Servicios Humanos).
+
+    <div class="inline"><input type="radio" name="disease" id="disease" value="yes" onclick="showOption(this)">
+    <label for="disease">Si</label><br>
+    <input type="radio" name="disease" id="diseaseno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="diseaseno">No</label><br>
+    </div>
+    <div class="options" id="diseaseoptions">
+    <label for="diseaseexp">Explicar</label><br>
+    <input type="text" name="diseaseexp"><br>
+    </div>
+    <hr>
+
     <hr>&#191;Tienes un trastorno mental o fi&#769;sico que represente o es probable que represente una
     amenaza para la seguridad o el bienestar de ti mismo o de los dema&#769;s?
 
