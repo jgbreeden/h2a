@@ -68,7 +68,7 @@ document.getElementById("addJobBtn").addEventListener("click", function(e){
 })
 tabChange(currentTab);
 
-document.getElementById("addSchoolsBtn").addEventListener("click", function(e){
+document.getElementById("addSchoolBtn").addEventListener("click", function(e){
     e.preventDefault();
 	document.getElementById("school").innerHTML += blankjob;
 	con
