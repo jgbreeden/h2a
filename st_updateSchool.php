@@ -4,9 +4,9 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "INSERT INTO school(schoolname, address, address2, city, state, zip, major,
-    datefrom, dateto, applicantsid ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
-	    . "doctype = ? WHERE id=?";
+	$sql = "INSERT INTO school(schoolname, address, address2, city, state, zip, major, "
+    	. "datefrom, dateto, applicantsid ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+		
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("sssssssssi",  $_POST["school"],  $_POST["major"],
                                          $_POST["saddress"], $_POST["saddress2"], 

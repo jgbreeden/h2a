@@ -157,14 +157,15 @@
 	$stmt->execute();
 	$results = $stmt->get_result();
 	if ($row = $results->fetch_assoc()) {
-		echo ', "appds160": {"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
+		echo ', "ds160": {"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
 		. $row["nationality"] . '", "othernations": "' . $row["othernations"] . '", "otherresident": "' 
 		. $row["otherresident"] . '", "nationid": "' . $row["nationid"] . '", "ssn": "' . $row["ssn"] . '", "othercontact": "' 
 		. $row["othercontact"] . '", "socialmedia": "' . $row["socialmedia"] . '", "pploststolen": "' 
 		. $row["pploststolen"] . '", "father": "' . $row["fatherinfo"] . '", "mother": "' 
 		. $row["motherinfo"] . '", "relatives": "' . $row["relatives"] . '", "spouse": "' 
 		. $row["spouse"] . '", "countries": "' . $row["countries"] . '", "groups": "' . $row["groups"] . '", "military": "' 
-		. $row["military"] . '", "issues": "' . $row["issues"] . '", "applicantsid": "' . $row["applicantsid"] . '"}';
+		. $row["military"] . '", "confirmation": "' . $row["confirmation"] . '", "issues": "'
+		. $row["issues"] . '", "applicantsid": "' . $row["applicantsid"] . '"}';
 	}
 
 	echo '}';

@@ -300,7 +300,7 @@ function fillEmpDetail(data) {
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
-		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.crimes)
+		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.legalissues)
 	if(data.ds160 != undefined){
 		currappl.ds160.id = data.ds160.id
 		currappl.ds160.marriage = data.ds160.marriage
@@ -327,7 +327,7 @@ function fillEmpDetail(data) {
 		currappl.ds160.confirmation = data.ds160.confirmation
 	}
 	let table = document.getElementById("skillsTab");
-	let contents = "<tr><th>Experiance</th><th>Years</th><th class='tabcolumn'>Where</th></tr>";
+	let contents = "<tr><th>Experience</th><th>Years</th><th class='tabcolumn'>Where</th></tr>";
 	for (let i = 0; i < data.skills.length; i++){
 		contents += "<tr onclick='showSkill(this)'><td class='id'>" + data.skills[i].exid + "</td><td>" + data.skills[i].skillenglish + "</td><td>"
 					+ data.skills[i].years + "</td><td>" + data.skills[i].location + "</td><td class='id'>" + data.skills[i].skillsid
@@ -424,9 +424,7 @@ function resetNewApp(){
 	document.getElementById("maritalstatus").value = currappl.maritalstatus;
 	document.getElementById("placeofbirth").value = currappl.placeofbirth;
 	document.getElementById("ustravel").value = currappl.ustravel;
-	document.getElementById("legalissues").value = currappl.crimes;
-	document.getElementById("appconfirm").value = currappl.confirmation;
-
+	
 	if (currappl.gender == "male") {
 		document.getElementById("male").checked = true;
 	} else {
@@ -471,10 +469,6 @@ function resetNewApp(){
 	document.getElementById("howhearcita").value = currappl.howhearcita;
 	document.getElementById("otherhelp").value = currappl.otherhelp;
 	document.getElementById("whatknowcita").value = currappl.whatknowcita;
-    document.getElementById("nationality").value = currappl.nationality
-	document.getElementById("othernations").value = currappl.othernations
-	document.getElementById("otherresident").value = currappl.otherresident
-	document.getElementById("nationid").value = currappl.nationid
 	document.getElementById("license").value = currappl.license
 	document.getElementById("usresidency").value = currappl.deported
 	document.getElementById("legalissues").value = currappl.crimes;
@@ -497,11 +491,7 @@ function resetNewApp(){
 		document.getElementById("groups").value = currappl.ds160.groups;
 		document.getElementById("military").value = currappl.ds160.military;
 		document.getElementById("issues").value = currappl.ds160.issues;
-		document.getElementById("appconfirm").value = currappl.ds160.confrimation;
-		//document.getElementById("crimes").value = currappl.ds160.crimes;
-		//document.getElementById("deportation").value = currappl.ds160.deportation;
-		//document.getElementById("applicants").value = currappl.ds160.applicants;
-
+		document.getElementById("appconfirm").value = currappl.ds160.confirmation;
 	}
 }
 
@@ -652,7 +642,7 @@ function showHealth(row){
 
 function showJobs(row){
 	let cells = row.getElementsByTagName("td");
-	for (i = 0; i < currappl.jobs.length; i++) {
+	for (i = 0; i < currappl.jobs.length; i++) { //find the current row within the object array
 		if (cells[0].innerHTML == currappl.jobs[i].id) {
 			break
 		}
@@ -723,7 +713,7 @@ function fillSkill(data){
 	options.innerHTML = contents;
 	abilities.innerHTML = abcontents;
 	let matchlist1a = document.getElementById("chooseskills1a")
-	let choices1a = "<tr><th>.  .</th><th>Desired Experiance</th></tr>"
+	let choices1a = "<tr><th>.  .</th><th>Desired Experience</th></tr>"
 	let split = 0
 	for (let i = 0; i < data.length; i++){
 		if (data[i].skilltype == "produce"){
@@ -738,7 +728,7 @@ function fillSkill(data){
 	matchlist1a.innerHTML = choices1a;
 
 	let matchlist1b = document.getElementById("chooseskills1b")
-	let choices1b = "<tr><th>.  .</th><th>Desired Experiance</th></tr>"
+	let choices1b = "<tr><th>.  .</th><th>Desired Experience</th></tr>"
 	for (let i = split; i < data.length; i++){
 		if (data[i].skilltype == "produce"){
 			choices1b += "<tr><td><input type='checkbox' onclick='getMatchingEmps()'></td><td>" + data[i].skillenglish + "</td></tr>"
