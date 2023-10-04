@@ -67,6 +67,7 @@ $crimes .= ($_POST["confidencial"] == "yes")? " confidencial:" . $_POST["confide
 $crimes .= ($_POST["famconfidencial"] == "yes")? " famconfidencial:" . $_POST["famconfidencialexp"]."\\n" : "";
 $crimes .= ($_POST["popcontrol"] == "yes")? " popcontrol:" . $_POST["popcontrolexp"]."\\n" : "";
 $crimes .= ($_POST["humanorgans"] == "yes")? " humanorgans:" . $_POST["humanorgansexp"]."\\n" : "";
+$crimes.= $_POST[""]
 $groups = ($_POST["organization"] == "yes")? " organization:" . $_POST["organizationexp"]."\\n" : "";
 $groups .= ($_POST["taliban"] == "yes")? " taliban:" . $_POST["talibanexp"]."\\n" : "";
 $groups .= ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\\n" : "";
@@ -78,6 +79,14 @@ $countries .= ($_POST["resided"] == "yes")? " resided:" . $_POST["resided"]."\\n
 $military = ($_POST["served"] == "yes")? " served:" . $_POST["served"]."\\n" : "";
 $military .= ($_POST["armygroup"] == "yes")? " armygroup:" . $_POST["armygroup"]."\\n" : "";
 $status = "ready";
+$ppnumber = $_POST["ppnumber"];
+$ppcity = $_POST["ppcity"];
+$ppstate = $_POST["ppstate"];
+$ppdateissue = $_POST["ppdateissues"];
+$visas = $_POST["visas"];
+$visaissues =  $_POST["visasissues"];
+$visarefused =
+$license = 
 $id = $_POST["id"];
 
 //change to an update
