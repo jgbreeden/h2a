@@ -56,7 +56,8 @@ button {
 .formi {
     background-color:#cccccc;
     height: 500px;
-    width: 100%;
+    max-width: 800px;
+    margin: auto;
     border-style: solid;
     border-width: thin;
     overflow-y: scroll;
