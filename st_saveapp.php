@@ -20,6 +20,7 @@ $lname = htmlspecialchars($_POST["lname"]);
 $phonecell = htmlspecialchars($_POST["phonecell"]);
 $phonehome = htmlspecialchars($_POST["phonehome"]);
 $address = htmlspecialchars($_POST["address"]);
+$address2 = htmlspecialchars($_POST["address2"]);
 $city = htmlspecialchars($_POST["city"]);
 $state = htmlspecialchars($_POST["state"]);
 $zipcode = htmlspecialchars($_POST["zipcode"]);
@@ -82,14 +83,14 @@ if ($_POST["aware"] == "yes") {
     $whatknowvisa = "Didn't know it's a work visa. " . $whatknowvisa;
 }
 
-$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, city, 
+$stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, address2, city, 
     state, zipcode, gender, specificarea, 
     whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
     email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, 
     otherhelp, whatknowcita, status, lift25to40, datesigned, signature, ppnumber, 
     ppcity, ppstate, ppdateissue, visas, visaissues, visarefused, license, deported, farmwork, ustravel, crimes) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $city, 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, 
     $state, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
