@@ -11,7 +11,7 @@
                                          $_POST["saddress"], $_POST["saddress2"], 
                                          $_POST["scity"], $_POST["sstate"],  
                                          $_POST["sdatefrom"], $_POST["zip"],
-                                         $_POST["sdateto"], $_POST["apid"]);
+                                         $_POST["sdateto"], $_POST["schapid"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";
