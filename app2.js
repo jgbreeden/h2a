@@ -15,11 +15,11 @@ function getApp(id)  {
 
 }
 function deny() {
-	return;
+	document.querySelectorAll(".intro").forEach(div => div.classList.add("hidden"));
+	document.getElementById("done").classList.remove("hidden");
 }
 
 function initData(data) {
-
     document.getElementById("fname").value = data.firstname;
 	document.getElementById("lname").value = data.lastname;
 	document.getElementById("maritalstatus").value = data.maritalstatus;
@@ -34,7 +34,7 @@ function initData(data) {
 	document.getElementById("id").value = data.id;
 	document.getElementById("ppcity").value = data.ppcity;
 	document.getElementById("ppstate").value = data.ppstate;
-	document.getElementById("ppdateissue").value = data.ppdateissue;
+	document.getElementById("ppissuedate").value = data.ppdateissue;
 	document.getElementById("ovisas").value = data.ovisas;
 	document.getElementById("ovisaissues").value = data.ovisaissues;
 	document.getElementById("ovisarefused").value = data.ovisarefused;

@@ -7,7 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div class="cita">
+    <div id="done" class="hidden">Ya has completado esta solicitud. 
+        Por favor contacte a CITA para más información en al (928)271-2619
+    </div>
+    <div class="cita hidden intro">
         <h1>Centro Independiente de Trabajadores Agri&#769;colas A.C.</h1>
         <p>NFORMACION DE POSIBLES CANDIDATOS A OBTENER LA VISA H2A</p>
         <p>** Favor de leer la Solicitud Y Cada pregunta antes de Contestar
@@ -22,18 +25,26 @@
     
     </div>
     
-<div class="nono">
+<div class="nono intro">
 <h1 class="h1">DATOS PERSONALES:</h1>
 <div class="pobtn">
-<button class="tabbtn" id="b1" onclick="">1</button>
-<button class="tabbtn" id="b2">2</button>
-<button class="tabbtn" id="b3">3</button>
+    <button class="tabbtn" id="b1" onclick="tabChange(0)">1</button>
+    <button class="tabbtn" id="b2" onclick="tabChange(1)">2</button>
+    <button class="tabbtn" id="b3" onclick="tabChange(2)">3</button>
 </div>
 </div>
 
-<div class="formi">
+<div class="formi intro">
 <form action="st_saveapp2.php" method="post" id="form">
     <input name="id" id="id" class="hidden">
+    <input name="ovisas" id="ovisas" class="hidden">
+    <input name="ovisaissues" id="ovisaissues" class="hidden">
+    <input name="ovisarefused" id="ovisarefused" class="hidden">
+    <input name="olicense" id="olicense" class="hidden">
+    <input name="oustravel" id="oustravel" class="hidden">
+    <input name="odeported" id="odeported" class="hidden">
+    <input name="ofarmwork" id="ofarmwork" class="hidden">
+    <input name="ocrimes" id="ocrimes" class="hidden">
 <div class="tab" id="tab1">
     <hr>
     <label for="fname">Nombre:</label><br>
@@ -170,6 +181,11 @@
     <hr>
     <label for="ppcity">Ciudad pasaporte</label><br>
     <input type="text" id="ppcity" name="ppcity"><br>
+    <hr>
+
+    <hr>
+    <label for="ppstate">Estado pasaporte</label><br>
+    <input type="text" id="ppstate" name="ppstate"><br>
     <hr>
 
     <hr>
@@ -1374,7 +1390,7 @@
 
 </form>
 </div>
-<div class="Buttons">
+<div class="Buttons intro">
     <button type="button" id="btnback" onclick="btnnext(-1)">Atras</button>
     <button type="button" id="btnnext">Proximo</button>
 </div>

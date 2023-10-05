@@ -42,7 +42,7 @@ function tabChange(tab) {
         if(tab == 1){
             document.getElementById("fatherFname").focus(); 
         } else if (tab == 2) {
-            document.getElementById("diesease").focus();
+            document.getElementById("disease").focus();
         }
     }
 }
