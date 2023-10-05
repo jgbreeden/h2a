@@ -328,14 +328,14 @@ function fillEmpDetail(data) {
 		currappl.ds160.confirmation = data.ds160.confirmation
 	}
 	let table = document.getElementById("skillsTab");
-	let contents = "<tr><th>Experience</th><th>Years</th><th class='tabcolumn'>Where</th></tr>";
+	let contents = "<tr><th class='namehead'>Experience</th><th>Years</th><th class='namehead'>Where</th></tr>";
 	for (let i = 0; i < data.skills.length; i++){
 		contents += "<tr onclick='showSkill(this)'><td class='id'>" + data.skills[i].exid + "</td><td>" + data.skills[i].skillenglish + "</td><td>"
 					+ data.skills[i].years + "</td><td>" + data.skills[i].location + "</td><td class='id'>" + data.skills[i].skillsid
 					+ "</td><td class='id'>" + data.skills[i].details + "</td></tr>";
 	}
 	let table2 = document.getElementById("abilityTab");
-	let contents2 = "<tr><th>Job Skill</th><th>Years</th><th class='tabcolumn'>Where</th></tr>";
+	let contents2 = "<tr><th class='namehead'>Job Skill</th><th>Years</th><th class='namehead'>Where</th></tr>";
 	for (let i = 0; i < data.ability.length; i++){
 		contents2 += "<tr onclick='showAbility2(this)'><td class='id'>" + data.ability[i].abid + "</td><td>" + data.ability[i].abeng + "</td><td>"
 					+ data.ability[i].years + "</td><td>" + data.ability[i].location
@@ -350,7 +350,7 @@ function fillEmpDetail(data) {
 	}*/
 
 	let healthTable = document.getElementById("healthTab");
-	let healthContents = "<tr><th>Health Issue</th><th class='tabcolumn'>Treatment</th></tr>";
+	let healthContents = "<tr><th class='namehead'>Health Issue</th><th class='namehead'>Treatment</th></tr>";
 	for (let i = 0; i < data.health.length; i++){
 		healthContents += "<tr onclick='showHealth(this)'><td class='id'>" + data.health[i].healthid + "</td><td>" +  data.health[i].healtheng + "</td><td>"
 					+ data.health[i].medtreatment + "</td><td class='id'>" + data.health[i].reason + "</td><td class='id'>" + data.health[i].skillsid + "</td></tr>";
@@ -364,7 +364,7 @@ function fillEmpDetail(data) {
 	}*/
 
 	let jobsTable = document.getElementById("jobsTab");
-	let jobsContents = "<tr><th class='tabcolumn'>Jobs</th></tr>";
+	let jobsContents = "<tr><th class='tabcolumn'>Employer</th></tr>";
 	for (let i =0; i < data.jobs.length; i++){
 		jobsContents += "<tr onclick='showJobs(this)'><td class='id'>" + data.jobs[i].id + "</td><td>" 
 			+ data.jobs[i].empname + "</td></tr>";
@@ -532,16 +532,17 @@ function clearNewApp(){
 	document.getElementById("lift25to40no").checked = false;
 	document.getElementById("maritalstatus").value = "";
 	document.getElementById("placeofbirth").value = "";
-	document.getElementById("skillsTab").innerHTML = "<tr><th>Experience</th><th>Years</th><th>Where</th></tr>";
-	document.getElementById("abilityTab").innerHTML = "<tr><th>Job skill</th><th>Years</th><th>Where</th></tr>";
-	//document.getElementById("docTab").innerHTML = "<tr><th>Doc Type</th><th>Years</th><th>Where</th></tr>";
-	document.getElementById("healthTab").innerHTML = "<tr><th>Health Issue</th><th>Treatment</th></tr>";
-	//document.getElementById("statusTab").innerHTML = "<tr><th>Issue Type</th></tr>";
+	document.getElementById("skillsTab").innerHTML = "<tr><th class='namehead'>Experience</th><th>Years</th><th class='namehead'>Where</th></tr>";
+	document.getElementById("abilityTab").innerHTML = "<tr><th class='namehead'>Job skill</th><th>Years</th><th class='namehead'>Where</th></tr>";
+	document.getElementById("healthTab").innerHTML = "<tr><th class='namehead'>Health Issue</th><th class='namehead'>Treatment</th></tr>";
+	document.getElementById("jobsTab").innerHTML = "<tr><th class='tabcolumn'>Employer</th></tr>";
+	document.getElementById("schoolsTab").innerHTML = "<tr><th class='tabcolumn'>Schools</th></tr>";
 	document.getElementById("whatknowvisa").value = ""; 
 	document.getElementById("howhearcita").value = ""; 
 	document.getElementById("otherhelp").value = ""; 
 	document.getElementById("whatknowcita").value = ""; 
-    document.getElementById("ppnumber").value = "";
+    document.getElementById("license").value = "";
+	document.getElementById("ppnumber").value = "";
 	document.getElementById("ppcity").value = "";
 	document.getElementById("ppstate").value = "";
 	document.getElementById("ppdateissue").value = "";

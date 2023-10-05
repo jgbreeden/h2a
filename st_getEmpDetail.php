@@ -128,14 +128,15 @@
 	$comma = "";
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {								
-		echo $comma .' { "id": ' . $row["id"] . ', "empname": "' . $row["empname"] . '",  "address": "' . $row["address"]
+		$json = $comma .' { "id": ' . $row["id"] . ', "empname": "' . $row["empname"] . '",  "address": "' . $row["address"]
 			. '", "address2": "' . $row["address2"] . '", "city": "' . $row["city"] . '", "state": "' . $row["state"] 
 			. '", "zip": "' . $row["zip"] . '", "phone": "' . $row["phone"] . '", "salary": "' . $row["salary"] . '", "jobtitle": "' . $row["jobtitle"] 
 			. '", "datefrom": "' . $row["datefrom"] . '", "dateto": "'. $row["dateto"] . '", "applicantsid": "' . $row["applicantsid"] 
 			. '", "duties": "' . $row["duties"] . '", "supervisor": "' . $row["supervisor"]	. '"}';
 		$comma = ", ";
-		}
-
+	}
+	$json = str_replace(chr(13), "", $json);
+	echo str_replace(chr(10), "\\n", $json);
 	echo '], "school": [';
 	$query = "SELECT * FROM school WHERE applicantsid =?";
 	$stmt = $conn->prepare($query);
