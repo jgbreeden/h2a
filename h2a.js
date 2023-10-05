@@ -1,5 +1,5 @@
 class Applicant {
-	constructor(id, fname, lname, cphone, hphone, address, city, state, zip, status, specificarea, 
+	constructor(id, fname, lname, cphone, hphone, address, address2, city, state, zip, status, specificarea, 
 		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, age, height, weight, lift25to40,
 		maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita, ppnumber, ppcity, ppstate, ppdateissue,
 		visas, visaissues, visarefused, license, deported, ustravel, crimes) {
@@ -9,6 +9,7 @@ class Applicant {
 		this.cellphone = cphone;
 		this.homephone = hphone;
 		this.address = address;
+		this.address2 = address2
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
@@ -296,7 +297,7 @@ function fillEmps(data) {
 }
 
 function fillEmpDetail(data) {
-	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.city, data.state,
+	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.address2, data.city, data.state,
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
@@ -412,6 +413,7 @@ function resetNewApp(){
 	document.getElementById("cphone").value = currappl.cellphone;
 	document.getElementById("hphone").value = currappl.homephone;
 	document.getElementById("address").value = currappl.address;
+	document.getElementById("address2").value = currappl.address2;
 	document.getElementById("city").value = currappl.city;
 	document.getElementById("state").value = currappl.state;
 	document.getElementById("zip").value = currappl.zip;
@@ -424,6 +426,9 @@ function resetNewApp(){
 	document.getElementById("maritalstatus").value = currappl.maritalstatus;
 	document.getElementById("placeofbirth").value = currappl.placeofbirth;
 	document.getElementById("ustravel").value = currappl.ustravel;
+	document.getElementById("visas").value = currappl.visas;
+	document.getElementById("visaissues").value = currappl.visaissues;
+	document.getElementById("visarefused").value = currappl.visarefused;
 	
 	if (currappl.gender == "male") {
 		document.getElementById("male").checked = true;
@@ -501,6 +506,7 @@ function clearNewApp(){
 	document.getElementById("cphone").value = "";
 	document.getElementById("hphone").value = "";
 	document.getElementById("address").value = "";
+	document.getElementById("address2").value = "";
 	document.getElementById("city").value = "";
 	document.getElementById("state").value = "";
 	document.getElementById("zip").value = "";

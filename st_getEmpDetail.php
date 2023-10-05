@@ -21,9 +21,9 @@
 	//echo mysqli_error($conn);
 	$row = $results->fetch_assoc();
 	//write person fields, then "skills": [
-	echo '{ "id": ' . $row["id"] . ', "firstname": "' . $row["firstname"] . '", "lastname": "'
+	$json =  '{ "id": ' . $row["id"] . ', "firstname": "' . $row["firstname"] . '", "lastname": "'
 		. $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
-		. $row["phonehome"] . '", "address": "' . $row["address"] . '", "city": "'
+		. $row["phonehome"] . '", "address": "' . $row["address"] . '", "address2": "' . $row["address2"] . '", "city": "'
 		. $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . $row["zipcode"]
 		. '", "status": "' . $row["status"] . '", "specificarea": "' . $row["specificarea"] . '", "whatarea": "' 
 		. $row["whatarea"] . '", "stay8mo": "' . $row["stay8mo"] . '", "overtime": "' 
@@ -39,7 +39,8 @@
 		. $row["visaissues"] . '", "visarefused": "' . $row["visarefused"] . '", "license": "'
 		. $row["license"] . '", "deported": "' . $row["deported"] . '", "legalissues": "' 
 		. $row["crimes"] .  '", "ustravel": "' . $row["ustravel"] . '", "skills": [ '; 
-
+		$json = str_replace(chr(13), "", $json);
+		echo str_replace(chr(10), "\\n", $json);
 	if (! is_null( $row["skillenglish"])) {
 		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"] 
 			. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"] 
@@ -157,7 +158,7 @@
 	$stmt->execute();
 	$results = $stmt->get_result();
 	if ($row = $results->fetch_assoc()) {
-		echo ', "ds160": {"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
+		$json =  ', "ds160": {"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
 		. $row["nationality"] . '", "othernations": "' . $row["othernations"] . '", "otherresident": "' 
 		. $row["otherresident"] . '", "nationid": "' . $row["nationid"] . '", "ssn": "' . $row["ssn"] . '", "othercontact": "' 
 		. $row["othercontact"] . '", "socialmedia": "' . $row["socialmedia"] . '", "pploststolen": "' 
@@ -166,6 +167,8 @@
 		. $row["spouse"] . '", "countries": "' . $row["countries"] . '", "groups": "' . $row["groups"] . '", "military": "' 
 		. $row["military"] . '", "confirmation": "' . $row["confirmation"] . '", "issues": "'
 		. $row["issues"] . '", "applicantsid": "' . $row["applicantsid"] . '"}';
+		$json = str_replace(chr(13), "", $json);
+		echo str_replace(chr(10), "\\n", $json);
 	}
 
 	echo '}';
