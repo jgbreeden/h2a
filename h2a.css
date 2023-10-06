@@ -4,6 +4,9 @@
 	display: none;
 	height: 690px;
 	overflow: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:rgb(60, 60, 60)
 }
 
 #staffmenu button{
@@ -44,9 +47,9 @@ form {
 }
 
 .selected {
-	background-color: rgb(200, 200, 200);
+	background-color: rgb(220, 220, 220);
 	color: black;
-	font-weight: bold;
+	border-width: 3px 4px 2px 4px;
 }
 
 .companylist {
@@ -116,7 +119,7 @@ form {
 input[type="text"] {
 	width: 150px;
 }
-#jstate, #sstate, #jobtitle, #jphone, #salary, #major, .namehead {
+#jstate, #sstate, #jobtitle, #jphone, #jsalary, #major, .namehead {
 	width: 100px;	
 }
 #jzip, #szip, #years, #years2 {
@@ -138,6 +141,6 @@ fieldset {
 #mainform2 {
 	margin-bottom: 10px;
 }
-#whatarea {
+#whatarea, #legal {
 	margin-bottom: 8px;
 }
