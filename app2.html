@@ -145,19 +145,32 @@
     <input type="text" id="ssn" name="ssn"><br>
     <hr>
 
-    <hr>
-    <label for="usvisits">US Travel</label><br>
-    <input type="text" id="usvisits" name="usvisits"><br>
+    <hr>&#191;Alguna vez has viajado a Estados Unidos?
+
+    <div class="inline"><input type="radio" name="usvisit" id="usvisit" value="yes" onclick="showOption(this)">
+    <label for="usvisit">Si</label><br>
+    <input type="radio" name="usvisit" id="usvisitno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="usvisitno">No</label><br>
+    </div>
+    <div class="options" id="usvisitoptions">
+    <label for="usvisitexp">enumere todas las visitas, fecha, llegada y duración de la estadía</label><br>
+    <textarea rows="3" cols="30" name="usvisitexp"></textarea><br>
+    </div>
     <hr>
 
-    <hr>
-    <label for="driverslicense#">drivers license#</label><br>
-    <input type="text" id="driverslicense#" name="driverslicense#"><br>
-    <hr>
+    <hr>&#191;Tienes una licencia de conducir?
 
-    <hr>
-    <label for="driverslicensestate">drivers license state</label><br>
-    <input type="text" id="driverslicensestate" name="driverslicensestate"><br>
+    <div class="inline"><input type="radio" name="license" id="license" value="yes" onclick="showOption(this)">
+    <label for="license">Si</label><br>
+    <input type="radio" name="license" id="licenseno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="licenseno">No</label><br>
+    </div>
+    <div class="options" id="licenseoptions">
+    <label for="licensenum">número de licencia</label><br>
+    <input type="text" name="licensenum"><br>
+    <label for="licensestate">estado de licencia de conducir</label><br>
+    <input type="text" id="licensestate" name="licensestate"><br>
+    </div>
     <hr>
 
     <hr>
@@ -175,14 +188,32 @@
     <input type="text" id="visacancelled" name="visacancelled"><br>
     <hr>
 
-    <hr>
-    <label for="ssn">visa refused</label><br>
-    <input type="text" id="visarefused" name="visarefused"><br>
+    <hr>&#191;Alguna vez le han negado una visa estadounidense, le han negado la 
+    admisión a los Estados Unidos o ha retirado su solicitud de admisión en el puerto de entrada?
+
+    <div class="inline"><input type="radio" name="visarefused" id="visarefused" value="yes" onclick="showOption(this)">
+    <label for="visarefused">Si</label><br>
+    <input type="radio" name="visarefused" id="visarefusedno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="visarefusedno">No</label><br>
+    </div>
+    <div class="options" id="visarefusedoptions">
+    <label for="visarefusedexp">Explicar</label><br>
+    <textarea rows="3" cols="30" name="visarefusedexp"></textarea><br>
+    </div>
     <hr>
 
-    <hr>
-    <label for="ssn">petition</label><br>
-    <input type="text" id="petition" name="petition"><br>
+    <hr>&#191;Alguien ha presentado alguna vez una petición de inmigración 
+    en su nombre ante los servicios de inmigración y ciudadanía de los Estados Unidos?
+
+    <div class="inline"><input type="radio" name="petition" id="petition" value="yes" onclick="showOption(this)">
+    <label for="petition">Si</label><br>
+    <input type="radio" name="petition" id="petitionno" value="no" checked="true" onclick="hideOption(this)">
+    <label for="petitionno">No</label><br>
+    </div>
+    <div class="options" id="petitionoptions">
+    <label for="petitionexp">Explicar</label><br>
+    <textarea rows="3" cols="30" name="petitionexp"></textarea><br>
+    </div>
     <hr>
 
     <hr>
