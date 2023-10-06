@@ -90,7 +90,16 @@ $visaissues .=  ($_POST["petition"] == "yes")? "petition:" . $_POST["petitionexp
 $visarefused = ($_POST["visarefused"] == "yes")? $_POST(["visarefusedexp"]) . "\\n:" . $_POST["ovisarefused"] :  $_POST["ovisarefused"];
 $license = ($_POST["license"] == "yes")? $_POST["licensenum"]. " - " . $_POST["licensestate"] . "\\n" . $_POST["olicense"] : $_POST["olicense"];
 $ustravel = ($_POST["ustravel"] == "yes")? $_POST["ustravellist"] . "\\n" . $_POST["oustravel"] : $_POST["oustravel"];
-$deported = "";
+$deported = ($_POST["hearing"] == "yes")?  "hearing:" . $_POST["hearingexp"]. "\\n" : "";
+$deported .= ($_POST["visafraud"] == "yes")?  "visafraud:" . $_POST["visafraudexp"]. "\\n" : "";
+$deported .= ($_POST["failedhearing"] == "yes")?  "failedhearing:" . $_POST["failedhearingexp"]. "\\n" : "";
+$deported .= ($_POST["violatedtime"] == "yes")?  "violatedtime:" . $_POST["violatedtimeexp"]. "\\n" : "";
+$deported .= ($_POST["INA274C"] == "yes")?  "INA274C:" . $_POST["INA274Cexp"]. "\\n" : "";
+$deported .= ($_POST["removed5"] == "yes")?  "removed5:" . $_POST["removed5exp"]. "\\n" : "";
+$deported .= ($_POST["removed20"] == "yes")?  "removed20:" . $_POST["removed20exp"]. "\\n" : "";
+$deported .= ($_POST["removed10"] == "yes")?  "removed10:" . $_POST["removed10exp"]. "\\n" : "";
+$deported .= ($_POST["present180"] == "yes")?  "present180:" . $_POST["present180exp"]. "\\n" : "";
+$deported .= ($_POST["present10"] == "yes")?  "present10:" . $_POST["present10exp"]. "\\n" . $_POST["odeported"] : $_POST["odeported"];
 $id = $_POST["id"];
 
 //change to an update
