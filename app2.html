@@ -160,21 +160,42 @@
     <input type="text" id="driverslicensestate" name="driverslicensestate"><br>
     <hr>
 
-    <hr>
-    <label for="visas">visas</label><br>
-    <input type="text" id="visas" name="visas"><br>
-    <hr>
+    <hr> alguna vez as tenido una visa 
+    <div class="inline"><input type="radio" name="visas" id="visas" value="yes" onclick="showOption(this)">
+        <label for="visas">Si</label><br>
+        <input type="radio" name="visas" id="visasno" value="no" checked="true" onclick="hideOption(this)">
+        <label for="visasno">No</label><br>
+    </div>
+    <div class="options" id="visasoptions">
+        <label for="visaslist">Enumere todas las visas,numero, fecha de emision y tipo o </label><br>
+        <textarea rows="3" cols="30" name="visaslist"></textarea><br>
+     
+        <hr>
 
-    <hr>
-    <label for="ssn">visa lost/stolen</label><br>
-    <input type="text" id="visaloststolen" name="visaloststolen"><br>
-    <hr>
+        <hr>Alguna vez perdida o robada?
+        <div class="inline"><input type="radio" name="visaslost" id="visaslost" value="yes" onclick="showOption(this)">
+            <label for="visaslost">Si</label><br>
+            <input type="radio" name="visaslost" id="visaslostno" value="no" checked="true" onclick="hideOption(this)">
+            <label for="visaslostno">No</label><br>
+        </div>
+        <div class="options" id="visaslostoptions">
+        <label for="ssn">an&#771;o?</label><br>
+        <input type="text" id="visalostyear" name="visalostyear"><br>
+        <label for="ssn">explicar?</label><br>
+        <textarea rows="3" cols="30" name="visaslostexp"></textarea><br>
+        </div>
+        <hr>
 
-    <hr>
-    <label for="ssn">visa cancelled</label><br>
-    <input type="text" id="visacancelled" name="visacancelled"><br>
-    <hr>
-
+        <hr>Alguna vez le an cancelado la visa?
+        <div class="inline"><input type="radio" name="visascancelled" id="visascancelled" value="yes" onclick="showOption(this)">
+            <label for="visascancelled">Si</label><br>
+            <input type="radio" name="visascancelled" id="visascancelledno" value="no" checked="true" onclick="hideOption(this)">
+            <label for="visasno">No</label><br>
+        </div>
+        <label for="ssn">explicar?</label><br>
+        <textarea rows="3" cols="30" name="visascancelledexp"></textarea><br>
+        <hr>
+    </div>
     <hr>
     <label for="ssn">visa refused</label><br>
     <input type="text" id="visarefused" name="visarefused"><br>
