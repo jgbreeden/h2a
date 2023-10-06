@@ -78,26 +78,30 @@ $countries = ($_POST["traveled"] == "yes")? " traveled:" . $_POST["traveledexp"]
 $countries .= ($_POST["resided"] == "yes")? " resided:" . $_POST["resided"]."\\n" : "";
 $military = ($_POST["served"] == "yes")? " served:" . $_POST["served"]."\\n" : "";
 $military .= ($_POST["armygroup"] == "yes")? " armygroup:" . $_POST["armygroup"]."\\n" : "";
-$status = "ready";
+$status = "ready";w
 $ppnumber = $_POST["ppnumber"];
 $ppcity = $_POST["ppcity"];
 $ppstate = $_POST["ppstate"];
 $ppdateissue = $_POST["ppdateissues"];
-$visas = "";
-$visaissues =  "";
-$visarefused = "";
-$license = "";
+$visas = ($_POST["visas"] == "yes")?  $_POST["visaslist"]. "\\n" . $_POST["ovisas"] : $_POST["ovisas"];
+$visaissues =  ($_POST["visaslost"] == "yes")? "LoSt:" . $_POST["visaslostyear"] . "\\n" . $_POST["visaslostexp"] : "";
+$visaissues .=  ($_POST["visascancelled"] == "yes")? "CanRev:" . $_POST["visascancelledexp"] . "\\n"  : "";
+$visaissues .=  ($_POST["petition"] == "yes")? "petition:" . $_POST["petitionexp"] . "\\n" . $_POST["ovisaissues"]  : $_POST["ovisaissues"];
+$visarefused = ($_POST["visarefused"] == "yes")? $_POST(["visarefusedexp"]) . "\\n:" . $_POST["ovisarefused"] :  $_POST["ovisarefused"];
+$license = ($_POST["license"] == "yes")? $_POST["licensenum"]. " - " . $_POST["licensestate"] . "\\n" . $_POST["olicense"] : $_POST["olicense"];
+$ustravel = ($_POST["ustravel"] == "yes")? $_POST["ustravellist"] . "\\n" . $_POST["oustravel"] : $_POST["oustravel"];
+$deported = "";
 $id = $_POST["id"];
 
 //change to an update
 
 $sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phonehome = ?,"
 . "address = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
-. "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? , crimes = ? WHERE id = ?;";
+. "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? , crimes = ?, deported = ? WHERE id = ?;";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, 
+$stmt->bind_param("ssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, 
                             $gender, $status, $ppnumber, $ppcity, $ppstate, $ppdateissue, $visas, $visaissues,
-                            $visarefused, $license, $crimes, $id);
+                            $visarefused, $license, $crimes, $deported, $id);
 
 $result = $stmt->execute();
 if ($result == 1) {
