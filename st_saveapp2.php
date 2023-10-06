@@ -67,7 +67,8 @@ $crimes .= ($_POST["confidencial"] == "yes")? " confidencial:" . $_POST["confide
 $crimes .= ($_POST["famconfidencial"] == "yes")? " famconfidencial:" . $_POST["famconfidencialexp"]."\\n" : "";
 $crimes .= ($_POST["popcontrol"] == "yes")? " popcontrol:" . $_POST["popcontrolexp"]."\\n" : "";
 $crimes .= ($_POST["humanorgans"] == "yes")? " humanorgans:" . $_POST["humanorgansexp"]."\\n" : "";
-$crimes.= $_POST["ocrimes"];
+$crimes .= ($_POST["felony"] == "yes")? "felony:" . $_POST["felonyexp"]."\\n":"";
+$crimes.= $_POST["ocrimes"];  
 $groups = ($_POST["organization"] == "yes")? " organization:" . $_POST["organizationexp"]."\\n" : "";
 $groups .= ($_POST["taliban"] == "yes")? " taliban:" . $_POST["talibanexp"]."\\n" : "";
 $groups .= ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\\n" : "";
@@ -78,7 +79,7 @@ $countries = ($_POST["traveled"] == "yes")? " traveled:" . $_POST["traveledexp"]
 $countries .= ($_POST["resided"] == "yes")? " resided:" . $_POST["resided"]."\\n" : "";
 $military = ($_POST["served"] == "yes")? " served:" . $_POST["served"]."\\n" : "";
 $military .= ($_POST["armygroup"] == "yes")? " armygroup:" . $_POST["armygroup"]."\\n" : "";
-$status = "ready";w
+$status = "ready";
 $ppnumber = $_POST["ppnumber"];
 $ppcity = $_POST["ppcity"];
 $ppstate = $_POST["ppstate"];
@@ -100,6 +101,12 @@ $deported .= ($_POST["removed20"] == "yes")?  "removed20:" . $_POST["removed20ex
 $deported .= ($_POST["removed10"] == "yes")?  "removed10:" . $_POST["removed10exp"]. "\\n" : "";
 $deported .= ($_POST["present180"] == "yes")?  "present180:" . $_POST["present180exp"]. "\\n" : "";
 $deported .= ($_POST["present10"] == "yes")?  "present10:" . $_POST["present10exp"]. "\\n" . $_POST["odeported"] : $_POST["odeported"];
+$issues = ($_POST["exchange"] == "yes")?  "exchange:" . $_POST["exchangeexp"]. "\\n" : "";
+$issues .= ($_POST["labor"] == "yes")?  "labor:" . $_POST["laborexp"]. "\\n" : "";
+$issues .= ($_POST["medical"] == "yes")?  "medical:" . $_POST["medicalexp"]. "\\n" : "";
+$issues .= ($_POST["certification"] == "yes")?  "certification:" . $_POST["certificationexp"]. "\\n" : "";
+$issues .= ($_POST["citizenship"] == "yes")?  "citizenship:" . $_POST["citizenshipexp"]. "\\n" : "";
+$issues .= ($_POST["military"] == "yes")?  "military:" . $_POST["militaryexp"]. "\\n" : "";
 $id = $_POST["id"];
 
 //change to an update
