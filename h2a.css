@@ -47,9 +47,10 @@ form {
 }
 
 .selected {
-	background-color: rgb(220, 220, 220);
+	background-color: rgb(252, 252, 252);
 	color: black;
 	border-width: 3px 4px 2px 4px;
+	border-color: black;
 }
 
 .companylist {
@@ -64,7 +65,7 @@ form {
 .neededskills {
 	float: left;
 	border: 1px solid black;
-	width: 460px;
+	width: 480px;
 }
 
 .lefty{
@@ -111,7 +112,7 @@ form {
 	background-color: rgb(255, 245, 160);
 }
 .purple{
-	background-color: rgb(250,240,255);
+	background-color: rgb(255,245,250);
 }
 .hide {
 	display: none;

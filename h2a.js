@@ -2,7 +2,7 @@ class Applicant {
 	constructor(id, fname, lname, cphone, hphone, address, address2, city, state, zip, status, specificarea, 
 		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, age, height, weight, lift25to40,
 		maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita, ppnumber, ppcity, ppstate, ppdateissue,
-		visas, visaissues, visarefused, license, deported, ustravel, crimes) {
+		visas, visaissues, visarefused, license, deported, ustravel, crimes, farmwork) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -44,6 +44,7 @@ class Applicant {
 		this.deported = deported;
 		this.ustravel = ustravel;
 		this.crimes = crimes;
+		this.farmwork = farmwork;
 		this.ds160 = new Appds160();
 		this.jobs = []
 		this.schools = []
@@ -301,7 +302,7 @@ function fillEmpDetail(data) {
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
-		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.legalissues)
+		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.legalissues, data.farmwork);
 	if(data.ds160 != undefined){
 		currappl.ds160.id = data.ds160.id
 		currappl.ds160.marriage = data.ds160.marriage
@@ -429,6 +430,11 @@ function resetNewApp(){
 	document.getElementById("visas").value = currappl.visas;
 	document.getElementById("visaissues").value = currappl.visaissues;
 	document.getElementById("visarefused").value = currappl.visarefused;
+	document.getElementById("ppnumber").value = currappl.ppnumber;
+	document.getElementById("ppcity").value = currappl.ppcity;
+	document.getElementById("ppstate").value = currappl.ppstate;
+	document.getElementById("ppdateissue").value = currappl.ppdateissue;
+	document.getElementById("farmwork").value = currappl.farmwork;
 	
 	if (currappl.gender == "male") {
 		document.getElementById("male").checked = true;
@@ -550,6 +556,7 @@ function clearNewApp(){
 	document.getElementById("visas").value = "";
 	document.getElementById("visaissues").value = "";
 	document.getElementById("visarefused").value = "";
+	document.getElementById("farmwork").value = "";
 	document.getElementById("usresidency").value= "";
 	document.getElementById("marriagedetails").value = "";
 	document.getElementById("nationality").value = "";

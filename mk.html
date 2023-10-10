@@ -210,7 +210,7 @@
     </div>
     <div class="options" id="nopassportoptions">
     <label for="readypass">Si no tiene su Pasaporte, Cuenta con los recursos para tramitarlo de inmediato, si asi se lo requieren</label><br>
-    <input type="text" name="readypass"><br>
+    <input type="text" name="readypass" id="readypass"><br>
     </div>
    
 <hr>
@@ -230,16 +230,18 @@
     <input type="text" name="deportwhy" id="deportwhy"><br>
     
     Tiene Castigo Vigente de Deportacion
-    <div class="inline"><input type="radio" name="detdeport" id="deporttwo" value="yes">
+    <div class="inline"><input type="radio" name="detdeport" id="deporttwo" value="yes" onclick="showOption(this)">
     <label for="deporttwono">Si</label><br>
-    <input type="radio" name="detdeport" id="deporttwono" value="No" checked="true">
+    <input type="radio" name="detdeport" id="deporttwono" value="No" checked="true" onclick="hideOption(this)">
     <label for="deporttwono">No</label><br>
     </div>
-    <label for="howmuchtime">Cuanto Tiempo</label><br>
-    <input type="text" id="howmuchtime" name="howmuchtime"><br>
+    <div class="options" id="detdeportoptions">
+        <label for="howmuchtime">Cuanto Tiempo</label><br>
+        <input type="text" id="howmuchtime" name="howmuchtime"><br>
 
-    <label for="whatreason">Porque Motivo</label><br>
-    <input type="text" id="whatreason" name="whatreason"><br>
+        <label for="whatreason">Porque Motivo</label><br>
+        <input type="text" id="whatreason" name="whatreason"><br>
+    </div>
     </div>
 <hr>
 
@@ -282,8 +284,8 @@
     <input type="text" id="detentionlast" name="detentionlast"><br>
 
     La dieron Castigo?
-    <input type="radio" name="detentionpunish" value="yes" id="detencionpunishyes">
-    <label for="detentionpunishno">Si</label><br>
+    <input type="radio" name="detentionpunish" value="yes" id="detentionpunish">
+    <label for="detentionpunish">Si</label><br>
     <input type="radio" name="detentionpunish" value="No" id="detentionpunishno" checked="true">
     <label for="detentionpunishno">No</label><br>
 
@@ -291,8 +293,8 @@
     <input type="text" id="detentiontime" name="detentiontime"><br>
     
     Ya lo Cumplio
-    <input type="radio" name="completed" value="yes" id="detentionfinishedyes">
-    <label for="detentionfinishedno">Si</label><br>
+    <input type="radio" name="completed" value="yes" id="detentionfinished">
+    <label for="detentionfinished">Si</label><br>
     <input type="radio" name="completed" value="No" id="detentionfinishedno" checked="true">
     <label for="detentionfinishedno">No</label><br>
 
