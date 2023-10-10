@@ -78,7 +78,7 @@ $countries = ($_POST["traveled"] == "yes")? " traveled:" . $_POST["traveledexp"]
 $countries .= ($_POST["resided"] == "yes")? " resided:" . $_POST["resided"]."\\n" : "";
 $military = ($_POST["served"] == "yes")? " served:" . $_POST["served"]."\\n" : "";
 $military .= ($_POST["armygroup"] == "yes")? " armygroup:" . $_POST["armygroup"]."\\n" : "";
-$status = "ready";w
+$status = "ready";
 $ppnumber = $_POST["ppnumber"];
 $ppcity = $_POST["ppcity"];
 $ppstate = $_POST["ppstate"];
