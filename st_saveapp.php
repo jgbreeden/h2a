@@ -47,6 +47,7 @@ $datesigned = htmlspecialchars($_POST["datesigned"]);
 $signature = htmlspecialchars($_POST["signature"]);
 $status = "new";
 $ppnumber = htmlspecialchars($_POST["npass"]);
+$ppnumber = (trim($ppnumber) == "")? "ready:" . htmlspecialchars($_POST["readypass"]) : $ppnumber;
 $ppcity = htmlspecialchars($_POST["wherepass"]);
 $ppstate = "";
 $ppdateissue = htmlspecialchars($_POST["expdate"]);
@@ -54,9 +55,10 @@ $ppdateissue = htmlspecialchars($_POST["expdate"]);
 $visas = ($_POST["hish2a"] == "yes")? "H-2a:" . $_POST["h2acompany"] . " - " . $_POST["h2amonths"] : "";
 $visas .= ($_POST["pasth2a"] == "yes")? (($visas != "")? "\\n":"") ."Past count:" . $_POST["h2acount"] 
     . " companies:" . $_POST["h2apastco"] . " type:" . $_POST["h2atype"]:  "";
+$visas .= ($_POST["visa"] == "yes")? (($visas != "")? "\\n":"") ."Has toursit visa." : "";
 $deported = ($_POST["deport"] == "yes")? "Deported:" . $_POST["deportwhen"] . " why:" . $_POST["deportwhy"]: "";
 $deported .= ($_POST["detdeport"] == "yes")? " punished time:" . $_POST["howmuchtime"] . " reason:" . $_POST["whatreason"]: "";
-$visaissues = "";
+$visaissues = ($_POST["migrate"] == "yes")? "In migration(how long):" . $_POST["howlong"]: "";
 $visarefused =  ($_POST["denied"] == "yes")? "Type:" . $_POST["deniedtype"] . " Year:" . $_POST["deniedyear"] . 
     " Reason:" . $_POST["deniedreason"] . " Times Applied:" . $_POST["timesapplied"] : "";
 $license = htmlspecialchars($_POST["driverlicensetype"]);
@@ -67,14 +69,14 @@ $farmwork .= ($_POST["otherwork"] != "")? (($farmwork != "")? "\\n":"") . "Other
     . $_POST["otherwork"]: "";
 $farmwork .= ($_POST["otherworkus"] != "")? (($farmwork != "")? "\\n":"") . "Other work:" 
     . $_POST["otherworkus"]: "";
-$farmwork .= ($_POST["migrate"] == "yes")? (($farmwork != "")? "\\n":"") . "In migration(how long):"
-    . $_POST["howlong"]: "";
+$farmwork .= (trim($_POST["othercompany"]) != "")? (($farmwork != "")? "\\n":"") . "Sponsor co:"
+    . $_POST["othercompany"] . " Phone:" . $_POST["othercophone"]: "";
 $crimes = ($_POST["police"] == "yes")? "Police issue:" . $_POST ["policeproblem"] :"";
 
 $ustravel = ($_POST["detention"] == "yes")? "Caught Crossing #Times:" . $_POST["detentiontimes"] . 
-        " Last Time:" . $_POST["detentionlast"] . " Punished:" . $_POST["detentionpunish"] . 
-        " Length:" . $_POST["detentiontime"] . " Completed:" . $_POST["completed"] . 
-        " Pardon:" . $_POST["pardon"]:"";
+        "\\nLast Time:" . $_POST["detentionlast"] . " Punished:" . $_POST["detentionpunish"] . 
+        "\\nLength:" . $_POST["detentiontime"] . " Completed:" . $_POST["completed"] . 
+        "\\nPardon:" . $_POST["pardon"] . "Reason:" . $_POST["telltruthdet"]:"";
 $ustravel .= ($_POST["usdetention"] == "yes")? (($ustravel != "")? "\\n":"") . 
     "Detained entering US:yes": "";
 if ($_POST["aware"] == "yes") {
@@ -291,7 +293,7 @@ function getskill($skill){
 }
 function getissues($issues){
     global $conn;
-    $sql = "SELECT id FROM issues WHERE issueenglish = '" .$issues[0] ."'";
+    $sql = "SELECT id FROM skills WHERE skillenglish = '" .$issues[0] ."'";
     $records = $conn->query($sql);
     if ($row = $records->fetch_assoc()){
         return $row["id"];

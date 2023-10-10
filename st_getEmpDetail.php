@@ -38,7 +38,8 @@
 		. $row["ppdateissue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
 		. $row["visaissues"] . '", "visarefused": "' . $row["visarefused"] . '", "license": "'
 		. $row["license"] . '", "deported": "' . $row["deported"] . '", "legalissues": "' 
-		. $row["crimes"] .  '", "ustravel": "' . $row["ustravel"] . '", "skills": [ '; 
+		. $row["crimes"] .  '", "ustravel": "' . $row["ustravel"] . '", "farmwork": "' 
+		. $row["farmwork"] . '", "skills": [ '; 
 		$json = str_replace(chr(13), "", $json);
 		echo str_replace(chr(10), "\\n", $json);
 	if (! is_null( $row["skillenglish"])) {
@@ -126,9 +127,10 @@
 	$stmt->bind_param("i", $_POST["id"]);
 	$stmt->execute();
 	$comma = "";
+	$json = "";
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {								
-		$json = $comma .' { "id": ' . $row["id"] . ', "empname": "' . $row["empname"] . '",  "address": "' . $row["address"]
+		$json .= $comma .' { "id": ' . $row["id"] . ', "empname": "' . $row["empname"] . '",  "address": "' . $row["address"]
 			. '", "address2": "' . $row["address2"] . '", "city": "' . $row["city"] . '", "state": "' . $row["state"] 
 			. '", "zip": "' . $row["zip"] . '", "phone": "' . $row["phone"] . '", "salary": "' . $row["salary"] . '", "jobtitle": "' . $row["jobtitle"] 
 			. '", "datefrom": "' . $row["datefrom"] . '", "dateto": "'. $row["dateto"] . '", "applicantsid": "' . $row["applicantsid"] 
@@ -143,15 +145,18 @@
 	$stmt->bind_param("i", $_POST["id"]);
 	$stmt->execute();
 	$comma = "";
+	$json = "";
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {	
-		echo $comma . '{ "id": ' . $row["id"] . ', "schoolname": "' . $row["schoolname"] . '",  "address": "' . $row["address"]
+		$json .= $comma . '{ "id": ' . $row["id"] . ', "schoolname": "' . $row["schoolname"] . '",  "address": "' . $row["address"]
 			. '", "address2": "' . $row["address2"] . '", "city": "' . $row["city"] . '", "state": "' . $row["state"] 
 			. '", "zip": "' . $row["zip"] . '", "major": "' . $row["major"] . '", "datefrom": "' . $row["datefrom"] . '", "dateto": "'
 			. $row["dateto"] . '", "applicantsid": "' . $row["applicantsid"] . '"}';
 		$comma = ", ";
 	}
 
+	$json = str_replace(chr(13), "", $json);
+	echo str_replace(chr(10), "\\n", $json);
 	echo ']';
 	$query = "SELECT * FROM appds160 WHERE applicantsid =?";
 	$stmt = $conn->prepare($query);
