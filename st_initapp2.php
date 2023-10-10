@@ -19,7 +19,7 @@ $stmt->bind_param("i", $_GET["id"]);
 $stmt->execute();
 $results = $stmt->get_result();
 if ($row = $results->fetch_assoc()) {
-  echo '{ "id": ' . $row["id"] . ', "firstname": "' . $row["firstname"] . '", "lastname": "'
+  $json =   '{ "id": ' . $row["id"] . ', "firstname": "' . $row["firstname"] . '", "lastname": "'
     . $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
     . $row["phonehome"] . '", "address": "' . $row["address"] . '", "city": "'
     . $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . $row["zipcode"]
@@ -32,6 +32,8 @@ if ($row = $results->fetch_assoc()) {
     . $row["visarefused"] . '", "license": "' . $row["license"] . '", "ustravel": "'
     . $row["ustravel"] . '", "deported": "' . $row["deported"] . '", "farmwork": "'
     . $row["farmwork"] . '", "crimes": "' . $row["crimes"] . '"}';
+  $json = str_replace(chr(13), "", $json);
+  echo str_replace(chr(10), "\\n", $json);
 } else {
     echo "{}";
 }

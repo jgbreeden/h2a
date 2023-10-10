@@ -83,7 +83,7 @@ $status = "ready";
 $ppnumber = $_POST["ppnumber"];
 $ppcity = $_POST["ppcity"];
 $ppstate = $_POST["ppstate"];
-$ppdateissue = $_POST["ppdateissues"];
+$ppdateissue = $_POST["ppissuedate"];
 $visas = ($_POST["visas"] == "yes")?  $_POST["visaslist"]. "\\n" . $_POST["ovisas"] : $_POST["ovisas"];
 $visaissues =  ($_POST["visaslost"] == "yes")? "LoSt:" . $_POST["visaslostyear"] . "\\n" . $_POST["visaslostexp"] : "";
 $visaissues .=  ($_POST["visascancelled"] == "yes")? "CanRev:" . $_POST["visascancelledexp"] . "\\n"  : "";
