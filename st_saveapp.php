@@ -74,9 +74,9 @@ $farmwork .= (trim($_POST["othercompany"]) != "")? (($farmwork != "")? "\\n":"")
 $crimes = ($_POST["police"] == "yes")? "Police issue:" . $_POST ["policeproblem"] :"";
 
 $ustravel = ($_POST["detention"] == "yes")? "Caught Crossing #Times:" . $_POST["detentiontimes"] . 
-        "\nLast Time:" . $_POST["detentionlast"] . " Punished:" . $_POST["detentionpunish"] . 
-        "\nLength:" . $_POST["detentiontime"] . " Completed:" . $_POST["completed"] . 
-        "\nPardon:" . $_POST["pardon"] . "Reason:" . $_POST["telltruthdet"]:"";
+        "\\nLast Time:" . $_POST["detentionlast"] . " Punished:" . $_POST["detentionpunish"] . 
+        "\\nLength:" . $_POST["detentiontime"] . " Completed:" . $_POST["completed"] . 
+        "\\nPardon:" . $_POST["pardon"] . "Reason:" . $_POST["telltruthdet"]:"";
 $ustravel .= ($_POST["usdetention"] == "yes")? (($ustravel != "")? "\\n":"") . 
     "Detained entering US:yes": "";
 if ($_POST["aware"] == "yes") {
