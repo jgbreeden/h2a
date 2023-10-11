@@ -493,7 +493,7 @@ function resetNewApp(){
 		document.getElementById("ssn").value = currappl.ds160.ssn;
 		document.getElementById("othercontact").value = currappl.ds160.othercontact;
 		document.getElementById("socialmedia").value = currappl.ds160.socialmedia;
-		document.getElementById("ppissues").value = currappl.ds160.ppissues;
+		document.getElementById("ppissues").value = currappl.ds160.pploststolen;
 		document.getElementById("father").value = currappl.ds160.father;
 		document.getElementById("mother").value = currappl.ds160.mother;
 		document.getElementById("relatives").value = currappl.ds160.relatives;

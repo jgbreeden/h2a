@@ -34,14 +34,14 @@ function initData(data) {
 	document.getElementById("id").value = data.id;
 	document.getElementById("ppcity").value = data.ppcity;
 	document.getElementById("ppissuedate").value = data.ppdateissue;
-	document.getElementById("ovisas").value = data.ovisas;
-	document.getElementById("ovisaissues").value = data.ovisaissues;
-	document.getElementById("ovisarefused").value = data.ovisarefused;
-	document.getElementById("olicense").value = data.olicense;
-	document.getElementById("oustravel").value = data.oustravel;
-	document.getElementById("odeported").value = data.odeported;
-	document.getElementById("ofarmwork").value = data.ofarmwork;
-	document.getElementById("ocrimes").value = data.ocrimes;
+	document.getElementById("ovisas").value = data.visas;
+	document.getElementById("ovisaissues").value = data.visaissues;
+	document.getElementById("ovisarefused").value = data.visarefused;
+	document.getElementById("olicense").value = data.license;
+	document.getElementById("oustravel").value = data.ustravel;
+	document.getElementById("odeported").value = data.deported;
+	document.getElementById("ofarmwork").value = data.farmwork;
+	document.getElementById("ocrimes").value = data.crimes;
 
 	//document.getElementById("placeofbirth").value = data.placeofbirth;
 	if (data.gender == "male") {

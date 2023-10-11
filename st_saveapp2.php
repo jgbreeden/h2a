@@ -88,7 +88,8 @@ $visas = ($_POST["visas"] == "yes")?  $_POST["visaslist"]. "\\n" . $_POST["ovisa
 $visaissues =  ($_POST["visaslost"] == "yes")? "LoSt:" . $_POST["visaslostyear"] . "\\n" . $_POST["visaslostexp"] : "";
 $visaissues .=  ($_POST["visascancelled"] == "yes")? "CanRev:" . $_POST["visascancelledexp"] . "\\n"  : "";
 $visaissues .=  ($_POST["petition"] == "yes")? "petition:" . $_POST["petitionexp"] . "\\n" . $_POST["ovisaissues"]  : $_POST["ovisaissues"];
-$visarefused = ($_POST["visarefused"] == "yes")? $_POST(["visarefusedexp"]) . "\\n:" . $_POST["ovisarefused"] :  $_POST["ovisarefused"];
+$visarefused = ($_POST["visarefused"] == "yes")? $_POST["visarefusedexp"] . "\\n:" 
+    . $_POST["ovisarefused"] :  $_POST["ovisarefused"];
 $license = ($_POST["license"] == "yes")? $_POST["licensenum"]. " - " . $_POST["licensestate"] . "\\n" . $_POST["olicense"] : $_POST["olicense"];
 $ustravel = ($_POST["usvisit"] == "yes")? $_POST["usvisitexp"] . "\\n" . $_POST["oustravel"] : $_POST["oustravel"];
 $deported = ($_POST["hearing"] == "yes")?  "hearing:" . $_POST["hearingexp"]. "\\n" : "";
@@ -228,7 +229,7 @@ if ($_POST["disease"] == "yes") array_push($issues, array("Disease", $_POST["dis
 if ($_POST["disorder"] == "yes") array_push($issues, array("Mental disorder", $_POST["disorderexp"], $empty));
 if ($_POST["druguse"] == "yes") array_push($issues, array("Drug Abuse", $_POST["druguseexp"], $empty));
 if ($_POST["vaccinations"] == "yes") array_push($issues, array("Vaccination docs", $_POST["vaccinationsexp"], $empty));
-if ($_POST["skills"] == "yes") array_push($issues, array("Firearms etc.", $_POST["skillsexp"], $empty));
+//if ($_POST["skills"] == "yes") array_push($issues, array("Firearms etc.", $_POST["skillsexp"], $empty));
 
 $count = count($issues);
 for($i = 0; $i < $count; $i++){
@@ -236,6 +237,14 @@ for($i = 0; $i < $count; $i++){
     $med = $issues[$i][1];
     $reason1 = $issues[$i][2];
     $stmt->execute();
+}
+
+if ($_POST["skills"] == "yes") {
+  $stmt = $conn->prepare("INSERT INTO ability (skillsid, applicantsid, details) VALUES(?, ?, ?)");
+  $stmt->bind_param("iis", $skillsid, $id, $reason1);
+  $skillsid = getHealth("Firearms etc.");
+  $reason1 = $_POST["skillsexp"];
+  $stmt->execute();
 }
 
 if ($result == 1){
@@ -247,7 +256,7 @@ if ($result == 1){
 $conn->close();
 function getHealth($health){
   global $conn;
-  $sql = "SELECT id FROM skills WHERE skillenglish  = '" .$issues[0] ."'";
+  $sql = "SELECT id FROM skills WHERE skillenglish  = '" . $health[0] ."'";
   $records = $conn->query($sql);
   if ($row = $records->fetch_assoc()){
       return $row["id"];

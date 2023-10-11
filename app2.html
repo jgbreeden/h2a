@@ -445,7 +445,7 @@
                 <hr>
                 Su Madre esta en los Estados Unidos?
                 <div class="inline">
-                <input type="radio" id="MYstatus" name="MUSstatus" value="si" checked="true">
+                <input type="radio" id="MYstatus" name="MUSstatus" value="yes" checked="true">
                 <label for="si">Si</label><br>
                 <input type="radio" id="MNstatus" name="MUSstatus" value="no">
                 <label for="no">No</label><br>
@@ -463,18 +463,20 @@
                 <hr>
                 Tiene alguno otro familar en los Estados Unidos, no incluendo sus padres?
                 <div class="inline">
-                <input type="radio" id="si" name="RYstatus" value="si" checked="true">
-                <label for="si">Si</label><br>
-                <input type="radio" id="no" name="RNstatus" value="no">
-                <label for="no">No</label><br>
+                <input type="radio" id="family" name="family" value="yes" onclick="showOption(this)">
+                <label for="family">Si</label><br>
+                <input type="radio" id="familyno" name="family" value="no" checked="true" onclick="hideOption(this)">
+                <label for="familyno">No</label><br>
                 </div>
                 <hr>
 
+                <div class="options" id="familyoptions">
                 <hr>
                 <h4>Nombre de sus Familares: </h4>
                 <textarea id="Otherrelatives" rows="2" cols="25" name="Otherrelatives"></textarea>
 
                 <hr>
+                </div>
             </div>
         
             <div id="spouse">
@@ -563,7 +565,7 @@
 
             <hr>
             <label for="jaddress2">Direction De Empleador 2:</label><br>
-            <input type="text" id="jaddress" name="jaddress2[]" min="1" max="20"><br>
+            <input type="text" id="jaddress2" name="jaddress2[]" min="1" max="20"><br>
             <hr>
 
             <hr>
@@ -578,7 +580,7 @@
 
             <hr>
             <label for="jzip">Co&#768;digo Postal:</label><br>
-            <input type="number" id="jzip" name="jzip[]" min="1" max="20"><br>
+            <input type="text" id="jzip" name="jzip[]" min="1" max="20"><br>
             <hr>
 
             <hr>
@@ -643,7 +645,7 @@
 
             <hr>
             <label for="scaddress2">Direction De Escuela 2:</label><br>
-            <input type="text" id="scaddres2s" name="scaddress2[]" min="1" max="20"><br>
+            <input type="text" id="scaddress2" name="scaddress2[]" min="1" max="20"><br>
             <hr>
 
             <hr>
@@ -1062,7 +1064,7 @@
     <hr>
     <hr>&#191;Alguna vez te has involucrado en el reclutamiento o el uso de nin&#769;os soldados?
 
-    <div class="inline"><input type="radio" name="childsoldiers" id="torture" value="yes" onclick="showOption(this)">
+    <div class="inline"><input type="radio" name="childsoldiers" id="childsoldiers" value="yes" onclick="showOption(this)">
     <label for="childsoldiers">Si</label><br>
     <input type="radio" name="childsoldiers" id="childsoldiersno" value="no" checked="true" onclick="hideOption(this)">
     <label for="childsoldiersno">No</label><br>
@@ -1154,7 +1156,7 @@
     <hr>
     <hr>&#191;Es usted el conyuge, hijo menor de edad o agente de una persona que ha divulgado 
     o ha divulgado informacion comercial confidencial de los Estados Unidos obtenida en relacion 
-    con la participacion de los Estados Unidos en la Convencion sobre Armas Qui&#769;micas&#191;
+    con la participacion de los Estados Unidos en la Convencion sobre Armas Qui&#769;micas?
 
     <div class="inline"><input type="radio" name="famconfidencial" id="famconfidencial" value="yes" onclick="showOption(this)">
     <label for="famconfidencial">Si</label><br>
@@ -1501,48 +1503,3 @@
 </body>
 </html>
 
-
-<!--
-**Personal**
-applicant have a drivers liscense 
-applicant Liscense number 
-
-
-
-**Passport infromation**
-passport #
-has applicant ever lost a visa 
-has applicant been to another country
--->
-
-
-
-
-
-
-
-<!--
-    Employer name
-
-    Employer address 1
-    Employer addres 2
-
-    City
-
-    State
-
-    Postal
-
-    Phone Number 
-
-    Country
-
-
-    Start Date 
-
-    Income
-
-    Duties 
-
-
--->
