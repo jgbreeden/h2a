@@ -33,7 +33,6 @@ function initData(data) {
 	document.getElementById("zipcode").value = data.zip;
 	document.getElementById("id").value = data.id;
 	document.getElementById("ppcity").value = data.ppcity;
-	document.getElementById("ppstate").value = data.ppstate;
 	document.getElementById("ppissuedate").value = data.ppdateissue;
 	document.getElementById("ovisas").value = data.ovisas;
 	document.getElementById("ovisaissues").value = data.ovisaissues;
