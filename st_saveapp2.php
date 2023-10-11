@@ -90,7 +90,7 @@ $visaissues .=  ($_POST["visascancelled"] == "yes")? "CanRev:" . $_POST["visasca
 $visaissues .=  ($_POST["petition"] == "yes")? "petition:" . $_POST["petitionexp"] . "\\n" . $_POST["ovisaissues"]  : $_POST["ovisaissues"];
 $visarefused = ($_POST["visarefused"] == "yes")? $_POST(["visarefusedexp"]) . "\\n:" . $_POST["ovisarefused"] :  $_POST["ovisarefused"];
 $license = ($_POST["license"] == "yes")? $_POST["licensenum"]. " - " . $_POST["licensestate"] . "\\n" . $_POST["olicense"] : $_POST["olicense"];
-$ustravel = ($_POST["ustravel"] == "yes")? $_POST["ustravellist"] . "\\n" . $_POST["oustravel"] : $_POST["oustravel"];
+$ustravel = ($_POST["usvisit"] == "yes")? $_POST["usvisitexp"] . "\\n" . $_POST["oustravel"] : $_POST["oustravel"];
 $deported = ($_POST["hearing"] == "yes")?  "hearing:" . $_POST["hearingexp"]. "\\n" : "";
 $deported .= ($_POST["visafraud"] == "yes")?  "visafraud:" . $_POST["visafraudexp"]. "\\n" : "";
 $deported .= ($_POST["failedhearing"] == "yes")?  "failedhearing:" . $_POST["failedhearingexp"]. "\\n" : "";
