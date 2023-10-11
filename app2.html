@@ -402,13 +402,15 @@
                 <hr>
                 Su Madre esta viva?
                 <div class="inline">
-                <input type="radio" id="MAstatus" name="Mstatus" value="si" checked="true">
-                <label for="si">Si</label><br>
-                <input type="radio" id="MDstatus" name="Mstatus" value="no">
-                <label for="no">No</label><br>
+                <input type="radio" id="MAstatus" name="Mstatus" value="yes" onclick="showOption(this)">
+                <label for="MAstatus">Si</label><br>
+                <input type="radio" id="MDstatus" name="Mstatus" value="no" onclick="hideOption(this)">
+                <label for="MDstatus">No</label><br>
                 </div>
                 <hr>
 
+                <div class="options" id="MAstatusoptions">
+                    
                 <label for="Maddress">Dirrection:</label><br>
                 <input type="text" id="Maddress" name="Maddress" min="1" max="20"><br>
                 <hr>
@@ -447,6 +449,7 @@
                 <label for="no">No</label><br>
                 </div>
                 <hr>
+                </div>
             </div>
 
             <div id="otherRelatives">
