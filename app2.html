@@ -324,18 +324,19 @@
                 <hr>
             
                 <hr>
-                Su Padre esta vivo?
-                <div class="inline">
-                <input type="radio" id="FAstatus" name="Fstatus" value="yes" checked="true">
-                <label for="si">Si</label><br>
-                <input type="radio" id="FDstatus" name="Fstatus" value="no">
-                <label for="no">No</label><br>
-                </div>
-                <hr>
-        
-                <hr>
                 <label for="Fatherdob"></label>Fecha de Nacimiento:</label><br>
                 <input type="date" id="fatherdob" name="fatherdob"><br>
+
+                <hr>
+                Su Padre esta vivo?
+                <div class="inline">
+                <input type="radio" id="FAstatus" name="Fstatus" value="yes" onclick="showOption(this)">
+                <label for="FAstatus">si</label><br>
+                <input type="radio" id="FDstatus" name="Fstatus" value="no" onclick="hideOption(this)">
+                <label for="FDstatus">No</label><br>
+                </div>
+                <hr>
+                <div class="options" id="FAstatusoptions">
             
                 <hr>
                 <label for="Faddress">Dirrection:</label><br>
@@ -377,6 +378,7 @@
                 </div>
                 <hr>
             </div>
+        </div>
 
             <hr>
             <h4>Madre</h4>
