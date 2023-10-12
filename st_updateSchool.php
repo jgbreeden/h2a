@@ -8,11 +8,12 @@
     	datefrom = ?, dateto = ?, applicantsid = ? WHERE id = ?";
 		
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("sssssssssi",  $_POST["school"],  $_POST["major"],
-                                     $_POST["saddress"], $_POST["saddress2"], 
-                                     $_POST["scity"], $_POST["sstate"],  
-                                     $_POST["sdatefrom"], $_POST["sdateto"],
-                                     $_POST["schapid"]);
+	$stmt->bind_param("sssssssssssi",  $_POST["school"], $_POST["saddress"], 
+									 $_POST["saddress2"],  $_POST["scity"], 
+									 $_POST["sstate"],  ,$_POST["szip"],
+									 $_POST["major"],  $_POST["sdatefrom"], 
+									 $_POST["sdateto"], $_POST["schapid"] 
+									 $_POST["scid"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";

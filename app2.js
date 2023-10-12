@@ -61,10 +61,7 @@ var blankjob = document.getElementById("jobs").innerHTML;
 
 var blankschool = document.getElementById("school").innerHTML;
 
-function addschool() {
-	document.getElementById("school").innerHTML += blankschool;
 
-}
 let par = new URL(document.location).searchParams;
 getApp(par.get("id"));
 
@@ -82,13 +79,16 @@ function setMarital(select) {
 
 document.getElementById("addJobBtn").addEventListener("click", function(e){
     e.preventDefault();
-	document.getElementById("jobs").innerHTML += blankjob;
+	let job = document.createElement("div");
+	job.innerHTML = blankjob;
+	document.getElementById("jobs").appendChild(job);
 })
 tabChange(currentTab);
 
 document.getElementById("addSchoolBtn").addEventListener("click", function(e){
     e.preventDefault();
+	let school = document.createElement("div");
+	job.innerHTML = blankschool;
 	document.getElementById("school").innerHTML += blankjob;
-	con
 })
 tabChange(currentTab);
