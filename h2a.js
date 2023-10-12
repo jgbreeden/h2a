@@ -47,7 +47,7 @@ class Applicant {
 		this.farmwork = farmwork;
 		this.ds160 = new Appds160();
 		this.jobs = []
-		this.schools = []
+		this.school = []
 	}
 	
 	update() {
@@ -378,12 +378,10 @@ function fillEmpDetail(data) {
 	let schoolTable = document.getElementById("schoolsTab");
 	let schoolContents = "<tr><th class='tabcolumn'>School</th></tr>";
 	for (let i =0; i < data.school.length; i++){
-		schoolContents += "<tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].schoolname + "</td></tr>"
-			+data.school[i].entity + "</td></tr>";
-		currappl.schools.push(new History("school", data.school[i].id, data.school[i].entity, data.school[i].address,
+		schoolContents += "<tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].schoolname + "</td></tr>";
+		currappl.school.push(new History("school", data.school[i].id, data.school[i].schoolname, data.school[i].address,
 			data.school[i].address2, data.school[i].city, data.school[i].state, data.school[i].zip, data.school[i].datefrom,
-			data.school[i].dateto, data.school[i].applicantsid, data.school[i].phone, data.school[i].salary, data.school[i].jobtitle,
-			data.school[i].duties, data.school[i].supervisor))
+			data.school[i].dateto, data.school[i].applicantsid, data.school[i].major ))
 	}
 
 	currskill.applicantsid = currappl.id
@@ -393,7 +391,7 @@ function fillEmpDetail(data) {
 	healthTable.innerHTML = healthContents;
 	//statusTable.innerHTML = statusContents;
 	jobsTable.innerHTML = jobsContents;
-	schoolTable.innnerHTML = schoolContents;
+	schoolTable.innerHTML = schoolContents;
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	document.getElementById("apid2").value = currappl.id;
@@ -674,7 +672,7 @@ function showJobs(row){
 	document.getElementById("jdatefrom").value = currappl.jobs[i].datefrom;
 	document.getElementById("jdateto").value = currappl.jobs[i].dateto;
 	document.getElementById("jphone").value = currappl.jobs[i].phone;
-	document.getElementById("duties").value = currappl.jobs[i].phone;
+	document.getElementById("duties").value = currappl.jobs[i].duties;
 	resetTable(document.getElementById("jobsTab"));
 	row.classList.add("selected");
 }
@@ -682,11 +680,11 @@ function showJobs(row){
 function showSchool(row){
 	let cells = row.getElementsByTagName("td");
 	for (i = 0; i < currappl.school.length; i++) {
-		if (cells[0].innerHTML == currappl.school[i]) {
+		if (cells[0].innerHTML == currappl.school[i].id) {
 			break
 		}
 	}
-	document.getElementById("school").value = currappl.school[i].school;
+	document.getElementById("school").value = currappl.school[i].entity;
 	document.getElementById("major").value = currappl.school[i].major;
 	document.getElementById("saddress").value = currappl.school[i].address;
 	document.getElementById("saddress2").value = currappl.school[i].address2;
