@@ -139,11 +139,11 @@ $othercontact = htmlspecialchars($_POST["otherphones"]) . "\\n" . htmlspecialcha
 $socialmedia = htmlspecialchars($_POST["socialmedia"]);
 $pploststolen = ""; // htmlspecialchars($_POST["pploststolen"]);
 $fatherinfo = htmlspecialchars($_POST["fatherFname"]) . " " . htmlspecialchars($_POST["fatherLname"])
-. " " . htmlspecialchars($_POST["fatherdob"]) . " living: " .  htmlspecialchars($_POST["Fstatus"]). "\\n" . htmlspecialchars($_POST["Faddress"])
+. " " . htmlspecialchars($_POST["fatherdob"]) . " living: " .  htmlspecialchars($_POST["fatherstatus"]). "\\n" . htmlspecialchars($_POST["Faddress"])
 . " " . htmlspecialchars($_POST["Faddress2"]) . "\\n" . htmlspecialchars($_POST["Fcity"]) . " " . htmlspecialchars($_POST["Fstate"]) 
 . " " . htmlspecialchars($_POST["Fzipcode"]) . " " . htmlspecialchars($_POST["Fcountry"]) . "\\n" .htmlspecialchars($_POST["FinUS"]);
 $motherinfo = htmlspecialchars($_POST["motherFname"]) . " " . htmlspecialchars($_POST["motherLname"]) . " " . 
-htmlspecialchars($_POST["motherdob"]) . " living: " . htmlspecialchars($_POST["Mstatus"]) . "\\n" . 
+htmlspecialchars($_POST["motherdob"]) . " living: " . htmlspecialchars($_POST["motherstatus"]) . "\\n" . 
 htmlspecialchars($_POST["Maddress"]) . " " . htmlspecialchars($_POST["Maddress2"]) . "\\n" . 
 htmlspecialchars($_POST["Mstate"]) . " " . htmlspecialchars($_POST["Mzipcode"]) . " " . 
 htmlspecialchars($_POST["Mcity"]) . " " . htmlspecialchars($_POST["Mcountry"]) . "\\n" . htmlspecialchars($_POST["MUSstatus"]);
