@@ -338,6 +338,12 @@
                 <label for="FDstatus">No</label><br>
                 </div>
                 <hr>
+
+                <div class="options" id="nofatherstatusoptions">
+                <label for="Fyeardied">An&#771;o de muerte del padre</label><br>
+                <input type="text" id="Fyeardied" name="Fyeardied"><br>
+
+                </div>
                 <div class="options" id="fatherstatusoptions">
             
                 <hr>
@@ -408,10 +414,15 @@
                 <div class="inline">
                 <input type="radio" id="motherstatus" name="motherstatus" value="yes" onclick="showOption(this)">
                 <label for="MAstatus">Si</label><br>
-                <input type="radio" id="motherstatusno" name="motherstatus" value="no" onclick="hideOption(this)">
+                <input type="radio" id="motherstatusno" name="motherstatus" value="no" onclick="hideOption(this);showOption(this)">
                 <label for="MDstatus">No</label><br>
                 </div>
                 <hr>
+                
+                <div class="options" id="nomotherstatusoptions">
+                <label for="Myeardied">An&#771;o de muerte de la madre</label><br>
+                <input type="text" id="Myeardied" name="Myeardied"><br>
+                </div>
 
                 <div class="options" id="motherstatusoptions">
                     
