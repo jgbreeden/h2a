@@ -188,6 +188,7 @@ $stmt->bind_param("sssssssssssi", $empname, $address, $address2, $city, $state, 
 $jobcount = count($_POST["jcompany"]);
 for($i = 0; $i < $jobcount; $i++){
   $empname = htmlspecialchars($_POST["jcompany"][$i]);
+  if (trim($empname) == "") continue;
   $address = htmlspecialchars($_POST["jaddress"][$i]);
   $address2 = htmlspecialchars($_POST["jaddress2"][$i]);
   $city = htmlspecialchars($_POST["jcity"][$i]);
@@ -209,6 +210,7 @@ $stmt->bind_param("sssssssssi", $schoolname, $address, $address2, $city, $state,
 $schoolcount = count($_POST["scname"]);
 for($i = 0; $i < $schoolcount; $i++){
   $schoolname = htmlspecialchars($_POST["scname"][$i]);
+  if (trim($schoolname) == "") continue;
   $address = htmlspecialchars($_POST["scaddress"][$i]);
   $address2 = htmlspecialchars($_POST["scaddress2"][$i]);
   $city = htmlspecialchars($_POST["sccity"][$i]);
