@@ -449,7 +449,7 @@ function resetNewApp(){
 	document.getElementById("whatarea").value = currappl.whatarea;
 
 	if (currappl.stay8mo == "1") {
-		document.getElementById("stay8moyes").checked = true;
+		document.getElementById("stay8mo").checked = true;
 	} else {
 		document.getElementById("stay8mono").checked = true;
 	}
@@ -457,13 +457,13 @@ function resetNewApp(){
 	document.getElementById("extendwhynot").value = currappl.extendwhynot;
 
 	if (currappl.extend == "1") {
-		document.getElementById("extendyes").checked = true;
+		document.getElementById("extend").checked = true;
 	} else {
 		document.getElementById("extendno").checked = true;
 	}
 
 	if (currappl.overtime == "1") {
-		document.getElementById("overtimeyes").checked = true;
+		document.getElementById("overtime").checked = true;
 	} else {
 		document.getElementById("overtimeno").checked = true;
 	}
@@ -517,11 +517,11 @@ function clearNewApp(){
 	document.getElementById("distanceyuma").checked = false;
 	document.getElementById("distanceany").checked = false;
 	document.getElementById("whatarea").value = "";
-	document.getElementById("stay8moyes").checked = false;
+	document.getElementById("stay8mo").checked = false;
 	document.getElementById("stay8mono").checked = false;
-	document.getElementById("overtimeyes").checked = false;
+	document.getElementById("overtime").checked = false;
 	document.getElementById("overtimeno").checked = false;
-	document.getElementById("extendyes").checked = false;
+	document.getElementById("extend").checked = false;
 	document.getElementById("extendno").checked = false;
 	document.getElementById("extendwhynot").value = "";
 	document.getElementById("status").value = "";
