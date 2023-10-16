@@ -69,16 +69,7 @@ $crimes .= ($_POST["popcontrol"] == "yes")? "popcontrol:" . $_POST["popcontrolex
 $crimes .= ($_POST["humanorgans"] == "yes")? "humanorgans:" . $_POST["humanorgansexp"]."\\n" : "";
 $crimes .= ($_POST["felony"] == "yes")? "felony:" . $_POST["felonyexp"]."\\n":"";
 $crimes.= $_POST["ocrimes"];  
-$groups = ($_POST["organization"] == "yes")? "organization:" . $_POST["organizationexp"]."\\n" : "";
-$groups .= ($_POST["taliban"] == "yes")? "taliban:" . $_POST["talibanexp"]."\\n" : "";
-$groups .= ($_POST["communist"] == "yes")? "communist:" . $_POST["communistexp"]."\\n" : "";
-$groups .= ($_POST["farcelnauc"] == "yes")? "farcelnauc:" . $_POST["farcelnaucexp"]."\\n" : "";
-$groups .= ($_POST["terrororg"] == "yes")? "terrororg:" . $_POST["terrororgexp"]."\\n" : "";
-$groups .= ($_POST["famterrorist"] == "yes")? "famterrorist:" . $_POST["famterroristexp"]."\\n" : "";
-$countries = ($_POST["traveled"] == "yes")? "traveled:" . $_POST["traveledexp"]."\\n" : "";
-$countries .= ($_POST["resided"] == "yes")? "resided:" . $_POST["resided"]."\\n" : "";
-$military = ($_POST["served"] == "yes")? "served:" . $_POST["served"]."\\n" : "";
-$military .= ($_POST["armygroup"] == "yes")? "militia:" . $_POST["armygroup"]."\\n" : "";
+
 $status = "ready";
 $ppnumber = $_POST["ppnumber"];
 $ppcity = $_POST["ppcity"];
@@ -150,15 +141,22 @@ $spouse = htmlspecialchars($_POST["SFname"]) . " " . htmlspecialchars($_POST["SL
   . "\\n" . htmlspecialchars($_POST["Saddress"]) . " " . htmlspecialchars($_POST["Saddress2"]) . "\\n" . htmlspecialchars($_POST["Sstate"]) 
   . " " . htmlspecialchars($_POST["Szipcode"]) . " " . htmlspecialchars($_POST["Scity"]) . " " . htmlspecialchars($_POST["Scountry"]) 
   . "\\n" . htmlspecialchars($_POST["Dmarriage"]) . " " . htmlspecialchars($_POST["Pmarriage"]);
-$countries = ""; // htmlspecialchars($_POST["countries"]);
-$groups = ($_POST["communist"] == "yes")? " communist:" . $_POST["communistexp"]."\\n" : ""; 
-$military = htmlspecialchars($_POST["military"]);
+$groups = ($_POST["organization"] == "yes")? "organization:" . $_POST["organizationexp"]."\\n" : "";
+$groups .= ($_POST["taliban"] == "yes")? "taliban:" . $_POST["talibanexp"]."\\n" : "";
+$groups .= ($_POST["communist"] == "yes")? "communist:" . $_POST["communistexp"]."\\n" : "";
+$groups .= ($_POST["farcelnauc"] == "yes")? "farcelnauc:" . $_POST["farcelnaucexp"]."\\n" : "";
+$groups .= ($_POST["terrororg"] == "yes")? "terrororg:" . $_POST["terrororgexp"]."\\n" : "";
+$groups .= ($_POST["famterrorist"] == "yes")? "famterrorist:" . $_POST["famterroristexp"]."\\n" : "";
+$countries = ($_POST["traveled"] == "yes")? "traveled:" . $_POST["traveledexp"]."\\n" : "";
+$countries .= ($_POST["resided"] == "yes")? "resided:" . $_POST["resided"]."\\n" : "";
+$military = ($_POST["served"] == "yes")? "served:" . $_POST["served"]."\\n" : "";
+$military .= ($_POST["armygroup"] == "yes")? "militia:" . $_POST["armygroup"]."\\n" : "";
 $issues = ($_POST["exchange"] == "yes")?  "exchange:" . $_POST["exchangeexp"]. "\\n" : "";
 $issues .= ($_POST["labor"] == "yes")?  "labor:" . $_POST["laborexp"]. "\\n" : "";
 $issues .= ($_POST["medical"] == "yes")?  "medical:" . $_POST["medicalexp"]. "\\n" : "";
 $issues .= ($_POST["certification"] == "yes")?  "certification:" . $_POST["certificationexp"]. "\\n" : "";
 $issues .= ($_POST["citizenship"] == "yes")?  "citizenship:" . $_POST["citizenshipexp"]. "\\n" : "";
-$issues .= ($_POST["military"] == "yes")?  "military:" . $_POST["militaryexp"]. "\\n" : "";
+$issues .= ($_POST["military"] == "yes")?  "avoidmilitary:" . $_POST["militaryexp"]. "\\n" : "";
 
 $deportation = ($_POST["deported"] == "yes")? "deported:" . htmlspecialchars($_POST["deportedexp"])."\\n" : "";
 
