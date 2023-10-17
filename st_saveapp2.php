@@ -137,7 +137,7 @@ $motherinfo .= ($_POST["motherstatus"] == "yes")?  "\\n" . htmlspecialchars($_PO
   htmlspecialchars($_POST["Mcountry"]) . "\\nin US:" . htmlspecialchars($_POST["MUSstatus"]): "";
 $motherinfo .= ($_POST["motherstatus"] == "no")?  "year died" . $_POST["Myeardied"] : "";
 $relatives = htmlspecialchars($_POST["Otherrelatives"]);
-$spouse = htmlspecialchars($_POST["SFname"]) . " " . htmlspecialchars($_POST["SLname"]) . " " . htmlspecialchars($_POST["Sdob"]) . " " . htmlspecialchars($_POST["Sdob"]) 
+$spouse = htmlspecialchars($_POST["SFname"]) . " " . htmlspecialchars($_POST["SLname"]) . " " . htmlspecialchars($_POST["Sdob"])
   . "\\n" . htmlspecialchars($_POST["Saddress"]) . " " . htmlspecialchars($_POST["Saddress2"]) . "\\n" . htmlspecialchars($_POST["Sstate"]) 
   . " " . htmlspecialchars($_POST["Szipcode"]) . " " . htmlspecialchars($_POST["Scity"]) . " " . htmlspecialchars($_POST["Scountry"]) 
   . "\\n" . htmlspecialchars($_POST["Dmarriage"]) . " " . htmlspecialchars($_POST["Pmarriage"]);
@@ -178,9 +178,9 @@ if ($result == 1) {
 echo $message; 								
 
 $stmt = $conn->prepare("INSERT INTO jobhistory (empname, address, address2, city, state, zip, phone, salary,"
-    ." jobtitle, datefrom, dateto, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssi", $empname, $address, $address2, $city, $state, $zip, $phone, 
-  $salary, $jobtitle, $datefrom, $dateto, $id);
+    ." jobtitle, datefrom, dateto, duties, supervisor, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssssi", $empname, $address, $address2, $city, $state, $zip, $phone, 
+  $salary, $jobtitle, $datefrom, $dateto, $duties, $supervisor, $id);
 
 $jobcount = count($_POST["jcompany"]);
 for($i = 0; $i < $jobcount; $i++){
@@ -196,6 +196,8 @@ for($i = 0; $i < $jobcount; $i++){
   $jobtitle = htmlspecialchars($_POST["jobtitle"][$i]);
   $datefrom = htmlspecialchars($_POST["jsdate"][$i]);
   $dateto = htmlspecialchars($_POST["jedate"][$i]);
+  $duties = htmlspecialchars($_POST["duties"][$i]);
+  $supervisor = htmlspecialchars($_POST["supervisor"][$i]);
   $stmt->execute();
 }
 

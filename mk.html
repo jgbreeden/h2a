@@ -1379,17 +1379,21 @@
         
 
         Puede Comprobar con documento
-        <div class="inline"><input type="radio" name="mechdoc" id="mechdoc" value="yes">
+        <div class="inline"><input type="radio" name="mechdoc" id="mechdoc" value="yes" onclick="showOption(this); hideOption(this);">
         <label for="mechno">Si</label><br>
-        <input type="radio" name="mechdoc" value="no" id="mechno" checked="true">
+        <input type="radio" name="mechdoc" value="no" id="mechno" checked="true" onclick="showOption(this); hideOption(this);">
         <label for=" mechdoc">No</label><br>
         </div>
-
+        
+        <div class="options" id="nomechdocoptions">
         <label for="mechnodoc">Si no puede comprobar, Porque Motivo</label><br>
         <input type="text" name="mechnodoc"><br>
+        </div>
 
+        <div class="options" id="mechdocoptions">
         <label for="mechtype">A que tipo de maquinaria ha dado mantenimiento, mencione</label><br>
         <input type="text" name="mechtype"><br>
+        </div>
         </div>
         <hr>
 
