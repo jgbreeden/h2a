@@ -88,7 +88,7 @@ tabChange(currentTab);
 document.getElementById("addSchoolBtn").addEventListener("click", function(e){
     e.preventDefault();
 	let school = document.createElement("div");
-	job.innerHTML = blankschool;
+	school.innerHTML = blankschool;
 	document.getElementById("school").innerHTML += blankjob;
 })
 tabChange(currentTab);
