@@ -129,18 +129,18 @@ $fatherinfo .= ($_POST["fatherstatus"] == "yes")? "\\n" . htmlspecialchars($_POS
   . " " . htmlspecialchars($_POST["Faddress2"]) . "\\n" . htmlspecialchars($_POST["Fcity"]) . " " . htmlspecialchars($_POST["Fstate"]) 
   . " " . htmlspecialchars($_POST["Fzipcode"]) . " " . htmlspecialchars($_POST["Fcountry"]) 
   . "\\nin US:" . htmlspecialchars($_POST["FinUS"]): ""; 
-$fatherinfo .= ($_POST["fatherstatus"] == "no")?  "year died" . $_POST["Fyeardied"] : "";
+$fatherinfo .= ($_POST["fatherstatus"] == "no")?  "\\nyear died" . $_POST["Fyeardied"] : "";
 $motherinfo = htmlspecialchars($_POST["motherFname"]) . " " . htmlspecialchars($_POST["motherLname"]) . "\\ndob:" . 
   htmlspecialchars($_POST["motherdob"]) . " living: " . htmlspecialchars($_POST["motherstatus"]);
 $motherinfo .= ($_POST["motherstatus"] == "yes")?  "\\n" . htmlspecialchars($_POST["Maddress"]) . " " . htmlspecialchars($_POST["Maddress2"]) . "\\n" . 
   htmlspecialchars($_POST["Mcity"]) . " " . htmlspecialchars($_POST["Mstate"]) . " " . htmlspecialchars($_POST["Mzipcode"]) . " " . 
   htmlspecialchars($_POST["Mcountry"]) . "\\nin US:" . htmlspecialchars($_POST["MUSstatus"]): "";
-$motherinfo .= ($_POST["motherstatus"] == "no")?  "year died" . $_POST["Myeardied"] : "";
+$motherinfo .= ($_POST["motherstatus"] == "no")?  "\\nyear died" . $_POST["Myeardied"] : "";
 $relatives = htmlspecialchars($_POST["Otherrelatives"]);
 $spouse = htmlspecialchars($_POST["SFname"]) . " " . htmlspecialchars($_POST["SLname"]) . " " . htmlspecialchars($_POST["Sdob"])
-  . "\\n" . htmlspecialchars($_POST["Saddress"]) . " " . htmlspecialchars($_POST["Saddress2"]) . "\\n" . htmlspecialchars($_POST["Sstate"]) 
-  . " " . htmlspecialchars($_POST["Szipcode"]) . " " . htmlspecialchars($_POST["Scity"]) . " " . htmlspecialchars($_POST["Scountry"]) 
-  . "\\n" . htmlspecialchars($_POST["Dmarriage"]) . " " . htmlspecialchars($_POST["Pmarriage"]);
+  . "\\n" . htmlspecialchars($_POST["Saddress"]) . " " . htmlspecialchars($_POST["Saddress2"]) . "\\n" . htmlspecialchars($_POST["Scity"]) 
+  . " " . htmlspecialchars($_POST["Sstate"]) . " " . htmlspecialchars($_POST["Szipcode"]) . " " . htmlspecialchars($_POST["Scountry"]) 
+  . "\\nMarried:" . htmlspecialchars($_POST["Dmarriage"]) . " " . htmlspecialchars($_POST["Pmarriage"]);
 $groups = ($_POST["organization"] == "yes")? "organization:" . $_POST["organizationexp"]."\\n" : "";
 $groups .= ($_POST["taliban"] == "yes")? "taliban:" . $_POST["talibanexp"]."\\n" : "";
 $groups .= ($_POST["communist"] == "yes")? "communist:" . $_POST["communistexp"]."\\n" : "";
@@ -157,8 +157,6 @@ $issues .= ($_POST["medical"] == "yes")?  "medical:" . $_POST["medicalexp"]. "\\
 $issues .= ($_POST["certification"] == "yes")?  "certification:" . $_POST["certificationexp"]. "\\n" : "";
 $issues .= ($_POST["citizenship"] == "yes")?  "citizenship:" . $_POST["citizenshipexp"]. "\\n" : "";
 $issues .= ($_POST["military"] == "yes")?  "avoidmilitary:" . $_POST["militaryexp"]. "\\n" : "";
-
-$deportation = ($_POST["deported"] == "yes")? "deported:" . htmlspecialchars($_POST["deportedexp"])."\\n" : "";
 
 $sql = "INSERT INTO `h2a`.`appds160` (`marriage`,`nationality`,`othernations`,`otherresident`,`nationid`,`ssn`,`othercontact`,"
 		."`socialmedia`,`pploststolen`,`ppduedate`, `fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,"
