@@ -107,12 +107,18 @@ function hideOption(item){
 }
 
 function showOption(item){
-    var options = document.getElementById(item.id + "options")
-    options.style.display = "block";
-    var inputs = options.getElementsByTagName("input")
-    for (let i = 0; i < inputs.length; i++) {
-        if (inputs[i].type == "number"){
-            inputs[i].classList.add("required");
+    if (item.value == "no"){
+        var options = document.getElementById("no" + item.name + "options")
+        options.style.display = "block";
+
+    }else{
+        var options = document.getElementById(item.id + "options")
+        options.style.display = "block";
+        var inputs = options.getElementsByTagName("input")
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].type == "number"){
+                inputs[i].classList.add("required");
+            }
         }
     }
 
