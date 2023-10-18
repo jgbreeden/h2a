@@ -242,7 +242,7 @@ for($i = 0; $i < $count; $i++){
 if ($_POST["skills"] == "yes") {
   $stmt = $conn->prepare("INSERT INTO ability (skillsid, applicantsid, details) VALUES(?, ?, ?)");
   $stmt->bind_param("iis", $skillsid, $id, $reason1);
-  $skillsid = getHealth("Firearms etc.");
+  $skillsid = getHealth(["Firearms etc."]);
   $reason1 = $_POST["skillsexp"];
   $stmt->execute();
 }
@@ -256,7 +256,7 @@ if ($result == 1){
 $conn->close();
 function getHealth($health){
   global $conn;
-  $sql = "SELECT id FROM skills WHERE skillenglish  = '" . $health ."'";
+  $sql = "SELECT id FROM skills WHERE skillenglish  = '" . $health[0] ."'";
   $records = $conn->query($sql);
   if ($row = $records->fetch_assoc()){
       return $row["id"];
