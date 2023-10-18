@@ -20,6 +20,7 @@ $lname = htmlspecialchars($_POST["lname"]);
 $phonecell = htmlspecialchars($_POST["phonecell"]);
 $phonehome = htmlspecialchars($_POST["phonehome"]);
 $address = htmlspecialchars($_POST["address"]);
+$address2 = htmlspecialchars($_POST["address2"]);
 $city = htmlspecialchars($_POST["city"]);
 $state = htmlspecialchars($_POST["state"]);
 $zipcode = htmlspecialchars($_POST["zipcode"]);
@@ -98,10 +99,10 @@ $id = $_POST["id"];
 //change to an update
 
 $sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phonehome = ?,"
-. "address = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
+. "address = ?, address2 = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
 . "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? , crimes = ?, deported = ? WHERE id = ?;";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $city, $state, $zipcode, 
+$stmt->bind_param("sssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, $state, $zipcode, 
                             $gender, $status, $ppnumber, $ppcity, $ppstate, $ppdateissue, $visas, $visaissues,
                             $visarefused, $license, $crimes, $deported, $id);
 
@@ -117,7 +118,7 @@ if ($result == 1) {
 $marriage = htmlspecialchars($_POST["datedivorce"]) . ": " . htmlspecialchars($_POST["reasondivorce"]);
 $nationality = htmlspecialchars($_POST["nationality"]);
 $othernations = htmlspecialchars($_POST["othernations"]);
-$otherresident = ""; //htmlspecialchars($_POST["otherresident"]);
+$otherresident = htmlspecialchars($_POST["othernations"]);
 $nationid = htmlspecialchars($_POST["nationid"]);
 $ssn = htmlspecialchars($_POST["ssn"]);
 $othercontact = htmlspecialchars($_POST["otherphones"]) . "\\n" . htmlspecialchars($_POST["otheremail"]);
@@ -148,7 +149,7 @@ $groups .= ($_POST["farcelnauc"] == "yes")? "farcelnauc:" . $_POST["farcelnaucex
 $groups .= ($_POST["terrororg"] == "yes")? "terrororg:" . $_POST["terrororgexp"]."\\n" : "";
 $groups .= ($_POST["famterrorist"] == "yes")? "famterrorist:" . $_POST["famterroristexp"]."\\n" : "";
 $countries = ($_POST["traveled"] == "yes")? "traveled:" . $_POST["traveledexp"]."\\n" : "";
-$countries .= ($_POST["resided"] == "yes")? "resided:" . $_POST["resided"]."\\n" : "";
+$countries .= ($_POST["resided"] == "yes")? "resided:" . $_POST["residedexp"]."\\n" : "";
 $military = ($_POST["served"] == "yes")? "served:" . $_POST["served"]."\\n" : "";
 $military .= ($_POST["armygroup"] == "yes")? "militia:" . $_POST["armygroup"]."\\n" : "";
 $issues = ($_POST["exchange"] == "yes")?  "exchange:" . $_POST["exchangeexp"]. "\\n" : "";
@@ -255,7 +256,7 @@ if ($result == 1){
 $conn->close();
 function getHealth($health){
   global $conn;
-  $sql = "SELECT id FROM skills WHERE skillenglish  = '" . $health[0] ."'";
+  $sql = "SELECT id FROM skills WHERE skillenglish  = '" . $health ."'";
   $records = $conn->query($sql);
   if ($row = $records->fetch_assoc()){
       return $row["id"];

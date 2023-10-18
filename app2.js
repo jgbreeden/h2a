@@ -28,6 +28,7 @@ function initData(data) {
 	document.getElementById("phonehome").value = data.hphone;
 	document.getElementById("email").value = data.email;
 	document.getElementById("address").value = data.address;
+	document.getElementById("address2").value = data.address2;
 	document.getElementById("city").value = data.city;
 	document.getElementById("state").value = data.state;
 	document.getElementById("zipcode").value = data.zip;

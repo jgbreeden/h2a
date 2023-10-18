@@ -482,7 +482,7 @@ function resetNewApp(){
 	document.getElementById("usresidency").value = currappl.deported
 	document.getElementById("legalissues").value = currappl.crimes;
     if(currappl.ds160.marriage != undefined){
-		document.getElementById("id").value = currappl.id;
+		document.getElementById("ds160id").value = currappl.ds160.id;
 		document.getElementById("marriagedetails").value = currappl.ds160.marriage;
 		document.getElementById("nationality").value = currappl.ds160.nationality;
 		document.getElementById("othernations").value = currappl.ds160.othernations;
@@ -505,6 +505,8 @@ function resetNewApp(){
 }
 
 function clearNewApp(){
+	document.getElementById("id").value = "";
+	document.getElementById("ds160id").value = "";
 	document.getElementById("first").value = "";
 	document.getElementById("last").value = "";
 	document.getElementById("cphone").value = "";
@@ -574,6 +576,7 @@ function clearNewApp(){
 	document.getElementById("military").value = "";
 	document.getElementById("legalissues").value = "";
 	document.getElementById("ustravel").value = "";
+	document.getElementById("appconfirm").value = "";
 
 	clearSkill();
 	clearAbility();
