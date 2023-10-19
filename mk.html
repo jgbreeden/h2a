@@ -446,9 +446,9 @@
 
  <hr>
     &#191;En que estado o ciudad en especifico le gustaria trabajar? O cualquier lugar?
-    <div class="inline"><input type="radio" name="specificarea" id="specificarea" value="yes" onclick="showOption(this)">
+    <div class="inline"><input type="radio" name="specificarea" id="specificarea" value="1" onclick="showOption(this)">
     <label for="specificareano">Lugar especifico</label><br>
-    <input type="radio" name="specificarea" id="specificareano" value="No" checked="true" onclick="hideOption(this)">
+    <input type="radio" name="specificarea" id="specificareano" value="0" checked="true" onclick="hideOption(this)">
     <label for="specificareano">No importa el Lugar o distancia</label><br>
     </div>
     <div class="options" id="specificareaoptions">
@@ -459,27 +459,27 @@
 
 <hr>
     &#191;Esta Disponible, quedarse el tiempo del contrato sin Venir a Mexico, con duracion de hasta 8 Meses?
-    <div class="inline"><input type="radio" name="stay8mo" id="mexico" value="yes">
+    <div class="inline"><input type="radio" name="stay8mo" id="mexico" value="1">
     <label for="mexicono">Si</label><br>
-    <input type="radio" name="stay8mo" id="mexicono" value="No" checked="true">
+    <input type="radio" name="stay8mo" id="mexicono" value="0" checked="true">
     <label for="mexicono">No</label><br>
     </div>
 <hr>
 
 <hr>
     &#191;Esta disponible trabajar horas extras y fines de semana cuando sea necesario?
-    <div class="inline"><input type="radio" name="overtime" id="hours" value="yes">
+    <div class="inline"><input type="radio" name="overtime" id="hours" value="1">
     <label for="hoursno">Si</label><br>
-    <input type="radio" name="overtime" id="hoursno" value="No" checked="true">
+    <input type="radio" name="overtime" id="hoursno" value="0" checked="true">
     <label for="hoursno">No</label><br>
     </div>
 <hr>
 
 <hr>
     &#191;Esta disponible a una posible extension de Contrato?
-    <div class="inline"><input type="radio" name="extend" id="extension" value="yes" onclick="hideOption(this)">
+    <div class="inline"><input type="radio" name="extend" id="extension" value="1" onclick="hideOption(this)">
     <label for="noextension">Si</label><br>
-    <input type="radio" name="extend" value="No" id="noextension" checked="true" onclick="showOption(this)"> 
+    <input type="radio" name="extend" value="0" id="noextension" checked="true" onclick="showOption(this)"> 
     <label for="noextension">No</label><br>
     </div>
     <div class="options" id="noextensionoptions">

@@ -159,9 +159,9 @@ $issues .= ($_POST["certification"] == "yes")?  "certification:" . $_POST["certi
 $issues .= ($_POST["citizenship"] == "yes")?  "citizenship:" . $_POST["citizenshipexp"]. "\\n" : "";
 $issues .= ($_POST["military"] == "yes")?  "avoidmilitary:" . $_POST["militaryexp"]. "\\n" : "";
 
-$sql = "INSERT INTO `h2a`.`appds160` (`marriage`,`nationality`,`othernations`,`otherresident`,`nationid`,`ssn`,`othercontact`,"
-		."`socialmedia`,`pploststolen`,`ppduedate`, `fatherinfo`,`motherinfo`,`relatives`,`spouse`,`countries`,`groups`,`military`,`issues`,"
-		."`applicantsid`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+$sql = "INSERT INTO h2a.appds160 (marriage,nationality,othernations,otherresident,nationid,ssn,othercontact,"
+		."socialmedia,pploststolen,ppduedate, fatherinfo,motherinfo,relatives,spouse,countries,groups,military,issues,"
+		."applicantsid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssssssssssssssssssi", $marriage, $nationality, $othernations, $otherresident, $nationid, 
