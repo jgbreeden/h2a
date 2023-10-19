@@ -8,11 +8,11 @@
     	datefrom = ?, dateto = ?, applicantsid = ? WHERE id = ?";
 		
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("sssssssssssi",  $_POST["school"], $_POST["saddress"], 
+	$stmt->bind_param("ssssssssssi",  $_POST["school"], $_POST["saddress"], 
 									 $_POST["saddress2"],  $_POST["scity"], 
-									 $_POST["sstate"],  ,$_POST["szip"],
+									 $_POST["sstate"],  $_POST["szip"],
 									 $_POST["major"],  $_POST["sdatefrom"], 
-									 $_POST["sdateto"], $_POST["schapid"] 
+									 $_POST["sdateto"], $_POST["schapid"], 
 									 $_POST["scid"]);
 	$result = $stmt->execute();
 	if ($result == 1) {

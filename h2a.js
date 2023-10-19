@@ -400,7 +400,7 @@ function fillEmpDetail(data) {
 	document.getElementById("schapid").value = currappl.id;
 	clearSkill();
 	clearAbility();
-	clearJobs();
+	clearJob();
 	clearHealth();
 	clearSchool();
 	resetNewApp();
@@ -580,7 +580,7 @@ function clearNewApp(){
 
 	clearSkill();
 	clearAbility();
-	clearJobs();
+	clearJob();
 	clearHealth();
 	clearSchool();
 	//resetNewApp();
@@ -687,6 +687,7 @@ function showSchool(row){
 			break
 		}
 	}
+	document.getElementById("scid").value = currappl.school[i].id
 	document.getElementById("school").value = currappl.school[i].entity;
 	document.getElementById("major").value = currappl.school[i].major;
 	document.getElementById("saddress").value = currappl.school[i].address;
@@ -782,20 +783,21 @@ function clearAbility(){
 	resetTable(document.getElementById("abilityTab"));
 }
 
-function clearJobs(){
+function clearJob(){
 	document.getElementById("jcompany").value = "";
 	document.getElementById("jaddress").value = "";
 	document.getElementById("jaddress2").value = "";
 	document.getElementById("jcity").value = "";
 	document.getElementById("jstate").value = "";
 	document.getElementById("jzip").value = "";
-	document.getElementById("supervisor").value = "";
+	document.getElementById("jsalary").value = "";
 	document.getElementById("jobtitle").value = "";
 	document.getElementById("supervisor").value = "";
 	document.getElementById("jdatefrom").value = "";
 	document.getElementById("jdateto").value = "";
 	document.getElementById("jphone").value = "";
 	document.getElementById("duties").value = "";
+	document.getElementById("jid").value = "";
 	resetTable(document.getElementById("jobsTab"));
 }
 
@@ -809,6 +811,7 @@ function clearHealth(){
 }
 
 function clearSchool(){
+	document.getElementById("scid").value = "";
 	document.getElementById("school").value = "";
 	document.getElementById("major").value = "";
 	document.getElementById("saddress").value = "";
