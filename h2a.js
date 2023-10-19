@@ -1030,6 +1030,8 @@ function clearComp() {
 	document.getElementById("compstate").value = "";
 	document.getElementById("compzip").value = "";
 	resetTable(document.getElementById("companytab"));
+	document.getElementById("compassigntab").innerHTML = "<tr><th>Assign Date</th><th>Count</th></tr>";
+	document.getElementById("compempstab").innerHTML = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
 }
 
 function saveComp(){
@@ -1051,6 +1053,8 @@ function resetComp(){
 
 function showCompResult(data){
 	document.getElementById("compresult").innerHTML = data;
+	document.getElementById("compresult").classList.remove("fade");
+	setTimeout(function(){document.getElementById("compresult").style.visibility="hidden";}, 5000)
 	getCompanies();
 }
 

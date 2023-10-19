@@ -14,12 +14,12 @@
 			. "INNER JOIN experience ON applicants.id = experience.applicantsid "
 			. "INNER JOIN skills ON experience.skillsid = skills.id "
 			. "AND locate(skills.skillenglish, '" . $_POST["status"] . "') > 0 "
-			. "WHERE applicants.status = 'accepted'"
+			. "WHERE applicants.status = 'approved'"
 			. "union SELECT DISTINCT applicants.id, firstname, lastname FROM applicants "
 			. "INNER JOIN ability ON applicants.id = ability.applicantsid "
 			. "INNER JOIN skills as sk ON ability.skillsid = sk.id "
 			. "AND locate(sk.skillenglish, '" . $_POST["status"] . "') > 0 "
-			. "WHERE applicants.status = 'accepted'"
+			. "WHERE applicants.status = 'approved'"
 			. "order by lastname, firstname";
 	$result = $conn->query($query);
 	if ($result->num_rows > 0) {
