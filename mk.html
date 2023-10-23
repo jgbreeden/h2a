@@ -1369,10 +1369,10 @@
         <label for="mechno">No</label><br>
         </div>
         <div class="options" id="mechoptions">
-        <input type="checkbox" name="mechdiesel" id="mech" value="yes">
-        <label for="mechgas">Mecanica Diesel</label><br>
-        <input type="checkbox" name="mechgas" value="yes">
-        <label for="dc">Mecanica a Gasolina</label><br>
+        <input type="checkbox" name="mechdiesel" id="mechdiesel" value="yes">
+        <label for="mechdiesel">Mecanica Diesel</label><br>
+        <input type="checkbox" name="mechgas" id="mechgas" value="yes">
+        <label for="mechgas">Mecanica a Gasolina</label><br>
 
       
         <label for="mechexp">Cuantos an&#769;os de experiencia?</label><br>
@@ -1382,10 +1382,10 @@
         
 
         Puede Comprobar con documento
-        <div class="inline"><input type="radio" name="mechdoc" id="mechdoc" value="yes">
-        <label for="mechno">Si</label><br>
-        <input type="radio" name="mechdoc" value="no" id="mechno" checked="true">
-        <label for=" mechdoc">No</label><br>
+        <div class="inline"><input type="radio" name="mechdoc" id="mechdoc" value="yes" onclick="showOption(this);hideOption(this)">
+        <label for="mechdoc">Si</label><br>
+        <input type="radio" name="mechdoc" value="no" id="mechdocno" onclick="showOption(this);hideOption(this)">
+        <label for=" mechdocno">No</label><br>
         </div>
 
         <div class="options" id="nomechdocoptions">
