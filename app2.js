@@ -90,6 +90,6 @@ document.getElementById("addSchoolBtn").addEventListener("click", function(e){
     e.preventDefault();
 	let school = document.createElement("div");
 	school.innerHTML = blankschool;
-	document.getElementById("school").innerHTML += blankschool;
+	document.getElementById("school").appendChild(school);
 })
 tabChange(currentTab);
