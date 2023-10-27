@@ -7,7 +7,7 @@
 	$sql = "UPDATE jobhistory SET empname = ?, address = ?, address2 = ?, city = ?, state = ?, zip = ?, phone = ?, salary = ?, jobtitle = ?,"
     			.  "datefrom = ?, dateto = ?, supervisor =?, duties = ? WHERE id = ?"; 
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("sssssssssssssi",  $_POST["jcompany"], $_POST["jadddress"], 
+	$stmt->bind_param("sssssssssssssi",  $_POST["jcompany"], $_POST["jaddress"], 
 										 $_POST["jaddress2"],$_POST["jcity"], 
 										 $_POST["jstate"], $_POST["jzip"],  
 										 $_POST["jphone"], $_POST["jsalary"], 
