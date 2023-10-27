@@ -141,7 +141,7 @@ $motherinfo .= ($_POST["motherstatus"] == "no")?  "\\nyear died" . $_POST["Myear
 $relatives = htmlspecialchars($_POST["Otherrelatives"]);
 $spouse = htmlspecialchars($_POST["SFname"]) . " " . htmlspecialchars($_POST["SLname"]) . " " . htmlspecialchars($_POST["Sdob"]) . "\\n";
 $spouse .= ($_POST["Sotheradd"] == "yes")?  htmlspecialchars($_POST["Saddress"]) . " " . htmlspecialchars($_POST["Saddress2"]) . "\\n" . htmlspecialchars($_POST["Scity"]) 
-  . " " . htmlspecialchars($_POST["Sstate"]) . " " . htmlspecialchars($_POST["Szipcode"]) . " " . htmlspecialchars($_POST["Scountry"]) . "\\n";
+  . " " . htmlspecialchars($_POST["Sstate"]) . " " . htmlspecialchars($_POST["Szipcode"]) . " " . htmlspecialchars($_POST["Scountry"]) . "\\n": "";
 $spouse .= "\\nMarried:" . htmlspecialchars($_POST["Dmarriage"]) . " " . htmlspecialchars($_POST["Pmarriage"]);
 $groups = ($_POST["organization"] == "yes")? "organization:" . $_POST["organizationexp"]."\\n" : "";
 $groups .= ($_POST["taliban"] == "yes")? "taliban:" . $_POST["talibanexp"]."\\n" : "";
