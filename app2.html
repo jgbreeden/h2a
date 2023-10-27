@@ -382,61 +382,14 @@
                 <input type="date" id="fatherdob" name="fatherdob"><br>
 
                 <hr>
-                &#191;Su Padre esta vivo?
-                <div class="inline">
-                <input type="radio" id="fatherstatus" name="fatherstatus" value="yes" onclick="showOption(this);hideOption(this)">
-                <label for="FAstatus">Si</label><br>
-                <input type="radio" id="fatherstatusno" name="fatherstatus" value="no" onclick="showOption(this);hideOption(this)">
-                <label for="FDstatus">No</label><br>
-                </div>
                 <hr>
-
-                <div class="options" id="nofatherstatusoptions">
-                <label for="Fyeardied">An&#771;o de muerte del padre</label><br>
-                <input type="text" id="Fyeardied" name="Fyeardied"><br>
-
-                </div>
-                <div class="options" id="fatherstatusoptions">
-            
-                <hr>
-                <label for="Faddress">Direccio&#769;n:</label><br>
-                <input type="text" id="Faddress" name="Faddress" min="1" max="20"><br>
-                <hr>
-
-                <hr>
-                <label for="Faddress2">Direccio&#769;n 2:</label><br>
-                <input type="text" id="Faddress2" name="Faddress2" min="1" max="20"><br>
-                <hr>
-
-                <hr>
-                <label for="Fcity">Ciudad:</label><br>
-                <input type="text" id="Fcity" name="Fcity" min="1" max="20"><br>
-                <hr>
-            
-                <hr>
-                <label for="Fstate">Estado:</label><br>
-                <input type="text" id="Fstate" name="Fstate" min="1" max="20"><br>
-                <hr>
-
-                <hr>
-                <label for="Fzipcode">Codigo Postal:</label><br>
-                <input type="text" id="Fzipcode" name="Fzipcode" min="1" max="20"><br>
-                <hr>
-            
-                <hr>
-                <label for="Fcountry">Pais:</label><br>
-                <input type="text" id="Fcountry" name="Fcountry" min="1" max="20"><br>
-                <hr>
-
-                <hr>
-                &#191;Su Padre esta en los Estados Unidos?
-                <div class="inline">
-                <input type="radio" id="FYinUS" name="FinUS" value="yes" checked="true">
-                <label for="si">Si</label><br>
-                <input type="radio" id="FNinUS" name="FinUS" value="no">
-                <label for="no">No</label><br>
-                </div>
-                <hr>
+                &#191;Su padre es residente legal o ciudadano de los estados unidos?
+               <div class="inline">
+               <input type="radio" id="fatherstatus" name="fatherstatus" value="yes" onclick="showOption(this);hideOption(this)">
+               <label for="MAstatus">Si</label><br>
+               <input type="radio" id="fatherstatusno" name="fatherstatus" value="no" onclick="showOption(this);hideOption(this)">
+               <label for="MDstatus">No</label><br>
+               </div>
             </div>
         </div>
 
@@ -461,62 +414,15 @@
                 <input type="date" id="motherdob" name="motherdob"><br>
                 <hr>
 
-                <hr>
-                &#191;Su Madre esta viva?
+                 <hr>
+                 &#191;Su Madre es residente legal o ciudadano de los estados unidos?
                 <div class="inline">
                 <input type="radio" id="motherstatus" name="motherstatus" value="yes" onclick="showOption(this);hideOption(this)">
                 <label for="MAstatus">Si</label><br>
                 <input type="radio" id="motherstatusno" name="motherstatus" value="no" onclick="showOption(this);hideOption(this)">
                 <label for="MDstatus">No</label><br>
                 </div>
-                <hr>
-                
-                <div class="options" id="nomotherstatusoptions">
-                <label for="Myeardied">An&#771;o de muerte de la madre</label><br>
-                <input type="text" id="Myeardied" name="Myeardied"><br>
-                </div>
 
-                <div class="options" id="motherstatusoptions">
-                    
-                <label for="Maddress">Direccio&#769;n:</label><br>
-                <input type="text" id="Maddress" name="Maddress" min="1" max="20"><br>
-                <hr>
-
-                <hr>
-                <label for="Maddress2">Direccio&#769;n2:</label><br>
-                <input type="text" id="Maddress2" name="Maddress2" min="1" max="20"><br>
-                <hr>
-
-                <hr>
-                <label for="Mcity">Ciudad:</label><br>
-                <input type="text" id="Mcity" name="Mcity" min="1" max="20"><br>
-                <hr>
-            
-                <hr>
-                <label for="Mstate">Estado:</label><br>
-                <input type="text" id="Mstate" name="Mstate" min="1" max="20"><br>
-                <hr>
-
-                <hr>
-                <label for="Mzipcode">Codigo Postal:</label><br>
-                <input type="text" id="Mzipcode" name="Mzipcode" min="1" max="20"><br>
-                <hr>
-                        
-                <hr>
-                <label for="Mcountry">Pais:</label><br>
-                <input type="text" id="Mcountry" name="Mcountry" min="1" max="20"><br>
-                <hr>
-
-                <hr>
-                &#191;Su Madre esta en los Estados Unidos?
-                <div class="inline">
-                <input type="radio" id="MYstatus" name="MUSstatus" value="yes" checked="true">
-                <label for="si">Si</label><br>
-                <input type="radio" id="MNstatus" name="MUSstatus" value="no">
-                <label for="no">No</label><br>
-                </div>
-                <hr>
-                </div>
             </div>
 
             <div id="otherRelatives">
@@ -526,7 +432,7 @@
                 </hr>
 
                 <hr>
-                &#191;Tiene alguno otro familar en los Estados Unidos, no incluendo sus padres?
+                &#191;Tiene algún familiar directo viviendo en los Estados Unidos (hijos, hermanos, pareja)?
                 <div class="inline">
                 <input type="radio" id="family" name="family" value="yes" onclick="showOption(this)">
                 <label for="family">Si</label><br>
@@ -537,7 +443,7 @@
 
                 <div class="options" id="familyoptions">
                 <hr>
-                <h4>Nombre de sus Familares: </h4>
+                <h4>Nombres y estatus: </h4>
                 <textarea id="Otherrelatives" rows="2" cols="25" name="Otherrelatives"></textarea>
 
                 <hr>
@@ -570,6 +476,17 @@
                 </hr>
 
                 <hr>
+                <label for="Sotheradd">&#191;La direccio&#769;n de su co&#769;nyuge es la misma de usted?</label><br>
+
+                <div class="inline"><input type="radio" name="Sotheradd" id="Sotheradd" value="yes" onclick="hideOption(this)">
+                <label for="Sotheradd">Si</label><br>
+                <input type="radio" name="Sotheradd" id="Sotheraddno" value="no" checked="true" onclick="showOption(this)">
+                <label for="Sotheraddno">No</label><br>
+                </div>
+                <div class="options" id="noSotheraddoptions">
+                </hr>
+
+                <hr>
                 <label for="Saddress">Direccio&#769;n:</label><br>
                 <input type="text" id="Saddress" name="Saddress" min="1" max="20"><br>
                 </hr>
@@ -599,6 +516,7 @@
                 <label for="Scountry">Pais:</label><br>
                 <input type="text" id="Scountry" name="Scountry" min="1" max="20"><br>
                 </hr>
+                </div>
 
                 <hr>
                 <label for="Dmarriage">Fecha de Casamiento:</label><br>
@@ -996,7 +914,8 @@
     <textarea rows="3" cols="30" name="famtraffickingexp"></textarea><br>
     </div>
     <hr>
-    <hr>&#191;Es usted el conyuge, hijo o hija de una persona que ha sido identificada
+    <!--
+        <hr>&#191;Es usted el conyuge, hijo o hija de una persona que ha sido identificada
      por el Presidente de los Estados Unidos como una persona que desempen&#769;a un 
      papel importante en una forma grave de trata de personas y, en los u&#769;ltimos cinco an&#769;os,
       se ha beneficiado a sabiendas de las actividades de trata?
@@ -1025,6 +944,7 @@
     <textarea rows="3" cols="30" name="famsubstancesexp"></textarea><br>
     </div>
     <hr>
+-->
     <hr>&#191;Busca participar en espionaje, sabotaje, violaciones del control de exportaciones
      o cualquier otra actividad ilegal mientras se encuentran en los Estados Unidos?
 
@@ -1102,6 +1022,7 @@
     <textarea rows="3" cols="30" name="genocideexp"></textarea><br>
     </div>
     <hr>
+    <!--
     <hr>&#191;Alguna vez has cometido, ordenado, incitado, asistido o participado de alguna otra manera en torturas?
 
     <div class="inline"><input type="radio" name="torture" id="torture" value="yes" onclick="showOption(this)">
@@ -1114,6 +1035,7 @@
     <textarea rows="3" cols="30" name="tortureexp"></textarea><br>
     </div>
     <hr>
+    -->
     <hr>&#191;Ha cometido, ordenado, incitado, asistido o participado de alguna otra manera
      en ejecuciones extrajudiciales, asesinatos poli&#769;ticos u otros actos de violencia?
 
@@ -1164,6 +1086,7 @@
     <textarea rows="3" cols="30" name="communistexp"></textarea><br>
     </div>
     <hr>
+    <!--
     <hr>&#191;Alguna vez ha ayudado o apoyado directa o indirectamente a alguno de los grupos 
     en Colombia conocidos como las Fuerzas Armadas Revolucionarias de Colombia (FARC), Eje&#769;rcito de Liberacion Nacional?
 
@@ -1233,6 +1156,7 @@
     <textarea rows="3" cols="30" name="famconfidencialexp" id="famconfidencialexp"></textarea><br>
     </div>
     <hr>
+    -->
     <hr>&#191;Alguna vez ha estado directamente involucrado en el establecimiento o la aplicacion 
     de controles de poblacion obligando a una mujer a someterse a un aborto en contra de su libre 
     eleccion o a un hombre o a una mujer a someterse a una esterilizacion en contra de su libre albedri&#769;o?
@@ -1310,6 +1234,7 @@
     <textarea rows="3" cols="30" name="violatedtimeexp"></textarea><br>
     </div>
     <hr>
+    <!--
     <hr>&#191;Esta&#769;n sujetos a una sancion civil bajo INA 274C?
 
     <div class="inline"><input type="radio" name="INA274C" id="INA274C" value="yes" onclick="showOption(this)">
@@ -1408,6 +1333,7 @@
     <textarea rows="3" cols="30" name="deportedexp"></textarea><br>
     </div>
     <hr>
+    -->
     <hr>&#191;Alguna vez ha retenido la custodia de un nin&#769;o ciudadano estadounidense fuera de los Estados 
     Unidos a una persona a la que se le haya concedido la custodia legal por un tribunal de los Estados Unidos?
 
@@ -1457,6 +1383,7 @@
     <textarea rows="3" cols="30" name="exchangeexp"></textarea><br>
     </div>
     <hr>
+    <!--d
     <hr>&#191;Busca ingresar a los Estados Unidos con el proposito de realizar trabajo calificado o 
     no calificado, pero au&#769;n no ha sido certificado por el Secretario de Trabajo?
 
@@ -1545,6 +1472,14 @@
     <div class="options" id="asylumoptions">
     <label for="asylumexp">Explica</label><br>
     <textarea rows="3" cols="30" name="asylumexp"></textarea><br>
+    </div>
+    <hr>
+    -->
+    <hr>&#191;Ha asistido a una escuela primaria pu&#769;blica con estatus de estudiante (f) o a una escuela secundaria pu&#769;blica despue&#769;s del 30 de noviembre de 1996 sin reembolsar a la escuela?
+    <div class="publicSchool"><input type="radio" name="publicSchool" id="publicSchool" value="yes">
+    <label for="publicSchool">Si</label><br>
+    <input type="radio" name="publicSchool" id="publicSchool" value="no" checked="true">
+    <label for="publicSchoolNo">No</label><br>
     </div>
     <hr>
 
