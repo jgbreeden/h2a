@@ -24,7 +24,7 @@ $address2 = htmlspecialchars($_POST["address2"]);
 $city = htmlspecialchars($_POST["city"]);
 $state = htmlspecialchars($_POST["state"]);
 $zipcode = htmlspecialchars($_POST["zipcode"]);
-$country = htmlspecialchars($_post["country"]);
+$country = htmlspecialchars($_POST["country"]);
 $gender = htmlspecialchars($_POST["gender"]);
 //$specificarea = htmlspecialchars($_POST["specificarea"]);
 //$whatarea = htmlspecialchars($_POST["whatarea"]);
@@ -118,11 +118,11 @@ if ($result == 1) {
 //insert into app ds160
 $marriage = htmlspecialchars($_POST["datedivorce"]) . ": " . htmlspecialchars($_POST["reasondivorce"]);
 $nationality = htmlspecialchars($_POST["nationality"]);
-$othernations = htmlspecialchars($_POST["othernations"]);
-$otherresident = htmlspecialchars($_POST["othernations"]);
+$othernations = "";//htmlspecialchars($_POST["othernations"]);
+$otherresident = "";//htmlspecialchars($_POST["otherresident"]);
 $nationid = htmlspecialchars($_POST["nationid"]);
 $ssn = htmlspecialchars($_POST["ssn"]);
-$othercontact = htmlspecialchars($_POST["otherphones"]) . "\\n" . htmlspecialchars($_POST["otheremail"]) / "\\n" . htmlspecialchars($_POST["othersocial"]);
+$othercontact = htmlspecialchars($_POST["otherphones"]) . "\\n" . htmlspecialchars($_POST["otheremail"]) . "\\n" . htmlspecialchars($_POST["othersocial"]);
 $socialmedia = htmlspecialchars($_POST["socialmedia"]);
 $pploststolen = ""; // htmlspecialchars($_POST["pploststolen"]);
 $fatherinfo = htmlspecialchars($_POST["fatherFname"]) . " " . htmlspecialchars($_POST["fatherLname"])
@@ -153,7 +153,7 @@ $countries = ($_POST["traveled"] == "yes")? "traveled:" . $_POST["traveledexp"].
 $countries .= ($_POST["resided"] == "yes")? "resided:" . $_POST["residedexp"]."\\n" : "";
 $military = ($_POST["served"] == "yes")? "served:" . $_POST["served"]."\\n" : "";
 $military .= ($_POST["armygroup"] == "yes")? "militia:" . $_POST["armygroup"]."\\n" : "";
-$issues = ($_POST["exchange"] == "yes")?  "exchange:" . $_POST["exchangeexp"]. "\\n" : "";]
+$issues = ($_POST["exchange"] == "yes")?  "exchange:" . $_POST["exchangeexp"]. "\\n" : "";
 $issues .= ($_POST["publicSchool"] == "yes")?  "Public School: yes"  : "";
 //$issues .= ($_POST["labor"] == "yes")?  "labor:" . $_POST["laborexp"]. "\\n" : "";
 //$issues .= ($_POST["medical"] == "yes")?  "medical:" . $_POST["medicalexp"]. "\\n" : "";
