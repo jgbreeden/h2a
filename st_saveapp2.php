@@ -121,27 +121,27 @@ $othernations = htmlspecialchars($_POST["othernations"]);
 $otherresident = htmlspecialchars($_POST["othernations"]);
 $nationid = htmlspecialchars($_POST["nationid"]);
 $ssn = htmlspecialchars($_POST["ssn"]);
-$othercontact = htmlspecialchars($_POST["otherphones"]) . "\\n" . htmlspecialchars($_POST["otheremail"]);
+$othercontact = htmlspecialchars($_POST["otherphones"]) . "\\n" . htmlspecialchars($_POST["otheremail"]) / "\\n" . htmlspecialchars($_POST["othersocial"]);
 $socialmedia = htmlspecialchars($_POST["socialmedia"]);
 $pploststolen = ""; // htmlspecialchars($_POST["pploststolen"]);
 $fatherinfo = htmlspecialchars($_POST["fatherFname"]) . " " . htmlspecialchars($_POST["fatherLname"])
-  . "\\ndob:" . htmlspecialchars($_POST["fatherdob"]) . " living: " .  htmlspecialchars($_POST["fatherstatus"]);
-$fatherinfo .= ($_POST["fatherstatus"] == "yes")? "\\n" . htmlspecialchars($_POST["Faddress"])
-  . " " . htmlspecialchars($_POST["Faddress2"]) . "\\n" . htmlspecialchars($_POST["Fcity"]) . " " . htmlspecialchars($_POST["Fstate"]) 
-  . " " . htmlspecialchars($_POST["Fzipcode"]) . " " . htmlspecialchars($_POST["Fcountry"]) 
-  . "\\nin US:" . htmlspecialchars($_POST["FinUS"]): ""; 
+  . "\\ndob:" . htmlspecialchars($_POST["fatherdob"]);
+//$fatherinfo .= ($_POST["fatherstatus"] == "yes")? "\\n" . htmlspecialchars($_POST["Faddress"])
+//  . " " . htmlspecialchars($_POST["Faddress2"]) . "\\n" . htmlspecialchars($_POST["Fcity"]) . " " . htmlspecialchars($_POST["Fstate"]) 
+//  . " " . htmlspecialchars($_POST["Fzipcode"]) . " " . htmlspecialchars($_POST["Fcountry"]) 
+//  . "\\nin US:" . htmlspecialchars($_POST["FinUS"]): ""; 
 $fatherinfo .= ($_POST["fatherstatus"] == "no")?  "\\nyear died" . $_POST["Fyeardied"] : "";
 $motherinfo = htmlspecialchars($_POST["motherFname"]) . " " . htmlspecialchars($_POST["motherLname"]) . "\\ndob:" . 
-  htmlspecialchars($_POST["motherdob"]) . " living: " . htmlspecialchars($_POST["motherstatus"]);
-$motherinfo .= ($_POST["motherstatus"] == "yes")?  "\\n" . htmlspecialchars($_POST["Maddress"]) . " " . htmlspecialchars($_POST["Maddress2"]) . "\\n" . 
-  htmlspecialchars($_POST["Mcity"]) . " " . htmlspecialchars($_POST["Mstate"]) . " " . htmlspecialchars($_POST["Mzipcode"]) . " " . 
-  htmlspecialchars($_POST["Mcountry"]) . "\\nin US:" . htmlspecialchars($_POST["MUSstatus"]): "";
+  htmlspecialchars($_POST["motherdob"]);
+//$motherinfo .= ($_POST["motherstatus"] == "yes")?  "\\n" . htmlspecialchars($_POST["Maddress"]) . " " . htmlspecialchars($_POST["Maddress2"]) . "\\n" . 
+//  htmlspecialchars($_POST["Mcity"]) . " " . htmlspecialchars($_POST["Mstate"]) . " " . htmlspecialchars($_POST["Mzipcode"]) . " " . 
+//  htmlspecialchars($_POST["Mcountry"]) . "\\nin US:" . htmlspecialchars($_POST["MUSstatus"]): "";
 $motherinfo .= ($_POST["motherstatus"] == "no")?  "\\nyear died" . $_POST["Myeardied"] : "";
 $relatives = htmlspecialchars($_POST["Otherrelatives"]);
-$spouse = htmlspecialchars($_POST["SFname"]) . " " . htmlspecialchars($_POST["SLname"]) . " " . htmlspecialchars($_POST["Sdob"])
-  . "\\n" . htmlspecialchars($_POST["Saddress"]) . " " . htmlspecialchars($_POST["Saddress2"]) . "\\n" . htmlspecialchars($_POST["Scity"]) 
-  . " " . htmlspecialchars($_POST["Sstate"]) . " " . htmlspecialchars($_POST["Szipcode"]) . " " . htmlspecialchars($_POST["Scountry"]) 
-  . "\\nMarried:" . htmlspecialchars($_POST["Dmarriage"]) . " " . htmlspecialchars($_POST["Pmarriage"]);
+$spouse = htmlspecialchars($_POST["SFname"]) . " " . htmlspecialchars($_POST["SLname"]) . " " . htmlspecialchars($_POST["Sdob"]) . "\\n";
+$spouse .= ($_POST["Sotheradd"] == "yes")?  htmlspecialchars($_POST["Saddress"]) . " " . htmlspecialchars($_POST["Saddress2"]) . "\\n" . htmlspecialchars($_POST["Scity"]) 
+  . " " . htmlspecialchars($_POST["Sstate"]) . " " . htmlspecialchars($_POST["Szipcode"]) . " " . htmlspecialchars($_POST["Scountry"]) . "\\n";
+$spouse .= "\\nMarried:" . htmlspecialchars($_POST["Dmarriage"]) . " " . htmlspecialchars($_POST["Pmarriage"]);
 $groups = ($_POST["organization"] == "yes")? "organization:" . $_POST["organizationexp"]."\\n" : "";
 $groups .= ($_POST["taliban"] == "yes")? "taliban:" . $_POST["talibanexp"]."\\n" : "";
 $groups .= ($_POST["communist"] == "yes")? "communist:" . $_POST["communistexp"]."\\n" : "";
