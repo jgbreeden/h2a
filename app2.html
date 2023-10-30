@@ -310,7 +310,7 @@
         <div class="options" id="visaslostoptions">
         <label for="ssn">an&#771;o?</label><br>
         <input type="text" id="visaslostyear" name="visaslostyear"><br>
-        <label for="ssn">Explica</label><br>
+        <label for="ssn">Explique</label><br>
         <textarea rows="3" cols="30" name="visaslostexp"></textarea><br>
         </div>
         <hr>
@@ -321,7 +321,7 @@
             <label for="visasno">No</label><br>
         </div>
         <div class="options" id="visascancelledoptions">
-        <label for="ssn">Explica</label><br>
+        <label for="ssn">Explique</label><br>
         <textarea rows="3" cols="30" name="visascancelledexp"></textarea><br>
         </div>
         <hr>
@@ -336,7 +336,7 @@
     <label for="visarefusedno">No</label><br>
     </div>
     <div class="options" id="visarefusedoptions">
-    <label for="visarefusedexp">Explica</label><br>
+    <label for="visarefusedexp">Explique</label><br>
     <textarea rows="3" cols="30" name="visarefusedexp"></textarea><br>
     </div>
 
@@ -349,16 +349,10 @@
     <label for="petitionno">No</label><br>
     </div>
     <div class="options" id="petitionoptions">
-    <label for="petitionexp">Explica</label><br>
+    <label for="petitionexp">Explique</label><br>
     <textarea rows="3" cols="30" name="petitionexp"></textarea><br>
     </div>
     <hr>
-
-    <hr>
-    <h3>DATOS DE SU DOMICILIO</h3>
-    <hr>
-
-    
 
 </div>
 
@@ -380,13 +374,13 @@
         
             <div id="father">
                 <hr>
-                <label for="fatherFname">Nombre de su padre:</label><br>
-                <input type="text" id="fatherFname" name="fatherFname" min="1" max="20"><br>
-                <hr>
-            
-                <hr>
-                <label for="fatherLname">Apellido:</label><br>
+                <label for="fatherLname">Apellidos del padre:</label><br>
                 <input type="text" id="fatherLname" name="fatherLname" min="1" max="20"><br>
+                <hr>
+
+                <hr>
+                <label for="fatherFname">Nombre(s):</label><br>
+                <input type="text" id="fatherFname" name="fatherFname" min="1" max="20"><br>
                 <hr>
             
                 <hr>
@@ -409,19 +403,18 @@
             </hr>
 
             <div id="Mother">
+                <hr>
+                <label for="motherLname">Apellidos de la Madre:</label><br>
+                <input type="text" id="motherLname" name="motherLname" min="1" max="20"><br>
+                <hr>
 
                 <hr>
-                <label for="motherFname">Nombre de su madre:</label><br>
+                <label for="motherFname">Nombre(s):</label><br>
                 <input type="text" id="motherFname" name="motherFname" min="1" max="20"><br>
                 <hr>
             
                 <hr>
-                <label for="motherLname">Apellido:</label><br>
-                <input type="text" id="motherLname" name="motherLname" min="1" max="20"><br>
-                <hr>
-            
-                <hr>
-                <label for="motherdob"></label>Fecha de Nacimiento:</label><br>
+                <label for="motherdob">Fecha de Nacimiento:</label><br>
                 <input type="date" id="motherdob" name="motherdob"><br>
                 <hr>
 
@@ -467,12 +460,12 @@
                 <h4>Conyuge</h4>
 
                 <hr>
-                <label for="SFname">Nombre de su Conyuge:</label><br>
+                <label for="SFname">Apellidos de Cónyuge o pareja:</label><br>
                 <input type="text" id="SFname" name="SFname" min="1" max="20"><br>
                 </hr>
             
                 <hr>
-                <label for="SLname">Apellido:</label><br>
+                <label for="SLname">Nombre(s):</label><br>
                 <input type="text" id="SLname" name="SLname" min="1" max="20"><br>
                 </hr>
 
@@ -528,16 +521,6 @@
                 <input type="text" id="Scountry" name="Scountry" min="1" max="20"><br>
                 </hr>
                 </div>
-
-                <hr>
-                <label for="Dmarriage">Fecha de Casamiento:</label><br>
-                <input type="date" id="Dmarriage" name="Dmarriage" min="1" max="20"><br>
-                </hr>
-
-                <hr>
-                <label for="Pmarriage">Lugar de La Boda:</label><br>
-                <input type="text" id="Pmarriage" name="Pmarriage" min="1" max="20"><br>
-                </hr>
             </div>
         </div>
         
@@ -588,7 +571,7 @@
             <hr>
 
             <hr>
-            <label for="supervisor">Supervisor:</label><br>
+            <label for="supervisor">En que trabaja:</label><br>
             <input type="text" id="supervisor" name="supervisor[]" min="1" max="20"><br>
             <hr>
 
@@ -625,6 +608,11 @@
 
             <hr>
             <h3>Historial de educatio&#768;n:</h3>
+            <hr>
+
+            <hr>
+            <label for="scgrade">Grado escolar:</label><br>
+            <input type="text" id="scgrade" name="scgrade[]" min="1" max="20"><br>
             <hr>
 
             <hr>
@@ -683,7 +671,7 @@
     <label for="clanno">No</label><br>
     </div>
     <div class="options" id="clanoptions">
-    <label for="clanexp">Explica</label><br>
+    <label for="clanexp">Explique</label><br>
     <textarea rows="3" cols="30" name="clanexp"></textarea><br>
     </div>
     <hr>
@@ -694,7 +682,7 @@
     <label for="traveledno">No</label><br>
     </div>
     <div class="options" id="traveledoptions">
-    <label for="traveledexp">Explica</label><br>
+    <label for="traveledexp">Explique</label><br>
     <textarea rows="3" cols="30" name="traveledexp"></textarea><br>
     </div>
     <hr>
@@ -706,7 +694,7 @@
     <label for="residedno">No</label><br>
     </div>
     <div class="options" id="residedoptions">
-    <label for="residedexp">Explica</label><br>
+    <label for="residedexp">Explique</label><br>
     <textarea rows="3" cols="30" name="residedexp"></textarea><br>
     </div>
     <hr>
@@ -718,7 +706,7 @@
     <label for="organizationno">No</label><br>
     </div>
     <div class="options" id="organizationoptions">
-    <label for="organizationexp">Explica</label><br>
+    <label for="organizationexp">Explique</label><br>
     <textarea rows="3" cols="30" name="organizationexp"></textarea><br>
     </div>
     <hr>&#191;Alguna vez has sido miembro de los talibanes?
@@ -729,7 +717,7 @@
     <label for="talibanno">No</label><br>
     </div>
     <div class="options" id="talibanoptions">
-    <label for="talibanexp">Explica</label><br>
+    <label for="talibanexp">Explique</label><br>
     <textarea rows="3" cols="30" name="talibanexp"></textarea><br>
     </div>
     <hr>
@@ -742,7 +730,7 @@
     <label for="skillsno">No</label><br>
     </div>
     <div class="options" id="skillsoptions">
-    <label for="skillsexp">Explica</label><br>
+    <label for="skillsexp">Explique</label><br>
     <textarea rows="3" cols="30" name="skillsexp"></textarea><br>
     </div>
     <hr>
@@ -753,7 +741,7 @@
     <label for="servedno">No</label><br>
     </div>
     <div class="options" id="servedoptions">
-    <label for="servedexp">Explica</label><br>
+    <label for="servedexp">Explique</label><br>
     <textarea rows="3" cols="30" name="servedexp"></textarea><br>
     </div>
     <hr>
@@ -766,7 +754,7 @@
     <label for="armygroupno">No</label><br>
     </div>
     <div class="options" id="armygroupoptions">
-    <label for="armygroupexp">Explica</label><br>
+    <label for="armygroupexp">Explique</label><br>
     <textarea rows="3" cols="30" name="armygroupexp"></textarea><br>
     </div>
     <hr>
@@ -775,7 +763,7 @@
 
     <hr>
     Proporcione la siguiente informacion de seguridad y antecedentes.
-    Proporcione informacion completa y precisa a todas las preguntas que requieran una explicacion.
+    Proporcione informacion completa y precisa a todas las preguntas que requieran una expliquecion.
     No se puede emitir una visa a personas que se encuentren dentro de categori&#769;as especi&#769;ficas definidas por la ley
     como inadmisibles para los Estados Unidos (excepto cuando se obtiene una exencion por adelantado).
     &#191;Alguno de los siguientes es aplicable a usted? Si bien una respuesta Si&#769; no significa automa&#769;ticamente
@@ -794,7 +782,7 @@
     <label for="diseaseno">No</label><br>
     </div>
     <div class="options" id="diseaseoptions">
-    <label for="diseaseexp">Explica</label><br>
+    <label for="diseaseexp">Explique</label><br>
     <textarea rows="3" cols="30" name="diseaseexp"></textarea><br>
     </div>
     <hr>
@@ -808,7 +796,7 @@
     <label for="disorderno">No</label><br>
     </div>
     <div class="options" id="disorderoptions">
-    <label for="disorderexp">Explica</label><br>
+    <label for="disorderexp">Explique</label><br>
     <textarea rows="3" cols="30" name="disorderexp"></textarea><br>
     </div>
     <hr>
@@ -820,7 +808,7 @@
     <label for="acelgano">No</label><br>
     </div>
     <div class="options" id="druguseoptions">
-    <label for="druguseexp">Explica</label><br>
+    <label for="druguseexp">Explique</label><br>
     <textarea rows="3" cols="30" name="druguseexp"></textarea><br>
     </div>
     <hr>
@@ -831,7 +819,7 @@
     <label for="vaccinationsno">No</label><br>
     </div>
     <div class="options" id="vaccinationsoptions">
-    <label for="vaccinationsexp">Explica</label><br>
+    <label for="vaccinationsexp">Explique</label><br>
     <textarea rows="3" cols="30" name="vaccinationsexp"></textarea><br>
     </div>
     <hr>
@@ -843,7 +831,7 @@
     <label for="arrestedno">No</label><br>
     </div>
     <div class="options" id="arrestedoptions">
-    <label for="arrestedexp">Explica</label><br>
+    <label for="arrestedexp">Explique</label><br>
     <textarea rows="3" cols="30" name="arrestedexp"></textarea><br>
     </div>
     <hr>
@@ -856,7 +844,7 @@
     <label for="substancesno">No</label><br>
     </div>
     <div class="options" id="substancesoptions">
-    <label for="substancesexp">Explica</label><br>
+    <label for="substancesexp">Explique</label><br>
     <textarea rows="3" cols="30" name="substancesexp"></textarea><br>
     </div>
     <hr>
@@ -869,7 +857,7 @@
     <label for="postitutionno">No</label><br>
     </div>
     <div class="options" id="postitutionoptions">
-    <label for="postitutionexp">Explica</label><br>
+    <label for="postitutionexp">Explique</label><br>
     <textarea rows="3" cols="30" name="postitutionexp"></textarea><br>
     </div>
     <hr>
@@ -881,7 +869,7 @@
     <label for="launderingno">No</label><br>
     </div>
     <div class="options" id="launderingoptions">
-    <label for="launderingexp">Explica</label><br>
+    <label for="launderingexp">Explique</label><br>
     <textarea rows="3" cols="30" name="launderingexp"></textarea><br>
     </div>
     <hr>
@@ -894,7 +882,7 @@
     <label for="traffickingno">No</label><br>
     </div>
     <div class="options" id="traffickingoptions">
-    <label for="traffickingexp">Explica</label><br>
+    <label for="traffickingexp">Explique</label><br>
     <textarea rows="3" cols="30" name="traffickingexp"></textarea><br>
     </div>
     <hr>
@@ -907,7 +895,7 @@
     <label for="aidtraffickingno">No</label><br>
     </div>
     <div class="options" id="aidtraffickingoptions">
-    <label for="aidtraffickingexp">Explica</label><br>
+    <label for="aidtraffickingexp">Explique</label><br>
     <textarea rows="3" cols="30" name="aidtraffickingexp"></textarea><br>
     </div>
     <hr>
@@ -921,7 +909,7 @@
     <label for="famtraffickingno">No</label><br>
     </div>
     <div class="options" id="famtraffickingoptions">
-    <label for="famtraffickingexp">Explica</label><br>
+    <label for="famtraffickingexp">Explique</label><br>
     <textarea rows="3" cols="30" name="famtraffickingexp"></textarea><br>
     </div>
     <hr>
@@ -937,7 +925,7 @@
     <label for="severetraffickingno">No</label><br>
     </div>
     <div class="options" id="severetraffickingoptions">
-    <label for="severetraffickingexp">Explica</label><br>
+    <label for="severetraffickingexp">Explique</label><br>
     <textarea rows="3" cols="30" name="severetraffickingexp"></textarea><br>
     </div>
     <hr>
@@ -951,7 +939,7 @@
     <label for="famsubstancesno">No</label><br>
     </div>
     <div class="options" id="famsubstancesoptions">
-    <label for="famsubstancesexp">Explica</label><br>
+    <label for="famsubstancesexp">Explique</label><br>
     <textarea rows="3" cols="30" name="famsubstancesexp"></textarea><br>
     </div>
     <hr>
@@ -965,7 +953,7 @@
     <label for="espionageno">No</label><br>
     </div>
     <div class="options" id="espionageoptions">
-    <label for="espionageexp">Explica</label><br>
+    <label for="espionageexp">Explique</label><br>
     <textarea rows="3" cols="30" name="espionageexp"></textarea><br>
     </div>
     <hr>
@@ -978,7 +966,7 @@
     <label for="terroristno">No</label><br>
     </div>
     <div class="options" id="terroristoptions">
-    <label for="terroristexp">Explica</label><br>
+    <label for="terroristexp">Explique</label><br>
     <textarea rows="3" cols="30" name="terroristexp"></textarea><br>
     </div>
     <hr>
@@ -991,7 +979,7 @@
     <label for="financialno">No</label><br>
     </div>
     <div class="options" id="financialoptions">
-    <label for="financialexp">Explica</label><br>
+    <label for="financialexp">Explique</label><br>
     <textarea rows="3" cols="30" name="financialexp"></textarea><br>
     </div>
     <hr>
@@ -1003,7 +991,7 @@
     <label for="terrororgno">No</label><br>
     </div>
     <div class="options" id="terrororgoptions">
-    <label for="terrororgexp">Explica</label><br>
+    <label for="terrororgexp">Explique</label><br>
     <textarea rows="3" cols="30" name="terrororgexp"></textarea><br>
     </div>
     <hr>
@@ -1017,7 +1005,7 @@
     <label for="famterroristno">No</label><br>
     </div>
     <div class="options" id="famterroristoptions">
-    <label for="famterroristexp">Explica</label><br>
+    <label for="famterroristexp">Explique</label><br>
     <textarea rows="3" cols="30" name="famterroristexp"></textarea><br>
     </div>
     <hr>
@@ -1029,7 +1017,7 @@
     <label for="genocideno">No</label><br>
     </div>
     <div class="options" id="genocideoptions">
-    <label for="genocideexp">Explica</label><br>
+    <label for="genocideexp">Explique</label><br>
     <textarea rows="3" cols="30" name="genocideexp"></textarea><br>
     </div>
     <hr>
@@ -1042,7 +1030,7 @@
     <label for="tortureno">No</label><br>
     </div>
     <div class="options" id="tortureoptions">
-    <label for="tortureexp">Explica</label><br>
+    <label for="tortureexp">Explique</label><br>
     <textarea rows="3" cols="30" name="tortureexp"></textarea><br>
     </div>
     <hr>
@@ -1056,7 +1044,7 @@
     <label for="killingsno">No</label><br>
     </div>
     <div class="options" id="killingsoptions">
-    <label for="killingsexp">Explica</label><br>
+    <label for="killingsexp">Explique</label><br>
     <textarea rows="3" cols="30" name="killingsexp"></textarea><br>
     </div>
     <hr>
@@ -1068,7 +1056,7 @@
     <label for="childsoldiersno">No</label><br>
     </div>
     <div class="options" id="childsoldiersoptions">
-    <label for="childsoldiersexp">Explica</label><br>
+    <label for="childsoldiersexp">Explique</label><br>
     <textarea rows="3" cols="30" name="childsoldiersexp"></textarea><br>
     </div>
     <hr>
@@ -1081,7 +1069,7 @@
     <label for="violatereligionsno">No</label><br>
     </div>
     <div class="options" id="violatereligionsoptions">
-    <label for="violatereligionsexp">Explica</label><br>
+    <label for="violatereligionsexp">Explique</label><br>
     <textarea rows="3" cols="30" name="violatereligionsexp"></textarea><br>
     </div>
     <hr>
@@ -1093,7 +1081,7 @@
     <label for="communistno">No</label><br>
     </div>
     <div class="options" id="communistoptions">
-    <label for="communistexp">Explica</label><br>
+    <label for="communistexp">Explique</label><br>
     <textarea rows="3" cols="30" name="communistexp"></textarea><br>
     </div>
     <hr>
@@ -1107,7 +1095,7 @@
     <label for="farcelnaucno">No</label><br>
     </div>
     <div class="options" id="farcelnaucoptions">
-    <label for="farcelnaucexp">Explica</label><br>
+    <label for="farcelnaucexp">Explique</label><br>
     <textarea rows="3" cols="30" name="farcelnaucexp"></textarea><br>
     </div>
     <hr>
@@ -1120,7 +1108,7 @@
     <label for="personalgainno">No</label><br>
     </div>
     <div class="options" id="personalgainoptions">
-    <label for="fampersonalgainexp">Explica</label><br>
+    <label for="fampersonalgainexp">Explique</label><br>
     <textarea rows="3" cols="30" name="personalgainexp"></textarea><br>
     </div>
     <hr>
@@ -1135,7 +1123,7 @@
     <label for="fampersonalgainno">No</label><br>
     </div>
     <div class="options" id="fampersonalgainoptions">
-    <label for="fampersonalgainexp">Explica</label><br>
+    <label for="fampersonalgainexp">Explique</label><br>
     <textarea rows="3" cols="30" name="fampersonalgainexp"></textarea><br>
     </div>
     <hr>
@@ -1149,7 +1137,7 @@
     <label for="confidencialno">No</label><br>
     </div>
     <div class="options" id="confidencialoptions">
-    <label for="confidencialexp">Explica</label><br>
+    <label for="confidencialexp">Explique</label><br>
     <textarea rows="3" cols="30" name="confidencialexp"></textarea><br>
     </div>
     <hr>
@@ -1163,7 +1151,7 @@
     <label for="famconfidencialno">No</label><br>
     </div>
     <div class="options" id="famconfidencialoptions">
-    <label for="famconfidencialexp">Explica</label><br>
+    <label for="famconfidencialexp">Explique</label><br>
     <textarea rows="3" cols="30" name="famconfidencialexp" id="famconfidencialexp"></textarea><br>
     </div>
     <hr>
@@ -1178,7 +1166,7 @@
     <label for="popcontrolno">No</label><br>
     </div>
     <div class="options" id="popcontroloptions">
-    <label for="popcontrolexp">Explica</label><br>
+    <label for="popcontrolexp">Explique</label><br>
     <textarea rows="3" cols="30" name="popcontrolexp"></textarea><br>
     </div>
     <hr>
@@ -1190,7 +1178,7 @@
     <label for="humanorgansno">No</label><br>
     </div>
     <div class="options" id="humanorgansoptions">
-    <label for="humanorgansexp">Explica</label><br>
+    <label for="humanorgansexp">Explique</label><br>
     <textarea rows="3" cols="30" name="humanorgansexp"></textarea><br>
     </div>
     <hr>
@@ -1202,7 +1190,7 @@
     <label for="hearingno">No</label><br>
     </div>
     <div class="options" id="hearingoptions">
-    <label for="hearingexp">Explica</label><br>
+    <label for="hearingexp">Explique</label><br>
     <textarea rows="3" cols="30" name="hearingexp"></textarea><br>
     </div>
     <hr>
@@ -1216,7 +1204,7 @@
     <label for="visafraudno">No</label><br>
     </div>
     <div class="options" id="visafraudoptions">
-    <label for="visafraudexp">Explica</label><br>
+    <label for="visafraudexp">Explique</label><br>
     <textarea rows="3" cols="30" name="visafraudexp"></textarea><br>
     </div>
     <hr>
@@ -1228,7 +1216,7 @@
     <label for="failedhearingno">No</label><br>
     </div>
     <div class="options" id="failedhearingoptions">
-    <label for="failedhearingexp">Explica</label><br>
+    <label for="failedhearingexp">Explique</label><br>
     <textarea rows="3" cols="30" name="failedhearingexp"></textarea><br>
     </div>
     <hr>
@@ -1241,7 +1229,7 @@
     <label for="violatedtimeno">No</label><br>
     </div>
     <div class="options" id="violatedtimeoptions">
-    <label for="violatedtimeexp">Explica</label><br>
+    <label for="violatedtimeexp">Explique</label><br>
     <textarea rows="3" cols="30" name="violatedtimeexp"></textarea><br>
     </div>
     <hr>
@@ -1254,7 +1242,7 @@
     <label for="INA274Cno">No</label><br>
     </div>
     <div class="options" id="INA274Coptions">
-    <label for="INA274Cexp">Explica</label><br>
+    <label for="INA274Cexp">Explique</label><br>
     <textarea rows="3" cols="30" name="INA274Cexp"></textarea><br>
     </div>
     <hr>
@@ -1266,7 +1254,7 @@
     <label for="removed5no">No</label><br>
     </div>
     <div class="options" id="removed5options">
-    <label for="removed5exp">Explica</label><br>
+    <label for="removed5exp">Explique</label><br>
     <textarea rows="3" cols="30" name="removed5exp"></textarea><br>
     </div>
     <hr>
@@ -1278,7 +1266,7 @@
     <label for="removed20no">No</label><br>
     </div>
     <div class="options" id="removed20options">
-    <label for="removed20exp">Explica</label><br>
+    <label for="removed20exp">Explique</label><br>
     <textarea rows="3" cols="30" name="removed20exp"></textarea><br>
     </div>
     <hr>
@@ -1290,7 +1278,7 @@
     <label for="removed10no">No</label><br>
     </div>
     <div class="options" id="removed10options">
-    <label for="removed10exp">Explica</label><br>
+    <label for="removed10exp">Explique</label><br>
     <textarea rows="3" cols="30" name="removed10exp"></textarea><br>
     </div>
     <hr>
@@ -1302,7 +1290,7 @@
     <label for="felonyno">No</label><br>
     </div>
     <div class="options" id="felonyoptions">
-    <label for="felonyexp">Explica</label><br>
+    <label for="felonyexp">Explique</label><br>
     <textarea rows="3" cols="30" name="felonyexp"></textarea><br>
     </div>
     <hr>
@@ -1315,7 +1303,7 @@
     <label for="present180no">No</label><br>
     </div>
     <div class="options" id="present180options">
-    <label for="present180exp">Explica</label><br>
+    <label for="present180exp">Explique</label><br>
     <textarea rows="3" cols="30" name="present180exp"></textarea><br>
     </div>
     <hr>
@@ -1328,7 +1316,7 @@
     <label for="present10no">No</label><br>
     </div>
     <div class="options" id="present10options">
-    <label for="present10exp">Explica</label><br>
+    <label for="present10exp">Explique</label><br>
     <textarea rows="3" cols="30" name="present10exp"></textarea><br>
     </div>
     <hr>
@@ -1340,7 +1328,7 @@
     <label for="deportedno">No</label><br>
     </div>
     <div class="options" id="deportedoptions">
-    <label for="deportedexp">Explica</label><br>
+    <label for="deportedexp">Explique</label><br>
     <textarea rows="3" cols="30" name="deportedexp"></textarea><br>
     </div>
     <hr>
@@ -1354,7 +1342,7 @@
     <label for="kidnappingno">No</label><br>
     </div>
     <div class="options" id="kidnappingoptions">
-    <label for="kidnappingexp">Explica</label><br>
+    <label for="kidnappingexp">Explique</label><br>
     <textarea rows="3" cols="30" name="kidnappingexp"></textarea><br>
     </div>
     <hr>
@@ -1366,7 +1354,7 @@
     <label for="votedno">No</label><br>
     </div>
     <div class="options" id="votedoptions">
-    <label for="votedexp">Explica</label><br>
+    <label for="votedexp">Explique</label><br>
     <textarea rows="3" cols="30" name="votedexp"></textarea><br>
     </div>
     <hr>
@@ -1378,7 +1366,7 @@
     <label for="taxationno">No</label><br>
     </div>
     <div class="options" id="taxationoptions">
-    <label for="taxationexp">Explica</label><br>
+    <label for="taxationexp">Explique</label><br>
     <textarea rows="3" cols="30" name="taxationexp"></textarea><br>
     </div>
     <hr>
@@ -1390,7 +1378,7 @@
     <label for="exchangeno">No</label><br>
     </div>
     <div class="options" id="exchangeoptions">
-    <label for="exchangeexp">Explica</label><br>
+    <label for="exchangeexp">Explique</label><br>
     <textarea rows="3" cols="30" name="exchangeexp"></textarea><br>
     </div>
     <hr>
@@ -1404,7 +1392,7 @@
     <label for="laborno">No</label><br>
     </div>
     <div class="options" id="laboroptions">
-    <label for="laborexp">Explica</label><br>
+    <label for="laborexp">Explique</label><br>
     <textarea rows="3" cols="30" name="laborexp"></textarea><br>
     </div>
     <hr>
@@ -1418,7 +1406,7 @@
     <label for="medicalno">No</label><br>
     </div>
     <div class="options" id="medicaloptions">
-    <label for="laborexp">Explica</label><br>
+    <label for="laborexp">Explique</label><br>
     <textarea rows="3" cols="30" name="medicalexp"></textarea><br>
     </div>
     <hr>
@@ -1433,7 +1421,7 @@
     <label for="certificationno">No</label><br>
     </div>
     <div class="options" id="certificationoptions">
-    <label for="certificationexp">Explica</label><br>
+    <label for="certificationexp">Explique</label><br>
     <textarea rows="3" cols="30" name="certificationexp"></textarea><br>
     </div>
     <hr>
@@ -1445,7 +1433,7 @@
     <label for="citizenshipno">No</label><br>
     </div>
     <div class="options" id="citizenshipoptions">
-    <label for="citizenshipexp">Explica</label><br>
+    <label for="citizenshipexp">Explique</label><br>
     <textarea rows="3" cols="30" name="citizenshipexp"></textarea><br>
     </div>
     <hr>
@@ -1457,7 +1445,7 @@
     <label for="militaryno">No</label><br>
     </div>
     <div class="options" id="militaryoptions">
-    <label for="militaryexp">Explica</label><br>
+    <label for="militaryexp">Explique</label><br>
     <textarea rows="3" cols="30" name="militaryexp"></textarea><br>
     </div>
     <hr>
@@ -1469,7 +1457,7 @@
     <label for="polygamyno">No</label><br>
     </div>
     <div class="options" id="polygamyoptions">
-    <label for="polygamyexp">Explica</label><br>
+    <label for="polygamyexp">Explique</label><br>
     <textarea rows="3" cols="30" name="polygamyexp"></textarea><br>
     </div>
     <hr>
@@ -1481,7 +1469,7 @@
     <label for="asylumno">No</label><br>
     </div>
     <div class="options" id="asylumoptions">
-    <label for="asylumexp">Explica</label><br>
+    <label for="asylumexp">Explique</label><br>
     <textarea rows="3" cols="30" name="asylumexp"></textarea><br>
     </div>
     <hr>
