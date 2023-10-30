@@ -61,9 +61,9 @@
     Sexo
     <div class="inline">
     <input type="radio" id="male" name="gender" value="male" checked="true">
-    <label for="male">Male</label><br>
+    <label for="male">Hombre</label><br>
     <input type="radio" id="female" name="gender" value="female">
-    <label for="female">Female</label><br>
+    <label for="female">Mujer</label><br>
     </div>
     <hr>
     
@@ -72,7 +72,7 @@
     <select type="text" id="maritalstatus" name="maritalstatus" onchange="setMarital(this)">
         <option value=""></option>
         <option value="married">Casado</option>
-        <option value="seperated">Unión Libre</option>
+        <option value="seperated">Unio&#769;n Libre</option>
         <option value="divorced">Divorciado</option>
 		<option value="widowed">Viudo</option>
 		<option value="single">Soltero</option>
@@ -111,12 +111,12 @@
     <hr>
 
     <hr>
-    <label for="nationality">Nacionalidad</label><br>
+    <label for="nationality">Tiene otra nacionalidad</label><br>
     <input type="text" id="nationality" name="nationality"><br>
     <hr>
 
     <hr>
-    <label for="nationid">No. De Identificacion Nacional (nu&#769;meros detra&#769;s de su credencial de Elector)</label><br>
+    <label for="nationid">Nu&#769;m. De Identificacion Nacional (INE)</label><br>
     <input type="text" id="nationid" name="nationid"><br>
     <hr>
 
@@ -156,12 +156,12 @@
 
     <hr>Es la misma direccio&#769;n para la correspondencia?
 
-    <div class="inline"><input type="radio" name="mailaddress" id="mailaddress" value="yes" onclick="showOption(this)">
+    <div class="inline"><input type="radio" name="mailaddress" id="mailaddress" value="yes" onclick="hideOption(this)">
     <label for="usvisit">Si</label><br>
-    <input type="radio" name="usvisit" id="usvisitno" value="no" checked="true" onclick="hideOption(this)">
+    <input type="radio" name="mailaddress" id="mailaddressno" value="no" checked="true" onclick="showOption(this)">
     <label for="usvisitno">No</label><br>
     </div>
-    <div class="options" id="mailaddressoptions">
+    <div class="options" id="nomailaddressoptions">
     <label for="mailaddressdetail">ingrese la direccio&#769;n de correspondencia completa</label><br>
     <textarea rows="3" cols="30" name="mailaddressdetail"></textarea><br>
     </div>
@@ -212,7 +212,7 @@
     <input type="text" id="othersocial" name="othersocial"><br>
     <hr>
 
-    <hr>&#191;Tienes una licencia de conducir?
+    <hr>&#191;Tiene licencia de conducir en los Estados Unidos?
 
     <div class="inline"><input type="radio" name="license" id="license" value="yes" onclick="showOption(this)">
     <label for="license">Si</label><br>
@@ -264,7 +264,7 @@
     <input type="text" id="ppissues" name="ppissues"><br>
     <hr>
 
-    <hr>&#191;Alguna vez has viajado a Estados Unidos?
+    <hr>&#191;Alguna vez ha estado en los Estados Unidos de Ame&#769;rica?
 
     <div class="inline"><input type="radio" name="usvisit" id="usvisit" value="yes" onclick="showOption(this)">
     <label for="usvisit">Si</label><br>
@@ -277,14 +277,26 @@
     </div>
     <hr>
 
-    <hr>&#191;Alguna vez as tenido una visa? 
+    <!--<hr>&#191;Alguna vez as tenido una visa? 
     <div class="inline"><input type="radio" name="visas" id="visas" value="yes" onclick="showOption(this)">
         <label for="visas">Si</label><br>
         <input type="radio" name="visas" id="visasno" value="no" checked="true" onclick="hideOption(this)">
         <label for="visasno">No</label><br>
     </div>
-    <div class="options" id="visasoptions">
-        <label for="visaslist">Enumere todas las visas,numero, fecha de emision y tipo </label><br>
+    -->
+
+    <hr>
+    <label for="visatype">Tipo de visa</label><br>
+    <input type="text" id="visatype" name="visatype"><br>
+    <hr>
+
+    <hr>
+    <label for="appliedvisa">Aplico para el mismo tipo de visa</label><br>
+    <input type="text" id="appliedvisa" name="appliedvisa"><br>
+    <hr>
+
+    <div id="visasoptions">
+        <label for="visaslist">Ultima fecha y tipo de visado</label><br>
         <textarea rows="3" cols="30" name="visaslist"></textarea><br>
      
         <hr>
