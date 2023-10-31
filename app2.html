@@ -130,7 +130,7 @@
     <input type="text" id="address" name="address"><br>
     <hr>
     <hr>
-    <label for="address2">Direccio&#769;n 2</label><br>
+    <label for="address2">Informacio&#769;n adicional(colony, ejido, section)</label><br>
     <input type="text" id="address2" name="address2"><br>
     <hr>
 
@@ -235,27 +235,42 @@
     -->
 
     <hr>
-    <label for="ppnumber">Nu&#769;mero de pasaporte</label><br>
+    <label for="pptype">Tipo de Pasaporte:</label><br>
+    <input type="text" id="pptype" name="pptype"><br>
+    <hr>
+
+    <hr>
+    <label for="ppnumber">Nu&#769;mero de pasaporte:</label><br>
     <input type="text" id="ppnumber" name="ppnumber"><br>
     <hr>
 
     <hr>
-    <label for="ppcity">Ciudad pasaporte</label><br>
+    <label for="ppissuecountry">Pai&#769;s emisor del pasaporte:</label><br>
+    <input type="text" id="ppissuecountry" name="ppissuecountry"><br>
+    <hr>
+
+    <hr>
+    <label for="ppcity">Ciudad donde se tramito pasaporte:</label><br>
     <input type="text" id="ppcity" name="ppcity"><br>
     <hr>
 
     <hr>
-    <label for="ppstate">Estado pasaporte</label><br>
+    <label for="ppstate">Estado donde se tramito pasaporte:</label><br>
     <input type="text" id="ppstate" name="ppstate"><br>
     <hr>
 
     <hr>
-    <label for="ppissuedate">Fecha de emision del pasaporte</label><br>
+    <label for="ppcountry">País donde se tramito pasaporte:</label><br>
+    <input type="text" id="ppcountry" name="ppcountry"><br>
+    <hr>
+
+    <hr>
+    <label for="ppissuedate">Dia en que se emitió</label><br>
     <input type="date" id="ppissuedate" name="ppissuedate"><br>
     <hr>
 
     <hr>
-    <label for="ppduedate">Fecha de vencimiento del pasaporte</label><br>
+    <label for="ppduedate">Dia de expiración:</label><br>
     <input type="date" id="ppduedate" name="ppduedate"><br>
     <hr>
 
@@ -531,7 +546,12 @@
             <hr>
 
             <hr>
-            <label for="jcompany">Empleador primero</label><br>
+            <label for="jwork">En que trabaja:</label><br>
+            <input type="text" id="jwork" name="jwork[]" min="1" max="20"><br>
+            <hr>
+
+            <hr>
+            <label for="jcompany">Nombre de la empresa:</label><br>
             <input type="text" id="jcompany" name="jcompany[]" min="1" max="20"><br>
             <hr>
 
@@ -541,7 +561,7 @@
             <hr>
 
             <hr>
-            <label for="jaddress2">Direccio&#769;n De Empleador 2:</label><br>
+            <label for="jaddress2">Informacio&#769;n adicional(colony, ejido, section)</label><br>
             <input type="text" id="jaddress2" name="jaddress2[]" min="1" max="20"><br>
             <hr>
 
@@ -561,7 +581,7 @@
             <hr>
 
             <hr>
-            <label for="jcountry">Pais:</label><br>
+            <label for="jcountry">Pai&#769;s:</label><br>
             <input type="text" id="jcountry" name="jcountry[]" min="1" max="20"><br>
             <hr>
 
@@ -626,7 +646,7 @@
             <hr>
 
             <hr>
-            <label for="scaddress2">Direccio&#769;n De Escuela 2:</label><br>
+            <label for="scaddress2">Informacio&#769;n adicional(colony, ejido, section)</label><br>
             <input type="text" id="scaddress2" name="scaddress2[]" min="1" max="20"><br>
             <hr>
 
@@ -646,9 +666,14 @@
             <hr>
 
             <hr>
+            <label for="sccountry">Pai&#769;s</label><br>
+            <input type="text" id="sccountry" name="sccountry[]"><br>
+            <hr>
+
+            <!--<hr>
             <label for="scmajor">Curso de Estudio:</label><br>
             <input type="text" id="scmajor" name="scmajor[]" min="1" max="20"><br>
-            <hr>
+            <hr>-->
 
             <hr>
             <label for="scdatefrom">Fetcha de inico</label><br>
