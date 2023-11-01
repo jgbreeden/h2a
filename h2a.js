@@ -149,7 +149,7 @@ class Experience {
 }
 
 class History {
-	constructor(historytype, id, entity, address, address2, city, state, zip, datefrom, dateto, applicantsid, major, phone, salary, jobtitle, duties, supervisor) {
+	constructor(historytype, id, entity, address, address2, city, state, zip, datefrom, dateto, applicantsid, major, phone, salary, jobtitle, duties, country, what) {
 		this.historytype = historytype;
 		this.id = id
 		this.entity = entity;
@@ -166,7 +166,8 @@ class History {
 		this.salary = salary;
 		this.jobtitle = jobtitle;
 		this.duties = duties;
-		this.supervisor = supervisor;
+		this.country = country;
+		this.what = what;
 	
 	}
 
@@ -372,7 +373,7 @@ function fillEmpDetail(data) {
 		currappl.jobs.push(new History("jobs", data.jobs[i].id, data.jobs[i].empname, data.jobs[i].address, data.jobs[i].address2, 
 			data.jobs[i].city, data.jobs[i].state, data.jobs[i].zip, data.jobs[i].datefrom, data.jobs[i].dateto, 
 			data.jobs[i].applicantsid, "", data.jobs[i].phone, data.jobs[i].salary, data.jobs[i].jobtitle,
-			data.jobs[i].duties, data.jobs[i].supervisor))
+			data.jobs[i].duties, data.jobs[i].country, data.jobs[i].what))
 	}
 
 	let schoolTable = document.getElementById("schoolsTab");
@@ -790,9 +791,10 @@ function clearJob(){
 	document.getElementById("jcity").value = "";
 	document.getElementById("jstate").value = "";
 	document.getElementById("jzip").value = "";
-	document.getElementById("jsalary").value = "";
+	document.getElementById("salary").value = "";
 	document.getElementById("jobtitle").value = "";
-	document.getElementById("supervisor").value = "";
+	document.getElementById("jcountry").value = "";
+	document.getElementById("jwhat").value = "";
 	document.getElementById("jdatefrom").value = "";
 	document.getElementById("jdateto").value = "";
 	document.getElementById("jphone").value = "";
