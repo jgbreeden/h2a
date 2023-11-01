@@ -78,7 +78,7 @@ $ppcity = $_POST["ppcity"];
 $ppcity .= ", " . $_POST["ppstate"];
 $ppcity .= ", " . $_POST["ppcountry"];
 $ppdateissue = $_POST["ppissuedate"];
-$visas = ($_POST["visas"] == "yes")?  $_POST["visaslist"]. "\\n" . $_POST["ovisas"] : $_POST["ovisas"];
+$visas = $_POST["visatype"] ." applied:" .$_POST["appliedvisa"] . "\\n". $_POST["visaslist"]. "\\n" . $_POST["ovisas"];
 $visaissues =  ($_POST["visaslost"] == "yes")? "LoSt:" . $_POST["visaslostyear"] . "\\n" . $_POST["visaslostexp"] : "";
 $visaissues .=  ($_POST["visascancelled"] == "yes")? "CanRev:" . $_POST["visascancelledexp"] . "\\n"  : "";
 $visaissues .=  ($_POST["petition"] == "yes")? "petition:" . $_POST["petitionexp"] . "\\n" . $_POST["ovisaissues"]  : $_POST["ovisaissues"];
@@ -104,7 +104,7 @@ $sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phoneh
 . "address = ?, address2 = ?, city = ?, state = ?, zipcode = ?, country = ?, gender = ?, status = ?, ppnumber = ?, pplocation = ?,"
 . "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? , crimes = ?, deported = ? WHERE id = ?;";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, $state, $zipcode, $country 
+$stmt->bind_param("sssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, $state, $zipcode, $country,
                             $gender, $status, $ppnumber, $ppcity, $ppdateissue, $visas, $visaissues,
                             $visarefused, $license, $crimes, $deported, $id);
 
