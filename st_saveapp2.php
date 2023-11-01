@@ -75,7 +75,8 @@ $crimes.= $_POST["ocrimes"];
 $status = "ready";
 $ppnumber = $_POST["ppnumber"];
 $ppcity = $_POST["ppcity"];
-$ppstate = $_POST["ppstate"];
+$ppcity .= ", " . $_POST["ppstate"];
+$ppcity .= ", " . $_POST["ppcountry"];
 $ppdateissue = $_POST["ppissuedate"];
 $visas = ($_POST["visas"] == "yes")?  $_POST["visaslist"]. "\\n" . $_POST["ovisas"] : $_POST["ovisas"];
 $visaissues =  ($_POST["visaslost"] == "yes")? "LoSt:" . $_POST["visaslostyear"] . "\\n" . $_POST["visaslostexp"] : "";
@@ -100,11 +101,11 @@ $id = $_POST["id"];
 //change to an update
 
 $sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phonehome = ?,"
-. "address = ?, address2 = ?, city = ?, state = ?, zipcode = ?, gender = ?, status = ?, ppnumber = ?, ppcity = ?, ppstate = ?,"
+. "address = ?, address2 = ?, city = ?, state = ?, zipcode = ?, country = ?, gender = ?, status = ?, ppnumber = ?, pplocation = ?,"
 . "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? , crimes = ?, deported = ? WHERE id = ?;";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, $state, $zipcode, 
-                            $gender, $status, $ppnumber, $ppcity, $ppstate, $ppdateissue, $visas, $visaissues,
+$stmt->bind_param("sssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, $state, $zipcode, $country 
+                            $gender, $status, $ppnumber, $ppcity, $ppdateissue, $visas, $visaissues,
                             $visarefused, $license, $crimes, $deported, $id);
 
 $result = $stmt->execute();
@@ -167,7 +168,7 @@ $sql = "INSERT INTO h2a.appds160 (marriage,nationality,othernations,otherresiden
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssssssssssssssssssi", $marriage, $nationality, $othernations, $otherresident, $nationid, 
-                                $ssn, $othercontact, $socialmedia, $pploststolen, $ppdatedue, $fatherinfo, $motherinfo, $relatives,
+                                $ssn, $othercontact, $socialmedia, $pploststolen, $ppdatedue, $pptype, $fatherinfo, $motherinfo, $relatives,
                                 $spouse, $countries, $groups, $military, $issues,
                                 $id);
 $result = $stmt->execute();
@@ -179,9 +180,9 @@ if ($result == 1) {
 echo $message; 								
 
 $stmt = $conn->prepare("INSERT INTO jobhistory (empname, address, address2, city, state, zip, phone, salary,"
-    ." jobtitle, datefrom, dateto, duties, supervisor, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    ." jobtitle, datefrom, dateto, duties, whatwork, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssssssssssi", $empname, $address, $address2, $city, $state, $zip, $phone, 
-  $salary, $jobtitle, $datefrom, $dateto, $duties, $supervisor, $id);
+  $salary, $jobtitle, $datefrom, $dateto, $duties, $work, $id);
 
 $jobcount = count($_POST["jcompany"]);
 for($i = 0; $i < $jobcount; $i++){
@@ -198,13 +199,13 @@ for($i = 0; $i < $jobcount; $i++){
   $datefrom = htmlspecialchars($_POST["jsdate"][$i]);
   $dateto = htmlspecialchars($_POST["jedate"][$i]);
   $duties = htmlspecialchars($_POST["duties"][$i]);
-  $supervisor = htmlspecialchars($_POST["supervisor"][$i]);
+  $work = htmlspecialchars($_POST["jwork"][$i]);
   $stmt->execute();
 }
 
-$stmt = $conn->prepare("INSERT INTO school (schoolname, address, address2, city, state, zip, major, datefrom, dateto, applicantsid) "
+$stmt = $conn->prepare("INSERT INTO school (schoolname, address, address2, city, state, zip, grade, datefrom, dateto, applicantsid) "
       ." VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssi", $schoolname, $address, $address2, $city, $state, $zip, $major, 
+$stmt->bind_param("sssssssssi", $schoolname, $address, $address2, $city, $state, $zip, $grade, 
   $datefrom, $dateto, $id);
 
 $schoolcount = count($_POST["scname"]);
@@ -216,7 +217,7 @@ for($i = 0; $i < $schoolcount; $i++){
   $city = htmlspecialchars($_POST["sccity"][$i]);
   $state = htmlspecialchars($_POST["scstate"][$i]);
   $zip = htmlspecialchars($_POST["sczip"][$i]);
-  $major = htmlspecialchars($_POST["scmajor"][$i]);
+  $grade = htmlspecialchars($_POST["scgrade"][$i]);
   $datefrom = htmlspecialchars($_POST["scdatefrom"][$i]);
   $dateto = htmlspecialchars($_POST["scdateto"][$i]);
   $stmt->execute();
