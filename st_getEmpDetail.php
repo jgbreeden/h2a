@@ -134,7 +134,7 @@
 			. '", "address2": "' . $row["address2"] . '", "city": "' . $row["city"] . '", "state": "' . $row["state"] 
 			. '", "zip": "' . $row["zip"] . '", "phone": "' . $row["phone"] . '", "salary": "' . $row["salary"] . '", "jobtitle": "' . $row["jobtitle"] 
 			. '", "datefrom": "' . $row["datefrom"] . '", "dateto": "'. $row["dateto"] . '", "applicantsid": "' . $row["applicantsid"] 
-			. '", "duties": "' . $row["duties"] . '", "supervisor": "' . $row["supervisor"]	. '"}';
+			. '", "duties": "' . $row["duties"] . '", "country": "' . $row["country"] . '", "what": "' . $row["whatwork"]	. '"}';
 		$comma = ", ";
 	}
 	$json = str_replace(chr(13), "", $json);
