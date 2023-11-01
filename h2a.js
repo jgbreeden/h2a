@@ -1,7 +1,7 @@
 class Applicant {
 	constructor(id, fname, lname, cphone, hphone, address, address2, city, state, zip, status, specificarea, 
 		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, age, height, weight, lift25to40,
-		maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita, ppnumber, ppcity, ppstate, ppdateissue,
+		maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita, ppnumber, pplocation, ppdateissue,
 		visas, visaissues, visarefused, license, deported, ustravel, crimes, farmwork) {
 		this.id = id
 		this.firstName = fname;
@@ -34,8 +34,7 @@ class Applicant {
 		this.otherhelp = otherhelp; 
 		this.whatknowcita = whatknowcita;
 		this.ppnumber = ppnumber;
-		this.ppcity = ppcity;
-		this.ppstate = ppstate;
+		this.pplocation = pplocation;
 		this.ppdateissue = ppdateissue;
 		this.visas = visas;
 		this.visaissues = visaissues;
@@ -302,7 +301,7 @@ function fillEmpDetail(data) {
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.address2, data.city, data.state,
 		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
-		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.ppcity, data.ppstate, data.ppdateissue,
+		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.pplocation, data.ppdateissue,
 		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.legalissues, data.farmwork);
 	if(data.ds160 != undefined){
 		currappl.ds160.id = data.ds160.id
@@ -430,8 +429,7 @@ function resetNewApp(){
 	document.getElementById("visaissues").value = currappl.visaissues;
 	document.getElementById("visarefused").value = currappl.visarefused;
 	document.getElementById("ppnumber").value = currappl.ppnumber;
-	document.getElementById("ppcity").value = currappl.ppcity;
-	document.getElementById("ppstate").value = currappl.ppstate;
+	document.getElementById("ppcity").value = currappl.pplocation;
 	document.getElementById("ppdateissue").value = currappl.ppdateissue;
 	document.getElementById("farmwork").value = currappl.farmwork;
 	
@@ -551,7 +549,6 @@ function clearNewApp(){
     document.getElementById("license").value = "";
 	document.getElementById("ppnumber").value = "";
 	document.getElementById("ppcity").value = "";
-	document.getElementById("ppstate").value = "";
 	document.getElementById("ppdateissue").value = "";
 	document.getElementById("ppdatedue").value = "";
 	document.getElementById("visas").value = "";

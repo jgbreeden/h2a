@@ -34,7 +34,7 @@
 		. $row["maritalstatus"] . '", "placeofbirth": "' . $row["placeofbirth"] . '", "whatknowvisa": "' 
 		. $row["whatknowvisa"] . '", "howhearcita": "' . $row["howhearcita"] . '", "otherhelp": "'
 		. $row["otherhelp"] . '", "whatknowcita": "' . $row["whatknowcita"] . '", "ppnumber": "' 
-		. $row["ppnumber"] . '", "ppcity": "' . $row["ppcity"] . '", "ppstate": "' . $row["ppstate"] . '", "ppdateissue": "'
+		. $row["ppnumber"] . '", "pplocation": "' . $row["pplocation"] . '", "ppdateissue": "'
 		. $row["ppdateissue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
 		. $row["visaissues"] . '", "visarefused": "' . $row["visarefused"] . '", "license": "'
 		. $row["license"] . '", "deported": "' . $row["deported"] . '", "legalissues": "' 

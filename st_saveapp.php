@@ -23,6 +23,7 @@ $address = htmlspecialchars($_POST["address"]);
 $address2 = htmlspecialchars($_POST["address2"]);
 $city = htmlspecialchars($_POST["city"]);
 $state = htmlspecialchars($_POST["state"]);
+$country = htmlspecialchars($_POST["country"]);
 $zipcode = htmlspecialchars($_POST["zipcode"]);
 $gender = htmlspecialchars($_POST["gender"]);
 $specificarea = htmlspecialchars($_POST["specificarea"]);
@@ -85,18 +86,18 @@ if ($_POST["aware"] == "yes") {
 }
 
 $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, address2, city, 
-    state, zipcode, gender, specificarea, 
+    state, country, zipcode, gender, specificarea, 
     whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
     email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, 
     otherhelp, whatknowcita, status, lift25to40, datesigned, signature, ppnumber, 
-    ppcity, ppstate, ppdateissue, visas, visaissues, visarefused, license, deported, farmwork, ustravel, crimes) 
+    pplocation, ppdateissue, visas, visaissues, visarefused, license, deported, farmwork, ustravel, crimes) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, 
-    $state, $zipcode, $gender, $specificarea, 
+    $state, $country, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
     $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
-    $otherhelp, $whatknowcita, $status, $kilos, $datesigned, $signature, $ppnumber, $ppcity,
-    $ppstate, $ppdateissue, $visas, $visaissues, $visarefused, $license, $deported, $farmwork, $ustravel, $crimes);
+    $otherhelp, $whatknowcita, $status, $kilos, $datesigned, $signature, $ppnumber, $pplocation, 
+    $ppdateissue, $visas, $visaissues, $visarefused, $license, $deported, $farmwork, $ustravel, $crimes);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;
