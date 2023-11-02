@@ -34,24 +34,25 @@ $extend = htmlspecialchars($_POST["extend"]);
 $extendwhynot = htmlspecialchars($_POST["extendwhynot"]);
 $dateofbirth = htmlspecialchars($_POST["dateofbirth"]);
 $email = htmlspecialchars($_POST["email"]);
-$age = htmlspecialchars($_POST["age"]);
-$height = htmlspecialchars($_POST["height"]);
-$weight = htmlspecialchars($_POST["weight"]);
+//$age = htmlspecialchars($_POST["age"]);
+//$height = htmlspecialchars($_POST["height"]);
+//$weight = htmlspecialchars($_POST["weight"]);
 $maritalstatus = htmlspecialchars($_POST["maritalstatus"]);
 $placeofbirth = htmlspecialchars($_POST["placeofbirth"]);
-$whatknowvisa = htmlspecialchars($_POST["whatknowvisa"]);
-$howhearcita = htmlspecialchars($_POST["howhearcita"]);
-$otherhelp = htmlspecialchars($_POST["otherhelp"]);
-$whatknowcita = htmlspecialchars($_POST["whatknowcita"]);
+//$whatknowvisa = htmlspecialchars($_POST["whatknowvisa"]);
+//$howhearcita = htmlspecialchars($_POST["howhearcita"]);
+//$otherhelp = htmlspecialchars($_POST["otherhelp"]);
+//$whatknowcita = htmlspecialchars($_POST["whatknowcita"]);
 $kilos = htmlspecialchars($_POST["kilos"]);
 $datesigned = htmlspecialchars($_POST["datesigned"]);
 $signature = htmlspecialchars($_POST["signature"]);
 $status = "new";
 $ppnumber = htmlspecialchars($_POST["npass"]);
 $ppnumber = (trim($ppnumber) == "")? "ready:" . htmlspecialchars($_POST["readypass"]) : $ppnumber;
-$ppcity = htmlspecialchars($_POST["wherepass"]);
-$ppstate = "";
-$ppdateissue = htmlspecialchars($_POST["expdate"]);
+$ppcity = htmlspecialchars($_POST["ppcity"]) . ", " .  $_POST["ppstate"] . ", " .  $_POST["ppgotcountry"]; 
+$ppcountry = htmlspecialchars($_POST["ppcountry"]);
+$ppdateissue = htmlspecialchars($_POST["ppdateissue"]);
+$ppduedate = htmlspecialchars($_POST["ppduedate"]);
 //$ppdatedue = "";
 $visas = ($_POST["hish2a"] == "yes")? "H-2a:" . $_POST["h2acompany"] . " - " . $_POST["h2amonths"] . "\\n" : "";
 $visas .= ($_POST["pasth2a"] == "yes")? "Past count:" . $_POST["h2acount"] 
@@ -66,10 +67,10 @@ $license = htmlspecialchars($_POST["driverlicensetype"]);
 
 $farmwork = ($_POST["historywork"] == "yes")? "Farm work:" . $_POST["manner"] . " Tourist Visa:" 
     . $_POST["touristvisa"] . " State:" . $_POST["workstate"] . "\\n": "";
-$farmwork .= ($_POST["otherwork"] != "")? "Other work:" 
+/*$farmwork .= ($_POST["otherwork"] != "")? "Other work:" 
     . $_POST["otherwork"] . "\\n": "";
 $farmwork .= ($_POST["otherworkus"] != "")? "Non-ag work:" 
-    . $_POST["otherworkus"] . "\\n": "";
+    . $_POST["otherworkus"] . "\\n": "";*/
 $farmwork .= (trim($_POST["othercompany"]) != "")? "Sponsor co:"
     . $_POST["othercompany"] . " Phone:" . $_POST["othercophone"]: "";
 $crimes = ($_POST["police"] == "yes")? "Police issue:" . $_POST ["policeproblem"] :"";
@@ -79,25 +80,23 @@ $ustravel = ($_POST["detention"] == "yes")? "Caught Crossing #Times:" . $_POST["
         "\\nLength:" . $_POST["detentiontime"] . " Completed:" . $_POST["completed"] . 
         "\\nPardon:" . $_POST["pardon"] . " Reason:" . $_POST["telltruthdet"] . "\\n":"";
 $ustravel .= ($_POST["usdetention"] == "yes")? "Detained entering US:yes": "";
-if ($_POST["aware"] == "yes") {
+/*if ($_POST["aware"] == "yes") {
     $whatknowvisa = "Knows it's a work visa. " . $whatknowvisa;
 } else {
     $whatknowvisa = "Didn't know it's a work visa. " . $whatknowvisa;
-}
+}*/
 
 $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, address2, city, 
     state, country, zipcode, gender, specificarea, 
     whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
-    email, age, height, weight, maritalstatus, placeofbirth, whatknowvisa, howhearcita, 
-    otherhelp, whatknowcita, status, lift25to40, datesigned, signature, ppnumber, 
-    pplocation, ppdateissue, visas, visaissues, visarefused, license, deported, farmwork, ustravel, crimes) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, 
+    email, maritalstatus, placeofbirth, status, lift25to40, datesigned, signature, ppnumber, 
+    pplocation, ppcountry, ppdateissue, ppdatedue, visas, visaissues, visarefused, license, deported, farmwork, ustravel, crimes) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, 
     $state, $country, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
-    $email, $age, $height, $weight, $maritalstatus, $placeofbirth, $whatknowvisa, $howhearcita, 
-    $otherhelp, $whatknowcita, $status, $kilos, $datesigned, $signature, $ppnumber, $pplocation, 
-    $ppdateissue, $visas, $visaissues, $visarefused, $license, $deported, $farmwork, $ustravel, $crimes);
+    $email, $maritalstatus, $placeofbirth, $status, $kilos, $datesigned, $signature, $ppnumber, $pplocation, $ppcountry, 
+    $ppdateissue, $ppduedate, $visas, $visaissues, $visarefused, $license, $deported, $farmwork, $ustravel, $crimes);
 $result = $stmt->execute();
 
 $id = $conn->insert_id;

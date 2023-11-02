@@ -16,15 +16,7 @@
 
     </div>
     
-    <hr>
-    <label for="applisign">Firma de solicitante</label><br>
-    <input type="text" id="applisign" name="signature"><br>
-<hr>
 
-<hr>
-    <label for="dateapplisigned">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
-    <input type="date" id="dateapplisigned" name="datesigned"><br>
-<hr>
 
 <div id="application">
 <div class="nono">
@@ -38,6 +30,15 @@
 
 <div class="formi">
 <form  action="st_saveapp.php" method="post" id="form">
+    <hr>
+    <label for="applisign">Firma de solicitante</label><br>
+    <input type="text" id="applisign" name="signature"><br>
+<hr>
+
+<hr>
+    <label for="dateapplisigned">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
+    <input type="date" id="dateapplisigned" name="datesigned"><br>
+<hr>
 <div class="tab" id="tab1">
     <hr>
     <label for="lname">Apellidos</label><br>
@@ -221,16 +222,32 @@
     <input type="radio" name="passport" value="No" id="nopassport" checked="true" onclick="showOption(this); hideOption(this)">
     <label for="nopassport">No</label><br>
     </div>
-    <div class="options" id="passportoptions">
-    <label for="expdate">Cuando se vence</label><br>
-    <input type="date" id="expdate" name="expdate"><br>
+    <div class="options" id="passportoptions">   
+    <label for="pptype">Tipo de Pasaporte:</label><br>
+    <input type="date" id="pptype" name="pptype"><br>
 
     <label for="npass">Numero de Pasaporte</label><br>
     <input type="text" id="npass" name="npass"><br>
 
-    <label for="wherepass">Donde lo Tramito</label><br>
-    <input type="text" id="wherepass" name="wherepass"><br>
+    <label for="ppcountry">País emisor del pasaporte:</label><br>
+    <input type="date" id="ppcountry" name="ppcountry"><br>
+    
+    <label for="ppcity">Ciudad donde se tramito pasaporte:</label><br>
+    <input type="date" id="ppcity" name="ppcity"><br>
+
+    <label for="ppstate"> Estado donde se tramito pasaporte:</label><br>
+    <input type="date" id="ppstate" name="ppstate"><br>
+
+    <label for="ppgotcountry">País donde se tramito pasaporte:</label><br>
+    <input type="date" id="ppgotcountry" name="ppgotcountry"><br>
+
+    <label for="ppdateissue">Dia en que se emitió:</label><br>
+    <input type="date" id="ppdateissue" name="ppdateissue"><br>
+
+    <label for="ppduedate">Dia de expiración:</label><br>
+    <input type="date" id="ppduedate" name="ppduedate"><br>
     </div>
+
     <div class="options" id="nopassportoptions">
     <label for="readypass">Si no tiene su Pasaporte, Cuenta con los recursos para tramitarlo de inmediato, si asi se lo requieren</label><br>
     <input type="text" name="readypass" id="readypass"><br>
