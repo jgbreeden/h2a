@@ -9,14 +9,16 @@
     <div class="cita">
         <img src="tjlogo.webp" id="tjlogo">
         <h1>Trabajamos Juntos</h1>
-        <p>Esta&#769; llenando una Pre-solicitud la cual se va a una lista de espera. El tiempo estimado de contratacio&#769;n es de an&#771;o a an&#771;o y medio,
-             dependiendo si tenemos contratos. El tiempo puede variar si hay contrataciones es decir si tenemos varias compan&#771;i&#769;as.</p>
-        <p>***NOTA,LEA ESTO...  Es importante decir la verdad en que tiene experiencia,las compan&#771;i&#769;as tambien solicitan gente sin experiencia 
-            y los capacitara&#769;n. Pero si usted es seleccionado por una experiencia que puso en le Pre-solicitud y resulta no tenerla a la hora
-             de la entrevista, sera rechazado automa&#769;ticamente.</p>
-    
+        <p>Estaa&#769; llenando una Pre-Solicitud la cual se va a una lista de espera por el momento indefinida en tiempo de contratacio&#769;n. 
+            Es muy importante responda con honestidad, con informacio&#769;n verídica y lo ma&#769;s exacta posible.</p>
+        <p>Usted proporciona su informacio&#769;n sin que esto garantice un puesto de trabajo. Es ilegal en Me&#769;xico y en Estados Unidos
+            de Ame&#769;rica cobrar cuotas, aportaciones o donaciones o cualquier otra forma de pago para obtener una solicitud de empleo o el empleo mismo.</p>
+
     </div>
     
+
+
+<div id="application">
 <div class="nono">
 <h1 class="h1">Informacion Personal</h1>
 <div class="pobtn">
@@ -28,6 +30,15 @@
 
 <div class="formi">
 <form  action="st_saveapp.php" method="post" id="form">
+    <hr>
+    <label for="applisign">Firma de solicitante</label><br>
+    <input type="text" id="applisign" name="signature"><br>
+<hr>
+
+<hr>
+    <label for="dateapplisigned">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
+    <input type="date" id="dateapplisigned" name="datesigned"><br>
+<hr>
 <div class="tab" id="tab1">
     <hr>
     <label for="lname">Apellidos</label><br>
@@ -35,8 +46,30 @@
     <hr>
     
     <hr>
-    <label for="fname">Primer Nombres</label><br>
+    <label for="fname">Nombres</label><br>
     <input type="text" id="fname" name="fname"><br>
+    <hr>
+
+    <hr>
+    Sexo
+
+    <div class="inline"><input type="radio" id="male" name="gender" value="male" checked="true">
+    <label for="female">Male</label><br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br>
+    </div>
+    <hr>
+
+    <hr>
+    <label for="maritalstatus">Estado civil</label><br>
+    <select type="text" id="maritalstatus" name="maritalstatus">
+        <option value=""></option>
+        <option value="married">Casado</option>
+		<option value="seperated">Unión Libre</option>
+		<option value="divorced">Divorciado</option>
+        <option value="widowed">Viudo</option>
+		<option value="single">Soltero</option>
+    </select>
     <hr>
 
     <hr>
@@ -45,28 +78,13 @@
     <hr>
 
     <hr>
-    <label for="phonecell">Tele&#769;fono personal:</label><br>
-    <input type="tel" id="phonecell" name="phonecell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
-    <hr>
-
-    <hr>
-    <label for="phonehome">Tele&#769;fono adicional:</label><br>
-    <input type="tel" id="phonehome" name="phonehome" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
-    <hr>
-
-    <hr>
-    <label for="email">Correo Electronico</label><br>
-    <input type="email" id="email" name="email"><br>
+    <label for="placeofbirth">Lugar de Nacimiento</label><br>
+    <input type="text" id="placeofbirth" name="placeofbirth"><br>
     <hr>
 
     <hr>
     <label for="address">Direccio&#769;n</label><br>
     <input type="text" id="address" name="address"><br>
-    <hr>
-
-    <hr>
-    <label for="address2">Informacio&#769;n adicional(colony, ejido, section)</label><br>
-    <input type="text" id="address2" name="address2"><br>
     <hr>
 
     <hr>
@@ -90,8 +108,26 @@
     <hr>
 
     <hr>
-    <label for="placeofbirth">Lugar de Nacimiento</label><br>
-    <input type="text" id="placeofbirth" name="placeofbirth"><br>
+    <label for="phonecell">Tele&#769;fono personal:</label><br>
+    <input type="tel" id="phonecell" name="phonecell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+    <hr>
+
+    <hr>
+    <label for="phonehome">Tele&#769;fono adicional:</label><br>
+    <input type="tel" id="phonehome" name="phonehome" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+    <hr>
+
+    <hr>
+    <label for="email">Correo Electronico</label><br>
+    <input type="email" id="email" name="email"><br>
+    <hr>
+
+
+
+
+    <hr>
+    <label for="address2">Informacio&#769;n adicional(colony, ejido, section)</label><br>
+    <input type="text" id="address2" name="address2"><br>
     <hr>
 
     <hr>
@@ -129,12 +165,7 @@
     <hr>
     Sexo
 
-    <div class="inline"><input type="radio" id="male" name="gender" value="male" checked="true">
-    <label for="female">Male</label><br>
-    <input type="radio" id="female" name="gender" value="female">
-    <label for="female">Female</label><br>
-    </div>
-    <hr>
+    
 
 
 
@@ -204,16 +235,32 @@
     <input type="radio" name="passport" value="No" id="nopassport" checked="true" onclick="showOption(this); hideOption(this)">
     <label for="nopassport">No</label><br>
     </div>
-    <div class="options" id="passportoptions">
-    <label for="expdate">Cuando se vence</label><br>
-    <input type="date" id="expdate" name="expdate"><br>
+    <div class="options" id="passportoptions">   
+    <label for="pptype">Tipo de Pasaporte:</label><br>
+    <input type="date" id="pptype" name="pptype"><br>
 
     <label for="npass">Numero de Pasaporte</label><br>
     <input type="text" id="npass" name="npass"><br>
 
-    <label for="wherepass">Donde lo Tramito</label><br>
-    <input type="text" id="wherepass" name="wherepass"><br>
+    <label for="ppcountry">País emisor del pasaporte:</label><br>
+    <input type="date" id="ppcountry" name="ppcountry"><br>
+    
+    <label for="ppcity">Ciudad donde se tramito pasaporte:</label><br>
+    <input type="date" id="ppcity" name="ppcity"><br>
+
+    <label for="ppstate"> Estado donde se tramito pasaporte:</label><br>
+    <input type="date" id="ppstate" name="ppstate"><br>
+
+    <label for="ppgotcountry">País donde se tramito pasaporte:</label><br>
+    <input type="date" id="ppgotcountry" name="ppgotcountry"><br>
+
+    <label for="ppdateissue">Dia en que se emitió:</label><br>
+    <input type="date" id="ppdateissue" name="ppdateissue"><br>
+
+    <label for="ppduedate">Dia de expiración:</label><br>
+    <input type="date" id="ppduedate" name="ppduedate"><br>
     </div>
+
     <div class="options" id="nopassportoptions">
     <label for="readypass">Si no tiene su Pasaporte, Cuenta con los recursos para tramitarlo de inmediato, si asi se lo requieren</label><br>
     <input type="text" name="readypass" id="readypass"><br>
@@ -377,12 +424,12 @@
     <input type="text" id="h2atype" name="h2atype"><br>
     </div>
 <hr>
-
+<!--
 <hr>
     <label for="otherwork">Otro empleo que haya realizado, que no sea de campo y tampoco los mencionados arriba, Mencione?</label><br>
     <input type="text" id="otherwork" name="otherwork"><br>
 <hr>
-
+-->
 <hr>
     &#191;Ha trabajo en los Estados Unidos en el Campo?
     <div class="inline"><input type="radio" name="historywork" id="historywork" value="yes" onclick="showOption(this)">
@@ -413,12 +460,13 @@
     <label for="workstate">En que Estados de Estados Unidos ha Trabajado</label><br>
     <input type="text" id="workstate" name="workstate"><br>
     </div>
+    <!--
 <hr>
     <label for="otherworkus">Algun Otro Empleo que haiga tenido en Estado Unidos que no sea de Agricultura(campo)?</label><br>
     <textarea id="otherworkus" name="otherworkus" rows="2" cols="30"></textarea><br>
     
 <hr>
-
+    -->
 <hr>
     <label for="othercompany">Sabe de Alguna compan&#771;i&#769;a que lo quisiera contratar en Estados Unidos (Esta Pregunta es si usted conoce alguien o Alguna compan&#771;i&#769;a que lo quisiera contratar por medio de un Permiso H2a, que es una Visa de trabajo, es solo si la compan&#771;i&#769;a no contrata ya personal. Si la compan&#771;i&#769;a ya lleva H2A's No la mencione, ya que ellos ya saben el Proceso de Contratacio&#769;n y usted debe comunicarse con ellos.)?</label><br>
     <input id="othercompany" name="othercompany"><br>
@@ -594,7 +642,7 @@
     <input type="text" id="pressurecause" name="pressurecause"><br>
 </div>
 <hr>
-
+<!--
 <hr>
     &#191;Esta Usted enterado, que esta Pre-solicitud, es para aplicar para una Visa H-2A, 
         que es una Visa de Trabajo?
@@ -630,7 +678,7 @@
     <textarea type="text" id="whatknowcita" name="whatknowcita"  rows="4" cols="30"></textarea>
     <br>
 <hr>
-
+-->
 </div>
 
 
@@ -1492,15 +1540,7 @@
      </div>
      <hr>
 
-<hr>
-    <label for="applisign">Firma de solicitante</label><br>
-    <input type="text" id="applisign" name="signature"><br>
-<hr>
 
-<hr>
-    <label for="dateapplisigned">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
-    <input type="date" id="dateapplisigned" name="datesigned"><br>
-<hr>
 </div>
 </form>
 </div>
@@ -1508,6 +1548,7 @@
 <div class="qbtn">
 <button id="btnback" onclick="btnnext(-1)">Atras</button>
 <button id="btnnext">Proximo</button>
+</div>
 </div>
 <script src="apli.js"></script>
 </body>

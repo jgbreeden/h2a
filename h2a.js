@@ -1,7 +1,7 @@
 class Applicant {
-	constructor(id, fname, lname, cphone, hphone, address, address2, city, state, zip, status, specificarea, 
-		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, age, height, weight, lift25to40,
-		maritalstatus, placeofbirth, whatknowvisa, howhearcita, otherhelp, whatknowcita, ppnumber, pplocation, ppdateissue,
+	constructor(id, fname, lname, cphone, hphone, address, address2, city, state, zip, country, status, specificarea, 
+		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, lift25to40,
+		maritalstatus, placeofbirth, pptype, ppcountry, ppnumber, pplocation, ppdateissue, ppdatedue,
 		visas, visaissues, visarefused, license, deported, ustravel, crimes, farmwork) {
 		this.id = id
 		this.firstName = fname;
@@ -13,6 +13,7 @@ class Applicant {
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
+		this.country = country;
 		this.status = status;
 		this.specificarea = specificarea;
 		this.whatarea = whatarea;
@@ -23,19 +24,15 @@ class Applicant {
 		this.dateofbirth = dateofbirth;
 		this.email = email;
 		this.gender = gender;
-		this.age = age;
-		this.height = height;
-		this.weight = weight;
 		this.lift25to40 = lift25to40;
 		this.maritalstatus = maritalstatus;
 		this.placeofbirth = placeofbirth;
-		this.whatknowvisa = whatknowvisa; 
-		this.howhearcita = howhearcita; 
-		this.otherhelp = otherhelp; 
-		this.whatknowcita = whatknowcita;
+		this.pptype = pptype;
+		this.ppcountry = ppcountry;
 		this.ppnumber = ppnumber;
 		this.pplocation = pplocation;
 		this.ppdateissue = ppdateissue;
+		this.ppdatedue = ppdatedue;
 		this.visas = visas;
 		this.visaissues = visaissues;
 		this.visarefused = visarefused;
@@ -299,9 +296,9 @@ function fillEmps(data) {
 
 function fillEmpDetail(data) {
 	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.address2, data.city, data.state,
-		data.zip, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
-		data.dateofbirth, data.email, data.gender, data.age, data.height, data.weight, data.lift25to40, data.maritalstatus, data.placeofbirth,
-		data.whatknowvisa, data.howhearcita, data.otherhelp, data.whatknowcita, data.ppnumber, data.pplocation, data.ppdateissue,
+		data.zip, data.country, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
+		data.dateofbirth, data.email, data.gender, data.lift25to40, data.maritalstatus, data.placeofbirth,
+		data.pptype, data.ppcountry, data.ppnumber, data.pplocation, data.ppdateissue, data.ppdatedue,
 		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.legalissues, data.farmwork);
 	if(data.ds160 != undefined){
 		currappl.ds160.id = data.ds160.id
@@ -416,21 +413,25 @@ function resetNewApp(){
 	document.getElementById("city").value = currappl.city;
 	document.getElementById("state").value = currappl.state;
 	document.getElementById("zip").value = currappl.zip;
+	document.getElementById("country").value = currappl.country;
 	document.getElementById("status").value = currappl.status;
 	document.getElementById("dateofbirth").value = currappl.dateofbirth;
 	document.getElementById("email").value = currappl.email;
-	document.getElementById("age").value = currappl.age;
-	document.getElementById("height").value = currappl.height;
-	document.getElementById("weight").value = currappl.weight;
+	//document.getElementById("age").value = currappl.age;
+	//document.getElementById("height").value = currappl.height;
+	//document.getElementById("weight").value = currappl.weight;
 	document.getElementById("maritalstatus").value = currappl.maritalstatus;
 	document.getElementById("placeofbirth").value = currappl.placeofbirth;
 	document.getElementById("ustravel").value = currappl.ustravel;
 	document.getElementById("visas").value = currappl.visas;
 	document.getElementById("visaissues").value = currappl.visaissues;
 	document.getElementById("visarefused").value = currappl.visarefused;
+	document.getElementById("pptype").value = currappl.pptype;
+	document.getElementById("ppcountry").value = currappl.ppcountry;
 	document.getElementById("ppnumber").value = currappl.ppnumber;
 	document.getElementById("ppcity").value = currappl.pplocation;
 	document.getElementById("ppdateissue").value = currappl.ppdateissue;
+	document.getElementById("ppdatedue").value = currappl.ppdatedue;
 	document.getElementById("farmwork").value = currappl.farmwork;
 	
 	if (currappl.gender == "male") {
@@ -473,10 +474,10 @@ function resetNewApp(){
 		document.getElementById("lift25to40no").checked = true;
 	}
 
-	document.getElementById("whatknowvisa").value = currappl.whatknowvisa;
-	document.getElementById("howhearcita").value = currappl.howhearcita;
-	document.getElementById("otherhelp").value = currappl.otherhelp;
-	document.getElementById("whatknowcita").value = currappl.whatknowcita;
+	//document.getElementById("whatknowvisa").value = currappl.whatknowvisa;
+	//document.getElementById("howhearcita").value = currappl.howhearcita;
+	//document.getElementById("otherhelp").value = currappl.otherhelp;
+	//document.getElementById("whatknowcita").value = currappl.whatknowcita;
 	document.getElementById("license").value = currappl.license
 	document.getElementById("usresidency").value = currappl.deported
 	document.getElementById("legalissues").value = currappl.crimes;
@@ -515,6 +516,7 @@ function clearNewApp(){
 	document.getElementById("city").value = "";
 	document.getElementById("state").value = "";
 	document.getElementById("zip").value = "";
+	document.getElementById("country").value = "";
 	document.getElementById("distanceyuma").checked = false;
 	document.getElementById("distanceany").checked = false;
 	document.getElementById("whatarea").value = "";
@@ -530,9 +532,9 @@ function clearNewApp(){
 	document.getElementById("email").value = "";
 	document.getElementById("male").checked = false;
 	document.getElementById("female").checked = false;
-	document.getElementById("age").value = "";
-	document.getElementById("height").value = "";
-	document.getElementById("weight").value = "";
+	//document.getElementById("age").value = "";
+	//document.getElementById("height").value = "";
+	//document.getElementById("weight").value = "";
 	document.getElementById("lift25to40yes").checked = false;
 	document.getElementById("lift25to40no").checked = false;
 	document.getElementById("maritalstatus").value = "";
@@ -542,11 +544,13 @@ function clearNewApp(){
 	document.getElementById("healthTab").innerHTML = "<tr><th class='namehead'>Health Issue</th><th class='namehead'>Treatment</th></tr>";
 	document.getElementById("jobsTab").innerHTML = "<tr><th class='tabcolumn'>Employer</th></tr>";
 	document.getElementById("schoolsTab").innerHTML = "<tr><th class='tabcolumn'>Schools</th></tr>";
-	document.getElementById("whatknowvisa").value = ""; 
-	document.getElementById("howhearcita").value = ""; 
-	document.getElementById("otherhelp").value = ""; 
-	document.getElementById("whatknowcita").value = ""; 
+	//document.getElementById("whatknowvisa").value = ""; 
+	//document.getElementById("howhearcita").value = ""; 
+	//document.getElementById("otherhelp").value = ""; 
+	//document.getElementById("whatknowcita").value = ""; 
     document.getElementById("license").value = "";
+	document.getElementById("pptype").value = "";
+	document.getElementById("ppcountry").value = "";
 	document.getElementById("ppnumber").value = "";
 	document.getElementById("ppcity").value = "";
 	document.getElementById("ppdateissue").value = "";
