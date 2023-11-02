@@ -120,17 +120,17 @@ form {
 input[type="text"] {
 	width: 150px;
 }
-#jstate, #sstate, #jobtitle, #jphone, #jsalary, #major, .namehead, #jwhat, #jcountry, #grade, #ppcountry {
+#jstate, #sstate, #jobtitle, #jphone, #jsalary, #major, .namehead, #jwhat, #grade {
 	width: 100px;	
 }
-#jzip, #szip, #years, #years2, #salary, #pptype {
+#jzip, #szip, #years, #years2, #salary {
 	width: 42px;
 }
 #jobsTab, #schoolsTab, .tabcolumn, #appconfirm {
 	width: 120px;
 }
 #newappform, #empdiv {
-	margin-top: -10px;
+	margin-top: -15px;
 }
 .tabbutton{
 	border-radius: 8px 8px 0px 0px;
@@ -144,4 +144,10 @@ fieldset {
 }
 #whatarea, #legal {
 	margin-bottom: 8px;
+}
+label, legend {
+	font-size: 13px;
+}
+.right {
+	text-align: right;
 }

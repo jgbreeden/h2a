@@ -39,7 +39,7 @@ $email = htmlspecialchars($_POST["email"]);
 //$weight = htmlspecialchars($_POST["weight"]);
 $maritalstatus = htmlspecialchars($_POST["maritalstatus"]);
 $placeofbirth = htmlspecialchars($_POST["placeofbirth"]);
-//$whatknowvisa = htmlspecialchars($_POST["whatknowvisa"]);
+$whatknowvisa = htmlspecialchars($_POST["whatknowvisa"]);
 //$howhearcita = htmlspecialchars($_POST["howhearcita"]);
 //$otherhelp = htmlspecialchars($_POST["otherhelp"]);
 //$whatknowcita = htmlspecialchars($_POST["whatknowcita"]);
@@ -80,11 +80,11 @@ $ustravel = ($_POST["detention"] == "yes")? "Caught Crossing #Times:" . $_POST["
         "\\nLength:" . $_POST["detentiontime"] . " Completed:" . $_POST["completed"] . 
         "\\nPardon:" . $_POST["pardon"] . " Reason:" . $_POST["telltruthdet"] . "\\n":"";
 $ustravel .= ($_POST["usdetention"] == "yes")? "Detained entering US:yes": "";
-/*if ($_POST["aware"] == "yes") {
+if ($_POST["aware"] == "yes") {
     $whatknowvisa = "Knows it's a work visa. " . $whatknowvisa;
 } else {
     $whatknowvisa = "Didn't know it's a work visa. " . $whatknowvisa;
-}*/
+}
 
 $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, address2, city, 
     state, country, zipcode, gender, specificarea, 

@@ -58,7 +58,7 @@
 				</td>
 				</tr><tr>	
 				<td>
-				Gender:
+				<label>Gender:</label>
 				</td><td>
 				<input type="radio" id="male" name="gender" value="male">
 				<label for="male">Male&nbsp;&nbsp;</label>
@@ -151,30 +151,35 @@
 					</td><td>
 					<input type="text" id="ppnumber" name="ppnumber">
 					</td>
-					</tr><tr>
-						<td>
-						<label for="ppcountry">Type/Country:</label>
-						</td><td>
-							<input type="text" id="pptype" name="pptype">
-							<input type="text" id="ppcountry" name="ppcountry">
-						</td>
-						</tr><tr>
+				</tr><tr>
 					<td>
-					<label for="ppcity">Pp Location:</label>
+					<label for="ppcountry">PP Country:</label>
 					</td><td>
-					<input type="text" id="ppcity" name="ppcity">
+					<input type="text" id="ppcountry" name="ppcountry">
 					</td>
-					</tr><tr>
+				</tr><tr>
+					<td>
+					<label for="pptype">PP Type:</label>
+					</td><td>
+					<input type="text" id="pptype" name="pptype">
+					</td>
+				</tr><tr>
 					<td>
 					<label for="ppdateissue">Pp Date Issue:</label>
 					</td><td>
 					<input type="text" id="ppdateissue" name="ppdateissue">
 					</td>
-					</tr><tr>
+				</tr><tr>
 					<td>
 					<label for="ppdatedue">Pp Date Due:</label>
 					</td><td>
 					<input type="text" id="ppdatedue" name="ppdatedue" class="ds160">
+					</td>
+				</tr><tr>
+					<td>
+					<label for="ppcity">Pp Location:</label>
+					</td><td>
+					<input type="text" id="ppcity" name="ppcity">
 					</td>
 				</tr><tr>
 					<td>
@@ -328,12 +333,12 @@
 							<td>
 							<label for="farmwork">Past work:</label>
 							</td><td>
-							<textarea type="text" id="farmwork" name="farmwork" rows="4" cols="19"></textarea>
+							<textarea type="text" id="farmwork" name="farmwork" rows="2" cols="19"></textarea>
 							</td>
 						</tr>
 						<tr>
 						<td>
-						Lift 25 to 40 kilos:
+						<label>Lift 25 to 40 kilos:</label>
 						</td><td>
 						<label for="lift25to40yes">Yes:</label>
 					
@@ -344,7 +349,7 @@
 						</td>
 						</tr><tr>
 						<td>
-						Stay 8 months:
+						<label>Stay 8 months:</label>
 						</td><td>
 						<label for="stay8mo">Yes:</label>
 						
@@ -355,7 +360,7 @@
 						</td>
 						</tr><tr>
 						<td>
-						Over Time:
+						<label>Over Time:</label>
 						</td><td>
 						<label for="overtime">Yes:</label>
 						
@@ -366,7 +371,7 @@
 						</td>
 						</tr><tr>
 						<td>
-						Extended Time:
+						<label>Extended Time:</label>
 						</td><td>
 						<label for="extend">Yes:</label>
 						
@@ -399,12 +404,12 @@
 						<input type="text" id="whatarea" name="whatarea" value="">
 						</td>
 						</tr>
-					<!-- <tr>
+					<tr>
 					<td>
 					<label for="whatknowvisa">What do you know<br>about this Visa?</label></td><td>
 					<textarea id="whatknowvisa" name="whatknowvisa" rows="2" cols="19">
 					</textarea></td></tr>
-					<tr><td>
+					<!-- <tr><td>
 					<label for="whatknowcita">What do you know<br>about Cita?</label></td><td>
 					<textarea id="whatknowcita" name="whatknowcita" rows="2" cols="19">
 					</textarea></td></tr>
@@ -427,19 +432,19 @@
 					</table>
 					<table>
 					<tr>
-						<td>Father</td>
+						<td><label for="groups">Father</label></td>
 						<td><textarea id="father" name="father" rows="2" cols="29"></textarea></td>
 					</tr>
 					<tr>
-						<td>Mother</td>
+						<td><label for="groups">Mother</label></td>
 						<td><textarea id="mother" name="mother" rows="2" cols="29"></textarea></td>
 					</tr>
 					<tr>
-						<td>Relatives</td>
+						<td><label for="groups">Relatives</label></td>
 						<td><textarea id="relatives" name="relatives" rows="2" cols="29"></textarea></td>
 					</tr>
 					<tr>
-						<td>Spouse</td>
+						<td><label for="groups">Spouse</label></td>
 						<td><textarea id="spouse" name="spouse" rows="2" cols="29"></textarea></td>
 					</tr>
 					</table>
@@ -471,6 +476,10 @@
 					<textarea id="legalissues" name="legalissues" rows="3" cols="33"></textarea>
 					<br>
 					<textarea id="usresidency" name="usresidency" rows="3" cols="33"></textarea>
+				</fieldset>
+				<fieldset>
+					<legend>Notes</legend>
+					<textarea id="notes" name="notes" rows="2" cols="33"></textarea>
 				</fieldset>
 				<div>
 					<button type="button" onclick="resetNewApp()">Cancel</button>
@@ -510,23 +519,25 @@
 							<input type="text" id="jzip" name="jzip" class="ds160"></td>
 						</tr>
 						<tr>
+							<td><label for="jcountry">Country:</label></td>
+							<td><input type="text" id="jcountry" name="jcountry" class="ds160"></td>
+							<td rowspan="2" class="right"><label for="jdatefrom">From:</label>
+							<input type="date" id="jdatefrom" name="jdatefrom" class="ds160"><br>
+							<label for="jdateto">To:</label>
+							<input type="date" id="jdateto" name="jdateto" class="ds160"></td>
+						</tr>
+						<tr>
 							<td><label for="supervisor">Job Title, Salary:</label></td>
 							<td><input type="text" id="jobtitle" name="jobtitle" class="ds160">
 							<input type="text" id="salary" name="salary" class="ds160"></td>
-							<td><label for="jcountry">Country:</label>
-							<input type="text" id="jcountry" name="jcountry" class="ds160"></td>
-						</tr>
-						<tr>
-							<td><label for="jdatefrom">Date From:</label></td>
-							<td><input type="date" id="jdatefrom" name="jdatefrom" class="ds160">
-							<label for="jdateto">To:</label></td>
-							<td><input type="date" id="jdateto" name="jdateto" class="ds160"></td>
 						</tr>
 						<tr>
 							<td><label for="jphone">Phone:</label></td>
 							<td><input type="text" id="jphone" name="jphone" class="ds160">
 							<label for="duties">Duties:</label></td>
-							<td rowspan=2><textarea rows=2 columns=16 name="duties" id="duties" class="ds160"></textarea></td>
+							<td rowspan="2">
+							<textarea rows="2" columns="16" name="duties" id="duties" class="ds160"></textarea></td>
+							</td>
 						</tr>
 						<tr>
 						<td><button type="button" onclick="clearJob()" class="ds160">Clear</button></td>
@@ -570,7 +581,7 @@
 						<tr>
 							<td><label for="scountry">Country:</label></td>
 							<td><input type="text" name="scountry" id="scountry"></td>
-							<td rowspan="2"><label for="sdatefrom">From:</label>
+							<td rowspan="2" class="right"><label for="sdatefrom">From:</label>
 							<input type="date" id="sdatefrom" name="sdatefrom" class="ds160"><br>
 							<label for="sdateto">To:</label>
 							<input type="date" id="sdateto" name="sdateto" class="ds160"></td>
