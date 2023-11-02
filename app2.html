@@ -260,17 +260,17 @@
     <hr>
 
     <hr>
-    <label for="ppcountry">País donde se tramito pasaporte:</label><br>
+    <label for="ppcountry">Pai&#769;s donde se tramito pasaporte:</label><br>
     <input type="text" id="ppcountry" name="ppcountry"><br>
     <hr>
 
     <hr>
-    <label for="ppissuedate">Dia en que se emitió</label><br>
+    <label for="ppissuedate">Dia en que se emitio&#769;</label><br>
     <input type="date" id="ppissuedate" name="ppissuedate"><br>
     <hr>
 
     <hr>
-    <label for="ppduedate">Dia de expiración:</label><br>
+    <label for="ppduedate">Dia de expiracio&#769;n:</label><br>
     <input type="date" id="ppduedate" name="ppduedate"><br>
     <hr>
 
@@ -305,15 +305,31 @@
     <input type="text" id="visatype" name="visatype"><br>
     <hr>
 
-    <hr>
-    <label for="appliedvisa">Aplico para el mismo tipo de visa</label><br>
-    <input type="text" id="appliedvisa" name="appliedvisa"><br>
-    <hr>
+   
 
     <div id="visasoptions">
         <label for="visaslist">Ultima fecha y tipo de visado</label><br>
         <textarea rows="3" cols="30" name="visaslist"></textarea><br>
      
+        <hr>
+        <hr>
+        <label for="appliedvisa">Aplico para el mismo tipo de visa</label><br>
+        <input type="text" id="appliedvisa" name="appliedvisa"><br>
+        <hr>
+
+        <hr>&#191;Esta&#769; solicitando en el mismo pai&#769;s o ubicacio&#769;n donde se emitio&#769; la visa anterior y es este pai&#769;s o ubicacio&#769;n su lugar de residencia principal? 
+        <div class="inline"><input type="radio" name="lastvisa" id="lastvisa" value="yes" onclick="showOption(this)">
+            <label for="lastvisa">Si</label><br>
+            <input type="radio" name="lastvisa" id="lastvisano" value="no" checked="true" onclick="hideOption(this)">
+            <label for="lastvisano">No</label><br>
+        </div>
+
+        <hr>&#191;Le tomaron las huellas dactilares:
+        <div class="inline"><input type="radio" name="print" id="print" value="yes" onclick="showOption(this)">
+            <label for="print">Si</label><br>
+            <input type="radio" name="print" id="printno" value="no" checked="true" onclick="hideOption(this)">
+            <label for="printno">No</label><br>
+        </div>
         <hr>
 
         <hr>&#191;Alguna vez le han perdido o le han robado una visa?
@@ -451,7 +467,7 @@
                 </hr>
 
                 <hr>
-                &#191;Tiene algún familiar directo viviendo en los Estados Unidos (hijos, hermanos, pareja)?
+                &#191;Tiene algu&#769;n familiar directo viviendo en los Estados Unidos (hijos, hermanos, pareja)?
                 <div class="inline">
                 <input type="radio" id="family" name="family" value="yes" onclick="showOption(this)">
                 <label for="family">Si</label><br>
@@ -475,7 +491,7 @@
                 <h4>Conyuge</h4>
 
                 <hr>
-                <label for="SFname">Apellidos de Cónyuge o pareja:</label><br>
+                <label for="SFname">Apellidos de Co&#769;nyuge o pareja:</label><br>
                 <input type="text" id="SFname" name="SFname" min="1" max="20"><br>
                 </hr>
             
@@ -490,8 +506,13 @@
                 </hr>
             
                 <hr>
-                <label for="Spob"></label>Lugar de nacimiento:</label><br>
+                <label for="Spob"></label>Ciudad de nacimiento:</label><br>
                 <input type="text" id="Spob" name="Spob"><br>
+                </hr>
+
+                <hr>
+                <label for="Scountry"></label>Pai&#769;s:</label><br>
+                <input type="text" id="Scountry" name="Scountry"><br>
                 </hr>
 
                 <hr>
@@ -556,7 +577,7 @@
             <hr>
 
             <hr>
-            <label for="jaddress">Direccio&#769;n De Empleador:</label><br>
+            <label for="jaddress">Direccio&#769;n:</label><br>
             <input type="text" id="jaddress" name="jaddress[]" min="1" max="20"><br>
             <hr>
 
@@ -591,8 +612,8 @@
             <hr>
 
             <hr>
-            <label for="supervisor">En que trabaja:</label><br>
-            <input type="text" id="supervisor" name="supervisor[]" min="1" max="20"><br>
+            <label for="duties">Cargo y descripcio&#769;n del trabajo:</label><br>
+            <input type="text" id="duties" name="duties[]" min="1" max="20"><br>
             <hr>
 
             <hr>
@@ -601,23 +622,18 @@
             <hr>
 
             <hr>
-            <label for="jdatefrom">Fetcha de inico :</label><br>
+            <label for="jdatefrom">Fecha inicial: </label><br>
             <input type="date" id="jsdate" name="jsdate[]" min="1" max="20"><br>
             <hr>
 
             <hr>
-            <label for="jdateto">fin de la iniciacio&#769;n :</label><br>
+            <label for="jdateto">Fecha final:</label><br>
             <input type="date" id="jedate" name="jedate[]" min="1" max="20"><br>
             <hr>
 
             <hr>
             <label for="jsalary">Ingreso mensuall:</label><br>
             <input type="text" id="jsalary" name="jsalary[]" min="1" max="20"><br>
-            <hr>
-
-            <hr>
-            <label for="duties">Deberes:</label><br>
-            <input type="text" id="duties" name="duties[]" min="1" max="20"><br>
             <hr>
 
             <button type="button" id="addJobBtn">Add Job</button>
