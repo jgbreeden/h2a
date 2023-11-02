@@ -24,22 +24,20 @@
 	$json =  '{ "id": ' . $row["id"] . ', "firstname": "' . $row["firstname"] . '", "lastname": "'
 		. $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
 		. $row["phonehome"] . '", "address": "' . $row["address"] . '", "address2": "' . $row["address2"] . '", "city": "'
-		. $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . $row["zipcode"]
+		. $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . $row["zipcode"] . '", "country": "' . $row["country"]
 		. '", "status": "' . $row["status"] . '", "specificarea": "' . $row["specificarea"] . '", "whatarea": "' 
 		. $row["whatarea"] . '", "stay8mo": "' . $row["stay8mo"] . '", "overtime": "' 
 		. $row["overtime"] . '", "extend": "' . $row["extend"] . '", "extendwhynot": "'
 		. $row["extendwhynot"] . '", "dateofbirth": "' . $row["dateofbirth"] . '", "email": "'
-		. $row["email"] . '", "gender": "' . $row["gender"] . '", "age": "' . $row["age"] . '", "height": "' 
-		. $row["height"] . '", "weight": "' . $row["weight"] . '", "lift25to40": "' . $row["lift25to40"] . '", "maritalstatus": "'
+		. $row["email"] . '", "gender": "' . $row["gender"] . '", "lift25to40": "' . $row["lift25to40"] . '", "maritalstatus": "'
 		. $row["maritalstatus"] . '", "placeofbirth": "' . $row["placeofbirth"] . '", "whatknowvisa": "' 
-		. $row["whatknowvisa"] . '", "howhearcita": "' . $row["howhearcita"] . '", "otherhelp": "'
-		. $row["otherhelp"] . '", "whatknowcita": "' . $row["whatknowcita"] . '", "ppnumber": "' 
+		. $row["whatknowvisa"] . '", "ppcountry": "' . $row["ppcountry"] . '", "pptype": "' . $row["pptype"] . '", "ppnumber": "' 
 		. $row["ppnumber"] . '", "pplocation": "' . $row["pplocation"] . '", "ppdateissue": "'
-		. $row["ppdateissue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
+		. $row["ppdateissue"] . '", "ppdatedue": "' . $row["ppdatedue"] . '", "visas": "' . $row["visas"] . '", "visaissues": "'
 		. $row["visaissues"] . '", "visarefused": "' . $row["visarefused"] . '", "license": "'
 		. $row["license"] . '", "deported": "' . $row["deported"] . '", "legalissues": "' 
 		. $row["crimes"] .  '", "ustravel": "' . $row["ustravel"] . '", "farmwork": "' 
-		. $row["farmwork"] . '", "skills": [ '; 
+		. $row["farmwork"] . '", "notes": "' . $row["notes"] . '", "skills": [ '; 
 		$json = str_replace(chr(13), "", $json);
 		echo str_replace(chr(10), "\\n", $json);
 	if (! is_null( $row["skillenglish"])) {
