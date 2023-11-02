@@ -113,7 +113,7 @@ hr {
     clear: right;
 }
 
-.cita {
+#cita, #cita2 {
     background-color:  #999999;
     color: black;
     font-size: 25px;
@@ -125,6 +125,10 @@ hr {
     padding-left: 25px;
     margin-bottom: 5%;
     margin-top: 3%;
+}
+
+#application, #cita2, #applisign, #dateapplisigned {
+    display: none;
 }
 
 #jobs{

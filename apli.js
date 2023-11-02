@@ -124,4 +124,14 @@ function showOption(item){
 
 }
 
+function agree1() {
+    document.getElementById("cita").style.display = "none";
+    document.getElementById("cita2").style.display = "block";
+}
 
+function agree2() {
+    document.getElementById("cita2").style.display = "none";
+    document.getElementById("application").style.display = "block";
+    document.getElementById("applisign").value = document.getElementById("applisign0")
+    document.getElementById("dateapplisigned").value = document.getElementById("dateapplisigned0")
+}
