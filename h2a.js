@@ -2,7 +2,7 @@ class Applicant {
 	constructor(id, fname, lname, cphone, hphone, address, address2, city, state, zip, country, status, specificarea, 
 		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, lift25to40,
 		maritalstatus, placeofbirth, pptype, ppcountry, ppnumber, pplocation, ppdateissue, ppdatedue,
-		visas, visaissues, visarefused, license, deported, ustravel, crimes, farmwork) {
+		visas, visaissues, visarefused, license, deported, ustravel, crimes, farmwork, whatknowvisa, notes) {
 		this.id = id
 		this.firstName = fname;
 		this.lastName = lname;
@@ -41,6 +41,8 @@ class Applicant {
 		this.ustravel = ustravel;
 		this.crimes = crimes;
 		this.farmwork = farmwork;
+		this.whatknowvisa = whatknowvisa;
+		this.notes = notes;
 		this.ds160 = new Appds160();
 		this.jobs = []
 		this.school = []
@@ -145,7 +147,7 @@ class Experience {
 }
 
 class History {
-	constructor(historytype, id, entity, address, address2, city, state, zip, datefrom, dateto, applicantsid, major, phone, salary, jobtitle, duties, country, what) {
+	constructor(historytype, id, entity, address, address2, city, state, zip, datefrom, dateto, applicantsid, grade, phone, salary, jobtitle, duties, country, what) {
 		this.historytype = historytype;
 		this.id = id
 		this.entity = entity;
@@ -157,7 +159,7 @@ class History {
 		this.datefrom = datefrom;
 		this.dateto = dateto;
 		this.applicantsid = applicantsid;
-		this.major = major;
+		this.grade = grade;
 		this.phone = phone;
 		this.salary = salary;
 		this.jobtitle = jobtitle;
@@ -299,7 +301,8 @@ function fillEmpDetail(data) {
 		data.zip, data.country, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.pptype, data.ppcountry, data.ppnumber, data.pplocation, data.ppdateissue, data.ppdatedue,
-		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.legalissues, data.farmwork);
+		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.legalissues, data.farmwork,
+		data.whatknowvisa, data.notes);
 	if(data.ds160 != undefined){
 		currappl.ds160.id = data.ds160.id
 		currappl.ds160.marriage = data.ds160.marriage
@@ -474,13 +477,14 @@ function resetNewApp(){
 		document.getElementById("lift25to40no").checked = true;
 	}
 
-	//document.getElementById("whatknowvisa").value = currappl.whatknowvisa;
+	document.getElementById("whatknowvisa").value = currappl.whatknowvisa;
 	//document.getElementById("howhearcita").value = currappl.howhearcita;
 	//document.getElementById("otherhelp").value = currappl.otherhelp;
 	//document.getElementById("whatknowcita").value = currappl.whatknowcita;
 	document.getElementById("license").value = currappl.license
 	document.getElementById("usresidency").value = currappl.deported
 	document.getElementById("legalissues").value = currappl.crimes;
+	document.getElementById("notes").value = currappl.notes;
     if(currappl.ds160.marriage != undefined){
 		document.getElementById("ds160id").value = currappl.ds160.id;
 		document.getElementById("marriagedetails").value = currappl.ds160.marriage;
@@ -544,7 +548,7 @@ function clearNewApp(){
 	document.getElementById("healthTab").innerHTML = "<tr><th class='namehead'>Health Issue</th><th class='namehead'>Treatment</th></tr>";
 	document.getElementById("jobsTab").innerHTML = "<tr><th class='tabcolumn'>Employer</th></tr>";
 	document.getElementById("schoolsTab").innerHTML = "<tr><th class='tabcolumn'>Schools</th></tr>";
-	//document.getElementById("whatknowvisa").value = ""; 
+	document.getElementById("whatknowvisa").value = ""; 
 	//document.getElementById("howhearcita").value = ""; 
 	//document.getElementById("otherhelp").value = ""; 
 	//document.getElementById("whatknowcita").value = ""; 
@@ -559,11 +563,12 @@ function clearNewApp(){
 	document.getElementById("visaissues").value = "";
 	document.getElementById("visarefused").value = "";
 	document.getElementById("farmwork").value = "";
+	document.getElementById("notes").value = "";
 	document.getElementById("usresidency").value= "";
 	document.getElementById("marriagedetails").value = "";
 	document.getElementById("nationality").value = "";
 	document.getElementById("othernations").value = "";
-	document.getElementById("otherresident").value = "";
+	///document.getElementById("otherresident").value = "";
 	document.getElementById("nationid").value = "";
 	document.getElementById("ssn").value = "";
 	document.getElementById("othercontact").value = "";
@@ -672,7 +677,8 @@ function showJobs(row){
 	document.getElementById("jcity").value = currappl.jobs[i].city;
 	document.getElementById("jstate").value = currappl.jobs[i].state;
 	document.getElementById("jzip").value = currappl.jobs[i].zip;
-	document.getElementById("supervisor").value = currappl.jobs[i].supervisor;
+	document.getElementById("jcountry").value = currappl.jobs[i].country;
+	document.getElementById("whatwork").value = currappl.jobs[i].what;
 	document.getElementById("jobtitle").value = currappl.jobs[i].jobtitle;
 	document.getElementById("jdatefrom").value = currappl.jobs[i].datefrom;
 	document.getElementById("jdateto").value = currappl.jobs[i].dateto;
@@ -691,7 +697,7 @@ function showSchool(row){
 	}
 	document.getElementById("scid").value = currappl.school[i].id
 	document.getElementById("school").value = currappl.school[i].entity;
-	document.getElementById("major").value = currappl.school[i].major;
+	document.getElementById("grade").value = currappl.school[i].grade;
 	document.getElementById("saddress").value = currappl.school[i].address;
 	document.getElementById("saddress2").value = currappl.school[i].address2;
 	document.getElementById("scity").value = currappl.school[i].city;
@@ -816,7 +822,7 @@ function clearHealth(){
 function clearSchool(){
 	document.getElementById("scid").value = "";
 	document.getElementById("school").value = "";
-	document.getElementById("major").value = "";
+	document.getElementById("grade").value = "";
 	document.getElementById("saddress").value = "";
 	document.getElementById("saddress2").value = "";
 	document.getElementById("scity").value = "";
