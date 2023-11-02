@@ -114,20 +114,6 @@
 				<table id="visainfo">
 				<tr>
 				<td>
-				<label for="ustravel">US Travel:</label>
-				</td><td>
-				<textarea type="text" id="ustravel" name="ustravel" rows="3" cols="19"></textarea>
-				</td>
-				</tr><tr>
-				<td>
-				<label for="license">Driver license:</label>
-				</td><td>
-				<textarea type="text" id="license" name="license" rows="2" cols="19"></textarea>
-				</td>
-				</tr>
-				
-				<tr>
-				<td>
 				<label for="nationality">Nationality:</label>
 				</td><td>
 				<input type="text" id="nationality" name="nationality" class="ds160">
@@ -138,13 +124,15 @@
 				</td><td>
 				<input type="text" id="othernations" name="othernations" class="ds160">
 				</td>
-				</tr><tr>
+				</tr>
+				<!--<tr>
 				<td>
 				<label for="otherresident">Other resident:</label>
 				</td><td>
 				<input type="text" id="otherresident" name="otherresident" class="ds160">
 				</td>
-				</tr><tr>
+				</tr>-->
+				<tr>
 				<td>
 				<label for="nationid">Nation Id:</label>
 				</td><td>
@@ -159,11 +147,43 @@
 				</tr>
 				<tr>
 					<td>
-					<label for="farmwork">Past work:</label>
+					<label for="ppnumber">Passport #:</label>
 					</td><td>
-					<textarea type="text" id="farmwork" name="farmwork" rows="3" cols="19"></textarea>
+					<input type="text" id="ppnumber" name="ppnumber">
+					</td>
+					</tr><tr>
+						<td>
+						<label for="ppcountry">Type/Country:</label>
+						</td><td>
+							<input type="text" id="pptype" name="pptype">
+							<input type="text" id="ppcountry" name="ppcountry">
+						</td>
+						</tr><tr>
+					<td>
+					<label for="ppcity">Pp Location:</label>
+					</td><td>
+					<input type="text" id="ppcity" name="ppcity">
+					</td>
+					</tr><tr>
+					<td>
+					<label for="ppdateissue">Pp Date Issue:</label>
+					</td><td>
+					<input type="text" id="ppdateissue" name="ppdateissue">
+					</td>
+					</tr><tr>
+					<td>
+					<label for="ppdatedue">Pp Date Due:</label>
+					</td><td>
+					<input type="text" id="ppdatedue" name="ppdatedue" class="ds160">
 					</td>
 				</tr><tr>
+					<td>
+					<label for="ppissues">Pp Issues:</label>
+					</td><td>
+					<input type="text" id="ppissues" name="ppissues" class="ds160">
+					</td>
+				</tr>
+				<tr>
 				<td>
 				<label for="visas">Visas:</label>
 				</td><td>
@@ -193,13 +213,13 @@
 				<table id="contactinfo">
 				<tr>
 				<td>
-				<label for="cphone">Cellphone:</label>
+				<label for="cphone">Cell phone:</label>
 				</td><td>
 				<input type="text" id="cphone" name="cphone">
 				</td>
 				</tr><tr>				
 				<td>
-				<label for="hphone">Home phone:</label>
+				<label for="hphone">Other phone:</label>
 				</td><td>
 				<input type="text" id="hphone" name="hphone">
 				</td>
@@ -234,16 +254,22 @@
 				<input type="text" id="zip" name="zip">
 				</td>
 				</tr><tr>
+					<td>
+					<label for="country">Country:</label>
+					</td><td>
+					<input type="text" id="country" name="country">
+					</td>
+				</tr><tr>
+					<td>
+					<label for="mailaddress">Mail address:</label>
+					</td><td>
+					<textarea id="mailaddress" name="mailaddress" rows="3" cols="19" class="ds160"></textarea>
+					</td>
+					</tr><tr>
 				<td>
 				<label for="email">Email:</label>
 				</td><td>
 				<input type="text" id="email" name="email">
-				</td>
-				</tr><tr>
-				<td>
-				<label for="othercontact">Other Contact:</label>
-				</td><td>
-				<textarea id="othercontact" name="othercontact" rows="2" cols="19" class="ds160"></textarea>
 				</td>
 				</tr><tr class="ds160">
 				<td>
@@ -251,51 +277,21 @@
 				</td><td>
 				<textarea id="socialmedia" name="socialmedia" rows="2" cols="19"class="ds160"></textarea>
 				</td>
-				</tr>
-				<tr>
-				<td>
-				<label for="ppnumber">Passport #:</label>
-				</td><td>
-				<input type="text" id="ppnumber" name="ppnumber">
-				</td>
-				</tr><tr>
-				<td>
-				<label for="ppcity">Passport City:</label>
-				</td><td>
-				<input type="text" id="ppcity" name="ppcity">
-				</td>
-				</tr><tr>
-				<td>
-				<label for="ppstate">Pp State:</label>
-				</td><td>
-				<input type="text" id="ppstate" name="ppstate">
-				</td>
-				</tr><tr>
-				<td>
-				<label for="ppdateissue">Pp Date Issue:</label>
-				</td><td>
-				<input type="text" id="ppdateissue" name="ppdateissue">
-				</td>
-				</tr><tr>
-				<td>
-				<label for="ppdatedue">Pp Date Due:</label>
-				</td><td>
-				<input type="text" id="ppdatedue" name="ppdatedue" class="ds160">
-				</td>
 				</tr><tr>
 					<td>
-					<label for="ppissues">Pp Issues:</label>
+					<label for="othercontact">Other Contact:</label>
 					</td><td>
-					<input type="text" id="ppissues" name="ppissues" class="ds160">
+					<textarea id="othercontact" name="othercontact" rows="4" cols="19" class="ds160"></textarea>
 					</td>
-					</tr>
+				</tr>
+				
 				</table>
 			</div>
 			<div class="newappdiv maindivs"> 
 					<button type="button" onclick="showInfoTab(0)" class="tabbutton" id="workinfo">Work Info</button>
 					<button type="button" onclick="showInfoTab(1)" class="tabbutton" id="DS-160">DS-160 Info</button>
 				<table id="mainform2">
-					<tr>
+					<!--<tr>
 						<td>
 						<label for="age">Age:</label>
 						</td><td>
@@ -313,7 +309,29 @@
 						</td><td>
 						<input type="text" id="weight" name="weight">
 						</td>
-						</tr><tr>
+						</tr> -->
+						<tr>
+							<td>
+							<label for="ustravel">US Travel:</label>
+							</td><td>
+							<textarea type="text" id="ustravel" name="ustravel" rows="3" cols="19"></textarea>
+							</td>
+							</tr>
+						<tr>
+							<td>
+							<label for="license">Driver license:</label>
+							</td><td>
+							<textarea type="text" id="license" name="license" rows="2" cols="19"></textarea>
+							</td>
+						</tr>			
+						<tr>
+							<td>
+							<label for="farmwork">Past work:</label>
+							</td><td>
+							<textarea type="text" id="farmwork" name="farmwork" rows="4" cols="19"></textarea>
+							</td>
+						</tr>
+						<tr>
 						<td>
 						Lift 25 to 40 kilos:
 						</td><td>
@@ -381,21 +399,24 @@
 						<input type="text" id="whatarea" name="whatarea" value="">
 						</td>
 						</tr>
-					<tr>
+					<!-- <tr>
 					<td>
 					<label for="whatknowvisa">What do you know<br>about this Visa?</label></td><td>
 					<textarea id="whatknowvisa" name="whatknowvisa" rows="2" cols="19">
-					</textarea></td></tr><tr><td>
+					</textarea></td></tr>
+					<tr><td>
 					<label for="whatknowcita">What do you know<br>about Cita?</label></td><td>
 					<textarea id="whatknowcita" name="whatknowcita" rows="2" cols="19">
-					</textarea></td></tr><tr><td>
-					<label for="howhearcita">How did you hear<br>about Cita?</label></td><td>
+					</textarea></td></tr>
+					<tr><td>
+					<label for="howhearcita">How did you hear<br>about CITA?</label></td><td>
 					<textarea id="howhearcita" name="howhearcita" rows="2" cols="19">
-					</textarea></td></tr><tr><td>
+					</textarea></td></tr>
+					<tr><td>
 					<label for="otherhelp">Can we help you<br>with anything else?</label></td><td>
 					<textarea id="otherhelp" name="otherhelp" rows="2" cols="19">
 					</textarea></td>
-				</tr>
+					</tr> -->
 				</table>	
 				<div id="mainform3">
 					<table>
@@ -407,19 +428,19 @@
 					<table>
 					<tr>
 						<td>Father</td>
-						<td><textarea id="father" name="father" rows="3" cols="29"></textarea></td>
+						<td><textarea id="father" name="father" rows="2" cols="29"></textarea></td>
 					</tr>
 					<tr>
 						<td>Mother</td>
-						<td><textarea id="mother" name="mother" rows="3" cols="29"></textarea></td>
-					</tr>
-					<tr>
-						<td>Spouse</td>
-						<td><textarea id="spouse" name="spouse" rows="3" cols="29"></textarea></td>
+						<td><textarea id="mother" name="mother" rows="2" cols="29"></textarea></td>
 					</tr>
 					<tr>
 						<td>Relatives</td>
-						<td><textarea id="relatives" name="relatives" rows="3" cols="29"></textarea></td>
+						<td><textarea id="relatives" name="relatives" rows="2" cols="29"></textarea></td>
+					</tr>
+					<tr>
+						<td>Spouse</td>
+						<td><textarea id="spouse" name="spouse" rows="2" cols="29"></textarea></td>
 					</tr>
 					</table>
 	
@@ -549,7 +570,7 @@
 						<tr>
 							<td><label for="scountry">Country:</label></td>
 							<td><input type="text" name="scountry" id="scountry"></td>
-							<td rowspan="2"><label for="sdatefrom">Date From:</label>
+							<td rowspan="2"><label for="sdatefrom">From:</label>
 							<input type="date" id="sdatefrom" name="sdatefrom" class="ds160"><br>
 							<label for="sdateto">To:</label>
 							<input type="date" id="sdateto" name="sdateto" class="ds160"></td>
