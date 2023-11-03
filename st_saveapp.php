@@ -48,8 +48,8 @@ $datesigned = htmlspecialchars($_POST["datesigned"]);
 $signature = htmlspecialchars($_POST["signature"]);
 $status = "new";
 $ppnumber = htmlspecialchars($_POST["npass"]);
-$ppnumber = (trim($ppnumber) == "")? "ready:" . htmlspecialchars($_POST["readypass"]) : $ppnumber;
-$ppcity = htmlspecialchars($_POST["ppcity"]) . ", " .  $_POST["ppstate"] . ", " .  $_POST["ppgotcountry"]; 
+$ppnumber = ($_POST["readypass"] == "yes")? "ready:" . htmlspecialchars($_POST["readypass"]) : $ppnumber;
+$ppcity = htmlspecialchars($_POST["ppcity"]);// . ", " .  $_POST["ppstate"] . ", " .  $_POST["ppgotcountry"]; 
 $ppcountry = htmlspecialchars($_POST["ppcountry"]);
 $ppdateissue = htmlspecialchars($_POST["ppdateissue"]);
 $ppduedate = htmlspecialchars($_POST["ppduedate"]);
@@ -62,7 +62,7 @@ $deported = ($_POST["deport"] == "yes")? "Deported:" . $_POST["deportwhen"] . " 
 $deported .= ($_POST["detdeport"] == "yes")? " punished time:" . $_POST["howmuchtime"] . " reason:" . $_POST["whatreason"]: "";
 $visaissues = ($_POST["migrate"] == "yes")? "In migration(how long):" . $_POST["howlong"]: "";
 $visarefused =  ($_POST["denied"] == "yes")? "Type:" . $_POST["deniedtype"] . " Year:" . $_POST["deniedyear"] . 
-    " Reason:" . $_POST["deniedreason"] . " Times Applied:" . $_POST["timesapplied"] : "";
+    " Reason:" . $_POST["deniedreason"];// . " Times Applied:" . $_POST["timesapplied"] : "";
 $license = htmlspecialchars($_POST["driverlicensetype"]);
 
 $farmwork = ($_POST["historywork"] == "yes")? "Farm work:" . $_POST["manner"] . " Tourist Visa:" 
@@ -73,12 +73,13 @@ $farmwork .= ($_POST["otherworkus"] != "")? "Non-ag work:"
     . $_POST["otherworkus"] . "\\n": "";*/
 $farmwork .= (trim($_POST["othercompany"]) != "")? "Sponsor co:"
     . $_POST["othercompany"] . " Phone:" . $_POST["othercophone"]: "";
-$crimes = ($_POST["police"] == "yes")? "Police issue:" . $_POST ["policeproblem"] :"";
+$crimes = ""; //($_POST["police"] == "yes")? "Police issue:" . $_POST ["policeproblem"] :"";
 
 $ustravel = ($_POST["detention"] == "yes")? "Caught Crossing #Times:" . $_POST["detentiontimes"] . 
-        "\\nLast Time:" . $_POST["detentionlast"] . " Punished:" . $_POST["detentionpunish"] . 
-        "\\nLength:" . $_POST["detentiontime"] . " Completed:" . $_POST["completed"] . 
-        "\\nPardon:" . $_POST["pardon"] . " Reason:" . $_POST["telltruthdet"] . "\\n":"";
+        "\\nPunished:" . $_POST["detentionpunish"] . "\\nPardon:" . $_POST["pardon"];
+        //Last Time:" . $_POST["detentionlast"] . " 
+        //"\\nLength:" . $_POST["detentiontime"] . " Completed:" . $_POST["completed"] . 
+       // . " Reason:" . $_POST["telltruthdet"] . "\\n":"";
 $ustravel .= ($_POST["usdetention"] == "yes")? "Detained entering US:yes": "";
 if ($_POST["aware"] == "yes") {
     $whatknowvisa = "Knows it's a work visa. " . $whatknowvisa;
