@@ -378,9 +378,9 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
 
 <hr>
     &#191;Lo Han Detenido dentro de los Estados Unidos?
-    <div class="inline"><input type="radio" name="usdetention" id="usdetention" value="yes">
+    <div class="inline"><input type="radio" name="usdetention" id="usdetention" value="yes" onclick="showOption(this)">
     <label for="usadententionno">Si</label><br>
-    <input type="radio" name="usdetention" value="No" id="usadententionno" checked="true">
+    <input type="radio" name="usdetention" value="No" id="usadententionno" checked="true" onclick="hideOption(this)">
     <label for="usadententionno">No</label><br>
     </div>
     <div class="options" id="usdetentionoptions">
@@ -433,7 +433,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
 <hr>
 
 <hr>
-    &#191;Esta Trabajando con visa H2A, Actualmente?
+    &#191;Esta&#769; trabajando actualmente con Visa H2a? 
     <div class="inline"><input type="radio" name="hish2a" id="hish2a" value="yes" onclick="showOption(this)">
     <label for="hish2ano">Si</label><br>
     <input type="radio" name="hish2a" value="No" id="hish2ano" checked="true" onclick="hideOption(this)">
@@ -469,12 +469,13 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
     <label for="mannerno">Legal</label><br>
     <input type="radio" name="manner" value="No" id="mannerno" checked="true">
     <label for="mannerno">Ilegal</label><br>
-
-    Trabajo con su visa de Turista
-    <input type="radio" name="touristvisa" value="yes" id="touristvisa">
+    </div>
+    &#191;Trabajo con su Visa de Turista?
+    <input type="radio" name="touristvisa" value="yes" id="touristvisa" onclick="showOption(this)">
     <label for="touristvisano">Si</label><br>
-    <input type="radio" name="touristvisa" value="No" id="touristvisano" checked="true">
+    <input type="radio" name="touristvisa" value="No" id="touristvisano" checked="true" onclick="hideOption(this)">
     <label for="touristvisano">No</label><br>
+    <div class="options" id="touristvisaoptions">
 
     <!--<label for="lang">Menciones todos los cultivos en los que ha trabajado en Estados Unidos? (tipo
         de cosecha, ya sean verduras o Frutas)
@@ -492,14 +493,29 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
 <hr>
     -->
 <hr>
-    <label for="othercompany">Sabe de Alguna compan&#771;i&#769;a que lo quisiera contratar en Estados Unidos (Esta Pregunta es si usted conoce alguien o Alguna compan&#771;i&#769;a que lo quisiera contratar por medio de un Permiso H2a, que es una Visa de trabajo, es solo si la compan&#771;i&#769;a no contrata ya personal. Si la compan&#771;i&#769;a ya lleva H2A's No la mencione, ya que ellos ya saben el Proceso de Contratacio&#769;n y usted debe comunicarse con ellos.)?</label><br>
+    <label for="othercompany">Sabe de alguien o alguna compan&#771;i&#769;a que lo quisiera contratar en Estados Unidos con una visa H2A (solo si la compan&#771;i&#769;a no contrata aun personal con permisos de trabajo H2A) Si la empresa que lo quiere contratar ya realiza este proceso, no lo mencione ya que ellos ya saben el proceso de contratacio&#769;n y usted debe comunicarse con ellos.</label><br>
     <input id="othercompany" name="othercompany"><br>
     <label for="othercophone">numero de telephono</label>
     <input id="othercophone" name="othercophone"><br>
 <hr>
 
 <hr>
-    &#191;Tiene usted visa de Turista?
+    &#191;Sabe que esta Pre-solicitud  es para aplicar a una Visa H-2ª( Visa de trabajo temporal en los Estados Unidos)? 
+    <div class="inline"><input type="radio" name="aware" value="yes" id="aware" onclick="showOption(this)">
+    <label for="aware">Si</label><br>
+    <input type="radio" name="aware" value="No" id="awareno" checked="true" onclick="hideOption(this)">
+    <label for="awareno">No</label><br>
+    </div>
+
+    <div class="options" id="awareoptions">
+    <label for="whatknowvisa">&#191;En sus palabras que conoce sobre esta visa?</label><br>
+    <textarea type="text" id="whatknowvisa" name="whatknowvisa"  rows="4" cols="30"></textarea>
+    <br>
+</div>
+<hr>
+
+<hr>
+    &#191;Tiene visa de Turista?
     <div class="inline"><input type="radio" name="visa" id="visa" value="yes">
     <label for="visano">Si</label><br>
     <input type="radio" name="visa" value="No" id="visano" checked="true">
@@ -508,13 +524,16 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
 <hr>
 
 <hr>
-    &#191;Esta en Tramites de Migracion?
+    &#191;Tiene algún trámite migratorio en proceso?
     <div class="inline"><input type="radio" name="migrate" id="migrate" value="yes" onclick="showOption(this)">
     <label for="migrateno">Si</label><br>
     <input type="radio" name="migrate" value="No" id="migrateno" checked="true" onclick="hideOption(this)">
     <label for="migrateno">No</label><br>
     </div>
     <div class="options" id="migrateoptions">
+    <label for="migratetype">De que tipo:</label><br>
+    <input type="text" id="migratetype" name="migratetype"><br>
+
     <label for="howlong">Desde hace cuanto tiempo?</label><br>
     <input type="text" id="howlong" name="howlong"><br>
     </div>
@@ -522,11 +541,11 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
  
 
  <hr>
-    &#191;En que estado o ciudad en especifico le gustaria trabajar? O cualquier lugar?
+    &#191;En qué Ciudad y/o Estado le gustaría trabajar?
     <div class="inline"><input type="radio" name="specificarea" id="specificarea" value="1" onclick="showOption(this)">
     <label for="specificareano">Lugar especifico</label><br>
     <input type="radio" name="specificarea" id="specificareano" value="0" checked="true" onclick="hideOption(this)">
-    <label for="specificareano">No importa el Lugar o distancia</label><br>
+    <label for="specificareano">No importa Lugar</label><br>
     </div>
     <div class="options" id="specificareaoptions">
     <label for="whatarea">Que lugar en especifico?</label><br>
@@ -535,7 +554,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
 <hr>
 
 <hr>
-    &#191;Esta Disponible, quedarse el tiempo del contrato sin Venir a Mexico, con duracion de hasta 8 Meses?
+    &#191;Está dispuesto a permanecer el tiempo que dure el contrato (hasta 8 meses) en los Estados Unidos sin salir a su lugar de origen? 
     <div class="inline"><input type="radio" name="stay8mo" id="mexico" value="1">
     <label for="mexicono">Si</label><br>
     <input type="radio" name="stay8mo" id="mexicono" value="0" checked="true">
@@ -544,7 +563,21 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
 <hr>
 
 <hr>
-    &#191;Esta disponible trabajar horas extras y fines de semana cuando sea necesario?
+&#191;Está dispuesto para una posible extensión de Contrato? 
+<div class="inline"><input type="radio" name="extend" id="extension" value="1">
+<label for="noextension">Si</label><br>
+<input type="radio" name="extend" value="0" id="noextension" checked="true"> 
+<label for="noextension">No</label><br>
+</div>
+<!--
+<div class="options" id="noextensionoptions">
+<label for="extendwhynot">Motivos por el cual no?</label><br>
+<input type="text" id="extendwhynot" name="extendwhynot"><br>
+</div>
+<hr>
+-->
+<hr>
+    &#191;Está dispuesto a trabajar horas extras y fines de semana de ser necesario?
     <div class="inline"><input type="radio" name="overtime" id="hours" value="1">
     <label for="hoursno">Si</label><br>
     <input type="radio" name="overtime" id="hoursno" value="0" checked="true">
@@ -553,24 +586,25 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
 <hr>
 
 <hr>
-    &#191;Esta disponible a una posible extension de Contrato?
-    <div class="inline"><input type="radio" name="extend" id="extension" value="1" onclick="hideOption(this)">
-    <label for="noextension">Si</label><br>
-    <input type="radio" name="extend" value="0" id="noextension" checked="true" onclick="showOption(this)"> 
-    <label for="noextension">No</label><br>
-    </div>
-    <div class="options" id="noextensionoptions">
-    <label for="extendwhynot">Motivos por el cual no?</label><br>
-    <input type="text" id="extendwhynot" name="extendwhynot"><br>
-</div>
-<hr>
-
-<hr>
-    &#191;Puede Levantar de 25 Kilos a 40?
+    &#191;Puede Levantar de 25 a 40 Kilos?
     <div class="inline"><input type="radio" name="kilos" id="kilos" value="1">
     <label for="kilosno">Si</label><br>
     <input type="radio" name="kilos" id="kilosno" value="0" checked="true">
     <label for="kilosno">No</label><br>
+    </div>
+<hr>
+
+<hr>
+    &#191;Tiene alguna inhabilidad (Discapacidad) que le causa problema en el trabajo?
+    <div class="inline"><input type="radio" name="disability" id="disability" value="yes" onclick="showOption(this)">
+    <label for="disabilityno">Si</label><br>
+    <input type="radio" name="disability" id="disabilityno" value="No" checked="true" onclick="hideOption(this)">
+    <label for="disabilityno">No</label><br>
+    </div>
+
+    <div class="options" id="disabilityoptions">
+    <label for="disabilityexp">Explique:</label><br>
+    <input type="text" id="disabilityexp" name="disabilityexp"><br>
     </div>
 <hr>
 
@@ -584,7 +618,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
 <hr>
 
 <hr>
-    &#191;Alguna vez ha Sufrido de Alguna Fractura en la espalda, Pierna O Brazo?
+    &#191;Alguna vez ha sufrido de alguna fractura en la espalda, Pierna O Brazo?
     <div class="inline"><input type="radio" name="injury" id="injury" value="yes" onclick="showOption(this)">
     <label for="injuryno">Si</label><br>
     <input type="radio" name="injury" id="injuryno" value="No" checked="true" onclick="hideOption(this)">
@@ -592,41 +626,13 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
     </div>
 
     <div class="options" id="injuryoptions">
-    <label for="injurytype">Que Tipo de Fractua Y donde?</label><br>
+    <label for="injurytype">Que Tipo de Fractua?</label><br>
     <input type="text" id="injurytype" name="injurytype"><br>
     </div>
 <hr>
 
 <hr>
-    &#191;Tiene alguna inhabilidad (Discapacidad) que le causa problema en el trabajo?
-    <div class="inline"><input type="radio" name="disability" id="disability" value="yes" onclick="showOption(this)">
-    <label for="disabilityno">Si</label><br>
-    <input type="radio" name="disability" id="disabilityno" value="No" checked="true" onclick="hideOption(this)">
-    <label for="disabilityno">No</label><br>
-    </div>
-
-    <div class="options" id="disabilityoptions">
-    <label for="disabilityexp">Al contestar si, por favor explique su inhabilidad (Discapacidad)</label><br>
-    <input type="text" id="disabilityexp" name="disabilityexp"><br>
-    </div>
-<hr>
-
-<hr>
-    &#191;Es Usted Diabetico?
-    <div class="inline"><input type="radio" name="diabetic" id="diabetic" value="yes" onclick="showOption(this)">
-    <label for="diabeticno">Si</label><br>
-    <input type="radio" name="diabetic" id="diabeticno" value="No" checked="true" onclick="hideOption(this)">
-    <label for="diabeticno">No</label><br>
-    </div>
-
-    <div class="options" id="diabeticoptions">
-    <label for="diabeticmed">Usa medicamento?</label><br>
-    <input type="text" id="diabeticmed" name="diabeticmed"><br>
-    </div>
-<hr>
-
-<hr>
-    &#191;Sufre usted de Asma?
+    &#191;Padece Asma? 
     <div class="inline"><input type="radio" name="asma" id="asma" value="yes" onclick="showOption(this)">
     <label for="asmano">Si</label><br>
     <input type="radio" name="asma" id="asmano" value="No" checked="true" onclick="hideOption(this)">
@@ -634,13 +640,27 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
     </div>
 
     <div class="options" id="asmaoptions">
-    <label for="asthmamed">Se lo esta Tratando?</label><br>
+    <label for="asthmamed">Tratamiento que utiliza</label><br>
     <input type="text" id="asthmamed" name="asthmamed"><br>
     </div>
 <hr>
 
 <hr>
-    &#191;Problemas del Corazon?
+    &#191;Es Usted diabético? 
+    <div class="inline"><input type="radio" name="diabetic" id="diabetic" value="yes" onclick="showOption(this)">
+    <label for="diabeticno">Si</label><br>
+    <input type="radio" name="diabetic" id="diabeticno" value="No" checked="true" onclick="hideOption(this)">
+    <label for="diabeticno">No</label><br>
+    </div>
+
+    <div class="options" id="diabeticoptions">
+    <label for="diabeticmed">Tratamiento que utiliza</label><br>
+    <input type="text" id="diabeticmed" name="diabeticmed"><br>
+    </div>
+<hr>
+
+<hr>
+    &#191;Problemas del corazo&#769;n?
     <div class="inline"><input type="radio" name="heart" id="heart" value="yes" onclick="showOption(this)">
     <label for="heartno">Si</label><br>
     <input type="radio" name="heart" value="No" id="heartno" checked="true" onclick="hideOption(this)">
@@ -648,13 +668,13 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
     </div>
 
     <div class="options" id="heartoptions">
-    <label for="heartmed">Usa Medicamento?</label><br>
+    <label for="heartmed">Tratamiento que utiliza</label><br>
     <input type="text" id="heartmed" name="heartmed"><br>
     </div>
 <hr>
 
 <hr>
-    &#191;Problemas con Alta presion?
+    &#191;Alta presio&#769;n? 
     <div class="inline"><input type="radio" name="pressure" id="pressure" value="yes" onclick="showOption(this)">
     <label for="pressureno">Si</label><br>
     <input type="radio" name="pressure" value="No" id="pressureno" checked="true" onclick="hideOption(this)">
@@ -662,26 +682,12 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
     </div>
 
     <div class="options" id="pressureoptions">
-    <label for="pressurecause">Que le Ocasiona el Problema de Presion?</label><br>
+    <label for="pressurecause">Tratamiento que utiliza</label><br>
     <input type="text" id="pressurecause" name="pressurecause"><br>
 </div>
 <hr>
 
-<hr>
-    &#191;Esta Usted enterado, que esta Pre-solicitud, es para aplicar para una Visa H-2A, 
-        que es una Visa de Trabajo?
-    <div class="inline"><input type="radio" name="aware" value="yes" id="aware" onclick="showOption(this)">
-    <label for="aware">Si</label><br>
-    <input type="radio" name="aware" value="No" id="awareno" checked="true" onclick="hideOption(this)">
-    <label for="awareno">No</label><br>
-    </div>
 
-    <div class="options" id="awareoptions">
-    <label for="whatknowvisa">&#191;En sus palabras que conoce sobre esta visa?</label><br>
-    <textarea type="text" id="whatknowvisa" name="whatknowvisa"  rows="4" cols="30"></textarea>
-    <br>
-</div>
-<hr>
 <!--
 <hr>
     <label for="howhearcita">&#191;Como se entero de CITA?</label><br>
@@ -709,6 +715,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
 
 <div class="tab" id="tab3">
     <h2 class="h1">Experiencia Laboral/Habilidades y Cultivos </h2>
+    En qué tipo de cultivo tiene experiencia?
 
         <hr>Acelga
         <div class="inline"><input type="radio" name="acelga" id="acelga" value="yes" onclick="showOption(this)">
@@ -719,7 +726,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="acelgaoptions">
         <label for="acelgaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="acelgaexp"><br>
-        <label for="acelgawhere">Donde lo Trabajo</label><br>
+        <label for="acelgawhere">Lugar de Trabajo</label><br>
         <input type="text" name="acelgawhere"><br>
         </div>
         <hr>
@@ -734,7 +741,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="alcachofaoptions">
         <label for="alcachofaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="alcachofaexp"><br>
-        <label for="alcachofawhere">Donde lo Trabajo</label><br>
+        <label for="alcachofawhere">Lugar de Trabajo</label><br>
         <input type="text" name="alcachofawhere"><br>
         </div>
         <hr>
@@ -748,7 +755,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="alfalfaoptions">
         <label for="alfalfaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="alfalfaexp"><br>
-        <label for="alfalfawhere">Donde lo Trabajo</label><br>
+        <label for="alfalfawhere">Lugar de Trabajo</label><br>
         <input type="text" name="alfalfawhere"><br>
         </div>
         <hr>
@@ -762,7 +769,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="ajooptions">
         <label for="ajoexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="ajoexp"><br>
-        <label for="ajowhere">Donde lo Trabajo</label><br>
+        <label for="ajowhere">Lugar de Trabajo</label><br>
         <input type="text" name="ajowhere"><br>
         </div>
         <hr>
@@ -776,7 +783,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="apiooptions">
         <label for="apioexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="apioexp"><br>
-        <label for="apiowhere">Donde lo Trabajo</label><br>
+        <label for="apiowhere">Lugar de Trabajo</label><br>
         <input type="text" name="apiowhere"><br>
         </div>
         <hr>
@@ -791,7 +798,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="arandanooptions">
         <label for="arandanoexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="arandanoexp"><br>
-        <label for="arandanowhere">Donde lo Trabajo</label><br>
+        <label for="arandanowhere">Lugar de Trabajo</label><br>
         <input type="text" name="arandanowhere"><br>
         </div>
         <hr>
@@ -806,7 +813,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="berenjenaoptions">
         <label for="berenjenaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="berenjenaexp"><br>
-        <label for="berenjenawhere">Donde lo Trabajo</label><br>
+        <label for="berenjenawhere">Lugar de Trabajo</label><br>
         <input type="text" name="berenjenawhere"><br>
         </div>
         <hr>
@@ -821,7 +828,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="betabeloptions">
         <label for="betabelexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="betabelexp"><br>
-        <label for="betabelwhere">Donde lo Trabajo</label><br>
+        <label for="betabelwhere">Lugar de Trabajo</label><br>
         <input type="text" name="betabelwhere"><br>
         </div>
         <hr>
@@ -836,7 +843,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="brocolioptions">
         <label for="brocoliexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="brocoliexp"><br>
-        <label for="brocoliwhere">Donde lo Trabajo</label><br>
+        <label for="brocoliwhere">Lugar de Trabajo</label><br>
         <input type="text" name="brocoliwhere"><br>
         </div>
         <hr>
@@ -851,7 +858,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="cacahuateoptions">
         <label for="cacahuateexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="cacahuateexp"><br>
-        <label for="cacahuatewhere">Donde lo Trabajo</label><br>
+        <label for="cacahuatewhere">Lugar de Trabajo</label><br>
         <input type="text" name="cacahuatewhere"><br>
         </div>
         <hr>
@@ -866,7 +873,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="cafeoptions">
         <label for="cafeexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="cafeexp"><br>
-        <label for="cafewhere">Donde lo Trabajo</label><br>
+        <label for="cafewhere">Lugar de Trabajo</label><br>
         <input type="text" name="cafewhere"><br>
         </div>
         <hr>
@@ -881,7 +888,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="calabazaoptions">
         <label for="calabazaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="calabazaexp"><br>
-        <label for="calabazawhere">Donde lo Trabajo</label><br>
+        <label for="calabazawhere">Lugar de Trabajo</label><br>
         <input type="text" name="calabazawhere"><br>
         </div>
         <hr>
@@ -896,7 +903,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="canaoptions">
         <label for="canaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="canaexp"><br>
-        <label for="canawhere">Donde lo Trabajo</label><br>
+        <label for="canawhere">Lugar de Trabajo</label><br>
         <input type="text" name="canawhere"><br>
         </div>
         <hr>
@@ -911,7 +918,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="cebollaoptions">
         <label for="cebollaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="cebollaexp"><br>
-        <label for="cebollawhere">Donde lo Trabajo</label><br>
+        <label for="cebollawhere">Lugar de Trabajo</label><br>
         <input type="text" name="cebollawhere"><br>
         </div>
         <hr>
@@ -926,7 +933,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="cerezaoptions">
         <label for="cerezaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="cerezaexp"><br>
-        <label for="cerezawhere">Donde lo Trabajo</label><br>
+        <label for="cerezawhere">Lugar de Trabajo</label><br>
         <input type="text" name="cerezawhere"><br>
         </div>
         <hr>
@@ -941,7 +948,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="chabacanooptions">
         <label for="chabacanoexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="chabacanoexp"><br>
-        <label for="chabacanowhere">Donde lo Trabajo</label><br>
+        <label for="chabacanowhere">Lugar de Trabajo</label><br>
         <input type="text" name="chabacanowhere"><br>
         </div>
         <hr>
@@ -956,7 +963,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="chicharooptions">
         <label for="chicharoexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="chicharoexp"><br>
-        <label for="chicharowhere">Donde lo Trabajo</label><br>
+        <label for="chicharowhere">Lugar de Trabajo</label><br>
         <input type="text" name="chicharowhere"><br>
         </div>
         <hr>
@@ -971,7 +978,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="coloptions">
         <label for="colexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="colexp"><br>
-        <label for="colwhere">Donde lo Trabajo</label><br>
+        <label for="colwhere">Lugar de Trabajo</label><br>
         <input type="text" name="colwhere"><br>
         </div>
         <hr>
@@ -986,7 +993,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="chileoptions">
         <label for="chileexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="chileexp"><br>
-        <label for="chilewhere">Donde lo Trabajo</label><br>
+        <label for="chilewhere">Lugar de Trabajo</label><br>
         <input type="text" name="chilewhere"><br>
         </div>
         <hr>
@@ -1001,7 +1008,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="cilantrooptions">
         <label for="cilantroexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="cilantroexp"><br>
-        <label for="cilantrowhere">Donde lo Trabajo</label><br>
+        <label for="cilantrowhere">Lugar de Trabajo</label><br>
         <input type="text" name="cilantrowhere"><br>
         </div>
         <hr>
@@ -1016,7 +1023,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="datiloptions">
         <label for="datilexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="datilexp"><br>
-        <label for="datilwhere">Donde lo Trabajo</label><br>
+        <label for="datilwhere">Lugar de Trabajo</label><br>
         <input type="text" name="datilwhere"><br>
 
         <input type="radio" name="ec" id="empacando" value="empacando">
@@ -1036,7 +1043,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="duraznooptions">
         <label for="duraznoexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="duraznoexp"><br>
-        <label for="duraznowhere">Donde lo Trabajo</label><br>
+        <label for="duraznowhere">Lugar de Trabajo</label><br>
         <input type="text" name="duraznowhere"><br>
         </div>
         <hr>
@@ -1051,7 +1058,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="ejoteoptions">
         <label for="ejoteexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="ejoteexp"><br>
-        <label for="ejotewhere">Donde lo Trabajo</label><br>
+        <label for="ejotewhere">Lugar de Trabajo</label><br>
         <input type="text" name="ejotewhere"><br>
         </div>
         <hr>
@@ -1066,7 +1073,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="eloteoptions">
         <label for="eloteexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="eloteexp"><br>
-        <label for="elotewhere">Donde lo Trabajo</label><br>
+        <label for="elotewhere">Lugar de Trabajo</label><br>
         <input type="text" name="elotewhere"><br>
         </div>
         <hr>
@@ -1081,7 +1088,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="espinacaoptions">
         <label for="espinacaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="espinacaexp"><br>
-        <label for="espinacawhere">Donde lo Trabajo</label><br>
+        <label for="espinacawhere">Lugar de Trabajo</label><br>
         <input type="text" name="espinacawhere"><br>
         </div>
         <hr>
@@ -1096,7 +1103,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="esparragooptions">
         <label for="esparragoexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="esparragoexp"><br>
-        <label for="esparragowhere">Donde lo Trabajo</label><br>
+        <label for="esparragowhere">Lugar de Trabajo</label><br>
         <input type="text" name="esparragowhere"><br>
         </div>
         <hr>
@@ -1111,7 +1118,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="fresaoptions">
         <label for="fresaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="fresaexp"><br>
-        <label for="fresawhere">Donde lo Trabajo</label><br>
+        <label for="fresawhere">Lugar de Trabajo</label><br>
         <input type="text" name="fresawhere"><br>
         </div>
         <hr>
@@ -1126,7 +1133,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="frijoloptions">
         <label for="frijolexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="frijolexp"><br>
-        <label for="frijolwhere">Donde lo Trabajo</label><br>
+        <label for="frijolwhere">Lugar de Trabajo</label><br>
         <input type="text" name="frijolwhere"><br>
         </div>
         <hr>
@@ -1141,7 +1148,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="habasoptions">
         <label for="habasexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="habasexp"><br>
-        <label for="habaswhere">Donde lo Trabajo</label><br>
+        <label for="habaswhere">Lugar de Trabajo</label><br>
         <input type="text" name="habaswhere"><br>
         </div>
         <hr>
@@ -1156,7 +1163,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="limonoptions">
         <label for="limonexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="limonexp"><br>
-        <label for="limonwhere">Donde lo Trabajo</label><br>
+        <label for="limonwhere">Lugar de Trabajo</label><br>
         <input type="text" name="limonwhere"><br>
         </div>
         <hr>
@@ -1171,7 +1178,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="lechugaoptions">
         <label for="lechugaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="lechugaexp"><br>
-        <label for="lechugawhere">Donde lo Trabajo</label><br>
+        <label for="lechugawhere">Lugar de Trabajo</label><br>
         <input type="text" name="lechugawhere"><br>
         <label for="lechugatype">Que tipo de Lechuga</label><br>
         <input type="text" name="lechugatype"><br>
@@ -1188,7 +1195,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="naranjaoptions">
         <label for="naranjaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="naranjaexp"><br>
-        <label for="naranjawhere">Donde lo Trabajo</label><br>
+        <label for="naranjawhere">Lugar de Trabajo</label><br>
         <input type="text" name="naranjawhere"><br>
         </div>
         <hr>
@@ -1203,7 +1210,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="manzanaoptions">
         <label for="manzanaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="manzanaexp"><br>
-        <label for="manzanawhere">Donde lo Trabajo</label><br>
+        <label for="manzanawhere">Lugar de Trabajo</label><br>
         <input type="text" name="manzanawhere"><br>
         </div>
         <hr>
@@ -1218,7 +1225,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="melonoptions">
         <label for="melonexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="melonexp"><br>
-        <label for="melonwhere">Donde lo Trabajo</label><br>
+        <label for="melonwhere">Lugar de Trabajo</label><br>
         <input type="text" name="melonwhere"><br>
         </div>
         <hr>
@@ -1233,7 +1240,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="papaoptions">
         <label for="papaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="papaexp"><br>
-        <label for="papawhere">Donde lo Trabajo</label><br>
+        <label for="papawhere">Lugar de Trabajo</label><br>
         <input type="text" name="papawhere"><br>
         </div>
         <hr>
@@ -1248,7 +1255,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="peraoptions">
         <label for="peraexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="peraexp"><br>
-        <label for="perawhere">Donde lo Trabajo</label><br>
+        <label for="perawhere">Lugar de Trabajo</label><br>
         <input type="text" name="perawhere"><br>
         </div>
         <hr>
@@ -1263,7 +1270,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="pinaoptions">
         <label for="pinaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="pinaexp"><br>
-        <label for="pinawhere">Donde lo Trabajo</label><br>
+        <label for="pinawhere">Lugar de Trabajo</label><br>
         <input type="text" name="pinawhere"><br>
         </div>
         <hr>
@@ -1278,7 +1285,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="pepinooptions">
         <label for="pepinoexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="pepinoexp"><br>
-        <label for="pepinowhere">Donde lo Trabajo</label><br>
+        <label for="pepinowhere">Lugar de Trabajo</label><br>
         <input type="text" name="pepinowhere"><br>
         </div>
         <hr>
@@ -1293,7 +1300,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="rabanooptions">
         <label for="rabanoexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="rabanoexp"><br>
-        <label for="rabanowhere">Donde lo Trabajo</label><br>
+        <label for="rabanowhere">Lugar de Trabajo</label><br>
         <input type="text" name="rabanowhere"><br>
         </div>
         <hr>
@@ -1308,7 +1315,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="repollooptions">
         <label for="repolloexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="repolloexp"><br>
-        <label for="repollowhere">Donde lo Trabajo</label><br>
+        <label for="repollowhere">Lugar de Trabajo</label><br>
         <input type="text" name="repollowhere"><br>
         </div>
         <hr>
@@ -1323,7 +1330,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="tomateoptions">
         <label for="tomateexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="tomateexp"><br>
-        <label for="tomatewhere">Donde lo Trabajo</label><br>
+        <label for="tomatewhere">Lugar de Trabajo</label><br>
         <input type="text" name="tomatewhere"><br>
         </div>
         <hr>
@@ -1338,7 +1345,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="tomatillooptions">
         <label for="tomatilloexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="tomatilloexp"><br>
-        <label for="tomatillowhere">Donde lo Trabajo</label><br>
+        <label for="tomatillowhere">Lugar de Trabajo</label><br>
         <input type="text" name="tomatillowhere"><br>
         </div>
         <hr>
@@ -1353,7 +1360,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="sandiaoptions">
         <label for="sandiaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="sandiaexp"><br>
-        <label for="sandiawhere">Donde lo Trabajo</label><br>
+        <label for="sandiawhere">Lugar de Trabajo</label><br>
         <input type="text" name="sandiawhere"><br>
         </div>
         <hr>
@@ -1368,7 +1375,7 @@ Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se
         <div class="options" id="zanahoriaoptions">
         <label for="zanahoriaexp">An&#769;os de Experiencia</label><br>
         <input type="number" name="zanahoriaexp"><br>
-        <label for="zanahoriawhere">Donde lo Trabajo</label><br>
+        <label for="zanahoriawhere">Lugar de Trabajo</label><br>
         <input type="text" name="zanahoriawhere"><br>
         </div>
         <hr>
