@@ -1,4 +1,5 @@
 getData(path + "st_getSkills.php", fillSkill);
+getData(path + "st_getComps.php", fillComp);
 var oldstats = document.getElementById("searchapp").innerHTML;
 var newstats = '<option value = "new">New</option><option value = "waiting">Waiting</option><option value = "rejected">Rejected</option>';
 var allstats = newstats + oldstats;

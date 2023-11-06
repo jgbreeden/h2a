@@ -329,14 +329,14 @@ function fillEmpDetail(data) {
 		currappl.ds160.confirmation = data.ds160.confirmation
 	}
 	let table = document.getElementById("skillsTab");
-	let contents = "<tr><th class='namehead'>Experience</th><th>Years</th><th class='namehead'>Where</th></tr>";
+	let contents = "<tr><th class='namehead'>Experience</th><th>Years</th><th class='medium'>Where</th></tr>";
 	for (let i = 0; i < data.skills.length; i++){
 		contents += "<tr onclick='showSkill(this)'><td class='id'>" + data.skills[i].exid + "</td><td>" + data.skills[i].skillenglish + "</td><td>"
 					+ data.skills[i].years + "</td><td>" + data.skills[i].location + "</td><td class='id'>" + data.skills[i].skillsid
 					+ "</td><td class='id'>" + data.skills[i].details + "</td></tr>";
 	}
 	let table2 = document.getElementById("abilityTab");
-	let contents2 = "<tr><th class='namehead'>Job Skill</th><th>Years</th><th class='namehead'>Where</th></tr>";
+	let contents2 = "<tr><th class='namehead'>Job Skill</th><th>Years</th><th class='medium'>Where</th></tr>";
 	for (let i = 0; i < data.ability.length; i++){
 		contents2 += "<tr onclick='showAbility2(this)'><td class='id'>" + data.ability[i].abid + "</td><td>" + data.ability[i].abeng + "</td><td>"
 					+ data.ability[i].years + "</td><td>" + data.ability[i].location
@@ -543,8 +543,8 @@ function clearNewApp(){
 	document.getElementById("lift25to40no").checked = false;
 	document.getElementById("maritalstatus").value = "";
 	document.getElementById("placeofbirth").value = "";
-	document.getElementById("skillsTab").innerHTML = "<tr><th class='namehead'>Experience</th><th>Years</th><th class='namehead'>Where</th></tr>";
-	document.getElementById("abilityTab").innerHTML = "<tr><th class='namehead'>Job skill</th><th>Years</th><th class='namehead'>Where</th></tr>";
+	document.getElementById("skillsTab").innerHTML = "<tr><th class='namehead'>Experience</th><th>Years</th><th class='medium'>Where</th></tr>";
+	document.getElementById("abilityTab").innerHTML = "<tr><th class='namehead'>Job skill</th><th>Years</th><th class='medium'>Where</th></tr>";
 	document.getElementById("healthTab").innerHTML = "<tr><th class='namehead'>Health Issue</th><th class='namehead'>Treatment</th></tr>";
 	document.getElementById("jobsTab").innerHTML = "<tr><th class='tabcolumn'>Employer</th></tr>";
 	document.getElementById("schoolsTab").innerHTML = "<tr><th class='tabcolumn'>Schools</th></tr>";
@@ -967,14 +967,18 @@ function getCompanies() {
 function fillComp(row) {
 	console.log(row);
 	let table = document.getElementById("companytab");
+	let list = document.getElementById("company");
 	let contents = "<tr><th>Company Name</th></tr>";
-	
+	let listcontents = "<option value=''></option>";
+
 	for (let i = 0; i < row.length; i++){
 		contents += "<tr onclick='getComp(this)'><td class='id'>"
 					+ row[i].id + "</td><td>" + row[i].company
 					+ "</td></tr>";
+		listcontents += "<option value='" + row[i].id  + "'>" + row[i].company + "</option>";
 	}
 	table.innerHTML = contents;
+	list.innerHTML = listcontents;
 	clearComp();
 }
 

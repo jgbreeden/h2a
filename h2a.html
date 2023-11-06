@@ -108,6 +108,14 @@
 					</select>
 					</td>
 					</tr>
+					<tr>
+						<td><label for="company">Company:</label></td>
+						<td>
+							<select id="company" name="company">
+								<option value=""></option>
+							</select>
+						</td>
+					</tr>
 				</table>
 					<button type="button" onclick="showContactTab(0)" class="tabbutton" id="contactbtn">Contact Info</button>
 					<button type="button" onclick="showContactTab(1)" class="tabbutton" id="visabtn">Nation/Visa</button>
@@ -266,7 +274,7 @@
 					</td>
 				</tr><tr>
 					<td>
-					<label for="mailaddress">Mail address:</label>
+					<label for="mailaddress">Mailing<br>address:</label>
 					</td><td>
 					<textarea id="mailaddress" name="mailaddress" rows="3" cols="19" class="ds160"></textarea>
 					</td>
@@ -280,7 +288,7 @@
 				<td>
 				<label for="socialmedia">Social Media: </label>
 				</td><td>
-				<textarea id="socialmedia" name="socialmedia" rows="2" cols="19"class="ds160"></textarea>
+				<textarea id="socialmedia" name="socialmedia" rows="3" cols="19"class="ds160"></textarea>
 				</td>
 				</tr><tr>
 					<td>
@@ -433,19 +441,19 @@
 					<table>
 					<tr>
 						<td><label for="groups">Father</label></td>
-						<td><textarea id="father" name="father" rows="2" cols="29"></textarea></td>
+						<td><textarea id="father" name="father" rows="2" cols="28"></textarea></td>
 					</tr>
 					<tr>
 						<td><label for="groups">Mother</label></td>
-						<td><textarea id="mother" name="mother" rows="2" cols="29"></textarea></td>
+						<td><textarea id="mother" name="mother" rows="2" cols="28"></textarea></td>
 					</tr>
 					<tr>
 						<td><label for="groups">Relatives</label></td>
-						<td><textarea id="relatives" name="relatives" rows="2" cols="29"></textarea></td>
+						<td><textarea id="relatives" name="relatives" rows="2" cols="28"></textarea></td>
 					</tr>
 					<tr>
 						<td><label for="groups">Spouse</label></td>
-						<td><textarea id="spouse" name="spouse" rows="2" cols="29"></textarea></td>
+						<td><textarea id="spouse" name="spouse" rows="2" cols="28"></textarea></td>
 					</tr>
 					</table>
 	
@@ -453,19 +461,19 @@
 				<table id="groupstab">
 					<tr><td>		
 					<label for="groups">Groups</label></td>
-					<td><textarea id="groups" name="groups" rows="2" cols="29"></textarea>
+					<td><textarea id="groups" name="groups" rows="2" cols="28"></textarea>
 					</td></tr>
 					<tr><td>
 					<label for="countries">Countries</label></td>
-					<td><textarea id="countries" name="countries" rows="2" cols="29"></textarea>
+					<td><textarea id="countries" name="countries" rows="2" cols="28"></textarea>
 					</td></tr>
 					<tr><td>
 					<label for="military">Military</label></td>
-					<td><textarea id="military" name="military" rows="2" cols="29"></textarea>
+					<td><textarea id="military" name="military" rows="2" cols="28"></textarea>
 					</td></tr>
 					<tr><td>
 					<label for="issues">Issues</label></td>
-					<td><textarea id="issues" name="issues" rows="2" cols="29"></textarea>
+					<td><textarea id="issues" name="issues" rows="2" cols="28"></textarea>
 					</td></tr>
 				</table>
 			</div>
@@ -473,13 +481,13 @@
 				<fieldset id="legal">
 					<legend>Legal and US residency:</legend>
 
-					<textarea id="legalissues" name="legalissues" rows="3" cols="33"></textarea>
+					<textarea id="legalissues" name="legalissues" rows="3" cols="31"></textarea>
 					<br>
-					<textarea id="usresidency" name="usresidency" rows="3" cols="33"></textarea>
+					<textarea id="usresidency" name="usresidency" rows="3" cols="31"></textarea>
 				</fieldset>
 				<fieldset>
 					<legend>Notes</legend>
-					<textarea id="notes" name="notes" rows="2" cols="33"></textarea>
+					<textarea id="notes" name="notes" rows="2" cols="31"></textarea>
 				</fieldset>
 				<div>
 					<button type="button" onclick="resetNewApp()">Cancel</button>
@@ -536,7 +544,7 @@
 							<td><input type="text" id="jphone" name="jphone" class="ds160">
 							<label for="duties">Duties:</label></td>
 							<td rowspan="2">
-							<textarea rows="2" columns="16" name="duties" id="duties" class="ds160"></textarea></td>
+							<textarea rows="2" cols="18" name="duties" id="duties" class="ds160"></textarea></td>
 							</td>
 						</tr>
 						<tr>
@@ -840,6 +848,30 @@
 				<button type="button" onclick="resetComp()">Cancel</button>
 				<button type="button" onclick="saveComp()">Save</button>
 			</form>
+			<div id="complinked" class="divborder">
+				Linked Applicants
+				<table id="complinkedtab">
+					<tr>
+						<th class="hide">id</th>
+						<th>..</th>
+						<th class="namehead">First Name</th>
+						<th class="namehead">Last Name</th>
+						<th>Status</th>
+					</tr>
+				</table>
+				<div id="companyassign" class="divborder">
+				Select applicants to create a new Assignment<br>
+				<label for="compassignstart">Start Date:</label>
+				<input id="compassignstart" name="compassignstart" type="date">
+				<br>
+				<label for="compassignend">End Date:</label>
+				<input id="compassignend" name="compassignend" type="date">
+				<br>
+				<input name="compassignappid" id="compassignappid" type="number" style="display:none">
+				<input style="display:none" name="compassignedby" value="0">
+				<br><button type="button" onclick="saveAssignment('comp')">Save Assignment</button>
+				</div>
+			</div>
 			<table id="compassigntab" class="lefty">
 				<tr>
 					<th>Assign Date</th>
@@ -848,8 +880,8 @@
 			</table>
 			<table id="compempstab">
 				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
+					<th class="namehead">First Name</th>
+					<th class="namehead">Last Name</th>
 					<th>Phone Number</th>
 				</tr>
 			</table>
@@ -889,7 +921,7 @@
 					</tr>
 				</table>
 
-				<table id="chooseskills2">
+				<table id="chooseskills2" class="lefty">
 					<tr>
 						<th>.  .</th>
 						<th>Desired skill</th>

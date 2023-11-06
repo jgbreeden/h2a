@@ -58,14 +58,14 @@ form {
 	border: 1px solid black;
 }
 
-.companydata{
-	float: left;
+#compassigntab, #compempstab {
+	margin-left: 10px;
 }
 
 .neededskills {
 	float: left;
 	border: 1px solid black;
-	width: 480px;
+	width: 495px;
 }
 
 .lefty{
@@ -120,13 +120,13 @@ form {
 input[type="text"] {
 	width: 150px;
 }
-#jstate, #sstate, #jobtitle, #jphone, #jsalary, #major, .namehead, #jwhat, #grade {
-	width: 100px;	
+#jstate, #sstate, #jobtitle, #jphone, #jwhat, #grade, .medium {
+	width: 98px;	
 }
 #jzip, #szip, #years, #years2, #salary {
 	width: 42px;
 }
-#jobsTab, #schoolsTab, .tabcolumn, #appconfirm {
+#jobsTab, #schoolsTab, .tabcolumn, #appconfirm, .namehead {
 	width: 120px;
 }
 #newappform, #empdiv {
@@ -139,7 +139,7 @@ input[type="text"] {
 fieldset {
 	padding-bottom: 2px;
 }
-#mainform2 {
+#mainform2, #complinkedtab {
 	margin-bottom: 10px;
 }
 #whatarea, #legal {
