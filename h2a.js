@@ -1023,7 +1023,7 @@ function fillCompDetail(data) {
 	comptable = document.getElementById("complinkedtab");
 	content = '<tr><th class="hide">id</th><th>..</th><th class="namehead">First Name</th><th class="namehead">Last Name</th><th>Status</th></tr>';
 	for (i = 0; i < data.applicants.length; i++) {
-		content += "<tr><td>" + data.applicants[i].id + "</td><td>" + data.applicants[i].firstname + "</td><td>" +
+		content += '<tr><td class="hide">' + data.applicants[i].id + '</td><td><input type="checkbox"></td><td>' + data.applicants[i].firstname + "</td><td>" +
 		data.applicants[i].lastname + "</td><td>" + data.applicants[i].status + "</td></tr>";
 	}
 	comptable.innerHTML = content; 
@@ -1081,6 +1081,20 @@ function showCompResult(data){
 	document.getElementById("compresult").classList.remove("fade");
 	setTimeout(function(){document.getElementById("compresult").style.visibility="hidden";}, 5000)
 	getCompanies();
+}
+
+function saveCompAssignment() {
+	rows = document.getElementById("complinkedtab").getElementsByTagName("tr");
+	if (rows.length == 1) {
+		alert("You need to have applicants selected before clicking assign.")
+		return
+	}
+	for (let i = 1; i < rows.length; i++) {
+		document.getElementById("compassignappid").value = rows[i].firstChild.innerText;
+		document.getElementById("compassigncomp").value = currcomp.id;
+		let formData = new FormData(document.getElementById("assignform"));
+		sendData(formData, path + "st_saveAssignment.php", showAssignResult)
+	}
 }
 
 // ................................................................................................................

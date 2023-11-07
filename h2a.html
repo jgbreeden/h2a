@@ -859,18 +859,21 @@
 						<th>Status</th>
 					</tr>
 				</table>
-				<div id="companyassign" class="divborder">
+				<form method="post" id="companyassign" class="divborder">
+					<input type="number" class="hide" name="assignappid" id="compassignappid">
+					<input type="number" class="hide" name="assigncomp" id="compassigncomp">
+					<input type="number" class="hide" name="assignedby" value="0">
 				Select applicants to create a new Assignment<br>
 				<label for="compassignstart">Start Date:</label>
-				<input id="compassignstart" name="compassignstart" type="date">
+				<input id="compassignstart" name="assignstart" type="date">
 				<br>
 				<label for="compassignend">End Date:</label>
-				<input id="compassignend" name="compassignend" type="date">
+				<input id="compassignend" name="assignend" type="date">
 				<br>
 				<input name="compassignappid" id="compassignappid" type="number" style="display:none">
 				<input style="display:none" name="compassignedby" value="0">
-				<br><button type="button" onclick="saveAssignment('comp')">Save Assignment</button>
-				</div>
+				<br><button type="button" onclick="saveCompAssignment()">Save Assignment</button>
+				</form>
 			</div>
 			<table id="compassigntab" class="lefty">
 				<tr>
