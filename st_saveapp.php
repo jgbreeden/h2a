@@ -31,7 +31,7 @@ $whatarea = htmlspecialchars($_POST["whatarea"]);
 $stay8mo = htmlspecialchars($_POST["stay8mo"]);
 $overtime = htmlspecialchars($_POST["overtime"]);
 $extend = htmlspecialchars($_POST["extend"]);
-$extendwhynot = htmlspecialchars($_POST["extendwhynot"]);
+//$extendwhynot = htmlspecialchars($_POST["extendwhynot"]);
 $dateofbirth = htmlspecialchars($_POST["dateofbirth"]);
 $email = htmlspecialchars($_POST["email"]);
 //$age = htmlspecialchars($_POST["age"]);
@@ -89,13 +89,13 @@ if ($_POST["aware"] == "yes") {
 
 $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, address2, city, 
     state, country, zipcode, gender, specificarea, 
-    whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, 
+    whatarea, stay8mo, overtime, extend, dateofbirth, 
     email, maritalstatus, placeofbirth, status, lift25to40, datesigned, signature, ppnumber, 
     pplocation, ppcountry, ppdateissue, ppdatedue, visas, visaissues, visarefused, license, deported, farmwork, ustravel, crimes) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, 
     $state, $country, $zipcode, $gender, $specificarea, 
-    $whatarea, $stay8mo, $overtime, $extend, $extendwhynot, $dateofbirth,
+    $whatarea, $stay8mo, $overtime, $extend, $dateofbirth,
     $email, $maritalstatus, $placeofbirth, $status, $kilos, $datesigned, $signature, $ppnumber, $pplocation, $ppcountry, 
     $ppdateissue, $ppduedate, $visas, $visaissues, $visarefused, $license, $deported, $farmwork, $ustravel, $crimes);
 $result = $stmt->execute();
@@ -180,7 +180,8 @@ if ($_POST["drive"] == "yes") array_push($skills, array("Conducir", $years, $_PO
 if ($_POST["mech"] == "yes") array_push($skills, array("Mecanica", $_POST["mechexp"], $_POST["mechwhere"], 
         "gas?". ((isset($_POST["mechgas"])) ? $_POST["mechgas"]: "no") . 
         "; diesel?". ((isset($_POST["mechdiesel"])) ? $_POST["mechdiesel"]: "no") . 
-        "; doc?". $_POST["mechdoc"]. ";" .$_POST["mechnodoc"]. ";" .$_POST["mechtype"]. ";"));
+        "; " .$_POST["mechtype"]. ";"));
+        //"; doc?". $_POST["mechdoc"]. ";" .$_POST["mechnodoc"]. 
 if ($_POST["welding"] == "yes") array_push($skills, array("Soldadura", $years, $_POST["weldingwhere"], $_POST["weldingwhat"], $_POST["weldingexp"]. "%"));
 if ($_POST["truck"] == "yes") array_push($skills, array("Troque y Tráiler", $years, $_POST["truckwhere"], $_POST["truckwhat"]));
 if ($_POST["tractor"] == "yes") array_push($skills, array("Tractor", $_POST["tractorexp"], $_POST["tractorwhere"], $_POST["tractorcargo"]));

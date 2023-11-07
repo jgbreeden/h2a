@@ -1020,6 +1020,14 @@ function fillCompDetail(data) {
 	}
 	comptable.innerHTML = content; 
 	document.getElementById("compempstab").innerHTML = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
+	comptable = document.getElementById("complinkedtab");
+	content = '<tr><th class="hide">id</th><th>..</th><th class="namehead">First Name</th><th class="namehead">Last Name</th><th>Status</th></tr>';
+	for (i = 0; i < data.applicants.length; i++) {
+		content += "<tr><td>" + data.applicants[i].id + "</td><td>" + data.applicants[i].firstname + "</td><td>" +
+		data.applicants[i].lastname + "</td><td>" + data.applicants[i].status + "</td></tr>";
+	}
+	comptable.innerHTML = content; 
+	
 }	
 function getAssigned(row) {
 	getCompData(path + "st_getCompAssignedEmps.php?id=" + document.getElementById("compid").value + "&startdate=" + row.firstChild.innerHTML, showAssigned);
@@ -1108,6 +1116,7 @@ function getMatchingEmps(){
 	let rows1a = document.getElementById("chooseskills1a").getElementsByTagName("tr");
 	let rows1b = document.getElementById("chooseskills1b").getElementsByTagName("tr");
 	let rows2 = document.getElementById("chooseskills2").getElementsByTagName("tr");
+	let stat = document.getElementById("assignstat").value;
 	let list = "~";
 	for (let i = 1; i < rows1a.length; i++){
 		if(rows1a[i].firstChild.firstChild.checked){
@@ -1125,7 +1134,8 @@ function getMatchingEmps(){
 		}
 	}
 	let fd = new FormData();
-	fd.append("status", list);
+	fd.append("skills", list);
+	fd.append("status", stat)
 	getData(path + "st_getEmpsBySkill.php", fillSim, fd);
 }
 

@@ -937,6 +937,18 @@
 				</table>
 			</div>
 			<div class="lefty tall">
+				<label for="assignstat">Show Status:</label>
+					<select id="assignstat" onchange="getMatchingEmps(this.value);">
+						<option value="new">New</option>
+						<option value="waiting">Waiting</option>
+						<option value="ready">Ready</option>
+						<option value="pending">Pending</option>
+						<option value="approved">Approved</option>
+						<option value="assigned">Assigned</option>
+						<option value="returning">Returning</option>
+						<option value="refused">Refused</option>
+						<option value="inactive">Inactive</option>
+					</select>
 				<b>Selected Applicants</b><br>
 				<table id="wanapptab" width="150" height="25">
 					<tr>
