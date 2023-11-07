@@ -127,6 +127,7 @@ function showOption(item){
 function agree1() {
     document.getElementById("cita").style.display = "none";
     document.getElementById("cita2").style.display = "block";
+    document.documentElement.scrollTop = 0;
 }
 
 function agree2() {

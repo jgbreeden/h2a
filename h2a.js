@@ -193,7 +193,7 @@ class History {
 	}
 }
 
-var currappl = new Applicant (0, "", "", "", "", "", "", "", "", "", "", "");
+var currappl = new Applicant (0, 0, "", "", "", "", "", "", "", "", "", "", "");
 var currskill = new Experience (0, "", 0, "", "", "", "", "produce");
 var currability = new Experience (0, "", 0, "", "", "", "", "ability");
 //var currdoc = new Issues (0, "", 0, "", "", "", "", "document");
@@ -298,7 +298,7 @@ function fillEmps(data) {
 }
 
 function fillEmpDetail(data) {
-	currappl = new Applicant(data.id, data.employeersid, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.address2, data.city, data.state,
+	currappl = new Applicant(data.id, data.employersid, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.address2, data.city, data.state,
 		data.zip, data.country, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.pptype, data.ppcountry, data.ppnumber, data.pplocation, data.ppdateissue, data.ppdatedue,
