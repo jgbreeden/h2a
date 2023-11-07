@@ -36,8 +36,20 @@
 		echo $comma . '{ "startdate": "' . $row["startdate"] . '", "count": "' . $row["count"]  . '"}';
 		$comma = ", ";
 	}
+	echo '], "applicants": [ ';
+
+	$query = "SELECT id, firstname, lastname, status FROM applicants" 
+		. " where employersid=?";
+	$stmt = $conn->prepare($query);
+	$stmt->bind_param("i", $_GET["id"]);
+	$stmt->execute();
+	$comma = "";
+	$results = $stmt->get_result();
+	while ($row = $results->fetch_assoc()) {
+		echo $comma . '{ "id": "' . $row["id"] . '", "firstname": "' . $row["firstname"]  . '", "lastname": "' 
+		.$row["lastname"] . '", "status": "' .$row["status"] . '"}';
+		$comma = ", ";
+	}
 	echo ']}';
-	//loop through rows, add skill fields
-	//end record
 	$conn->close();
 ?>
