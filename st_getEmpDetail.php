@@ -37,7 +37,7 @@
 		. $row["visaissues"] . '", "visarefused": "' . $row["visarefused"] . '", "license": "'
 		. $row["license"] . '", "deported": "' . $row["deported"] . '", "legalissues": "' 
 		. $row["crimes"] .  '", "ustravel": "' . $row["ustravel"] . '", "farmwork": "' 
-		. $row["farmwork"] . '", "notes": "' . $row["notes"] . '", "skills": [ '; 
+		. $row["farmwork"] . '", "employersid": "'  . $row["employersid"]. '", "notes": "' . $row["notes"] . '", "skills": [ '; 
 		$json = str_replace(chr(13), "", $json);
 		echo str_replace(chr(10), "\\n", $json);
 	if (! is_null( $row["skillenglish"])) {
