@@ -1112,6 +1112,7 @@ function getMatchingEmps(){
 	let rows1a = document.getElementById("chooseskills1a").getElementsByTagName("tr");
 	let rows1b = document.getElementById("chooseskills1b").getElementsByTagName("tr");
 	let rows2 = document.getElementById("chooseskills2").getElementsByTagName("tr");
+	let stat = document.getElementById("assignstat").value;
 	let list = "~";
 	for (let i = 1; i < rows1a.length; i++){
 		if(rows1a[i].firstChild.firstChild.checked){
@@ -1129,7 +1130,8 @@ function getMatchingEmps(){
 		}
 	}
 	let fd = new FormData();
-	fd.append("status", list);
+	fd.append("skills", list);
+	fd.append("status", stat)
 	getData(path + "st_getEmpsBySkill.php", fillSim, fd);
 }
 
