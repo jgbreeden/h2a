@@ -14,7 +14,7 @@
 			. "INNER JOIN experience ON applicants.id = experience.applicantsid "
 			. "INNER JOIN skills ON experience.skillsid = skills.id "
 			. "AND locate(skills.skillenglish, '" . $_POST["skills"] . "') > 0 "
-			. "WHERE applicants.status = 'approved'"
+			. "WHERE applicants.status = '". $_POST["status"] . "' "
 			. "union SELECT DISTINCT applicants.id, firstname, lastname FROM applicants "
 			. "INNER JOIN ability ON applicants.id = ability.applicantsid "
 			. "INNER JOIN skills as sk ON ability.skillsid = sk.id "
