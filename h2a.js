@@ -1,9 +1,10 @@
 class Applicant {
-	constructor(id, fname, lname, cphone, hphone, address, address2, city, state, zip, country, status, specificarea, 
+	constructor(id, employersid, fname, lname, cphone, hphone, address, address2, city, state, zip, country, status, specificarea, 
 		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, lift25to40,
 		maritalstatus, placeofbirth, pptype, ppcountry, ppnumber, pplocation, ppdateissue, ppdatedue,
 		visas, visaissues, visarefused, license, deported, ustravel, crimes, farmwork, whatknowvisa, notes) {
 		this.id = id
+		this.employersid = employersid;
 		this.firstName = fname;
 		this.lastName = lname;
 		this.cellphone = cphone;
@@ -297,7 +298,7 @@ function fillEmps(data) {
 }
 
 function fillEmpDetail(data) {
-	currappl = new Applicant(data.id, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.address2, data.city, data.state,
+	currappl = new Applicant(data.id, data.employeersid, data.firstname, data.lastname, data.cphone, data.hphone, data.address, data.address2, data.city, data.state,
 		data.zip, data.country, data.status, data.specificarea, data.whatarea, data.stay8mo, data.overtime, data.extend, data.extendwhynot,
 		data.dateofbirth, data.email, data.gender, data.lift25to40, data.maritalstatus, data.placeofbirth,
 		data.pptype, data.ppcountry, data.ppnumber, data.pplocation, data.ppdateissue, data.ppdatedue,
@@ -407,6 +408,7 @@ function fillEmpDetail(data) {
 }
 
 function resetNewApp(){
+	console.log(currappl.employersid)
 	document.getElementById("first").value = currappl.firstName;
 	document.getElementById("last").value = currappl.lastName;
 	document.getElementById("cphone").value = currappl.cellphone;
@@ -436,6 +438,7 @@ function resetNewApp(){
 	document.getElementById("ppdateissue").value = currappl.ppdateissue;
 	document.getElementById("ppdatedue").value = currappl.ppdatedue;
 	document.getElementById("farmwork").value = currappl.farmwork;
+	document.getElementById("company").value = currappl.employersid;
 	
 	if (currappl.gender == "male") {
 		document.getElementById("male").checked = true;
@@ -584,6 +587,7 @@ function clearNewApp(){
 	document.getElementById("legalissues").value = "";
 	document.getElementById("ustravel").value = "";
 	document.getElementById("appconfirm").value = "";
+	document.getElementById("company").value = "";
 
 	clearSkill();
 	clearAbility();
