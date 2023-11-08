@@ -4,12 +4,14 @@ require 'cred.php';
 $conn = new mysqli($host, $user, $password, $db);
 $new_assignstart = date('Y-m-d', strtotime(str_replace('/', '-', $_POST["assignstart"])));
 $new_assignend = date('Y-m-d', strtotime(str_replace('/', '-', $_POST["assignend"])));
-echo $new_assignstart;
+//echo $new_assignstart;
+$appid = (int)$_POST["assignappid"];
+$compid = (int)$_POST["assigncomp"];
 
 //save ability record
 $sql = "insert into assignments (applicantsid, employersid, startdate, enddate, assignedby) values (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("iisss", $_POST["assignappid"], $_POST["assigncomp"], $new_assignstart, $new_assignend, $_POST["assignedby"]);
+$stmt->bind_param("iisss", $appid, $compid, $new_assignstart, $new_assignend, $_POST["assignedby"]);
 $result = $stmt->execute();
 if ($result == 1) {
     echo "record saved";
@@ -20,7 +22,7 @@ if ($result == 1) {
 //update applicant record to status=assigned
 $sql = "UPDATE applicants SET status = 'assigned' WHERE id = ?;";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $_POST["assignappid"]);
+$stmt->bind_param("i", $appid);
 $result = $stmt->execute();
 
 

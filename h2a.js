@@ -1092,7 +1092,7 @@ function saveCompAssignment() {
 	for (let i = 1; i < rows.length; i++) {
 		document.getElementById("compassignappid").value = rows[i].firstChild.innerText;
 		document.getElementById("compassigncomp").value = currcomp.id;
-		let formData = new FormData(document.getElementById("assignform"));
+		let formData = new FormData(document.getElementById("companyassign"));
 		sendData(formData, path + "st_saveAssignment.php", showAssignResult)
 	}
 }
