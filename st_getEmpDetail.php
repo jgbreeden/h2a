@@ -41,12 +41,14 @@
 		$json = str_replace(chr(13), "", $json);
 		echo str_replace(chr(10), "\\n", $json);
 	if (! is_null( $row["skillenglish"])) {
-		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"] 
+		$years = ($row["years"] == "")? 0: $row["years"];
+		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $years
 			. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"] 
 			. ', "skillsid": ' . $row["skillsid"] . ', "details": "' . $row["details"] . '"}';
 	}
 	while ($row = $results->fetch_assoc()) {
-		echo ', { "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $row["years"]
+		$years = ($row["years"] == "")? 0: $row["years"];
+		echo ', { "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $years
 				. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"]
 				. ', "skillsid": ' . $row["skillsid"] . ', "details": "' . $row["details"] . '"}';
 	}
@@ -60,7 +62,8 @@
 	$comma = "";
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
-		echo $comma . '{ "abid": "' . $row["abid"] . '", "years": ' . $row["years"] . ', "location": "' 
+		$years = ($row["years"] == "")? 0: $row["years"];
+		echo $comma . '{ "abid": "' . $row["abid"] . '", "years": ' . $years . ', "location": "' 
 			. $row["location"] . '", "abeng": "' . $row["abeng"]
 			. '", "details": "' . $row["details"] . '", "skillsid": "' . $row["skillsid"] . '"}';
 		$comma = ", ";
@@ -148,7 +151,7 @@
 	while ($row = $results->fetch_assoc()) {	
 		$json .= $comma . '{ "id": ' . $row["id"] . ', "schoolname": "' . $row["schoolname"] . '",  "address": "' . $row["address"]
 			. '", "address2": "' . $row["address2"] . '", "city": "' . $row["city"] . '", "state": "' . $row["state"] 
-			. '", "zip": "' . $row["zip"] . '", "major": "' . $row["major"] . '", "datefrom": "' . $row["datefrom"] . '", "dateto": "'
+			. '", "zip": "' . $row["zip"] . '", "grade": "' . $row["grade"] . '", "datefrom": "' . $row["datefrom"] . '", "dateto": "'
 			. $row["dateto"] . '", "applicantsid": "' . $row["applicantsid"] . '"}';
 		$comma = ", ";
 	}
@@ -163,13 +166,13 @@
 	$results = $stmt->get_result();
 	if ($row = $results->fetch_assoc()) {
 		$json =  ', "ds160": {"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
-		. $row["nationality"] . '", "othernations": "' . $row["othernations"] . '", "otherresident": "' 
-		. $row["otherresident"] . '", "nationid": "' . $row["nationid"] . '", "ssn": "' . $row["ssn"] . '", "othercontact": "' 
-		. $row["othercontact"] . '", "socialmedia": "' . $row["socialmedia"] . '", "pploststolen": "' 
-		. $row["pploststolen"] . '", "father": "' . $row["fatherinfo"] . '", "mother": "' 
+		. $row["nationality"] . '", "othernations": "' . $row["othernations"] 
+		. '", "nationid": "' . $row["nationid"] . '", "ssn": "' . $row["ssn"] . '", "othercontact": "' 
+		. $row["othercontact"] . '", "socialmedia": "' . $row["socialmedia"]  
+		. '", "father": "' . $row["fatherinfo"] . '", "mother": "' 
 		. $row["motherinfo"] . '", "relatives": "' . $row["relatives"] . '", "spouse": "' 
 		. $row["spouse"] . '", "countries": "' . $row["countries"] . '", "groups": "' . $row["groups"] . '", "military": "' 
-		. $row["military"] . '", "confirmation": "' . $row["confirmation"] . '", "issues": "'
+		. $row["military"] . '", "confirmation": "' . $row["ds160id"] . '", "issues": "'
 		. $row["issues"] . '", "applicantsid": "' . $row["applicantsid"] . '"}';
 		$json = str_replace(chr(13), "", $json);
 		echo str_replace(chr(10), "\\n", $json);
