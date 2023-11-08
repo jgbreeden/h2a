@@ -1105,6 +1105,11 @@ function saveCompAssignment() {
 		sendData(formData, path + "st_saveAssignment.php", showCompResult);
 	}
 }
+function closeCompAssignment() {
+	//UPDATE assignments set end date where company and start date match
+	//UPDATE applicatans and set STATUS to returning per applicant
+
+}
 
 // ................................................................................................................
 // ................................................................................................................
