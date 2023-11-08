@@ -29,12 +29,12 @@
 		$message ="There was a problem saving the record, please try again.";
 	}
 	if ($_POST["ds160id"] != "") {
-		$sql = "UPDATE appds160 SET marriage = ?, nationality = ?, othernations = ?, otherresident = ?, nationid = ?, ssn = ?, othercontact = ?, socialmedia = ?,"
-			. "pploststolen = ?, fatherinfo = ?, motherinfo = ?, relatives = ?, spouse = ?, countries = ?, groups = ?, military = ?,"
-			. "issues = ?, confirmation = ?, applicantsid = ? WHERE id = ?;";
+		$sql = "UPDATE appds160 SET marriage = ?, nationality = ?, othernations = ?, nationid = ?, ssn = ?, othercontact = ?, socialmedia = ?,"
+			. "fatherinfo = ?, motherinfo = ?, relatives = ?, spouse = ?, countries = ?, groups = ?, military = ?,"
+			. "issues = ?, ds160id = ?, applicantsid = ? WHERE id = ?;";
 		$stmt = $conn->prepare($sql);
-		$stmt->bind_param("sssssssssssssssssssi", $_POST["marriage"], $_POST["nationality"], $_POST["othernations"], $_POST["otherresident"], $_POST["nationid"], 
-										$_POST["ssn"], $_POST["othercontact"], $_POST["socialmedia"], $_POST["pploststolen"], $_POST["father"], $_POST["mother"], $_POST["relatives"],
+		$stmt->bind_param("sssssssssssssssssi", $_POST["marriage"], $_POST["nationality"], $_POST["othernations"],  $_POST["nationid"], 
+										$_POST["ssn"], $_POST["othercontact"], $_POST["socialmedia"], $_POST["father"], $_POST["mother"], $_POST["relatives"],
 										$_POST["spouse"], $_POST["countries"], $_POST["groups"], $_POST["military"], $_POST["issues"], $_POST["appconfirm"], $_POST["id"],
 										$_POST["ds160id"]);
 		$result = $stmt->execute();

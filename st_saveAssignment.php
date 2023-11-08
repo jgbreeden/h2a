@@ -25,11 +25,16 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $appid);
 $result = $stmt->execute();
 
-
-
-
-
-
-
+$sql = "SELECT * FROM appds160 WHERE applicantsid = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $appid);
+$stmt->execute();
+$results = $stmt->get_result();
+if (!($row = $results->fetch_assoc())) {
+    $sql = "INSERT INTO h2a.appds160 (applicantsid) values(?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $appid);
+    $stmt->execute();
+}
 $conn->close();
 ?>
