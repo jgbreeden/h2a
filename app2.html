@@ -156,9 +156,9 @@
 
     <hr>Es la misma direccio&#769;n para la correspondencia?
 
-    <div class="inline"><input type="radio" name="mailaddress" id="mailaddress" value="yes" onclick="hideOption(this)">
+    <div class="inline"><input type="radio" name="mailaddress" id="mailaddress" value="yes" checked="true" onclick="hideOption(this)">
     <label for="usvisit">Si</label><br>
-    <input type="radio" name="mailaddress" id="mailaddressno" value="no" checked="true" onclick="showOption(this)">
+    <input type="radio" name="mailaddress" id="mailaddressno" value="no" onclick="showOption(this)">
     <label for="usvisitno">No</label><br>
     </div>
     <div class="options" id="nomailaddressoptions">
@@ -318,16 +318,16 @@
         <hr>
 
         <hr>&#191;Esta&#769; solicitando en el mismo pai&#769;s o ubicacio&#769;n donde se emitio&#769; la visa anterior y es este pai&#769;s o ubicacio&#769;n su lugar de residencia principal? 
-        <div class="inline"><input type="radio" name="lastvisa" id="lastvisa" value="yes" onclick="showOption(this)">
+        <div class="inline"><input type="radio" name="lastvisa" id="lastvisa" value="yes">
             <label for="lastvisa">Si</label><br>
-            <input type="radio" name="lastvisa" id="lastvisano" value="no" checked="true" onclick="hideOption(this)">
+            <input type="radio" name="lastvisa" id="lastvisano" value="no" checked="true">
             <label for="lastvisano">No</label><br>
         </div>
 
         <hr>&#191;Le tomaron las huellas dactilares:
-        <div class="inline"><input type="radio" name="print" id="print" value="yes" onclick="showOption(this)">
+        <div class="inline"><input type="radio" name="print" id="print" value="yes">
             <label for="print">Si</label><br>
-            <input type="radio" name="print" id="printno" value="no" checked="true" onclick="hideOption(this)">
+            <input type="radio" name="print" id="printno" value="no" checked="true">
             <label for="printno">No</label><br>
         </div>
         <hr>
@@ -518,7 +518,7 @@
                 <hr>
                 <label for="Sotheradd">&#191;La direccio&#769;n de su co&#769;nyuge es la misma de usted?</label><br>
 
-                <div class="inline"><input type="radio" name="Sotheradd" id="Sotheradd" value="yes" onclick="hideOption(this)">
+                <div class="inline"><input type="radio" name="Sotheradd" id="Sotheradd" value="yes" checked="true" onclick="hideOption(this)">
                 <label for="Sotheradd">Si</label><br>
                 <input type="radio" name="Sotheradd" id="Sotheraddno" value="no" checked="true" onclick="showOption(this)">
                 <label for="Sotheraddno">No</label><br>
@@ -636,7 +636,7 @@
             <input type="text" id="jsalary" name="jsalary[]" min="1" max="20"><br>
             <hr>
 
-            <button type="button" id="addJobBtn">Add Job</button>
+            <button type="button" id="addJobBtn">Agregar otro trabajo</button>
 
         </div>
 
@@ -692,16 +692,16 @@
             <hr>-->
 
             <hr>
-            <label for="scdatefrom">Fetcha de inico</label><br>
+            <label for="scdatefrom">Fecha inicial:</label><br>
             <input type="date" id="scdatefrom" name="scdatefrom[]" min="1" max="20"><br>
             <hr>
 
             <hr>
-            <label for="scdateto">fin de la iniciacio&#769;n</label><br>
+            <label for="scdateto">Fecha final:</label><br>
             <input type="date" id="scdateto" name="scdateto[]" min="1" max="20"><br>
             <hr>    
             
-            <button type="button" id="addSchoolBtn">Add School</button>
+            <button type="button" id="addSchoolBtn">Agregar otro grado</button>
         </div>    
         
 

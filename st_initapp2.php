@@ -27,7 +27,7 @@ if ($row = $results->fetch_assoc()) {
     . '", "license": "' . $row["license"] . '", "ppnumber": "' . $row["ppnumber"] . '", "placeofbirth": "'
     . $row["placeofbirth"] . '", "dateofbirth": "' . $row["dateofbirth"] . '", "email": "'
     . $row["email"] . '", "gender": "' . $row["gender"] . '", "ppcity": "'
-    . $row["ppcity"] . '", "ppdateissue": "' . $row["ppdateissue"] . '", "visas": "'
+    . $row["pplocation"] . '", "ppdateissue": "' . $row["ppdateissue"] . '", "visas": "'
     . $row["visas"] . '", "visaissues": "' . $row["visaissues"] . '", "visarefused": "'
     . $row["visarefused"] . '", "license": "' . $row["license"] . '", "ustravel": "'
     . $row["ustravel"] . '", "deported": "' . $row["deported"] . '", "farmwork": "'

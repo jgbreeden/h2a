@@ -490,7 +490,7 @@ function resetNewApp(){
 	document.getElementById("notes").value = currappl.notes;
     if(currappl.ds160.marriage != undefined){
 		document.getElementById("ds160id").value = currappl.ds160.id;
-		document.getElementById("marriagedetails").value = currappl.ds160.marriage;
+		//document.getElementById("marriagedetails").value = currappl.ds160.marriage;
 		document.getElementById("nationality").value = currappl.ds160.nationality;
 		document.getElementById("othernations").value = currappl.ds160.othernations;
 		document.getElementById("otherresident").value = currappl.ds160.otherresident;
@@ -568,7 +568,7 @@ function clearNewApp(){
 	document.getElementById("farmwork").value = "";
 	document.getElementById("notes").value = "";
 	document.getElementById("usresidency").value= "";
-	document.getElementById("marriagedetails").value = "";
+	//document.getElementById("marriagedetails").value = "";
 	document.getElementById("nationality").value = "";
 	document.getElementById("othernations").value = "";
 	///document.getElementById("otherresident").value = "";
@@ -929,7 +929,13 @@ function showContactTab(tab){
 	}
 }
 function createLink(){
-	alert("localhost/h2a/app2.html?id=" + currappl.id);
+	var msg;
+	msg = "localhost/h2a/app2.html?id=" + currappl.id;
+	//msg = "https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=" + currappl.id;
+	if (currappl.ds160.id != undefined) {
+		msg += "&r=1";
+	}
+	alert(msg);
 }
 // ................................................................................................................
 // ................................................................................................................
