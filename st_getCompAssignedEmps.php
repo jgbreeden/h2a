@@ -10,7 +10,7 @@ $date = date("Y/m/d", strtotime($_GET["startdate"]));
 
 $sql = "SELECT applicants.firstname, applicants.lastname, applicants.phonecell"
     . " FROM applicants INNER JOIN assignments ON applicants.id = assignments.applicantsid"
-    . " and employersid=? and startdate=?";
+    . " and assignments.employersid=? and startdate=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("is", $_GET["id"], $date);
 $stmt->execute();
