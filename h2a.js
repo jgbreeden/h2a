@@ -493,7 +493,7 @@ function resetNewApp(){
 		//document.getElementById("marriagedetails").value = currappl.ds160.marriage;
 		document.getElementById("nationality").value = currappl.ds160.nationality;
 		document.getElementById("othernations").value = currappl.ds160.othernations;
-		document.getElementById("otherresident").value = currappl.ds160.otherresident;
+		//document.getElementById("otherresident").value = currappl.ds160.otherresident;
 		document.getElementById("nationid").value = currappl.ds160.nationid;
 		document.getElementById("ssn").value = currappl.ds160.ssn;
 		document.getElementById("othercontact").value = currappl.ds160.othercontact;
