@@ -164,9 +164,21 @@ $issues .= ($_POST["publicSchool"] == "yes")?  "Public School: yes"  : "";
 //$issues .= ($_POST["citizenship"] == "yes")?  "citizenship:" . $_POST["citizenshipexp"]. "\\n" : "";
 //$issues .= ($_POST["military"] == "yes")?  "avoidmilitary:" . $_POST["militaryexp"]. "\\n" : "";
 
-$sql = "INSERT INTO h2a.appds160 (marriage,nationality,othernations,nationid,ssn,othercontact,"
-		."socialmedia,pptype,fatherinfo,motherinfo,relatives,spouse,countries,groups,military,issues,"
-		."applicantsid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+$sql = "SELECT * FROM appds160 WHERE applicantsid = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$results = $stmt->get_result();
+if ($row = $results->fetch_assoc()) {
+  $sql = "UPDATE appds160 SET marriage = ?,nationality = ?,othernations = ?,nationid = ?,ssn = ?,othercontact = ?,"
+  ."socialmedia = ?,pptype = ?,fatherinfo = ?,motherinfo = ?,relatives = ?,spouse = ?,countries = ?,groups = ?,military = ?,issues = ? "
+  ."WHERE applicantsid = ?";
+}
+else {
+  $sql = "INSERT INTO h2a.appds160 (marriage,nationality,othernations,nationid,ssn,othercontact,"
+	."socialmedia,pptype,fatherinfo,motherinfo,relatives,spouse,countries,groups,military,issues,"
+	."applicantsid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+}
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssssssssssssssssi", $marriage, $nationality, $othernations, $nationid, 

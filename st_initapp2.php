@@ -4,7 +4,7 @@ $conn = new mysqli($host, $user, $password, $db);
 if ($conn->connect_error) {
     die("Connect error: " . $conn->connect_error);
 }
-$sql = "SELECT * FROM appds160 WHERE applicantsid = ?";
+/*$sql = "SELECT * FROM appds160 WHERE applicantsid = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_GET["id"]);
 $stmt->execute();
@@ -13,6 +13,7 @@ if ($row = $results->fetch_assoc()) {
     $conn->close();
     die("completed");
 }
+*/
 $sql = "SELECT * FROM applicants WHERE applicants.id =?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_GET["id"]);
