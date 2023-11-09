@@ -163,6 +163,9 @@ $issues .= ($_POST["publicSchool"] == "yes")?  "Public School: yes"  : "";
 //$issues .= ($_POST["certification"] == "yes")?  "certification:" . $_POST["certificationexp"]. "\\n" : "";
 //$issues .= ($_POST["citizenship"] == "yes")?  "citizenship:" . $_POST["citizenshipexp"]. "\\n" : "";
 //$issues .= ($_POST["military"] == "yes")?  "avoidmilitary:" . $_POST["militaryexp"]. "\\n" : "";
+$fingerprints = $_POST["print"];
+$language = $_POST["language"];
+$language.= ($_POST["dialect"] != "")? " dialect:" .$_POST["dialect"]:"";
 
 $sql = "SELECT * FROM appds160 WHERE applicantsid = ?";
 $stmt = $conn->prepare($sql);
@@ -171,19 +174,21 @@ $stmt->execute();
 $results = $stmt->get_result();
 if ($row = $results->fetch_assoc()) {
   $sql = "UPDATE appds160 SET marriage = ?,nationality = ?,othernations = ?,nationid = ?,ssn = ?,othercontact = ?,"
-  ."socialmedia = ?,pptype = ?,fatherinfo = ?,motherinfo = ?,relatives = ?,spouse = ?,countries = ?,groups = ?,military = ?,issues = ? "
+  ."socialmedia = ?,pptype = ?,fatherinfo = ?,motherinfo = ?,relatives = ?,spouse = ?,countries = ?,groups = ?,military = ?,issues = ?,"
+  ."fingerprints = ?,language = ? "
   ."WHERE applicantsid = ?";
 }
 else {
   $sql = "INSERT INTO h2a.appds160 (marriage,nationality,othernations,nationid,ssn,othercontact,"
 	."socialmedia,pptype,fatherinfo,motherinfo,relatives,spouse,countries,groups,military,issues,"
-	."applicantsid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  ."fingerprints,language,"
+	."applicantsid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 }
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssssssssssi", $marriage, $nationality, $othernations, $nationid, 
+$stmt->bind_param("ssssssssssssssssssi", $marriage, $nationality, $othernations, $nationid, 
                                 $ssn, $othercontact, $socialmedia, $pptype, $fatherinfo, $motherinfo, $relatives,
-                                $spouse, $countries, $groups, $military, $issues,
+                                $spouse, $countries, $groups, $military, $issues, $fingerprints, $language,
                                 $id);
 $result = $stmt->execute();
 if ($result == 1) {
