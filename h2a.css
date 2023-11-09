@@ -120,10 +120,10 @@ form {
 input[type="text"], #company {
 	width: 150px;
 }
-#jstate, #sstate, #jobtitle, #jphone, #jwhat, #grade, .medium {
+#jstate, #sstate, #jobtitle, #jphone, #jwhat, #grade, #ppcountry, .medium {
 	width: 98px;	
 }
-#jzip, #szip, #years, #years2, #salary {
+#jzip, #szip, #years, #years2, #salary, #pptype {
 	width: 42px;
 }
 #jobsTab, #schoolsTab, .tabcolumn, #appconfirm, .namehead {
