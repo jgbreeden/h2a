@@ -1106,6 +1106,16 @@ function saveCompAssignment() {
 	}
 }
 function closeCompAssignment() {
+	rows = document.getElementById("compassigntab").getElementsByTagName("tr");
+	if (rows.length == 1) {
+		alert("There are no assignments to close.")
+		return
+	}
+	rows = document.getElementById("compassigntab").getElementsByClassName("selected");
+	if (rows.length == 0) {
+		alert("select assignment before closing")
+		return
+	}
 	//UPDATE assignments set end date where company and start date match
 	//UPDATE applicatans and set STATUS to returning per applicant
 
