@@ -162,14 +162,14 @@
 					</td>
 				</tr><tr>
 					<td>
-					<label for="ppcountry">PP Country:</label>
+					<label for="ppcountry">Country/Type:</label>
 					</td><td>
 					<input type="text" id="ppcountry" name="ppcountry">
-					</td>
+					<!--</td>
 				</tr><tr>
 					<td>
 					<label for="pptype">PP Type:</label>
-					</td><td>
+					</td><td>-->
 					<input type="text" id="pptype" name="pptype">
 					</td>
 				</tr><tr>
@@ -216,6 +216,16 @@
 				<textarea id="visarefused" name="visarefused" rows="2" cols="19"></textarea>
 				</td>
 				</tr>
+				<tr>
+					<td>
+					<label>Fingerprints:</label>
+					</td><td>
+					<label for="prints">Yes:</label>
+					<input type="radio" id="prints" name="prints" value="1">
+					<label for="printsno">No:</label>
+					<input type="radio" id="printsno" name="lift25to40" value="0">
+					</td>
+					</tr>
 				<!--<tr>
 					<td>
 					<label for="petition">Petition:</label>
@@ -462,15 +472,19 @@
 				<table id="groupstab">
 					<tr><td>		
 					<label for="groups">Groups</label></td>
-					<td><textarea id="groups" name="groups" rows="2" cols="28"></textarea>
+					<td><textarea id="groups" name="groups" rows="1" cols="28"></textarea>
 					</td></tr>
+					<tr><td>		
+						<label for="language">Language</label></td>
+						<td><textarea id="language" name="language" rows="1" cols="28"></textarea>
+						</td></tr>
 					<tr><td>
 					<label for="countries">Countries</label></td>
 					<td><textarea id="countries" name="countries" rows="2" cols="28"></textarea>
 					</td></tr>
 					<tr><td>
 					<label for="military">Military</label></td>
-					<td><textarea id="military" name="military" rows="2" cols="28"></textarea>
+					<td><textarea id="military" name="military" rows="1" cols="28"></textarea>
 					</td></tr>
 					<tr><td>
 					<label for="issues">Issues</label></td>
