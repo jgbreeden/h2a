@@ -169,8 +169,8 @@
 		$json =  ', "ds160": {"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
 		. $row["nationality"] . '", "othernations": "' . $row["othernations"] 
 		. '", "nationid": "' . $row["nationid"] . '", "ssn": "' . $row["ssn"] . '", "othercontact": "' 
-		. $row["othercontact"] . '", "socialmedia": "' . $row["socialmedia"]  
-		. '", "father": "' . $row["fatherinfo"] . '", "mother": "' 
+		. $row["othercontact"] . '", "socialmedia": "' . $row["socialmedia"] . '", "ppissues": "' 
+		. $row["ppissues"] . '", "father": "' . $row["fatherinfo"] . '", "mother": "' 
 		. $row["motherinfo"] . '", "relatives": "' . $row["relatives"] . '", "spouse": "' 
 		. $row["spouse"] . '", "countries": "' . $row["countries"] . '", "groups": "' . $row["groups"] . '", "military": "' 
 		. $row["military"] . '", "confirmation": "' . $row["ds160id"] . '", "issues": "'

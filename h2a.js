@@ -314,7 +314,7 @@ function fillEmpDetail(data) {
 		currappl.ds160.ssn = data.ds160.ssn
 		currappl.ds160.othercontact = data.ds160.othercontact
 		currappl.ds160.socialmedia = data.ds160.socialmedia
-		currappl.ds160.pploststolen = data.ds160.pploststolen
+		currappl.ds160.pploststolen = data.ds160.ppissues
 		currappl.ds160.ppdatedue = data.ds160.ppdatedue
 		currappl.ds160.father = data.ds160.father
 		currappl.ds160.mother = data.ds160.mother

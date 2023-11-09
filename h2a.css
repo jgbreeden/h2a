@@ -117,7 +117,7 @@ form {
 .hide {
 	display: none;
 }
-input[type="text"] {
+input[type="text"], #company {
 	width: 150px;
 }
 #jstate, #sstate, #jobtitle, #jphone, #jwhat, #grade, .medium {
@@ -150,4 +150,8 @@ label, legend {
 }
 .right {
 	text-align: right;
+}
+.leftrightpad {
+	padding-left: 5px;
+	padding-right: 5px;
 }
