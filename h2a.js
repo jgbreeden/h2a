@@ -305,29 +305,31 @@ function fillEmpDetail(data) {
 		data.visas, data.visaissues, data.visarefused, data.license, data.deported, data.ustravel, data.legalissues, data.farmwork,
 		data.whatknowvisa, data.notes);
 	if(data.ds160 != undefined){
-		currappl.ds160.id = data.ds160.id
-		currappl.ds160.marriage = data.ds160.marriage
-		currappl.ds160.nationality = data.ds160.nationality
-		currappl.ds160.othernations = data.ds160.othernations
-        currappl.ds160.otherresident = data.ds160.otherresident
-		currappl.ds160.nationid = data.ds160.nationid
-		currappl.ds160.ssn = data.ds160.ssn
-		currappl.ds160.othercontact = data.ds160.othercontact
-		currappl.ds160.socialmedia = data.ds160.socialmedia
-		currappl.ds160.pploststolen = data.ds160.ppissues
-		currappl.ds160.ppdatedue = data.ds160.ppdatedue
-		currappl.ds160.father = data.ds160.father
-		currappl.ds160.mother = data.ds160.mother
-		currappl.ds160.relatives = data.ds160.relatives
-		currappl.ds160.spouse = data.ds160.spouse
-		currappl.ds160.countries = data.ds160.countries
-		currappl.ds160.groups = data.ds160.groups
-		currappl.ds160.military = data.ds160.military
-		currappl.ds160.legalissues = data.ds160.legalissues
-		currappl.ds160.deportation = data.ds160.deportation
-		currappl.ds160.applicants = data.ds160.applicants
-		currappl.ds160.issues = data.ds160.issues
-		currappl.ds160.confirmation = data.ds160.confirmation
+		currappl.ds160.id = data.ds160.id;
+		currappl.ds160.marriage = data.ds160.marriage;
+		currappl.ds160.nationality = data.ds160.nationality;
+		currappl.ds160.othernations = data.ds160.othernations;
+        currappl.ds160.otherresident = data.ds160.otherresident;
+		currappl.ds160.nationid = data.ds160.nationid;
+		currappl.ds160.ssn = data.ds160.ssn;
+		currappl.ds160.othercontact = data.ds160.othercontact;
+		currappl.ds160.socialmedia = data.ds160.socialmedia;
+		currappl.ds160.pploststolen = data.ds160.ppissues;
+		currappl.ds160.ppdatedue = data.ds160.ppdatedue;
+		currappl.ds160.father = data.ds160.father;
+		currappl.ds160.mother = data.ds160.mother;
+		currappl.ds160.relatives = data.ds160.relatives;
+		currappl.ds160.spouse = data.ds160.spouse;
+		currappl.ds160.countries = data.ds160.countries;
+		currappl.ds160.groups = data.ds160.groups;
+		currappl.ds160.military = data.ds160.military;
+		currappl.ds160.legalissues = data.ds160.legalissues;
+		currappl.ds160.deportation = data.ds160.deportation;
+		currappl.ds160.applicants = data.ds160.applicants;
+		currappl.ds160.issues = data.ds160.issues;
+		currappl.ds160.confirmation = data.ds160.confirmation;
+		currappl.ds160.fingerprints = data.ds160.fingerprints;
+		currappl.ds160.language = data.ds160.language;
 	}
 	let table = document.getElementById("skillsTab");
 	let contents = "<tr><th class='namehead'>Experience</th><th>Years</th><th class='medium'>Where</th></tr>";
@@ -508,6 +510,8 @@ function resetNewApp(){
 		document.getElementById("military").value = currappl.ds160.military;
 		document.getElementById("issues").value = currappl.ds160.issues;
 		document.getElementById("appconfirm").value = currappl.ds160.confirmation;
+		document.getElementById("prints").value = currappl.fingerprints;
+		document.getElementById("language").value = currappl.language;
 	}
 }
 
@@ -588,6 +592,8 @@ function clearNewApp(){
 	document.getElementById("ustravel").value = "";
 	document.getElementById("appconfirm").value = "";
 	document.getElementById("company").value = "";
+	document.getElementById("prints").value = "";
+	document.getElementById("language").value = "";
 
 	clearSkill();
 	clearAbility();
