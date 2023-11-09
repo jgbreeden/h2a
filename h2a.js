@@ -675,7 +675,7 @@ function showJobs(row){
 	}
 	document.getElementById("jid").value = currappl.jobs[i].id;
 	document.getElementById("jcompany").value = currappl.jobs[i].entity;
-	document.getElementById("jsalary").value = currappl.jobs[i].salary;
+	document.getElementById("salary").value = currappl.jobs[i].salary;
 	document.getElementById("jaddress").value = currappl.jobs[i].address;
 	document.getElementById("jaddress2").value = currappl.jobs[i].address2;
 	document.getElementById("jcity").value = currappl.jobs[i].city;
