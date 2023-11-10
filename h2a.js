@@ -1124,6 +1124,10 @@ function closeCompAssignment() {
 	}
 	//UPDATE assignments set end date where company and start date match
 	//UPDATE applicatans and set STATUS to returning per applicant
+	var fd = new FormData();
+	fd.append("startdate", rows[i].firstChild.innerText);
+	fd.append("compid", document.getElementById("compid").value);
+	sendData(fd, path + "st_closeAssignment.php", showCompResult);
 
 }
 
