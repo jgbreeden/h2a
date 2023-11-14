@@ -174,8 +174,8 @@
 		. $row["motherinfo"] . '", "relatives": "' . $row["relatives"] . '", "spouse": "' 
 		. $row["spouse"] . '", "countries": "' . $row["countries"] . '", "groups": "' . $row["groups"] . '", "military": "' 
 		. $row["military"] . '", "confirmation": "' . $row["ds160id"] . '", "issues": "'
-		. $row["issues"] . '", "applicantsid": "' . $row["applicantsid"] . '", "fingerprints": "' . $row["fingerprints"] 
-	    . '", "language": "' . $row["language"] . '"}';
+		. $row["issues"] . '", "applicantsid": "' . $row["applicantsid"] . '", "fingerprints": "' 
+		. $row["fingerprints"] . '", "samecountry": "' . $row["samecountry"] . '", "language": "' . $row["language"] . '"}';
 		$json = str_replace(chr(13), "", $json);
 		echo str_replace(chr(10), "\\n", $json);
 	}
