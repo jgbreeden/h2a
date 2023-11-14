@@ -70,6 +70,9 @@ $crimes .= ($_POST["violatereligions"] == "yes")? "violatereligions:" . $_POST["
 $crimes .= ($_POST["popcontrol"] == "yes")? "popcontrol:" . $_POST["popcontrolexp"]."\\n" : "";
 $crimes .= ($_POST["humanorgans"] == "yes")? "humanorgans:" . $_POST["humanorgansexp"]."\\n" : "";
 //$crimes .= ($_POST["felony"] == "yes")? "felony:" . $_POST["felonyexp"]."\\n":"";
+$crimes.= ($_POST["taxation"] == "yes")? "skipustax:" . $_POST["taxationexp"]."\\n" : "";
+$crimes.= ($_POST["kidnapping"] == "yes")? "kidnapping:" . $_POST["kidnappingexp"]."\\n" : "";
+$crimes.= ($_POST["voted"] == "yes")? "Voting:" . $_POST["votedexp"]."\\n" : "";
 $crimes.= $_POST["ocrimes"];  
 
 $status = "ready";

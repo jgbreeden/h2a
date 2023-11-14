@@ -1098,12 +1098,17 @@ function saveCompAssignment() {
 		alert("You need to have applicants selected before clicking assign.")
 		return
 	}
+	var empty = "";
 	for (let i = 1; i < rows.length; i++) {
 		document.getElementById("compassignappid").value = rows[i].firstChild.innerText;
 		document.getElementById("compassigncomp").value = currcomp.id;
 		let formData = new FormData(document.getElementById("companyassign"));
 		sendData(formData, path + "st_saveAssignment.php", showCompResult);
+		empty += rows[i].firstChild.nextSibling.nextSibling.innerText + " " + rows[i].firstChild.nextSibling.nextSibling.nextSibling.innerText 
+			+ "\t" + "https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=" + rows[i].firstChild.innerHTML + "\n";
 	}
+	navigator.clipboard.writeText(empty)
+	alert("The following has been copied to the clipboard " + empty);
 }
 function closeCompAssignment() {
 	var rows = document.getElementById("compassigntab").getElementsByTagName("tr");
