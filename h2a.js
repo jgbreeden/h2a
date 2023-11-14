@@ -692,7 +692,7 @@ function showJobs(row){
 	document.getElementById("jstate").value = currappl.jobs[i].state;
 	document.getElementById("jzip").value = currappl.jobs[i].zip;
 	document.getElementById("jcountry").value = currappl.jobs[i].country;
-	document.getElementById("whatwork").value = currappl.jobs[i].what;
+	document.getElementById("jwhat").value = currappl.jobs[i].what;
 	document.getElementById("jobtitle").value = currappl.jobs[i].jobtitle;
 	document.getElementById("jdatefrom").value = currappl.jobs[i].datefrom;
 	document.getElementById("jdateto").value = currappl.jobs[i].dateto;
