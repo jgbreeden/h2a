@@ -187,14 +187,14 @@ if ($row = $results->fetch_assoc()) {
 else {
   $sql = "INSERT INTO h2a.appds160 (marriage,nationality,othernations,nationid,ssn,othercontact,"
 	."socialmedia,pptype,fatherinfo,motherinfo,relatives,spouse,countries,groups,military,issues,"
-  ."fingerprints,language,mailaddress,ppissues"
+  ."fingerprints,language,mailaddress,ppissues, "
 	."applicantsid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 }
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssssssssssssssssssssi", $marriage, $nationality, $othernations, $nationid, 
                                 $ssn, $othercontact, $socialmedia, $pptype, $fatherinfo, $motherinfo, $relatives,
-                                $spouse, $countries, $groups, $military, $issues, $fingerprints, $language, $mailaddress, $ppissues
+                                $spouse, $countries, $groups, $military, $issues, $fingerprints, $language, $mailaddress, $ppissues,
                                 $id);
 $result = $stmt->execute();
 if ($result == 1) {
