@@ -38,6 +38,16 @@ button {
     font-size: 15px;
 }
 
+#signbtn {
+    background-color: #79a6d2;
+    color: white;
+    font-size: 15px;
+    border-radius: 20px;
+    padding: 10px 25px;
+    float: right;
+    text-decoration: none;
+}
+
 #b1 {
     margin-right:10% ;
 }
