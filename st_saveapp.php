@@ -53,6 +53,7 @@ $ppcity = htmlspecialchars($_POST["ppcity"]);// . ", " .  $_POST["ppstate"] . ",
 $ppcountry = htmlspecialchars($_POST["ppcountry"]);
 $ppdateissue = htmlspecialchars($_POST["ppdateissue"]);
 $ppduedate = htmlspecialchars($_POST["ppduedate"]);
+$pptype = htmlspecialchars($_POST["pptype"]);
 //$ppdatedue = "";
 $visas = ($_POST["hish2a"] == "yes")? "H-2a:" . $_POST["h2acompany"] . " - " . $_POST["h2amonths"] . "\\n" : "";
 $visas .= ($_POST["pasth2a"] == "yes")? "Past count:" . $_POST["h2acount"] 
@@ -63,7 +64,7 @@ $deported .= ($_POST["detdeport"] == "yes")? " punished time:" . $_POST["howmuch
 $visaissues = ($_POST["migrate"] == "yes")? "In migration(how long):" . $_POST["howlong"]: "";
 $visarefused =  ($_POST["denied"] == "yes")? "Type:" . $_POST["deniedtype"] . " Year:" . $_POST["deniedyear"] . 
     " Reason:" . $_POST["deniedreason"] : "";// . " Times Applied:" . $_POST["timesapplied"] : "";
-$license = htmlspecialchars($_POST["driverlicensetype"]);
+$license = htmlspecialchars($_POST["driverlicensetype"]. " state: " . htmlspecialchars($_POST["driverlicensestate"]));
 
 $farmwork = ($_POST["historywork"] == "yes")? "Farm work:" . $_POST["manner"] . " Tourist Visa:" 
     . $_POST["touristvisa"] . " State:" . $_POST["workstate"] . "\\n": "";
@@ -75,12 +76,13 @@ $farmwork .= (trim($_POST["othercompany"]) != "")? "Sponsor co:"
     . $_POST["othercompany"] . " Phone:" . $_POST["othercophone"]: "";
 $crimes = ""; //($_POST["police"] == "yes")? "Police issue:" . $_POST ["policeproblem"] :"";
 
-$ustravel = ($_POST["detention"] == "yes")? "Caught Crossing #Times:" . $_POST["detentiontimes"] . 
+$ustravel = "";
+$crimes = ($_POST["detention"] == "yes")? "Caught Crossing #Times:" . $_POST["detentiontimes"] . 
         "\\nPunished:" . $_POST["detentionpunish"] . "\\nPardon:" . $_POST["pardon"]:"";
         //Last Time:" . $_POST["detentionlast"] . " 
         //"\\nLength:" . $_POST["detentiontime"] . " Completed:" . $_POST["completed"] . 
        // . " Reason:" . $_POST["telltruthdet"] . "\\n":"";
-$ustravel .= ($_POST["usdetention"] == "yes")? "Detained entering US:yes": "";
+$crimes .= ($_POST["usdetention"] == "yes")? "Detained entering US:yes": "";
 if ($_POST["aware"] == "yes") {
     $whatknowvisa = "Knows it's a work visa. " . $whatknowvisa;
 } else {
@@ -90,13 +92,13 @@ if ($_POST["aware"] == "yes") {
 $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, address2, city, 
     state, country, zipcode, gender, specificarea, 
     whatarea, stay8mo, overtime, extend, dateofbirth, 
-    email, maritalstatus, placeofbirth, status, lift25to40, datesigned, signature, ppnumber, 
+    email, maritalstatus, placeofbirth, status, lift25to40, datesigned, signature, ppnumber, pptype,  
     pplocation, ppcountry, ppdateissue, ppdatedue, visas, visaissues, visarefused, license, deported, farmwork, ustravel, crimes) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssssssssssssssssssssssssssssssss", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, 
     $state, $country, $zipcode, $gender, $specificarea, 
     $whatarea, $stay8mo, $overtime, $extend, $dateofbirth,
-    $email, $maritalstatus, $placeofbirth, $status, $kilos, $datesigned, $signature, $ppnumber, $pplocation, $ppcountry, 
+    $email, $maritalstatus, $placeofbirth, $status, $kilos, $datesigned, $signature, $ppnumber, $pptype, $pplocation, $ppcountry, 
     $ppdateissue, $ppduedate, $visas, $visaissues, $visarefused, $license, $deported, $farmwork, $ustravel, $crimes);
 $result = $stmt->execute();
 
@@ -180,7 +182,7 @@ if ($_POST["drive"] == "yes") array_push($skills, array("Conducir", $years, $_PO
 if ($_POST["mech"] == "yes") array_push($skills, array("Mecanica", $_POST["mechexp"], $_POST["mechwhere"], 
         "gas?". ((isset($_POST["mechgas"])) ? $_POST["mechgas"]: "no") . 
         "; diesel?". ((isset($_POST["mechdiesel"])) ? $_POST["mechdiesel"]: "no") . 
-        "; " .$_POST["mechtype"]. ";"));
+        "; " .$_POST["mechtype"]. "; doc?". $_POST["mechdoc"]. ";" .$_POST["mechnodoc"]. ";"));
         //"; doc?". $_POST["mechdoc"]. ";" .$_POST["mechnodoc"]. 
 if ($_POST["welding"] == "yes") array_push($skills, array("Soldadura", $years, $_POST["weldingwhere"], $_POST["weldingwhat"], $_POST["weldingexp"]. "%"));
 if ($_POST["truck"] == "yes") array_push($skills, array("Troque y Tráiler", $years, $_POST["truckwhere"], $_POST["truckwhat"]));

@@ -156,6 +156,10 @@ hr {
 input {
     font-size: 25px;
 }
+@font-face {
+    font-family: BrushScriptOpti;
+    src: url("BrushScriptOpti-Regular.otf")
+}
 #applisign {
     font-family: "Brush Script MT";
 }
