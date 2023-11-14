@@ -1,5 +1,5 @@
 <?php 
-require 'cred.php';
+require '../cred.php';
 $conn = new mysqli($host, $user, $password, $db);
 if ($conn->connect_error) {
     die("Connect error: " . $conn->connect_error);

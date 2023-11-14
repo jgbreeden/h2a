@@ -201,7 +201,7 @@ var currhealth = new Experience (0, "", 0, "", "", "", "", "health");
 //var currstatus = new Issues (0, "", 0, "", "status");
 var currJob = new History ("jobs", 0)
 var currSchool = new History ("school", 0)
-var path = "";
+var path = "../";
 
 
 function st_show(tab) {

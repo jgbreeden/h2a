@@ -2,12 +2,12 @@
 <html>
 <title>Application</title>
 <head>
-<link rel="stylesheet" href="mk.css">
+<link rel="stylesheet" href="../mk.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <?php
-require 'cred.php';
+require '../cred.php';
 echo $_POST["fname"];
 $conn = new mysqli($host, $user, $password, $db);
 
@@ -185,16 +185,16 @@ if ($row = $results->fetch_assoc()) {
   ."WHERE applicantsid = ?";
 }
 else {
-  $sql = "INSERT INTO h2a.appds160 (marriage,nationality,othernations,nationid,ssn,othercontact,"
+  $sql = "INSERT INTO appds160 (marriage,nationality,othernations,nationid,ssn,othercontact,"
 	."socialmedia,pptype,fatherinfo,motherinfo,relatives,spouse,countries,groups,military,issues,"
-  ."fingerprints,language,mailaddress,ppissues"
+  ."fingerprints,language,mailaddress,ppissues,"
 	."applicantsid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 }
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssssssssssssssssssssi", $marriage, $nationality, $othernations, $nationid, 
                                 $ssn, $othercontact, $socialmedia, $pptype, $fatherinfo, $motherinfo, $relatives,
-                                $spouse, $countries, $groups, $military, $issues, $fingerprints, $language, $mailaddress, $ppissues
+                                $spouse, $countries, $groups, $military, $issues, $fingerprints, $language, $mailaddress, $ppissues,
                                 $id);
 $result = $stmt->execute();
 if ($result == 1) {

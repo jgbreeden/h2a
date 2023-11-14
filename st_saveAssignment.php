@@ -31,7 +31,7 @@ $stmt->bind_param("i", $appid);
 $stmt->execute();
 $results = $stmt->get_result();
 if (!($row = $results->fetch_assoc())) {
-    $sql = "INSERT INTO h2a.appds160 (applicantsid) values(?)";
+    $sql = "INSERT INTO appds160 (applicantsid) values(?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $appid);
     $stmt->execute();
