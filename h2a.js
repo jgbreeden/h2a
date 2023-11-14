@@ -77,7 +77,7 @@ class Applicant {
 class Appds160{
 	constructor(id, marriage, nationality, othernations, otherresident, nationid, ssn, othercontact, socalmedia,
 	pploststolen, ppdatedue, father, mother, relatives, spouse, countries, groups, military, legalissues, 
-	deportation, applicants, issues, confirmation){
+	deportation, applicants, issues, confirmation, fingerprints, language, samecountry){
 		this.id = id;
 		this.marriage = marriage;
 		this.nationality = nationality;
@@ -101,6 +101,9 @@ class Appds160{
 		this.applicants = applicants;
 		this.issues = issues;
 		this.confirmation = confirmation
+		this.fingerprints = fingerprints;
+		this.language = language;
+		this.samecountry = samecountry;
 	}
 }
 
@@ -328,6 +331,9 @@ function fillEmpDetail(data) {
 		currappl.ds160.applicants = data.ds160.applicants
 		currappl.ds160.issues = data.ds160.issues
 		currappl.ds160.confirmation = data.ds160.confirmation
+		currappl.ds160.data.fingerprints = data.ds160.fingerprints
+		currappl.ds160.data.language = data.ds160.language
+		currappl.ds160.data.samecountry = data.ds160.samecountry
 	}
 	let table = document.getElementById("skillsTab");
 	let contents = "<tr><th class='namehead'>Experience</th><th>Years</th><th class='medium'>Where</th></tr>";
@@ -508,6 +514,8 @@ function resetNewApp(){
 		document.getElementById("military").value = currappl.ds160.military;
 		document.getElementById("issues").value = currappl.ds160.issues;
 		document.getElementById("appconfirm").value = currappl.ds160.confirmation;
+		document.getElementById("fingerprints").value = currappl.ds160.fingerprints;
+		document.getElementById("language").value = currappl.ds160.language;
 	}
 }
 
@@ -588,6 +596,8 @@ function clearNewApp(){
 	document.getElementById("ustravel").value = "";
 	document.getElementById("appconfirm").value = "";
 	document.getElementById("company").value = "";
+	document.getElementById("fingerprints").value = "";
+	document.getElementById("language").value = "";
 
 	clearSkill();
 	clearAbility();
