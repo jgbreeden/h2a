@@ -123,6 +123,9 @@ function showOption(item){
     }
 
 }
+function agree0(box) {
+    document.getElementById("continuebutton").disabled = !box.checked;
+}
 
 function agree1() {
     document.getElementById("cita").style.display = "none";

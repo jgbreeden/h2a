@@ -18,12 +18,15 @@
              disposicio&#769;n, en su cara&#769;cter de titular de los datos personales, el presente Aviso de Privacidad en cumplimiento a lo dispuesto por la Ley Federal de Proteccio&#769;n de Datos Personales en Posesio&#769;n de los Particulares y dema&#769;s disposiciones legales aplicables.
             </p>
             <hr>
-                <div class="inline">
+                <!--<div class="inline">
                     <input type="radio" value="BrushScriptOpti" name="font"><span id="BrushScriptOpti">Brush Script</span><br>
                     <input type="radio" value="Kaufmann" name="font"><span id="kaufmann">Kaufmann</span><br>
                     <input type="radio" value="Mistral" name="font"><span id="mistral">Mistral</span><br>
-                </div>
-                 <label for="applisign0">Firma de solicitante</label><br>
+                </div>-->
+
+                <input type="checkbox" onclick="agree0(this)">Acepto<br>
+
+                <label for="applisign0">Firma de solicitante</label><br>
                 <input type="text" id="applisign0"><br>
             <hr>
 
@@ -31,7 +34,7 @@
                 <label for="dateapplisigned0">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
                 <input type="date" id="dateapplisigned0"><br>
             <hr>
-            <button onclick="agree1()">Acepto</button>
+            <button id="continuebutton" onclick="agree1()" disabled>Sequir leyendo</button>
     </div>
     <div id="cita2">
         AVISO DE PRIVACIDAD
