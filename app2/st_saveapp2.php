@@ -170,6 +170,7 @@ $issues .= ($_POST["publicSchool"] == "yes")?  "Public School: yes"  : "";
 //$issues .= ($_POST["citizenship"] == "yes")?  "citizenship:" . $_POST["citizenshipexp"]. "\\n" : "";
 //$issues .= ($_POST["military"] == "yes")?  "avoidmilitary:" . $_POST["militaryexp"]. "\\n" : "";
 $fingerprints = $_POST["print"];
+$samecountry = $_POST["samecountry"];
 $language = $_POST["language"];
 $language.= ($_POST["dialect"] != "")? " dialect:" .$_POST["dialect"]:"";
 
@@ -181,7 +182,7 @@ $results = $stmt->get_result();
 if ($row = $results->fetch_assoc()) {
   $sql = "UPDATE appds160 SET marriage = ?,nationality = ?,othernations = ?,nationid = ?,ssn = ?,othercontact = ?,"
   ."socialmedia = ?,pptype = ?,fatherinfo = ?,motherinfo = ?,relatives = ?,spouse = ?,countries = ?,groups = ?,military = ?,issues = ?,"
-  ."fingerprints = ?,language = ?,mailaddress = ?, ppissues = ? "
+  ."fingerprints = ?,language = ?,mailaddress = ?, ppissues = ?, samecountry = ? "
   ."WHERE applicantsid = ?";
 }
 else {
