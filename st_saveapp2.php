@@ -38,7 +38,7 @@ $email = htmlspecialchars($_POST["email"]);
 //$height = htmlspecialchars($_POST["height"]);
 //$weight = htmlspecialchars($_POST["weight"]);
 $maritalstatus = htmlspecialchars($_POST["maritalstatus"]);
-//$placeofbirth = htmlspecialchars($_POST["placeofbirth"]);
+$placeofbirth = htmlspecialchars($_POST["placeofbirth"]) . ", " . htmlspecialchars($_POST["stateofbirth"]) . ", " . htmlspecialchars($_POST["countryofbirth"]);
 //$whatknowvisa = htmlspecialchars($_POST["whatknowvisa"]);
 //$howhearcita = htmlspecialchars($_POST["howhearcita"]);
 //$otherhelp = htmlspecialchars($_POST["otherhelp"]);
@@ -78,6 +78,7 @@ $ppcity = $_POST["ppcity"];
 $ppcity .= ", " . $_POST["ppstate"];
 $ppcity .= ", " . $_POST["ppcountry"];
 $ppdateissue = $_POST["ppissuedate"];
+$ppissuecountry = $_POST["ppissuecountry"];
 $ppdatedue = $_POST["ppduedate"];
 $visas = $_POST["visatype"] ." applied:" .$_POST["appliedvisa"] . "\\n". $_POST["visaslist"]. "\\n" . $_POST["ovisas"];
 $visaissues =  ($_POST["visaslost"] == "yes")? "LoSt:" . $_POST["visaslostyear"] . "\\n" . $_POST["visaslostexp"] : "";
@@ -103,11 +104,11 @@ $id = $_POST["id"];
 
 $sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phonehome = ?,"
 . "address = ?, address2 = ?, city = ?, state = ?, zipcode = ?, country = ?, gender = ?, status = ?, ppnumber = ?, pplocation = ?,"
-. "ppdateissue = ?, ppdatedue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? , crimes = ?, deported = ? WHERE id = ?;";
+. "ppdateissue = ?, ppdatedue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? , crimes = ?, deported = ?, placeofbirth = ?, ppcountry = ? WHERE id = ?;";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, $state, $zipcode, $country,
+$stmt->bind_param("ssssssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, $state, $zipcode, $country,
                             $gender, $status, $ppnumber, $ppcity, $ppdateissue, $ppdatedue, $visas, $visaissues,
-                            $visarefused, $license, $crimes, $deported, $id);
+                            $visarefused, $license, $crimes, $deported, $placeofbirth, $ppissuecountry, $id);
 
 $result = $stmt->execute();
 if ($result == 1) {
@@ -118,6 +119,7 @@ if ($result == 1) {
     die($message);
 }
 //insert into app ds160
+$mailaddress =  htmlspecialchars($_POST["mailaddressdetail"]);
 $marriage = htmlspecialchars($_POST["datedivorce"]) . ": " . htmlspecialchars($_POST["reasondivorce"]);
 $nationality = htmlspecialchars($_POST["nationality"]);
 $othernations = "";//htmlspecialchars($_POST["othernations"]);
@@ -156,6 +158,7 @@ $countries = ($_POST["traveled"] == "yes")? "traveled:" . $_POST["traveledexp"].
 //$countries .= ($_POST["resided"] == "yes")? "resided:" . $_POST["residedexp"]."\\n" : "";
 $military = ($_POST["served"] == "yes")? "served:" . $_POST["served"]."\\n" : "";
 $military .= ($_POST["armygroup"] == "yes")? "militia:" . $_POST["armygroup"]."\\n" : "";
+$ppissues = $_POST["ppissues"];
 $issues = ($_POST["exchange"] == "yes")?  "exchange:" . $_POST["exchangeexp"]. "\\n" : "";
 $issues .= ($_POST["publicSchool"] == "yes")?  "Public School: yes"  : "";
 //$issues .= ($_POST["labor"] == "yes")?  "labor:" . $_POST["laborexp"]. "\\n" : "";
@@ -175,20 +178,20 @@ $results = $stmt->get_result();
 if ($row = $results->fetch_assoc()) {
   $sql = "UPDATE appds160 SET marriage = ?,nationality = ?,othernations = ?,nationid = ?,ssn = ?,othercontact = ?,"
   ."socialmedia = ?,pptype = ?,fatherinfo = ?,motherinfo = ?,relatives = ?,spouse = ?,countries = ?,groups = ?,military = ?,issues = ?,"
-  ."fingerprints = ?,language = ? "
+  ."fingerprints = ?,language = ?,mailaddress = ?, ppissues = ? "
   ."WHERE applicantsid = ?";
 }
 else {
   $sql = "INSERT INTO h2a.appds160 (marriage,nationality,othernations,nationid,ssn,othercontact,"
 	."socialmedia,pptype,fatherinfo,motherinfo,relatives,spouse,countries,groups,military,issues,"
-  ."fingerprints,language,"
-	."applicantsid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  ."fingerprints,language,mailaddress,ppissues"
+	."applicantsid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 }
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssssssssssssi", $marriage, $nationality, $othernations, $nationid, 
+$stmt->bind_param("ssssssssssssssssssssi", $marriage, $nationality, $othernations, $nationid, 
                                 $ssn, $othercontact, $socialmedia, $pptype, $fatherinfo, $motherinfo, $relatives,
-                                $spouse, $countries, $groups, $military, $issues, $fingerprints, $language,
+                                $spouse, $countries, $groups, $military, $issues, $fingerprints, $language, $mailaddress, $ppissues
                                 $id);
 $result = $stmt->execute();
 if ($result == 1) {

@@ -101,13 +101,13 @@
     <hr>
 
     <hr>
-    <label for="cityeofbirth">Estado de Nacimiento</label><br>
-    <input type="text" id="cityofbirth" name="cityofbirth"><br>
+    <label for="stateofbirth">Estado de Nacimiento</label><br>
+    <input type="text" id="stateofbirth" name="stateofbirth"><br>
     <hr>
 
     <hr>
-    <label for="stateofbirth">Pai&#769;s de Nacimiento</label><br>
-    <input type="text" id="stateofbirth" name="stateofbirth"><br>
+    <label for="countryofbirth">Pai&#769;s de Nacimiento</label><br>
+    <input type="text" id="countryofbirth" name="countryofbirth"><br>
     <hr>
 
     <hr>
@@ -396,7 +396,7 @@
         <div id="relatives" >
 
             <hr>
-            <h3>Familares en los Estados Unidos:</h3>
+            <h3>Datos Familiares:</h3>
             <hr>
 
             <hr>
@@ -422,11 +422,15 @@
                 <hr>
                 &#191;Su padre es residente legal o ciudadano de los estados unidos?
                <div class="inline">
-               <input type="radio" id="fatherstatus" name="fatherstatus" value="yes" >
+               <input type="radio" id="fatherstatus" name="fatherstatus" value="yes" onclick="showOption(this)">
                <label for="MAstatus">Si</label><br>
-               <input type="radio" id="fatherstatusno" name="fatherstatus" value="no" >
+               <input type="radio" id="fatherstatusno" name="fatherstatus" value="no" onclick="hideOption(this)">
                <label for="MDstatus">No</label><br>
                </div>
+               <div class="options" id="fatherstatusoptions">
+                <label for="fatherstatusexp">Explique</label><br>
+                <textarea rows="3" cols="30" name="fatherstatusexp"></textarea><br>
+                </div>
             </div>
 
             <hr>
@@ -452,10 +456,14 @@
                  <hr>
                  &#191;Su Madre es residente legal o ciudadano de los estados unidos?
                 <div class="inline">
-                <input type="radio" id="motherstatus" name="motherstatus" value="yes" >
+                <input type="radio" id="motherstatus" name="motherstatus" value="yes" onclick="showOption(this)">
                 <label for="MAstatus">Si</label><br>
-                <input type="radio" id="motherstatusno" name="motherstatus" value="no" >
+                <input type="radio" id="motherstatusno" name="motherstatus" value="no" onclick="hideOption(this)">
                 <label for="MDstatus">No</label><br>
+                </div>
+                <div class="options" id="motherstatusoptions">
+                    <label for="motherstatusexp">Explique</label><br>
+                    <textarea rows="3" cols="30" name="motherstatusexp"></textarea><br>
                 </div>
 
             </div>
@@ -607,7 +615,7 @@
             <hr>
 
             <hr>
-            <label for="jphone">Telephono:</label><br>
+            <label for="jphone">Telefono:</label><br>
             <input tel="text" id="jphone" name="jphone[]" min="1" max="20"><br>
             <hr>
 
@@ -617,7 +625,7 @@
             <hr>
 
             <hr>
-            <label for="jobtitle">Ti&#768;tulo:</label><br>
+            <label for="jobtitle">Nombre del Supervisor:</label><br>
             <input type="text" id="jobtitle" name="jobtitle[]" min="1" max="20"><br>
             <hr>
 
@@ -632,7 +640,7 @@
             <hr>
 
             <hr>
-            <label for="jsalary">Ingreso mensuall:</label><br>
+            <label for="jsalary">Ingreso mensual:</label><br>
             <input type="text" id="jsalary" name="jsalary[]" min="1" max="20"><br>
             <hr>
 
@@ -643,7 +651,7 @@
         <div id="school">
 
             <hr>
-            <h3>Historial de educatio&#768;n:</h3>
+            <h3>Historial Educativo:</h3>
             <hr>
 
             <hr>
@@ -652,12 +660,12 @@
             <hr>
 
             <hr>
-            <label for="scname">Education primaria</label><br>
+            <label for="scname">Nombre de Esquela:</label><br>
             <input type="text" id="scname" name="scname[]" min="1" max="20"><br>
             <hr>
 
             <hr>
-            <label for="scaddress">Direccio&#769;n De Esquela:</label><br>
+            <label for="scaddress">Direccio&#769;n:</label><br>
             <input type="text" id="scaddress" name="scaddress[]" min="1" max="20"><br>
             <hr>
 
