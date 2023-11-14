@@ -180,7 +180,7 @@ if ($_POST["drive"] == "yes") array_push($skills, array("Conducir", $years, $_PO
 if ($_POST["mech"] == "yes") array_push($skills, array("Mecanica", $_POST["mechexp"], $_POST["mechwhere"], 
         "gas?". ((isset($_POST["mechgas"])) ? $_POST["mechgas"]: "no") . 
         "; diesel?". ((isset($_POST["mechdiesel"])) ? $_POST["mechdiesel"]: "no") . 
-        "; " .$_POST["mechtype"]. ";"));
+        "; " .$_POST["mechtype"]. "; doc?". $_POST["mechdoc"]. ";" .$_POST["mechnodoc"]. ";"));
         //"; doc?". $_POST["mechdoc"]. ";" .$_POST["mechnodoc"]. 
 if ($_POST["welding"] == "yes") array_push($skills, array("Soldadura", $years, $_POST["weldingwhere"], $_POST["weldingwhat"], $_POST["weldingexp"]. "%"));
 if ($_POST["truck"] == "yes") array_push($skills, array("Troque y Tráiler", $years, $_POST["truckwhere"], $_POST["truckwhat"]));
