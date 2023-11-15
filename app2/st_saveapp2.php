@@ -188,15 +188,15 @@ if ($row = $results->fetch_assoc()) {
 else {
   $sql = "INSERT INTO appds160 (marriage,nationality,othernations,nationid,ssn,othercontact,"
 	."socialmedia,pptype,fatherinfo,motherinfo,relatives,spouse,countries,groups,military,issues,"
-  ."fingerprints,language,mailaddress,ppissues,"
-	."applicantsid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  ."fingerprints,language,mailaddress,ppissues,samecountry,"
+	."applicantsid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 }
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssssssssssssssi", $marriage, $nationality, $othernations, $nationid, 
+$stmt->bind_param("sssssssssssssssssssssi", $marriage, $nationality, $othernations, $nationid, 
                                 $ssn, $othercontact, $socialmedia, $pptype, $fatherinfo, $motherinfo, $relatives,
                                 $spouse, $countries, $groups, $military, $issues, $fingerprints, $language, $mailaddress, $ppissues,
-                                $id);
+                                $samecountry, $id);
 $result = $stmt->execute();
 if ($result == 1) {
     $message .= "junto con DS160";
@@ -205,9 +205,9 @@ if ($result == 1) {
 }
 echo $message; 								
 
-$stmt = $conn->prepare("INSERT INTO jobhistory (empname, address, address2, city, state, zip, phone, salary,"
-    ." jobtitle, datefrom, dateto, duties, whatwork, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssssssi", $empname, $address, $address2, $city, $state, $zip, $phone, 
+$stmt = $conn->prepare("INSERT INTO jobhistory (empname, address, address2, city, state, country, zip, phone, salary,"
+    ." jobtitle, datefrom, dateto, duties, whatwork, applicantsid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssssssssi", $empname, $address, $address2, $city, $state, $country, $zip, $phone, 
   $salary, $jobtitle, $datefrom, $dateto, $duties, $work, $id);
 
 $jobcount = count($_POST["jcompany"]);
@@ -218,6 +218,7 @@ for($i = 0; $i < $jobcount; $i++){
   $address2 = htmlspecialchars($_POST["jaddress2"][$i]);
   $city = htmlspecialchars($_POST["jcity"][$i]);
   $state = htmlspecialchars($_POST["jstate"][$i]);
+  $country = htmlspecialchars($_POST["jcountry"][$i]);
   $zip = htmlspecialchars($_POST["jzip"][$i]);
   $phone = htmlspecialchars($_POST["jphone"][$i]);
   $salary = htmlspecialchars($_POST["jsalary"][$i]);
@@ -229,9 +230,9 @@ for($i = 0; $i < $jobcount; $i++){
   $stmt->execute();
 }
 
-$stmt = $conn->prepare("INSERT INTO school (schoolname, address, address2, city, state, zip, grade, datefrom, dateto, applicantsid) "
-      ." VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssi", $schoolname, $address, $address2, $city, $state, $zip, $grade, 
+$stmt = $conn->prepare("INSERT INTO school (schoolname, address, address2, city, state, country, zip, grade, datefrom, dateto, applicantsid) "
+      ." VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssssi", $schoolname, $address, $address2, $city, $state, $country, $zip, $grade, 
   $datefrom, $dateto, $id);
 
 $schoolcount = count($_POST["scname"]);
@@ -242,6 +243,7 @@ for($i = 0; $i < $schoolcount; $i++){
   $address2 = htmlspecialchars($_POST["scaddress2"][$i]);
   $city = htmlspecialchars($_POST["sccity"][$i]);
   $state = htmlspecialchars($_POST["scstate"][$i]);
+  $country = htmlspecialchars($_POST["sccountry"][$i]);
   $zip = htmlspecialchars($_POST["sczip"][$i]);
   $grade = htmlspecialchars($_POST["scgrade"][$i]);
   $datefrom = htmlspecialchars($_POST["scdatefrom"][$i]);

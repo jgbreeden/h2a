@@ -151,7 +151,7 @@
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {	
 		$json .= $comma . '{ "id": ' . $row["id"] . ', "schoolname": "' . $row["schoolname"] . '",  "address": "' . $row["address"]
-			. '", "address2": "' . $row["address2"] . '", "city": "' . $row["city"] . '", "state": "' . $row["state"] 
+			. '", "address2": "' . $row["address2"] . '", "city": "' . $row["city"] . '", "state": "' . $row["state"] . '", "country": "' . $row["country"]
 			. '", "zip": "' . $row["zip"] . '", "grade": "' . $row["grade"] . '", "datefrom": "' . $row["datefrom"] . '", "dateto": "'
 			. $row["dateto"] . '", "applicantsid": "' . $row["applicantsid"] . '"}';
 		$comma = ", ";

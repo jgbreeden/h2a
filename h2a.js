@@ -388,7 +388,8 @@ function fillEmpDetail(data) {
 		schoolContents += "<tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].schoolname + "</td></tr>";
 		currappl.school.push(new History("school", data.school[i].id, data.school[i].schoolname, data.school[i].address,
 			data.school[i].address2, data.school[i].city, data.school[i].state, data.school[i].zip, data.school[i].datefrom,
-			data.school[i].dateto, data.school[i].applicantsid, data.school[i].major ))
+			data.school[i].dateto, data.school[i].applicantsid, data.school[i].major ));
+		currappl.school[i].country = data.school[i].country
 	}
 
 	currskill.applicantsid = currappl.id
@@ -716,6 +717,7 @@ function showSchool(row){
 	document.getElementById("saddress2").value = currappl.school[i].address2;
 	document.getElementById("scity").value = currappl.school[i].city;
 	document.getElementById("sstate").value = currappl.school[i].state;
+	document.getElementById("scountry").value = currappl.school[i].country;
 	document.getElementById("szip").value = currappl.school[i].zip;
 	document.getElementById("sdatefrom").value = currappl.school[i].datefrom;
 	document.getElementById("sdateto").value = currappl.school[i].dateto;
@@ -841,6 +843,7 @@ function clearSchool(){
 	document.getElementById("saddress2").value = "";
 	document.getElementById("scity").value = "";
 	document.getElementById("sstate").value = "";
+	document.getElementById("scountry").value = "";
 	document.getElementById("szip").value = "";
 	document.getElementById("sdatefrom").value = "";
 	document.getElementById("sdateto").value = "";
