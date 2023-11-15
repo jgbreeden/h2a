@@ -1262,6 +1262,11 @@ function saveAssignment() {
 		return
 
 	}
+	if (!document.getElementById("linkcompany").checked && !document.getElementById("setassign").checked) {
+		alert("Please check at least one of the two boxes")
+		return
+
+	}
 	if (document.getElementById("assignstart").value == 0) {
 		alert("You have not assigned starting date")
 		return
