@@ -4,16 +4,16 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "INSERT INTO jobhistory (empname, address, address2, city, state, zip, phone, salary, jobtitle,
-    datefrom, dateto, supervisor, duties, applicantsid ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	$sql = "INSERT INTO jobhistory (empname, address, address2, country, city, state, zip, phone, salary, jobtitle,
+    datefrom, dateto, duties, whatwork, applicantsid ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("ssssssssssssss",  $_POST["jcompany"], $_POST["jaddress"], 
+	$stmt->bind_param("sssssssssssssss",  $_POST["jcompany"], $_POST["jaddress"], 
 										 $_POST["jaddress2"],$_POST["jcity"], 
 										 $_POST["jstate"], $_POST["jzip"],  
 										 $_POST["jphone"], $_POST["jsalary"], 
 										 $_POST["jobtitle"], $_POST["jdatefrom"], 
-										 $_POST["jdateto"],  $_POST["supervisor"], 
-										 $_POST["duties"], $_POST["japid"]);
+										 $_POST["jdateto"],  $_POST["country"], 
+										 $_POST["duties"], $_POST["jwhat"], $_POST["japid"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";
