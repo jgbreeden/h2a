@@ -598,7 +598,13 @@
 							<td><label for="school">School:</label></td>
 							<td><input type="text" id="school" name="school" class="ds160"></td>
 							<td><label for="grade">Grade:</label>
-							<input type="text" id="grade" name="grade" class="ds160"></td>
+								<select type="text" id="grade" name="grade">
+									<option value=""></option>
+									<option value="secondary">Secondary</option>
+									<option value="university">University</option>
+									<option value="prepatori">Prepatori</option>
+									<option value="other">Other</option>
+								</select>
 						</tr>
 						<tr>
 							<td><label for="address">Address:</label></td>
@@ -1043,6 +1049,8 @@
 					<br>
 					<input name="assignappid" id="assignappid" type="number" style="display:none">
 					<input style="display:none" name="assignedby" value="0">
+					<input type="checkbox" name="linkcompany" id="linkcompany">Link applicant to company<br>
+					<input type="checkbox" name="setassign" id="setassign">Create assignment record<br>
 					<br><button type="button" onclick="saveAssignment()">Save Assignment</button>
 				</form>
 				
