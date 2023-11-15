@@ -320,14 +320,14 @@
         <hr>&#191;Esta&#769; solicitando en el mismo pai&#769;s o ubicacio&#769;n donde se emitio&#769; la visa anterior y es este pai&#769;s o ubicacio&#769;n su lugar de residencia principal? 
         <div class="inline"><input type="radio" name="samecountry" id="samecountry" value="1">
             <label for="samecountry">Si</label><br>
-            <input type="radio" name="samecountryno" id="samecountryno" value="0" checked="true">
+            <input type="radio" name="samecountry" id="samecountryno" value="0" checked="true">
             <label for="samecountryno">No</label><br>
         </div>
 
         <hr>&#191;Le tomaron las huellas dactilares:
-        <div class="inline"><input type="radio" name="print" id="print" value="yes">
+        <div class="inline"><input type="radio" name="print" id="print" value="1">
             <label for="print">Si</label><br>
-            <input type="radio" name="print" id="printno" value="no" checked="true">
+            <input type="radio" name="print" id="printno" value="0" checked="true">
             <label for="printno">No</label><br>
         </div>
         <hr>
@@ -509,26 +509,26 @@
                 </hr>
 
                 <hr>
-                <label for="Sdob"></label>Fecha de Nacimiento:</label><br>
+                <label for="Sdob">Fecha de Nacimiento:</label><br>
                 <input type="date" id="Sdob" name="Sdob"><br>
                 </hr>
             
                 <hr>
-                <label for="Spob"></label>Ciudad de nacimiento:</label><br>
+                <label for="Spob">Ciudad de nacimiento:</label><br>
                 <input type="text" id="Spob" name="Spob"><br>
                 </hr>
 
                 <hr>
-                <label for="Scountry"></label>Pai&#769;s:</label><br>
+                <label for="Scountry">Pai&#769;s:</label><br>
                 <input type="text" id="Scountry" name="Scountry"><br>
                 </hr>
 
                 <hr>
-                <label for="Sotheradd">&#191;La direccio&#769;n de su co&#769;nyuge es la misma de usted?</label><br>
+                &#191;La direccio&#769;n de su co&#769;nyuge es la misma de usted?<br>
 
                 <div class="inline"><input type="radio" name="Sotheradd" id="Sotheradd" value="yes" checked="true" onclick="hideOption(this)">
                 <label for="Sotheradd">Si</label><br>
-                <input type="radio" name="Sotheradd" id="Sotheraddno" value="no" checked="true" onclick="showOption(this)">
+                <input type="radio" name="Sotheradd" id="Sotheraddno" value="no" onclick="showOption(this)">
                 <label for="Sotheraddno">No</label><br>
                 </div>
                 <div class="options" id="noSotheraddoptions">
@@ -565,6 +565,7 @@
                 <input type="text" id="Scountry" name="Scountry" min="1" max="20"><br>
                 </hr>
                 </div>
+                <hr>
             </div>
         </div>
         
@@ -1540,7 +1541,7 @@
     <hr>
     -->
     <hr>&#191;Ha asistido a una escuela primaria pu&#769;blica con estatus de estudiante (f) o a una escuela secundaria pu&#769;blica despue&#769;s del 30 de noviembre de 1996 sin reembolsar a la escuela?
-    <div class="publicSchool"><input type="radio" name="publicSchool" id="publicSchool" value="yes">
+    <div class="inline"><input type="radio" name="publicSchool" id="publicSchool" value="yes">
     <label for="publicSchool">Si</label><br>
     <input type="radio" name="publicSchool" id="publicSchool" value="no" checked="true">
     <label for="publicSchoolNo">No</label><br>

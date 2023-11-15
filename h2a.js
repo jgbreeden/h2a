@@ -331,9 +331,9 @@ function fillEmpDetail(data) {
 		currappl.ds160.applicants = data.ds160.applicants
 		currappl.ds160.issues = data.ds160.issues
 		currappl.ds160.confirmation = data.ds160.confirmation
-		currappl.ds160.data.fingerprints = data.ds160.fingerprints
-		currappl.ds160.data.language = data.ds160.language
-		currappl.ds160.data.samecountry = data.ds160.samecountry
+		currappl.ds160.fingerprints = data.ds160.fingerprints
+		currappl.ds160.language = data.ds160.language
+		currappl.ds160.samecountry = data.ds160.samecountry
 	}
 	let table = document.getElementById("skillsTab");
 	let contents = "<tr><th class='namehead'>Experience</th><th>Years</th><th class='medium'>Where</th></tr>";
@@ -514,7 +514,7 @@ function resetNewApp(){
 		document.getElementById("military").value = currappl.ds160.military;
 		document.getElementById("issues").value = currappl.ds160.issues;
 		document.getElementById("appconfirm").value = currappl.ds160.confirmation;
-		document.getElementById("fingerprints").value = currappl.ds160.fingerprints;
+		document.getElementById("prints").value = currappl.ds160.fingerprints;
 		document.getElementById("language").value = currappl.ds160.language;
 	}
 }
@@ -596,7 +596,7 @@ function clearNewApp(){
 	document.getElementById("ustravel").value = "";
 	document.getElementById("appconfirm").value = "";
 	document.getElementById("company").value = "";
-	document.getElementById("fingerprints").value = "";
+	document.getElementById("prints").value = "";
 	document.getElementById("language").value = "";
 
 	clearSkill();

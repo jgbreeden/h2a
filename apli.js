@@ -7,6 +7,7 @@ tabChange(currentTab);
 
 function tabChange(tab) {
     var tabs = document.getElementsByClassName("tab");
+    currentTab = tab;
     if (tab == 0) {
         document.getElementById("btnback").style.display = "none";
     } else {
