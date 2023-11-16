@@ -593,6 +593,7 @@ function clearNewApp(){
 	document.getElementById("countries").value = "";
 	document.getElementById("groups").value = "";
 	document.getElementById("military").value = "";
+	document.getElementById("issues").value = "";
 	document.getElementById("legalissues").value = "";
 	document.getElementById("ustravel").value = "";
 	document.getElementById("appconfirm").value = "";
