@@ -4,14 +4,14 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "INSERT INTO school(schoolname, address, address2, city, state, zip, major,
-    datefrom, dateto, applicantsid ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	$sql = "INSERT INTO school(schoolname, address, address2, country, city, state, datefrom, zip,
+    dateto, grade, applicantsid ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("ssssssssss",  $_POST["school"],  $_POST["saddress"], 
-									 $_POST["saddress2"], $_POST["scity"], 
+									 $_POST["saddress2"], $_POST["scountry"], $_POST["scity"], 
 									 $_POST["sstate"],   $_POST["sdatefrom"], 
 									 $_POST["szip"], $_POST["sdateto"],
-								      $_POST["sdateto"],  $_POST["schapid"]);
+								      $_POST["grade"],  $_POST["schapid"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";
