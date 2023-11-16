@@ -39,7 +39,7 @@ if(isset($_POST["setassign"])){
     }
 }
 if(isset($_POST["linkcompany"])){
-    $sql = "UPDATE applicants SET employorsid = ? WHERE id = ?;";
+    $sql = "UPDATE applicants SET employersid = ? WHERE id = ?;";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ii", $compid, $appid);
     $result = $stmt->execute();
