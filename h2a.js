@@ -65,7 +65,7 @@ class Applicant {
 	}
 
 	updateSchool () {
-		var formData = new FormData(document.getElementById("schoolForm"));
+		var formData = new FormData(document.getElementById("schoolsForm"));
 		sendData(formData, path + "st_updateSchool.php", showResult);
 	}
 	insertSchool () {

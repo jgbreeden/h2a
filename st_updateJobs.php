@@ -4,8 +4,8 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "UPDATE jobhistory SET empname = ?, address = ?, address2 = ?, country = ?, city = ?, state = ?, zip = ?, phone = ?, salary = ?, jobtitle = ?,"
-    			.  "datefrom = ?, dateto = ?, duties = ?, whatwork = ? WHERE id = ?"; 
+	$sql = "UPDATE jobhistory SET empname = ?, address = ?, address2 = ?, city = ?, state = ?, zip = ?, phone = ?, salary = ?, jobtitle = ?,"
+    			.  "datefrom = ?, dateto = ?, country = ?, duties = ?, whatwork = ? WHERE id = ?"; 
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("ssssssssssssssi",  $_POST["jcompany"], $_POST["jaddress"], 
 										 $_POST["jaddress2"],$_POST["jcity"], 
@@ -16,7 +16,7 @@
 										 $_POST["duties"], $_POST["jwhat"], $_POST["jid"]);
 	$result = $stmt->execute();
 	if ($result == 1) {
-		echo "<h2>Record Saved</h2>";
+		echo "<h2>Record Saved</h2>" . $_POST["jphone"];
 	} else {
 		echo "There was a problem saving the record, please try again.";
 	}

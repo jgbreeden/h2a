@@ -4,8 +4,8 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "INSERT INTO jobhistory (empname, address, address2, country, city, state, zip, phone, salary, jobtitle,
-    datefrom, dateto, duties, whatwork, applicantsid ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	$sql = "INSERT INTO jobhistory (empname, address, address2, city, state, zip, phone, salary, jobtitle,
+    datefrom, dateto, country, duties, whatwork, applicantsid ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("sssssssssssssss",  $_POST["jcompany"], $_POST["jaddress"], 
 										 $_POST["jaddress2"],$_POST["jcity"], 
