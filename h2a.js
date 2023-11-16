@@ -943,7 +943,7 @@ function showContactTab(tab){
 }
 function createLink(){
 	var msg;
-	msg = "localhost/h2a/app2.html?id=" + currappl.id;
+	msg = "localhost/h2a/app2/app2.html?id=" + currappl.id;
 	//msg = "https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=" + currappl.id;
 	if (currappl.ds160.id != undefined) {
 		msg += "&r=1";
