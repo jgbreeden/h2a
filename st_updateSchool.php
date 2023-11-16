@@ -4,16 +4,17 @@
 	if ($conn->connect_error) {
 		die("Connect error: " . $conn->connect_error);
 	}
-	$sql = "UPDATE school SET schoolname = ?, address = ?, address2 = ?, city = ?, state = ?, zip = ?, major = ?, 
+	$sql = "UPDATE school SET schoolname = ?, address = ?, address2 = ?, city = ?, state = ?, country = ?, zip = ?, grade = ?, 
     	datefrom = ?, dateto = ?, applicantsid = ? WHERE id = ?";
 		
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("ssssssssssi",  $_POST["school"], $_POST["saddress"], 
+	$stmt->bind_param("sssssssssssi",  $_POST["school"], $_POST["saddress"], 
 									 $_POST["saddress2"],  $_POST["scity"], 
-									 $_POST["sstate"],  $_POST["szip"],
-									 $_POST["major"],  $_POST["sdatefrom"], 
-									 $_POST["sdateto"], $_POST["schapid"], 
-									 $_POST["scid"]);
+									 $_POST["sstate"], $_POST["scountry"],
+									 $_POST["szip"], $_POST["grade"],  
+									 $_POST["sdatefrom"], $_POST["sdateto"],
+									 $_POST["schapid"], $_POST["scid"]);
+									 
 	$result = $stmt->execute();
 	if ($result == 1) {
 		echo "<h2>Record Saved</h2>";
