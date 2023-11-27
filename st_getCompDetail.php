@@ -20,14 +20,13 @@
 	$row = $results->fetch_assoc();
 	//write person fields, then "skills": [
 	echo '{ "id": ' . $row["id"] . ', "company": "' . $row["company"]
-		. '", "phone": "' . $row["phone"] . '", "address": "'
+		. '", "phone": "' . $row["phone"] . '", "address": "'    
 		. $row["address"] . '", "city": "' . $row["city"]
 		. '", "state": "' . $row["state"] . '", "zip": "' . $row["zip"]
-		. '", "assignments": [ ';
+		. '", "contracts": [ ';
 
-	$query = "SELECT startdate, count(*) as count FROM assignments" 
-		. " where employersid=?" 
-		. " group by startdate;";
+	$query = "SELECT * FROM contracts" 
+		. " where employersid=?" ;
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_GET["id"]);
 	$stmt->execute();
@@ -47,8 +46,9 @@
 	$comma = "";
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
-		echo $comma . '{ "id": "' . $row["id"] . '", "firstname": "' . $row["firstname"]  . '", "lastname": "' 
-		.$row["lastname"] . '", "status": "' .$row["status"] . '"}';
+		echo $comma . '{ "id": "' . $row["id"] . '", "employersid": "' . $row["employersid"]  . '", "contractnum": "' 
+		.$row["contractnum"] . '", "contractname": "' .$row["contractname"] . '", "startdate": "' .$row["startdate"] 
+		. '", "enddate": "' .$row["enddate"] . '", "requestcount": "' .$row["requestcount"]  . '"}';
 		$comma = ", ";
 	}
 	echo ']}';

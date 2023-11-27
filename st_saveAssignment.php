@@ -6,13 +6,13 @@ $new_assignstart = date('Y-m-d', strtotime(str_replace('/', '-', $_POST["assigns
 $new_assignend = date('Y-m-d', strtotime(str_replace('/', '-', $_POST["assignend"])));
 //echo $new_assignstart;
 $appid = (int)$_POST["assignappid"];
-$compid = (int)$_POST["assigncomp"];
+$companyid = (int)$_POST["contract"];
 
 if(isset($_POST["setassign"])){
     //save ability record
-    $sql = "insert into assignments (applicantsid, employersid, startdate, enddate, assignedby) values (?, ?, ?, ?, ?)";
+    $sql = "insert into assignments (applicantsid, contractid, startdate, enddate, assignedby) values (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("iisss", $appid, $compid, $new_assignstart, $new_assignend, $_POST["assignedby"]);
+    $stmt->bind_param("iisss", $appid, $contactid, $new_assignstart, $new_assignend, $_POST["assignedby"]);
     $result = $stmt->execute();
     if ($result == 1) {
         echo "record saved";
