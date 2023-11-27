@@ -1088,11 +1088,11 @@ function clearComp() {
 	document.getElementById("compstate").value = "";
 	document.getElementById("compzip").value = "";
 	resetTable(document.getElementById("companytab"));
-	document.getElementById("compassigntab").innerHTML = "<tr><th>Assign Date</th><th>Count</th></tr>";
+	//document.getElementById("compassigntab").innerHTML = "<tr><th>Assign Date</th><th>Count</th></tr>";
 	document.getElementById("compempstab").innerHTML = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
 	document.getElementById("complinkedtab").innerHTML = '<tr><th class="hide">id</th><th>..</th><th class="namehead">First Name</th><th class="namehead">Last Name</th><th>Status</th></tr>';
-	document.getElementById("compassignstart").value = "";
-	document.getElementById("compassignend").value = "";
+	//document.getElementById("compassignstart").value = "";
+	//document.getElementById("compassignend").value = "";
 }
 
 function clearContract() {

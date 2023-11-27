@@ -33,7 +33,9 @@
 	$comma = "";
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
-		echo $comma . '{ "startdate": "' . $row["startdate"] . '", "count": "' . $row["count"]  . '"}';
+		echo $comma . '{ "id": "' . $row["id"] . '", "employersid": "' . $row["employersid"]  . '", "contractnum": "' 
+		.$row["contractnum"] . '", "contractname": "' .$row["contractname"] . '", "startdate": "' .$row["startdate"] 
+		. '", "enddate": "' .$row["enddate"] . '", "requestcount": "' .$row["requestcount"]  . '"}';
 		$comma = ", ";
 	}
 	echo '], "applicants": [ ';
@@ -46,9 +48,8 @@
 	$comma = "";
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
-		echo $comma . '{ "id": "' . $row["id"] . '", "employersid": "' . $row["employersid"]  . '", "contractnum": "' 
-		.$row["contractnum"] . '", "contractname": "' .$row["contractname"] . '", "startdate": "' .$row["startdate"] 
-		. '", "enddate": "' .$row["enddate"] . '", "requestcount": "' .$row["requestcount"]  . '"}';
+		echo $comma . '{ "id": "' . $row["id"] . '", "firstname": "' . $row["firstname"]  . '", "lastname": "' 
+			.$row["lastname"] . '", "status": "' .$row["status"] . '"}';
 		$comma = ", ";
 	}
 	echo ']}';
