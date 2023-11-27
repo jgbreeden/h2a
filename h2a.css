@@ -47,7 +47,7 @@ form {
 }
 
 .selected {
-	background-color: rgb(252, 252, 252);
+	background-color: rgb(255, 255, 255);
 	color: black;
 	border-width: 3px 4px 2px 4px;
 	border-color: black;
@@ -112,7 +112,7 @@ form {
 	background-color: rgb(255, 245, 160);
 }
 .purple{
-	background-color: rgb(255,245,250);
+	background-color: rgb(248,235,255);
 }
 .hide {
 	display: none;
@@ -129,7 +129,7 @@ input[type="text"], #company {
 #jobsTab, #schoolsTab, .tabcolumn, #appconfirm, .namehead {
 	width: 120px;
 }
-#newappform, #empdiv {
+.lift {
 	margin-top: -15px;
 }
 .tabbutton{

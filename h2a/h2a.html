@@ -39,7 +39,7 @@
 				</table>
 			</div>
 			<br>
-			<form id="newappform" class="maindivs">
+			<form id="newappform" class="maindivs lift">
 				<input type="number" id="id" name="id" class="id">
 				<input type="number" id="ds160id" name="ds160id" class="id">
 				<div  id="mainform">
@@ -522,7 +522,7 @@
 			</div>
 		</div>
 		</form>
-		<div class="newappdiv" id="empdiv">
+		<div class="newappdiv lift" id="empdiv">
 			<div class="newappdiv">
 				<table id="jobsTab">
 					<tr>
@@ -837,7 +837,7 @@
 			</p>
 		</div>
 		<div id="companies" class="st_tab purple">
-			Companies
+			<!--Companies-->
 			<div class="companylist tall">
 				<table id="companytab">
 					<tr>
@@ -846,9 +846,10 @@
 				</table>
 			</div>
 			<br>
+		<div class="lefty lift">
 			<form id="companydata">
 				<input type="number" id="compid" name="compid" class="id">
-				<table class="lefty">
+				<table>
 					<tr>
 						<td><label for="compname">Company name:</label></td>
 						<td><input type="text" id="compname" name="compfname"></td>
@@ -873,14 +874,19 @@
 						<td><label for="zip">Company Zip:</label></td>
 						<td><input type="text" id="compzip" name="compzip"></td>
 					</tr>
+					<tr>
+						<td>
+							<button type="button" onclick="clearComp()">Clear</button>
+							<button type="button" onclick="resetComp()">Cancel</button>
+						</td>
+						<td>
+							<button type="button" onclick="saveComp()">Save</button>
+						</td>
 				</table>
 				<br>
-				<button type="button" onclick="clearComp()">Clear</button>
-				<button type="button" onclick="resetComp()">Cancel</button>
-				<button type="button" onclick="saveComp()">Save</button>
 			</form>
-			<div id="complinked" class="divborder">
-				Linked Applicants
+			<div id="complinked">
+				<br>Linked Applicants
 				<table id="complinkedtab">
 					<tr>
 						<th class="hide">id</th>
@@ -890,36 +896,95 @@
 						<th>Status</th>
 					</tr>
 				</table>
-				<form method="post" id="companyassign" class="divborder">
-					<input type="number" class="hide" name="assignappid" id="compassignappid">
-					<input type="number" class="hide" name="assigncomp" id="compassigncomp">
-					<input type="number" class="hide" name="assignedby" value="0">
-				Select applicants to create a new Assignment<br>
-				<label for="compassignstart">Start Date:</label>
-				<input id="compassignstart" name="assignstart" type="date">
-				<br>
-				<label for="compassignend">End Date:</label>
-				<input id="compassignend" name="assignend" type="date">
-				<br>
-				<input name="compassignappid" id="compassignappid" type="number" style="display:none">
-				<input style="display:none" name="compassignedby" value="0">
-				<br><button type="button" onclick="saveCompAssignment()">Save Assignment</button>
-				</form>
+				
 			</div>
-			<div  class="lefty">
-				<table id="compassigntab">
+		</div>
+		<div class="lefty lift">
+			Contracts
+			<table id="contractstab">
+				<tr>
+					<th class="hide">id</th>
+					<th class="">Number</th>
+					<th class="medium">Contract Name</th>
+					<th>Start Date</th>
+				</tr>
+				<tr>
+					<td class="hide">id</th>
+					<td class="">123456</th>
+					<td class="medium">Spring 2023</th>
+					<td>05/01/2023</th>
+				</tr>
+			</table>
+			<br>
+			<form method="post" id="companyassign" class="divborder">
+				<input type="number" class="hide" name="assignappid" id="compassignappid">
+				<input type="number" class="hide" name="assigncomp" id="compassigncomp">
+				<input type="number" class="hide" name="assignedby" value="0">
+			Select linked applicants and<br>
+			select a contract to add linked<br>
+			applicants to a contract.<br>
+			<input name="compassignappid" id="compassignappid" type="number" style="display:none">
+			<input style="display:none" name="compassignedby" value="0">
+			<br><button type="button" onclick="saveCompAssignment()">Add selected applicants to Contract &#9658;</button>
+			</form>
+		</div>
+			<div  class="lefty lift">
+				<!--<table id="compassigntab">
 					<tr>
 						<th>Assign Date</th>
 						<th>Count</th>
 					</tr>
-				</table><br>
+				</table><br>-->
+				<form id="contractdata">
+					<input type="number" id="contractid" name="contractid" class="id">
+					<table>
+						<tr>
+							<td><label for="contractnum">Contract #:</label></td>
+							<td><input id="contractnum" name="contractnum" class="medium"></td>
+						</tr>
+						<tr>
+							<td><label for="contractname">Contract name:</label></td>
+							<td><input id="contractname" name="contractname" class="medium"></td>
+						</tr>
+						<tr>
+							<td><label for="contractstart">Start date:</label></td>
+							<td><input type="date" id="contractstart" name="contractstart"></td>
+						</tr>
+						<tr>
+							<td><label for="contractend">End date:</label></td>
+							<td><input type="date" id="contractend" name="comcontractendpcity"></td>
+						</tr>
+						<tr>
+							<td><label for="contractrequested"># Requested:</label></td>
+							<td><input type="number" id="contractrequested" name="contractrequested" class="medium"></td>
+						</tr>
+						<tr>
+							<td><label for="contractassigned"># Assigned:</label></td>
+							<td><input id="contractassigned" name="contractassigned" class="medium" disabled></td>
+						</tr>
+						<tr>
+							<td>
+								<button type="button" onclick="clearComp()">Clear</button>
+							</td>
+							<td>
+								<button type="button" onclick="saveComp()">Save</button>
+							</td>
+						</tr>
+					</table>
+				</form><br>
 				<button type="button" onclick="closeCompAssignment()">Close Assignment</button>
+				<br>
+				<br>Enter Passport numbers below
+				<br>(one per line) to:<br>
+				<button type="button" onclick="">Add list from Passport numbers &#9658;</button><br>
+				<textarea id="contractppnums" rows="20" cols="26"></textarea>
 			</div>
 			<table id="compempstab">
 				<tr>
 					<th class="namehead">First Name</th>
 					<th class="namehead">Last Name</th>
 					<th>Phone Number</th>
+					<th>E-mail</th>
 				</tr>
 			</table>
 			<p id="compresult">
@@ -1039,6 +1104,10 @@
 						<option></option>
 						<option></option>
 						
+					</select>
+					<br>Contract:<br>
+					<select id="selectcontract" name="assigncontract">
+						<option></option>
 					</select>
 					<br>
 					<label for="assignstart">Start Date:</label>
