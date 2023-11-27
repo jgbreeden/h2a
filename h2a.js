@@ -968,6 +968,7 @@ class Employers {
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
+		this.contracts= [];
 	}
 	
 	update() {
@@ -980,6 +981,17 @@ class Employers {
 		sendData(formData, path + "st_insertComp.php", showCompResult);
 	}
 	
+}
+
+class contracts {
+	constructor(id, contractName, startDate, endDate, requested, assigned) {
+		this.id = id;
+		this.contractName = contractName;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.requested = requested;
+		this.assigned = assigned;
+	}
 }
 
 var currcomp = new Employers (0, "", "", "", "", "", "");
@@ -1033,8 +1045,8 @@ function fillCompDetail(data) {
 	document.getElementById("compcity").value = data.city;
 	document.getElementById("compstate").value = data.state;
 	document.getElementById("compzip").value = data.zip;
-	let comptable = document.getElementById("compassigntab");
-	let content = "<tr><th>Assign Date</th><th>Count</th></tr>";
+	let comptable = document.getElementById("contractstab");
+	let content = "<tr><th>Contract Number</th><th>Contract Name</th><th>Start Date</th></tr>";
 	for (i = 0; i < data.assignments.length; i++) {
 		content += "<tr onclick='getAssigned(this)'><td>" + data.assignments[i].startdate + "</td><td>" + data.assignments[i].count + "</td></tr>";
 	}
@@ -1045,6 +1057,7 @@ function fillCompDetail(data) {
 	for (i = 0; i < data.applicants.length; i++) {
 		content += '<tr><td class="hide">' + data.applicants[i].id + '</td><td><input type="checkbox"></td><td>' + data.applicants[i].firstname + "</td><td>" +
 		data.applicants[i].lastname + "</td><td>" + data.applicants[i].status + "</td></tr>";
+		currcomp.push.data.assignments[i]
 	}
 	comptable.innerHTML = content; 
 	
@@ -1080,6 +1093,26 @@ function clearComp() {
 	document.getElementById("complinkedtab").innerHTML = '<tr><th class="hide">id</th><th>..</th><th class="namehead">First Name</th><th class="namehead">Last Name</th><th>Status</th></tr>';
 	document.getElementById("compassignstart").value = "";
 	document.getElementById("compassignend").value = "";
+}
+
+function clearContract() {
+	document.getElementById("id").value = 0;
+	document.getElemetnById("contractnum").value = "";
+	document.getElementById("contractname").value = "";
+	document.getElementById("contractstart").value = "";
+	document.getElementById("contractend").value = "";
+	document.getElementById("requested").value = "";
+	document.getElementById("assigned").value = "";
+}
+
+function fillContract() {
+	document.getElementById("contractid").value = data.id;
+	document.getElementById("contractnum").value = data.contractnum;
+	document.getElementById("contractname").value = data.contractname;
+	document.getElementById("contractstart").value = data.contractstart;
+	document.getElementById("contractend").value = data.contractend;
+	document.getElementById("requested").value = data.requested;
+	document.getElementById("assigned").value = data.assigned;
 }
 
 function saveComp(){
