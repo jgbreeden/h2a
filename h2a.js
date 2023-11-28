@@ -1176,7 +1176,17 @@ function closeCompAssignment() {
 	sendData(fd, path + "st_closeAssignment.php", showCompResult);
 
 }
-
+function saveContract(){
+	if (document.getElementById("contractid").value == 0) {
+		var formData = new FormData(document.getElementById("contractdata"));
+		sendData(formData, path + "st_insertContract.php", showCompResult);
+	} else {
+		var formData = new FormData(document.getElementById("contractdata"));
+		sendData(formData, path + "st_updateContract.php", showCompResult);
+	}
+	
+	
+}
 // ................................................................................................................
 // ................................................................................................................
 // ................................................................................................................
