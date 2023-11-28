@@ -1047,8 +1047,9 @@ function fillCompDetail(data) {
 	document.getElementById("compzip").value = data.zip;
 	let comptable = document.getElementById("contractstab");
 	let content = "<tr><th>Contract Number</th><th>Contract Name</th><th>Start Date</th></tr>";
-	for (i = 0; i < data.assignments.length; i++) {
-		content += "<tr onclick='getAssigned(this)'><td>" + data.assignments[i].startdate + "</td><td>" + data.assignments[i].count + "</td></tr>";
+	for (i = 0; i < data.contracts.length; i++) {
+		content += "<tr onclick='getAssigned(this)'><td>" + data.contracts[i].id + "</td><td>" + data.contracts[i].contractname + "</td><td>" + data.contracts[i].startdate + "</td></tr>";
+		currcomp.contracts.push(data.contracts[i])
 	}
 	comptable.innerHTML = content; 
 	document.getElementById("compempstab").innerHTML = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
@@ -1057,7 +1058,6 @@ function fillCompDetail(data) {
 	for (i = 0; i < data.applicants.length; i++) {
 		content += '<tr><td class="hide">' + data.applicants[i].id + '</td><td><input type="checkbox"></td><td>' + data.applicants[i].firstname + "</td><td>" +
 		data.applicants[i].lastname + "</td><td>" + data.applicants[i].status + "</td></tr>";
-		currcomp.push.data.assignments[i]
 	}
 	comptable.innerHTML = content; 
 	
