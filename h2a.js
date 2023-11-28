@@ -1046,7 +1046,7 @@ function fillCompDetail(data) {
 	document.getElementById("compstate").value = data.state;
 	document.getElementById("compzip").value = data.zip;
 	let comptable = document.getElementById("contractstab");
-	let content = "<tr><th>Contract Number</th><th>Contract Name</th><th>Start Date</th></tr>";
+	let content = "<tr><th>Contract #</th><th class='medium'>Contract Name</th><th>Start Date</th></tr>";
 	for (i = 0; i < data.contracts.length; i++) {
 		content += "<tr onclick='getAssigned(this)'><td>" + data.contracts[i].id + "</td><td>" + data.contracts[i].contractname + "</td><td>" + data.contracts[i].startdate + "</td></tr>";
 		currcomp.contracts.push(data.contracts[i])
@@ -1065,7 +1065,7 @@ function fillCompDetail(data) {
 function getAssigned(row) {
 	getCompData(path + "st_getCompAssignedEmps.php?id=" + document.getElementById("compid").value + "&startdate=" + row.firstChild.innerHTML, showAssigned);
 	console.log(row.firstChild.innerHTML)
-	resetTable(document.getElementById("compassigntab"));
+	resetTable(document.getElementById("contractstab"));
 	row.classList.add("selected");
 }
 function showAssigned(data) {
@@ -1331,8 +1331,8 @@ function showAssignResult(data) {
 }
 
 function mtc(){
-	let grab0 = document.getElementById("wanapptab");
-	let grab1 = document.getElementById("wanapptab").getElementsByTagName("tr");
+	//let grab0 = document.getElementById("wanapptab");
+	//let grab1 = document.getElementById("wanapptab").getElementsByTagName("tr");
 	let grab2 = document.getElementById("wanapptab").getElementsByClassName("selected");
 	let grab3 = document.getElementById("wancomptab");
 	//for (let i = 0; i < grab1.length; i++){

@@ -11,9 +11,9 @@ $date = date("Y/m/d", strtotime($_GET["startdate"]));
 
 $sql = "SELECT applicants.firstname, applicants.lastname, applicants.phonecell"
     . " FROM applicants INNER JOIN assignments ON applicants.id = assignments.applicantsid"
-    . " and assignments.contractid=? ";
+    . " and assignments.contractsid=? ";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("is", $_GET["contractid"]);
+$stmt->bind_param("i", $_GET["contractid"]);
 $stmt->execute();
 $result = $stmt->get_result();
 $output = "[";

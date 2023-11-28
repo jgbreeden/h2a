@@ -904,25 +904,26 @@
 			<table id="contractstab">
 				<tr>
 					<th class="hide">id</th>
-					<th class="">Number</th>
+					<th class="">Contract #</th>
 					<th class="medium">Contract Name</th>
 					<th>Start Date</th>
-				</tr>
-				<tr>
-					<td class="hide">id</th>
-					<td class="">123456</th>
-					<td class="medium">Spring 2023</th>
-					<td>05/01/2023</th>
 				</tr>
 			</table>
 			<br>
 			<form method="post" id="companyassign" class="divborder">
 				<input type="number" class="hide" name="assignappid" id="compassignappid">
-				<input type="number" class="hide" name="assigncomp" id="compassigncomp">
+				<input type="number" class="hide" name="assigncontract" id="compassigncontractid">
 				<input type="number" class="hide" name="assignedby" value="0">
+				<input type="checkbox" class="hide" name="setassign" checked="true">
 			Select linked applicants and<br>
 			select a contract to add linked<br>
 			applicants to a contract.<br>
+			<label for="coassignstart">Start Date:</label>
+			<input id="coassignstart" name="assignstart" type="date">
+			<br>
+			<label for="coassignend">End Date:</label>
+			<input id="coassignend" name="assignend" type="date">
+			<br>
 			<input name="compassignappid" id="compassignappid" type="number" style="display:none">
 			<input style="display:none" name="compassignedby" value="0">
 			<br><button type="button" onclick="saveCompAssignment()">Add selected applicants to Contract &#9658;</button>
