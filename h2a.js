@@ -995,7 +995,8 @@ class contracts {
 }
 
 var currcomp = new Employers (0, "", "", "", "", "", "");
-
+var contractheader = "<tr><th>Contract #</th><th class='medium'>Contract Name</th><th>Start Date</th></tr>";
+var assignheader = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
 function getCompanies() {
 	getData(path + "st_getComps.php", fillComp);
 }
@@ -1046,13 +1047,13 @@ function fillCompDetail(data) {
 	document.getElementById("compstate").value = data.state;
 	document.getElementById("compzip").value = data.zip;
 	let comptable = document.getElementById("contractstab");
-	let content = "<tr><th>Contract #</th><th class='medium'>Contract Name</th><th>Start Date</th></tr>";
+	let content = contractheader;
 	for (i = 0; i < data.contracts.length; i++) {
-		content += "<tr onclick='getAssigned(this)'><td>" + data.contracts[i].id + "</td><td>" + data.contracts[i].contractname + "</td><td>" + data.contracts[i].startdate + "</td></tr>";
+		content += "<tr onclick='fillContract(this)'><td>" + data.contracts[i].id + "</td><td>" + data.contracts[i].contractname + "</td><td>" + data.contracts[i].startdate + "</td></tr>";
 		currcomp.contracts.push(data.contracts[i])
 	}
 	comptable.innerHTML = content; 
-	document.getElementById("compempstab").innerHTML = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
+	document.getElementById("compempstab").innerHTML = assignheader;
 	comptable = document.getElementById("complinkedtab");
 	content = '<tr><th class="hide">id</th><th>..</th><th class="namehead">First Name</th><th class="namehead">Last Name</th><th>Status</th></tr>';
 	for (i = 0; i < data.applicants.length; i++) {
@@ -1088,7 +1089,7 @@ function clearComp() {
 	document.getElementById("compstate").value = "";
 	document.getElementById("compzip").value = "";
 	resetTable(document.getElementById("companytab"));
-	//document.getElementById("compassigntab").innerHTML = "<tr><th>Assign Date</th><th>Count</th></tr>";
+	document.getElementById("contractstab").innerHTML = contractheader;
 	document.getElementById("compempstab").innerHTML = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
 	document.getElementById("complinkedtab").innerHTML = '<tr><th class="hide">id</th><th>..</th><th class="namehead">First Name</th><th class="namehead">Last Name</th><th>Status</th></tr>';
 	//document.getElementById("compassignstart").value = "";
@@ -1103,16 +1104,24 @@ function clearContract() {
 	document.getElementById("contractend").value = "";
 	document.getElementById("requested").value = "";
 	document.getElementById("assigned").value = "";
+	document.getElementById("compempstab").innerHTML = assignheader;
 }
 
-function fillContract() {
-	document.getElementById("contractid").value = data.id;
-	document.getElementById("contractnum").value = data.contractnum;
-	document.getElementById("contractname").value = data.contractname;
-	document.getElementById("contractstart").value = data.contractstart;
-	document.getElementById("contractend").value = data.contractend;
-	document.getElementById("requested").value = data.requested;
-	document.getElementById("assigned").value = data.assigned;
+function fillContract(row) {
+	var id = row.firstChild.innerText;
+	let idx = 0;
+	for (idx = 0; idx < currcomp.contracts.length; idx++) {
+		if (currcomp.contracts[idx].id == id) {
+			break;
+		}
+	}
+	document.getElementById("contractid").value = currcomp.contracts[idx].id;
+	document.getElementById("contractnum").value = currcomp.contracts[idx].contractnum;
+	document.getElementById("contractname").value = currcomp.contracts[idx].contractname;
+	document.getElementById("contractstart").value = currcomp.contracts[idx].contractstart;
+	document.getElementById("contractend").value = currcomp.contracts[idx].contractend;
+	document.getElementById("contractrequested").value = currcomp.contracts[idx].contractrequested;
+	document.getElementById("contractassigned").value = currcomp.contracts[idx].contractassigned;
 }
 
 function saveComp(){
