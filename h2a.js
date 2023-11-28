@@ -1048,7 +1048,7 @@ function fillCompDetail(data) {
 	let comptable = document.getElementById("contractstab");
 	let content = "<tr><th>Contract #</th><th class='medium'>Contract Name</th><th>Start Date</th></tr>";
 	for (i = 0; i < data.contracts.length; i++) {
-		content += "<tr onclick='getAssigned(this)'><td>" + data.contracts[i].id + "</td><td>" + data.contracts[i].contractname + "</td><td>" + data.contracts[i].startdate + "</td></tr>";
+		content += "<tr onclick='fillContract(this)'><td>" + data.contracts[i].id + "</td><td>" + data.contracts[i].contractname + "</td><td>" + data.contracts[i].startdate + "</td></tr>";
 		currcomp.contracts.push(data.contracts[i])
 	}
 	comptable.innerHTML = content; 
@@ -1105,14 +1105,21 @@ function clearContract() {
 	document.getElementById("assigned").value = "";
 }
 
-function fillContract() {
-	document.getElementById("contractid").value = data.id;
-	document.getElementById("contractnum").value = data.contractnum;
-	document.getElementById("contractname").value = data.contractname;
-	document.getElementById("contractstart").value = data.contractstart;
-	document.getElementById("contractend").value = data.contractend;
-	document.getElementById("requested").value = data.requested;
-	document.getElementById("assigned").value = data.assigned;
+function fillContract(row) {
+	var id = row.firstChild.innerText;
+	let idx = 0;
+	for (idx = 0; idx < currcomp.contracts.length; idx++) {
+		if (currcomp.contracts[idx].id == id) {
+			break;
+		}
+	}
+	document.getElementById("contractid").value = currcomp.contracts[idx].id;
+	document.getElementById("contractnum").value = currcomp.contracts[idx].contractnum;
+	document.getElementById("contractname").value = currcomp.contracts[idx].contractname;
+	document.getElementById("contractstart").value = currcomp.contracts[idx].contractstart;
+	document.getElementById("contractend").value = currcomp.contracts[idx].contractend;
+	document.getElementById("contractrequested").value = currcomp.contracts[idx].contractrequested;
+	document.getElementById("contractassigned").value = currcomp.contracts[idx].contractassigned;
 }
 
 function saveComp(){
