@@ -1187,15 +1187,21 @@ function closeCompAssignment() {
 
 }
 function saveContract(){
+	var formData = new FormData(document.getElementById("contractdata"));
+	formData.append("employersid", document.getElementById("compid").value)
 	if (document.getElementById("contractid").value == 0) {
-		var formData = new FormData(document.getElementById("contractdata"));
 		sendData(formData, path + "st_insertContract.php", showCompResult);
-	} else {
-		var formData = new FormData(document.getElementById("contractdata"));
+	} else {	
 		sendData(formData, path + "st_updateContract.php", showCompResult);
 	}
 	
 	
+}
+function addFromPpNums(){
+	var formData = new FormData();
+	formData.append("list", document.getElementById("contractppnums").value);
+	sendData(formData, path + "st_insertAssignmentByPP.php", showCompResult);
+	document.getElementById("contractppnums").value = "";
 }
 // ................................................................................................................
 // ................................................................................................................
@@ -1221,9 +1227,15 @@ function fillList(row){
 }
 
 function selectedComp(){
-	let grabed = document.getElementById("selectcomps").value;
-	
-	console.log("working");
+	getCompData(path + "st_getContracts.php?id=" + document.getElementById("selectcomps").value, fillContractsSelect);
+}
+function fillContractsSelect(data) {
+	var selectbox = document.getElementById("selectcontract");
+	var content = "";
+	for (var i = 0; i < data.length; i++) {
+		content += '<option value="' + data[i].id + '">' + data[i].contractnum +  ' - ' + data[i].contractName +  '</option>';
+	}
+	selectbox.innerHTML = content;
 }
 
 function getMatchingEmps(){

@@ -953,7 +953,7 @@
 						</tr>
 						<tr>
 							<td><label for="contractend">End date:</label></td>
-							<td><input type="date" id="contractend" name="comcontractendpcity"></td>
+							<td><input type="date" id="contractend" name="contractend"></td>
 						</tr>
 						<tr>
 							<td><label for="contractrequested"># Requested:</label></td>
@@ -968,7 +968,7 @@
 								<button type="button" onclick="clearContract()">Clear</button>
 							</td>
 							<td>
-								<button type="button" onclick="saveComp()">Save</button>
+								<button type="button" onclick="saveContract()">Save</button>
 							</td>
 						</tr>
 					</table>
@@ -977,8 +977,8 @@
 				<br>
 				<br>Enter Passport numbers below
 				<br>(one per line) to:<br>
-				<button type="button" onclick="">Add list from Passport numbers &#9658;</button><br>
-				<textarea id="contractppnums" rows="20" cols="26"></textarea>
+				<button type="button" onclick="addFromPpNums()">Add list from Passport numbers &#9658;</button><br>
+				<textarea id="contractppnums" name="contractppnums" rows="20" cols="26"></textarea>
 			</div>
 			<table id="compempstab">
 				<tr>
