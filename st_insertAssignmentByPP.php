@@ -12,6 +12,7 @@
     $contid = $_POST["contractid"];
     $start = $_POST["contractstart"];
     $end = $_POST["contractend"];
+    $compid = $_POST["compid"];
     $nums = explode("\n", $_POST["contractppnums"]);
     for ($i = 0; $i < count($nums); $i++) {
         $query = "select id from applicants where ppnumber = '" . $nums[$i] . "'";
@@ -20,9 +21,9 @@
             $appid = $row["id"];
             $result = $stmt->execute();
             //update applicant record to status=assigned
-            $sql = "UPDATE applicants SET status = 'assigned' WHERE id = ?;";
+            $sql = "UPDATE applicants SET status='assigned', employersid=? WHERE id = ?;";
             $stmt2 = $conn->prepare($sql);
-            $stmt2->bind_param("i", $appid);
+            $stmt2->bind_param("ii", $compid, $appid);
             $result = $stmt2->execute();
             //make sure there is a ds160 record
             $sql = "SELECT * FROM appds160 WHERE applicantsid = ?";

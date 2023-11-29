@@ -139,7 +139,7 @@ class Experience {
 		if (this.skilltype == "produce") {
 			formData = new FormData(document.getElementById("skillsForm"));
 			sendData(formData, path + "st_insertSkill.php", showResult);
-		} else if (this.skillType == "health") {
+		} else if (this.skilltype == "health") {
 			formData = new FormData(document.getElementById("healthsec"));
 			sendData(formData, path + "st_insertHealth.php", showResult);
 		} else {
@@ -1217,6 +1217,7 @@ function addFromPpNums(){
 	formData.append("contractid", document.getElementById("contractid").value);
 	formData.append("contractstart", document.getElementById("contractstart").value);
 	formData.append("contractend", document.getElementById("contractend").value);
+	formData.append("compid", document.getElementById("compid").value);
 	sendData(formData, path + "st_insertAssignmentByPP.php", showCompResult);
 	document.getElementById("contractppnums").value = "";
 }
