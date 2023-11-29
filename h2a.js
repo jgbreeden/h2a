@@ -51,7 +51,7 @@ class Applicant {
 	
 	update() {
 		var formData = new FormData(document.getElementById("newappform"));
-		sendData(formData, path + path + "st_updateEmp.php", showResult);
+		sendData(formData, path + "st_updateEmp.php", showResult);
 	}
 
 	updateJob() {
@@ -1049,7 +1049,8 @@ function fillCompDetail(data) {
 	let comptable = document.getElementById("contractstab");
 	let content = contractheader;
 	for (i = 0; i < data.contracts.length; i++) {
-		content += "<tr onclick='fillContract(this)'><td>" + data.contracts[i].id + "</td><td>" + data.contracts[i].contractname + "</td><td>" + data.contracts[i].startdate + "</td></tr>";
+		content += "<tr onclick='fillContract(this)'><td class='hide'>" + data.contracts[i].id + "</td><td>" + data.contracts[i].contractnum
+			+ "</td><td>" + data.contracts[i].contractname + "</td><td>" + data.contracts[i].startdate + "</td></tr>";
 		currcomp.contracts.push(data.contracts[i])
 	}
 	comptable.innerHTML = content; 
@@ -1064,14 +1065,14 @@ function fillCompDetail(data) {
 	clearContract();
 }	
 function getAssigned(row) {
-	getCompData(path + "st_getCompAssignedEmps.php?id=" + document.getElementById("compid").value + "&startdate=" + row.firstChild.innerHTML, showAssigned);
-	console.log(row.firstChild.innerHTML)
+	getCompData(path + "st_getCompAssignedEmps.php?contractid=" + document.getElementById("contractid").value + "&startdate=" + row.firstChild.innerHTML, showAssigned);
+	//console.log(document.getElementById("compid").value)
 	resetTable(document.getElementById("contractstab"));
 	row.classList.add("selected");
 }
 function showAssigned(data) {
 	let empstab = document.getElementById("compempstab");
-	let content = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
+	let content = assignheader;
 	for (i = 0; i < data.length; i++) {
 		content += "<tr><td>" + data[i].firstname + "</td><td>" + data[i].lastname
 		 		+ "</td><td>" + data[i].phonecell + "</td></tr>";
@@ -1123,6 +1124,7 @@ function fillContract(row) {
 	document.getElementById("contractend").value = currcomp.contracts[idx].contractend;
 	document.getElementById("contractrequested").value = currcomp.contracts[idx].requestcount;
 	document.getElementById("contractassigned").value = currcomp.contracts[idx].contractassigned;
+	getAssigned(row);
 }
 
 function saveComp(){
@@ -1150,15 +1152,27 @@ function showCompResult(data){
 }
 
 function saveCompAssignment() {
-	rows = document.getElementById("complinkedtab").getElementsByTagName("tr");
+	var rows = document.getElementById("complinkedtab").getElementsByTagName("tr");
 	if (rows.length == 1) {
-		alert("You need to have applicants selected before clicking assign.")
+		alert("You need to have applicants linked to this company before clicking assign.")
 		return
+	}else{
+		let checks = []
+		for (let i = 1; i < rows.length; i++) {
+			if (rows[i].firstChild.nextSibling.firstChild.checked) {
+				checks.push(rows[i]);
+			}
+		}
+		rows = checks;
+		if (rows.length == 0) {
+			alert("You need to select applicants before clicking assign.")
+			return
+		}
 	}
 	var empty = "";
-	for (let i = 1; i < rows.length; i++) {
+	for (let i = 0; i < rows.length; i++) {
 		document.getElementById("compassignappid").value = rows[i].firstChild.innerText;
-		document.getElementById("compassigncomp").value = currcomp.id;
+		document.getElementById("compassigncontractid").value = document.getElementById("contractid").value;
 		let formData = new FormData(document.getElementById("companyassign"));
 		sendData(formData, path + "st_saveAssignment.php", showCompResult);
 		empty += rows[i].firstChild.nextSibling.nextSibling.innerText + " " + rows[i].firstChild.nextSibling.nextSibling.nextSibling.innerText 
@@ -1199,7 +1213,7 @@ function saveContract(){
 }
 function addFromPpNums(){
 	var formData = new FormData();
-	formData.append("list", document.getElementById("contractppnums").value);
+	formData.append("contractppnums", document.getElementById("contractppnums").value);
 	formData.append("contractid", document.getElementById("contractid").value);
 	formData.append("contractstart", document.getElementById("contractstart").value);
 	formData.append("contractend", document.getElementById("contractend").value);
