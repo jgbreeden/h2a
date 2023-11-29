@@ -1061,7 +1061,7 @@ function fillCompDetail(data) {
 		data.applicants[i].lastname + "</td><td>" + data.applicants[i].status + "</td></tr>";
 	}
 	comptable.innerHTML = content; 
-	
+	clearContract();
 }	
 function getAssigned(row) {
 	getCompData(path + "st_getCompAssignedEmps.php?id=" + document.getElementById("compid").value + "&startdate=" + row.firstChild.innerHTML, showAssigned);
@@ -1094,16 +1094,17 @@ function clearComp() {
 	document.getElementById("complinkedtab").innerHTML = '<tr><th class="hide">id</th><th>..</th><th class="namehead">First Name</th><th class="namehead">Last Name</th><th>Status</th></tr>';
 	//document.getElementById("compassignstart").value = "";
 	//document.getElementById("compassignend").value = "";
+	clearContract();
 }
 
 function clearContract() {
 	document.getElementById("id").value = 0;
-	document.getElemetnById("contractnum").value = "";
+	document.getElementById("contractnum").value = "";
 	document.getElementById("contractname").value = "";
 	document.getElementById("contractstart").value = "";
 	document.getElementById("contractend").value = "";
-	document.getElementById("requested").value = "";
-	document.getElementById("assigned").value = "";
+	document.getElementById("contractrequested").value = "";
+	document.getElementById("contractassigned").value = "";
 	document.getElementById("compempstab").innerHTML = assignheader;
 }
 
@@ -1120,7 +1121,7 @@ function fillContract(row) {
 	document.getElementById("contractname").value = currcomp.contracts[idx].contractname;
 	document.getElementById("contractstart").value = currcomp.contracts[idx].contractstart;
 	document.getElementById("contractend").value = currcomp.contracts[idx].contractend;
-	document.getElementById("contractrequested").value = currcomp.contracts[idx].contractrequested;
+	document.getElementById("contractrequested").value = currcomp.contracts[idx].requestcount;
 	document.getElementById("contractassigned").value = currcomp.contracts[idx].contractassigned;
 }
 
