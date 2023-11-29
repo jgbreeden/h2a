@@ -495,7 +495,7 @@ function resetNewApp(){
 	document.getElementById("usresidency").value = currappl.deported
 	document.getElementById("legalissues").value = currappl.crimes;
 	document.getElementById("notes").value = currappl.notes;
-    if(currappl.ds160.marriage != undefined){
+    if(currappl.ds160.id != undefined){
 		document.getElementById("ds160id").value = currappl.ds160.id;
 		//document.getElementById("marriagedetails").value = currappl.ds160.marriage;
 		document.getElementById("nationality").value = currappl.ds160.nationality;

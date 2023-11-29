@@ -39,7 +39,7 @@
 										$_POST["ssn"], $_POST["othercontact"], $_POST["socialmedia"], $_POST["ppissues"], 
 										$_POST["father"], $_POST["mother"], $_POST["relatives"],
 										$_POST["spouse"], $_POST["countries"], $_POST["groups"], $_POST["military"], $_POST["issues"], 
-										$_POST["appconfirm"], $_POST["id"],	$_POST["ds160id"], $_POST["prints"], $_POST["language"]);
+										$_POST["appconfirm"], $_POST["id"], $_POST["prints"], $_POST["language"], $_POST["ds160id"]);
 		$result = $stmt->execute();
 		if ($result == 1) {
 			$message .= "along with DS160";
