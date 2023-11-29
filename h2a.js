@@ -1221,9 +1221,15 @@ function fillList(row){
 }
 
 function selectedComp(){
-	let grabed = document.getElementById("selectcomps").value;
-	
-	console.log("working");
+	getCompData(path + "st_getContracts.php?id=" + document.getElementById("selectcomps").value, fillContractsSelect);
+}
+function fillContractsSelect(data) {
+	var selectbox = document.getElementById("selectcontract");
+	var content = "";
+	for (var i = 0; i < data.length; i++) {
+		content += '<option value="' + data[i].id + '">' + data[i].contractnum +  ' - ' + data[i].contractName +  '</option>';
+	}
+	selectbox.innerHTML = content;
 }
 
 function getMatchingEmps(){
