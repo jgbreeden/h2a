@@ -9,7 +9,7 @@ $conn = new mysqli($host, $user, $password, $db);
 
 $date = date("Y/m/d", strtotime($_GET["startdate"]));
 
-$sql = "SELECT applicants.firstname, applicants.lastname, applicants.phonecell"
+$sql = "SELECT applicants.firstname, applicants.lastname, applicants.phonecell, applicants.email"
     . " FROM applicants INNER JOIN assignments ON applicants.id = assignments.applicantsid"
     . " and assignments.contractsid=? ";
 $stmt = $conn->prepare($sql);
@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
         $output = $output . '{"firstname": "' . $row["firstname"]
                         . '", "lastname": "' . $row["lastname"]
                         . '", "phonecell": "' . $row["phonecell"]
-                        . '"},';
+                        . '", "email": "' . '"},';
     }
     $output = substr($output, 0, strlen($output) - 1); //remove trailing comma
     

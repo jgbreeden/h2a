@@ -996,7 +996,7 @@ class contracts {
 
 var currcomp = new Employers (0, "", "", "", "", "", "");
 var contractheader = "<tr><th>Contract #</th><th class='medium'>Contract Name</th><th>Start Date</th></tr>";
-var assignheader = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th></tr>";
+var assignheader = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th><th>Email</th></tr>";
 function getCompanies() {
 	getData(path + "st_getComps.php", fillComp);
 }
