@@ -388,7 +388,7 @@ function fillEmpDetail(data) {
 		schoolContents += "<tr onclick='showSchool(this)'><td class='id'>" + data.school[i].id + "</td><td>" + data.school[i].schoolname + "</td></tr>";
 		currappl.school.push(new History("school", data.school[i].id, data.school[i].schoolname, data.school[i].address,
 			data.school[i].address2, data.school[i].city, data.school[i].state, data.school[i].zip, data.school[i].datefrom,
-			data.school[i].dateto, data.school[i].applicantsid, data.school[i].major ));
+			data.school[i].dateto, data.school[i].applicantsid, data.school[i].grade ));
 		currappl.school[i].country = data.school[i].country
 	}
 
