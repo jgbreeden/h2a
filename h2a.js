@@ -1197,6 +1197,12 @@ function saveContract(){
 	
 	
 }
+function addfromPpNums(){
+	var formData = new FormData();
+	formData.append("list", document.getElementById("contractppnums").value);
+	sendData(formData, path + "st_insertAssignmentByPP.php", showCompResult);
+	document.getElementById("contractppnums").value = "";
+}
 // ................................................................................................................
 // ................................................................................................................
 // ................................................................................................................
