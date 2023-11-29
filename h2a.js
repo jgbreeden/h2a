@@ -1187,15 +1187,21 @@ function closeCompAssignment() {
 
 }
 function saveContract(){
+	var formData = new FormData(document.getElementById("contractdata"));
+	formData.append("employersid", document.getElementById("compid.value"))
 	if (document.getElementById("contractid").value == 0) {
-		var formData = new FormData(document.getElementById("contractdata"));
 		sendData(formData, path + "st_insertContract.php", showCompResult);
-	} else {
-		var formData = new FormData(document.getElementById("contractdata"));
+	} else {	
 		sendData(formData, path + "st_updateContract.php", showCompResult);
 	}
 	
 	
+}
+function addfromPpNums(){
+	var formData = new FormData();
+	formData.append("list", document.getElementById("contractppnums").value);
+	sendData(formData, path + "st_insertAssignmentByPP.php", showCompResult);
+	document.getElementById("contractppnums").value = "";
 }
 // ................................................................................................................
 // ................................................................................................................
