@@ -926,7 +926,7 @@
 			<br>
 			<input name="compassignappid" id="compassignappid" type="number" style="display:none">
 			<input style="display:none" name="compassignedby" value="0">
-			<br><button type="button" onclick="saveCompAssignment()">Add selected applicants to Contract &#9658;</button>
+			<br><button type="button" id="savecompassign" onclick="saveCompAssignment()">Add selected applicants to Contract &#9658;</button>
 			</form>
 		</div>
 			<div  class="lefty lift">
@@ -973,11 +973,11 @@
 						</tr>
 					</table>
 				</form><br>
-				<button type="button" onclick="closeCompAssignment()">Close Contract Assignments</button>
+				<button type="button" id="closecompassign" onclick="closeCompAssignment()">Close Contract Assignments</button>
 				<br>
 				<br>Enter Passport numbers below
 				<br>(one per line) to:<br>
-				<button type="button" onclick="addFromPpNums()">Add list from Passport numbers &#9658;</button><br>
+				<button type="button" id="addfrompp" onclick="addFromPpNums()">Add list from Passport numbers &#9658;</button><br>
 				<textarea id="contractppnums" name="contractppnums" rows="20" cols="26"></textarea>
 			</div>
 			Applicants assigned to Contract:<br>

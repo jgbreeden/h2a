@@ -1108,6 +1108,11 @@ function clearContract() {
 	document.getElementById("contractrequested").value = "";
 	document.getElementById("contractassigned").value = "";
 	document.getElementById("compempstab").innerHTML = assignheader;
+	document.getElementById("savecompassign").disabled = true;
+	document.getElementById("closecompassign").disabled = true;
+	document.getElementById("addfrompp").disabled = true;
+	document.getElementById("coassignstart").value = "";
+	document.getElementById("coassignend").value = "";
 }
 
 function fillContract(row) {
@@ -1121,11 +1126,16 @@ function fillContract(row) {
 	document.getElementById("contractid").value = currcomp.contracts[idx].id;
 	document.getElementById("contractnum").value = currcomp.contracts[idx].contractnum;
 	document.getElementById("contractname").value = currcomp.contracts[idx].contractname;
-	document.getElementById("contractstart").value = currcomp.contracts[idx].contractstart;
-	document.getElementById("contractend").value = currcomp.contracts[idx].contractend;
+	document.getElementById("contractstart").value = currcomp.contracts[idx].startdate;
+	document.getElementById("contractend").value = currcomp.contracts[idx].enddate;
 	document.getElementById("contractrequested").value = currcomp.contracts[idx].requestcount;
 	document.getElementById("contractassigned").value = 0;
 	getAssigned(row);
+	document.getElementById("savecompassign").disabled = false;
+	document.getElementById("closecompassign").disabled = false;
+	document.getElementById("addfrompp").disabled = false;
+	document.getElementById("coassignstart").value = document.getElementById("contractstart").value;
+	document.getElementById("coassignend").value = document.getElementById("contractend").value;
 }
 
 function saveComp(){
@@ -1177,10 +1187,10 @@ function saveCompAssignment() {
 		let formData = new FormData(document.getElementById("companyassign"));
 		sendData(formData, path + "st_saveAssignment.php", showCompResult);
 		empty += rows[i].firstChild.nextSibling.nextSibling.innerText + " " + rows[i].firstChild.nextSibling.nextSibling.nextSibling.innerText 
-			+ "\t" + "https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=" + rows[i].firstChild.innerHTML + "\n";
+			+ "; " + "https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=" + rows[i].firstChild.innerHTML + "\n";
 	}
 	navigator.clipboard.writeText(empty)
-	alert("The following has been copied to the clipboard " + empty);
+	alert("The following has been copied to the clipboard \n" + empty);
 }
 function closeCompAssignment() {
 	var rows = document.getElementById("compassigntab").getElementsByTagName("tr");
@@ -1222,6 +1232,15 @@ function addFromPpNums(){
 	sendData(formData, path + "st_insertAssignmentByPP.php", showCompResult);
 	document.getElementById("contractppnums").value = "";
 }
+function showPpAssignedResult(data){
+	var empty = "";
+	for (i = 0; i < data.length; i++) {
+		empty += data[i].firstname + " " + data[i].lastname + ", " 
+			+ data[i].email + "; https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=" + data[i].id + "\n";
+	}
+	navigator.clipboard.writeText(empty)
+	alert("The following has been copied to the clipboard \n " + empty);
+}
 // ................................................................................................................
 // ................................................................................................................
 // ................................................................................................................
@@ -1252,7 +1271,7 @@ function fillContractsSelect(data) {
 	var selectbox = document.getElementById("selectcontract");
 	var content = "";
 	for (var i = 0; i < data.length; i++) {
-		content += '<option value="' + data[i].id + '">' + data[i].contractnum +  ' - ' + data[i].contractName +  '</option>';
+		content += '<option value="' + data[i].id + '">' + data[i].contractnum +  ' - ' + data[i].contractname +  '</option>';
 	}
 	selectbox.innerHTML = content;
 }
