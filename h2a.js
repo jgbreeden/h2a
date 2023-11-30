@@ -1341,29 +1341,29 @@ function showAssignedData(data){
 function saveAssignment() {
 	rows = document.getElementById("wancomptab").getElementsByTagName("tr");
 	if (rows.length == 1) {
-		alert("You need to move applicants with the arrow button to the list on the right!")
-		return
-
+		alert("You need to move applicants with the arrow button to the list on the right!");
+		return;
 	}
 	if (document.getElementById("selectcomps").value =="") {
-		alert("You have not assigned a company")
-		return
-
+		alert("You have not assigned a company");
+		return;
+	}
+	if (document.getElementById("selectcontract").value =="" && document.getElementById("setassign").checked) {
+		alert("You have not selected a contract");
+		return;
 	}
 	if (!document.getElementById("linkcompany").checked && !document.getElementById("setassign").checked) {
-		alert("Please check at least one of the two boxes")
-		return
-
+		alert("Please check at least one of the two boxes");
+		return;
 	}
-	if (document.getElementById("assignstart").value == 0) {
-		alert("You have not assigned starting date")
-		return
-
+	if (document.getElementById("assignstart").value == 0 && document.getElementById("setassign").checked) {
+		alert("You have not assigned starting date");
+		return;
 	}
 	for (let i = 1; i < rows.length; i++) {
 		document.getElementById("assignappid").value = rows[i].firstChild.innerText;
 		let formData = new FormData(document.getElementById("assignform"));
-		sendData(formData, path + "st_saveAssignment.php", showAssignResult)
+		sendData(formData, path + "st_saveAssignment.php", showAssignResult);
 	}
 }
 
