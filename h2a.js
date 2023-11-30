@@ -1075,9 +1075,10 @@ function showAssigned(data) {
 	let content = assignheader;
 	for (i = 0; i < data.length; i++) {
 		content += "<tr><td>" + data[i].firstname + "</td><td>" + data[i].lastname
-		 		+ "</td><td>" + data[i].phonecell + "</td></tr>";
+		 		+ "</td><td>" + data[i].phonecell + "</td><td>" + data[i].email + "</td></tr>";
 	}
 	empstab.innerHTML = content;
+	document.getElementById("contractassigned").value = data.length;
 }
 
 function clearComp() {
@@ -1099,7 +1100,7 @@ function clearComp() {
 }
 
 function clearContract() {
-	document.getElementById("id").value = 0;
+	document.getElementById("contractid").value = 0;
 	document.getElementById("contractnum").value = "";
 	document.getElementById("contractname").value = "";
 	document.getElementById("contractstart").value = "";
@@ -1123,7 +1124,7 @@ function fillContract(row) {
 	document.getElementById("contractstart").value = currcomp.contracts[idx].contractstart;
 	document.getElementById("contractend").value = currcomp.contracts[idx].contractend;
 	document.getElementById("contractrequested").value = currcomp.contracts[idx].requestcount;
-	document.getElementById("contractassigned").value = currcomp.contracts[idx].contractassigned;
+	document.getElementById("contractassigned").value = 0;
 	getAssigned(row);
 }
 
