@@ -1274,6 +1274,7 @@ function fillContractsSelect(data) {
 	var content = "";
 	for (var i = 0; i < data.length; i++) {
 		content += '<option value="' + data[i].id + '">' + data[i].contractnum +  ' - ' + data[i].contractname +  '</option>';
+		if (i == 0) { selectedContract(data[i].id)}
 	}
 	selectbox.innerHTML = content;
 }
