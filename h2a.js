@@ -1229,10 +1229,12 @@ function addFromPpNums(){
 	formData.append("contractstart", document.getElementById("contractstart").value);
 	formData.append("contractend", document.getElementById("contractend").value);
 	formData.append("compid", document.getElementById("compid").value);
-	sendData(formData, path + "st_insertAssignmentByPP.php", showCompResult);
+	sendData(formData, path + "st_insertAssignmentByPP.php", showPpAssignedResult);
 	document.getElementById("contractppnums").value = "";
 }
 function showPpAssignedResult(data){
+	console.log(data);
+	data = JSON.parse(data);
 	var empty = "";
 	for (i = 0; i < data.length; i++) {
 		empty += data[i].firstname + " " + data[i].lastname + ", " 
