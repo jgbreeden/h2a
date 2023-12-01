@@ -1277,7 +1277,13 @@ function fillContractsSelect(data) {
 	}
 	selectbox.innerHTML = content;
 }
-
+function selectedContract(id) {
+	getCompData(path + "st_getContractDetail.php?id=" + id, fillDates);
+}
+function fillDates(data){
+	document.getElementById("assignstart").value = data.startdate
+	document.getElementById("assignend").value = data.enddate
+}
 function getMatchingEmps(){
 	let rows1a = document.getElementById("chooseskills1a").getElementsByTagName("tr");
 	let rows1b = document.getElementById("chooseskills1b").getElementsByTagName("tr");

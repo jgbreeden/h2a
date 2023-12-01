@@ -10,7 +10,7 @@
 	if ($conn->connect_error) {
 		die("Comunicaton failed: " . $conn->connect_error);
 	}
-	$query = "SELECT * FROM contacts WHERE id =?";
+	$query = "SELECT * FROM contracts WHERE id =?";
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_GET["id"]);
 	$stmt->execute();
@@ -25,8 +25,9 @@
 		. '", "enddate": "' . $row["enddate"] . '", "requestcount": "' . $row["requestcount"]
 		. '", "applicants": [ ';
 
-	$query = "SELECT id, firstname, lastname FROM applicants" 
-		. " inner join contracts on contractid=?";
+	$query = "SELECT applicants.id, firstname, lastname FROM applicants" 
+		. " inner join assignments on"
+		. " applicants.id=assignments.applicantsid and assignments.contractsid=?";
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_GET["id"]);
 	$stmt->execute();
@@ -37,3 +38,6 @@
 		.$row["lastname"] . '"}';
 		$comma = ", ";
 	}
+	echo "]}";
+	$conn->close();
+?>
