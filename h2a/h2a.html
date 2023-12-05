@@ -926,7 +926,7 @@
 			<br>
 			<input name="compassignappid" id="compassignappid" type="number" style="display:none">
 			<input style="display:none" name="compassignedby" value="0">
-			<br><button type="button" onclick="saveCompAssignment()">Add selected applicants to Contract &#9658;</button>
+			<br><button type="button" id="savecompassign" onclick="saveCompAssignment()">Add selected applicants to Contract &#9658;</button>
 			</form>
 		</div>
 			<div  class="lefty lift">
@@ -973,11 +973,11 @@
 						</tr>
 					</table>
 				</form><br>
-				<button type="button" onclick="closeCompAssignment()">Close Contract Assignments</button>
+				<button type="button" id="closecompassign" onclick="closeCompAssignment()">Close Contract Assignments</button>
 				<br>
 				<br>Enter Passport numbers below
 				<br>(one per line) to:<br>
-				<button type="button" onclick="addFromPpNums()">Add list from Passport numbers &#9658;</button><br>
+				<button type="button" id="addfrompp" onclick="addFromPpNums()">Add list from Passport numbers &#9658;</button><br>
 				<textarea id="contractppnums" name="contractppnums" rows="20" cols="26"></textarea>
 			</div>
 			Applicants assigned to Contract:<br>
@@ -1069,13 +1069,13 @@
 				<label for="whatarea2">What Area:</label>
 				<input type="text" id="whatarea2" name="whatarea2" value="" readonly>
 				<br>
-				Over Time:
+				<label>Over Time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 				<label for="overtimeyes2">Yes:</label>
 				<input type="radio" id="overtimeyes2" name="overtime2" value="1" onclick="return false">
 				<label for="overtimeno2">No:</label>
 				<input type="radio" id="overtimeno2" name="overtime2" value="0" onclick="return false">
 				<br>
-				Extended Time:
+				<label>Extended Time:</label>
 				<label for="extendyes2">Yes:</label>
 				<input type="radio" id="extendyes2" name="extend2" value="1" onclick="return false">
 				<label for="extendno2">No:</label>
@@ -1108,7 +1108,7 @@
 						
 					</select>
 					<br>Contract:<br>
-					<select id="selectcontract" name="assigncontract">
+					<select id="selectcontract" name="assigncontract" onchange="selectedContract(this.value)">
 						<option></option>
 					</select>
 					<br>

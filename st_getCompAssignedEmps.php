@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
         $output = $output . '{"firstname": "' . $row["firstname"]
                         . '", "lastname": "' . $row["lastname"]
                         . '", "phonecell": "' . $row["phonecell"]
-                        . '", "email": "' . '"},';
+                        . '", "email": "' . $row["email"] . '"},';
     }
     $output = substr($output, 0, strlen($output) - 1); //remove trailing comma
     
