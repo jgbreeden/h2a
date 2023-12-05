@@ -160,15 +160,40 @@ input {
     font-family: BrushScriptOpti;
     src: url("BrushScriptOpti-Regular.otf")
 }
-#applisign {
-    font-family: "Brush Script MT";
+@font-face {
+    font-family: ClickerScript;
+    src: url("ClickerScript-Regular.ttf")
 }
-#brushcript {
+@font-face {
+    font-family: DancingScript;
+    src: url("DancingScript-VariableFont_wght.ttf")
+}
+@font-face {
+    font-family: VujahdayScript;
+    src: url("VujahdayScript-Regular.ttf")
+}
+@font-face {
+    font-family: SeaweedScript;
+    src: url("SeaweedScript-Regular.ttf")
+}
+#applisign0 {
     font-family: "BrushScriptOpti";
 }
-#kaufmann {
-    font-family: "Kaufmann";
+#BrushScriptOpti {
+    font-family: "BrushScriptOpti";
 }
 #mistral {
     font-family: "Mistral";
+}
+#ClickerScript {
+    font-family: "ClickerScript";
+}
+#DancingScript {
+    font-family: "DancingScript";
+}
+#VujahdayScript {
+    font-family: "VujahdayScript";
+}
+#SeaweedScript {
+    font-family: "SeaweedScript";
 }
