@@ -21,7 +21,7 @@
             En Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C. estamos comprometidos con salvaguardar la privacidad de sus datos personales y el presente aviso aplica para todas las entidades filiales y subsidiarias de Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C. en Me&#769;xico y lo pone a su
              disposicio&#769;n, en su cara&#769;cter de titular de los datos personales, el presente Aviso de Privacidad en cumplimiento a lo dispuesto por la Ley Federal de Proteccio&#769;n de Datos Personales en Posesio&#769;n de los Particulares y dema&#769;s disposiciones legales aplicables.
             </p>
-            <button id="continuebutton" onclick="agree1()" >Continuar leyendo</button>
+            <button onclick="agree1()" >Continuar leyendo</button>
             </div>
             <hr>
                 <!--<div class="inline">
@@ -83,16 +83,16 @@
     <label for="dateapplisigned0">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
     <input type="date" id="dateapplisigned1"><br>
 <hr>
-<button onclick="agree2()"disabled>Continuar</button>
+<button onclick="agree2()" id="continuebutton" disabled>Continuar</button>
 </div>
 <div id="application">
 <div class="nono">
 
-<div class="pobtn">
+<!--<div class="pobtn">
 <button class="tabbtn" id="b1" onclick="tabChange(0)">1</button>
 <button class="tabbtn" id="b2" onclick="tabChange(1)">2</button>
 <button class="tabbtn" id="b3" onclick="tabChange(2)">3</button>
-</div>
+</div>-->
 </div>
     <div class="cita hidden intro">
         <h1>Centro Independiente de Trabajadores Agri&#769;colas A.C.</h1>
@@ -110,7 +110,6 @@
     </div>
     
 <div class="nono intro">
-<h1 class="h1">DATOS PERSONALES:</h1>
 <div class="pobtn">
     <button class="tabbtn" id="b1" onclick="tabChange(0)">1</button>
     <button class="tabbtn" id="b2" onclick="tabChange(1)">2</button>
@@ -120,6 +119,8 @@
 
 <div class="formi intro">
 <form action="st_saveapp2.php" method="post" id="form">
+    <input type="text" id="applisign" name="signature"><br>
+    <input type="date" id="dateapplisigned" name="datesigned"><br>
     <input name="id" id="id" class="hidden">
     <input name="ovisas" id="ovisas" class="hidden">
     <input name="ovisaissues" id="ovisaissues" class="hidden">
@@ -130,7 +131,8 @@
     <input name="ofarmwork" id="ofarmwork" class="hidden">
     <input name="ocrimes" id="ocrimes" class="hidden">
 <div class="tab" id="tab1">
-    
+    <h3 class="h1">DATOS PERSONALES:</h3>
+   
     <hr>
     <label for="lname">Apellidos: </label><br>
     <input type="text" id="lname" name="lname"><br>
@@ -860,7 +862,7 @@
     <label for="organizationexp">Explique</label><br>
     <textarea rows="3" cols="30" name="organizationexp"></textarea><br>
     </div>
-    <hr>&#191;Alguna vez has sido miembro de los talibanes?
+    <!--<hr>&#191;Alguna vez has sido miembro de los talibanes?
 
     <div class="inline"><input type="radio" name="taliban" id="taliban" value="yes" onclick="showOption(this)">
     <label for="taliban">Si</label><br>
@@ -871,7 +873,7 @@
     <label for="talibanexp">Explique</label><br>
     <textarea rows="3" cols="30" name="talibanexp"></textarea><br>
     </div> 
-    <hr>
+    <hr>-->
     <hr>&#191;Tienes alguna habilidad o formacio&#769;n especializada, como armas de fuego, explosivos, 
     experiencia nuclear, biolo&#769;gica o qui&#769;mica?
 

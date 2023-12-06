@@ -61,20 +61,18 @@
 <div id="cita3">
 <hr>
     <div class="inline">
-        <input type="radio" value="BrushScriptOpti" name="font"><span id="BrushScriptOpti">Muestra de Nombre</span><br>
-        <input type="radio" value="Mistral" name="font"><span id="mistral">Muestra de Nombre</span><br>
-        <input type="radio" value="ClickerScript" name="font"><span id="ClickerScript">Muestra de Nombre</span><br>
-        <input type="radio" value="DancingScript" name="font"><span id="DancingScript">Muestra de Nombre</span><br>
-        <input type="radio" value="VujahdayScript" name="font"><span id="VujahdayScript">Muestra de Nombre</span><br>
-        <input type="radio" value="SeaweedScript" name="font"><span id="SeaweedScript">Muestra de Nombre</span><br>
+        <input type="radio" value="BrushScriptOpti" name="font" onclick="setFont(this.value)"><span id="BrushScriptOpti">Su Firma</span><br>
+        <input type="radio" value="DancingScript" name="font" onclick="setFont(this.value)"><span id="DancingScript">Su Firma</span><br>
+        <input type="radio" value="VujahdayScript" name="font" onclick="setFont(this.value)"><span id="VujahdayScript">Su Firma</span><br>
+        <input type="radio" value="SeaweedScript" name="font" onclick="setFont(this.value)"><span id="SeaweedScript">Su Firma</span><br>
     </div>
-    <input type="checkbox" onclick="agree0(this)">Acepto<br>
-    <label for="applisign0">Firma de solicitante</label><br>
+    <input type="checkbox" onclick="agree0(this)">Acepto<br><br>
+    <label for="applisign1">Firma de solicitante</label><br>
     <input type="text" id="applisign1"><br>
 <hr>
 
 <hr>
-    <label for="dateapplisigned0">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
+    <label for="dateapplisigned1">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
     <input type="date" id="dateapplisigned1"><br>
 <hr>
 <button onclick="agree2()">Continuar</button>

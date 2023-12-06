@@ -126,6 +126,7 @@ function showOption(item){
 }
 function agree0(box) {
     document.getElementById("continuebutton").disabled = !box.checked;
+    console.log(!box.checked);
 }
 
 function agree1() {
@@ -134,8 +135,14 @@ function agree1() {
 }
 
 function agree2() {
+    document.getElementById("cita").style.display = "none";
     document.getElementById("cita2").style.display = "none";
+    document.getElementById("cita3").style.display = "none";
     document.getElementById("application").style.display = "block";
-    document.getElementById("applisign").value = document.getElementById("applisign0")
+    document.getElementById("applisign").value += document.getElementById("applisign0") + "</span>";
     document.getElementById("dateapplisigned").value = document.getElementById("dateapplisigned0")
+}
+function setFont(font) {
+    document.getElementById("applisign1").style.fontFamily = font;
+    document.getElementById("applisign").value = "<span style='font-family:" + font + "'>";
 }

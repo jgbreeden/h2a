@@ -123,7 +123,7 @@ hr {
     clear: right;
 }
 
-#cita, #cita2 {
+#cita, #cita2, #cita3 {
     background-color:  #999999;
     color: black;
     font-size: 25px;
@@ -133,7 +133,6 @@ hr {
     padding-bottom: 5px;
     padding-right: 25px;
     padding-left: 25px;
-    margin-bottom: 5%;
     margin-top: 3%;
 }
 
