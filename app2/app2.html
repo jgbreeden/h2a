@@ -11,7 +11,7 @@
         Por favor contacte a CITA para ma&#769;s informacio&#769;n en al (928)271-2619
     </div>
     <div id="cita">
-        <img src="../tjlogo.webp" id="tjlogo">
+        <img src="tjlogo.webp" id="tjlogo">
         <h1>Trabajamos Juntos</h1>
         <p>Esta&#769; llenando una Pre-Solicitud la cual se va a una lista de espera por el momento indefinida en tiempo de contratacio&#769;n. 
             Es muy importante responda con honestidad, con informacio&#769;n veri&#769;dica y lo ma&#769;s exacta posible.</p>
@@ -21,16 +21,26 @@
             En Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C. estamos comprometidos con salvaguardar la privacidad de sus datos personales y el presente aviso aplica para todas las entidades filiales y subsidiarias de Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C. en Me&#769;xico y lo pone a su
              disposicio&#769;n, en su cara&#769;cter de titular de los datos personales, el presente Aviso de Privacidad en cumplimiento a lo dispuesto por la Ley Federal de Proteccio&#769;n de Datos Personales en Posesio&#769;n de los Particulares y dema&#769;s disposiciones legales aplicables.
             </p>
-            <button onclick="agree1()" >Continuar leyendo</button>
-            </div>
-            <hr>
-                <!--<div class="inline">
-                    <input type="radio" value="BrushScriptOpti" name="font"><span id="BrushScriptOpti">Brush Script</span><br>
-                    <input type="radio" value="Kaufmann" name="font"><span id="kaufmann">Kaufmann</span><br>
-                    <input type="radio" value="Mistral" name="font"><span id="mistral">Mistral</span><br>
-                </div>-->
-
-    
+            <div id="cita3">
+                <hr>
+                    <div class="inline">
+                        <input type="radio" value="BrushScriptOpti" name="font" onclick="setFont(this.value)" checked><span id="BrushScriptOpti">Su Firma</span><br>
+                        <input type="radio" value="DancingScript" name="font" onclick="setFont(this.value)"><span id="DancingScript">Su Firma</span><br>
+                        <input type="radio" value="VujahdayScript" name="font" onclick="setFont(this.value)"><span id="VujahdayScript">Su Firma</span><br>
+                        <input type="radio" value="ClickerScript" name="font" onclick="setFont(this.value)"><span id="ClickerScript">Su Firma</span><br>
+                    </div>
+                    <input type="checkbox" onclick="accept(this)">Acepto<br><br>
+                    <label for="applisign1">Firma de solicitante</label><br>
+                    <input type="text" id="applisign1"><br>
+                <hr>
+                
+                <hr>
+                    <label for="dateapplisigned1">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
+                    <input type="date" id="dateapplisigned1"><br>
+                <hr>
+                <button onclick="agree0()">Exceptar y<br>Continuar</button>
+                </div>
+            <button id="continuebutton" onclick="agree1()">Continuar<br>leyendo</button>
     </div>
     <div id="cita2">
         <a href="#applisign1" id="signbtn">&#8595; Firma</a>
@@ -70,20 +80,7 @@
 <p>Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  se comunicara&#769; en un te&#769;rmino ma&#769;ximo de 20 di&#769;as ha&#769;biles, contados a partir de que dicho Departamento haya recibido la solicitud de revocacio&#769;n de consentimiento por su parte, la determinacio&#769;n adoptada a efecto de que se haga efectiva dentro de los 15 di&#769;as ha&#769;biles siguientes. Estos plazos podra&#769;n ser ampliados por un periodo igual cuando las circunstancias del caso lo justifiquen.</p>
 <p>9) Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C. podra&#769; hacer cambios al presente Aviso de Privacidad cuando lo desee o considere necesario. Si usted no esta&#769; de acuerdo con las modificaciones hechas al Aviso de Privacidad debera&#769; informarlo inmediatamente a: karla@h-2a.com ya que de lo contrario se entendera&#769; que esta&#769; de acuerdo y que otorga su consentimiento a Trabajamos Juntos/Centro Independiente de Trabajadores Agri&#769;colas, A.C.  para el tratamiento de sus datos personales, de conformidad con las disposiciones del presente Aviso de Privacidad.</p>
 <p>10) El Departamento de Aviso de Privacidad dara&#769; tra&#769;mite a las solicitudes del titular de los datos personales respecto al ejercicio de sus derechos &quot;ARCO&quot; (acceso, rectificacio&#769;n, cancelacio&#769;n, oposicio&#769;n) y revocacio&#769;n de estos.</p>
-</div>
-<div id="cita3">
-    
-<hr>
-    <input type="checkbox" onclick="agree0(this)">Acepto<br>
-    <label for="applisign0">Firma de solicitante</label><br>
-    <input type="text" id="applisign1"><br>
-<hr>
-
-<hr>
-    <label for="dateapplisigned0">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
-    <input type="date" id="dateapplisigned1"><br>
-<hr>
-<button onclick="agree2()" id="continuebutton" disabled>Continuar</button>
+<button id="start" onclick="agree2()">Continuar</button>
 </div>
 <div id="application">
 <div class="nono">
