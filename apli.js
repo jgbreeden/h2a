@@ -126,7 +126,7 @@ function showOption(item){
 }
 function agree0(box) {
     document.getElementById("continuebutton").disabled = !box.checked;
-    console.log(!box.checked);
+    //console.log(!box.checked);
 }
 
 function agree1() {
@@ -135,12 +135,20 @@ function agree1() {
 }
 
 function agree2() {
+    const signdate = new Date(document.getElementById("dateapplisigned1").value);
+    const thisyear = new Date();
+    if (document.getElementById("applisign1").value == "" 
+        || !Number.isInteger(signdate.getFullYear()) 
+        || signdate.getFullYear() < thisyear.getFullYear()) {
+        alert("Por favor firme y feche para continuar.");
+        return;
+    }
     document.getElementById("cita").style.display = "none";
     document.getElementById("cita2").style.display = "none";
     document.getElementById("cita3").style.display = "none";
     document.getElementById("application").style.display = "block";
-    document.getElementById("applisign").value += document.getElementById("applisign0") + "</span>";
-    document.getElementById("dateapplisigned").value = document.getElementById("dateapplisigned0")
+    document.getElementById("applisign").value += document.getElementById("applisign1").value + "</span>";
+    document.getElementById("dateapplisigned").value = document.getElementById("dateapplisigned1").value;
 }
 function setFont(font) {
     document.getElementById("applisign1").style.fontFamily = font;
