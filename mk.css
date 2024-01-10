@@ -196,3 +196,7 @@ input {
 #SeaweedScript {
     font-family: "SeaweedScript";
 }
+#continuebutton {
+    float: right;
+    margin-top: -80;
+}
