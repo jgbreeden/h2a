@@ -122,8 +122,8 @@ function showOption(item){
             }
         }
     }
-
 }
+
 function accept(box) {
     document.getElementById("continuebutton").disabled = !box.checked;
     //console.log(!box.checked);
