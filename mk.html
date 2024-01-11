@@ -25,7 +25,7 @@
                         <input type="radio" value="VujahdayScript" name="font" onclick="setFont(this.value)"><span id="VujahdayScript">Su Firma</span><br>
                         <input type="radio" value="ClickerScript" name="font" onclick="setFont(this.value)"><span id="ClickerScript">Su Firma</span><br>
                     </div>
-                    <input type="checkbox" onclick="accept(this)">Acepto<br><br>
+                    <input type="checkbox" onclick="agree(this)">Acepto<br><br>
                     <label for="applisign1">Firma de solicitante</label><br>
                     <input type="text" id="applisign1"><br>
                 <hr>
@@ -34,9 +34,9 @@
                     <label for="dateapplisigned1">Fecha que fue llenada (applicacion llenada y firmada)</label><br>
                     <input type="date" id="dateapplisigned1"><br>
                 <hr>
-                <button onclick="agree0()">Exceptar y<br>Continuar</button>
-                </div>
-            <button id="continuebutton" onclick="agree1()">Continuar<br>leyendo</button>
+                <button id="acceptbtn" onclick="agree0()" disabled>Aceptar y<br>Continuar</button>
+                <button id="continuebutton" onclick="agree1()">Continuar<br>leyendo</button>
+            </div>
     </div>
     <div id="cita2">
         <a href="#applisign1" id="signbtn">&#8595; Firma</a>

@@ -24,6 +24,7 @@ function initData(data) {
 	document.getElementById("lname").value = data.lastname;
 	document.getElementById("maritalstatus").value = data.maritalstatus;
 	document.getElementById("dateofbirth").value = data.dateofbirth;
+	document.getElementById("placeofbirth").value = data.placeofbirth;
 	document.getElementById("phonecell").value = data.cphone;
 	document.getElementById("phonehome").value = data.hphone;
 	document.getElementById("email").value = data.email;
@@ -32,9 +33,12 @@ function initData(data) {
 	document.getElementById("city").value = data.city;
 	document.getElementById("state").value = data.state;
 	document.getElementById("zipcode").value = data.zip;
+	document.getElementById("country").value = data.country;
 	document.getElementById("id").value = data.id;
+	document.getElementById("pptype").value = data.pptype;
 	document.getElementById("ppcity").value = data.ppcity;
 	document.getElementById("ppissuedate").value = data.ppdateissue;
+	document.getElementById("ppduedate").value = data.ppdatedue;
 	document.getElementById("ovisas").value = data.visas;
 	document.getElementById("ovisaissues").value = data.visaissues;
 	document.getElementById("ovisarefused").value = data.visarefused;
@@ -44,7 +48,6 @@ function initData(data) {
 	document.getElementById("ofarmwork").value = data.farmwork;
 	document.getElementById("ocrimes").value = data.crimes;
 
-	//document.getElementById("placeofbirth").value = data.placeofbirth;
 	if (data.gender == "male") {
 		document.getElementById("male").checked = true;
 	} else {

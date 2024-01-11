@@ -515,8 +515,17 @@ function resetNewApp(){
 		document.getElementById("military").value = currappl.ds160.military;
 		document.getElementById("issues").value = currappl.ds160.issues;
 		document.getElementById("appconfirm").value = currappl.ds160.confirmation;
-		document.getElementById("prints").value = currappl.ds160.fingerprints;
 		document.getElementById("language").value = currappl.ds160.language;
+		if (currappl.ds160.fingerprints == 1) {
+			document.getElementById("prints").checked = true;
+		}else{
+			document.getElementById("printsno").checked = true;
+		}
+		if (currappl.ds160.samecountry == 1) {
+			document.getElementById("samecountry").checked = true;
+		}else{
+			document.getElementById("samecountryno").checked = true;
+		}
 	}
 }
 
@@ -598,8 +607,11 @@ function clearNewApp(){
 	document.getElementById("ustravel").value = "";
 	document.getElementById("appconfirm").value = "";
 	document.getElementById("company").value = "";
-	document.getElementById("prints").value = "";
+	document.getElementById("prints").checked = false;
+	document.getElementById("printsno").checked = false;
 	document.getElementById("language").value = "";
+	document.getElementById("samecountry").checked = false;
+	document.getElementById("samecountryno").checked = false;
 
 	clearSkill();
 	clearAbility();

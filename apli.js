@@ -124,8 +124,8 @@ function showOption(item){
     }
 }
 
-function accept(box) {
-    document.getElementById("continuebutton").disabled = !box.checked;
+function agree(box) {
+    document.getElementById("acceptbtn").disabled = !box.checked;
     //console.log(!box.checked);
 }
 function agree0() {
@@ -140,16 +140,22 @@ function agree0() {
     document.getElementById("applisign").value += document.getElementById("applisign1").value + "</span>";
     document.getElementById("dateapplisigned").value = document.getElementById("dateapplisigned1").value;
     document.getElementById("cita2").style.display = "block";
-    if (document.getElementById("cita2").parentElement.id == "cita2") {
+    if (document.getElementById("cita3").parentElement.id == "cita2") {
         agree2()
+    } else {
+        window.scrollBy(0, 100);
+        document.getElementById("signbtn").href = "#start";
+        document.getElementById("signbtn").innerHTML = "&#8595; Fin";
     }
 }
 
 function agree1() {
-    var accept = document.getElementById("cita3");
-    accept.remove();
+    var acceptdiv = document.getElementById("cita3");
+    acceptdiv.remove();
     var cita2 = document.getElementById("cita2");
-    cita2.appendChild(accept);
+    cita2.appendChild(acceptdiv);
+    document.getElementById("continuebutton").style.display = "none";
+    document.getElementById("start").style.display = "none";
     document.getElementById("cita2").style.display = "block";
     //document.documentElement.scrollTop = 0;
 }

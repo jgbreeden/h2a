@@ -23,12 +23,12 @@ if ($row = $results->fetch_assoc()) {
   $json =   '{ "id": ' . $row["id"] . ', "firstname": "' . $row["firstname"] . '", "lastname": "'
     . $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
     . $row["phonehome"] . '", "address": "' . $row["address"] . '", "address2": "' . $row["address2"] . '", "city": "'
-    . $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . $row["zipcode"]
+    . $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . $row["zipcode"] . '", "country": "' . $row["country"]
     . '", "maritalstatus": "' . $row["maritalstatus"] . '", "status": "' . $row["status"] 
     . '", "license": "' . $row["license"] . '", "ppnumber": "' . $row["ppnumber"] . '", "placeofbirth": "'
     . $row["placeofbirth"] . '", "dateofbirth": "' . $row["dateofbirth"] . '", "email": "'
-    . $row["email"] . '", "gender": "' . $row["gender"] . '", "ppcity": "'
-    . $row["pplocation"] . '", "ppdateissue": "' . $row["ppdateissue"] . '", "visas": "'
+    . $row["email"] . '", "gender": "' . $row["gender"] . '", "ppcity": "' . $row["pplocation"] . '", "pptype": "'
+    . $row["pptype"] . '", "ppdateissue": "' . $row["ppdateissue"] . '", "ppdatedue": "' . $row["ppdatedue"] . '", "visas": "'
     . $row["visas"] . '", "visaissues": "' . $row["visaissues"] . '", "visarefused": "'
     . $row["visarefused"] . '", "license": "' . $row["license"] . '", "ustravel": "'
     . $row["ustravel"] . '", "deported": "' . $row["deported"] . '", "farmwork": "'
