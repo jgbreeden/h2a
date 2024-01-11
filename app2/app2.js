@@ -24,7 +24,7 @@ function initData(data) {
 	document.getElementById("lname").value = data.lastname;
 	document.getElementById("maritalstatus").value = data.maritalstatus;
 	document.getElementById("dateofbirth").value = data.dateofbirth;
-	document.getElementById("placeofbirth").value = data.placeofbirth;
+	document.getElementById("placeofbirth").value = data.placeofbirth.substr(0, data.placeofbirth.indexOf(","));
 	document.getElementById("phonecell").value = data.cphone;
 	document.getElementById("phonehome").value = data.hphone;
 	document.getElementById("email").value = data.email;
