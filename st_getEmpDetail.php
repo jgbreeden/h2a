@@ -167,8 +167,8 @@
 	$results = $stmt->get_result();
 	if ($row = $results->fetch_assoc()) {
 		$json =  ', "ds160": {"id": ' . $row["id"] . ', "marriage": "' . $row["marriage"] . '", "nationality": "' 
-		. $row["nationality"] . '", "othernations": "' . $row["othernations"] 
-		. '", "nationid": "' . $row["nationid"] . '", "ssn": "' . $row["ssn"] . '", "othercontact": "' 
+		. $row["nationality"] . '", "othernations": "' . $row["othernations"] . '", "nationid": "' 
+		. $row["nationid"] . '", "ssn": "' . $row["ssn"] . '", "mailaddress": "' . $row["mailaddress"] . '", "othercontact": "' 
 		. $row["othercontact"] . '", "socialmedia": "' . $row["socialmedia"] . '", "ppissues": "' 
 		. $row["ppissues"] . '", "father": "' . $row["fatherinfo"] . '", "mother": "' 
 		. $row["motherinfo"] . '", "relatives": "' . $row["relatives"] . '", "spouse": "' 
