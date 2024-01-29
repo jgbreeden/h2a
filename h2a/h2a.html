@@ -28,6 +28,7 @@
 						<option value="refused">Refused</option>
 						<option value="inactive">Inactive</option>
 					</select>
+					<span id="appcount"></span>
 				</div>
 				<table id="newapptab">
 					<!--<span id="newapplabel">New Applicants</span>-->
@@ -887,6 +888,7 @@
 			</form>
 			<div id="complinked">
 				<br>Linked Applicants
+				<span id="linkedcount"></span>
 				<table id="complinkedtab">
 					<tr>
 						<th class="hide">id</th>
@@ -980,7 +982,7 @@
 				<button type="button" id="addfrompp" onclick="addFromPpNums()">Add list from Passport numbers &#9658;</button><br>
 				<textarea id="contractppnums" name="contractppnums" rows="20" cols="26"></textarea>
 			</div>
-			Applicants assigned to Contract:<br>
+			Applicants assigned to Contract:<span id="assigncount"></span><br>
 			<table id="compempstab">
 				<tr>
 					<th class="namehead">First Name</th>
