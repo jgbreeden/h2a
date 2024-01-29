@@ -108,9 +108,9 @@
     Sexo
 
     <div class="inline"><input type="radio" id="male" name="gender" value="male" checked="true">
-    <label for="female">Male</label><br>
+    <label for="male">Hombre</label><br>
     <input type="radio" id="female" name="gender" value="female">
-    <label for="female">Female</label><br>
+    <label for="female">Mujer</label><br>
     </div>
     <hr>
 
@@ -742,6 +742,20 @@
         <input type="number" name="acelgaexp"><br>
         <label for="acelgawhere">Lugar de Trabajo</label><br>
         <input type="text" name="acelgawhere"><br>
+        </div>
+        <hr>
+
+        <hr>Aguacate
+        <div class="inline"><input type="radio" name="aguacate" id="aguacate" value="yes" onclick="showOption(this)">
+        <label for="aguacate">Si</label><br>
+        <input type="radio" name="aguacate" id="aguacate" value="no" checked="true" onclick="hideOption(this)">
+        <label for="aguacate">No</label><br>
+        </div>
+        <div class="options" id="aguacateoptions">
+        <label for="aguacateexp">An&#771;os de Experiencia</label><br>
+        <input type="number" name="aguacateexp"><br>
+        <label for="aguacatewhere">Lugar de Trabajo</label><br>
+        <input type="text" name="aguacatewhere"><br>
         </div>
         <hr>
 

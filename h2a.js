@@ -75,7 +75,7 @@ class Applicant {
 	
 }
 class Appds160{
-	constructor(id, marriage, nationality, othernations, otherresident, nationid, ssn, othercontact, socalmedia,
+	constructor(id, marriage, nationality, othernations, otherresident, nationid, ssn, mailaddress, othercontact, socialmedia,
 	pploststolen, ppdatedue, father, mother, relatives, spouse, countries, groups, military, legalissues, 
 	deportation, applicants, issues, confirmation, fingerprints, language, samecountry){
 		this.id = id;
@@ -85,8 +85,9 @@ class Appds160{
 		this.otherresident = otherresident;
 		this.nationid = nationid;
 		this.ssn = ssn;
+		this.mailaddress = mailaddress;
 		this.othercontact = othercontact;
-		this.socalmedia = socalmedia;
+		this.socialmedia = socialmedia;
 		this.pploststolen = pploststolen;
 		this.ppdatedue = ppdatedue;
 		this.father = father;
@@ -297,6 +298,7 @@ function fillEmps(data) {
 	}
 	table.innerHTML = contents;
 	clearNewApp();
+	document.getElementById("appcount").innerText =  "(" + data.length + ")";
 	//console.log(data);
 }
 
@@ -315,6 +317,7 @@ function fillEmpDetail(data) {
         currappl.ds160.otherresident = data.ds160.otherresident
 		currappl.ds160.nationid = data.ds160.nationid
 		currappl.ds160.ssn = data.ds160.ssn
+		currappl.ds160.mailaddress = data.ds160.mailaddress
 		currappl.ds160.othercontact = data.ds160.othercontact
 		currappl.ds160.socialmedia = data.ds160.socialmedia
 		currappl.ds160.pploststolen = data.ds160.ppissues
@@ -503,6 +506,7 @@ function resetNewApp(){
 		//document.getElementById("otherresident").value = currappl.ds160.otherresident;
 		document.getElementById("nationid").value = currappl.ds160.nationid;
 		document.getElementById("ssn").value = currappl.ds160.ssn;
+		document.getElementById("mailaddress").value = currappl.ds160.mailaddress;
 		document.getElementById("othercontact").value = currappl.ds160.othercontact;
 		document.getElementById("socialmedia").value = currappl.ds160.socialmedia;
 		document.getElementById("ppissues").value = currappl.ds160.pploststolen;
@@ -526,12 +530,13 @@ function resetNewApp(){
 		}else{
 			document.getElementById("samecountryno").checked = true;
 		}
+	} else {
+		clearDs160();
 	}
 }
 
 function clearNewApp(){
 	document.getElementById("id").value = "";
-	document.getElementById("ds160id").value = "";
 	document.getElementById("first").value = "";
 	document.getElementById("last").value = "";
 	document.getElementById("cphone").value = "";
@@ -587,11 +592,26 @@ function clearNewApp(){
 	document.getElementById("notes").value = "";
 	document.getElementById("usresidency").value= "";
 	//document.getElementById("marriagedetails").value = "";
+	document.getElementById("legalissues").value = "";
+	document.getElementById("ustravel").value = "";
+	document.getElementById("company").value = "";
+	clearDs160();
+
+	clearSkill();
+	clearAbility();
+	clearJob();
+	clearHealth();
+	clearSchool();
+	//resetNewApp();
+}
+function clearDs160() {
+	document.getElementById("ds160id").value = "";
 	document.getElementById("nationality").value = "";
 	document.getElementById("othernations").value = "";
 	///document.getElementById("otherresident").value = "";
 	document.getElementById("nationid").value = "";
 	document.getElementById("ssn").value = "";
+	document.getElementById("mailaddress").value = "";
 	document.getElementById("othercontact").value = "";
 	document.getElementById("socialmedia").value = "";
 	document.getElementById("ppissues").value = "";
@@ -603,22 +623,12 @@ function clearNewApp(){
 	document.getElementById("groups").value = "";
 	document.getElementById("military").value = "";
 	document.getElementById("issues").value = "";
-	document.getElementById("legalissues").value = "";
-	document.getElementById("ustravel").value = "";
 	document.getElementById("appconfirm").value = "";
-	document.getElementById("company").value = "";
 	document.getElementById("prints").checked = false;
 	document.getElementById("printsno").checked = false;
 	document.getElementById("language").value = "";
 	document.getElementById("samecountry").checked = false;
 	document.getElementById("samecountryno").checked = false;
-
-	clearSkill();
-	clearAbility();
-	clearJob();
-	clearHealth();
-	clearSchool();
-	//resetNewApp();
 }
 
 function sendData(data, phpFile, callBack){
@@ -1074,6 +1084,7 @@ function fillCompDetail(data) {
 		data.applicants[i].lastname + "</td><td>" + data.applicants[i].status + "</td></tr>";
 	}
 	comptable.innerHTML = content; 
+	document.getElementById("linkedcount").innerText = "(" + data.applicants.length + ")";
 	clearContract();
 }	
 function getAssigned(row) {

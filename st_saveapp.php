@@ -108,6 +108,7 @@ $stmt->bind_param("iisss", $skillsid, $id, $years, $location, $details);
 $skills = [];
 
 if ($_POST["acelga"] == "yes") array_push($skills, array("acelga", $_POST["acelgaexp"], $_POST["acelgawhere"]));
+if ($_POST["aguacate"] == "yes") array_push($skills, array("aguacate", $_POST["aguacateexp"], $_POST["aguacatewhere"]));
 if ($_POST["alcachofa"] == "yes") array_push($skills, array("alcachofa", $_POST["alcachofaexp"], $_POST["alcachofawhere"]));
 if ($_POST["alfalfa"] == "yes") array_push($skills, array("alfalfa", $_POST["alfalfaexp"], $_POST["alfalfawhere"]));
 if ($_POST["ajo"] == "yes") array_push($skills, array("ajo", $_POST["ajoexp"], $_POST["ajowhere"]));

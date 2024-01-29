@@ -31,12 +31,12 @@
 	}
 	if ($_POST["ds160id"] != "") {
 		$sql = "UPDATE appds160 SET marriage = ?, nationality = ?, othernations = ?, nationid = ?, ssn = ?, "
-			. "othercontact = ?, socialmedia = ?, ppissues = ?, "
+			. "mailaddress = ?, othercontact = ?, socialmedia = ?, ppissues = ?, "
 			. "fatherinfo = ?, motherinfo = ?, relatives = ?, spouse = ?, countries = ?, groups = ?, military = ?,"
 			. "issues = ?, ds160id = ?, applicantsid = ?, fingerprints = ?, language = ? WHERE id = ?;";
 		$stmt = $conn->prepare($sql);
-		$stmt->bind_param("ssssssssssssssssssssi", $_POST["marriage"], $_POST["nationality"], $_POST["othernations"],  $_POST["nationid"], 
-										$_POST["ssn"], $_POST["othercontact"], $_POST["socialmedia"], $_POST["ppissues"], 
+		$stmt->bind_param("sssssssssssssssssssssi", $_POST["marriage"], $_POST["nationality"], $_POST["othernations"],  $_POST["nationid"], 
+										$_POST["ssn"], $_POST["mailaddress"], $_POST["othercontact"], $_POST["socialmedia"], $_POST["ppissues"], 
 										$_POST["father"], $_POST["mother"], $_POST["relatives"],
 										$_POST["spouse"], $_POST["countries"], $_POST["groups"], $_POST["military"], $_POST["issues"], 
 										$_POST["appconfirm"], $_POST["id"], $_POST["prints"], $_POST["language"], $_POST["ds160id"]);

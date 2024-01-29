@@ -58,6 +58,7 @@ function btnnext(inc) {
     currentTab = currentTab + inc;
     if (currentTab == tabs.length) {
         document.getElementById("form").submit();
+        document.getElementById("btnnext").disabled = true;
     } else {
         tabChange(currentTab)
     }
