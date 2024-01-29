@@ -298,6 +298,7 @@ function fillEmps(data) {
 	}
 	table.innerHTML = contents;
 	clearNewApp();
+	document.getElementById("appcount").innerText =  "(" + data.length + ")";
 	//console.log(data);
 }
 
@@ -1083,6 +1084,7 @@ function fillCompDetail(data) {
 		data.applicants[i].lastname + "</td><td>" + data.applicants[i].status + "</td></tr>";
 	}
 	comptable.innerHTML = content; 
+	document.getElementById("linkedcount").innerText = "(" + data.applicants.length + ")";
 	clearContract();
 }	
 function getAssigned(row) {
