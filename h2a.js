@@ -1161,6 +1161,10 @@ function fillContract(row) {
 	document.getElementById("coassignend").value = document.getElementById("contractend").value;
 }
 
+function showSkillCount(data) {
+	alert(JSON.stringify(data));
+}
+
 function saveComp(){
 	if (document.getElementById("compid").value == 0) {
 		currcomp.insert()
