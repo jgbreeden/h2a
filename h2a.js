@@ -217,7 +217,7 @@ function st_show(tab) {
 	for (let i = 0; i < buttons.length; i++){
 		buttons[i].classList.remove("selected");
 	}
-	let bi = ['newapplicants', 'applicants', 'companies', 'assignments'].findIndex((t)=>t==tab);
+	let bi = ['newapplicants', 'applicants', 'companies', 'assignments','administration'].findIndex((t)=>t==tab);
 	buttons[bi].classList.add("selected");
 	//document.getElementById("searchapp").style.display = "none";
 	//document.getElementById("newapplabel").style.display = "none";
@@ -1466,4 +1466,26 @@ function moc() {
 	let grab3 = document.getElementById("wanapptab");
 	grab3.innerHTML += "<tr onclick='selectApp(this)'>" + grab2[0].innerHTML + "</tr>";
 	grab2[0].remove();
+}
+// ................................................................................................................
+// ................................................................................................................
+// ................................................................................................................
+//Assignments funtions
+// ................................................................................................................
+// ................................................................................................................
+// ................................................................................................................
+function getExport() {
+	let fd = document.getElementById("appExport")
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		downloadExport(this.responseText);
+	}
+	xhr.open("post", path + "st_exportApps.php");
+	xhr.send(fd);
+}
+function downloadExport(data) {
+	var a = document.createElement("a");
+	a.href = window.URL.createObjectURL(data);
+	a.download = "applicantsexport.csv"
+	a.click();
 }

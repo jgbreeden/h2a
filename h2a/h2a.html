@@ -13,6 +13,7 @@
 			<button type="button" onclick="st_show('applicants'); getEmployees('accepted');">Applicants</button>
 			<button type="button" onclick="st_show('companies'); getCompanies();">Companies</button>
 			<button type="button" onclick="st_show('assignments'); fillCompList();">Assignments</button>
+			<button type="button" onclick="st_show('administration');">Administration</button>
 		</div>
 		<div id="newapplicants" class="st_tab">
 			
@@ -1129,6 +1130,30 @@
 				</form>
 				
 			</div>
+		</div>
+		<div id="administration" class="st_tab">
+			<form id="appExport">
+            <h4>Export Applicants</h4>
+			<select id="searchstat" onchange="getEmployees('accepted');">
+				<option value = "all">All</option>
+				<option value = "new">New</option>
+				<option value = "waiting">Waiting</option>
+				<option value = "rejected">Rejected</option>
+				<option value="ready">Ready</option>
+				<option value="pending">Pending</option>
+				<option value="approved">Approved</option>
+				<option value="assigned">Assigned</option>
+				<option value="returning">Returning</option>
+				<option value="refused">Refused</option>
+				<option value="inactive">Inactive</option>
+			</select>
+			<input type="checkbox">Names<br>
+			<input type="checkbox">Demographics<br>
+			<input type="checkbox">Address<br>
+			<input type="checkbox">Contact Info<br>
+			<input type="checkbox">PP Info<br>
+			<button type="button" onclick="getExport()">Export</button>
+		</form>
 		</div>
 		<p id="assignresult">
 			
