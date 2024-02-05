@@ -1485,7 +1485,8 @@ function getExport() {
 }
 function downloadExport(data) {
 	var a = document.createElement("a");
-	a.href = window.URL.createObjectURL(data);
-	a.download = "applicantsexport.csv"
+	a.href = window.URL.createObjectURL(new Blob([data]));
+	a.download = "applicantsexport.csv";
 	a.click();
+	console.log("applicantsexport.csv complete.");
 }
