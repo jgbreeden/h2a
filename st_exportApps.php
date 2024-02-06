@@ -38,18 +38,18 @@
 		}
 		$output .= "\n";
 		while ($row = $result->fetch_assoc()) {
-			$output = $output . $row["firstname"] . "," . $row["lastname"];
-			if (isset($_POST["expaddress"])) {
-				$output .= "," . $row["address"] . "," . $row["address2"] . "," . $row["city"] . "," . $row["state"] . "," . $row["zipcode"] . "," . $row["country"];
-			}
+			$output = $output . '"' .$row["firstname"] . '","' . $row["lastname"] . '"';
 			if (isset($_POST["expdemographics"])) {
-				$output .= "," . $row["gender"] . "," . $row["dateofbirth"] . "," . $row["placeofbirth"] . "," . $row["maritalstatus"];
+				$output .= ',"' . $row["gender"] . '","' . $row["dateofbirth"] . '","' . $row["placeofbirth"] . '","' . $row["maritalstatus"] . '"';
+			}
+			if (isset($_POST["expaddress"])) {
+				$output .= ',"' . $row["address"] . '","' . $row["address2"] . '","' . $row["city"] . '","' . $row["state"] . '","' . $row["zipcode"] . '","' . $row["country"] . '"';
 			}
 			if (isset($_POST["expcontactinfo"])) {
-				$output .= "," . $row["phonecell"] . "," . $row["phonehome"] . "," . $row["email"];
+				$output .= ',"' . $row["phonecell"] . '","' . $row["phonehome"] . '","' . $row["email"] . '"';
 			}
 			if (isset($_POST["expppinfo"])) {
-				$output .= "," . $row["pptype"] . "," . $row["ppnumber"] . "," . $row["ppcountry"] . "," . $row["pplocation"] . "," . $row["ppdateissue"] . "," . $row["ppdatedue"];
+				$output .= ',"' . $row["pptype"] . '","' . $row["ppnumber"] . '","' . $row["ppcountry"] . '","' . $row["pplocation"] . '","' . $row["ppdateissue"] . '","' . $row["ppdatedue"] . '"';
 			}
 			$output .= "\n";
 		}

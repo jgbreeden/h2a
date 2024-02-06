@@ -984,7 +984,7 @@
 				<textarea id="contractppnums" name="contractppnums" rows="20" cols="26"></textarea>
 			</div>
 			Applicants assigned to Contract: <span id="assigncount"></span>
-			<button type="button" onclick='getCompData(path+"st_countskills.php?cid=" + document.getElementById("contractid").value, showSkillCount)'>Count Skills</button><br>
+			<button type="button" id="btncountskills" onclick='getCompData(path+"st_countskills.php?cid=" + document.getElementById("contractid").value, showSkillCount)'>Count Skills</button><br>
 			<table id="compempstab">
 				<tr>
 					<th class="namehead">First Name</th>

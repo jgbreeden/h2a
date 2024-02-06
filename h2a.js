@@ -1134,6 +1134,7 @@ function clearContract() {
 	document.getElementById("savecompassign").disabled = true;
 	document.getElementById("closecompassign").disabled = true;
 	document.getElementById("addfrompp").disabled = true;
+	document.getElementById("btncountskills").disabled = true;
 	document.getElementById("coassignstart").value = "";
 	document.getElementById("coassignend").value = "";
 }
@@ -1157,6 +1158,7 @@ function fillContract(row) {
 	document.getElementById("savecompassign").disabled = false;
 	document.getElementById("closecompassign").disabled = false;
 	document.getElementById("addfrompp").disabled = false;
+	document.getElementById("btncountskills").disabled = false;
 	document.getElementById("coassignstart").value = document.getElementById("contractstart").value;
 	document.getElementById("coassignend").value = document.getElementById("contractend").value;
 }
