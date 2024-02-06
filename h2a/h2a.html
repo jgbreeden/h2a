@@ -1132,9 +1132,10 @@
 			</div>
 		</div>
 		<div id="administration" class="st_tab">
-			<form id="appExport">
+		<form id="appExport" method="post">
             <h4>Export Applicants</h4>
-			<select id="searchstat" onchange="getEmployees('accepted');">
+			Status:
+			<select id="searchstat" onchange="getEmployees('accepted');" name="expstatus">
 				<option value = "all">All</option>
 				<option value = "new">New</option>
 				<option value = "waiting">Waiting</option>
@@ -1146,12 +1147,12 @@
 				<option value="returning">Returning</option>
 				<option value="refused">Refused</option>
 				<option value="inactive">Inactive</option>
-			</select>
-			<input type="checkbox">Names<br>
-			<input type="checkbox">Demographics<br>
-			<input type="checkbox">Address<br>
-			<input type="checkbox">Contact Info<br>
-			<input type="checkbox">PP Info<br>
+			</select><br>
+			<input type="checkbox" name="expnames" checked disabled>Names<br>
+			<input type="checkbox" name="expdemographics">Demographics<br>
+			<input type="checkbox" name="expaddress">Address<br>
+			<input type="checkbox" name="expcontactinfo">Contact Info<br>
+			<input type="checkbox" name="expppinfo">PP Info<br>
 			<button type="button" onclick="getExport()">Export</button>
 		</form>
 		</div>

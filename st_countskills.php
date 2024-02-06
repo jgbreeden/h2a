@@ -14,17 +14,17 @@
     $query = "SELECT skillenglish, count(skillsid) as qty from ability
             inner join skills on ability.skillsid = skills.id
             inner join assignments on assignments.applicantsid = ability.applicantsid
-            and assignments.contractsid = 1
+            and assignments.contractsid = ?
             group by skillenglish
             union
             SELECT skillenglish, count(skillsid) as qty from experience
             inner join skills on experience.skillsid = skills.id
-            inner join assignments on assignments.applicants = experience.applicantsid
-            and assignments.contractsid = 1
+            inner join assignments on assignments.applicantsid = experience.applicantsid
+            and assignments.contractsid = ?
             group by skillenglish";
     
     $stmt = $conn->prepare($query);
-	$stmt->bind_param("i", $_POST["id"]);
+	$stmt->bind_param("ii", $_GET["cid"], $_GET["cid"]);
 	$stmt->execute();
     $result = $stmt->get_result();
 	if ($result->num_rows > 0) {

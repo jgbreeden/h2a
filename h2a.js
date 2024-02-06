@@ -1162,7 +1162,12 @@ function fillContract(row) {
 }
 
 function showSkillCount(data) {
-	alert(JSON.stringify(data));
+	
+	var output = "Skills count for this contract:\n\n";
+	for (let i = 0; i < data.length; i++) {
+		output += data[i].skillenglish + ": " + data[i].qty + "\n"
+	}
+	alert(output);
 }
 
 function saveComp(){
@@ -1475,7 +1480,7 @@ function moc() {
 // ................................................................................................................
 // ................................................................................................................
 function getExport() {
-	let fd = document.getElementById("appExport")
+	let fd = new FormData(document.getElementById("appExport"));
 	let xhr = new XMLHttpRequest();
 	xhr.onload = function() {
 		downloadExport(this.responseText);
