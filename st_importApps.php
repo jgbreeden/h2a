@@ -45,51 +45,52 @@
     $result = "";
     $found = false;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param
+    $stmt->bind_param("sssssss", $first, $last, $dateofbirth, $ppnumber, $phonecell, $email, $address);
     for ($i = 1; $i < count($lines); $i++) {
+        $last = "";
+        $first = "";
+        $passport = "";
+        $dateofbirth = "";
+        $phonecell = "";
+        $email = "";
+        $address = "";
         $fields = explode("\t", $lines[$i]);
-        for ($f = 0; $f < $count($fields)) {
-            if ($headers[$i] == "lastname") {
-                $last = $fields[$i];
-            } else {
-                $last = "";
-            }
-            if ($headers[$i] == "firstname") {
-                $first = $fields[$i];
-            } else {
-                $first = "";
-            }
-            if ($headers[$i] == "dateofbirth") {
-                $dateofbirth = $fields[$i];
-            } else {
-                $dateofbirth = "";
-            }
-            if ($headers[$i] == "ppnumber") {
-                $ppnumber = $fields[$i];
-                $found = ppExists($ppnumber);
-            } else {
-                $ppnumber = "";
-            }
-            if ($headers[$i] == "phonecell") {
-                $phonecell = $fields[$i];
-            } else {
-                $phonecell = "";
-            }
-            if ($headers[$i] == "email") {
-                $email = $fields[$i];
-            } else {
-                $email = "";
-            }
-            if ($headers[$i] == "address") {
-                $address = $fields[$i];
-            } else {
-                $address = "";
-            }
+        if (count($fields) <= 2) continue;
+        for ($f = 0; $f < count($fields); $f++) {
+            if ($headers[$f] == "lastname") {
+                $last = $fields[$f];
+            } 
+            if ($headers[$f] == "firstname") {
+                $first = $fields[$f];
+            } 
+            if ($headers[$f] == "dateofbirth") {
+                $dateofbirth = $fields[$f];
+            } 
+            if ($headers[$f] == "ppnumber") {
+                $ppnumber = $fields[$f];
+                $found = ppExists($ppnumber, $conn);
+            } 
+            if ($headers[$f] == "phonecell") {
+                $phonecell = $fields[$f];
+            } 
+            if ($headers[$f] == "email") {
+                $email = $fields[$f];
+            } 
+            if ($headers[$f] == "address") {
+                $address = $fields[$f];
+            } 
         }
-        if (!$found) {
-            $result .= $stmt->execute();
+        if ($ppnumber == "") {
+            $result .= $first . " " . $last . " does not have a passport number, not saved.\n";
+        } else if ($found) {
+            $result .= $first . " " . $last . " (" . $ppnumber . ") alread exists in database.\n";
         } else {
-            $result .= $first . " " . $last . "-" . $ppnumber . " alread exists in database";
+            if ($stmt->execute() == 1) {
+                $result .= $first . " " . $last . " saved. Email & Link:\n\t" . $email 
+                    . "  https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=" . $stmt->insert_id . "\n";
+            } else {
+                $result .= $stmt->error();
+            }
         }
     }
     echo $result;

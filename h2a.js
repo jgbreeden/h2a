@@ -1027,6 +1027,7 @@ function fillComp(row) {
 	console.log(row);
 	let table = document.getElementById("companytab");
 	let list = document.getElementById("company");
+	let explist = document.getElementById("expcompany");
 	let contents = "<tr><th>Company Name</th></tr>";
 	let listcontents = "<option value=''></option>";
 
@@ -1038,6 +1039,7 @@ function fillComp(row) {
 	}
 	table.innerHTML = contents;
 	list.innerHTML = listcontents;
+	explist.innerHTML = "<option value='all'>All</option>" + listcontents;
 	clearComp();
 }
 
@@ -1507,7 +1509,14 @@ function sendImport() {
 	xhr.send(fd);
 }
 function showImportresult(response) {
-	var text = document.getElementById(textarea);
-	text.value = responseText.style.readonly = true;
-	
+	var text = document.getElementById("appTable");
+	text.value = response;
+	text.readOnly = true;
+	document.getElementById("btnimpapp").disabled = true;
+}
+function clearImport() {
+	var text = document.getElementById("appTable");
+	text.value = "";
+	text.readOnly = false;
+	document.getElementById("btnimpapp").disabled = false;
 }

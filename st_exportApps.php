@@ -14,10 +14,20 @@
     $query = "SELECT * from applicants";
 	if ($_POST["expstatus"] != "all") {
 		$query .= " where status = ?";
-		$stmt = $conn->prepare($query);
-		$stmt->bind_param("s", $_POST["expstatus"]);
+		if ($_POST["expcompany"] != "all") {
+			$query .= " and employersid = ?";
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param("si", $_POST["expstatus"], $_POST["expcompany"]);
+		} else {
+			$stmt = $conn->prepare($query);
+			$stmt->bind_param("s", $_POST["expstatus"]);
+		}
 		$stmt->execute();
 		$result = $stmt->get_result();
+	} else if ($_POST["expcompany" != "all"]) {
+		$query .= " where employersid = ?";
+		$stmt = $conn->prepare($query);
+		$stmt->bind_param("i", $_POST["expcompany"]);
 	} else {
 		$result = $conn->query($query);
 	}
@@ -36,6 +46,9 @@
 		if (isset($_POST["expppinfo"])) {
 			$output .= ", pptype, ppnumber, ppcountry, pplocation, ppdateissue, ppdatedue";
 		}
+		if (isset($_POST["explink"])) {
+			$output .= ", app2 link";
+		}
 		$output .= "\n";
 		while ($row = $result->fetch_assoc()) {
 			$output = $output . '"' .$row["firstname"] . '","' . $row["lastname"] . '"';
@@ -50,6 +63,9 @@
 			}
 			if (isset($_POST["expppinfo"])) {
 				$output .= ',"' . $row["pptype"] . '","' . $row["ppnumber"] . '","' . $row["ppcountry"] . '","' . $row["pplocation"] . '","' . $row["ppdateissue"] . '","' . $row["ppdatedue"] . '"';
+			}
+			if (isset($_POST["explink"])) {
+				$output .= ',"https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=' . $row["id"] . '"';
 			}
 			$output .= "\n";
 		}

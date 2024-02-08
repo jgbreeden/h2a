@@ -1136,7 +1136,7 @@
 		<form id="appExport" method="post">
             <h4>Export Applicants</h4>
 			Status:
-			<select id="searchstat" onchange="getEmployees('accepted');" name="expstatus">
+			<select id="expstatus" name="expstatus">
 				<option value = "all">All</option>
 				<option value = "new">New</option>
 				<option value = "waiting">Waiting</option>
@@ -1149,20 +1149,25 @@
 				<option value="refused">Refused</option>
 				<option value="inactive">Inactive</option>
 			</select><br>
+			Company:<select id="expcompany" name="expcompany" class="medium">
+			</select><br>
 			<input type="checkbox" name="expnames" checked disabled>Names<br>
 			<input type="checkbox" name="expdemographics">Demographics<br>
 			<input type="checkbox" name="expaddress">Address<br>
 			<input type="checkbox" name="expcontactinfo">Contact Info<br>
 			<input type="checkbox" name="expppinfo">PP Info<br>
+			<input type="checkbox" name="explink">Link to App2<br>
 			<button type="button" onclick="getExport()">Export</button>
 		</form>
 	    </div>
 		<div class="divborder">
             <h4>Import Applicants</h4>
 			<form id="appImport">
-				Paste rows and columns of applicant data from a spreadsheet.<br>
+				Paste rows and columns of applicant data from a spreadsheet, 
+				including a header row with column names. <br>Must inclued 'Pasaporte' as a column.<br>
 			<textarea id="appTable" name="appTable" rows="10" cols="100"></textarea><br>
-			<button type="button" onclick="sendImport()">Import Applicants</button>
+			<button type="button" onclick="sendImport()" id="btnimpapp">Import Applicants</button>
+			<button type="button" onclick="clearImport()">Clear</button>
 			</form>
 		</div>
 		</div>
