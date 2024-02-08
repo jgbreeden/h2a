@@ -1132,6 +1132,7 @@
 			</div>
 		</div>
 		<div id="administration" class="st_tab">
+		<div class="divborder">
 		<form id="appExport" method="post">
             <h4>Export Applicants</h4>
 			Status:
@@ -1155,6 +1156,15 @@
 			<input type="checkbox" name="expppinfo">PP Info<br>
 			<button type="button" onclick="getExport()">Export</button>
 		</form>
+	    </div>
+		<div class="divborder">
+            <h4>Import Applicants</h4>
+			<form id="appImport">
+				Paste rows and columns of applicant data from a spreadsheet.<br>
+			<textarea id="appTable" name="appTable" rows="10" cols="100"></textarea><br>
+			<button type="button" onclick="sendImport()">Import Applicants</button>
+			</form>
+		</div>
 		</div>
 		<p id="assignresult">
 			

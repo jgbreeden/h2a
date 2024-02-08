@@ -1497,3 +1497,17 @@ function downloadExport(data) {
 	a.click();
 	console.log("applicantsexport.csv complete.");
 }
+function sendImport() {
+	let fd = new FormData(document.getElementById("appImport"));
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		showImportresult(this.responseText);
+	}
+	xhr.open("post", path + "st_ImportApps.php");
+	xhr.send(fd);
+}
+function showImportresult(response) {
+	var text = document.getElementById(textarea);
+	text.value = responseText.style.readonly = true;
+	
+}
