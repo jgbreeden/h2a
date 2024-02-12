@@ -10,13 +10,18 @@
     $passport = "";
     $dateofbirth = "";
     $phonecell = "";
+    $phonehome = "";
     $email = "";
     $address = "";
+    $city = "";
+    $zipcode = "";
+    $employer = $_POST["impcompany"];
 
     $lines = explode("\n", $_POST["appTable"]);
     $headers = explode("\t", $lines[0]);
     $values = "";
-    $sql = "insert into applicants(lastname, firstname, dateofbirth, ppnumber, phonecell, email, address) values (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "insert into applicants(lastname, firstname, dateofbirth, ppnumber, phonecell, phonehome, email, address, city, zipcode, employersid) 
+            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     for ($i = 0; $i < count($headers); $i++) {
         if (strtoupper($headers[$i]) == "APELLIDOS") {
             $headers[$i] = "lastname";
@@ -45,15 +50,18 @@
     $result = "";
     $found = false;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssss", $first, $last, $dateofbirth, $ppnumber, $phonecell, $email, $address);
+    $stmt->bind_param("sssssssssss", $first, $last, $dateofbirth, $ppnumber, $phonecell, $phonehome, $email, $address, $city, $zipcode, $employer);
     for ($i = 1; $i < count($lines); $i++) {
         $last = "";
         $first = "";
         $passport = "";
         $dateofbirth = "";
         $phonecell = "";
+        $phonehome = "";
         $email = "";
         $address = "";
+        $city = "";
+        $zipcode = "";
         $fields = explode("\t", $lines[$i]);
         if (count($fields) <= 2) continue;
         for ($f = 0; $f < count($fields); $f++) {
@@ -71,19 +79,36 @@
                 $found = ppExists($ppnumber, $conn);
             } 
             if ($headers[$f] == "phonecell") {
-                $phonecell = $fields[$f];
+                if (strpos($fields[$f], "/")) {
+                    $phonecell = substr($fields[$f], 0, strpos($fields[$f], "/"));
+                    $phonehome = substr($fields[$f], strpos($fields[$f], "/") + 1);
+                } else {
+                    $phonecell = $fields[$f];
+                }
+
             } 
             if ($headers[$f] == "email") {
                 $email = $fields[$f];
             } 
             if ($headers[$f] == "address") {
-                $address = $fields[$f];
+                if (strpos($fields[$f], ",")) {
+                    $address = substr($fields[$f], 0, strpos($fields[$f], ","));
+                    $zipcode = substr($fields[$f], strlen($fields[$f]) - 5);
+                    if (is_numeric($zipcode)) {
+                        $city = substr($fields[$f], strpos($fields[$f], ","), strlen($fields[$f]) - 5);
+                    } else {
+                        $zipcode = "";
+                        $city = substr($fields[$f], strpos($fields[$f], ","));
+                    }
+                } else { 
+                    $address = $fields[$f];
+                }
             } 
         }
         if ($ppnumber == "") {
             $result .= $first . " " . $last . " does not have a passport number, not saved.\n";
         } else if ($found) {
-            $result .= $first . " " . $last . " (" . $ppnumber . ") alread exists in database.\n";
+            $result .= $first . " " . $last . " (" . $ppnumber . ") already exists in database.\n";
         } else {
             if ($stmt->execute() == 1) {
                 $result .= $first . " " . $last . " saved. Email & Link:\n\t" . $email 

@@ -1028,8 +1028,9 @@ function fillComp(row) {
 	let table = document.getElementById("companytab");
 	let list = document.getElementById("company");
 	let explist = document.getElementById("expcompany");
+	let implist = document.getElementById("impcompany")
 	let contents = "<tr><th>Company Name</th></tr>";
-	let listcontents = "<option value=''></option>";
+	let listcontents = "";
 
 	for (let i = 0; i < row.length; i++){
 		contents += "<tr onclick='getComp(this)'><td class='id'>"
@@ -1038,8 +1039,9 @@ function fillComp(row) {
 		listcontents += "<option value='" + row[i].id  + "'>" + row[i].company + "</option>";
 	}
 	table.innerHTML = contents;
-	list.innerHTML = listcontents;
+	list.innerHTML = "<option value=''></option>" + listcontents;
 	explist.innerHTML = "<option value='all'>All</option>" + listcontents;
+	implist.innerHTML = "<option value=''>None</option>" + listcontents;
 	clearComp();
 }
 
