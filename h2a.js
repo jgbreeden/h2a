@@ -1,3 +1,4 @@
+const APP2LINK = "https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=";
 class Applicant {
 	constructor(id, employersid, fname, lname, cphone, hphone, address, address2, city, state, zip, country, status, specificarea, 
 		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, lift25to40,
@@ -966,8 +967,8 @@ function showContactTab(tab){
 }
 function createLink(){
 	var msg;
-	msg = "localhost/h2a/app2/app2.html?id=" + currappl.id;
-	//msg = "https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=" + currappl.id;
+	//msg = "localhost/h2a/app2/app2.html?id=" + currappl.id;
+	msg = APP2LINK + currappl.id;
 	if (currappl.ds160.id != undefined) {
 		msg += "&r=1";
 	}
@@ -1225,7 +1226,7 @@ function saveCompAssignment() {
 		let formData = new FormData(document.getElementById("companyassign"));
 		sendData(formData, path + "st_saveAssignment.php", showCompResult);
 		empty += rows[i].firstChild.nextSibling.nextSibling.innerText + " " + rows[i].firstChild.nextSibling.nextSibling.nextSibling.innerText 
-			+ "; " + "https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=" + rows[i].firstChild.innerHTML + "\n";
+			+ "; " + APP2LINK + rows[i].firstChild.innerHTML + "\n";
 	}
 	navigator.clipboard.writeText(empty)
 	alert("The following has been copied to the clipboard \n" + empty);
@@ -1276,7 +1277,7 @@ function showPpAssignedResult(data){
 	var empty = "";
 	for (i = 0; i < data.length; i++) {
 		empty += data[i].firstname + " " + data[i].lastname + ", " 
-			+ data[i].email + "; https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=" + data[i].id + "\n";
+			+ data[i].email + "; " + APP2LINK + data[i].id + "\n";
 	}
 	navigator.clipboard.writeText(empty)
 	alert("The following has been copied to the clipboard \n " + empty);

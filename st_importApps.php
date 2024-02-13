@@ -16,41 +16,41 @@
     $city = "";
     $zipcode = "";
     $employer = $_POST["impcompany"];
-
+    $result = "";
     $lines = explode("\n", $_POST["appTable"]);
     $headers = explode("\t", $lines[0]);
     $values = "";
     $sql = "insert into applicants(lastname, firstname, dateofbirth, ppnumber, phonecell, phonehome, email, address, city, zipcode, employersid) 
             values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     for ($i = 0; $i < count($headers); $i++) {
-        if (strtoupper($headers[$i]) == "APELLIDOS") {
+        if (trim(strtoupper($headers[$i])) == "APELLIDOS") {
             $headers[$i] = "lastname";
         } else
-        if (strtoupper($headers[$i]) == "NOMBRES" || strtoupper($headers[$i]) == "NOMBRE") {
+        if (trim(strtoupper($headers[$i])) == "NOMBRES" || strtoupper($headers[$i]) == "NOMBRE") {
             $headers[$i] = "firstname";
         } else
-        if (strtoupper($headers[$i]) == "FECHA NAC") {
+        if (trim(strtoupper($headers[$i])) == "FECHA NAC") {
             $headers[$i] = "dateofbirth";
         } else
-        if (strtoupper($headers[$i]) == "PASAPORTE") {
+        if (trim(strtoupper($headers[$i])) == "PASAPORTE") {
             $headers[$i] = "ppnumber";
         } else
-        if (strtoupper($headers[$i]) == "TELEFONO") {
+        if (trim(strtoupper($headers[$i])) == "TELEFONO") {
             $headers[$i] = "phonecell";
         } else
-        if (strtoupper($headers[$i]) == "CORREO ELECTRONIO" || strtoupper($headers[$i]) == "EMAIL") {
+        if (trim(strtoupper($headers[$i])) == "CORREO ELECTRONIO" || strtoupper($headers[$i]) == "EMAIL") {
             $headers[$i] = "email";
         } else
-        if (strtoupper($headers[$i]) == "DIRECCION") {
+        if (trim(strtoupper($headers[$i])) == "DIRECCION") {
             $headers[$i] = "address";
         } else {
             $headers[$i] = "skip";
         }
     }
-    $result = "";
+    
     $found = false;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssssssss", $first, $last, $dateofbirth, $ppnumber, $phonecell, $phonehome, $email, $address, $city, $zipcode, $employer);
+    $stmt->bind_param("sssssssssss", $last, $first, $dateofbirth, $ppnumber, $phonecell, $phonehome, $email, $address, $city, $zipcode, $employer);
     for ($i = 1; $i < count($lines); $i++) {
         $last = "";
         $first = "";
@@ -82,6 +82,9 @@
                 if (strpos($fields[$f], "/")) {
                     $phonecell = substr($fields[$f], 0, strpos($fields[$f], "/"));
                     $phonehome = substr($fields[$f], strpos($fields[$f], "/") + 1);
+                } else if (stripos($fields[$f], "Y")) {
+                    $phonecell = substr($fields[$f], 0, stripos($fields[$f], "Y"));
+                    $phonehome = substr($fields[$f], stripos($fields[$f], "Y") + 1);
                 } else {
                     $phonecell = $fields[$f];
                 }
@@ -91,6 +94,7 @@
                 $email = $fields[$f];
             } 
             if ($headers[$f] == "address") {
+                $fields[$f] = trim($fields[$f]);
                 if (strpos($fields[$f], ",")) {
                     $address = substr($fields[$f], 0, strpos($fields[$f], ","));
                     $zipcode = substr($fields[$f], strlen($fields[$f]) - 5);
@@ -101,7 +105,12 @@
                         $city = substr($fields[$f], strpos($fields[$f], ","));
                     }
                 } else { 
-                    $address = $fields[$f];
+                    if (is_numeric(substr($fields[$f], strlen($fields[$f]) - 5))) {
+                        $zipcode = substr($fields[$f], strlen($fields[$f]) - 5);
+                        $address = substr($fields[$f], 0, strlen($fields[$f]) - 5);
+                    } else {
+                        $address = $fields[$f];
+                    }
                 }
             } 
         }
