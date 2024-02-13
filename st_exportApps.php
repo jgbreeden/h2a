@@ -34,11 +34,11 @@
 	
 	if ($result->num_rows > 0) {
 		$output = "firstname, lastname ";
-		if (isset($_POST["expaddress"])) {
-			$output .= ", address, address2, city, state, zipcode, country";
-		}
 		if (isset($_POST["expdemographics"])) {
 			$output .= ", gender, dateofbirth, placeofbirth, maritalstatus";
+		}
+		if (isset($_POST["expaddress"])) {
+			$output .= ", address, address2, city, state, zipcode, country";
 		}
 		if (isset($_POST["expcontactinfo"])) {
 			$output .= ", phonecell, phonehome, email";

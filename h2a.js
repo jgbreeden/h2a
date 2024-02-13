@@ -1508,7 +1508,7 @@ function sendImport() {
 	xhr.onload = function() {
 		showImportresult(this.responseText);
 	}
-	xhr.open("post", path + "st_ImportApps.php");
+	xhr.open("post", path + "st_importApps.php");
 	xhr.send(fd);
 }
 function showImportresult(response) {
