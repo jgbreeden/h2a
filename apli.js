@@ -74,6 +74,7 @@ function isValid(tab){
     console.log(tab)
     let ok = true
     let inputs; 
+    let firstInput;
     if (tab == 0){
          inputs = document.getElementById("tab1").getElementsByClassName("required");
     } else if (tab == 1) {
@@ -86,9 +87,14 @@ function isValid(tab){
             console.log(inputs[i].name)
             inputs[i].style.backgroundColor = "pink"
             ok = false;
+            firstInput = inputs[i];
         }
     }   
-     return ok
+    if (firstInput != undefined){
+        firstInput.scrollIntoView();
+        scrollBy(0, -60);
+    }
+    return ok;
 }
 
 function hideOption(item){
