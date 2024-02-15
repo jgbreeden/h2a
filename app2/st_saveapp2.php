@@ -115,7 +115,7 @@ $stmt->bind_param("ssssssssssssssssssssssssi", $fname, $lname, $phonecell, $phon
 
 $result = $stmt->execute();
 if ($result == 1) {
-    $message = "Registro guardado ";
+    $message = ".";
 } else {
     $message = "Hubo un problema al guardar la información del solicitante: " . result.error;
     $conn->close();
@@ -199,9 +199,9 @@ $stmt->bind_param("sssssssssssssssssssssi", $marriage, $nationality, $othernatio
                                 $samecountry, $id);
 $result = $stmt->execute();
 if ($result == 1) {
-    $message .= "junto con DS160";
+    $message .= ".\n";
 } else {
-    $message .= "Hubo un problema al guardar la información del DS160.";
+    $message .= "Hubo un problema al guardar la información del DS160.\n";
 }
 echo $message; 								
 
@@ -279,7 +279,7 @@ if ($_POST["skills"] == "yes") {
 }
 
 if ($result == 1){
-  echo " Su solicitud ha sido guardada, CITA se comunicará con usted cuando revisen su solicitud";
+  echo " Su solicitud ha sido enviada. CITA se comunicará con usted cuando revisen su solicitud.";
 } else {
   echo " Hubo un problema al guardar su solicitud por favor contacte a CITA al (928)271-2619";
 };
