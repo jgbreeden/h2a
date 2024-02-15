@@ -12,9 +12,14 @@
 		die("Comunicaton failed: " . $conn->connect_error);
 	}
 	if (isset($_POST["stat"])){
-		$query = "SELECT * FROM applicants WHERE status ='" . $_POST["stat"] . "' ORDER BY lastname";
+		$query = "SELECT * FROM applicants WHERE status ='" . $_POST["stat"];
 	} else {
 		$query = "SELECT * FROM applicants";
+	}
+	if ($_POST["sortCompany"] == 'true') {
+		$query .= "' ORDER BY employersid, lastname";
+	} else {
+		$query .= "' ORDER BY lastname";
 	}
 	$result = $conn->query($query);
 	if ($result->num_rows > 0) {

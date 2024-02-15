@@ -267,13 +267,14 @@ function getData(phpFile, callBack, data){
 
 function getEmployees (stuff) {
 	let temp = '';
-	if (stuff != 'accepted'){
+	if (stuff != 'accepted' && stuff != undefined){
 		temp = stuff;
 	} else {
 		temp = document.getElementById("searchstat").value;
 	}
 	let fd = new FormData();
 	fd.append("stat", temp);
+	fd.append("sortCompany", document.getElementById("sortCompany").checked);
 	getData(path + "st_getEmps.php", fillEmps, fd);
 }
 
