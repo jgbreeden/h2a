@@ -280,7 +280,7 @@ for($i = 0; $i < $count; $i++){
 }
 */
 if ($result == 1){
-    echo " Su solicitud ha sido guardada, CITA se comunicará con usted cuando revisen su solicitud";
+    echo " Su solicitud ha sido enviada. CITA se comunicará con usted cuando revisen su solicitud.";
 } else {
     echo " Hubo un problema al guardar su solicitud por favor contacte a CITA al (928)271-2619";
 };
