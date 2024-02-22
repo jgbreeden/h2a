@@ -994,6 +994,7 @@
 					<th>E-mail</th>
 				</tr>
 			</table>
+			<button type="button" id="deleteassign" onclick="deleteAssignment()" disabled>Delete Assignment</button>
 			<p id="compresult">
 			</p>
 		</div>
@@ -1174,10 +1175,13 @@
 			</form>
 		</div>
 		<div class="divborder">
-			Enter applicant ID number:
+			<h4>Delete Applicants</h4>
+			Enter applicant ID number from link:
 			<input id="deleteappID" type="number"> <br>
-			<button type="button" onclick="getdeleteapp()" >Find applicant</button><br>
-			<textarea></textarea>
+			<button type="button" onclick="getDeleteApp()" >Find applicant</button><br>
+			<br>
+			<textarea id="appdelete" rows="10" cols="75"></textarea><br>
+			<button id="btnDeleteApp" type="button" onclick="deleteApp()" disabled>Delete Applicant</button>
 		</div>
 		</div>
 		<p id="assignresult">

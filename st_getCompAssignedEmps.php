@@ -7,9 +7,9 @@
 require 'cred.php';
 $conn = new mysqli($host, $user, $password, $db);
 
-$date = date("Y/m/d", strtotime($_GET["startdate"]));
+//$date = date("Y/m/d", strtotime($_GET["startdate"]));
 
-$sql = "SELECT applicants.firstname, applicants.lastname, applicants.phonecell, applicants.email"
+$sql = "SELECT applicants.firstname, applicants.lastname, applicants.phonecell, applicants.email, assignments.id"
     . " FROM applicants INNER JOIN assignments ON applicants.id = assignments.applicantsid"
     . " and assignments.contractsid=? ";
 $stmt = $conn->prepare($sql);
@@ -20,7 +20,8 @@ $output = "[";
 if ($result->num_rows > 0) {
     
     while ($row = $result->fetch_assoc()) {
-        $output = $output . '{"firstname": "' . $row["firstname"]
+        $output = $output . '{"id": "' . $row["id"]
+                        . '", "firstname": "' . $row["firstname"]
                         . '", "lastname": "' . $row["lastname"]
                         . '", "phonecell": "' . $row["phonecell"]
                         . '", "email": "' . $row["email"] . '"},';

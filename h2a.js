@@ -1021,6 +1021,8 @@ class contracts {
 var currcomp = new Employers (0, "", "", "", "", "", "");
 var contractheader = "<tr><th>Contract #</th><th class='medium'>Contract Name</th><th>Start Date</th></tr>";
 var assignheader = "<tr><th>First Name</th><th>Last Name</th><th>Phone Number</th><th>Email</th></tr>";
+var delAppAssignId;
+
 function getCompanies() {
 	getData(path + "st_getComps.php", fillComp);
 }
@@ -1092,6 +1094,7 @@ function fillCompDetail(data) {
 	comptable.innerHTML = content; 
 	document.getElementById("linkedcount").innerText = "(" + data.applicants.length + ")";
 	clearContract();
+	document.getElementById("deleteassign").disabled = true;
 }	
 function getAssigned(row) {
 	getCompData(path + "st_getCompAssignedEmps.php?contractid=" + document.getElementById("contractid").value + "&startdate=" + row.firstChild.innerHTML, showAssigned);
@@ -1103,11 +1106,18 @@ function showAssigned(data) {
 	let empstab = document.getElementById("compempstab");
 	let content = assignheader;
 	for (i = 0; i < data.length; i++) {
-		content += "<tr><td>" + data[i].firstname + "</td><td>" + data[i].lastname
+		content += "<tr onclick='selectAssign(this)'><td class='hide'>" + data[i].id + "</td><td>" + data[i].firstname + "</td><td>" + data[i].lastname
 		 		+ "</td><td>" + data[i].phonecell + "</td><td>" + data[i].email + "</td></tr>";
 	}
 	empstab.innerHTML = content;
 	document.getElementById("contractassigned").value = data.length;
+	document.getElementById("deleteassign").disabled = true;
+}
+function selectAssign(row) {
+	resetTable(document.getElementById("compempstab"));
+	row.classList.add("selected");
+	delAppAssignId = row.firstChild.innerText;
+	document.getElementById("deleteassign").disabled = false;
 }
 
 function clearComp() {
@@ -1282,6 +1292,20 @@ function showPpAssignedResult(data){
 	}
 	navigator.clipboard.writeText(empty)
 	alert("The following has been copied to the clipboard \n " + empty);
+}
+function deleteAssignment() {
+	if (confirm("Are you sure you want to remove the highlighted person from this assignment?")){
+		let fd = new FormData();
+		fd.append("assid", delAppAssignId);
+		sendData(fd, path + "st_deleteAssignment.php", showDeleteAss);
+	}
+}
+function showDeleteAss(data) {
+	document.getElementById("compresult").innerHTML = data;
+	document.getElementById("compresult").classList.remove("fade");
+	setTimeout(function(){document.getElementById("compresult").style.visibility="hidden";}, 5000);
+	getCompData(path + "st_getCompAssignedEmps.php?contractid=" + document.getElementById("contractid").value, showAssigned);
+	document.getElementById("deleteassign").disabled = true;
 }
 // ................................................................................................................
 // ................................................................................................................
@@ -1483,7 +1507,7 @@ function moc() {
 // ................................................................................................................
 // ................................................................................................................
 // ................................................................................................................
-//Assignments funtions
+//Administration funtions
 // ................................................................................................................
 // ................................................................................................................
 // ................................................................................................................
@@ -1523,4 +1547,41 @@ function clearImport() {
 	text.value = "";
 	text.readOnly = false;
 	document.getElementById("btnimpapp").disabled = false;
+}
+function getDeleteApp() {
+	let fd = new FormData();
+	fd.append("id", document.getElementById("deleteappID").value);
+	getData(path + "st_getDeleteApp.php", showDeleteApp, fd);
+}
+function deleteApp() {
+	let answer = confirm("Are you sure you want to completely delete this applicant?");
+	if (answer) {
+		let xhr = new XMLHttpRequest();
+		let fd = new FormData();
+		fd.append("id", document.getElementById("deleteappID").value);
+		xhr.onload = function() {
+			document.getElementById("appdelete").value = this.responseText;
+		}
+		xhr.open("post", path + "st_deleteApplicant.php")
+		xhr.send(fd);
+	}
+}
+function showDeleteApp(data) {
+	let text = "";
+	if (data.id != 0) {
+		text += data.firstname + " " + data.lastname + "\n";
+		text += "Gender: " + data.gender + "\tDOB: " + data.dateofbirth + "\tPP#: " + data.ppnumber + "\n";
+		text += "Marital: " + data.marital + "\tEmail: " + data.email + "\n";
+		text += "Cell: " + data.cphone + "\tHome: " + data.hphone + "\n";
+		text += "Status: " + data.status + "\tCompany: " + data.company + "\n";
+		text += "SSN: " + data.ssn + "\tDS160: " + data.ds160 + "\n";
+		text += "Notes: " + data.notes;
+	}
+	if (data.warning != undefined) {
+		text = data.warning + "\n" + text;
+		document.getElementById("btnDeleteApp").disabled = true; 
+	} else {
+		document.getElementById("btnDeleteApp").disabled = false;
+	}
+	document.getElementById("appdelete").value = text;
 }
