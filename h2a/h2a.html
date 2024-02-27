@@ -849,7 +849,7 @@
 				</table>
 			</div>
 			<br>
-		<div class="lefty lift">
+			<div class="lefty lift">
 			<form id="companydata">
 				<input type="number" id="compid" name="compid" class="id">
 				<table>
@@ -902,8 +902,8 @@
 				</table>
 				
 			</div>
-		</div>
-		<div class="lefty lift">
+			</div>
+			<div class="lefty lift">
 			Contracts
 			<table id="contractstab">
 				<tr>
@@ -932,7 +932,7 @@
 			<input style="display:none" name="compassignedby" value="0">
 			<br><button type="button" id="savecompassign" onclick="saveCompAssignment()">Add selected applicants to Contract &#9658;</button>
 			</form>
-		</div>
+			</div>
 			<div  class="lefty lift">
 				<!--<table id="compassigntab">
 					<tr>
@@ -1134,62 +1134,61 @@
 			</div>
 		</div>
 		<div id="administration" class="st_tab">
-		<div class="divborder">
-		<form id="appExport" method="post">
-            <h4>Export Applicants</h4>
-			Status:
-			<select id="expstatus" name="expstatus">
-				<option value = "all">All</option>
-				<option value = "new">New</option>
-				<option value = "waiting">Waiting</option>
-				<option value = "rejected">Rejected</option>
-				<option value="ready">Ready</option>
-				<option value="pending">Pending</option>
-				<option value="approved">Approved</option>
-				<option value="assigned">Assigned</option>
-				<option value="returning">Returning</option>
-				<option value="refused">Refused</option>
-				<option value="inactive">Inactive</option>
-			</select><br>
-			Company:<select id="expcompany" name="expcompany" class="medium">
-			</select><br>
-			<input type="checkbox" name="expnames" checked disabled>Names<br>
-			<input type="checkbox" name="expdemographics">Demographics<br>
-			<input type="checkbox" name="expaddress">Address<br>
-			<input type="checkbox" name="expcontactinfo">Contact Info<br>
-			<input type="checkbox" name="expppinfo">PP Info<br>
-			<input type="checkbox" name="explink">Link to App2<br>
-			<button type="button" onclick="getExport()">Export</button>
-		</form>
-	    </div>
-		<div class="divborder">
-            <h4>Import Applicants</h4>
-			<form id="appImport" method="post">
-				Paste rows and columns of applicant data from a spreadsheet, 
-				including a header row with column names. <br>Must inclued 'Pasaporte' as a column.<br>
-			<textarea id="appTable" name="appTable" rows="10" cols="100"></textarea><br>
-			Link to Company:<select id="impcompany" name="impcompany" class="medium">
-			</select>
-			<button type="button" onclick="sendImport()" id="btnimpapp">Import Applicants</button>
-			<button type="button" onclick="clearImport()">Clear</button>
+			<div class="divborder">
+			<form id="appExport" method="post">
+				<h4>Export Applicants</h4>
+				Status:
+				<select id="expstatus" name="expstatus">
+					<option value = "all">All</option>
+					<option value = "new">New</option>
+					<option value = "waiting">Waiting</option>
+					<option value = "rejected">Rejected</option>
+					<option value="ready">Ready</option>
+					<option value="pending">Pending</option>
+					<option value="approved">Approved</option>
+					<option value="assigned">Assigned</option>
+					<option value="returning">Returning</option>
+					<option value="refused">Refused</option>
+					<option value="inactive">Inactive</option>
+				</select><br>
+				Company:<select id="expcompany" name="expcompany" class="medium">
+				</select><br>
+				<input type="checkbox" name="expnames" checked disabled>Names<br>
+				<input type="checkbox" name="expdemographics">Demographics<br>
+				<input type="checkbox" name="expaddress">Address<br>
+				<input type="checkbox" name="expcontactinfo">Contact Info<br>
+				<input type="checkbox" name="expppinfo">PP Info<br>
+				<input type="checkbox" name="explink">Link to App2<br>
+				<input type="checkbox" name="expcontract">Company & contract<br>
+				<br><button type="button" onclick="getExport()">Export</button>
 			</form>
+			</div>
+			<div class="divborder">
+				<h4>Import Applicants</h4>
+				<form id="appImport" method="post">
+					Paste rows and columns of applicant data from a spreadsheet, 
+					including a header row with column names. <br>Must inclued 'Pasaporte' as a column.<br>
+				<textarea id="appTable" name="appTable" rows="10" cols="100"></textarea><br>
+				Link to Company:<select id="impcompany" name="impcompany" class="medium">
+				</select>
+				<button type="button" onclick="sendImport()" id="btnimpapp">Import Applicants</button>
+				<button type="button" onclick="clearImport()">Clear</button>
+				</form>
+			</div>
+			<div class="divborder">
+				<h4>Delete Applicants</h4>
+				Enter applicant ID number from link:
+				<input id="deleteappID" type="number"> <br>
+				<button type="button" onclick="getDeleteApp()" >Find applicant</button><br>
+				<br>
+				<textarea id="appdelete" rows="10" cols="75"></textarea><br>
+				<button id="btnDeleteApp" type="button" onclick="deleteApp()" disabled>Delete Applicant</button>
+			</div>
 		</div>
-		<div class="divborder">
-			<h4>Delete Applicants</h4>
-			Enter applicant ID number from link:
-			<input id="deleteappID" type="number"> <br>
-			<button type="button" onclick="getDeleteApp()" >Find applicant</button><br>
-			<br>
-			<textarea id="appdelete" rows="10" cols="75"></textarea><br>
-			<button id="btnDeleteApp" type="button" onclick="deleteApp()" disabled>Delete Applicant</button>
-		</div>
-		</div>
-		<p id="assignresult">
-			
+		<p id="assignresult">	
 		</p>
 		
-		<script src="../h2ainit.js">
-			
+		<script src="../h2ainit.js">		
 		</script>
 		
 	</body>

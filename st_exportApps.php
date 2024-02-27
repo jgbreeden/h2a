@@ -10,25 +10,36 @@
     if ($conn->connect_error) {
         die("Comunicaton failed: " . $conn->connect_error);
     }
-
-    $query = "SELECT * from applicants";
+	$contractFields = "";
+	$contractJoin = "";
+	$contractGroup = "";
+	if (isset($_POST["expcontract"])) {
+		$contractFields = ", employers.company, max(assignments.startdate) as startdate, contracts.contractnum, contracts.contractname ";
+		$contractJoin = " left outer join employers on applicants.employersid = employers.id	left outer join assignments on applicants.id = assignments.applicantsid	inner join contracts on assignments.contractsid = contracts.id";
+		$contractGroup = " group by applicants.id";
+	}
+    $query = "SELECT *" . $contractFields . " from applicants" . $contractJoin;
 	if ($_POST["expstatus"] != "all") {
 		$query .= " where status = ?";
 		if ($_POST["expcompany"] != "all") {
-			$query .= " and employersid = ?";
+			$query .= " and applicants.employersid = ?" . $contractGroup;
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("si", $_POST["expstatus"], $_POST["expcompany"]);
 		} else {
+			$query .= $contractGroup;
 			$stmt = $conn->prepare($query);
 			$stmt->bind_param("s", $_POST["expstatus"]);
 		}
 		$stmt->execute();
 		$result = $stmt->get_result();
-	} else if ($_POST["expcompany" != "all"]) {
-		$query .= " where employersid = ?";
+	} else if ($_POST["expcompany"] != "all") {
+		$query .= " where applicants.employersid = ?" . $contractGroup;
 		$stmt = $conn->prepare($query);
 		$stmt->bind_param("i", $_POST["expcompany"]);
+		$stmt->execute();
+		$result = $stmt->get_result();
 	} else {
+		$query .= $contractGroup;
 		$result = $conn->query($query);
 	}
 	
@@ -49,6 +60,9 @@
 		if (isset($_POST["explink"])) {
 			$output .= ", app2 link";
 		}
+		if (isset($_POST["expcontract"])) {
+			$output .= ", company, contractnum, contractname, startdate";
+		}
 		$output .= "\n";
 		while ($row = $result->fetch_assoc()) {
 			$output = $output . '"' .$row["firstname"] . '","' . $row["lastname"] . '"';
@@ -67,6 +81,9 @@
 			if (isset($_POST["explink"])) {
 				$output .= ',"https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=' . $row["id"] . '"';
 			}
+			if (isset($_POST["expcontract"])) {
+				$output .= ',"' . $row["company"] . '","' . $row["contractnum"] . '","' . $row["contractname"] . '","' . $row["startdate"] . '"';
+			}	
 			$output .= "\n";
 		}
 		echo $output;
