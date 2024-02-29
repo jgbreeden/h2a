@@ -396,15 +396,20 @@ function fillEmpDetail(data) {
 			data.school[i].dateto, data.school[i].applicantsid, data.school[i].grade ));
 		currappl.school[i].country = data.school[i].country
 	}
+	let docTab = document.getElementById("docsTab");
+	let docContents = "<tr><th>File name</th></tr>"
+	for (let i =0; i < data.documents.length; i++){
+		docContents += "<tr><td> <a href='../docs/" + data.documents[i] + "'>" + data.documents[i] + "</a></td></tr>";
+	}
 
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
-	//docTable.innerHTML = docContents;
+	docsTab.innerHTML = docContents;
 	healthTable.innerHTML = healthContents;
 	//statusTable.innerHTML = statusContents;
 	jobsTable.innerHTML = jobsContents;
-	schoolTable.innerHTML = schoolContents;
+	schoolTable.innerHTML = schoolContents;``
 	document.getElementById("id").value = data.id;
 	document.getElementById("apid").value = currappl.id;
 	document.getElementById("apid2").value = currappl.id;
