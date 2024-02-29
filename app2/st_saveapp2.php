@@ -325,9 +325,9 @@ function getHealth($health){
 ?>
 <br>
 por favor escoge cualquier documentos para subir
-<form  action="st_saveapp2.php" meathod="post" enctype="multipart/form-data">
+<form  action="st_saveapp2.php?id=" method="post" enctype="multipart/form-data">
     Escoja el archivo para cargar
-    <input type="text" name="id" id="id" value=<?php echo '"' . $id . '"' ; ?> >
+    <input type="text" name="id" id="id" value=<?php echo '"' . $_POST["id"] . '"' ; ?> >
     <input type="file" name="fileToUpload" id="fileToUpload" multiple>
     <input type="submit" value="Upload file" name="submit">
 
