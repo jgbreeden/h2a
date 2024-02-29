@@ -179,7 +179,19 @@
 		$json = str_replace(chr(13), "", $json);
 		echo str_replace(chr(10), "\\n", $json);
 	}
-
+    echo ', "documents": [';
+	$dir = "../../docs/d" .  $_POST["id"];
+	if (is_dir($dir)) {
+		$files = scandir($dir);
+	} else {
+		$files = [];
+	} 
+	$json = "";
+	for ($i = 0; $i < count($files); $i++) {
+		$json .= '"' . $files[$i] . '",';
+	}
+	$json = substr($json, 0, strlen($json) - 1);
+	echo $json . "]";
 	echo '}';
 	//loop through rows, add skill fields
 	//end record
