@@ -296,7 +296,7 @@ if (isset($_POST["fname"])){
   $conn->close();
 }else {
 
-  $target_dir="../../d" . $_POST["id"];
+  $target_dir="../../docs/d" . $_POST["id"] . '/';
   if (!is_dir($target_dir)){
     mkdir($target_dir);
   }
