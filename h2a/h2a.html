@@ -29,8 +29,12 @@
 						<option value="refused">Refused</option>
 						<option value="inactive">Inactive</option>
 					</select>
+					&nbsp;<label for="searchcomp">Company:</label>
+					<select id="searchcomp" onchange="getEmployees('accepted');" class="medium">
+						<option value="all">all</option>
+					</select>
 					<span id="appcount"></span>
-					<input type="checkbox" name="sortCompany" id="sortCompany" onchange="getEmployees()">Group by company
+					<!--<input type="checkbox" name="sortCompany" id="sortCompany" onchange="getEmployees()">Group by company-->
 				</div>
 				<table id="newapptab">
 					<!--<span id="newapplabel">New Applicants</span>-->
@@ -520,7 +524,8 @@
 				<div>
 					<button type="button" onclick="resetNewApp()">Cancel</button>
 					<button type="button" onclick="currappl.update()">Save</button>
-					<button type="button" onclick="createLink()">Create Link</button>
+					<button type="button" onclick="createLink()">App2 Link</button>
+					<button type="button" onclick="uploadLink()">Upload Link</button>
 				</div>
 			</div>
 		</div>
@@ -563,7 +568,7 @@
 							<input type="date" id="jdateto" name="jdateto" class="ds160"></td>
 						</tr>
 						<tr>
-							<td><label for="supervisor">Job Title, Salary:</label></td>
+							<td><label for="supervisor">Title, Salary:</label></td>
 							<td><input type="text" id="jobtitle" name="jobtitle" class="ds160">
 							<input type="text" id="salary" name="salary" class="ds160"></td>
 						</tr>

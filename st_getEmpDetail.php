@@ -180,14 +180,15 @@
 		echo str_replace(chr(10), "\\n", $json);
 	}
     echo ', "documents": [';
-	$dir = "../../docs/d" .  $_POST["id"];
+	$dir = "docs/d" .  $_POST["id"] . "/";
+	
 	if (is_dir($dir)) {
-		$files = scandir($dir);
+		$files =  scandir($dir);
 	} else {
 		$files = [];
-	} 
+	}
 	$json = "";
-	for ($i = 0; $i < count($files); $i++) {
+	for ($i = 2; $i < count($files); $i++) {
 		$json .= '"' . $files[$i] . '",';
 	}
 	$json = substr($json, 0, strlen($json) - 1);

@@ -11,7 +11,14 @@
 </style>
 </head>
 <body>
+<img src="../tjlogo.webp" id="tjlogo">
+<h1>Trabajamos Juntos</h1>
 <?php
+	header('Expires: Thu, 1 Jan 1970 00:00:00 GMT');
+	header('Pragma: no-cache');
+	header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+	header('Cache-Control: post-check=0, pre-check=0',false);
+	header('Content-Type: application/json; charset=utf-8');
 require '../cred.php';
 //echo $_POST["fname"];
 if (isset($_POST["fname"])){
@@ -296,19 +303,24 @@ if (isset($_POST["fname"])){
   $conn->close();
 }else {
 
-  $target_dir="../../docs/d" . $_POST["id"] . '/';
-  if (!is_dir($target_dir)){
-    mkdir($target_dir);
-  }
-
-  $target_file= $target_dir . basename($_FILES["fileToUpload"] ["name"]);
-
-  if (move_uploaded_file($_FILES["fileToUpload"] ["tmp_name"], $target_file)) {
-      echo "el archivo " .  basename($_FILES["fileToUpload"] ["name"]) . "ha sido subido";
+  if (isset($_GET["id"]) && $_GET["id"] != "") {
+    $id = $_GET["id"];
   } else {
-      echo "Lo siento, hubo un problema al cargar tu archivo.";
-  }
+    $id = $_POST["id"];
+  
+    $target_dir="../../h-2a/docs/d" . $id . '/';
+    if (!is_dir($target_dir)){
+      mkdir($target_dir);
+    }
 
+    $target_file= $target_dir . basename($_FILES["fileToUpload"] ["name"]);
+
+    if (move_uploaded_file($_FILES["fileToUpload"] ["tmp_name"], $target_file)) {
+        echo "El archivo " .  basename($_FILES["fileToUpload"] ["name"]) . " ha sido subido";
+    } else {
+        echo "Lo siento, hubo un problema al cargar tu archivo.";
+    }
+  }
 
 }
 function getHealth($health){
@@ -324,10 +336,10 @@ function getHealth($health){
 
 ?>
 <br>
-por favor escoge cualquier documentos para subir
-<form  action="st_saveapp2.php?id=" method="post" enctype="multipart/form-data">
-    Escoja el archivo para cargar
-    <input type="text" name="id" id="id" value=<?php echo '"' . $_POST["id"] . '"' ; ?> >
+Por favor escoge cualquier documentos para subir
+<form  action="st_saveapp2.php" method="post" enctype="multipart/form-data">
+    Escoja el archivo para cargar<br>
+    <input type="text" name="id" id="id" value=<?php echo '"' . $id . '"' ; ?> >
     <input type="file" name="fileToUpload" id="fileToUpload" multiple>
     <input type="submit" value="Upload file" name="submit">
 

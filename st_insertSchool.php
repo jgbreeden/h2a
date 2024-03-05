@@ -5,9 +5,9 @@
 		die("Connect error: " . $conn->connect_error);
 	}
 	$sql = "INSERT INTO school(schoolname, address, address2, country, city, state, datefrom, zip,
-    dateto, grade, applicantsid ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    dateto, grade, applicantsid ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("ssssssssss",  $_POST["school"],  $_POST["saddress"], 
+	$stmt->bind_param("ssssssssssi",  $_POST["school"],  $_POST["saddress"], 
 									 $_POST["saddress2"], $_POST["scountry"], $_POST["scity"], 
 									 $_POST["sstate"],   $_POST["sdatefrom"], 
 									 $_POST["szip"], $_POST["sdateto"],

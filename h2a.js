@@ -1,4 +1,5 @@
 const APP2LINK = "https://por-nosotros-trabajamos.h-2a.com/app2/app2.html?id=";
+const UPLOADLINK = "https://por-nosotros-trabajamos.h-2a.com/app2/st_saveapp2.php?id=";
 class Applicant {
 	constructor(id, employersid, fname, lname, cphone, hphone, address, address2, city, state, zip, country, status, specificarea, 
 		whatarea, stay8mo, overtime, extend, extendwhynot, dateofbirth, email, gender, lift25to40,
@@ -274,7 +275,7 @@ function getEmployees (stuff) {
 	}
 	let fd = new FormData();
 	fd.append("stat", temp);
-	fd.append("sortCompany", document.getElementById("sortCompany").checked);
+	fd.append("comp", document.getElementById("searchcomp").value);
 	getData(path + "st_getEmps.php", fillEmps, fd);
 }
 
@@ -399,13 +400,14 @@ function fillEmpDetail(data) {
 	let docTab = document.getElementById("docsTab");
 	let docContents = "<tr><th>File name</th></tr>"
 	for (let i =0; i < data.documents.length; i++){
-		docContents += "<tr><td> <a href='../docs/" + data.documents[i] + "'>" + data.documents[i] + "</a></td></tr>";
+		docContents += "<tr><td> <a href='../docs/d" + currappl.id + "/" + data.documents[i] 
+			+ "' target='_blank'>" + data.documents[i] + "</a></td></tr>";
 	}
 
 	currskill.applicantsid = currappl.id
 	table.innerHTML = contents;
 	table2.innerHTML = contents2;
-	docsTab.innerHTML = docContents;
+	docTab.innerHTML = docContents;
 	healthTable.innerHTML = healthContents;
 	//statusTable.innerHTML = statusContents;
 	jobsTable.innerHTML = jobsContents;
@@ -665,6 +667,7 @@ function showResult(data){
 	}
 	let fd = new FormData();
 	fd.append("stat", temp);
+	fd.append("sortCompany", document.getElementById("sortCompany").checked);
 	getData(path + "st_getEmps.php", fillEmps, fd);
 }
 
@@ -978,7 +981,14 @@ function createLink(){
 	if (currappl.ds160.id != undefined) {
 		msg += "&r=1";
 	}
-	alert(msg);
+	navigator.clipboard.writeText(msg)
+	alert("The following has been copied to the clipboard:\n\n" + msg);
+}
+function uploadLink(){
+	var msg;
+	msg = UPLOADLINK + currappl.id;
+	navigator.clipboard.writeText(msg)
+	alert("The following has been copied to the clipboard:\n\n" + msg);
 }
 // ................................................................................................................
 // ................................................................................................................
@@ -1037,7 +1047,8 @@ function fillComp(row) {
 	let table = document.getElementById("companytab");
 	let list = document.getElementById("company");
 	let explist = document.getElementById("expcompany");
-	let implist = document.getElementById("impcompany")
+	let implist = document.getElementById("impcompany");
+	let filterlist = document.getElementById("searchcomp");
 	let contents = "<tr><th>Company Name</th></tr>";
 	let listcontents = "";
 
@@ -1051,6 +1062,7 @@ function fillComp(row) {
 	list.innerHTML = "<option value=''></option>" + listcontents;
 	explist.innerHTML = "<option value='all'>All</option>" + listcontents;
 	implist.innerHTML = "<option value=''>None</option>" + listcontents;
+	filterlist.innerHTML = "<option value='all'>All</option>" + listcontents;
 	clearComp();
 }
 

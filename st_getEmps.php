@@ -13,14 +13,16 @@
 	}
 	if (isset($_POST["stat"])){
 		$query = "SELECT * FROM applicants WHERE status ='" . $_POST["stat"];
+		if ($_POST["comp"] != 'all') {
+			$query .= "' AND employersid = '" . $_POST["comp"];
+		}
 	} else {
 		$query = "SELECT * FROM applicants";
+		if ($_POST["comp"] != 'all') {
+			$query .= "' WHERE employersid = '" . $_POST["comp"];
+		}
 	}
-	if ($_POST["sortCompany"] == 'true') {
-		$query .= "' ORDER BY employersid, lastname";
-	} else {
-		$query .= "' ORDER BY lastname";
-	}
+	$query .= "' ORDER BY lastname";
 	$result = $conn->query($query);
 	if ($result->num_rows > 0) {
 		$output = "";
