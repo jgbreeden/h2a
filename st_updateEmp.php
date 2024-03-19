@@ -9,10 +9,10 @@
 		. "specificarea = ?, whatarea = ?, stay8mo = ?, overtime = ?, farmwork = ?, "
 		. "extend = ?, extendwhynot = ?, dateofbirth = ?, email = ?, lift25to40 = ?, maritalstatus = ?,"
 		. "placeofbirth = ?, whatknowvisa = ?, pptype = ?, ppcountry = ?, ppdatedue = ?, ppnumber = ?, pplocation = ?, "
-		. "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ?, deported = ?, crimes = ?, notes = ?, employersid=? "
-		. "WHERE id = ?;";
+		. "ppdateissue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ?, deported = ?, crimes = ?, "
+		. "notes = ?, ustravel = ?, employersid=? WHERE id = ?;";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("ssssssssssssssssssssssssssssssssssssssii", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
+	$stmt->bind_param("sssssssssssssssssssssssssssssssssssssssii", $_POST["fname"], $_POST["lname"], $_POST["cphone"],
 									$_POST["hphone"], $_POST["address"], $_POST["address2"], $_POST["city"],
 									$_POST["state"], $_POST["zip"], $_POST["country"], $_POST["gender"], $_POST["status"], $_POST["specificarea"], $_POST["whatarea"], 
 									$_POST["stay8mo"], $_POST["overtime"], $_POST["farmwork"], $_POST["extend"],
@@ -20,7 +20,7 @@
 									$_POST["whatknowvisa"], $_POST["pptype"], $_POST["ppcountry"], $_POST["ppdatedue"],
 									$_POST["ppnumber"], $_POST["ppcity"], $_POST["ppdateissue"], $_POST["visas"],
 									$_POST["visaissues"], $_POST["visarefused"], $_POST["license"], $_POST["usresidency"],
-									$_POST["legalissues"], $_POST["notes"], $_POST["company"], $_POST["id"]);
+									$_POST["legalissues"], $_POST["notes"], $_POST["ustravel"], $_POST["company"], $_POST["id"]);
 	$result = $stmt->execute();
 	$message = "";
 	if ($result == 1) {

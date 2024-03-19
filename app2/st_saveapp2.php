@@ -5,8 +5,21 @@
 <link rel="stylesheet" href="../mk.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style> 
-#id {
+#id, #fileToUpload {
   display: none;
+}
+#fakeUpload {
+  line-height: 30px;
+  padding: 4px;
+  border: 1px solid #666;
+  border-radius: 2px;
+  margin-top: 5px;
+  background-color: #eee;
+  font-family: arial, sans-serif;
+  font-size: 22px;
+}
+#fileName {
+  margin-top: 5px;
 }
 </style>
 </head>
@@ -14,11 +27,6 @@
 <img src="../tjlogo.webp" id="tjlogo">
 <h1>Trabajamos Juntos</h1>
 <?php
-	header('Expires: Thu, 1 Jan 1970 00:00:00 GMT');
-	header('Pragma: no-cache');
-	header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-	header('Cache-Control: post-check=0, pre-check=0',false);
-	header('Content-Type: application/json; charset=utf-8');
 require '../cred.php';
 //echo $_POST["fname"];
 if (isset($_POST["fname"])){
@@ -116,18 +124,20 @@ if (isset($_POST["fname"])){
   //$deported .= ($_POST["removed10"] == "yes")?  "removed10:" . $_POST["removed10exp"]. "\\n" : "";
   //$deported .= ($_POST["present180"] == "yes")?  "present180:" . $_POST["present180exp"]. "\\n" : "";
   //$deported .= ($_POST["present10"] == "yes")?  "present10:" . $_POST["present10exp"]. "\\n" . $_POST["odeported"] : $_POST["odeported"];
+  $notes = ($_POST["otherskill"] == "yes")? $_POST["otherskillwhat"] . "\\n" . $_POST["onotes"] : $_POST["onotes"];
   $id = $_POST["id"];
 
 
   //change to an update
 
-  $sql = "UPDATE applicants SET firstname = ?, lastname = ?, phonecell = ?, phonehome = ?,"
+  $sql = "UPDATE applicants SET firstname = ?, lastname = ?, maritalstatus = ?, phonecell = ?, phonehome = ?,"
   . "address = ?, address2 = ?, city = ?, state = ?, zipcode = ?, country = ?, gender = ?, status = ?, ppnumber = ?, pplocation = ?,"
-  . "ppdateissue = ?, ppdatedue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? , crimes = ?, deported = ?, placeofbirth = ?, ppcountry = ? WHERE id = ?;";
+  . "ppdateissue = ?, ppdatedue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? , crimes = ?, deported = ?,"
+  . "dateofbirth = ?, placeofbirth = ?, ppcountry = ?, ustravel = ?, notes = ? WHERE id = ?;";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("ssssssssssssssssssssssssi", $fname, $lname, $phonecell, $phonehome, $address, $address2, $city, $state, $zipcode, $country,
+  $stmt->bind_param("ssssssssssssssssssssssssssssi", $fname, $lname, $maritalstatus, $phonecell, $phonehome, $address, $address2, $city, $state, $zipcode, $country,
                               $gender, $status, $ppnumber, $ppcity, $ppdateissue, $ppdatedue, $visas, $visaissues,
-                              $visarefused, $license, $crimes, $deported, $placeofbirth, $ppissuecountry, $id);
+                              $visarefused, $license, $crimes, $deported, $dateofbirth, $placeofbirth, $ppissuecountry, $ustravel, $notes, $id);
 
   $result = $stmt->execute();
   if ($result == 1) {
@@ -316,7 +326,7 @@ if (isset($_POST["fname"])){
     $target_file= $target_dir . basename($_FILES["fileToUpload"] ["name"]);
 
     if (move_uploaded_file($_FILES["fileToUpload"] ["tmp_name"], $target_file)) {
-        echo "El archivo " .  basename($_FILES["fileToUpload"] ["name"]) . " ha sido subido";
+        echo "El archivo " .  basename($_FILES["fileToUpload"] ["name"]) . " ha sido subido.";
     } else {
         echo "Lo siento, hubo un problema al cargar tu archivo.";
     }
@@ -336,12 +346,16 @@ function getHealth($health){
 
 ?>
 <br>
-Por favor escoge cualquier documentos para subir
+Por favor escoge cualquier documentos para subir.
 <form  action="st_saveapp2.php" method="post" enctype="multipart/form-data">
-    Escoja el archivo para cargar<br>
-    <input type="text" name="id" id="id" value=<?php echo '"' . $id . '"' ; ?> >
-    <input type="file" name="fileToUpload" id="fileToUpload" multiple>
-    <input type="submit" value="Upload file" name="submit">
+    Escoja el archivo para cargar.<br><br>
+    <input type="text" name="id" id="id" class="hidden" value=<?php echo '"' . $id . '"' ; ?> >
+    <label for="fileToUpload" id="fakeUpload">Seleccionar archivos
+    <input type="file" name="fileToUpload" id="fileToUpload" 
+      onchange="document.getElementById('fileName').value = this.value.substring(this.value.lastIndexOf('\\') + 1)">
+    </label>
+    <input type="text" id="fileName" placeholder="Ningún archivo elegido"><br><br>
+    <input type="submit" value="Subir archivo" name="submit">
 
 
 </form>

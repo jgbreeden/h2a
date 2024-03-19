@@ -48,6 +48,7 @@ function initData(data) {
 	document.getElementById("odeported").value = data.deported;
 	document.getElementById("ofarmwork").value = data.farmwork;
 	document.getElementById("ocrimes").value = data.crimes;
+	document.getElementById("onotes").value = data.notes;
 
 	if (data.gender == "male") {
 		document.getElementById("male").checked = true;

@@ -1584,7 +1584,7 @@
     <hr>
     &#191;Sabe de electricidad?
       <div class="inline"><input type="radio" name="electric" id="electric" value="yes" onclick="showOption(this)">
-     <label for="electricno">Si</label><br>
+     <label for="electric">Si</label><br>
      <input type="radio" name="electric" id="electricno" value="no" checked="true"onclick="hideOption(this)">
      <label for="electricno">No</label><br>
      </div>
@@ -1595,8 +1595,18 @@
      <input type="number" name="electricexp"><br>
      </div>
      <hr>
-
-
+    <hr>
+    &#191;Quieres agregar algun otro trabajo, habilidad o comentario?
+    <div class="inline"><input type="radio" name="otherskill" id="otherskill" value="yes" onclick="showOption(this)">
+    <label for="otherskill">Si</label><br>
+    <input type="radio" name="otherskill" id="otherskillno" value="no" checked="true"onclick="hideOption(this)">
+    <label for="otherskillno">No</label><br>
+    </div>
+    <div class="options" id="otherskilloptions">
+    <label for="otherskillwhat">Explique</label><br>
+    <textarea name="otherskillwhat" id="otherskillwhat" rows="3" cols="40"></textarea>
+    </div>
+    <hr>
 </div>
 </form>
 </div>

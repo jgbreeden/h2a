@@ -657,7 +657,8 @@ function showResult(data){
 	if(data.indexOf("saved") == -1) {
 		console.log(data);
 	}
-	document.getElementById("result").classList.remove("fade");
+	//document.getElementById("result").classList.remove("fade");
+	document.getElementById("result").style.visibility="visible";
 	setTimeout(function(){document.getElementById("result").style.visibility="hidden";}, 5000)
 	let temp;
 	if (document.getElementById("searchapp").style.display != "none") {
@@ -667,7 +668,7 @@ function showResult(data){
 	}
 	let fd = new FormData();
 	fd.append("stat", temp);
-	fd.append("sortCompany", document.getElementById("sortCompany").checked);
+	fd.append("comp", document.getElementById("searchcomp").value);
 	getData(path + "st_getEmps.php", fillEmps, fd);
 }
 

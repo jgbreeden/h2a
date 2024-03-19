@@ -32,7 +32,7 @@ if ($row = $results->fetch_assoc()) {
     . $row["visas"] . '", "visaissues": "' . $row["visaissues"] . '", "visarefused": "'
     . $row["visarefused"] . '", "license": "' . $row["license"] . '", "ustravel": "'
     . $row["ustravel"] . '", "deported": "' . $row["deported"] . '", "farmwork": "'
-    . $row["farmwork"] . '", "crimes": "' . $row["crimes"] . '"}';
+    . $row["farmwork"] . '", "crimes": "' . $row["crimes"] . '", "notes": "' . $row["notes"] . '"}';
   $json = str_replace(chr(13), "", $json);
   echo str_replace(chr(10), "\\n", $json);
 } else {
