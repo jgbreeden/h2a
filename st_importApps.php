@@ -20,16 +20,16 @@
     $lines = explode("\n", $_POST["appTable"]);
     $headers = explode("\t", $lines[0]);
     $values = "";
-    $sql = "insert into applicants(lastname, firstname, dateofbirth, ppnumber, phonecell, phonehome, email, address, city, zipcode, employersid) 
-            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "insert into applicants(lastname, firstname, dateofbirth, ppnumber, phonecell, phonehome, email, address, city, state, zipcode, employersid) 
+            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     for ($i = 0; $i < count($headers); $i++) {
-        if (trim(strtoupper($headers[$i])) == "APELLIDOS") {
+        if (substr(strtoupper($headers[$i]), 0, 8) == "APELLIDO") {
             $headers[$i] = "lastname";
         } else
-        if (trim(strtoupper($headers[$i])) == "NOMBRES" || strtoupper($headers[$i]) == "NOMBRE") {
+        if (substr(strtoupper($headers[$i]), 0, 6) == "NOMBRE") {
             $headers[$i] = "firstname";
         } else
-        if (trim(strtoupper($headers[$i])) == "FECHA NAC") {
+        if (substr(strtoupper($headers[$i]), 0, 9) == "FECHA NAC") {
             $headers[$i] = "dateofbirth";
         } else
         if (trim(strtoupper($headers[$i])) == "PASAPORTE") {
@@ -38,19 +38,29 @@
         if (trim(strtoupper($headers[$i])) == "TELEFONO") {
             $headers[$i] = "phonecell";
         } else
-        if (trim(strtoupper($headers[$i])) == "CORREO ELECTRONIO" || strtoupper($headers[$i]) == "EMAIL") {
+        if (substr(strtoupper($headers[$i]), 0, 6) == "CORREO" || strtoupper($headers[$i]) == "EMAIL") {
             $headers[$i] = "email";
         } else
         if (trim(strtoupper($headers[$i])) == "DIRECCION") {
             $headers[$i] = "address";
-        } else {
+        } else 
+        if (trim(strtoupper($headers[$i])) == "CUIDAD") {
+            $headers[$i] = "city";
+        } else 
+        if (trim(strtoupper($headers[$i])) == "ESTADO") {
+            $headers[$i] = "state";
+        } else 
+        if (strpos(strtoupper($headers[$i]), "OSTAL") > 0) {
+            $headers[$i] = "zipcode";
+        }
+        else {
             $headers[$i] = "skip";
         }
     }
     
     $found = false;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssssssss", $last, $first, $dateofbirth, $ppnumber, $phonecell, $phonehome, $email, $address, $city, $zipcode, $employer);
+    $stmt->bind_param("ssssssssssss", $last, $first, $dateofbirth, $ppnumber, $phonecell, $phonehome, $email, $address, $city, $state, $zipcode, $employer);
     for ($i = 1; $i < count($lines); $i++) {
         $last = "";
         $first = "";
@@ -61,6 +71,7 @@
         $email = "";
         $address = "";
         $city = "";
+        $state = "";
         $zipcode = "";
         $fields = explode("\t", $lines[$i]);
         if (count($fields) <= 2) continue;
@@ -80,13 +91,13 @@
             } 
             if ($headers[$f] == "phonecell") {
                 if (strpos($fields[$f], "/")) {
-                    $phonecell = substr($fields[$f], 0, strpos($fields[$f], "/"));
-                    $phonehome = substr($fields[$f], strpos($fields[$f], "/") + 1);
+                    $phonecell = trim(substr($fields[$f], 0, strpos($fields[$f], "/")));
+                    $phonehome = trim(substr($fields[$f], strpos($fields[$f], "/") + 1));
                 } else if (stripos($fields[$f], "Y")) {
-                    $phonecell = substr($fields[$f], 0, stripos($fields[$f], "Y"));
-                    $phonehome = substr($fields[$f], stripos($fields[$f], "Y") + 1);
+                    $phonecell = trim(substr($fields[$f], 0, stripos($fields[$f], "Y")));
+                    $phonehome = trim(substr($fields[$f], stripos($fields[$f], "Y") + 1));
                 } else {
-                    $phonecell = $fields[$f];
+                    $phonecell = trim($fields[$f]);
                 }
 
             } 
@@ -113,6 +124,15 @@
                     }
                 }
             } 
+            if ($headers[$f] == "city") {
+                $city = $fields[$f];
+            }
+            if ($headers[$f] == "state") {
+                $state = $fields[$f];
+            }
+            if ($headers[$f] == "zipcode") {
+                $zipcode = $fields[$f];
+            }
         }
         if ($ppnumber == "") {
             $result .= $first . " " . $last . " does not have a passport number, not saved.\n";

@@ -14,13 +14,25 @@ function getApp(id)  {
 	xhr.send();
 
 }
+function getComps() {
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function(){
+		console.log(this.responseText);
+		initComps(JSON.parse(this.responseText));
+		let par = new URL(document.location).searchParams;
+		getApp(par.get("id"));
+	}
+	xhr.open("get", "../st_getComps.php");
+	xhr.send();
+}
 function deny() {
 	document.querySelectorAll(".intro").forEach(div => div.classList.add("hidden"));
 	document.getElementById("done").classList.remove("hidden");
 }
 
 function initData(data) {
-    document.getElementById("fname").value = data.firstname;
+    document.getElementById("company").value = data.employersid;
+	document.getElementById("fname").value = data.firstname;
 	document.getElementById("lname").value = data.lastname;
 	document.getElementById("maritalstatus").value = data.maritalstatus;
 	document.getElementById("dateofbirth").value = data.dateofbirth;
@@ -59,19 +71,20 @@ function initData(data) {
 	//document.getElementById("driverlicense").value = data.lastname;
 
 }
-
-let usp = new URLSearchParams(window.location.search);
-//getApp(usp.get("id"));
+function initComps(comps){
+	let html = "<option value=''></option>";
+	for (let i = 0; i < comps.length; i++){
+		html += "<option value='" + comps[i].id + "'>" + comps[i].company + "</option>";
+	}
+	document.getElementById("company").innerHTML = html;
+}
+getComps();
 
 var blankjob = document.getElementById("jobs").innerHTML;
 
 var blankschool = document.getElementById("school").innerHTML;
 
-
-let par = new URL(document.location).searchParams;
-getApp(par.get("id"));
-
-tabChange(0);
+//tabChange(0);
 
 function setMarital(select) {
 	console.log(select.value)
@@ -89,7 +102,7 @@ document.getElementById("addJobBtn").addEventListener("click", function(e){
 	job.innerHTML = blankjob;
 	document.getElementById("jobs").appendChild(job);
 })
-tabChange(currentTab);
+//tabChange(currentTab);
 
 document.getElementById("addSchoolBtn").addEventListener("click", function(e){
     e.preventDefault();
@@ -97,4 +110,4 @@ document.getElementById("addSchoolBtn").addEventListener("click", function(e){
 	school.innerHTML = blankschool;
 	document.getElementById("school").appendChild(school);
 })
-tabChange(currentTab);
+//tabChange(currentTab);

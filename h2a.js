@@ -991,6 +991,17 @@ function uploadLink(){
 	navigator.clipboard.writeText(msg)
 	alert("The following has been copied to the clipboard:\n\n" + msg);
 }
+function getAppContracts() {
+	if (!currappl.id) return;
+	getCompData(path + "st_getAppContracts.php?id=" + currappl.id, showAppContracts);
+}
+function showAppContracts(data){
+	let text = "Contract History:\n\n"
+	for (let i = 0; i < data.length; i++){
+		text += data[i].startdate + "  " + data[i].contractname + " - " + data[i].contractnum + "\n";
+	}
+	alert(text);
+}
 // ................................................................................................................
 // ................................................................................................................
 // ................................................................................................................

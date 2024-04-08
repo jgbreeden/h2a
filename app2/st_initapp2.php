@@ -21,7 +21,7 @@ $stmt->execute();
 $results = $stmt->get_result();
 if ($row = $results->fetch_assoc()) {
   $json =   '{ "id": ' . $row["id"] . ', "firstname": "' . $row["firstname"] . '", "lastname": "'
-    . $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "hphone": "'
+    . $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "employersid": "' . $row["employersid"] . '", "hphone": "'
     . $row["phonehome"] . '", "address": "' . $row["address"] . '", "address2": "' . $row["address2"] . '", "city": "'
     . $row["city"] . '", "state": "' . $row["state"] . '", "zip": "' . $row["zipcode"] . '", "country": "' . $row["country"]
     . '", "maritalstatus": "' . $row["maritalstatus"] . '", "status": "' . $row["status"] 

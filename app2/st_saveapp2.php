@@ -126,16 +126,16 @@ if (isset($_POST["fname"])){
   //$deported .= ($_POST["present10"] == "yes")?  "present10:" . $_POST["present10exp"]. "\\n" . $_POST["odeported"] : $_POST["odeported"];
   $notes = ($_POST["otherskill"] == "yes")? $_POST["otherskillwhat"] . "\\n" . $_POST["onotes"] : $_POST["onotes"];
   $id = $_POST["id"];
-
+  $employersid = $_POST["company"];
 
   //change to an update
 
-  $sql = "UPDATE applicants SET firstname = ?, lastname = ?, maritalstatus = ?, phonecell = ?, phonehome = ?,"
+  $sql = "UPDATE applicants SET firstname = ?, lastname = ?, employersid = ?, maritalstatus = ?, phonecell = ?, phonehome = ?,"
   . "address = ?, address2 = ?, city = ?, state = ?, zipcode = ?, country = ?, gender = ?, status = ?, ppnumber = ?, pplocation = ?,"
   . "ppdateissue = ?, ppdatedue = ?, visas = ?, visaissues = ?, visarefused = ?, license = ? , crimes = ?, deported = ?,"
   . "dateofbirth = ?, placeofbirth = ?, ppcountry = ?, ustravel = ?, notes = ? WHERE id = ?;";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("ssssssssssssssssssssssssssssi", $fname, $lname, $maritalstatus, $phonecell, $phonehome, $address, $address2, $city, $state, $zipcode, $country,
+  $stmt->bind_param("sssssssssssssssssssssssssssssi", $fname, $lname, $employersid, $maritalstatus, $phonecell, $phonehome, $address, $address2, $city, $state, $zipcode, $country,
                               $gender, $status, $ppnumber, $ppcity, $ppdateissue, $ppdatedue, $visas, $visaissues,
                               $visarefused, $license, $crimes, $deported, $dateofbirth, $placeofbirth, $ppissuecountry, $ustravel, $notes, $id);
 
@@ -346,9 +346,9 @@ function getHealth($health){
 
 ?>
 <br>
-Por favor escoge cualquier documentos para subir.
+Porfavor elija otro documento a subir.
 <form  action="st_saveapp2.php" method="post" enctype="multipart/form-data">
-    Escoja el archivo para cargar.<br><br>
+    <br><br>
     <input type="text" name="id" id="id" class="hidden" value=<?php echo '"' . $id . '"' ; ?> >
     <label for="fileToUpload" id="fakeUpload">Seleccionar archivos
     <input type="file" name="fileToUpload" id="fileToUpload" 
