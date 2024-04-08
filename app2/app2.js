@@ -1,8 +1,30 @@
 function getApp(id)  {
     let xhr = new XMLHttpRequest();
 	xhr.onload = function(){
-		if (this.responseText == "completed" ){
+		if (this.responseText == "error" ){
 			deny();
+		}
+		else {
+			initSecurity(JSON.parse(this.responseText));
+		}
+		
+	}
+	xhr.open("get", "st_initapp2start.php?id=" + id);
+	xhr.send();
+
+}
+function initSecurity(data){
+	document.getElementById("idsecurity").value = data.id;
+	document.getElementById("key").value = data.key;
+	document.getElementById("fullname").value = data.firstname + " " + data.lastname;
+}
+function checkPpNum() {
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function(){
+		if (this.responseText == "completed" || this.responseText == "invalid" ){
+			deny();
+		} else if (this.responseText == "PP number does not match") {
+			alert("El numero de pasaporte no coincide")
 		}
 		else {
 			console.log(this.responseText);
@@ -10,8 +32,12 @@ function getApp(id)  {
 		}
 		
 	}
-	xhr.open("get", "st_initapp2.php?id=" + id);
-	xhr.send();
+	fd = new FormData();
+	fd.append("id", document.getElementById("idsecurity").value);
+	fd.append("key", document.getElementById("key").value);
+	fd.append("ppsecurity", document.getElementById("ppsecurity").value);
+	xhr.open("post", "st_initapp2.php");
+	xhr.send(fd);
 
 }
 function getComps() {
@@ -31,6 +57,8 @@ function deny() {
 }
 
 function initData(data) {
+	document.getElementById("security").classList.add("hidden");
+	document.getElementById("cita").classList.remove("hidden");
     document.getElementById("company").value = data.employersid;
 	document.getElementById("fname").value = data.firstname;
 	document.getElementById("lname").value = data.lastname;
@@ -110,4 +138,8 @@ document.getElementById("addSchoolBtn").addEventListener("click", function(e){
 	school.innerHTML = blankschool;
 	document.getElementById("school").appendChild(school);
 })
-//tabChange(currentTab);
+
+document.getElementById("btnsecurity").addEventListener("click", function(e){
+    e.preventDefault();
+	checkPpNum();
+})

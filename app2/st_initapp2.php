@@ -1,4 +1,9 @@
 <?php 
+$key = "id" . $_POST["id"];
+if ($_COOKIE[$key] != $_POST["key"]) {
+  echo "invalid";
+  die();
+}
 require '../cred.php';
 $conn = new mysqli($host, $user, $password, $db);
 if ($conn->connect_error) {
@@ -16,10 +21,15 @@ if ($row = $results->fetch_assoc()) {
 */
 $sql = "SELECT * FROM applicants WHERE applicants.id =?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $_GET["id"]);
+$stmt->bind_param("i", $_POST["id"]);
 $stmt->execute();
 $results = $stmt->get_result();
 if ($row = $results->fetch_assoc()) {
+  if ($row["ppnumber"] != trim($_POST["ppsecurity"])) {
+    echo "PP number does not match";
+    $conn->close();
+    die();
+  }
   $json =   '{ "id": ' . $row["id"] . ', "firstname": "' . $row["firstname"] . '", "lastname": "'
     . $row["lastname"] . '", "cphone": "' . $row["phonecell"] . '", "employersid": "' . $row["employersid"] . '", "hphone": "'
     . $row["phonehome"] . '", "address": "' . $row["address"] . '", "address2": "' . $row["address2"] . '", "city": "'
