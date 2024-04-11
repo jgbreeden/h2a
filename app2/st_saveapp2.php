@@ -315,9 +315,16 @@ if (isset($_POST["fname"])){
 
   if (isset($_GET["id"]) && $_GET["id"] != "") {
     $id = $_GET["id"];
+    if (is_null($id) || $id == "") {
+      echo "Error: enlace no válido, comuníquese con CITA para obtener un nuevo enlace.";
+      die();
+    }
   } else {
     $id = $_POST["id"];
-  
+    if (is_null($id) || $id == "") {
+      echo "Error: enlace no válido, comuníquese con CITA para obtener un nuevo enlace.";
+      die();
+    }
     $target_dir="../../h-2a/docs/d" . $id . '/';
     if (!is_dir($target_dir)){
       mkdir($target_dir);
