@@ -143,3 +143,4 @@ document.getElementById("btnsecurity").addEventListener("click", function(e){
     e.preventDefault();
 	checkPpNum();
 })
+var usp = ""; //used to identify app 1 or 2

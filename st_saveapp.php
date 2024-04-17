@@ -8,6 +8,7 @@
 <body>
 <?php
 require 'cred.php';
+setlocale(LC_ALL, "en_US.utf8"); //needed for iconv below
 echo $_POST["fname"];
 $conn = new mysqli($host, $user, $password, $db);
 
@@ -15,70 +16,70 @@ $conn = new mysqli($host, $user, $password, $db);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$fname = htmlspecialchars($_POST["fname"]);
-$lname = htmlspecialchars($_POST["lname"]);
-$phonecell = htmlspecialchars($_POST["phonecell"]);
-$phonehome = htmlspecialchars($_POST["phonehome"]);
-$address = htmlspecialchars($_POST["address"]);
-$address2 = htmlspecialchars($_POST["address2"]);
-$city = htmlspecialchars($_POST["city"]);
-$state = htmlspecialchars($_POST["state"]);
-$country = htmlspecialchars($_POST["country"]);
-$zipcode = htmlspecialchars($_POST["zipcode"]);
-$gender = htmlspecialchars($_POST["gender"]);
-$specificarea = htmlspecialchars($_POST["specificarea"]);
-$whatarea = htmlspecialchars($_POST["whatarea"]);
-$stay8mo = htmlspecialchars($_POST["stay8mo"]);
-$overtime = htmlspecialchars($_POST["overtime"]);
-$extend = htmlspecialchars($_POST["extend"]);
+$fname = clean($_POST["fname"]);
+$lname = clean($_POST["lname"]);
+$phonecell = clean($_POST["phonecell"]);
+$phonehome = clean($_POST["phonehome"]);
+$address = clean($_POST["address"]);
+$address2 = clean($_POST["address2"]);
+$city = clean($_POST["city"]);
+$state = clean($_POST["state"]);
+$country = clean($_POST["country"]);
+$zipcode = clean($_POST["zipcode"]);
+$gender = clean($_POST["gender"]);
+$specificarea = clean($_POST["specificarea"]);
+$whatarea = clean($_POST["whatarea"]);
+$stay8mo = clean($_POST["stay8mo"]);
+$overtime = clean($_POST["overtime"]);
+$extend = clean($_POST["extend"]);
 //$extendwhynot = htmlspecialchars($_POST["extendwhynot"]);
-$dateofbirth = htmlspecialchars($_POST["dateofbirth"]);
-$email = htmlspecialchars($_POST["email"]);
+$dateofbirth = clean($_POST["dateofbirth"]);
+$email = clean($_POST["email"]);
 //$age = htmlspecialchars($_POST["age"]);
 //$height = htmlspecialchars($_POST["height"]);
 //$weight = htmlspecialchars($_POST["weight"]);
-$maritalstatus = htmlspecialchars($_POST["maritalstatus"]);
-$placeofbirth = htmlspecialchars($_POST["placeofbirth"]);
-$whatknowvisa = htmlspecialchars($_POST["whatknowvisa"]);
+$maritalstatus = clean($_POST["maritalstatus"]);
+$placeofbirth = clean($_POST["placeofbirth"]);
+$whatknowvisa = clean($_POST["whatknowvisa"]);
 //$howhearcita = htmlspecialchars($_POST["howhearcita"]);
 //$otherhelp = htmlspecialchars($_POST["otherhelp"]);
 //$whatknowcita = htmlspecialchars($_POST["whatknowcita"]);
-$kilos = htmlspecialchars($_POST["kilos"]);
-$datesigned = htmlspecialchars($_POST["datesigned"]);
-$signature = htmlspecialchars($_POST["signature"]);
+$kilos = clean($_POST["kilos"]);
+$datesigned = clean($_POST["datesigned"]);
+$signature = clean($_POST["signature"]);
 $status = "new";
-$ppnumber = htmlspecialchars($_POST["npass"]);
-$ppnumber = ($_POST["readypass"] == "yes")? "ready:" . htmlspecialchars($_POST["readypass"]) : $ppnumber;
-$ppcity = htmlspecialchars($_POST["ppcity"]);// . ", " .  $_POST["ppstate"] . ", " .  $_POST["ppgotcountry"]; 
-$ppcountry = htmlspecialchars($_POST["ppcountry"]);
-$ppdateissue = htmlspecialchars($_POST["ppdateissue"]);
-$ppduedate = htmlspecialchars($_POST["ppduedate"]);
-$pptype = htmlspecialchars($_POST["pptype"]);
+$ppnumber = clean($_POST["npass"]);
+$ppnumber = ($_POST["readypass"] == "yes")? "ready:" . clean($_POST["readypass"]) : $ppnumber;
+$ppcity = clean($_POST["ppcity"]);// . ", " .  $_POST["ppstate"] . ", " .  $_POST["ppgotcountry"]; 
+$ppcountry = clean($_POST["ppcountry"]);
+$ppdateissue = clean($_POST["ppdateissue"]);
+$ppduedate = clean($_POST["ppduedate"]);
+$pptype = clean($_POST["pptype"]);
 //$ppdatedue = "";
-$visas = ($_POST["hish2a"] == "yes")? "H-2a:" . $_POST["h2acompany"] . " - " . $_POST["h2amonths"] . "\\n" : "";
+$visas = ($_POST["hish2a"] == "yes")? "H-2a:" . clean($_POST["h2acompany"]) . " - " . clean($_POST["h2amonths"]) . "\\n" : "";
 $visas .= ($_POST["pasth2a"] == "yes")? "Past count:" . $_POST["h2acount"] 
-    . " companies:" . $_POST["h2apastco"] . " type:" . $_POST["h2atype"] . "\\n":  "";
+    . " companies:" . $_POST["h2apastco"] . " type:" . clean($_POST["h2atype"]) . "\\n":  "";
 $visas .= ($_POST["visa"] == "yes")? "Has toursit visa." : "";
-$deported = ($_POST["deport"] == "yes")? "Deported:" . $_POST["deportwhen"] . " why:" . $_POST["deportwhy"]: "";
-$deported .= ($_POST["detdeport"] == "yes")? " punished time:" . $_POST["howmuchtime"] . " reason:" . $_POST["whatreason"]: "";
-$visaissues = ($_POST["migrate"] == "yes")? "In migration(how long):" . $_POST["howlong"]: "";
-$visarefused =  ($_POST["denied"] == "yes")? "Type:" . $_POST["deniedtype"] . " Year:" . $_POST["deniedyear"] . 
-    " Reason:" . $_POST["deniedreason"] : "";// . " Times Applied:" . $_POST["timesapplied"] : "";
-$license = htmlspecialchars($_POST["driverlicensetype"]. " state: " . htmlspecialchars($_POST["driverlicensestate"]));
+$deported = ($_POST["deport"] == "yes")? "Deported:" . clean($_POST["deportwhen"]) . " why:" . clean($_POST["deportwhy"]): "";
+$deported .= ($_POST["detdeport"] == "yes")? " punished time:" . clean($_POST["howmuchtime"]) . " reason:" . clean($_POST["whatreason"]): "";
+$visaissues = ($_POST["migrate"] == "yes")? "In migration(how long):" . clean($_POST["howlong"]): "";
+$visarefused =  ($_POST["denied"] == "yes")? "Type:" . clean($_POST["deniedtype"]) . " Year:" . clean($_POST["deniedyear"]) . 
+    " Reason:" . clean($_POST["deniedreason"]) : "";// . " Times Applied:" . $_POST["timesapplied"] : "";
+$license = clean($_POST["driverlicensetype"]. " state: " . clean($_POST["driverlicensestate"]));
 
-$farmwork = ($_POST["historywork"] == "yes")? "Farm work:" . $_POST["manner"] . " Tourist Visa:" 
-    . $_POST["touristvisa"] . " State:" . $_POST["workstate"] . "\\n": "";
+$farmwork = ($_POST["historywork"] == "yes")? "Farm work:" . clean($_POST["manner"]) . " Tourist Visa:" 
+    . clean($_POST["touristvisa"]) . " State:" . clean($_POST["workstate"]) . "\\n": "";
 /*$farmwork .= ($_POST["otherwork"] != "")? "Other work:" 
     . $_POST["otherwork"] . "\\n": "";
 $farmwork .= ($_POST["otherworkus"] != "")? "Non-ag work:" 
     . $_POST["otherworkus"] . "\\n": "";*/
 $farmwork .= (trim($_POST["othercompany"]) != "")? "Sponsor co:"
-    . $_POST["othercompany"] . " Phone:" . $_POST["othercophone"]: "";
+    . clean($_POST["othercompany"]) . " Phone:" . clean($_POST["othercophone"]): "";
 $crimes = ""; //($_POST["police"] == "yes")? "Police issue:" . $_POST ["policeproblem"] :"";
 
 $ustravel = "";
-$crimes = ($_POST["detention"] == "yes")? "Caught Crossing #Times:" . $_POST["detentiontimes"] . 
-        "\\nPunished:" . $_POST["detentionpunish"] . "\\nPardon:" . $_POST["pardon"]:"";
+$crimes = ($_POST["detention"] == "yes")? "Caught Crossing #Times:" . clean($_POST["detentiontimes"]) . 
+        "\\nPunished:" . clean($_POST["detentionpunish"]) . "\\nPardon:" . clean($_POST["pardon"]):"";
         //Last Time:" . $_POST["detentionlast"] . " 
         //"\\nLength:" . $_POST["detentiontime"] . " Completed:" . $_POST["completed"] . 
        // . " Reason:" . $_POST["telltruthdet"] . "\\n":"";
@@ -88,7 +89,7 @@ if ($_POST["aware"] == "yes") {
 } else {
     $whatknowvisa = "Didn't know it's a work visa. " . $whatknowvisa;
 }
-$notes = ($_POST["otherskill"] == "yes")? $_POST["otherskillwhat"] : "";
+$notes = ($_POST["otherskill"] == "yes")? clean($_POST["otherskillwhat"]) : "";
 
 $stmt = $conn->prepare("INSERT INTO applicants (firstname, lastname, phonecell, phonehome, address, address2, city, 
     state, country, zipcode, gender, specificarea, 
@@ -109,51 +110,51 @@ $stmt = $conn->prepare("INSERT INTO experience (skillsid, applicantsid, years, l
 $stmt->bind_param("iisss", $skillsid, $id, $years, $location, $details);
 $skills = [];
 
-if ($_POST["acelga"] == "yes") array_push($skills, array("acelga", $_POST["acelgaexp"], $_POST["acelgawhere"]));
-if ($_POST["aguacate"] == "yes") array_push($skills, array("aguacate", $_POST["aguacateexp"], $_POST["aguacatewhere"]));
-if ($_POST["alcachofa"] == "yes") array_push($skills, array("alcachofa", $_POST["alcachofaexp"], $_POST["alcachofawhere"]));
-if ($_POST["alfalfa"] == "yes") array_push($skills, array("alfalfa", $_POST["alfalfaexp"], $_POST["alfalfawhere"]));
-if ($_POST["ajo"] == "yes") array_push($skills, array("ajo", $_POST["ajoexp"], $_POST["ajowhere"]));
-if ($_POST["apio"] == "yes") array_push($skills, array("apio", $_POST["alfalfaexp"], $_POST["alfalfawhere"]));
-if ($_POST["arandano"] == "yes") array_push($skills, array("arandano", $_POST["arandanoexp"], $_POST["arandanowhere"]));
-if ($_POST["berenjena"] == "yes") array_push($skills, array("berenjena", $_POST["berenjenaexp"], $_POST["berenjenawhere"]));
-if ($_POST["betabel"] == "yes") array_push($skills, array("betabel", $_POST["betabelexp"], $_POST["betabelwhere"]));
-if ($_POST["brocoli"] == "yes") array_push($skills, array("brocoli", $_POST["brocoliexp"], $_POST["brocoliwhere"]));
-if ($_POST["cacahuate"] == "yes") array_push($skills, array("cacahuate", $_POST["cacahuateexp"], $_POST["cacahuatewhere"]));
-if ($_POST["cafe"] == "yes") array_push($skills, array("cafe", $_POST["cafeexp"], $_POST["cafewhere"]));
-if ($_POST["calabaza"] == "yes") array_push($skills, array("calabaza", $_POST["calabazaexp"], $_POST["calabazawhere"]));
-if ($_POST["cana"] == "yes") array_push($skills, array("cana", $_POST["canaexp"], $_POST["canawhere"]));
-if ($_POST["cebolla"] == "yes") array_push($skills, array("cebolla", $_POST["cebollaexp"], $_POST["cebollawhere"]));
-if ($_POST["cereza"] == "yes") array_push($skills, array("cereza", $_POST["cerezaexp"], $_POST["cerezawhere"]));
-if ($_POST["chabacano"] == "yes") array_push($skills, array("chabacano", $_POST["chabacanoexp"], $_POST["chabacanowhere"]));
-if ($_POST["chicharo"] == "yes") array_push($skills, array("chicharo", $_POST["chicharoexp"], $_POST["chicharowhere"]));
-if ($_POST["col"] == "yes") array_push($skills, array("col", $_POST["colexp"], $_POST["colwhere"]));
-if ($_POST["chile"] == "yes") array_push($skills, array("chile", $_POST["chileexp"], $_POST["chilewhere"]));
-if ($_POST["cilantro"] == "yes") array_push($skills, array("cilantro", $_POST["cilantroexp"], $_POST["cilantrowhere"]));
-if ($_POST["datil"] == "yes") array_push($skills, array("datil", $_POST["datilexp"], $_POST["datilwhere"], $_POST["ec"]));
-if ($_POST["durazno"] == "yes") array_push($skills, array("durazno", $_POST["duraznoexp"], $_POST["duraznowhere"]));
-if ($_POST["ejote"] == "yes") array_push($skills, array("ejote", $_POST["ejoteexp"], $_POST["ejotewhere"]));
-if ($_POST["elote"] == "yes") array_push($skills, array("elote", $_POST["eloteexp"], $_POST["elotewhere"]));
-if ($_POST["espinaca"] == "yes") array_push($skills, array("espinaca", $_POST["espinacaexp"], $_POST["espinacawhere"]));
-if ($_POST["esparrago"] == "yes") array_push($skills, array("esparrago", $_POST["esparragoexp"], $_POST["esparragowhere"]));
-if ($_POST["fresa"] == "yes") array_push($skills, array("fresa", $_POST["fresaexp"], $_POST["fresawhere"]));
-if ($_POST["frijol"] == "yes") array_push($skills, array("frijol", $_POST["frijolexp"], $_POST["alfalfawhere"]));
-if ($_POST["habas"] == "yes") array_push($skills, array("habas", $_POST["habasexp"], $_POST["habaswhere"]));
-if ($_POST["limon"] == "yes") array_push($skills, array("limon", $_POST["limonexp"], $_POST["limonwhere"]));
-if ($_POST["lechuga"] == "yes") array_push($skills, array("lechuga", $_POST["lechugaexp"], $_POST["lechugawhere"], $_POST["lechugatype"]));
-if ($_POST["naranja"] == "yes") array_push($skills, array("naranja", $_POST["naranjaexp"], $_POST["naranjawhere"]));
-if ($_POST["manzana"] == "yes") array_push($skills, array("manzana", $_POST["manzanaexp"], $_POST["manzanawhere"]));
-if ($_POST["melon"] == "yes") array_push($skills, array("melon", $_POST["melonexp"], $_POST["melonwhere"]));
-if ($_POST["papa"] == "yes") array_push($skills, array("papa", $_POST["papaexp"], $_POST["papawhere"]));
-if ($_POST["pera"] == "yes") array_push($skills, array("pera", $_POST["peraexp"], $_POST["perawhere"]));
-if ($_POST["pina"] == "yes") array_push($skills, array("pina", $_POST["pina"], $_POST["pinawhere"]));
-if ($_POST["pepino"] == "yes") array_push($skills, array("pepino", $_POST["pepinoexp"], $_POST["pepinowhere"]));
-if ($_POST["rabano"] == "yes") array_push($skills, array("rabano", $_POST["rabanoexp"], $_POST["rabanowhere"]));
-if ($_POST["repollo"] == "yes") array_push($skills, array("repollo", $_POST["repolloexp"], $_POST["repollowhere"]));
-if ($_POST["tomate"] == "yes") array_push($skills, array("tomate", $_POST["tomateexp"], $_POST["tomatewhere"]));
-if ($_POST["tomatillo"] == "yes") array_push($skills, array("tomatillo", $_POST["tomatilloexp"], $_POST["tomatillowhere"]));
-if ($_POST["sandia"] == "yes") array_push($skills, array("sandia", $_POST["sandiaexp"], $_POST["sandiawhere"]));
-if ($_POST["zanahoria"] == "yes") array_push($skills, array("zanahoria", $_POST["zanahoriaexp"], $_POST["zanahoriawhere"]));
+if ($_POST["acelga"] == "yes") array_push($skills, array("acelga", $_POST["acelgaexp"], clean($_POST["acelgawhere"])));
+if ($_POST["aguacate"] == "yes") array_push($skills, array("aguacate", $_POST["aguacateexp"], clean($_POST["aguacatewhere"])));
+if ($_POST["alcachofa"] == "yes") array_push($skills, array("alcachofa", $_POST["alcachofaexp"], clean($_POST["alcachofawhere"])));
+if ($_POST["alfalfa"] == "yes") array_push($skills, array("alfalfa", $_POST["alfalfaexp"], clean($_POST["alfalfawhere"])));
+if ($_POST["ajo"] == "yes") array_push($skills, array("ajo", $_POST["ajoexp"], clean($_POST["ajowhere"])));
+if ($_POST["apio"] == "yes") array_push($skills, array("apio", $_POST["alfalfaexp"], clean($_POST["alfalfawhere"])));
+if ($_POST["arandano"] == "yes") array_push($skills, array("arandano", $_POST["arandanoexp"], clean($_POST["arandanowhere"])));
+if ($_POST["berenjena"] == "yes") array_push($skills, array("berenjena", $_POST["berenjenaexp"], clean($_POST["berenjenawhere"])));
+if ($_POST["betabel"] == "yes") array_push($skills, array("betabel", $_POST["betabelexp"], clean($_POST["betabelwhere"])));
+if ($_POST["brocoli"] == "yes") array_push($skills, array("brocoli", $_POST["brocoliexp"], clean($_POST["brocoliwhere"])));
+if ($_POST["cacahuate"] == "yes") array_push($skills, array("cacahuate", $_POST["cacahuateexp"], clean($_POST["cacahuatewhere"])));
+if ($_POST["cafe"] == "yes") array_push($skills, array("cafe", $_POST["cafeexp"], clean($_POST["cafewhere"])));
+if ($_POST["calabaza"] == "yes") array_push($skills, array("calabaza", $_POST["calabazaexp"], clean($_POST["calabazawhere"])));
+if ($_POST["cana"] == "yes") array_push($skills, array("cana", $_POST["canaexp"], clean($_POST["canawhere"])));
+if ($_POST["cebolla"] == "yes") array_push($skills, array("cebolla", $_POST["cebollaexp"], clean($_POST["cebollawhere"])));
+if ($_POST["cereza"] == "yes") array_push($skills, array("cereza", $_POST["cerezaexp"], clean($_POST["cerezawhere"])));
+if ($_POST["chabacano"] == "yes") array_push($skills, array("chabacano", $_POST["chabacanoexp"], clean($_POST["chabacanowhere"])));
+if ($_POST["chicharo"] == "yes") array_push($skills, array("chicharo", $_POST["chicharoexp"], clean($_POST["chicharowhere"])));
+if ($_POST["col"] == "yes") array_push($skills, array("col", $_POST["colexp"], clean($_POST["colwhere"])));
+if ($_POST["chile"] == "yes") array_push($skills, array("chile", $_POST["chileexp"], clean($_POST["chilewhere"])));
+if ($_POST["cilantro"] == "yes") array_push($skills, array("cilantro", $_POST["cilantroexp"], clean($_POST["cilantrowhere"])));
+if ($_POST["datil"] == "yes") array_push($skills, array("datil", $_POST["datilexp"], clean($_POST["datilwhere"]), $_POST["ec"]));
+if ($_POST["durazno"] == "yes") array_push($skills, array("durazno", $_POST["duraznoexp"], clean($_POST["duraznowhere"])));
+if ($_POST["ejote"] == "yes") array_push($skills, array("ejote", $_POST["ejoteexp"], clean($_POST["ejotewhere"])));
+if ($_POST["elote"] == "yes") array_push($skills, array("elote", $_POST["eloteexp"], clean($_POST["elotewhere"])));
+if ($_POST["espinaca"] == "yes") array_push($skills, array("espinaca", $_POST["espinacaexp"], clean($_POST["espinacawhere"])));
+if ($_POST["esparrago"] == "yes") array_push($skills, array("esparrago", $_POST["esparragoexp"], clean($_POST["esparragowhere"])));
+if ($_POST["fresa"] == "yes") array_push($skills, array("fresa", $_POST["fresaexp"], clean($_POST["fresawhere"])));
+if ($_POST["frijol"] == "yes") array_push($skills, array("frijol", $_POST["frijolexp"], clean($_POST["alfalfawhere"])));
+if ($_POST["habas"] == "yes") array_push($skills, array("habas", $_POST["habasexp"], clean($_POST["habaswhere"])));
+if ($_POST["limon"] == "yes") array_push($skills, array("limon", $_POST["limonexp"], clean($_POST["limonwhere"])));
+if ($_POST["lechuga"] == "yes") array_push($skills, array("lechuga", $_POST["lechugaexp"], clean($_POST["lechugawhere"]), clean($_POST["lechugatype"])));
+if ($_POST["naranja"] == "yes") array_push($skills, array("naranja", $_POST["naranjaexp"], clean($_POST["naranjawhere"])));
+if ($_POST["manzana"] == "yes") array_push($skills, array("manzana", $_POST["manzanaexp"], clean($_POST["manzanawhere"])));
+if ($_POST["melon"] == "yes") array_push($skills, array("melon", $_POST["melonexp"], clean($_POST["melonwhere"])));
+if ($_POST["papa"] == "yes") array_push($skills, array("papa", $_POST["papaexp"], clean($_POST["papawhere"])));
+if ($_POST["pera"] == "yes") array_push($skills, array("pera", $_POST["peraexp"], clean($_POST["perawhere"])));
+if ($_POST["pina"] == "yes") array_push($skills, array("pina", $_POST["pina"], clean($_POST["pinawhere"])));
+if ($_POST["pepino"] == "yes") array_push($skills, array("pepino", $_POST["pepinoexp"], clean($_POST["pepinowhere"])));
+if ($_POST["rabano"] == "yes") array_push($skills, array("rabano", $_POST["rabanoexp"], clean($_POST["rabanowhere"])));
+if ($_POST["repollo"] == "yes") array_push($skills, array("repollo", $_POST["repolloexp"], clean($_POST["repollowhere"])));
+if ($_POST["tomate"] == "yes") array_push($skills, array("tomate", $_POST["tomateexp"], clean($_POST["tomatewhere"])));
+if ($_POST["tomatillo"] == "yes") array_push($skills, array("tomatillo", $_POST["tomatilloexp"], clean($_POST["tomatillowhere"])));
+if ($_POST["sandia"] == "yes") array_push($skills, array("sandia", $_POST["sandiaexp"], clean($_POST["sandiawhere"])));
+if ($_POST["zanahoria"] == "yes") array_push($skills, array("zanahoria", $_POST["zanahoriaexp"], clean($_POST["zanahoriawhere"])));
 
 
 
@@ -178,21 +179,21 @@ $empty = "";
 $skills = [];
 $years = 0;
 
-if ($_POST["greenhouses"] == "yes") array_push($skills, array("Invernaderos", $years, $_POST["greenhouseswhat"], $_POST["greenhouseswhere"]));
-if ($_POST["irrigation"] == "yes") array_push($skills, array("Sistema de Riego", $_POST["irrigationexp"], $_POST["irrigationwhere"], $_POST["irrigationtype"]));
-if ($_POST["farm"] == "yes") array_push($skills, array("Alguna Granja", $years, $_POST["farmwhere"], $_POST["farmwhat"]));
-if ($_POST["drive"] == "yes") array_push($skills, array("Conducir", $years, $_POST["drivewhere"], $_POST["drivewhat"]));
-if ($_POST["mech"] == "yes") array_push($skills, array("Mecanica", $_POST["mechexp"], $_POST["mechwhere"], 
+if ($_POST["greenhouses"] == "yes") array_push($skills, array("Invernaderos", $years, clean($_POST["greenhouseswhat"]), clean($_POST["greenhouseswhere"])));
+if ($_POST["irrigation"] == "yes") array_push($skills, array("Sistema de Riego", $_POST["irrigationexp"], clean($_POST["irrigationwhere"]), clean($_POST["irrigationtype"])));
+if ($_POST["farm"] == "yes") array_push($skills, array("Alguna Granja", $years, clean($_POST["farmwhere"]), clean($_POST["farmwhat"])));
+if ($_POST["drive"] == "yes") array_push($skills, array("Conducir", $years, clean($_POST["drivewhere"]), clean($_POST["drivewhat"])));
+if ($_POST["mech"] == "yes") array_push($skills, array("Mecanica", $_POST["mechexp"], clean($_POST["mechwhere"]), 
         "gas?". ((isset($_POST["mechgas"])) ? $_POST["mechgas"]: "no") . 
         "; diesel?". ((isset($_POST["mechdiesel"])) ? $_POST["mechdiesel"]: "no") . 
-        "; " .$_POST["mechtype"]. "; doc?". $_POST["mechdoc"]. ";" .$_POST["mechnodoc"]. ";"));
+        "; " . clean($_POST["mechtype"]) . "; doc?" . clean($_POST["mechdoc"]) . ";" . clean($_POST["mechnodoc"]) . ";"));
         //"; doc?". $_POST["mechdoc"]. ";" .$_POST["mechnodoc"]. 
-if ($_POST["welding"] == "yes") array_push($skills, array("Soldadura", $years, $_POST["weldingwhere"], $_POST["weldingwhat"], $_POST["weldingexp"]. "%"));
-if ($_POST["truck"] == "yes") array_push($skills, array("Troque y Tráiler", $years, $_POST["truckwhere"], $_POST["truckwhat"]));
-if ($_POST["tractor"] == "yes") array_push($skills, array("Tractor", $_POST["tractorexp"], $_POST["tractorwhere"], $_POST["tractorcargo"]));
-if ($_POST["fork"] == "yes") array_push($skills, array("Montacargas", $_POST["forkexp"], $_POST["forkcargo"]));
-if ($_POST["electric"] == "yes") array_push($skills, array("Electricidad", $years, "", $_POST["electricwhat"] . "; " .  $_POST["electricexp"] . "%"));
-if ($_POST["english"] == "yes") array_push($skills, array("Ingles", $years, $_POST["whereenglish"], $_POST["speakpercent"]."%sp ".$_POST["writepercent"]."%wr"));
+if ($_POST["welding"] == "yes") array_push($skills, array("Soldadura", $years, clean($_POST["weldingwhere"]), clean($_POST["weldingwhat"]), $_POST["weldingexp"] . "%"));
+if ($_POST["truck"] == "yes") array_push($skills, array("Troque y Tráiler", $years, clean($_POST["truckwhere"]), clean($_POST["truckwhat"])));
+if ($_POST["tractor"] == "yes") array_push($skills, array("Tractor", $_POST["tractorexp"], clean($_POST["tractorwhere"]), clean($_POST["tractorcargo"])));
+if ($_POST["fork"] == "yes") array_push($skills, array("Montacargas", $_POST["forkexp"], clean($_POST["forkcargo"])));
+if ($_POST["electric"] == "yes") array_push($skills, array("Electricidad", $years, "", clean($_POST["electricwhat"]) . "; " .  $_POST["electricexp"] . "%"));
+if ($_POST["english"] == "yes") array_push($skills, array("Ingles", $years, clean($_POST["whereenglish"]), $_POST["speakpercent"] ."%sp " . $_POST["writepercent"]."%wr"));
 //welding and electricity need percentage
 $percent = "";
 
@@ -235,13 +236,13 @@ $stmt->bind_param("iiss", $skillsid, $id, $med, $reason1);
 $issues = [];
 $empty = "";
 
-if ($_POST["asma"] == "yes") array_push($issues, array("Asthma", $_POST["asthmamed"], $empty));
-if ($_POST["diabetic"] == "yes") array_push($issues, array("Diabetic", $_POST["diabeticmed"], $empty));
-if ($_POST["heart"] == "yes") array_push($issues, array("Heart problem", $_POST["heartmed"], $empty));
+if ($_POST["asma"] == "yes") array_push($issues, array("Asthma", clean($_POST["asthmamed"]), $empty));
+if ($_POST["diabetic"] == "yes") array_push($issues, array("Diabetic", clean($_POST["diabeticmed"]), $empty));
+if ($_POST["heart"] == "yes") array_push($issues, array("Heart problem", clean($_POST["heartmed"]), $empty));
 if ($_POST["backp"] == "yes") array_push($issues, array("Back", $empty, $empty));
-if ($_POST["injury"] == "yes") array_push($issues, array("Fracture", $_POST["injurytype"], $empty));
-if ($_POST["pressure"] == "yes") array_push($issues, array("High blood pressure", $_POST["pressurecause"], $empty));
-if ($_POST["disability"] == "yes") array_push($issues, array("Disability", $_POST["disabilityexp"], $empty));
+if ($_POST["injury"] == "yes") array_push($issues, array("Fracture", clean($_POST["injurytype"]), $empty));
+if ($_POST["pressure"] == "yes") array_push($issues, array("High blood pressure", clean($_POST["pressurecause"]), $empty));
+if ($_POST["disability"] == "yes") array_push($issues, array("Disability", clean($_POST["disabilityexp"]), $empty));
 
 
 $count = count($issues);
@@ -307,6 +308,10 @@ function getissues($issues){
         return 0;
     }
 
+}
+function clean($val) {
+    $new = iconv('UTF-8','ASCII//TRANSLIT',$val); //convert spanish chars
+    return htmlspecialchars(trim($new));
 }
 $conn->close();
 
