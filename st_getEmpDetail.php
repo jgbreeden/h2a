@@ -39,21 +39,21 @@
 		. $row["license"] . '", "deported": "' . $row["deported"] . '", "legalissues": "' 
 		. $row["crimes"] .  '", "ustravel": "' . $row["ustravel"] . '", "farmwork": "' 
 		. $row["farmwork"] . '", "employersid": "'  . $row["employersid"]. '", "notes": "' . $row["notes"] . '", "skills": [ '; 
-		$json = str_replace(chr(13), "", $json);
-		echo str_replace(chr(10), "\\n", $json);
+//		$json = str_replace(chr(13), "", $json);
+//		echo str_replace(chr(10), "\\n", $json);
 	if (! is_null( $row["skillenglish"])) {
 		$years = ($row["years"] == "")? 0: $row["years"];
-		echo '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $years
+		$json .= '{ "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $years
 			. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"] 
 			. ', "skillsid": ' . $row["skillsid"] . ', "details": "' . $row["details"] . '"}';
 	}
 	while ($row = $results->fetch_assoc()) {
 		$years = ($row["years"] == "")? 0: $row["years"];
-		echo ', { "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $years
+		$json .= ', { "skillenglish": "' . $row["skillenglish"] . '", "years": ' . $years
 				. ', "location": "' . $row["location"] . '", "exid": ' . $row["exid"]
 				. ', "skillsid": ' . $row["skillsid"] . ', "details": "' . $row["details"] . '"}';
 	}
-	echo '], "ability": [';
+	$json .= '], "ability": [';
 	$query = "SELECT ability.id as abid, ability.years, ability.location, "
 			. "ability.details, skills.skillenglish as abeng, ability.skillsid FROM ability INNER JOIN skills ON "
 			. "ability.skillsid = skills.id WHERE ability.applicantsid =?";
@@ -64,11 +64,13 @@
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
 		$years = ($row["years"] == "")? 0: $row["years"];
-		echo $comma . '{ "abid": "' . $row["abid"] . '", "years": ' . $years . ', "location": "' 
+		$json .= $comma . '{ "abid": "' . $row["abid"] . '", "years": ' . $years . ', "location": "' 
 			. $row["location"] . '", "abeng": "' . $row["abeng"]
 			. '", "details": "' . $row["details"] . '", "skillsid": "' . $row["skillsid"] . '"}';
 		$comma = ", ";
 	}
+	$json = str_replace(chr(13), "", $json);
+	echo str_replace(chr(10), "\\n", $json);
 	/*
 	echo '], "docs": [';
 	$query = "SELECT documents.id as docid, documents.doctype, documents.whengot, documents.location, "
@@ -96,10 +98,11 @@
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_POST["id"]);
 	$stmt->execute();
+	$json = "";
 	$comma = "";
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {
-		echo $comma . '{ "healthid": "' . $row["healthid"] . '", "healtheng": "' 
+		$json .= $comma . '{ "healthid": "' . $row["healthid"] . '", "healtheng": "' 
 			. $row["healtheng"] . '", "reason": "' . $row["reason"] . '", "medtreatment": "' . $row["medtreatment"] . '", "skillsid": "' 
 			. $row["skillsid"] . '"}';
 		$comma = ", ";
@@ -123,13 +126,13 @@
 		$comma = ", ";
 	}
 	*/
-	echo'],  "jobs": [';
 	$query = "SELECT * FROM jobhistory WHERE applicantsid =?";
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("i", $_POST["id"]);
 	$stmt->execute();
 	$comma = "";
-	$json = "";
+	//$json = "";
+	$json .= '],  "jobs": [';
 	$results = $stmt->get_result();
 	while ($row = $results->fetch_assoc()) {								
 		$json .= $comma .' { "id": ' . $row["id"] . ', "empname": "' . $row["empname"] . '",  "address": "' . $row["address"]
