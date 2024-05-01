@@ -158,3 +158,13 @@ label, legend {
 #deleteassign {
 	float: right;
 }
+#searchdiv {
+	position: absolute;
+	z-index: 2;
+	top: 30px;
+	right: 0;
+}
+#searchlist {
+	width: 600px;
+	background-color:paleturquoise;
+}

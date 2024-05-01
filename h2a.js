@@ -250,8 +250,21 @@ function st_show(tab) {
 	}
 }
 
-function setBackColor(tab, tabs){
-	
+function searchApps(e){
+	let sinput = document.getElementById("search");
+	if (e.key == "Escape") {
+		sinput.value = "";
+		document.getElementById("searchlist").innerHTML = "";
+		return;
+	}
+	let search = sinput.value;
+	if (search.length >= 3) {
+		let fd = new FormData();
+		fd.append("search", search);
+		getData(path + "st_findApps.php", fillSearch, fd);
+	} else {
+		document.getElementById("searchlist").innerHTML = "";
+	}
 }
 
 function getData(phpFile, callBack, data){
@@ -426,6 +439,46 @@ function fillEmpDetail(data) {
 	resetNewApp();
 }
 
+function fillSearch(data) {
+	let table = document.getElementById("searchlist");
+	let contents = "";
+	
+	for (let i = 0; i < data.length; i++){
+		contents += "<tr onclick='gotoApp(this)'><td class='id'>" + data[i].id + "</td>"
+					+ "<td class='id'>" + data[i].status + "</td><td>"
+					+ data[i].firstname + "</td><td>" + data[i].lastname + "</td><td>"
+					+ data[i].cellphone + "</td><td>" + data[i].homephone + "</td><td>"
+					+ data[i].ppnumber + "</td></tr>";
+	}
+	table.innerHTML = contents;
+}
+
+function gotoApp(row) {
+	let id = row.firstChild.innerText;
+	let status = row.firstChild.nextSibling.innerText;
+	if (newstats.indexOf(status) >= 0) {
+		st_show("newapplicants");
+	} else{
+		st_show("applicants");
+	}
+	let fd = new FormData();
+	fd.append("stat", status);
+	fd.append("comp", document.getElementById("searchcomp").value);
+	getData(path + "st_getEmps.php", gotoRow, fd);
+	currappl = new Applicant (id, 0, "", "", "", "", "", "", "", "", "", "", "");
+	document.getElementById("searchlist").innerHTML = "";
+	document.getElementById("search").value = "";
+}
+function gotoRow(data) {
+	fillEmps(data);
+	let rows = document.getElementById("newapptab").getElementsByTagName("tr");
+	for (let i=0; i < rows.length; i++){
+		if (rows[i].firstChild.innerText == currappl.id) {
+			rows[i].click();
+			break;
+		}
+	}
+}
 function resetNewApp(){
 	console.log(currappl.employersid)
 	document.getElementById("first").value = currappl.firstName;

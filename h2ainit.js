@@ -3,6 +3,9 @@ getData(path + "st_getComps.php", fillComp);
 var oldstats = document.getElementById("searchstat").innerHTML;
 var newstats = '<option value = "new">New</option><option value = "waiting">Waiting</option><option value = "rejected">Rejected</option>';
 var allstats = newstats + oldstats;
+document.getElementById("search").addEventListener("keyup", function(e){
+    searchApps(e);
+});
 //getData(path + "st_getIssues.php", fillIssue);
 /*document.getElementById("btnNewApps").addEventListener("click", function(){
     st_show('newapplicants'); 
