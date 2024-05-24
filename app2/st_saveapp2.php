@@ -176,7 +176,8 @@ if (isset($_POST["fname"])){
   //  htmlspecialchars($_POST["Mcountry"]) . "\\nin US:" . htmlspecialchars($_POST["MUSstatus"]): "";
   //$motherinfo .= ($_POST["motherstatus"] == "no")?  "\\nyear died" . $_POST["Myeardied"] : "";
   $relatives = clean($_POST["Otherrelatives"]);
-  $spouse = clean($_POST["SFname"]) . " " . clean($_POST["SLname"]) . " " . clean($_POST["Sdob"]) . "\\n";
+  $spouse = clean($_POST["SFname"]) . " " . clean($_POST["SLname"]);
+  $spouse .= ($spouse == "")?  "": "\\ndob:" . clean($_POST["Sdob"]) . " " . clean($_POST["Spob"]) . "\\n";
   $spouse .= ($_POST["Sotheradd"] == "yes")?  clean($_POST["Saddress"]) . " " . clean($_POST["Saddress2"]) . "\\n" . clean($_POST["Scity"]) 
     . " " . clean($_POST["Sstate"]) . " " . clean($_POST["Szipcode"]) . " " . clean($_POST["Scountry"]) . "\\n": "";
   //$spouse .= "\\nMarried:" . htmlspecialchars($_POST["Dmarriage"]) . " " . htmlspecialchars($_POST["Pmarriage"]);

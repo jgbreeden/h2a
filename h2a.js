@@ -414,7 +414,8 @@ function fillEmpDetail(data) {
 	let docContents = "<tr><th>File name</th></tr>"
 	for (let i =0; i < data.documents.length; i++){
 		docContents += "<tr><td> <a href='../docs/d" + currappl.id + "/" + data.documents[i] 
-			+ "' target='_blank'>" + data.documents[i] + "</a></td></tr>";
+			+ "' target='_blank'>" + data.documents[i] + "</a></td>"
+			+ "<td><button type='button' onclick='deldoc(this.parentNode)'>X</button></td></tr>";
 	}
 
 	currskill.applicantsid = currappl.id
@@ -705,14 +706,17 @@ function sendData(data, phpFile, callBack){
 	xhr.send(data);
 }
 
-function showResult(data){
+function showRes(data) {
 	document.getElementById("result").innerHTML = data;
-	if(data.indexOf("saved") == -1) {
-		console.log(data);
-	}
 	//document.getElementById("result").classList.remove("fade");
 	document.getElementById("result").style.visibility="visible";
 	setTimeout(function(){document.getElementById("result").style.visibility="hidden";}, 5000)
+}
+function showResult(data){
+	showRes(data);
+	if(data.indexOf("saved") == -1) {
+		console.log(data);
+	}
 	let temp;
 	if (document.getElementById("searchapp").style.display != "none") {
 		temp = document.getElementById("searchstat").value;
@@ -1054,6 +1058,54 @@ function showAppContracts(data){
 		text += data[i].startdate + "  " + data[i].contractname + " - " + data[i].contractnum + "\n";
 	}
 	alert(text);
+}
+function delJob() {
+	let jobsTab = document.getElementById("jobsTab");
+	let row = jobsTab.getElementsByClassName("selected");
+	if (row.length == 0) {
+		alert("Select a job to delete.")
+	} else {
+		if (!confirm("Delete " + row[0].firstChild.nextSibling.innerText + "?")) {
+			return;
+		}
+	}
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		jobsTab.firstChild.removeChild(row[0]);
+		clearJob();
+		showRes(this.responseText);
+	}
+	xhr.open("get", path + "st_delJob.php?jid=" + row[0].firstChild.innerText);
+	xhr.send();
+}
+function delSchool() {
+	let schTab = document.getElementById("schoolsTab");
+	let row = schTab.getElementsByClassName("selected");
+	if (row.length == 0) {
+		alert("Select a school to delete.")
+	} else {
+		if (!confirm("Delete " + row[0].firstChild.nextSibling.innerText + "?")) {
+			return;
+		}
+	}
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		schTab.firstChild.removeChild(row[0]);
+		clearSchool();
+		showRes(this.responseText);
+	}
+	xhr.open("get", path + "st_delSchool.php?sid=" + row[0].firstChild.innerText);
+	xhr.send();
+}
+function deldoc(cell) {
+	let fname = cell.previousSibling.innerText;
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		document.getElementById("docsTab").firstChild.removeChild(cell.parentNode);
+		showRes(this.responseText);
+	}
+	xhr.open("get", path + "st_deldoc.php?fname=" + fname + "&id=" + currappl.id);
+	xhr.send();
 }
 // ................................................................................................................
 // ................................................................................................................
