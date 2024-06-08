@@ -29,7 +29,7 @@ if(isset($_POST["setassign"])){
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $appid);
     $stmt->execute();
-    $results = $stmt->execute();
+    $results = $stmt->get_result();
     if (!($row = $results->fetch_assoc())) {
         $sql = "INSERT INTO appds160 (applicantsid) values(?)";
         $stmt = $conn->prepare($sql);
