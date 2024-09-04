@@ -415,7 +415,8 @@ function fillEmpDetail(data) {
 	for (let i =0; i < data.documents.length; i++){
 		docContents += "<tr><td> <a href='../docs/d" + currappl.id + "/" + data.documents[i] 
 			+ "' target='_blank'>" + data.documents[i] + "</a></td>"
-			+ "<td><button type='button' onclick='deldoc(this.parentNode)'>X</button></td></tr>";
+			+ "<td><button type='button' onclick='deldoc(this.parentNode)'>X</button></td>"
+			+ "<td><button type='button' onclick='rendoc(this.parentNode)'>Rename</button></td></tr>";
 	}
 
 	currskill.applicantsid = currappl.id
@@ -1105,6 +1106,17 @@ function deldoc(cell) {
 		showRes(this.responseText);
 	}
 	xhr.open("get", path + "st_deldoc.php?fname=" + fname + "&id=" + currappl.id);
+	xhr.send();
+}
+function rendoc(cell) {
+	let fname = cell.previousSibling.previousSibling.innerText;
+	let newname = prompt("Enter a new name for the file:", fname);
+	if (!newname || newname == fname) return;
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		cell.previousSibling.previousSibling.innerText = this.responseText;
+	}
+	xhr.open("get", path + "st_rendoc.php?fname=" + fname + "&newname=" + newname + "&id=" + currappl.id);
 	xhr.send();
 }
 // ................................................................................................................

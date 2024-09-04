@@ -57,6 +57,7 @@ function btnnext(inc) {
     //console.log( tabs[currentTab].style.display);
     currentTab = currentTab + inc;
     if (currentTab == tabs.length) {
+        hideAccents();
         document.getElementById("form").submit();
         document.getElementById("btnnext").disabled = true;
     } else {
@@ -68,20 +69,22 @@ function btnnext(inc) {
 function prevent (){
     return false;
 }
-
+function hideAccents() {
+    let textfields = document.querySelectorAll('input[type=text]')
+    for (let i = 0; i < textfields.length; i++) {
+        let str = textfields[i].value;
+        textfields[i].value = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    }     
+}
 function isValid(tab){
     //return true
     console.log(tab)
     let ok = true
     let inputs; 
     let firstInput;
-    if (tab == 0){
-         inputs = document.getElementById("tab1").getElementsByClassName("required");
-    } else if (tab == 1) {
-         inputs = document.getElementById("tab2").getElementsByClassName("required");
-    } else {
-         inputs = document.getElementById("tab3").getElementsByClassName("required");
-    }
+    tab++;
+    inputs = document.getElementById("tab" + tab).getElementsByClassName("required");
+    
     for (let i = 0; i < inputs.length; i++){
         if (inputs[i].value == "" ){
             console.log(inputs[i].name)

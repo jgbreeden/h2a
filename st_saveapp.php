@@ -310,7 +310,7 @@ function getissues($issues){
 
 }
 function clean($val) {
-    $new = iconv('UTF-8','ASCII//TRANSLIT',$val); //convert spanish chars
+    $new = $val; //accent character cleanup moved to client side
     return htmlspecialchars(trim($new));
 }
 $conn->close();
