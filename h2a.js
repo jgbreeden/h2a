@@ -638,6 +638,7 @@ function clearNewApp(){
 	document.getElementById("healthTab").innerHTML = "<tr><th class='namehead'>Health Issue</th><th class='namehead'>Treatment</th></tr>";
 	document.getElementById("jobsTab").innerHTML = "<tr><th class='tabcolumn'>Employer</th></tr>";
 	document.getElementById("schoolsTab").innerHTML = "<tr><th class='tabcolumn'>Schools</th></tr>";
+	document.getElementById("docsTab").innerHTML = "<tr><th>File name</th></tr>";
 	document.getElementById("whatknowvisa").value = ""; 
 	//document.getElementById("howhearcita").value = ""; 
 	//document.getElementById("otherhelp").value = ""; 
@@ -1109,12 +1110,14 @@ function deldoc(cell) {
 	xhr.send();
 }
 function rendoc(cell) {
-	let fname = cell.previousSibling.previousSibling.innerText;
+	let namecell = cell.previousSibling.previousSibling;
+	let fname = namecell.innerText;
 	let newname = prompt("Enter a new name for the file:", fname);
 	if (!newname || newname == fname) return;
 	let xhr = new XMLHttpRequest();
 	xhr.onload = function() {
-		cell.previousSibling.previousSibling.innerText = this.responseText;
+		namecell.innerHTML = namecell.innerHTML.replace(fname, this.responseText);
+		namecell.innerHTML = namecell.innerHTML.replace(fname, this.responseText);
 	}
 	xhr.open("get", path + "st_rendoc.php?fname=" + fname + "&newname=" + newname + "&id=" + currappl.id);
 	xhr.send();
