@@ -70,10 +70,12 @@ function prevent (){
     return false;
 }
 function hideAccents() {
-    let textfields = document.querySelectorAll('input[type=text]')
+    let textfields = document.querySelectorAll('input[type=text], textarea');
     for (let i = 0; i < textfields.length; i++) {
         let str = textfields[i].value;
-        textfields[i].value = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        str = str.replaceAll("\\n", "_/n_").replaceAll("\\", "/"); //replace backslashes with forward without losing backslash n
+        textfields[i].value = str.replaceAll("_/n_", "\n");
     }     
 }
 function isValid(tab){
